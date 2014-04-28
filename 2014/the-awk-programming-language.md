@@ -113,13 +113,93 @@ END { print last }
 
 - Counting Lines, Words
 
-
-
-
-
-
+```
+        { nc = nc + length($0) + 1
+          nw = nw + NF }
+    END { print NR "lines", nw, "words", nc, "chars" }
+```  
 
 ### Control-flow statements
+
+- If-Else Statement
+
+- While Statement
+
+- For Statement
+
+
+### Arrays
+
+- Print Input In Reverse Order By Line 
+```
+{ line[NR] = $0 }
+END { i = NR
+      while (i > 0) {
+      print line[i]
+      i = i - 1
+      }
+    }	
+```
+
+### A Handful Of Useful "One-Liners"  
+
+- END { print NR } # print Line Num
+
+- NR == 10 { print } # print specific line
+
+- { print $NF } # print last field  
+
+- { field = $NF } END { print field } # last field of last line
+
+- NF > 4
+
+- $NF > 4
+
+- { nf = nf + NF } END { print "there are ", nf, " fields in this file" } 
+
+- Lines that contain "apple"
+```
+/apple/ { lines = lines + 1 }
+    END { print lines }
+```
+
+- largest field and the line contains it
+```
+$1 > max { max = $1; maxline = $0 }
+END      { print max, maxline }
+```
+
+- NF > 0 # more than one field
+
+- length($0) > 80 # lines that longer than 80 characters
+
+- { print NF, $0 }
+
+- { print $2, $1 }
+
+- { tmp = $1; $1 = $2; $2 = tmp; print }
+
+- { $1 = NR; print } # print Line Num, then the line
+
+- { $2 = ""; print } # erase the second field
+
+- Reverse fields
+```
+{ for (i = 1; i <= NF; i = i + 1) printf ("%s", $i)
+  printf('\n')
+}
+```
+
+
+### WHAT'S NEXT
+
+- keep reading
+- keep writing scripts
+
+
+
+
+
 
 
 
@@ -131,6 +211,101 @@ END { print last }
 
 THE AWK LANGUAGE
 ----------------
+
+- Data
+
+```
+USSR    8649  275   Asia
+Canada	3852  25    North America
+China	3705  1032  Asia
+USA	3615  237   North America
+Brazil	3286  134   South America
+India	1267  746   Asia
+Mexico	762   78    North America
+France	211   55    Europe
+Japan	144   120   Asia
+Germany	96    61    Europe
+England	94    56    Europe
+```
+
+- program format: one line or multi lines breaks with "\"
+
+- patterns 
+    - { statements }
+    - BEGIN { statements }
+    - END { statements }
+    - expression { statements }
+    - / regular expression / { statements }
+    - pattern1, pattern2 { statements } 
+
+- Actions
+    - print, printf()
+    - if, if else, for, do while, break, continue, next, exit
+
+- variables
+    - built-in variables: $0, $1, .., $NF
+    - field variables: FS, OFS (output field separator), ORS (output record separator)   
+
+- string as  regular expression
+
+
+```
+BEGIN { FS = "\t"}
+      { pop[$3] += $4 }
+END   { for (name in pop)
+      	    print name, pop[name]}
+```
+
+- split("/123/23/55", str, "/") # arr["1"], arr["2"], arr["3"]
+ 
+- { print $1, $3 > ($3 > 40? "file-a.txt", "file-b.txt") }
+- { print > $1 }
+
+- BEGIN { FS = "[{\n\t}]:;" }
+- BEGIN { FS = "[ ]" } # a single blank  
+- awk -F';:[\t]\n' '{ print }' file-in.txt
+
+
+
+      	      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
