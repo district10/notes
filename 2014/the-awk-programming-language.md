@@ -195,7 +195,7 @@ END      { print max, maxline }
 
 - keep reading
 - keep writing scripts
-
+- 入门到这就够了。这是本书的第一章。后面具体介绍了 awk 各个细部。可以瞟一眼，有个概念，用的时候再查。
 
 
 
@@ -265,42 +265,19 @@ END   { for (name in pop)
 - BEGIN { FS = "[ ]" } # a single blank  
 - awk -F';:[\t]\n' '{ print }' file-in.txt
 
+- RS (record separator)
 
+- The getline function
+    - getline <"file"
+    - getline x <"file" 
+    - while (getline <"file") # dangerous
+    - while (getline <"file" > 0) # safe
+          	      
 
-      	      
+- ARGV
+    - ARGC, ARGV
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Making A Shell Command From An Awk Program
 
 
 
@@ -314,6 +291,49 @@ END   { for (name in pop)
 
 DATA PROCESSING
 ---------------
+
+
+- histgram:
+```
+    { data[int($1/10)]++ } 
+END { for (i=0; i<10; i++) 
+          printf("%s", rep(data[i], "*"))
+} 
+
+function rep(n, s, t) 
+{
+    while (n-- > 0) 
+       {
+	t = t s
+       }
+    return t
+}
+
+- fixed field input
+    - convert mmddyy to yymmdd: { $1 = substr($1,5,2) substr($1,1,2) substr($1,3,2) print $1 } 
+
+- data validation
+
+- multiline records
+```
+BEGIN { RS = ""}
+/NEW YORK/ {}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---
