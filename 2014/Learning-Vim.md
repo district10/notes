@@ -150,17 +150,11 @@ scroll the page, move the cursor
 
 [neo]: https://github.com/district10/neo_keyboard_layout
 
-### Notes
-
-- **wrapmargin**, or **wm**
-
-
-
 
 
 ---
 
-# Chapter 3, Moving Around in a Hurry
+### Chapter 3, Moving Around in a Hurry
 
 1. Movement by Screens
     * Scroling the Screen: 
@@ -201,7 +195,8 @@ scroll the page, move the cursor
 
 8. Movement by Line Number
     * `20G`, move to Line #20
-    * ` `` `, move back  
+    * ```` `` ````, move back (old position) 
+    * `''`, move back, but at the beginning of line
 
 
 ```
@@ -215,7 +210,37 @@ results of your edits as you make them.
 
 
 
-one two three four five six seven eight nine ten
+---
+
+### Chapter 4, Beyond the Basics
+
+1. More Command Combinations
+
+```
++------------+------------+-----------+------------------------------+
+|Change      |Delete      |Copy       |From cursor to...             |
++------------+------------+-----------+------------------------------+
+|cH          |dH          |yH         |Top of screen                 |
++------------+------------+-----------+------------------------------+
+|cL          |dL          |yL         |Bottom of screen              |
++------------+------------+-----------+------------------------------+
+|c+          |d+          |y+         |Next line                     |
++------------+------------+-----------+------------------------------+
+|c5|         |d5|         |y5|        |Column 5 of current line      |
++------------+------------+-----------+------------------------------+
+|2c)         |2d)         |2y)        |Second sentence following     |
++------------+------------+-----------+------------------------------+
+|c{          |d{          |y{         |Previous paragraph            |
++------------+------------+-----------+------------------------------+
+|c/pattern   |d/pattern   |y/pattern  |Pattern                       |
++------------+------------+-----------+------------------------------+
+|cn          |dn          |yn         |Next pattern                  |
++------------+------------+-----------+------------------------------+
+|cG          |dG          |yG         |End of file                   |
++------------+------------+-----------+------------------------------+
+|c13G        |d13G        |y13G       |Line number 13                |
++------------+------------+-----------+------------------------------+
+```
 
 
 
@@ -224,7 +249,13 @@ one two three four five six seven eight nine ten
 
 
 
-# Chapter 4, Beyond the Basics
+
+
+
+
+
+
+
 # Chapter 5, Introducing the ex Editor
 # Chapter 6, Global Replacement
 # Chapter 7, Advanced Editing
