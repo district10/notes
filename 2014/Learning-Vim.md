@@ -29,24 +29,25 @@ Learning Vim
     * Numeric Arguments: 1, 2, ...   
     * Movement Within a Line:    
         * `0`, move tobeginning of line   
-	* `$`, move to end of line    
+        * `$`, move to end of line    
     * Move by Text Block   
         * `w,b`, move by word, forword, backword, respectively.   
-	* `W,B`, move by BIG word, forword, backword, respectively. "-" connected words are treated as one    
-	* `8G`, move to 8th line   
-	* `G`, move to END of file    
-	* `gg`, like `1G`   
+        * `W,B`, move by BIG word, forword, backword, respectively. "-" connected words are treated as one    
+        * `8G`, move to 8th line   
+        * `G`, move to END of file    
+        * `gg`, like `1G`   
     * Simple Edits   
         * `a`, append; (not necessary, I will customize these key to other use)    
-	* `i`, insert;    
-	* `c`, change;    
-	    * `cw, cb`, change word, forward, backward, respectively   
-	    * `c2w`, change 2 words, forward   
-	    * `c0, c$`, to begin, end of line   
-	* `d`, delete;    
-	* `y`, yank;    
-	* `p`, put;   
+        * `i`, insert;    
+        * `c`, change;    
+        * `cw, cb`, change word, forward, backward, respectively   
+        * `c2w`, change 2 words, forward   
+        * `c0, c$`, to begin, end of line   
+        * `d  `, delete;    
+        * `y`, yank;    
+        * `p`, put;   
     * General Form of vi Commands    
+
 
 ---   
 
@@ -61,28 +62,6 @@ as you read through a file, much as              Since they allow you to make ch
 you would edit a printed copy,                   as you read through a file, much as          
 screen editors are very popular.                 you would edit a printed copy.               
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
