@@ -52,7 +52,7 @@ Learning Vim
         * `dd`, delete line
         * `d$, d[End], D`, delete to end of line
     * `s`, substitude
-        * `s`(one and more char), `S`(whole line).       
+        * `s`(one and more char), `S`(whole line).
     * `x, X`, delete one char, forward, or backward, respectively   (not necessary)
         * `xP, XP`, delete and paste back
         * `xp, Xp`, swap two chars
@@ -73,14 +73,45 @@ Learning Vim
         * `.`
     * Undo, Redo
         * `u`, `C-r`, `U`, seems work differently in evil-mode
+    * Numeric Arguments for Insert Commands: e.g. `4i<space><Esc>`
 5. Notes
     * `cc`, `dd`, `yy`, apply to line
     * `C`, `D`, `S` apply from current position to end, while `Y`, the whole line
     * `C` === `c$`, `D` === `d$`, but `Y` === `yy`, `instead of `y$`
+    *
+
+
+Overall
+-------
+
+```
++------------------------------+------------------------------+------------------------------+------------------------------+
+|         Text object          |            Change            |            Delete            |             Copy             |
++------------------------------+------------------------------+------------------------------+------------------------------+
+|           One word           |              cw              |              dw              |              yw              |
++------------------------------+------------------------------+------------------------------+------------------------------+
+|   Two words, not counting    |          2cW or c2W          |          2dW or d2W          |          2yW or y2W          |
+|         punctuation          |                              |                              |                              |
++------------------------------+------------------------------+------------------------------+------------------------------+
+|       Three words back       |          3cb or c3b          |          3db or d3b          |          3yb or y3b          |
++------------------------------+------------------------------+------------------------------+------------------------------+
+|           One line           |              cc              |              dd              |           yy or Y            |
++------------------------------+------------------------------+------------------------------+------------------------------+
+|        To end of line        |           c$ or C            |           d$ or D            |              y$              |
++------------------------------+------------------------------+------------------------------+------------------------------+
+|     To beginning of line     |              c0              |              d0              |              y0              |
++------------------------------+------------------------------+------------------------------+------------------------------+
+|       Single character       |              r               |            x or X            |           yl or yh           |
++------------------------------+------------------------------+------------------------------+------------------------------+
+|       Five characters        |              5s              |              5x              |             5yl              |
++------------------------------+------------------------------+------------------------------+------------------------------+
+```
 
 
 
---
+Example
+---
+
 
 `r`, `dd`, `P`, `cw`, `x`
 ```
@@ -94,6 +125,8 @@ you would edit a printed copy,                   as you read through a file, muc
 screen editors are very popular.                 you would edit a printed copy.
 ```
 
+
+`P`, `p`, `.`
 ```
 With a screen editor you can                     With a screen editor you can
 scroll the page.                                 scroll the page.
@@ -103,7 +136,13 @@ delete lines.                                    move the cursor.
                                                  delete lines.
 ```
 
-
+`J`
+```
+With a                                           With a screen editor you can scroll the page, move the cursor
+screen editor
+you can
+scroll the page, move the cursor
+```
 
 
 
