@@ -37,6 +37,7 @@ Learning Vim
         * `8G`, move to 8th line
         * `G`, move to END of file
         * `gg`, like `1G`
+    * Move to first char of previous/next line: `-`, `+`
 
 2. Simple Edits
     * `a`, append; (not necessary, I will customize these key to other use)
@@ -110,7 +111,7 @@ Overall
 
 
 Example
----
+-------
 
 
 `r`, `dd`, `P`, `cw`, `x`
@@ -136,6 +137,7 @@ delete lines.                                    move the cursor.
                                                  delete lines.
 ```
 
+
 `J`
 ```
 With a                                           With a screen editor you can scroll the page, move the cursor
@@ -143,28 +145,6 @@ screen editor
 you can
 scroll the page, move the cursor
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-2. Adding and changing text
-
-3. Deleting, moving, and copying text
-
-4. More ways to enter insert mode
-
-
-
-
 
 
 
@@ -178,9 +158,72 @@ scroll the page, move the cursor
 
 
 
-
+---
 
 # Chapter 3, Moving Around in a Hurry
+
+1. Movement by Screens
+    * Scroling the Screen: 
+        * `C-b`, `C-f`, 
+        * `C-u`(not work in emacs evil-mode), `C-d`, 
+        * `C-y`, `C-e`
+        * `z<Enter>`, `z.`, `z-`, move to top/center/bottom and scroll to it (not as good as emacs' `recenter-top-center`, i will drop this in my evil-mode)
+
+2. Redrawing the Screen: `C-l`(not work in my evil-mode, we have `recenter-top-center`)
+
+3. Movement Within a Screen
+    * `H`, `M`, `L`: to top/middle/bottom of screen
+    * `2H`, `2L`: 2 second line from top/bottom
+
+4. Movement by Line
+    * `+,<Enter>, `-`, move to first char of next/previous line.  
+    * Movement on current line: `20|`, move to column 20, `^`, move to first nonblank char.
+
+5. Movement by Text Blocks
+    * `e`, `E`,  end of word,  (ignore punctuations)
+    * `(`, `)`, beginning of current/next setence
+    * `{`, `}`, beginning of current/next paragraph
+    * `[[`, `]]`, beginning of current/next section
+
+6. Movement by Searches
+    * `/pattern`, `?pattern`, search forward/backward 
+    * `n`, next match
+    * `N`, next match, opposite position
+    * `:set nowrapscan`, dont do loop search
+    * `d/pattern`
+
+7. Current Line Searches
+    * `fx`, `Fx`, move on to previous/next 'x'
+    * `tx`, `Tx`, move before char 'x', previous/next 
+    * `;`, `,`, repeat same direction, opposite direction
+    * `7fx`, move to 7th match
+    * `dfx`, e.g. `dfi`, delete from here to first occurance of 'i', then `d;`, delete to second occurance of 'i' 
+
+8. Movement by Line Number
+    * `20G`, move to Line #20
+    * ````, move back  
+
+
+```
+With a screen editor you can scroll the
+page, move1 move2 move4 move5 move6 move7 the cursor, dlete lines, insert
+characters, and more, while seeing the
+characters, ang the
+results of your edits as you make them.
+```
+
+
+
+
+one two three four five six seven eight nine ten
+
+
+
+
+
+
+
+
 # Chapter 4, Beyond the Basics
 # Chapter 5, Introducing the ex Editor
 # Chapter 6, Global Replacement
