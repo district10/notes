@@ -201,7 +201,7 @@ scroll the page, move the cursor
 
 8. Movement by Line Number
     * `20G`, move to Line #20
-    * ```` ` ````, move back  
+    * ```` `` ````, move back  
 
 
 ```
