@@ -157,9 +157,9 @@ scroll the page, move the cursor
 ### Chapter 3, Moving Around in a Hurry
 
 1. Movement by Screens
-    * Scroling the Screen: 
-        * `C-b`, `C-f`, 
-        * `C-u`(not work in emacs evil-mode), `C-d`, 
+    * Scroling the Screen:
+        * `C-b`, `C-f`,
+        * `C-u`(not work in emacs evil-mode), `C-d`,
         * `C-y`, `C-e`
         * `z<Enter>`, `z.`, `z-`, move to top/center/bottom and scroll to it (not as good as emacs' `recenter-top-center`, i will drop this in my evil-mode)
 
@@ -170,7 +170,7 @@ scroll the page, move the cursor
     * `2H`, `2L`: 2 second line from top/bottom
 
 4. Movement by Line
-    * `+,<Enter>, `-`, move to first char of next/previous line.  
+    * `+,<Enter>, `-`, move to first char of next/previous line.
     * Movement on current line: `20|`, move to column 20, `^`, move to first nonblank char.
 
 5. Movement by Text Blocks
@@ -180,7 +180,7 @@ scroll the page, move the cursor
     * `[[`, `]]`, beginning of current/next section
 
 6. Movement by Searches
-    * `/pattern`, `?pattern`, search forward/backward 
+    * `/pattern`, `?pattern`, search forward/backward
     * `n`, next match
     * `N`, next match, opposite position
     * `:set nowrapscan`, dont do loop search
@@ -188,14 +188,14 @@ scroll the page, move the cursor
 
 7. Current Line Searches
     * `fx`, `Fx`, move on to previous/next 'x'
-    * `tx`, `Tx`, move before char 'x', previous/next 
+    * `tx`, `Tx`, move before char 'x', previous/next
     * `;`, `,`, repeat same direction, opposite direction
     * `7fx`, move to 7th match
-    * `dfx`, e.g. `dfi`, delete from here to first occurance of 'i', then `d;`, delete to second occurance of 'i' 
+    * `dfx`, e.g. `dfi`, delete from here to first occurance of 'i', then `d;`, delete to second occurance of 'i'
 
 8. Movement by Line Number
     * `20G`, move to Line #20
-    * ```` `` ````, move back (old position) 
+    * ```` `` ````, move back (old position)
     * `''`, move back, but at the beginning of line
 
 
@@ -242,6 +242,22 @@ results of your edits as you make them.
 +------------+------------+-----------+------------------------------+
 ```
 
+2. Options When Starting vi
+    * `vi +3 filename`, open file at 3rd line
+    * `vi + filename`, open file at last line
+    * `vi +/pattern filename`, open file at first occurance of pattern
+    * `vi +R filename`, read file in read-only mode
+    * `vi -r filename`, `ex -r filename`, Recovering a Buffer
+
+3. Yank to Named Buffer
+    * `"dyy", yank to buffer "d"
+    * `"ayw", yank to buffer "a"
+    * `"ap`, `"`dp`, put buffer "a"/"d"
+
+4. Marking Your Place
+    * `mx`, mark current position to x
+    * `'x`, ` `x `, move to mark x. (first char, or exact position)
+    * `''`, ```` `` ````, move to last position
 
 
 
@@ -254,9 +270,158 @@ results of your edits as you make them.
 
 
 
-
+---
 
 # Chapter 5, Introducing the ex Editor
+
+
+
+
+---
+
+
 # Chapter 6, Global Replacement
+
+1.Substitude
+    * `:s/old/new`, substitude first occurance of old
+    * `:s/old/new/g`, many occurance
+    * `:50,100s/old/new/g`, `:50,100s/old/new` apply to 50~100 lines
+    * `:1,$s/old/new`, apply to whole file
+
+2. c, confirm
+    * `y` for yes
+    * `n` for no
+    * `Enter`, quit
+
+3. Content-Sensitive Replacement
+    * `:%s/old/new/g`, no confirm, whole file
+    * `:g/pattern/s/old/new/g`,
+    * `:1,200g/pattern/s/old/new/g`
+    * `:g/pattern/s/old/new/g`, same as `:g/pattern/s//new/g`
+
+4. Pattern-Matching Rules
+    * `.`, single char, except a newline
+    * `*`, match zero or more occurance of previous char
+        * e.g. `a*` can match `a`, `aa`, `aaa`, etc
+        * e.g. `.*` can mathc any char(s) combination
+    * `^, $`, when it is the first/last char of regex, treated as line beginning/ending, else treated as itself.
+        * e.g. `^Line` match any line starts with "Line"
+        * e.g. `something^*`, can match "something", "something^", "something^^", etc
+    * `[]`, e.g. `[aoei]` match `a`, `o`, `e`, `i`; and `[a-z]`, `;:[a-z0-9]` works as expected. 
+    * `:%s/\(That\) or \(this\)/\2 or \1/`
+    * `~`, match last seach history. Like you seached "the" with `/the`, then you can search for "then" with `/~n` 
+    * `\`, e.g. `\.` match "."
+    * `\<m`, `\>tion`, match words begin with 'm', end with "tion"
+
+5. POSIX Bracket Expressions
+
+```
+          +----------------+------------------------------------------------+
+          |   [:alnum:]    |Alphanumeric characters                         |
+          +----------------+------------------------------------------------+
+          |   [:alpha:]    |Alphabetic characters                           |
+          +----------------+------------------------------------------------+
+          |   [:blank:]    |Space and tab characters                        |
+          +----------------+------------------------------------------------+
+          |   [:cntrl:]    |Control characters                              |
+          +----------------+------------------------------------------------+
+          |   [:digit:]    |Numeric characters                              |
+          +----------------+------------------------------------------------+
+          |   [:graph:]    |Printable and visible (nonspace) characters     |
+          +----------------+------------------------------------------------+
+          |   [:lower:]    |Lowercase characters                            |
+          +----------------+------------------------------------------------+
+          |   [:print:]    |Printable characters (includes whitespace)      |
+          +----------------+------------------------------------------------+
+          |   [:punct:]    |Punctuation characters                          |
+          +----------------+------------------------------------------------+
+          |   [:space:]    |Whitespace characters                           |
+          +----------------+------------------------------------------------+
+```
+
+
+the the the then then then
+
+
+
+N. Exercise
+    * `/four`, `<Enter>`, `cwfive`, `n`(repeat search), `n`(bypass one match), `.`(apply last `cwfive`)
+
+
+
+
+Examples
+--------
+
+```
+<p>something</p>                                                             <p>somethingelse</p>
+<a>something</a>   ===> `:%300,400g/<p>/s/something/somethingelse/g` ===>    <p>something</a>
+<a>something</a>                                                             <a>something</a>
+<p>something</p>                                                             <p>somethingelse</p>
+```
+
+```
+That or this   ===>  `:%s/\(That\) or \(this\)/\2 or \1/` ===>  this or That
+```
+
+
+
+tochange three two three fthsiaoei five five five five six seven
+tochange three two three fthsiaoei five five five five six seven
+one two three fthsiaoei ive fourfourive ive ive six seven
+tonotchangeone two three fthsiaoei ive ive ive ive six seven
+one two three fthsiaoei something somethingfshit somethingsomething fshit six seven
+one two three fthsiaoei something somethingfshit somethingsomething fshit six seven
+one two three fthsiaoei something somethingfshit somethingsomething fshit six seven
+one two three fthsiaoei something somethingfshit somethingsomething fshit six seven
+one two three fthsiaoei something somethingfshit somethingsomething fshit six seven
+one two three fthsiaoei ive fourfourfour fourfourfourfour four six seven
+one two three fthsiaoei something somethingfshit somethingsomething fshit six seven
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Chapter 7, Advanced Editing
 # Chapter 8, Introduction to the vi Clones
