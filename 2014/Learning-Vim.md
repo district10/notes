@@ -1,6 +1,8 @@
 Learning Vim
 ============
 
+![][six-editor]
+
 
 ### Chapter 1, The vi Text Editor
 
@@ -80,7 +82,6 @@ Learning Vim
     * `C`, `D`, `S` apply from current position to end, while `Y`, the whole line
     * `C` === `c$`, `D` === `d$`, but `Y` === `yy`, `instead of `y$`
     *
-
 
 Overall
 -------
@@ -272,15 +273,29 @@ results of your edits as you make them.
 
 ---
 
-# Chapter 5, Introducing the ex Editor
+### Chapter 5, Introducing the ex Editor
+
+```
+  __              _       _                                 _ _
+ / _| ___  _ __  | | __ _| |_ ___ _ __   _ __ ___  __ _  __| (_)_ __   __ _
+| |_ / _ \| '__| | |/ _` | __/ _ \ '__| | '__/ _ \/ _` |/ _` | | '_ \ / _` |
+|  _| (_) | |    | | (_| | ||  __/ |    | | |  __/ (_| | (_| | | | | | (_| |
+|_|  \___/|_|    |_|\__,_|\__\___|_|    |_|  \___|\__,_|\__,_|_|_| |_|\__, |
+                                                                      |___/
+```
+
+
+
+
+
+
 
 
 
 
 ---
 
-
-# Chapter 6, Global Replacement
+### Chapter 6, Global Replacement
 
 1.Substitude
     * `:s/old/new`, substitude first occurance of old
@@ -307,57 +322,58 @@ results of your edits as you make them.
     * `^, $`, when it is the first/last char of regex, treated as line beginning/ending, else treated as itself.
         * e.g. `^Line` match any line starts with "Line"
         * e.g. `something^*`, can match "something", "something^", "something^^", etc
-    * `[]`, e.g. `[aoei]` match `a`, `o`, `e`, `i`; and `[a-z]`, `;:[a-z0-9]` works as expected. 
+    * `[]`, e.g. `[aoei]` match `a`, `o`, `e`, `i`; and `[a-z]`, `;:[a-z0-9]` works as expected.
     * `:%s/\(That\) or \(this\)/\2 or \1/`
-    * `~`, match last seach history. Like you seached "the" with `/the`, then you can search for "then" with `/~n` 
+    * `~`, match last seach history. Like you seached "the" with `/the`, then you can search for "then" with `/~n`
     * `\`, e.g. `\.` match "."
     * `\<m`, `\>tion`, match words begin with 'm', end with "tion"
 
 5. POSIX Bracket Expressions
+    * `[:alnum:]` Alphanumeric characters
+    * `[:alpha:]` Alphabetic characters
+    * `[:blank:]` Space and tab characters
+    * `[:cntrl:]` Control characters
+    * `[:digit:]` Numeric characters
+    * `[:graph:]` Printable and visible (nonspace) characters
+    * `[:lower:]` Lowercase characters
+    * `[:print:]` Printable characters (includes whitespace)
+    * `[:punct:]` Punctuation characters
+    * `[:space:]` Whitespace characters
+    * `[:upper:]` Uppercase characters
+    * `[:xdigit:]` Hexadecimal digits
 
-```
-          +----------------+------------------------------------------------+
-          |   [:alnum:]    |Alphanumeric characters                         |
-          +----------------+------------------------------------------------+
-          |   [:alpha:]    |Alphabetic characters                           |
-          +----------------+------------------------------------------------+
-          |   [:blank:]    |Space and tab characters                        |
-          +----------------+------------------------------------------------+
-          |   [:cntrl:]    |Control characters                              |
-          +----------------+------------------------------------------------+
-          |   [:digit:]    |Numeric characters                              |
-          +----------------+------------------------------------------------+
-          |   [:graph:]    |Printable and visible (nonspace) characters     |
-          +----------------+------------------------------------------------+
-          |   [:lower:]    |Lowercase characters                            |
-          +----------------+------------------------------------------------+
-          |   [:print:]    |Printable characters (includes whitespace)      |
-          +----------------+------------------------------------------------+
-          |   [:punct:]    |Punctuation characters                          |
-          +----------------+------------------------------------------------+
-          |   [:space:]    |Whitespace characters                           |
-          +----------------+------------------------------------------------+
-```
+6. New Pattern of `s/old/NEW/g`
+    * `\n`, n is 1..9, match \(THIS\)
+    * `&`, mathed part
+    * `~`, `s/thier/their/`, then `s/her/~/` is like `s/her/their`
+    * `\u, \l`, uppercase/lowercase char. `:s/\(That\) or \(this\)/\u\2 or \l\1/`
+    * `\U, \L, \e, \E`, uppercase region, or whole match
+    * `:set ic`, ignore case
 
+7. More Substitution Tricks
+    * `:s//~/`, repeat last substitution
+    * `:%&g`, Repeat the last substitution everywhere
+    * `:%s;/user1/tim;/home/tim;g`
 
-the the the then then then
-
-
-
-N. Exercise
+8. Exercise
     * `/four`, `<Enter>`, `cwfive`, `n`(repeat search), `n`(bypass one match), `.`(apply last `cwfive`)
-
-
-
 
 Examples
 --------
 
 ```
 <p>something</p>                                                             <p>somethingelse</p>
-<a>something</a>   ===> `:%300,400g/<p>/s/something/somethingelse/g` ===>    <p>something</a>
+<a>something</a>   ===> `:%300,400g/<p>/s/something/somethingelse/g` ===>    <a>something</a>
 <a>something</a>                                                             <a>something</a>
 <p>something</p>                                                             <p>somethingelse</p>
+```
+
+```
+one                                                  (one)
+two                                                  (two)
+three       ===> `:348,352s/.*/(&)/` ===>            (three)
+four                                                 (four)
+five                                                 (five)
 ```
 
 ```
@@ -365,18 +381,14 @@ That or this   ===>  `:%s/\(That\) or \(this\)/\2 or \1/` ===>  this or That
 ```
 
 
-
-tochange three two three fthsiaoei five five five five six seven
-tochange three two three fthsiaoei five five five five six seven
-one two three fthsiaoei ive fourfourive ive ive six seven
-tonotchangeone two three fthsiaoei ive ive ive ive six seven
-one two three fthsiaoei something somethingfshit somethingsomething fshit six seven
-one two three fthsiaoei something somethingfshit somethingsomething fshit six seven
-one two three fthsiaoei something somethingfshit somethingsomething fshit six seven
-one two three fthsiaoei something somethingfshit somethingsomething fshit six seven
-one two three fthsiaoei something somethingfshit somethingsomething fshit six seven
-one two three fthsiaoei ive fourfourfour fourfourfourfour four six seven
-one two three fthsiaoei something somethingfshit somethingsomething fshit six seven
+```
+  __              _       _                                 _ _
+ / _| ___  _ __  | | __ _| |_ ___ _ __   _ __ ___  __ _  __| (_)_ __   __ _
+| |_ / _ \| '__| | |/ _` | __/ _ \ '__| | '__/ _ \/ _` |/ _` | | '_ \ / _` |
+|  _| (_) | |    | | (_| | ||  __/ |    | | |  __/ (_| | (_| | | | | | (_| |
+|_|  \___/|_|    |_|\__,_|\__\___|_|    |_|  \___|\__,_|\__,_|_|_| |_|\__, |
+                                                                      |___/
+```
 
 
 
@@ -390,38 +402,63 @@ one two three fthsiaoei something somethingfshit somethingsomething fshit six se
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---
 
 # Chapter 7, Advanced Editing
+
+1. Customizing vi
+    * The :set Command
+        * `:set option`, or `:set nooption`
+    * The .exrc File
+
+2. Executing Unix Commands
+    * `:!cmd`
+    * `:r !date`, output to file, Thu May  1 12:59:55 CST 2014
+    * `:r Learning-Vim.md`, this is .... Good.
+
+3. Filtering Text Through a Command
+    * `:%!sort`, you try you die...
+    * `!)cmd`, pass these sentence to cmd
+    * `!!`, current line
+    * `!2!`, `2!!`, two lines
+
+4. Saving Commands
+    * Word Abbreviation
+         * `:ab abbr phrase`
+         * `:unab abbr`
+
+
+```
+1                                            1
+3           ==> `:423,425!sort`  ===>        2
+2                                            3
+```
+
+2
+4
+8
+
+One sentence before.
+and more, while seeing the results of your edits
+as you make them.
+move the cursor, delete lines, insert characters,
+With a screen editor you can scroll the page
+One sentence after.
+
+
+
+
+
+
 # Chapter 8, Introduction to the vi Clones
+
+
+
+
+
+
+
+
+
+
+[six-editor]: http://gnat-tang-shared-image.qiniudn.com/2014-05-six-editor.png
