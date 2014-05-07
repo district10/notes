@@ -1,8 +1,8 @@
 Learning Org-Mode
 =================
 
-***The compact Org-mode Guide*** by Carsten Dominik
----------------------------------------------------
+*** The Org Manual *** by Carsten Dominik
+-----------------------------------------
 
 TOC
 ---
@@ -24,59 +24,42 @@ TOC
 - 15. Miscellaneous 
 - 16. GNU Free Documentation License 
 
+
+
+
 ---
 
 ### 01. A Introduction 
 
-1. Preface
+1. Org is a toolbox and can be used in different ways and for different ends, for example:
+    - an outline extension with visibility cycling and structure editing
+    - an ASCII system and table editor for taking structured notes
+    - a TODO list editor
+    - a full agenda and planner with deadlines and work scheduling
+    - an environment in which to implement David Allenfls GTD system
+    - a simple hypertext system, with HTML and L TEX export
+    - a publishing tool to create a set of interlinked web pages
+    - **an environment for literate programming**
 
-2. Installation
 
-```
-(setq load-path (cons "~/path/to/orgdir/lisp" load-path))
-(setq load-path (cons "~/path/to/orgdir/contrib/lisp" load-path))
-```
-
-3. Activation
-
-```
-;; The following lines are always needed. Choose your own keys.
-(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode)) ; not needed since Emacs 22.2
-(add-hook 'org-mode-hook 'turn-on-font-lock) ; not needed when global-font-lock-mode is on
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-```
-
+---
 
 ### 02. Document Structure 
 
-1. Outlines: folding/hiding with command `org-cycle` 
+1. Outlines
 
-2. Headlines (define the structure of an outline tree)
-
-```
-* Top level headline
-** Second level
-*** 3rd level
-some text
-*** 3rd level
-more text
-* Another top level headline
-```
+2. Headlines
 
 3. Visibility cycling
+    * **FOLDED** -> **CHILDREN** -> **SUBTREE**   
+        * <Tab>        =>        `org-cycle`
+        * S-<TAB>      =>        `org-global-cycle`
+    * 
+     
 
- - `TAB` to cycle current
- - `C-u TAB` to fold whole buffer
- - `C-u C-u C-u TAB` to show all
- - `#+STARTUP: content`, specify init state: content, overview, showall 
 
-4. Structure editing
-   - `org-insert-todo-heading`
 
- 
- 
+
 
 
 ### 03. Tables 
@@ -93,21 +76,6 @@ more text
 ### 14. Working with source code 
 ### 15. Miscellaneous 
 ### 16. GNU Free Documentation License 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

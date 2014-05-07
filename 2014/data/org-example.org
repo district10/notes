@@ -1,32 +1,162 @@
-#+STARTUP: content
-#+STARTUP: showall 
-#+STARTUP: overview # the last command will overide the former ones 
+#+STARTUP: overview # the last command will overide the former onesde
+#+STARTUP: hideblocks 
 
-
-* Chapter One  
+* Chapter One
 ** Second level
 *** 3rd level
-    some text
+    some 
+:more:
+    good for you    
+:END:
+    text
+    
+    :joke:
+that's not god
+:END:
+
+*** 3rd level
+***** good, four
+      this is a footnotes[fn:1]
+      this is another footnotes [fn:3]
+**** good, four two
+
+     
+:shit:
+
+:END:
+* Chapter One
+** Second level
+*** 3rd level
+    some text, shit
 *** 3rd level
     more text
 
 
+
+    
 * Chapter Two
 
-* *
-
-*
-*
-
-
-
- 
- 
-** Second level
-*** 3rd level
-    some text
-*** 3rd level
-    more text
-    
-
 * Another top level headline
+
+| good   | able       | I like it Pretty much      |      |     |
+|--------+------------+----------------------------+------+-----|
+| oeistr | thaoei     | good         aonistaroin   | o    | sio |
+|--------+------------+----------------------------+------+-----|
+| goo    | that       | this , too good to be true | good |     |
+|--------+------------+----------------------------+------+-----|
+| oeia   | aoensitrao |                            |      |     |
+|--------+------------+----------------------------+------+-----|
+| too    | good       | god aoei                   | aoei |     |
+|--------+------------+----------------------------+------+-----|
+|        |            |                            |      |     |
+|        |            |                            |      |     |
+|        |            |                            |      |     |
+|        |            |                            |      |     |
+|        |            |                            |      |     |
+|        |            |                            |      |     |
+|        |            |                            |      |     |
+|        |            |                            |      |     |
+|        |            |                            |      |     |
+|        |            |                            |      |     |
+|        |            |                            |      |     |
+
+
+| mon  | tue    | tue | fri | to | sun |
+|------+--------+-----+-----+----+-----|
+| good | for    | to  | you | do | it  |
+|------+--------+-----+-----+----+-----|
+| male | female |     | you | do |     |
+| male | female |     | you |    |     |
+|      |        |     |     |    |     |
+|------+--------+-----+-----+----+-----|
+| r    | c      | a   | d   | e  | f   |
+|------+--------+-----+-----+----+-----|
+|      |        |     |     |    | a   |
+|------+--------+-----+-----+----+-----|
+|      |        |     |     |    | e   |
+|------+--------+-----+-----+----+-----|
+| aoei |        |     |     |    |     |
+|------+--------+-----+-----+----+-----|
+| -    |        |     |     |    |     |
+|------+--------+-----+-----+----+-----|
+|------+--------+-----+-----+----+-----|
+|      |        |     |     |    |     |
+|      |        |     |     |    |     |
+| male | female |     | you |    | it  |
+
+oeanoeitraoie
+
+
+| math | english | score |
+|  324 |     124 |   514 |
+|   23 |     123 |    22 |
+|      |         |       |
+|      |         |       |
+|      |         |       |
+|      |         |       |
+#+TBLFM: 
+
+* 
+| Naming             | Conventions |         |            |        |        |       |
+| ================== |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+| ob,                | obarray     |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+| Functions          |             |         |            |        |        |       |
+| =========          |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+| (make-symbol       | "foo")      | ==>     | make       | one    |        |       |
+| (intern            | "foo")      | ==>     | get        | one    |        |       |
+| (defcustom         | ...)        |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+|                    |             |         |            |        |        |       |
+| (defun             | fun2        | (&key   | ((myoption | var))) | (print | var)) |
+| (fun2              | 'myoption   | "good") |            |        |        |       |
+
+
+  
+| good                                     | fine       | fabulous |
+|                                          | long longlonglonglong |          |
+| <40>                                     | <10>       |          |
+|                                          |            |          |
+|                                          |            |          |
+|                                          |            |          |
+#+TBLFM: 
+
+
+
+
+
+| <20>                 | <10>       |
+|                      |            |
+|                      |            |
+
+
+
+oeanoeitraoie
+
+
+
+
+[fn:1] the link is http://www.baidu.com
+
+* Footnotes
+
+
+
+[fn:3] good, it can be created automatically 
+ 
