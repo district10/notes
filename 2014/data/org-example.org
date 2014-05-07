@@ -1,0 +1,32 @@
+#+STARTUP: content
+#+STARTUP: showall 
+#+STARTUP: overview # the last command will overide the former ones 
+
+
+* Chapter One  
+** Second level
+*** 3rd level
+    some text
+*** 3rd level
+    more text
+
+
+* Chapter Two
+
+* *
+
+*
+*
+
+
+
+ 
+ 
+** Second level
+*** 3rd level
+    some text
+*** 3rd level
+    more text
+    
+
+* Another top level headline
