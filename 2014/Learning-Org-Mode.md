@@ -52,8 +52,8 @@ TOC
 
 3. Visibility cycling
     * **FOLDED** -> **CHILDREN** -> **SUBTREE**   
-        * <Tab>        =>        `org-cycle`
-        * S-<TAB>      =>        `org-global-cycle`
+        * `<Tab>`        =>        `org-cycle`
+        * `S-<TAB>`      =>        `org-global-cycle`
     * 
      
 
