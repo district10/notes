@@ -352,7 +352,6 @@ TOC
 (setq org-todo-keywords
        '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
 ```
-
     * TODO keywords as types
     ```
 (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
