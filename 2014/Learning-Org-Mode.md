@@ -1,4 +1,4 @@
-lLearning Org-Mode
+Learning Org-Mode
 =================
 
 ***The Org Manual*** by Carsten Dominik
@@ -276,20 +276,6 @@ $<<<..$>>     start in third column, continue to the one but last
     * Advanced features
 
 6. Org-Plot
-
-
-```
-|  N | N^2 |  N^3 |   N^4 |   sqrt(n) | sqrt[4](N) |
-|----+-----+------+-------+-----------+------------|
-|  / |   < |      |     > |         < |          > |
-|  1 |   1 |    1 |     1 |         1 |          1 |
-|  2 |   4 |    8 |    16 | 1.4142136 |  1.1892071 |
-|  3 |   9 |   27 |    81 | 1.7320508 |  1.3160740 |
-|  4 |  16 |   64 |   256 |         2 |  1.4142136 |
-|  5 |  25 |  125 |   625 | 2.2360680 |  1.4953488 |
-#+TBLFM: $2=$1^2::$3=$1^3::$4=$1^4::$5=sqrt($1)::$6=sqrt(sqrt(($1))) # `C-c C-c` to eval
-```
-
 
 
 
