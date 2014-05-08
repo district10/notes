@@ -302,15 +302,13 @@ TOC
     * `C-c C-x C-p`      (org-previous-link)
 
 5. Using links outside Org
-
-```
+   ```
 (global-set-key "\C-c L" 'org-insert-link-global)
 (global-set-key "\C-c o" 'org-open-at-point-global)
 ```
 
 6. Link abbreviations
-
-```
+   ```
 (setq org-link-abbrev-alist
        '(("bugzilla"  . "http://10.1.2.9/bugzilla/show_bug.cgi?id=")
          ("url-to-ja" . "http://translate.google.fr/translate?sl=en&tl=ja&u=%h")
@@ -319,8 +317,7 @@ TOC
 ```
 
 7. Search options in file links
-
-```
+   ```
      [[file:~/code/main.c::255]]
      [[file:~/xx.org::My Target]]
      [[file:~/xx.org::*My Target]]
@@ -329,9 +326,6 @@ TOC
 ```
 
 8. Custom Searches
-
-
-
 
 
 
@@ -354,27 +348,22 @@ TOC
 
 2. Extended use of TODO keywords
     * TODO keywords as workflow states
-
-```
+    ```
 (setq org-todo-keywords
        '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
 ```
 
     * TODO keywords as types
-
-```
+    ```
 (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
 ```
-
     * Multiple keyword sets in one file
-
-```
+    ```
 (setq org-todo-keywords
            '((sequence "TODO" "|" "DONE")
              (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
              (sequence "|" "CANCELED")))
 ```
-
     * Fast access to TODO states (`C-c C-t` to select)
 ```
 (setq org-todo-keywords
@@ -382,14 +371,12 @@ TOC
              (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
              (sequence "|" "CANCELED(c)")))
 ```
-
     * Setting up keywords for individual files
         * `#+TODO: TODO FEEDBACK VERIFY | DONE CANCELED`
         * `#+SEQ_TODO: Seq1 Seq2 | Seq-done`
         * `#+TYP_TODO: Fred Sara Lucy Mike | DONE`
     * Faces for TODO keywords
-
-```
+    ```
 (setq org-todo-keyword-faces
            '(("TODO" . org-warning) ("STARTED" . "yellow")
              ("CANCELED" . (:foreground "blue" :weight bold))))
@@ -406,8 +393,7 @@ TOC
         * "!", for **timestamp**
         * "@", for **note with timestamp**
         * Set it up
-
-```
+        ```
 (setq org-todo-keywords
        '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
 ```
@@ -447,23 +433,17 @@ TOC
     * `C-c C-q`     `org-set-tags-command`
     * `C-c C-c`     `org-set-tags-command`, when the cursor in the headline
     * `org-tag-alist`, `org-tag-persistent-alist`
-
-```
+    ```
 #+TAGS: @work @home @tennisclub
 #+TAGS: laptop car pc sailboat
 #+TAGS: @work(w)  @home(h)  @tennisclub(t)  laptop(l)  pc(p)
 #+STARTUP: noptag
-```
-
-
-```
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
 ```
 
 3. Tag groups
     * groups
-
-```
+    ```
 #+TAGS: { @read : @read_book @read_ebook }
 (setq org-tag-alist '((:startgroup . nil)
                            ("@read" . nil)
