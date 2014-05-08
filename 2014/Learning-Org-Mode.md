@@ -69,16 +69,16 @@ TOC
 
 3. Visibility cycling
     * **FOLDED** -> **CHILDREN** -> **SUBTREE**
-        * `<Tab>`                =>        `org-cycle`
-        * `S-<TAB>`              =>        `org-global-cycle`
+        * `<Tab>                `            (org-cycle)
+        * `S-<TAB>              `            (org-global-cycle)
     * **OVERVIEW** -> **CONTENTS** -> **SHOW ALL**
-        * `C-u <TAB>`            =>        `` (OVERVIEW)
-        * `C-u C-u <TAB>`        =>        `org-set-startup-visibility`
-        * `C-u C-u C-u <TAB>`    =>        `show-all` (show all, including drawers)
-        * `C-c C-r`              =>        `org-reveal`
-        * `C-c C-k`              =>        `show-branches`
-        * `C-c C-x b`            =>        `org-tree-to-indirect-buffer`
-        * `C-c C-x v`            =>        `org-copy-visible`
+        * `C-u <TAB>            `        () (OVERVIEW)
+        * `C-u C-u <TAB>        `        (org-set-startup-visibility)
+        * `C-u C-u C-u <TAB>    `        (show-all) (show all, including drawers)
+        * `C-c C-r              `        (org-reveal)
+        * `C-c C-k              `        (show-branches)
+        * `C-c C-x b            `        (org-tree-to-indirect-buffer)
+        * `C-c C-x v            `        (org-copy-visible)
     * Initial visibility
         * `#+STARTUP: overview/content/showall/showeverything`
     * Catching invisible edits
@@ -292,14 +292,14 @@ TOC
     * etc
 
 4. Handling links
-    * `C-c l`            `org-store-link`
-    * `C-c C-l`          `org-insert-link`, or just edit current link
-    * `C-c C-o`          `org-open-at-point`
-    * `C-c C-x C-v`      `org-toggle-inline-images`
-    * `C-c %`            `org-mark-ring-push`
-    * `C-c &`            `org-mark-ring-goto`
-    * `C-c C-x C-n`      `org-next-link`
-    * `C-c C-x C-p`      `org-previous-link`
+    * `C-c l`            (org-store-link)
+    * `C-c C-l`          (org-insert-link), or just edit current link
+    * `C-c C-o`          (org-open-at-point)
+    * `C-c C-x C-v`      (org-toggle-inline-images)
+    * `C-c %`            (org-mark-ring-push)
+    * `C-c &`            (org-mark-ring-goto)
+    * `C-c C-x C-n`      (org-next-link)
+    * `C-c C-x C-p`      (org-previous-link)
 
 5. Using links outside Org
 
