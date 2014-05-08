@@ -1,4 +1,4 @@
-Learning Org-Mode
+lLearning Org-Mode
 =================
 
 ***The Org Manual*** by Carsten Dominik
@@ -244,15 +244,15 @@ TOC
 5. The spreadsheet
     * References
         * `C-c ?`, show ref. `C-c }`, togggle ref.
-        * Field references: `@row$column`    
+        * Field references: `@row$column`
             * @+3 or @-1
             * @< and @> are immutable references the first and last row in the table, respectively
             * @I refers to the first hline, @II to the second, etc.
-            * @-I refers to the first such line above the current line, 
+            * @-I refers to the first such line above the current line,
             * @+I to the first such line below the current line
             * @III+2 which is the second data line after the third hline in the table
             * @0 and $0 refer to the current row and column, respectively
-        * Range references    
+        * Range references
         ```
 $1..$3        first three fields in the current row
 $P..$Q        range, using column names (see under Advanced)
@@ -271,7 +271,7 @@ $<<<..$>>     start in third column, continue to the one but last
     * Field and range formulas
     * Column formulas
     * Lookup functions
-    * Editing and debugging formulas 
+    * Editing and debugging formulas
     * Updating the table
     * Advanced features
 
@@ -299,7 +299,7 @@ $<<<..$>>     start in third column, continue to the one but last
 
 1. Link format
     * `[[link][description]]`       or alternatively           `[[link]]`
-    * `C-c C-l` to edit link 
+    * `C-c C-l` to edit link
     * `C-c C-o` to follow link
 
 2. Internal links
@@ -339,7 +339,7 @@ $<<<..$>>     start in third column, continue to the one but last
          ("google"    . "http://www.google.com/search?q=")
          ("ads"       . "http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?author=%s&db_key=AST")))
 ```
- 
+
 7. Search options in file links
 
 ```
@@ -370,7 +370,7 @@ $<<<..$>>     start in third column, continue to the one but last
     * `C-u C-c C-t`
     * `S-<right> / S-<left>`      like `C-c C-t`
     * `C-c / t`                   `org-show-todo-tree`
-    * `C-c / T` 
+    * `C-c / T`
     * `C-c a t`                   `org-todo-list`
     * `S-M-<RET>`                 `org-insert-todo-heading`
 
@@ -382,20 +382,20 @@ $<<<..$>>     start in third column, continue to the one but last
        '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
 ```
 
-    * TODO keywords as types  
+    * TODO keywords as types
 
 ```
 (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
 ```
 
-    * Multiple keyword sets in one file   
+    * Multiple keyword sets in one file
 
 ```
 (setq org-todo-keywords
            '((sequence "TODO" "|" "DONE")
              (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
              (sequence "|" "CANCELED")))
-```    
+```
 
     * Fast access to TODO states (`C-c C-t` to select)
 ```
@@ -408,7 +408,7 @@ $<<<..$>>     start in third column, continue to the one but last
     * Setting up keywords for individual files
         * `#+TODO: TODO FEEDBACK VERIFY | DONE CANCELED`
         * `#+SEQ_TODO: Seq1 Seq2 | Seq-done`
-        * `#+TYP_TODO: Fred Sara Lucy Mike | DONE`          
+        * `#+TYP_TODO: Fred Sara Lucy Mike | DONE`
     * Faces for TODO keywords
 
 ```
@@ -420,11 +420,11 @@ $<<<..$>>     start in third column, continue to the one but last
         * C-c C-x o     (org-toggle-ordered-property)
         * C-u C-u C-u C-c C-t: Change TODO state, circumventing any state blocking.
 
-3. Progress logging    
+3. Progress logging
     * Closing items
         * `(setq org-log-done 'time)`
-        * `(setq org-log-done 'note)` 
-    * Tracking TODO state changes    
+        * `(setq org-log-done 'note)`
+    * Tracking TODO state changes
         * "!", for **timestamp**
         * "@", for **note with timestamp**
         * Set it up
@@ -449,12 +449,12 @@ $<<<..$>>     start in third column, continue to the one but last
 6. Checkboxes
     * `[ ]`, `[/]`, `[%]`
     * `C-c C-c`,                togggle checked/unchecked
-    * `C-c C-c`                 `org-toggle-checkbox` 
+    * `C-c C-c`                 `org-toggle-checkbox`
     * `C-c C-x C-b`             `org-toggle-checkbox`
     * `M-S-<RET>`               `org-insert-todo-heading`
     * `C-c C-x o`               `org-toggle-ordered-property`
     * `C-c #`                   `org-update-statistics-cookies`, `C-u C-c` to update whole file
- 
+
 ![][checkboxes]
 
 
@@ -462,25 +462,25 @@ $<<<..$>>     start in third column, continue to the one but last
 
 ### 06. Tags :work:, :reading:notes:
 
-1. Tag inheritance    
+1. Tag inheritance
     * `#+FILETAGS: :Peter:Boss:Secret:`
 
-2. Setting tags    
+2. Setting tags
     * `C-c C-q`     `org-set-tags-command`
     * `C-c C-c`     `org-set-tags-command`, when the cursor in the headline
-    * `org-tag-alist`, `org-tag-persistent-alist` 
+    * `org-tag-alist`, `org-tag-persistent-alist`
 
-``` 
+```
 #+TAGS: @work @home @tennisclub
 #+TAGS: laptop car pc sailboat
 #+TAGS: @work(w)  @home(h)  @tennisclub(t)  laptop(l)  pc(p)
 #+STARTUP: noptag
-``` 
+```
 
 
 ```
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
-``` 
+```
 
 3. Tag groups
     * groups
@@ -494,7 +494,7 @@ $<<<..$>>     start in third column, continue to the one but last
                            ("@read_ebook" . nil)
                            (:endgroup . nil)))
 ```
- 
+
 4. Tag searches
     * C-c / m or C-c \     (org-match-sparse-tree)
     * C-c a m     (org-tags-view)
