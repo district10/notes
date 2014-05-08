@@ -31,7 +31,7 @@ TOC
 
 ### 01. A Introduction
 
-1. Org is a toolbox and can be used in different ways and for different ends, for example:
+1. Org is a **toolbox** and can be used in different ways and for different ends, for example:
     - an outline extension with visibility cycling and structure editing
     - an ASCII system and table editor for taking structured notes
     - a TODO list editor
@@ -63,7 +63,7 @@ TOC
         * `C-c C-x b`            =>        `org-tree-to-indirect-buffer`
         * `C-c C-x v`            =>        `org-copy-visible`
     * Initial visibility
-        * #+STARTUP: overview/content/showall/showeverything
+        * `#+STARTUP: overview/content/showall/showeverything`
     * Catching invisible edits
         * Set `org-catch-invisible-edits` to `non-nil`
 
@@ -128,7 +128,7 @@ TOC
 
 11. The Orgstruct minor mode
     * Add Hook
-```
+    ```
 (add-hook 'message-mode-hook 'turn-on-orgstruct)
 (add-hook 'message-mode-hook 'turn-on-orgstruct++)
 ```
