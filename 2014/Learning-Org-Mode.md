@@ -395,7 +395,7 @@ TOC
         ```
 (setq org-todo-keywords
        '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
-```
+        ```
         * Or set logging preferences local to a buffer: `#+TODO: TODO(t) WAIT(w@/!) | DONE(d!) CANCELED(c@)`
     * Tracking your habits
 
@@ -407,7 +407,6 @@ TOC
 
 5. Breaking tasks down into subtasks
     * Insert either ‘[/]’ or ‘[%]’ anywhere in the headline
-
 
 6. Checkboxes
     * `[ ]`, `[/]`, `[%]`
