@@ -27,15 +27,7 @@ TOC
 
 
 
-
-
-
-
-
-
-
-
----
+--------------------------------------------------------------------------------
 
 ### 01. A Introduction
 
@@ -50,16 +42,7 @@ TOC
     - **an environment for literate programming**
 
 
-
-
-
-
-
-
-
-
-
----
+--------------------------------------------------------------------------------
 
 ### 02. Document Structure
 
@@ -85,22 +68,22 @@ TOC
         * Set `org-catch-invisible-edits` to `non-nil`
 
 4. Motion
-     * `C-c C-n`     `outline-next-visible-heading`
-     * `C-c C-p`     `outline-previous-visible-heading`
-     * `C-c C-f`     `org-forward-same-level`
-     * `C-c C-b`     `org-backward-same-level`
-     * `C-c C-u`     `outline-up-heading`
-     * `C-c C-j`     `org-goto`
+     * `C-c C-n`     (**outline-next-visible-heading**)
+     * `C-c C-p`     (**outline-previous-visible-heading**)
+     * `C-c C-f`     (**org-forward-same-level**)
+     * `C-c C-b`     (**org-backward-same-level**)
+     * `C-c C-u`     (**outline-up-heading**)
+     * `C-c C-j`     (**org-goto**)
 
 5. Structure editing
     * `M-<RET>`      (**org-insert-heading**)
     * `C-<RET>`      (**org-insert-heading-respect-content**) (seems better, not truncate current line)
     * `M-S-<RET>`    (**org-insert-todo-heading**)
     * `C-S-<RET>`    (**org-insert-todo-heading-respect-content**) (seems better)
-    * `M-<left>`     `org-do-promote`
-    * `M-<right>`    `org-do-demote`
-    * `M-S-<left>`   `org-promote-subtree`
-    * `M-S-<right>`  `org-demote-subtree`
+    * `M-<left>`     (**org-do-promote**)
+    * `M-<right>`    (**org-do-demote**)
+    * `M-S-<left>`   (**org-promote-subtree**)
+    * `M-S-<right>`  (**org-demote-subtree**)
     * `M-S-<up>`     `org-move-subtree-up`
     * `M-S-<down>`   `org-move-subtree-down`
     * `M-h`          `org-mark-element`
