@@ -365,7 +365,7 @@ TOC
              (sequence "|" "CANCELED")))
 ```
     * Fast access to TODO states (`C-c C-t` to select)
-```
+    ```
 (setq org-todo-keywords
            '((sequence "TODO(t)" "|" "DONE(d)")
              (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
