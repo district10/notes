@@ -254,12 +254,12 @@ TOC
             * @0 and $0 refer to the current row and column, respectively
         * Range references    
         ```
- $1..$3        first three fields in the current row
- $P..$Q        range, using column names (see under Advanced)
- $<<<..$>>     start in third column, continue to the one but last
- @2$1..@4$3    6 fields between these two fields (same as A2..C4)
- @-1$-2..@-1   3 fields in the row above, starting from 2 columns on the left
- @I..II        between first and second hline, short for @I..@II
+$1..$3        first three fields in the current row
+$P..$Q        range, using column names (see under Advanced)
+$<<<..$>>     start in third column, continue to the one but last
+@2$1..@4$3    6 fields between these two fields (same as A2..C4)
+@-1$-2..@-1   3 fields in the row above, starting from 2 columns on the left
+@I..II        between first and second hline, short for @I..@II
 ```
     * Field coordinates in formulas
     * Named references
