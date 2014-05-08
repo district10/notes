@@ -3,6 +3,7 @@ Learning Vim
 
 ![][six-editor]
 
+--------------------------------------------------------------------------------
 
 ### Chapter 1, The vi Text Editor
 
@@ -22,7 +23,9 @@ Learning Vim
 3. The only way to learn vi is to practice.
 
 
----
+
+
+--------------------------------------------------------------------------------
 
 ### Chapter 2, Simple Editing
 
@@ -83,77 +86,63 @@ Learning Vim
     * `C` === `c$`, `D` === `d$`, but `Y` === `yy`, instead of `y$`
     *
 
-Overall
--------
+6. Overall
+   ```
+   +------------------------------+------------------------------+------------------------------+------------------------------+
+   |         Text object          |            Change            |            Delete            |             Copy             |
+   +------------------------------+------------------------------+------------------------------+------------------------------+
+   |           One word           |              cw              |              dw              |              yw              |
+   +------------------------------+------------------------------+------------------------------+------------------------------+
+   |   Two words, not counting    |          2cW or c2W          |          2dW or d2W          |          2yW or y2W          |
+   |         punctuation          |                              |                              |                              |
+   +------------------------------+------------------------------+------------------------------+------------------------------+
+   |       Three words back       |          3cb or c3b          |          3db or d3b          |          3yb or y3b          |
+   +------------------------------+------------------------------+------------------------------+------------------------------+
+   |           One line           |              cc              |              dd              |           yy or Y            |
+   +------------------------------+------------------------------+------------------------------+------------------------------+
+   |        To end of line        |           c$ or C            |           d$ or D            |              y$              |
+   +------------------------------+------------------------------+------------------------------+------------------------------+
+   |     To beginning of line     |              c0              |              d0              |              y0              |
+   +------------------------------+------------------------------+------------------------------+------------------------------+
+   |       Single character       |              r               |            x or X            |           yl or yh           |
+   +------------------------------+------------------------------+------------------------------+------------------------------+
+   |       Five characters        |              5s              |              5x              |             5yl              |
+   +------------------------------+------------------------------+------------------------------+------------------------------+
+   ```
 
-```
-+------------------------------+------------------------------+------------------------------+------------------------------+
-|         Text object          |            Change            |            Delete            |             Copy             |
-+------------------------------+------------------------------+------------------------------+------------------------------+
-|           One word           |              cw              |              dw              |              yw              |
-+------------------------------+------------------------------+------------------------------+------------------------------+
-|   Two words, not counting    |          2cW or c2W          |          2dW or d2W          |          2yW or y2W          |
-|         punctuation          |                              |                              |                              |
-+------------------------------+------------------------------+------------------------------+------------------------------+
-|       Three words back       |          3cb or c3b          |          3db or d3b          |          3yb or y3b          |
-+------------------------------+------------------------------+------------------------------+------------------------------+
-|           One line           |              cc              |              dd              |           yy or Y            |
-+------------------------------+------------------------------+------------------------------+------------------------------+
-|        To end of line        |           c$ or C            |           d$ or D            |              y$              |
-+------------------------------+------------------------------+------------------------------+------------------------------+
-|     To beginning of line     |              c0              |              d0              |              y0              |
-+------------------------------+------------------------------+------------------------------+------------------------------+
-|       Single character       |              r               |            x or X            |           yl or yh           |
-+------------------------------+------------------------------+------------------------------+------------------------------+
-|       Five characters        |              5s              |              5x              |             5yl              |
-+------------------------------+------------------------------+------------------------------+------------------------------+
-```
-
-
-
-Example
--------
-
-
-`r`, `dd`, `P`, `cw`, `x`
-```
-With a editor you can scrooll the page,          With a screen editor you can scroll the page,
-move the cursor, delete lines, nisret            move the cursor, delete lines, insert
-characters, and more wrile results of            characters, and more while results of
-your edits as you make tham.                     your edits as you make them.
-Since they allow you to make changes             Screen editors are very popular.
-as you read through a file, much as              Since they allow you to make changes
-you would edit a printed copy,                   as you read through a file, much as
-screen editors are very popular.                 you would edit a printed copy.
-```
-
-
-`P`, `p`, `.`
-```
-With a screen editor you can                     With a screen editor you can
-scroll the page.                                 scroll the page.
-move the cursor.                                 With a screen editor you can
-delete lines.                                    move the cursor.
-                                                 With a screen editor you can
-                                                 delete lines.
-```
-
-
-`J`
-```
-With a                                           With a screen editor you can scroll the page, move the cursor
-screen editor
-you can
-scroll the page, move the cursor
-```
+7. Example
+    * `r`, `dd`, `P`, `cw`, `x`
+    ```
+    With a editor you can scrooll the page,          With a screen editor you can scroll the page,
+    move the cursor, delete lines, nisret            move the cursor, delete lines, insert
+    characters, and more wrile results of            characters, and more while results of
+    your edits as you make tham.                     your edits as you make them.
+    Since they allow you to make changes             Screen editors are very popular.
+    as you read through a file, much as              Since they allow you to make changes
+    you would edit a printed copy,                   as you read through a file, much as
+    screen editors are very popular.                 you would edit a printed copy.
+    ```
+    * `P`, `p`, `.`
+    ```
+    With a screen editor you can                     With a screen editor you can
+    scroll the page.                                 scroll the page.
+    move the cursor.                                 With a screen editor you can
+    delete lines.                                    move the cursor.
+                                                     With a screen editor you can
+                                                     delete lines.
+    ```
+    * `J`
+    ```
+    With a                                           With a screen editor you can scroll the page, move the cursor
+    screen editor
+    you can
+    scroll the page, move the cursor
+    ```
 
 
 
-[neo]: https://github.com/district10/neo_keyboard_layout
 
-
-
----
+--------------------------------------------------------------------------------
 
 ### Chapter 3, Moving Around in a Hurry
 
@@ -171,7 +160,7 @@ scroll the page, move the cursor
     * `2H`, `2L`: 2 second line from top/bottom
 
 4. Movement by Line
-    * `+,<Enter>, `-`, move to first char of next/previous line.
+    * `+`, `<Enter>`, `-`, move to first char of next/previous line.
     * Movement on current line: `20|`, move to column 20, `^`, move to first nonblank char.
 
 5. Movement by Text Blocks
@@ -198,50 +187,47 @@ scroll the page, move the cursor
     * `20G`, move to Line #20
     * ```` `` ````, move back (old position)
     * `''`, move back, but at the beginning of line
-
-
-```
-With a screen editor you can scroll the
-page, move1 move2 move4 move5 move6 move7 the cursor, dlete lines, insert
-characters, and more, while seeing the
-characters, ang the
-results of your edits as you make them.
-```
+    ```
+    With a screen editor you can scroll the
+    page, move1 move2 move4 move5 move6 move7 the cursor, dlete lines, insert
+    characters, and more, while seeing the
+    characters, ang the
+    results of your edits as you make them.
+    ```
 
 
 
 
----
+--------------------------------------------------------------------------------
 
 ### Chapter 4, Beyond the Basics
 
 1. More Command Combinations
-
-```
-+------------+------------+-----------+------------------------------+
-|Change      |Delete      |Copy       |From cursor to...             |
-+------------+------------+-----------+------------------------------+
-|cH          |dH          |yH         |Top of screen                 |
-+------------+------------+-----------+------------------------------+
-|cL          |dL          |yL         |Bottom of screen              |
-+------------+------------+-----------+------------------------------+
-|c+          |d+          |y+         |Next line                     |
-+------------+------------+-----------+------------------------------+
-|c5|         |d5|         |y5|        |Column 5 of current line      |
-+------------+------------+-----------+------------------------------+
-|2c)         |2d)         |2y)        |Second sentence following     |
-+------------+------------+-----------+------------------------------+
-|c{          |d{          |y{         |Previous paragraph            |
-+------------+------------+-----------+------------------------------+
-|c/pattern   |d/pattern   |y/pattern  |Pattern                       |
-+------------+------------+-----------+------------------------------+
-|cn          |dn          |yn         |Next pattern                  |
-+------------+------------+-----------+------------------------------+
-|cG          |dG          |yG         |End of file                   |
-+------------+------------+-----------+------------------------------+
-|c13G        |d13G        |y13G       |Line number 13                |
-+------------+------------+-----------+------------------------------+
-```
+   ```
+   +------------+------------+-----------+------------------------------+
+   |Change      |Delete      |Copy       |From cursor to...             |
+   +------------+------------+-----------+------------------------------+
+   |cH          |dH          |yH         |Top of screen                 |
+   +------------+------------+-----------+------------------------------+
+   |cL          |dL          |yL         |Bottom of screen              |
+   +------------+------------+-----------+------------------------------+
+   |c+          |d+          |y+         |Next line                     |
+   +------------+------------+-----------+------------------------------+
+   |c5|         |d5|         |y5|        |Column 5 of current line      |
+   +------------+------------+-----------+------------------------------+
+   |2c)         |2d)         |2y)        |Second sentence following     |
+   +------------+------------+-----------+------------------------------+
+   |c{          |d{          |y{         |Previous paragraph            |
+   +------------+------------+-----------+------------------------------+
+   |c/pattern   |d/pattern   |y/pattern  |Pattern                       |
+   +------------+------------+-----------+------------------------------+
+   |cn          |dn          |yn         |Next pattern                  |
+   +------------+------------+-----------+------------------------------+
+   |cG          |dG          |yG         |End of file                   |
+   +------------+------------+-----------+------------------------------+
+   |c13G        |d13G        |y13G       |Line number 13                |
+   +------------+------------+-----------+------------------------------+
+   ```
 
 2. Options When Starting vi
     * `vi +3 filename`, open file at 3rd line
@@ -263,15 +249,7 @@ results of your edits as you make them.
 
 
 
-
-
-
-
-
-
-
-
----
+--------------------------------------------------------------------------------
 
 ### Chapter 5, Introducing the ex Editor
 
@@ -292,8 +270,7 @@ results of your edits as you make them.
 
 
 
-
----
+--------------------------------------------------------------------------------
 
 ### Chapter 6, Global Replacement
 
@@ -358,27 +335,26 @@ results of your edits as you make them.
 8. Exercise
     * `/four`, `<Enter>`, `cwfive`, `n`(repeat search), `n`(bypass one match), `.`(apply last `cwfive`)
 
-Examples
---------
-
-```
-<p>something</p>                                                             <p>somethingelse</p>
-<a>something</a>   ===> `:%300,400g/<p>/s/something/somethingelse/g` ===>    <a>something</a>
-<a>something</a>                                                             <a>something</a>
-<p>something</p>                                                             <p>somethingelse</p>
-```
-
-```
-one                                                  (one)
-two                                                  (two)
-three       ===> `:348,352s/.*/(&)/` ===>            (three)
-four                                                 (four)
-five                                                 (five)
-```
-
-```
-That or this   ===>  `:%s/\(That\) or \(this\)/\2 or \1/` ===>  this or That
-```
+9. Examples
+    * example-1
+    ```
+    <p>something</p>                                                             <p>somethingelse</p>
+    <a>something</a>   ===> `:%300,400g/<p>/s/something/somethingelse/g` ===>    <a>something</a>
+    <a>something</a>                                                             <a>something</a>
+    <p>something</p>                                                             <p>somethingelse</p>
+    ```
+    * example-2
+    ```
+    one                                                  (one)
+    two                                                  (two)
+    three       ===> `:348,352s/.*/(&)/` ===>            (three)
+    four                                                 (four)
+    five                                                 (five)
+    ```
+    * example-3
+    ```
+    That or this   ===>  `:%s/\(That\) or \(this\)/\2 or \1/` ===>  this or That
+    ```
 
 
 ```
@@ -394,15 +370,7 @@ That or this   ===>  `:%s/\(That\) or \(this\)/\2 or \1/` ===>  this or That
 
 
 
-
-
-
-
-
-
-
-
----
+--------------------------------------------------------------------------------
 
 # Chapter 7, Advanced Editing
 
@@ -428,27 +396,7 @@ That or this   ===>  `:%s/\(That\) or \(this\)/\2 or \1/` ===>  this or That
          * `:unab abbr`
 
 
-```
-1                                            1
-3           ==> `:423,425!sort`  ===>        2
-2                                            3
-```
-
-2
-4
-8
-
-One sentence before.
-and more, while seeing the results of your edits
-as you make them.
-move the cursor, delete lines, insert characters,
-With a screen editor you can scroll the page
-One sentence after.
-
-
-
-
-
+--------------------------------------------------------------------------------
 
 # Chapter 8, Introduction to the vi Clones
 
@@ -462,3 +410,4 @@ One sentence after.
 
 
 [six-editor]: http://gnat-tang-shared-image.qiniudn.com/2014-05-six-editor.png
+[neo]: https://github.com/district10/neo_keyboard_layout
