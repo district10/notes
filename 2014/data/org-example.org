@@ -24,19 +24,107 @@ that's not god
 :shit:
 
 :END:
+
+
 * Chapter One
 ** Second level
 *** 3rd level
-    some text, shit
-*** 3rd level
-    more text
+**** some text, shit
+**** good for [fn:9]
+    two 
+***** *** good 
+*** 3rd leve[fn:8]l
+**** 4th level
+**** 
+**** 
+
+
+* good
+** Lord of the Rings
+   - Note taken on [2014-05-08 Thu 02:43] \\
+     what do you want to do?
+   My favorite scenes are (in this order)
+        1. The attack of the Rohirrim
+        2. Eowyn's fight with the witch king
+           + this was already my favorite scene in the book
+           + I really like Miranda Otto.
+        3. Peter Jackson being shot by Legolas
+           - on DVD only
+           He makes a really funny face when it happens.
+   But in the end, no individual scenes matter but the film as a whole.
+   Important actors in this film are:
+        - Elijah Wood :: He plays Frodo
+        - Sean Austin :: He plays Sam, Frodo's friend.  I still remember
+                         him very well from his role as Mikey Walsh in The Goonies.
+:shit:
+
+:END:
+                         
+
+*** four[fn:2]
+
+
+*** on[fn:4]e
+*** three 
+*** two
+******** good
+good
+*oei****************** 5t
+******************* h level
+******************* TODO 
+
+**** good
+
+| good | fine | bad | terrible |
+|      | shit |     |          |
+|------+------+-----+----------|
+|      |      |     |          |
+
+| good  | shit |
+|-------+------|
+| aoeii |      | 
 
 
 
-    
-* Chapter Two
 
-* Another top level headline
+|                                             name | gender                                          | age   |      |
+| oooooooooooooooooooooooooooooooooooooooooooooooo | oooooooooooooooooooeeeeeeeeeeeeeeeeeeeeeeeeeeee |       | -    |
+|--------------------------------------------------+-------------------------------------------------+-------+------|
+|                                              123 |                                                 |       |      |
+|--------------------------------------------------+-------------------------------------------------+-------+------|
+|                                              524 | aoei                                            | xaoei | c,l. |
+|--------------------------------------------------+-------------------------------------------------+-------+------|
+|                                             2434 |                                                 |       |      |
+|--------------------------------------------------+-------------------------------------------------+-------+------|
+
+
+| one  | two  | three |
+| four | five | six   |
+  
+*************** sitaoei
+******************* 
+
+******************* TODO 
+*s**** 
+******************* 
+******************* TODO wash hands
+******************* 
+
+
+******************* good 
+                    bad
+
+
+
+                  
+******************* 
+******************* 
+******************* 
+******************* 
+******************** good[fn:5]                              :good:fantastic:
+* Chapter Two [fn:7]
+
+* Another top level headline [fn:6]
 
 | good   | able       | I like it Pretty much      |      |     |
 |--------+------------+----------------------------+------+-----|
@@ -61,40 +149,95 @@ that's not god
 |        |            |                            |      |     |
 
 
-| mon  | tue    | tue | fri | to | sun |
-|------+--------+-----+-----+----+-----|
-| good | for    | to  | you | do | it  |
-|------+--------+-----+-----+----+-----|
-| male | female |     | you | do |     |
-| male | female |     | you |    |     |
-|      |        |     |     |    |     |
-|------+--------+-----+-----+----+-----|
-| r    | c      | a   | d   | e  | f   |
-|------+--------+-----+-----+----+-----|
-|      |        |     |     |    | a   |
-|------+--------+-----+-----+----+-----|
-|      |        |     |     |    | e   |
-|------+--------+-----+-----+----+-----|
-| aoei |        |     |     |    |     |
-|------+--------+-----+-----+----+-----|
-| -    |        |     |     |    |     |
-|------+--------+-----+-----+----+-----|
-|------+--------+-----+-----+----+-----|
-|      |        |     |     |    |     |
-|      |        |     |     |    |     |
-| male | female |     | you |    | it  |
+| mon  | tue    | tue |    fri | to | sun |
+|------+--------+-----+--------+----+-----|
+| good | for    | to  |    you | do | it  |
+|------+--------+-----+--------+----+-----|
+| male | female |     |    you | do |     |
+| male | female |     |    you |    |     |
+|      |        |     |        |    |     |
+|------+--------+-----+--------+----+-----|
+| r    | c      | a   |      d | e  | f   |
+|------+--------+-----+--------+----+-----|
+|      |        |     |        |    | a   |
+|------+--------+-----+--------+----+-----|
+|      | c      |     |      d |    | e   |
+|      | c      |     |      d |    |     |
+|      | c      |     |      d |    |     |
+|      | c      |     |      d |    |     |
+|      | c      |     |      d |    |     |
+|      | c      |     |      d |    |     |
+|      |        |     |      d |    |     |
+|      |        |     |      d |    |     |
+|      |        |     |      d |    |     |
+|      |        |     |      d |    |     |
+|------+--------+-----+--------+----+-----|
+| aoei |        |     |    123 |    |     |
+|------+--------+-----+--------+----+-----|
+| -    |        |     |    124 |    |     |
+|      |        |     |    125 |    |     |
+|      |        |     |    126 |    |     |
+|      |        |     |    127 |    |     |
+|      |        |     | 112328 |    |     |
+|      |        |     | 112329 |    |     |
+|      |        |     | 112330 |    |     |
+|      |        |     | 112331 |    |     |
+|      |        |     | 112332 |    |     |
+|      |        |     | 112333 |    |     |
+|      |        |     | 112334 |    |     |
+|      |        |     | 112335 |    |     |
+|      |        |     | 112336 |    |     |
+|      |        |     | 112337 |    |     |
+|      |        |     | 112338 |    |     |
+|      |        |     | 112339 |    |     |
+# 
+|------+--------+-----+--------+----+-----|
+|------+--------+-----+--------+----+-----|
+|      |        |     |        |    |     |
+|      |        |     |        |    |     |
+| male | female |     |    you |    | it  |
 
 oeanoeitraoie
 
 
-| math | english | score |
-|  324 |     124 |   514 |
-|   23 |     123 |    22 |
-|      |         |       |
-|      |         |       |
-|      |         |       |
-|      |         |       |
+| math | english                    | score |
+|  324 | 124                        |   514 |
+|   23 | 1oeiaoeinstaoreinstaroei23 |    22 |
+|      |                            |    23 |
+|      |                            |    24 |
+|      |                            |    25 |
+|      |                            |    26 |
+|      |                            |    27 |
+|      | oeintraoeintraoei          |    28 |
+|      |                            |    29 |
+|      |                            |    30 |
 #+TBLFM: 
+
+| good | fine 
+
+| good | fine 
+
+* 
+| good | fine |
+
+
+
+
+(setq org-enable-table-editor t)
+
+|   |   |   |   |   |
+|---+---+---+---+---|
+|   |   |   |   |   |
+
+| i    | one | two   | three |
+| five | six | eight | nine  |
+
+
+
+
+
+
+
 
 * 
 | Naming             | Conventions |         |            |        |        |       |
@@ -147,6 +290,25 @@ oeanoeitraoie
 
 
 
+* Top level headline
+** Second
+** level
+*** 3rd
+*** level
+    some text
+*** 3rd level
+    more text
+
+**** one
+
+**** two
+
+**** three
+    
+* Another top level headline
+
+
+
 oeanoeitraoie
 
 
@@ -159,4 +321,47 @@ oeanoeitraoie
 
 
 [fn:3] good, it can be created automatically 
+ 
+
+
+
+
+
+
+l headline
+
+[fn:2] good
+
+[fn:4] terrible 
+
+[fn:5] terrible
+
+[fn:6] file:///root/Desktop/misc/pandoc/ah_code/code.text
+
+[fn:7] http://www.baidu.com
+
+[fn:8] something 
+
+[fn:9] something else
+
+
+** Second level
+*** 3rd level
+ 
+
+
+
+
+
+
+
+
+her top level headline
+* Footnotes
+
+
+
+
+
+
  
