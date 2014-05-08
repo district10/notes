@@ -128,7 +128,7 @@ TOC
 
 11. The Orgstruct minor mode
     * Add Hook
-      ```
+    ```
 (add-hook 'message-mode-hook 'turn-on-orgstruct)
 (add-hook 'message-mode-hook 'turn-on-orgstruct++)
 ```
@@ -142,7 +142,7 @@ TOC
 
 1. The built-in table editor
     1. Example
-```
+    ```
      | Name  | Phone | Age |
      |-------+-------+-----|
      | Peter |  1234 |  17 |
@@ -193,7 +193,7 @@ TOC
 
 2. Column width and alignment
     1. Specify Col Width
-```
+    ```
      |---+------------------------------|               |---+--------|
      |   |                              |               |   | <6>    |
      | 1 | one                          |               | 1 | one    |
@@ -203,7 +203,7 @@ TOC
      |---+------------------------------|               |---+--------|
 ```
     2. `org-startup-align-all-tables`
-```
+    ```
 #+STARTUP: align
 #+STARTUP: noalign
 ```
@@ -228,7 +228,7 @@ TOC
             * @0 and $0 refer to the current row and column, respectively
         * Range references    
             * Examples
-```
+            ```
  $1..$3        first three fields in the current row
  $P..$Q        range, using column names (see under Advanced)
  $<<<..$>>     start in third column, continue to the one but last
@@ -249,6 +249,8 @@ TOC
     * Editing and debugging formulas 
     * Updating the table
     * Advanced features
+
+---
 
 ```
 |  N | N^2 |  N^3 |   N^4 |   sqrt(n) | sqrt[4](N) |
@@ -297,15 +299,13 @@ TOC
     * `C-c C-x C-p`      `org-previous-link`
 
 5. Using links outside Org
-
-```
+   ```
 (global-set-key "\C-c L" 'org-insert-link-global)
 (global-set-key "\C-c o" 'org-open-at-point-global)
 ```
 
 6. Link abbreviations
-
-```
+   ```
 (setq org-link-abbrev-alist
        '(("bugzilla"  . "http://10.1.2.9/bugzilla/show_bug.cgi?id=")
          ("url-to-ja" . "http://translate.google.fr/translate?sl=en&tl=ja&u=%h")
@@ -314,8 +314,7 @@ TOC
 ```
  
 7. Search options in file links
-
-```
+   ```
      [[file:~/code/main.c::255]]
      [[file:~/xx.org::My Target]]
      [[file:~/xx.org::*My Target]]
@@ -349,23 +348,23 @@ TOC
 
 2. Extended use of TODO keywords
     * TODO keywords as workflow states
-```
+    ```
 (setq org-todo-keywords
        '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
 ```
     * TODO keywords as types  
-```
+    ```
 (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
 ```
     * Multiple keyword sets in one file   
-```
+    ```
 (setq org-todo-keywords
            '((sequence "TODO" "|" "DONE")
              (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
              (sequence "|" "CANCELED")))
 ```    
     * Fast access to TODO states (`C-c C-t` to select)
-```
+    ```
 (setq org-todo-keywords
            '((sequence "TODO(t)" "|" "DONE(d)")
              (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
@@ -376,7 +375,7 @@ TOC
         * `#+SEQ_TODO: Seq1 Seq2 | Seq-done`
         * `#+TYP_TODO: Fred Sara Lucy Mike | DONE`          
     * Faces for TODO keywords
-```
+    ```
 (setq org-todo-keyword-faces
            '(("TODO" . org-warning) ("STARTED" . "yellow")
              ("CANCELED" . (:foreground "blue" :weight bold))))
@@ -393,7 +392,7 @@ TOC
         * "!", for **timestamp**
         * "@", for **note with timestamp**
         * Set it up
-```
+        ```
 (setq org-todo-keywords
        '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
 ```
@@ -433,21 +432,19 @@ TOC
     * `C-c C-q`     `org-set-tags-command`
     * `C-c C-c`     `org-set-tags-command`, when the cursor in the headline
     * `org-tag-alist`, `org-tag-persistent-alist` 
-
-``` 
+    ``` 
 #+TAGS: @work @home @tennisclub
 #+TAGS: laptop car pc sailboat
 #+TAGS: @work(w)  @home(h)  @tennisclub(t)  laptop(l)  pc(p)
 #+STARTUP: noptag
 ``` 
-
-```
+    ```
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
 ``` 
 
 3. Tag groups
-    *
-```
+    * groups
+    ```
 #+TAGS: { @read : @read_book @read_ebook }
 (setq org-tag-alist '((:startgroup . nil)
                            ("@read" . nil)
@@ -468,23 +465,6 @@ TOC
 ---
 
 ### 07. Properties
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
