@@ -261,6 +261,7 @@ TOC
  @-1$-2..@-1   3 fields in the row above, starting from 2 columns on the left
  @I..II        between first and second hline, short for @I..@II
 ```
+
     * Field coordinates in formulas [TODO]
     * Named references [TODO]
         * `#+CONSTANTS: c=299792458. pi=3.14 eps=2.4e-6`
