@@ -128,7 +128,7 @@ TOC
 
 11. The Orgstruct minor mode
     * Add Hook
-```
+    ```
 (add-hook 'message-mode-hook 'turn-on-orgstruct)
 (add-hook 'message-mode-hook 'turn-on-orgstruct++)
 ```
