@@ -253,8 +253,7 @@ TOC
             * @III+2 which is the second data line after the third hline in the table
             * @0 and $0 refer to the current row and column, respectively
         * Range references    
-            * Examples
-            ```
+        ```
  $1..$3        first three fields in the current row
  $P..$Q        range, using column names (see under Advanced)
  $<<<..$>>     start in third column, continue to the one but last
