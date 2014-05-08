@@ -397,7 +397,7 @@ TOC
     * `M-S-<RET>`               (**org-insert-todo-heading**)
     * `C-c C-x o`               (**org-toggle-ordered-property**)
     * `C-c #`                   (**org-update-statistics-cookies**), `C-u C-c` to update whole file
-    ![][checkboxes]
+    * ![][checkboxes]
 
 
 ---
