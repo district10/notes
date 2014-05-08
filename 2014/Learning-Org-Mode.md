@@ -393,8 +393,8 @@ TOC
         * "@", for **note with timestamp**
         * Set it up
         ```
-(setq org-todo-keywords
-       '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
+        (setq org-todo-keywords
+              '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
         ```
         * Or set logging preferences local to a buffer: `#+TODO: TODO(t) WAIT(w@/!) | DONE(d!) CANCELED(c@)`
     * Tracking your habits
