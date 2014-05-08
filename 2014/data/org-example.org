@@ -91,10 +91,27 @@ that's not god
                          
 
 *** four[fn:2]
+    :PROPERTIES:
+    :END:
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 *** on[fn:4]e
-*** three 
+*** three
+    :PROPERTIES:
+    :END: 
 *** two
 ******** good
 good

@@ -1,7 +1,7 @@
 Learning Org-Mode
 =================
 
-***The Org Manual*** by Carsten Dominik
+***[The Org Manual][org-manual]*** by Carsten Dominik
 ---------------------------------------
 
 TOC
@@ -458,4 +458,5 @@ TOC
 
 
 
+[org-manual]: http://orgmode.org/org.html
 [checkboxes]: src/org-todo-progress.png

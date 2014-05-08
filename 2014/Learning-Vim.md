@@ -274,7 +274,7 @@ Learning Vim
 
 ### Chapter 6, Global Replacement
 
-1.Substitude
+1. Substitude
     * `:s/old/new`, substitude first occurance of old
     * `:s/old/new/g`, many occurance
     * `:50,100s/old/new/g`, `:50,100s/old/new` apply to 50~100 lines
