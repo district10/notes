@@ -219,7 +219,7 @@ TOC
 
 2. Column width and alignment
     * Specify Col Width
-```
+    ```
      |---+------------------------------|               |---+--------|
      |   |                              |               |   | <6>    |
      | 1 | one                          |               | 1 | one    |
@@ -229,7 +229,7 @@ TOC
      |---+------------------------------|               |---+--------|
 ```
     * `org-startup-align-all-tables`
-```
+    ```
 #+STARTUP: align
 #+STARTUP: noalign
 ```
@@ -254,7 +254,7 @@ TOC
             * @0 and $0 refer to the current row and column, respectively
         * Range references    
             * Examples
-```
+            ```
  $1..$3        first three fields in the current row
  $P..$Q        range, using column names (see under Advanced)
  $<<<..$>>     start in third column, continue to the one but last
