@@ -27,6 +27,14 @@ TOC
 
 
 
+
+
+
+
+
+
+
+
 ---
 
 ### 01. A Introduction
@@ -40,6 +48,15 @@ TOC
     - a simple hypertext system, with HTML and L TEX export
     - a publishing tool to create a set of interlinked web pages
     - **an environment for literate programming**
+
+
+
+
+
+
+
+
+
 
 
 ---
@@ -136,13 +153,23 @@ TOC
 12. Org syntax
     * To explore the abstract structure of an Org buffer, run this in a buffer: `M-: (org-element-parse-buffer) RET`
 
+
+
+
+
+
+
+
+
+
+
 ---
 
 ### 03. Tables
 
 1. The built-in table editor
     * Example
-```
+    ```
      | Name  | Phone | Age |
      |-------+-------+-----|
      | Peter |  1234 |  17 |
