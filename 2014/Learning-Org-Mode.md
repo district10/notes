@@ -52,16 +52,16 @@ TOC
 
 3. Visibility cycling
     * **FOLDED** -> **CHILDREN** -> **SUBTREE**
-        * `<Tab>`                (org-cycle)
-        * `S-<TAB>`              (org-global-cycle)
+        * `<Tab>`                (**org-cycle**)
+        * `S-<TAB>`              (**org-global-cycle**)
     * **OVERVIEW** -> **CONTENTS** -> **SHOW ALL**
         * `C-u <TAB>`            (?) (OVERVIEW)
-        * `C-u C-u <TAB>`        (org-set-startup-visibility)
-        * `C-u C-u C-u <TAB>`    (show-all) (show all, including drawers)
-        * `C-c C-r`              (org-reveal)
-        * `C-c C-k`              (show-branches)
-        * `C-c C-x b`            (org-tree-to-indirect-buffer)
-        * `C-c C-x v`            (org-copy-visible)
+        * `C-u C-u <TAB>`        (**org-set-startup-visibility**)
+        * `C-u C-u C-u <TAB>`    (**show-all**) (show all, including drawers)
+        * `C-c C-r`              (**org-reveal**)
+        * `C-c C-k`              (**show-branches**)
+        * `C-c C-x b`            (**org-tree-to-indirect-buffer**)
+        * `C-c C-x v`            (**org-copy-visible**)
     * Initial visibility
         * `#+STARTUP: overview/content/showall/showeverything`
     * Catching invisible edits
@@ -84,35 +84,35 @@ TOC
     * `M-<right>`    (**org-do-demote**)
     * `M-S-<left>`   (**org-promote-subtree**)
     * `M-S-<right>`  (**org-demote-subtree**)
-    * `M-S-<up>`     `org-move-subtree-up`
-    * `M-S-<down>`   `org-move-subtree-down`
-    * `M-h`          `org-mark-element`
-    * `C-c @`        `org-mark-subtree`
-    * `C-c C-x C-w`  `org-cut-subtree`
-    * `C-c C-x M-w`  `org-copy-subtree`
-    * `C-c C-x C-y`  `org-paste-subtree`
-    * `C-y`          `org-yank`  `A good way to force a normal yank is C-u C-y`
-    * `C-c C-x c`    `org-clone-subtree-with-time-shift`
-    * `C-c C-w`      `org-refile`
-    * `C-c ^`        `org-sort`    Narrow buffer
-    * `C-x n s`      `org-narrow-to-subtree`
-    * `C-x n b`      `org-narrow-to-block`
-    * `C-x n w`      `widen`
-    * `C-c *`        `org-toggle-heading`
+    * `M-S-<up>`     (**org-move-subtree-up**)
+    * `M-S-<down>`   (**org-move-subtree-down**)
+    * `M-h`          (**org-mark-element**)
+    * `C-c @`        (**org-mark-subtree**)
+    * `C-c C-x C-w`  (**org-cut-subtree**)
+    * `C-c C-x M-w`  (**org-copy-subtree**)
+    * `C-c C-x C-y`  (**org-paste-subtree**)
+    * `C-y`          (**org-yank**)  `A good way to force a normal yank is C-u C-y`
+    * `C-c C-x c`    (**org-clone-subtree-with-time-shift**)
+    * `C-c C-w`      (**org-refile**)
+    * `C-c ^`        (**org-sort**)    Narrow buffer
+    * `C-x n s`      (**org-narrow-to-subtree**)
+    * `C-x n b`      (**org-narrow-to-block**)
+    * `C-x n w`      (**widen**)
+    * `C-c *`        (**org-toggle-heading**)
 
 6. Sparse trees
-    * `C-c /`                   `org-sparse-tree`
-    * `C-c / r`                 `org-occur`
-    * `M-g n` or `M-g M-n`      `next-error`
-    * `M-g p` or `M-g M-p`      `previous-error`
+    * `C-c /`                   (**org-sparse-tree**)
+    * `C-c / r`                 (**org-occur**)
+    * `M-g n` or `M-g M-n`      (**next-error**)
+    * `M-g p` or `M-g M-p`      (**previous-error**)
 
 7. Plain lists
-    * `org-list-demote-modify-bullet`
-    * `org-list-indent-offset`
+    * (**org-list-demote-modify-bullet**)
+    * (**org-list-indent-offset**)
 
 8. Drawers
-    * `C-c C-x d`     `org-insert-drawer`
-    * `C-c C-z`       `org-add-note`
+    * `C-c C-x d`     (**org-insert-drawer**)
+    * `C-c C-z`       (**org-add-note**)
 
 9. Blocks
     * Org mode uses begin...end blocks for various purposes from including source code examples
@@ -122,16 +122,16 @@ TOC
     * [fn:name]
     * [fn:: This is the inline definition of this footnote]
     * [fn:name: a definition]
-    * `org-footnote-auto-label`, `org-footnote-auto-adjust`
-    * `C-c C-x f`   `org-footnote-action`
+    * (**org-footnote-auto-label**), (**org-footnote-auto-adjust**)
+    * `C-c C-x f`   (**org-footnote-action**)
     * `C-c C-o` or `mouse-1/2`
 
 11. The Orgstruct minor mode
     * Add Hook
     ```
-(add-hook 'message-mode-hook 'turn-on-orgstruct)
-(add-hook 'message-mode-hook 'turn-on-orgstruct++)
-```
+    (add-hook 'message-mode-hook 'turn-on-orgstruct)
+    (add-hook 'message-mode-hook 'turn-on-orgstruct++)
+    ```
 
 12. Org syntax
     * To explore the abstract structure of an Org buffer, run this in a buffer: `M-: (org-element-parse-buffer) RET`
@@ -139,25 +139,18 @@ TOC
 
 
 
-
-
-
-
-
-
-
----
+--------------------------------------------------------------------------------
 
 ### 03. Tables
 
 1. The built-in table editor
     * Example
     ```
-     | Name  | Phone | Age |
-     |-------+-------+-----|
-     | Peter |  1234 |  17 |
-     | Anna  |  4321 |  25 |
-```
+    | Name  | Phone | Age |
+    |-------+-------+-----|
+    | Peter |  1234 |  17 |
+    | Anna  |  4321 |  25 |
+    ```
     * Keys
         * `<RET>`, add line
         * `<TAB>`, align
@@ -167,36 +160,36 @@ TOC
         * `C-u C-u` forces TAB
             * a numeric argument N indicates that at least N consecutive spaces, or alternatively a TAB will be the separator
     * Re-aligning and field motion
-        * `C-c C-c`     `org-table-align`
-        * `<TAB>`       `org-table-next-field`
-        * `S-<TAB>`     `org-table-previous-field`
-        * `<RET>`       `org-table-next-row`
-        * `M-a`         `org-table-beginning-of-field`
-        * `M-e`         `org-table-end-of-field`
+        * `C-c C-c`     (**org-table-align**)
+        * `<TAB>`       (**org-table-next-field**)
+        * `S-<TAB>`     (**org-table-previous-field**)
+        * `<RET>`       (**org-table-next-row**)
+        * `M-a`         (**org-table-beginning-of-field**)
+        * `M-e`         (**org-table-end-of-field**)
     * Column and row editing
-        * `M-<left>`          `org-table-move-column-left`
-        * `M-<right>`         `org-table-move-column-right`
-        * `M-S-<left>`        `org-table-delete-column`
-        * `M-S-<right>`       `org-table-insert-column`
-        * `M-<up>`            `org-table-move-row-up`
-        * `M-<down>`          `org-table-move-row-down`
-        * `M-S-<up>`          `org-table-kill-row`
-        * `M-S-<down>`        `org-table-insert-row`
-        * `C-c -`             `org-table-insert-hline`, pretty like `C-c RET`
-        * `C-c <RET>`         `org-table-hline-and-move`
-        * `C-c ^`             `org-table-sort-lines`
+        * `M-<left>`          (**org-table-move-column-left**)
+        * `M-<right>`         (**org-table-move-column-right**)
+        * `M-S-<left>`        (**org-table-delete-column**)
+        * `M-S-<right>`       (**org-table-insert-column**)
+        * `M-<up>`            (**org-table-move-row-up**)
+        * `M-<down>`          (**org-table-move-row-down**)
+        * `M-S-<up>`          (**org-table-kill-row**)
+        * `M-S-<down>`        (**org-table-insert-row**)
+        * `C-c -`             (**org-table-insert-hline**), pretty like `C-c RET`
+        * `C-c <RET>`         (**org-table-hline-and-move**)
+        * `C-c ^`             (**org-table-sort-lines**)
     * Regions
-        * `C-c C-x M-w`           `org-table-copy-region`
-        * `C-c C-x C->`           `org-table-cut-region`
-        * `C-c C-x C->`           `org-table-paste-rectangle`
-        * `M-<RET>`               `org-table-wrap-region`
+        * `C-c C-x M-w`           (**org-table-copy-region**)
+        * `C-c C-x C->`           (**org-table-cut-region**)
+        * `C-c C-x C->`           (**org-table-paste-rectangle**)
+        * `M-<RET>`               (**org-table-wrap-region**)
     * Calculations
-        * `C-c +`              `org-table-sum`
-        * `S-<RET>`            `org-table-copy-down`   org-table-copy-increment
+        * `C-c +`              (**org-table-sum**)
+        * `S-<RET>`            (**org-table-copy-down**), (**org-table-copy-increment**)
     * Miscellaneous
-        * `C-c `                `org-table-edit-field`
+        * `C-c `                (**org-table-edit-field**)
         * `M-x org-table-import RET`, Import a file as a table
-        * `C-c |`               `org-table-create-or-convert-from-region`
+        * `C-c |`               (**org-table-create-or-convert-from-region**)
         * `M-x org-table-export RET`
         * Disable it: `(setq org-enable-table-editor nil)`
 
@@ -210,12 +203,12 @@ TOC
      | 3 | This is a long chunk of text |     ----/     | 3 | This=> |
      | 4 | four                         |               | 4 | four   |
      |---+------------------------------|               |---+--------|
-```
+     ```
     * `org-startup-align-all-tables`
     ```
-#+STARTUP: align
-#+STARTUP: noalign
-```
+    #+STARTUP: align
+    #+STARTUP: noalign
+    ```
     * `<r>`, `<c>` or `<l>`, or `<r20>`
 
 3. Column groups
@@ -236,6 +229,14 @@ TOC
             * @III+2 which is the second data line after the third hline in the table
             * @0 and $0 refer to the current row and column, respectively
         * Range references
+        ```
+        $1..$3        first three fields in the current row
+        $P..$Q        range, using column names (see under Advanced)
+        $<<<..$>>     start in third column, continue to the one but last
+        @2$1..@4$3    6 fields between these two fields (same as A2..C4)
+        @-1$-2..@-1   3 fields in the row above, starting from 2 columns on the left
+        @I..II        between first and second hline, short for @I..@II
+        ```
         * Field coordinates in formulas
         * Named references
             * `#+CONSTANTS: c=299792458. pi=3.14 eps=2.4e-6`
@@ -254,7 +255,7 @@ TOC
 
 
 
----
+--------------------------------------------------------------------------------
 
 ### 04. Hyperlinks
 
@@ -275,94 +276,91 @@ TOC
     * etc
 
 4. Handling links
-    * `C-c l`            (org-store-link)
-    * `C-c C-l`          (org-insert-link), or just edit current link
-    * `C-c C-o`          (org-open-at-point)
-    * `C-c C-x C-v`      (org-toggle-inline-images)
-    * `C-c %`            (org-mark-ring-push)
-    * `C-c &`            (org-mark-ring-goto)
-    * `C-c C-x C-n`      (org-next-link)
-    * `C-c C-x C-p`      (org-previous-link)
+    * `C-c l`            (**org-store-link**)
+    * `C-c C-l`          (**org-insert-link**), or just edit current link
+    * `C-c C-o`          (**org-open-at-point**)
+    * `C-c C-x C-v`      (**org-toggle-inline-images**)
+    * `C-c %`            (**org-mark-ring-push**)
+    * `C-c &`            (**org-mark-ring-goto**)
+    * `C-c C-x C-n`      (**org-next-link**)
+    * `C-c C-x C-p`      (**org-previous-link**)
 
 5. Using links outside Org
    ```
-(global-set-key "\C-c L" 'org-insert-link-global)
-(global-set-key "\C-c o" 'org-open-at-point-global)
-```
+   (global-set-key "\C-c L" 'org-insert-link-global)
+   (global-set-key "\C-c o" 'org-open-at-point-global)
+   ```
 
 6. Link abbreviations
    ```
-(setq org-link-abbrev-alist
+   (setq org-link-abbrev-alist
        '(("bugzilla"  . "http://10.1.2.9/bugzilla/show_bug.cgi?id=")
          ("url-to-ja" . "http://translate.google.fr/translate?sl=en&tl=ja&u=%h")
          ("google"    . "http://www.google.com/search?q=")
          ("ads"       . "http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?author=%s&db_key=AST")))
-```
+   ```
 
 7. Search options in file links
    ```
-     [[file:~/code/main.c::255]]
-     [[file:~/xx.org::My Target]]
-     [[file:~/xx.org::*My Target]]
-     [[file:~/xx.org::#my-custom-id]]
-     [[file:~/xx.org::/regexp/]]
-```
+   [[file:~/code/main.c::255]]
+   [[file:~/xx.org::My Target]]
+   [[file:~/xx.org::*My Target]]
+   [[file:~/xx.org::#my-custom-id]]
+   [[file:~/xx.org::/regexp/]]
+   ```
 
 8. Custom Searches
 
 
 
-
-
-
----
+--------------------------------------------------------------------------------
 
 ### 05. TODO Items
 
 1. Basic TODO functionality
     * Headline starts with "TODO" will become "TODO": `*** TODO Write letter to Sam Fortune`
-    * `C-c C-t`                   `org-todo`: **(unmarked)** -> **TODO** -> **DONE**
+    * `C-c C-t`                   (**org-todo**): **(unmarked)** -> **TODO** -> **DONE**
     * `C-u C-c C-t`
     * `S-<right> / S-<left>`      like `C-c C-t`
-    * `C-c / t`                   `org-show-todo-tree`
+    * `C-c / t`                   (**org-show-todo-tree**)
     * `C-c / T`
-    * `C-c a t`                   `org-todo-list`
-    * `S-M-<RET>`                 `org-insert-todo-heading`
+    * `C-c a t`                   (**org-todo-list**)
+    * `S-M-<RET>`                 (**org-insert-todo-heading**)
 
 2. Extended use of TODO keywords
     * TODO keywords as workflow states
     ```
-(setq org-todo-keywords
+    (setq org-todo-keywords
        '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
-```
+    ```
     * TODO keywords as types
     ```
-(setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
-```
+    (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
+    ```
     * Multiple keyword sets in one file
     ```
-(setq org-todo-keywords
+    (setq org-todo-keywords
            '((sequence "TODO" "|" "DONE")
              (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
              (sequence "|" "CANCELED")))
-```
+    ```
     * Fast access to TODO states (`C-c C-t` to select)
     ```
-(setq org-todo-keywords
+    (setq org-todo-keywords
            '((sequence "TODO(t)" "|" "DONE(d)")
              (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
              (sequence "|" "CANCELED(c)")))
-```
+    ```
     * Setting up keywords for individual files
         * `#+TODO: TODO FEEDBACK VERIFY | DONE CANCELED`
         * `#+SEQ_TODO: Seq1 Seq2 | Seq-done`
         * `#+TYP_TODO: Fred Sara Lucy Mike | DONE`
     * Faces for TODO keywords
     ```
-(setq org-todo-keyword-faces
+    (setq org-todo-keyword-faces
            '(("TODO" . org-warning) ("STARTED" . "yellow")
              ("CANCELED" . (:foreground "blue" :weight bold))))
-```
+    ```
     * TODO dependencies
         * C-c C-x o     (org-toggle-ordered-property)
         * C-u C-u C-u C-c C-t: Change TODO state, circumventing any state blocking.
@@ -384,9 +382,9 @@ TOC
 
 4. Priorities
     * `*** TODO [#A] Write letter to Sam Fortune`
-    * `C-c ,`          `org-priority`, setup priorities
-    * `S-<up>`         `org-priority-up`
-    * `S-<down>`       `org-priority-down`
+    * `C-c ,`          (**org-priority**), setup priorities
+    * `S-<up>`         (**org-priority-up**)
+    * `S-<down>`       (**org-priority-down**)
 
 5. Breaking tasks down into subtasks
     * Insert either ‘[/]’ or ‘[%]’ anywhere in the headline
@@ -394,11 +392,11 @@ TOC
 6. Checkboxes
     * `[ ]`, `[/]`, `[%]`
     * `C-c C-c`,                togggle checked/unchecked
-    * `C-c C-c`                 `org-toggle-checkbox`
-    * `C-c C-x C-b`             `org-toggle-checkbox`
-    * `M-S-<RET>`               `org-insert-todo-heading`
-    * `C-c C-x o`               `org-toggle-ordered-property`
-    * `C-c #`                   `org-update-statistics-cookies`, `C-u C-c` to update whole file
+    * `C-c C-c`                 (**org-toggle-checkbox**)
+    * `C-c C-x C-b`             (**org-toggle-checkbox**)
+    * `M-S-<RET>`               (**org-insert-todo-heading**)
+    * `C-c C-x o`               (**org-toggle-ordered-property**)
+    * `C-c #`                   (**org-update-statistics-cookies**), `C-u C-c` to update whole file
 
 ![][checkboxes]
 
@@ -411,33 +409,33 @@ TOC
     * `#+FILETAGS: :Peter:Boss:Secret:`
 
 2. Setting tags
-    * `C-c C-q`     `org-set-tags-command`
-    * `C-c C-c`     `org-set-tags-command`, when the cursor in the headline
-    * `org-tag-alist`, `org-tag-persistent-alist`
+    * `C-c C-q`     (**org-set-tags-command**)
+    * `C-c C-c`     (**org-set-tags-command**), when the cursor in the headline
+    * `org-tag-alist`, (**org-tag-persistent-alist**)
     ```
-#+TAGS: @work @home @tennisclub
-#+TAGS: laptop car pc sailboat
-#+TAGS: @work(w)  @home(h)  @tennisclub(t)  laptop(l)  pc(p)
-#+STARTUP: noptag
-(setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
-```
+    #+TAGS: @work @home @tennisclub
+    #+TAGS: laptop car pc sailboat
+    #+TAGS: @work(w)  @home(h)  @tennisclub(t)  laptop(l)  pc(p)
+    #+STARTUP: noptag
+    (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
+    ```
 
 3. Tag groups
     * groups
     ```
-#+TAGS: { @read : @read_book @read_ebook }
-(setq org-tag-alist '((:startgroup . nil)
+    #+TAGS: { @read : @read_book @read_ebook }
+    (setq org-tag-alist '((:startgroup . nil)
                            ("@read" . nil)
                            (:grouptags . nil)
                            ("@read_book" . nil)
                            ("@read_ebook" . nil)
                            (:endgroup . nil)))
-```
+    ```
 
 4. Tag searches
-    * C-c / m or C-c \     (org-match-sparse-tree)
-    * C-c a m     (org-tags-view)
-    * C-c a M     (org-tags-view)
+    * `C-c / m` or `C-c \`     (**org-match-sparse-tree**)
+    * `C-c a m`              (**org-tags-view**)
+    * `C-c a M`              (org-tags-view)
 
 
 
