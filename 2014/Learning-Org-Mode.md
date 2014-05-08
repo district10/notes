@@ -435,14 +435,57 @@ TOC
 4. Tag searches
     * `C-c / m` or `C-c \`     (**org-match-sparse-tree**)
     * `C-c a m`              (**org-tags-view**)
-    * `C-c a M`              (org-tags-view)
+    * `C-c a M`              (**org-tags-view**)
 
 
 
 
----
+--------------------------------------------------------------------------------
 
 ### 07. Properties
+
+1. Property syntax
+    * `M-<TAB>`                                              (**pcomplete**)
+    * `C-c C-x p`                                            (**org-set-property**)
+    * `C-u M-x org-insert-drawer RET`
+    * `C-c C-c`                                              (**org-property-action**)
+    * `C-c C-c s`                                            (**org-set-property**)
+    * `S-<right>`                                            (**org-property-next-allowed-value**)
+    * `S-<left>`                                             (**org-property-previous-allowed-value**)
+    * `C-c C-c d`                                            (**org-delete-property**)
+    * `C-c C-c D`                                            (**org-delete-property-globally**)
+    * `C-c C-c c`                                            (**org-compute-property-at-point**)
+
+2. Special properties 
+    ```
+    ID           A globally unique ID used for synchronization during
+                 iCalendar or MobileOrg export.
+    TODO         The TODO keyword of the entry.
+    TAGS         The tags defined directly in the headline.
+    ALLTAGS      All tags, including inherited ones.
+    CATEGORY     The category of an entry.
+    PRIORITY     The priority of the entry, a string with a single letter.
+    DEADLINE     The deadline time string, without the angular brackets.
+    SCHEDULED    The scheduling timestamp, without the angular brackets.
+    CLOSED       When was this entry closed?
+    TIMESTAMP    The first keyword-less timestamp in the entry.
+    TIMESTAMP_IA The first inactive timestamp in the entry.
+    CLOCKSUM     The sum of CLOCK intervals in the subtree.  org-clock-sum
+                 must be run first to compute the values in the current buffer.
+    CLOCKSUM_T   The sum of CLOCK intervals in the subtree for today.
+                 org-clock-sum-today must be run first to compute the
+                 values in the current buffer.
+    BLOCKED      "t" if task is currently blocked by children or siblings
+    ITEM         The headline of the entry.
+    FILE         The filename the entry is located in.
+    ```
+
+
+
+
+
+
+
 
 
 
