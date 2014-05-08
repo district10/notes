@@ -80,7 +80,7 @@ Learning Vim
 5. Notes
     * `cc`, `dd`, `yy`, apply to line
     * `C`, `D`, `S` apply from current position to end, while `Y`, the whole line
-    * `C` === `c$`, `D` === `d$`, but `Y` === `yy`, `instead of `y$`
+    * `C` === `c$`, `D` === `d$`, but `Y` === `yy`, instead of `y$`
     *
 
 Overall
