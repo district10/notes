@@ -397,8 +397,7 @@ TOC
     * `M-S-<RET>`               (**org-insert-todo-heading**)
     * `C-c C-x o`               (**org-toggle-ordered-property**)
     * `C-c #`                   (**org-update-statistics-cookies**), `C-u C-c` to update whole file
-
-![][checkboxes]
+    ![][checkboxes]
 
 
 ---
@@ -480,16 +479,92 @@ TOC
     FILE         The filename the entry is located in.
     ```
 
+3. Property searches
+    * `C-c / m` or `C-c \`    (**org-match-sparse-tree*8)
+    * `C-c a m`               (**org-tags-view**)
+    * `C-c a M`               (**org-tags-view**)
+    * `C-c / p`
+
+4. Property Inheritance
+
+5. Column view
+    * Defining columns
+        * Scope of column definitions 
+            * to entire file
+            ```
+            #+COLUMNS: %25ITEM %TAGS %PRIORITY %TODO
+            ```
+            * to a specific tree
+            ```
+            ** Top node for columns view
+               :PROPERTIES:
+               :COLUMNS: %25ITEM %TAGS %PRIORITY %TODO
+               :END:
+            ```
+        * Column attributes: `%[width]property[(title)][{summary-type}]`
+    * Using column view
+        * Turning column view on and off    
+            * C-c C-x C-c     (org-columns)
+            * r     (org-columns-redo)
+            * g     (org-columns-redo)
+            * q     (org-columns-quit)
+        * Editing values      
+            * `<left>`, `<right>`, `<up>`, `<down>`
+            * `S-<left>/<right>`, switch values
+            * `1..9,0`, Directly select the Nth allowed value, 0 selects the 10th value
+            * n     (org-columns-next-allowed-value)
+            * <TODO> 
+        * Modifying the table structure    
+            * <     (org-columns-narrow)  by one char
+            * >     (org-columns-widen)    by one char
+            * S-M-<right>     (org-columns-new)
+            * S-M-<left>     (org-columns-delete)
+    * Capturing column view
+        * column view, an overlay over a buffer, so cant be printed directly. To capture a column view, use a **columnview dynamic block**
+        ```
+        * The column view
+        #+BEGIN: columnview :hlines 1 :id "label"
+        #+END:
+        ```
+        * Dynamic Block has the Following Parameters:
+            * `:id`
+            * `:hlines`
+            * `:vlines`
+            * `:maxlevel`
+        * Insert Or Update The Dynamic Block:
+            * C-c C-x i     (org-insert-columns-dblock)
+            * C-c C-c or C-c C-x C-u     (org-dblock-update)
+            * C-u C-c C-x C-u     (org-update-all-dblocks)
+ 
+6. [The Property API][property-api]
 
 
 
 
-
-
-
-
+--------------------------------------------------------------------------------
 
 ### 08. Dates and Times
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 09. Capture ### Refile ### Archive
 ### 10. Agenda Views
 ### 11. Markup for rich export
@@ -503,3 +578,4 @@ TOC
 
 [org-manual]: http://orgmode.org/org.html
 [checkboxes]: src/org-todo-progress.png
+[property-api]: http://orgmode.org/org.html#Using-the-property-API
