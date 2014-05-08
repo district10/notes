@@ -210,7 +210,6 @@ TOC
     * Calculations
         * `C-c +`              `org-table-sum`
         * `S-<RET>`            `org-table-copy-down`   org-table-copy-increment
-
     * Miscellaneous
         * `C-c `                `org-table-edit-field`
         * `M-x org-table-import RET`, Import a file as a table
