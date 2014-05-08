@@ -93,12 +93,12 @@ TOC
     * `C-c C-x C-y`  `org-paste-subtree`
     * `C-y`          `org-yank`  `A good way to force a normal yank is C-u C-y`
     * `C-c C-x c`    `org-clone-subtree-with-time-shift`
-    * `C-c C-w`     `org-refile`
-    * `C-c ^`       `org-sort`    Narrow buffer
-    * `C-x n s`     `org-narrow-to-subtree`
-    * `C-x n b`     `org-narrow-to-block`
-    * `C-x n w`     `widen`
-    * `C-c *`       `org-toggle-heading`
+    * `C-c C-w`      `org-refile`
+    * `C-c ^`        `org-sort`    Narrow buffer
+    * `C-x n s`      `org-narrow-to-subtree`
+    * `C-x n b`      `org-narrow-to-block`
+    * `C-x n w`      `widen`
+    * `C-c *`        `org-toggle-heading`
 
 6. Sparse trees
     * `C-c /`                   `org-sparse-tree`
@@ -111,8 +111,8 @@ TOC
     * `org-list-indent-offset`
 
 8. Drawers
-    * `C-c C-x d`     org-insert-drawer
-    * `C-c C-z`       org-add-note
+    * `C-c C-x d`     `org-insert-drawer`
+    * `C-c C-z`       `org-add-note`
 
 9. Blocks
     * Org mode uses begin...end blocks for various purposes from including source code examples
@@ -141,29 +141,29 @@ TOC
 ### 03. Tables
 
 1. The built-in table editor
-    1. Example
+    * Example
 ```
      | Name  | Phone | Age |
      |-------+-------+-----|
      | Peter |  1234 |  17 |
      | Anna  |  4321 |  25 |
 ```
-    2. Keys
+    * Keys
         * `<RET>`, add line
         * `<TAB>`, align
         * `C-c RET`, add horizontal spliter, like  `| one | two`, then `C-c RET`
-    3. **Creation and conversion**: `C-c |`, `org-table-create-or-convert-from-region`
+    * **Creation and conversion**: `C-c |`, `org-table-create-or-convert-from-region`
         * `C-u` forces CSV
         * `C-u C-u` forces TAB
             * a numeric argument N indicates that at least N consecutive spaces, or alternatively a TAB will be the separator
-    4. Re-aligning and field motion
+    * Re-aligning and field motion
         * `C-c C-c`     `org-table-align`
         * `<TAB>`       `org-table-next-field`
         * `S-<TAB>`     `org-table-previous-field`
         * `<RET>`       `org-table-next-row`
         * `M-a`         `org-table-beginning-of-field`
         * `M-e`         `org-table-end-of-field`
-    5. Column and row editing
+    * Column and row editing
         * `M-<left>`          `org-table-move-column-left`
         * `M-<right>`         `org-table-move-column-right`
         * `M-S-<left>`        `org-table-delete-column`
@@ -175,16 +175,16 @@ TOC
         * `C-c -`             `org-table-insert-hline`, pretty like `C-c RET`
         * `C-c <RET>`         `org-table-hline-and-move`
         * `C-c ^`             `org-table-sort-lines`
-    6. Regions
+    * Regions
         * `C-c C-x M-w`           `org-table-copy-region`
         * `C-c C-x C->`           `org-table-cut-region`
         * `C-c C-x C->`           `org-table-paste-rectangle`
         * `M-<RET>`               `org-table-wrap-region`
-    7. Calculations
+    * Calculations
         * `C-c +`              `org-table-sum`
         * `S-<RET>`            `org-table-copy-down`   org-table-copy-increment
 
-    8. Miscellaneous
+    * Miscellaneous
         * `C-c `                `org-table-edit-field`
         * `M-x org-table-import RET`, Import a file as a table
         * `C-c |`               `org-table-create-or-convert-from-region`
@@ -192,7 +192,7 @@ TOC
         * Disable it: `(setq org-enable-table-editor nil)`
 
 2. Column width and alignment
-    1. Specify Col Width
+    * Specify Col Width
 ```
      |---+------------------------------|               |---+--------|
      |   |                              |               |   | <6>    |
@@ -202,15 +202,15 @@ TOC
      | 4 | four                         |               | 4 | four   |
      |---+------------------------------|               |---+--------|
 ```
-    2. `org-startup-align-all-tables`
+    * `org-startup-align-all-tables`
 ```
 #+STARTUP: align
 #+STARTUP: noalign
 ```
-    3. `<r>`, `<c>` or `<l>`, or `<r20>`
+    * `<r>`, `<c>` or `<l>`, or `<r20>`
 
 3. Column groups
-    1. A special row where the first field contains only ‘/’
+    * A special row where the first field contains only ‘/’
 
 4. The Orgtbl minor mode
     * `(add-hook 'message-mode-hook 'turn-on-orgtbl)`
@@ -250,6 +250,8 @@ TOC
     * Updating the table
     * Advanced features
 
+6. Org-Plot
+
 ---
 
 ```
@@ -263,8 +265,6 @@ TOC
 |  5 |  25 |  125 |   625 | 2.2360680 |  1.4953488 |
 #+TBLFM: $2=$1^2::$3=$1^3::$4=$1^4::$5=sqrt($1)::$6=sqrt(sqrt(($1))) # `C-c C-c` to eval
 ```
-
-6. Org-Plot
 
 
 
@@ -299,13 +299,15 @@ TOC
     * `C-c C-x C-p`      `org-previous-link`
 
 5. Using links outside Org
+
 ```
 (global-set-key "\C-c L" 'org-insert-link-global)
 (global-set-key "\C-c o" 'org-open-at-point-global)
 ```
 
 6. Link abbreviations
-   ```
+
+```
 (setq org-link-abbrev-alist
        '(("bugzilla"  . "http://10.1.2.9/bugzilla/show_bug.cgi?id=")
          ("url-to-ja" . "http://translate.google.fr/translate?sl=en&tl=ja&u=%h")
@@ -314,6 +316,7 @@ TOC
 ```
  
 7. Search options in file links
+
 ```
      [[file:~/code/main.c::255]]
      [[file:~/xx.org::My Target]]
@@ -348,21 +351,27 @@ TOC
 
 2. Extended use of TODO keywords
     * TODO keywords as workflow states
+
 ```
 (setq org-todo-keywords
        '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
 ```
+
     * TODO keywords as types  
+
 ```
 (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
 ```
+
     * Multiple keyword sets in one file   
+
 ```
 (setq org-todo-keywords
            '((sequence "TODO" "|" "DONE")
              (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
              (sequence "|" "CANCELED")))
 ```    
+
     * Fast access to TODO states (`C-c C-t` to select)
 ```
 (setq org-todo-keywords
@@ -370,11 +379,13 @@ TOC
              (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
              (sequence "|" "CANCELED(c)")))
 ```
+
     * Setting up keywords for individual files
         * `#+TODO: TODO FEEDBACK VERIFY | DONE CANCELED`
         * `#+SEQ_TODO: Seq1 Seq2 | Seq-done`
         * `#+TYP_TODO: Fred Sara Lucy Mike | DONE`          
     * Faces for TODO keywords
+
 ```
 (setq org-todo-keyword-faces
            '(("TODO" . org-warning) ("STARTED" . "yellow")
@@ -392,6 +403,7 @@ TOC
         * "!", for **timestamp**
         * "@", for **note with timestamp**
         * Set it up
+
 ```
 (setq org-todo-keywords
        '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
@@ -432,6 +444,7 @@ TOC
     * `C-c C-q`     `org-set-tags-command`
     * `C-c C-c`     `org-set-tags-command`, when the cursor in the headline
     * `org-tag-alist`, `org-tag-persistent-alist` 
+
 ``` 
 #+TAGS: @work @home @tennisclub
 #+TAGS: laptop car pc sailboat
@@ -439,12 +452,14 @@ TOC
 #+STARTUP: noptag
 ``` 
 
+
 ```
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
 ``` 
 
 3. Tag groups
     * groups
+
 ```
 #+TAGS: { @read : @read_book @read_ebook }
 (setq org-tag-alist '((:startgroup . nil)
