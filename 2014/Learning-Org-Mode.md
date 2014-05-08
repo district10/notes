@@ -263,7 +263,7 @@ TOC
 ```
         * Field coordinates in formulas [TODO]
         * Named references [TODO]
-            * #+CONSTANTS: c=299792458. pi=3.14 eps=2.4e-6
+            * `#+CONSTANTS: c=299792458. pi=3.14 eps=2.4e-6`
             * `org-table-formula-constants`
     * Formula syntax for Calc
     * Emacs Lisp forms as formulas
