@@ -57,6 +57,8 @@ Learning Vim
         * `db`, by word, backward
         * `dd`, delete line
         * `d$, d[End], D`, delete to end of line
+        * `dto`, `dTx`, delete to(not include) "x", forward / backward
+        * `d/th`, delete until first match of "th"
     * `s`, substitude
         * `s`(one and more char), `S`(whole line).
     * `x, X`, delete one char, forward, or backward, respectively   (not necessary)
