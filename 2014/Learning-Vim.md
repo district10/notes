@@ -66,6 +66,8 @@ Learning Vim
         * `xp, Xp`, swap two chars
     * `y`, yank;
     * `p`, put;
+        * `$p`, paste to end of line
+        * `0P`, `^P`, paste to begin of line
 
 3. General Form of vi Commands
     * `cc, dd, yy`
