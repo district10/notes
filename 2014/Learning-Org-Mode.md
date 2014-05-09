@@ -826,7 +826,7 @@ TOC
 
 ### 10. Agenda Views
 
-0. Before
+* Before
     * Org can select items based on various criteria and display them in a separate buffer. Seven different view types are provided:
         * an **agenda** that is like a calendar and shows information for specific dates,
         * a **TODO** list that covers all unfinished action items,
@@ -836,7 +836,6 @@ TOC
         * a **stuck projects view** showing projects that currently don't move along, and
         * **custom views** that are special searches and combinations of different views.
     * agenda buffer (read-only)
-
 
 1. Agenda files
     * `org-agenda-files`
