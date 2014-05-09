@@ -145,12 +145,12 @@ TOC
 
 1. The built-in table editor
     * Example
-      ```
-      | Name  | Phone | Age |
-      |-------+-------+-----|
-      | Peter |  1234 |  17 |
-      | Anna  |  4321 |  25 |
-      ```
+    ```
+        | Name  | Phone | Age |
+        |-------+-------+-----|
+        | Peter |  1234 |  17 |
+        | Anna  |  4321 |  25 |
+    ```
     * Keys
         * `<RET>`, add line
         * `<TAB>`, align
@@ -196,18 +196,18 @@ TOC
 2. Column width and alignment
     * Specify Col Width
     ```
-     |---+------------------------------|               |---+--------|
-     |   |                              |               |   | <6>    |
-     | 1 | one                          |               | 1 | one    |
-     | 2 | two                          |     ----\     | 2 | two    |
-     | 3 | This is a long chunk of text |     ----/     | 3 | This=> |
-     | 4 | four                         |               | 4 | four   |
-     |---+------------------------------|               |---+--------|
-     ```
+        |---+------------------------------|               |---+--------|
+        |   |                              |               |   | <6>    |
+        | 1 | one                          |               | 1 | one    |
+        | 2 | two                          |     ----\     | 2 | two    |
+        | 3 | This is a long chunk of text |     ----/     | 3 | This=> |
+        | 4 | four                         |               | 4 | four   |
+        |---+------------------------------|               |---+--------|
+    ```
     * `org-startup-align-all-tables`
     ```
-    #+STARTUP: align
-    #+STARTUP: noalign
+            #+STARTUP: align
+            #+STARTUP: noalign
     ```
     * `<r>`, `<c>` or `<l>`, or `<r20>`
 
@@ -230,12 +230,12 @@ TOC
             * `@0` and `$0` refer to the current row and column, respectively
         * Range references
         ```
-        $1..$3        first three fields in the current row
-        $P..$Q        range, using column names (see under Advanced)
-        $<<<..$>>     start in third column, continue to the one but last
-        @2$1..@4$3    6 fields between these two fields (same as A2..C4)
-        @-1$-2..@-1   3 fields in the row above, starting from 2 columns on the left
-        @I..II        between first and second hline, short for @I..@II
+            $1..$3        first three fields in the current row
+            $P..$Q        range, using column names (see under Advanced)
+            $<<<..$>>     start in third column, continue to the one but last
+            @2$1..@4$3    6 fields between these two fields (same as A2..C4)
+            @-1$-2..@-1   3 fields in the row above, starting from 2 columns on the left
+            @I..II        between first and second hline, short for @I..@II
         ```
         * Field coordinates in formulas
         * Named references
@@ -302,11 +302,11 @@ TOC
 
 7. Search options in file links
    ```
-   [[file:~/code/main.c::255]]
-   [[file:~/xx.org::My Target]]
-   [[file:~/xx.org::*My Target]]
-   [[file:~/xx.org::#my-custom-id]]
-   [[file:~/xx.org::/regexp/]]
+       [[file:~/code/main.c::255]]
+       [[file:~/xx.org::My Target]]
+       [[file:~/xx.org::*My Target]]
+       [[file:~/xx.org::#my-custom-id]]
+       [[file:~/xx.org::/regexp/]]
    ```
 
 8. Custom Searches
@@ -330,26 +330,26 @@ TOC
 2. Extended use of TODO keywords
     * TODO keywords as workflow states
     ```
-    (setq org-todo-keywords
-       '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
+        (setq org-todo-keywords
+           '((sequence "TODO" "FEEDBACK" "VERIFY" "|" "DONE" "DELEGATED")))
     ```
     * TODO keywords as types
     ```
-    (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
+        (setq org-todo-keywords '((type "Fred" "Sara" "Lucy" "|" "DONE")))
     ```
     * Multiple keyword sets in one file
     ```
-    (setq org-todo-keywords
-           '((sequence "TODO" "|" "DONE")
-             (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
-             (sequence "|" "CANCELED")))
+        (setq org-todo-keywords
+               '((sequence "TODO" "|" "DONE")
+                 (sequence "REPORT" "BUG" "KNOWNCAUSE" "|" "FIXED")
+                 (sequence "|" "CANCELED")))
     ```
     * Fast access to TODO states (`C-c C-t` to select)
     ```
-    (setq org-todo-keywords
-           '((sequence "TODO(t)" "|" "DONE(d)")
-             (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
-             (sequence "|" "CANCELED(c)")))
+        (setq org-todo-keywords
+               '((sequence "TODO(t)" "|" "DONE(d)")
+                 (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
+                 (sequence "|" "CANCELED(c)")))
     ```
     * Setting up keywords for individual files
         * `#+TODO: TODO FEEDBACK VERIFY | DONE CANCELED`
@@ -357,9 +357,9 @@ TOC
         * `#+TYP_TODO: Fred Sara Lucy Mike | DONE`
     * Faces for TODO keywords
     ```
-    (setq org-todo-keyword-faces
-           '(("TODO" . org-warning) ("STARTED" . "yellow")
-             ("CANCELED" . (:foreground "blue" :weight bold))))
+        (setq org-todo-keyword-faces
+               '(("TODO" . org-warning) ("STARTED" . "yellow")
+                 ("CANCELED" . (:foreground "blue" :weight bold))))
     ```
     * TODO dependencies
         * C-c C-x o     (org-toggle-ordered-property)
@@ -374,8 +374,8 @@ TOC
         * "@", for **note with timestamp**
         * Set it up
         ```
-        (setq org-todo-keywords
-              '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
+            (setq org-todo-keywords
+                  '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
         ```
         * Or set logging preferences local to a buffer: `#+TODO: TODO(t) WAIT(w@/!) | DONE(d!) CANCELED(c@)`
     * Tracking your habits
@@ -412,23 +412,23 @@ TOC
     * `C-c C-c`     (**org-set-tags-command**), when the cursor in the headline
     * `org-tag-alist`, (**org-tag-persistent-alist**)
     ```
-    #+TAGS: @work @home @tennisclub
-    #+TAGS: laptop car pc sailboat
-    #+TAGS: @work(w)  @home(h)  @tennisclub(t)  laptop(l)  pc(p)
-    #+STARTUP: noptag
-    (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
+        #+TAGS: @work @home @tennisclub
+        #+TAGS: laptop car pc sailboat
+        #+TAGS: @work(w)  @home(h)  @tennisclub(t)  laptop(l)  pc(p)
+        #+STARTUP: noptag
+        (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
     ```
 
 3. Tag groups
     * groups
     ```
-    #+TAGS: { @read : @read_book @read_ebook }
-    (setq org-tag-alist '((:startgroup . nil)
-                           ("@read" . nil)
-                           (:grouptags . nil)
-                           ("@read_book" . nil)
-                           ("@read_ebook" . nil)
-                           (:endgroup . nil)))
+        #+TAGS: { @read : @read_book @read_ebook }
+        (setq org-tag-alist '((:startgroup . nil)
+                               ("@read" . nil)
+                               (:grouptags . nil)
+                               ("@read_book" . nil)
+                               ("@read_ebook" . nil)
+                               (:endgroup . nil)))
     ```
 
 4. Tag searches
@@ -457,26 +457,26 @@ TOC
 
 2. Special properties 
     ```
-    ID           A globally unique ID used for synchronization during
-                 iCalendar or MobileOrg export.
-    TODO         The TODO keyword of the entry.
-    TAGS         The tags defined directly in the headline.
-    ALLTAGS      All tags, including inherited ones.
-    CATEGORY     The category of an entry.
-    PRIORITY     The priority of the entry, a string with a single letter.
-    DEADLINE     The deadline time string, without the angular brackets.
-    SCHEDULED    The scheduling timestamp, without the angular brackets.
-    CLOSED       When was this entry closed?
-    TIMESTAMP    The first keyword-less timestamp in the entry.
-    TIMESTAMP_IA The first inactive timestamp in the entry.
-    CLOCKSUM     The sum of CLOCK intervals in the subtree.  org-clock-sum
-                 must be run first to compute the values in the current buffer.
-    CLOCKSUM_T   The sum of CLOCK intervals in the subtree for today.
-                 org-clock-sum-today must be run first to compute the
-                 values in the current buffer.
-    BLOCKED      "t" if task is currently blocked by children or siblings
-    ITEM         The headline of the entry.
-    FILE         The filename the entry is located in.
+        ID           A globally unique ID used for synchronization during
+                     iCalendar or MobileOrg export.
+        TODO         The TODO keyword of the entry.
+        TAGS         The tags defined directly in the headline.
+        ALLTAGS      All tags, including inherited ones.
+        CATEGORY     The category of an entry.
+        PRIORITY     The priority of the entry, a string with a single letter.
+        DEADLINE     The deadline time string, without the angular brackets.
+        SCHEDULED    The scheduling timestamp, without the angular brackets.
+        CLOSED       When was this entry closed?
+        TIMESTAMP    The first keyword-less timestamp in the entry.
+        TIMESTAMP_IA The first inactive timestamp in the entry.
+        CLOCKSUM     The sum of CLOCK intervals in the subtree.  org-clock-sum
+                     must be run first to compute the values in the current buffer.
+        CLOCKSUM_T   The sum of CLOCK intervals in the subtree for today.
+                     org-clock-sum-today must be run first to compute the
+                     values in the current buffer.
+        BLOCKED      "t" if task is currently blocked by children or siblings
+        ITEM         The headline of the entry.
+        FILE         The filename the entry is located in.
     ```
 
 3. Property searches
@@ -492,14 +492,14 @@ TOC
         * Scope of column definitions 
             * to entire file
             ```
-            #+COLUMNS: %25ITEM %TAGS %PRIORITY %TODO
+                #+COLUMNS: %25ITEM %TAGS %PRIORITY %TODO
             ```
             * to a specific tree
             ```
-            ** Top node for columns view
-               :PROPERTIES:
-               :COLUMNS: %25ITEM %TAGS %PRIORITY %TODO
-               :END:
+                ** Top node for columns view
+                   :PROPERTIES:
+                   :COLUMNS: %25ITEM %TAGS %PRIORITY %TODO
+                   :END:
             ```
         * Column attributes: `%[width]property[(title)][{summary-type}]`
     * Using column view
@@ -522,9 +522,9 @@ TOC
     * Capturing column view
         * column view, an overlay over a buffer, so cant be printed directly. To capture a column view, use a **columnview dynamic block**
         ```
-        * The column view
-        #+BEGIN: columnview :hlines 1 :id "label"
-        #+END:
+            * The column view
+            #+BEGIN: columnview :hlines 1 :id "label"
+            #+END:
         ```
         * Dynamic Block has the Following Parameters:
             * `:id`
@@ -569,30 +569,30 @@ TOC
     * Format I.
         * 1.
         ```
-        +0            ⇒ today
-        .             ⇒ today
-        +4d           ⇒ four days from today
-        +4            ⇒ same as above
-        +2w           ⇒ two weeks from today
-        ++5           ⇒ five days from default date
-        +2tue         ⇒ second Tuesday from now
-        -wed          ⇒ last Wednesday
-        ```
+            +0            ⇒ today
+            .             ⇒ today
+            +4d           ⇒ four days from today
+            +4            ⇒ same as above
+            +2w           ⇒ two weeks from today
+            ++5           ⇒ five days from default date
+            +2tue         ⇒ second Tuesday from now
+            -wed          ⇒ last Wednesday
+            ```
         * 2. 
         ```
-        11am-1:15pm    ⇒ 11:00-13:15
-        11am--1:15pm   ⇒ same as above
-        11am+2:15      ⇒ same as above
+            11am-1:15pm    ⇒ 11:00-13:15
+            11am--1:15pm   ⇒ same as above
+            11am+2:15      ⇒ same as above
         ```
         * 3.
         ```
-        <RET>                     Choose date at cursor in calendar.
-        mouse-1                   Select date by clicking on it.
-        S-<right>/<left>          One day forward/backward.
-        S-<down>/<up>             One week forward/backward.
-        M-S-<right>/<left>        One month forward/backward.
-        > / <                     Scroll calendar forward/backward by one month.
-        M-v / C-v                 Scroll calendar forward/backward by 3 months.
+            <RET>                     Choose date at cursor in calendar.
+            mouse-1                   Select date by clicking on it.
+            S-<right>/<left>          One day forward/backward.
+            S-<down>/<up>             One week forward/backward.
+            M-S-<right>/<left>        One month forward/backward.
+            > / <                     Scroll calendar forward/backward by one month.
+            M-v / C-v                 Scroll calendar forward/backward by 3 months.
         ``` 
     * Custom time format
         * C-c C-x C-t     (org-toggle-time-stamp-overlays)
@@ -660,8 +660,8 @@ TOC
 1. Capture
     * Setting up capture
     ```
-    (setq org-default-notes-file (concat org-directory "/notes.org"))
-    (define-key global-map "\C-cc" 'org-capture)
+        (setq org-default-notes-file (concat org-directory "/notes.org"))
+        (define-key global-map "\C-cc" 'org-capture)
     ```    
     * Using capture
         * C-c c     (org-capture)
@@ -674,16 +674,16 @@ TOC
         * C-c c C   org-capture-templates
         * Setup a template
         ```
-        (setq org-capture-templates
-              '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
-                     "* TODO %?\n  %i\n  %a")
-                ("j" "Journal" entry (file+datetree "~/org/journal.org")
-                     "* %?\nEntered on %U\n  %i\n  %a")))
+            (setq org-capture-templates
+                  '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+                         "* TODO %?\n  %i\n  %a")
+                    ("j" "Journal" entry (file+datetree "~/org/journal.org")
+                         "* %?\nEntered on %U\n  %i\n  %a")))
         ```
         * Difine Your Shortcut
         ```
-        (define-key global-map "\C-cx"
-             (lambda () (interactive) (org-capture nil "x")))
+            (define-key global-map "\C-cx"
+                 (lambda () (interactive) (org-capture nil "x")))
         ```
         * Template elements
             * keys: ("b" "Templates for marking stuff to buy"), "b" is the key. 
@@ -705,43 +705,43 @@ TOC
         * Template expansion
             * In the template itself, special %-escapes92 allow dynamic insertion of content.
             ```
-            %[file]     Insert the contents of the file given by file.
-            %(sexp)     Evaluate Elisp sexp and replace with the result.
-                           For convenience, %:keyword (see below) placeholders
-                           within the expression will be expanded prior to this.
-                           The sexp must return a string.
-            %<...>      The result of format-time-string on the ... format specification.
-            %t          Timestamp, date only.
-            %T          Timestamp, with date and time.
-            %u, %U      Like the above, but inactive timestamps.
-            %i          Initial content, the region when capture is called while the
-                        region is active.
-                        The entire text will be indented like %i itself.
-            %a          Annotation, normally the link created with org-store-link.
-            %A          Like %a, but prompt for the description part.
-            %l          Like %a, but only insert the literal link.
-            %c          Current kill ring head.
-            %x          Content of the X clipboard.
-            %k          Title of the currently clocked task.
-            %K          Link to the currently clocked task.
-            %n          User name (taken from user-full-name).
-            %f          File visited by current buffer when org-capture was called.
-            %F          Full path of the file or directory visited by current buffer.
-            %:keyword   Specific information for certain link types, see below.
-            %^g         Prompt for tags, with completion on tags in target file.
-            %^G         Prompt for tags, with completion all tags in all agenda files.
-            %^t         Like %t, but prompt for date.  Similarly %^T, %^u, %^U.
-                        You may define a prompt like %^{Birthday}t.
-            %^C         Interactive selection of which kill or clip to use.
-            %^L         Like %^C, but insert as link.
-            %^{prop}p   Prompt the user for a value for property prop.
-            %^{prompt}  prompt the user for a string and replace this sequence with it.
-                        You may specify a default value and a completion table with
-                        %^{prompt|default|completion2|completion3...}.
-                        The arrow keys access a prompt-specific history.
-            %\n         Insert the text entered at the nth %^{prompt}, where n is
-                        a number, starting from 1.
-            %?          After completing the template, position cursor here.
+                %[file]     Insert the contents of the file given by file.
+                %(sexp)     Evaluate Elisp sexp and replace with the result.
+                               For convenience, %:keyword (see below) placeholders
+                               within the expression will be expanded prior to this.
+                               The sexp must return a string.
+                %<...>      The result of format-time-string on the ... format specification.
+                %t          Timestamp, date only.
+                %T          Timestamp, with date and time.
+                %u, %U      Like the above, but inactive timestamps.
+                %i          Initial content, the region when capture is called while the
+                            region is active.
+                            The entire text will be indented like %i itself.
+                %a          Annotation, normally the link created with org-store-link.
+                %A          Like %a, but prompt for the description part.
+                %l          Like %a, but only insert the literal link.
+                %c          Current kill ring head.
+                %x          Content of the X clipboard.
+                %k          Title of the currently clocked task.
+                %K          Link to the currently clocked task.
+                %n          User name (taken from user-full-name).
+                %f          File visited by current buffer when org-capture was called.
+                %F          Full path of the file or directory visited by current buffer.
+                %:keyword   Specific information for certain link types, see below.
+                %^g         Prompt for tags, with completion on tags in target file.
+                %^G         Prompt for tags, with completion all tags in all agenda files.
+                %^t         Like %t, but prompt for date.  Similarly %^T, %^u, %^U.
+                            You may define a prompt like %^{Birthday}t.
+                %^C         Interactive selection of which kill or clip to use.
+                %^L         Like %^C, but insert as link.
+                %^{prop}p   Prompt the user for a value for property prop.
+                %^{prompt}  prompt the user for a string and replace this sequence with it.
+                            You may specify a default value and a completion table with
+                            %^{prompt|default|completion2|completion3...}.
+                            The arrow keys access a prompt-specific history.
+                %\n         Insert the text entered at the nth %^{prompt}, where n is
+                            a number, starting from 1.
+                %?          After completing the template, position cursor here.
             ```
             * For specific link types
             ```
