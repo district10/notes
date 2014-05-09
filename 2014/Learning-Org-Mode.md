@@ -146,10 +146,10 @@ TOC
 1. The built-in table editor
     * Example
       ```
-            | Name  | Phone | Age |
-            |-------+-------+-----|
-            | Peter |  1234 |  17 |
-            | Anna  |  4321 |  25 |
+      | Name  | Phone | Age |
+      |-------+-------+-----|
+      | Peter |  1234 |  17 |
+      | Anna  |  4321 |  25 |
       ```
     * Keys
         * `<RET>`, add line
