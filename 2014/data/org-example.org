@@ -19,114 +19,15 @@
 0:00:04 
 <2014-09-19 Fri>
 *** 3rd level
-****** DONE some text, shit
+****** DONE some text, shit                                          :ATTACH:
+       :PROPERTIES:
+       :Attachments: Learning-Vim.md
+       :ID:       85592c08-e7e9-4dc1-89ce-bbb549c11ef2
+       :END:
 
 0:00:24 
 0:00:25
 
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-**** good for [fn:9]
-    two 
-***** *** good 
-*** 3rd leve[fn:8]l
-**** CANCELED 4th level
-**** 
-**** 
-** test-done Second level
-
-** TEST-todo 3rd level [50%]            :@work:laptop:car:pc:sailboat:a:z...:
-    - [X] done
-    - [X] some
-    - [ ] done
-    - [ ] some else
-
-** test-todo 3rd level [1/5]                                 :good:fantastic:
-   CLOCK: [2014-05-09 Fri 01:06]--[2014-05-09 Fri 01:12] =>  0:06
-    - [ ] ab 
-      <2015-01-12 Wed>
-    - [X] cd
-    - <2020-05-29 Fri 17:40>[ ] xy
-    - [ ] ef
-      <21<2014-05-15 Thu>4-05-08 Thu>
-    - [ ] ad  
-      
-     <2014-05-15 Thu> 
-
-
-    
-:more:
-    good for you    
-:END:
-#+BEGIN: clocktable :maxlevel 2 :scope subtree
-Clock summary at [2014-05-09 Fri 01:11]
-
-| Headline     | Time   |
-|--------------+--------|
-| *Total time* | *0:00* |
-#+END:
-
-    text
-    
-    :joke:
-that's not god
-:END:
-
-*** 3rd level
-    CLOCK: [2014-05-09 Fri 01:12]--[2014-05-09 Fri 01:12] =>  0:00
-#+BEGIN: clocktable :maxlevel 2 :scope subtree
-Clock summary at [2014-05-09 Fri 01:12]
-
-| Headline     | Time   |
-|--------------+--------|
-0:00:00 | *Total time* | *0:00* |
-#+END:
-
-0:00:04
-
-0:00:09  
-
-- 0:00:36 :: aoei aoei
-
-- 0:00:00 :: saoesiraoei
-0:00:10
-
-0:00:13  
-0:00:00 
-0:02:41 
-
-
-
-*** 
-
-*** good 
-             d
-
-
-***** good, four
-      this is a footnotes[fn:1]
-      this is another footnotes [fn:3]
-**** good, four two
-
-     
-     :shit:
-
-     :END:
-
-
-      Chapter One
 
 
 * good
@@ -159,7 +60,8 @@ Clock summary at [2014-05-09 Fri 01:12]
 
 
 
-
+* one
+* three
 
 
 
@@ -175,12 +77,6 @@ Clock summary at [2014-05-09 Fri 01:12]
     :PROPERTIES:
     :END: 
 *** two
-******** good
-good
-*oei****************** 5t
-******************* h level
-******************* TODO 
-
 **** good
 
 | good | fine | bad | terrible |
@@ -230,6 +126,16 @@ good
 ******************* 
 ******************* 
 ******************** good[fn:5]                              :good:fantastic:
+******** Archive                                                    :ARCHIVE:
+********* good                                                      :ARCHIVE:
+          :PROPERTIES:
+          :ARCHIVE_TIME: 2014-05-09 Fri 16:53
+          :END:
+good
+*oei****************** 5t
+******************** h level
+******************** TODO 
+
 * Chapter Two [fn:7]
 
 * TODO Another top level headline [fn:6]
@@ -546,3 +452,53 @@ her top level headline
 
  
 * th
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+* Archive                                                           :ARCHIVE:
+** one
+   :PROPERTIES:
+   :ARCHIVE_TIME: 2014-05-09 Fri 16:57
+   :END:
+*** one-two
+**** oo-tt
+***** tt-oo
+***** tt-OO
+**** oo-TT
+***** tt-oo
+***** tt-OO
+
+
+
+** two
+   :PROPERTIES:
+   :ARCHIVE_TIME: 2014-05-09 Fri 16:57
+   :END:
+*** one-two
+**** oo-tt
+***** tt-oo
+***** tt-OO
+**** oo-TT
+***** tt-oo
+***** tt-OO
+
+
+
+
+
+
+
+
+
+

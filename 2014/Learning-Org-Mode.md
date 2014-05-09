@@ -1,4 +1,4 @@
-Learning Org-Mode
+lLearning Org-Mode
 =================
 
 ***[The Org Manual][org-manual]*** by Carsten Dominik
@@ -455,7 +455,7 @@ TOC
     * `C-c C-c D`                                            (**org-delete-property-globally**)
     * `C-c C-c c`                                            (**org-compute-property-at-point**)
 
-2. Special properties 
+2. Special properties
     ```
         ID           A globally unique ID used for synchronization during
                      iCalendar or MobileOrg export.
@@ -489,7 +489,7 @@ TOC
 
 5. Column view
     * Defining columns
-        * Scope of column definitions 
+        * Scope of column definitions
             * to entire file
             ```
                 #+COLUMNS: %25ITEM %TAGS %PRIORITY %TODO
@@ -503,18 +503,18 @@ TOC
             ```
         * Column attributes: `%[width]property[(title)][{summary-type}]`
     * Using column view
-        * Turning column view on and off    
+        * Turning column view on and off
             * C-c C-x C-c     (org-columns)
             * r     (org-columns-redo)
             * g     (org-columns-redo)
             * q     (org-columns-quit)
-        * Editing values      
+        * Editing values
             * `<left>`, `<right>`, `<up>`, `<down>`
             * `S-<left>/<right>`, switch values
             * `1..9,0`, Directly select the Nth allowed value, 0 selects the 10th value
             * n     (org-columns-next-allowed-value)
-            * <TODO> 
-        * Modifying the table structure    
+            * <TODO>
+        * Modifying the table structure
             * <     (org-columns-narrow)  by one char
             * >     (org-columns-widen)    by one char
             * S-M-<right>     (org-columns-new)
@@ -535,7 +535,7 @@ TOC
             * C-c C-x i     (org-insert-columns-dblock)
             * C-c C-c or C-c C-x C-u     (org-dblock-update)
             * C-u C-c C-x C-u     (org-update-all-dblocks)
- 
+
 6. [The Property API][property-api]
 
 
@@ -554,10 +554,10 @@ TOC
 
 2. Creating timestamps
     * `C-c .`                (org-time-stamp) just date
-    * `C-c !`                (org-time-stamp-inactive) just date 
+    * `C-c !`                (org-time-stamp-inactive) just date
     * `C-u C-c .`            with time
     * `C-u C-c !`            with time
-    * `C-c C-c`              Normalize timestamp, insert/fix day name if missing or wrong. 
+    * `C-c C-c`              Normalize timestamp, insert/fix day name if missing or wrong.
     * `C-c <`                (org-date-from-calendar)
     * `C-c >`                (org-goto-calendar)
     * `C-c C-o`              (org-open-at-point)
@@ -578,7 +578,7 @@ TOC
             +2tue         ⇒ second Tuesday from now
             -wed          ⇒ last Wednesday
             ```
-        * 2. 
+        * 2.
         ```
             11am-1:15pm    ⇒ 11:00-13:15
             11am--1:15pm   ⇒ same as above
@@ -593,11 +593,11 @@ TOC
             M-S-<right>/<left>        One month forward/backward.
             > / <                     Scroll calendar forward/backward by one month.
             M-v / C-v                 Scroll calendar forward/backward by 3 months.
-        ``` 
+        ```
     * Custom time format
         * C-c C-x C-t     (org-toggle-time-stamp-overlays)
 
-3. Deadlines and scheduling 
+3. Deadlines and scheduling
     * DEADLINE
     * SCHEDULED
     * Inserting deadlines or schedules
@@ -607,7 +607,7 @@ TOC
         * C-c / d     (org-check-deadlines)
         * C-c / b     (org-check-before-date)
         * C-c / a     (org-check-after-date)
-    * Repeated tasks    
+    * Repeated tasks
 
 4. Clocking work time
     * Save the clock history
@@ -640,7 +640,7 @@ TOC
 
 6. Taking notes with a relative timer
     * `C-c C-x .`                (org-timer)      reset with a prefix argument
-    * `C-c C-x -`                (org-timer-item) reset with a prefix argument 
+    * `C-c C-x -`                (org-timer-item) reset with a prefix argument
     * `M-<RET>`                  (org-insert-heading)
     * `C-c C-x ,`                pause / continue
     * `C-u C-c C-x ,`
@@ -662,15 +662,15 @@ TOC
     ```
         (setq org-default-notes-file (concat org-directory "/notes.org"))
         (define-key global-map "\C-cc" 'org-capture)
-    ```    
+    ```
     * Using capture
         * C-c c     (org-capture)
             * C-c C-c     (org-capture-finalize)
             * C-c C-w     (org-capture-refile)
             * C-c C-k     (org-capture-kill)
-        * C-u C-c c   Visit the target location of a capture template. 
+        * C-u C-c c   Visit the target location of a capture template.
         * C-u C-u C-c c   Visit the last stored capture item in its buffer.
-    * Capture templates    
+    * Capture templates
         * C-c c C   org-capture-templates
         * Setup a template
         ```
@@ -686,7 +686,7 @@ TOC
                  (lambda () (interactive) (org-capture nil "x")))
         ```
         * Template elements
-            * keys: ("b" "Templates for marking stuff to buy"), "b" is the key. 
+            * keys: ("b" "Templates for marking stuff to buy"), "b" is the key.
             * description
             * type: entry / item / checkitem / table-line / plain
             * target
@@ -700,7 +700,7 @@ TOC
                * (file+function "path/to/file" function-finding-location)
                * (clock)
                * (function function-finding-location), write your own function to find both file and location
-           * template    
+           * template
            * properties: :prepend, :immediate-finish, :empty-lines, :clock-in, :clock-keep, :clock-resume, :unnarrowed, :table-line-pos, :kill-buffer
         * Template expansion
             * In the template itself, special %-escapes92 allow dynamic insertion of content.
@@ -760,11 +760,104 @@ TOC
                 w3, w3m                          |  %:url
                 info                             |  %:file %:node
                 calendar                         |  %:date
-            ``` 
+            ```
+            * `%?`          After completing the template, position cursor here.
+        * Templates in contexts
+        ```
+            (setq org-capture-templates-contexts
+               '(("p" (in-mode . "message-mode"))))
+            (setq org-capture-templates-contexts
+               '(("p" "q" (in-mode . "message-mode"))))
+        ```
+
+2. Attachments
+    * `C-c C-a`      (org-attach)
+        * `a`          (org-attach-attach)
+        * `c/m/l`      copy/link/move
+        * `n`          (org-attach-new)
+        * `z`          (org-attach-sync)
+        * `o`          (org-attach-open)
+        * `O`          (org-attach-open-in-emacs)
+        * `f`          (org-attach-reveal)
+        * `F`          (org-attach-reveal-in-emacs)
+        * `d`          (org-attach-delete-one)
+        * `D`          (org-attach-delete-all)
+        * `s`          (org-attach-set-directory)
+        * `i`          (org-attach-set-inherit)
+
+3. RSS feeds
+    * org-feed-alist
+    ```
+       (setq org-feed-alist
+                  '(("Slashdot"
+                      "http://rss.slashdot.org/Slashdot/slashdot"
+                      "~/txt/org/feeds.org" "Slashdot Entries")))
+    ```
+    * `C-c C-x g`     (org-feed-update-all)
+    * `C-c C-x g`
+    * `C-c C-x G`     (org-feed-goto-inbox)
+
+4. [Protocols for external access][org-protocol]
+
+5. Refile and copy
+    * `C-c M-w`     (org-copy)
+    * `C-c C-w`     (org-refile)
+    * `C-u C-c C-w` Use the refile interface to jump to a heading.
+    * `C-u C-u C-c` C-w     (org-refile-goto-last-stored)
+    * `C-2 C-c C-w` Refile as the child of the item currently being clocked.
+    * `C-3 C-c C-w` Refile and keep the entry in place. Also see org-refile-keep to make this the default behavior, and beware that this may result in duplicated ID properties.
+    * `C-0 C-c C-w or C-u C-u C-u C-c C-w`     (org-refile-cache-clear)
+
+6. Archiving
+    * C-c C-x C-a     (org-archive-subtree-default)
+        * Moving a tree to the archive file
+            * C-c C-x C-s or short C-c $     (org-archive-subtree)
+            * C-u C-c C-x C-s
+    * Internal archiving
+        * C-c C-x a             (org-toggle-archive-tag)
+        * C-u C-c C-x a         Check if any direct children of the current headline should be archived.
+        * C-TAB     (org-force-cycle-archived)
+        * C-c C-x A     (org-archive-to-archive-sibling)
 
 
+
+
+--------------------------------------------------------------------------------
 
 ### 10. Agenda Views
+
+0. Before
+    * Org can select items based on various criteria and display them in a separate buffer. Seven different view types are provided:
+        * an **agenda** that is like a calendar and shows information for specific dates,
+        * a **TODO** list that covers all unfinished action items,
+        * a **match view**, showings headlines based on the tags, properties, and TODO state associated with them,
+        * a **timeline view** that shows all events in a single Org file, in time-sorted view,
+        * a **text search view** that shows all entries from multiple files that contain specified keywords,
+        * a **stuck projects view** showing projects that currently don't move along, and
+        * **custom views** that are special searches and combinations of different views.
+    * agenda buffer (read-only)
+
+
+1. Agenda files
+    * `org-agenda-files`
+    * C-c [     (org-agenda-file-to-front), Add current file to the list of agenda files.
+    * C-c ]     (org-remove-file)
+    * C-'     (org-cycle-agenda-files)
+    * C-,     Cycle through agenda file list, visiting one file after the other.
+    * M-x org-iswitchb RET
+    * C-c C-x <     (org-agenda-set-restriction-lock)
+    * C-c C-x >     (org-agenda-remove-restriction-lock)
+    * When working with speedbar.el
+        * < in the speedbar frame     (org-speedbar-set-agenda-restriction)
+        * > in the speedbar frame     (org-agenda-remove-restriction-lock)
+
+2. The agenda dispatcher
+
+
+
+
+
+
 ### 11. Markup for rich export
 ### 12. Exporting
 ### 13. Publishing
@@ -777,3 +870,4 @@ TOC
 [org-manual]: http://orgmode.org/org.html
 [checkboxes]: src/org-todo-progress.png
 [property-api]: http://orgmode.org/org.html#Using-the-property-API
+[org-protocol]: http://orgmode.org/worg/org-contrib/org-protocol.html
