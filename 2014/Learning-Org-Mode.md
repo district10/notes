@@ -7,22 +7,22 @@ Learning Org-Mode
 TOC
 ---
 
-- 01. A Introduction
-- 02. Document Structure
-- 03. Tables
-- 04. Hyperlinks
-- 05. TODO Items
-- 06. Tags
-- 07. Properties
-- 08. Dates and Times
-- 09. Capture - Refile - Archive
-- 10. Agenda Views
-- 11. Markup for rich export
-- 12. Exporting
-- 13. Publishing
-- 14. Working with source code
-- 15. Miscellaneous
-- 16. GNU Free Documentation License
+* 01. A Introduction
+* 02. Document Structure
+* 03. Tables
+* 04. Hyperlinks
+* 05. TODO Items
+* 06. Tags
+* 07. Properties
+* 08. Dates and Times
+* 09. Capture - Refile - Archive
+* 10. Agenda Views
+* 11. Markup for rich export
+* 12. Exporting
+* 13. Publishing
+* 14. Working with source code
+* 15. Miscellaneous
+* 16. GNU Free Documentation License
 
 
 
@@ -32,14 +32,14 @@ TOC
 ### 01. A Introduction
 
 1. Org is a **toolbox** and can be used in different ways and for different ends, for example:
-    - an outline extension with visibility cycling and structure editing
-    - an ASCII system and table editor for taking structured notes
-    - a TODO list editor
-    - a full agenda and planner with deadlines and work scheduling
-    - an environment in which to implement David Allenfls GTD system
-    - a simple hypertext system, with HTML and L TEX export
-    - a publishing tool to create a set of interlinked web pages
-    - **an environment for literate programming**
+    * an outline extension with visibility cycling and structure editing
+    * an ASCII system and table editor for taking structured notes
+    * a TODO list editor
+    * a full agenda and planner with deadlines and work scheduling
+    * an environment in which to implement David Allenfls GTD system
+    * a simple hypertext system, with HTML and L TEX export
+    * a publishing tool to create a set of interlinked web pages
+    * **an environment for literate programming**
 
 
 --------------------------------------------------------------------------------
@@ -129,8 +129,8 @@ TOC
 11. The Orgstruct minor mode
     * Add Hook
     ```
-    (add-hook 'message-mode-hook 'turn-on-orgstruct)
-    (add-hook 'message-mode-hook 'turn-on-orgstruct++)
+            (add-hook 'message-mode-hook 'turn-on-orgstruct)
+            (add-hook 'message-mode-hook 'turn-on-orgstruct++)
     ```
 
 12. Org syntax
@@ -146,10 +146,10 @@ TOC
 1. The built-in table editor
     * Example
     ```
-    | Name  | Phone | Age |
-    |-------+-------+-----|
-    | Peter |  1234 |  17 |
-    | Anna  |  4321 |  25 |
+            | Name  | Phone | Age |
+            |-------+-------+-----|
+            | Peter |  1234 |  17 |
+            | Anna  |  4321 |  25 |
     ```
     * Keys
         * `<RET>`, add line
@@ -221,13 +221,13 @@ TOC
     * References
         * `C-c ?`, show ref. `C-c }`, togggle ref.
         * Field references: `@row$column`
-            * @+3 or @-1
-            * @< and @> are immutable references the first and last row in the table, respectively
-            * @I refers to the first hline, @II to the second, etc.
-            * @-I refers to the first such line above the current line,
-            * @+I to the first such line below the current line
-            * @III+2 which is the second data line after the third hline in the table
-            * @0 and $0 refer to the current row and column, respectively
+            * `@+3` or `@-1`
+            * `@<` and `@>` are immutable references the first and last row in the table, respectively
+            * `@I` refers to the first hline, @II to the second, etc.
+            * `@-I` refers to the first such line above the current line,
+            * `@+I` to the first such line below the current line
+            * `@III+2` which is the second data line after the third hline in the table
+            * `@0` and `$0` refer to the current row and column, respectively
         * Range references
         ```
         $1..$3        first three fields in the current row
@@ -545,27 +545,225 @@ TOC
 
 ### 08. Dates and Times
 
+1. Timestamps, deadlines, and scheduling
+    * Plain timestamp; Event; Appointment: `<2006-11-01 Wed 19:15>`
+    * Timestamp with repeater interval: `<2007-05-16 Wed 12:30 +1w>`
+    * Diary-style sexp entries: <%%(diary-float t 4 2)>
+    * Time/Date range: <2004-08-23 Mon>--<2004-08-26 Thu>
+    * Inactive timestamp: [2006-11-01 Wed]
+
+2. Creating timestamps
+    * `C-c .`                (org-time-stamp) just date
+    * `C-c !`                (org-time-stamp-inactive) just date 
+    * `C-u C-c .`            with time
+    * `C-u C-c !`            with time
+    * `C-c C-c`              Normalize timestamp, insert/fix day name if missing or wrong. 
+    * `C-c <`                (org-date-from-calendar)
+    * `C-c >`                (org-goto-calendar)
+    * `C-c C-o`              (org-open-at-point)
+    * `S-<left>`             (org-timestamp-down-day)
+    * `S-<right>`            (org-timestamp-up-day)
+    * `S-<up>`               (org-timestamp-up)
+    * `S-<down>`             (org-timestamp-down-down)
+    * `C-c C-y`              (org-evaluate-time-range)
+    * Format I.
+        * 1.
+        ```
+        +0            ⇒ today
+        .             ⇒ today
+        +4d           ⇒ four days from today
+        +4            ⇒ same as above
+        +2w           ⇒ two weeks from today
+        ++5           ⇒ five days from default date
+        +2tue         ⇒ second Tuesday from now
+        -wed          ⇒ last Wednesday
+        ```
+        * 2. 
+        ```
+        11am-1:15pm    ⇒ 11:00-13:15
+        11am--1:15pm   ⇒ same as above
+        11am+2:15      ⇒ same as above
+        ```
+        * 3.
+        ```
+        <RET>                     Choose date at cursor in calendar.
+        mouse-1                   Select date by clicking on it.
+        S-<right>/<left>          One day forward/backward.
+        S-<down>/<up>             One week forward/backward.
+        M-S-<right>/<left>        One month forward/backward.
+        > / <                     Scroll calendar forward/backward by one month.
+        M-v / C-v                 Scroll calendar forward/backward by 3 months.
+        ``` 
+    * Custom time format
+        * C-c C-x C-t     (org-toggle-time-stamp-overlays)
+
+3. Deadlines and scheduling 
+    * DEADLINE
+    * SCHEDULED
+    * Inserting deadlines or schedules
+        * C-c C-d     (org-deadline)
+        * C-c C-s     (org-schedule)
+        * C-c C-x C-k     (org-mark-entry-for-agenda-action)
+        * C-c / d     (org-check-deadlines)
+        * C-c / b     (org-check-before-date)
+        * C-c / a     (org-check-after-date)
+    * Repeated tasks    
+
+4. Clocking work time
+    * Save the clock history
+    ```
+    (setq org-clock-persist 'history)
+    (org-clock-persistence-insinuate)
+    ```
+    * Clocking commands
+        * `C-c C-x C-i`                   (**org-clock-in**)
+        * `C-c C-x C-o`                   (**org-clock-out**)
+        * `C-c C-x C-x`                   (**org-clock-in-last**)
+        * `C-c C-x C-e`                   (**org-clock-modify-effort-estimate**)
+        * `C-c C-c or C-c C-y`            (**org-evaluate-time-range**)
+        * `C-S-<up/down>`                 (**org-clock-timestamps-up/down**)
+        * `S-M-<up/down>`                 (**org-timestamp-up/down**)
+        * `C-c C-t`                       (**org-todo**)
+        * `C-c C-x C-q`                   (**org-clock-cancel**)
+        * `C-c C-x C-j`                   (**org-clock-goto**)
+        * `C-c C-x C-d`                   (**org-clock-display**)
+    * The clock table
+        * `C-c C-x C-r`                    (org-clock-report)
+        * `C-c C-c or C-c C-x C-u`         (org-dblock-update)
+        * `C-u C-c C-x C-u`                (update)
+        * `S-<left> / <right>`             (org-clocktable-try-shift)
+    * Resolving idle time and continuous clocking
+
+5. Effort estimates
+    * `C-c C-x e`                       (org-set-effort)
+    * `C-c C-x C-e`                     (org-clock-modify-effort-estimate)
+
+6. Taking notes with a relative timer
+    * `C-c C-x .`                (org-timer)      reset with a prefix argument
+    * `C-c C-x -`                (org-timer-item) reset with a prefix argument 
+    * `M-<RET>`                  (org-insert-heading)
+    * `C-c C-x ,`                pause / continue
+    * `C-u C-c C-x ,`
+    * `C-c C-x 0`                (org-timer-start) Reset the timer without inserting anything into the buffer
+
+7. Countdown timer
+    * `C-c C-x ;`                (**org-timer-set-timer**)
 
 
 
 
 
+--------------------------------------------------------------------------------
+
+### 09. Capture - Refile - Archive
+
+1. Capture
+    * Setting up capture
+    ```
+    (setq org-default-notes-file (concat org-directory "/notes.org"))
+    (define-key global-map "\C-cc" 'org-capture)
+    ```    
+    * Using capture
+        * C-c c     (org-capture)
+            * C-c C-c     (org-capture-finalize)
+            * C-c C-w     (org-capture-refile)
+            * C-c C-k     (org-capture-kill)
+        * C-u C-c c   Visit the target location of a capture template. 
+        * C-u C-u C-c c   Visit the last stored capture item in its buffer.
+    * Capture templates    
+        * C-c c C   org-capture-templates
+        * Setup a template
+        ```
+        (setq org-capture-templates
+              '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+                     "* TODO %?\n  %i\n  %a")
+                ("j" "Journal" entry (file+datetree "~/org/journal.org")
+                     "* %?\nEntered on %U\n  %i\n  %a")))
+        ```
+        * Difine Your Shortcut
+        ```
+        (define-key global-map "\C-cx"
+             (lambda () (interactive) (org-capture nil "x")))
+        ```
+        * Template elements
+            * keys: ("b" "Templates for marking stuff to buy"), "b" is the key. 
+            * description
+            * type: entry / item / checkitem / table-line / plain
+            * target
+               * (file "path/to/file")
+               * (id "id of existing org entry")
+               * (file+headline "path/to/file" "node headline"), for unique heading
+               * (file+olp "path/to/file" "Level 1 heading" "Level 2" ...), for non-unique heading
+               * (file+regexp "path/to/file" "regexp to find location")
+               * (file+datetree "path/to/file")
+               * (file+datetree+prompt "path/to/file")
+               * (file+function "path/to/file" function-finding-location)
+               * (clock)
+               * (function function-finding-location), write your own function to find both file and location
+           * template    
+           * properties: :prepend, :immediate-finish, :empty-lines, :clock-in, :clock-keep, :clock-resume, :unnarrowed, :table-line-pos, :kill-buffer
+        * Template expansion
+            * In the template itself, special %-escapes92 allow dynamic insertion of content.
+            ```
+            %[file]     Insert the contents of the file given by file.
+            %(sexp)     Evaluate Elisp sexp and replace with the result.
+                           For convenience, %:keyword (see below) placeholders
+                           within the expression will be expanded prior to this.
+                           The sexp must return a string.
+            %<...>      The result of format-time-string on the ... format specification.
+            %t          Timestamp, date only.
+            %T          Timestamp, with date and time.
+            %u, %U      Like the above, but inactive timestamps.
+            %i          Initial content, the region when capture is called while the
+                        region is active.
+                        The entire text will be indented like %i itself.
+            %a          Annotation, normally the link created with org-store-link.
+            %A          Like %a, but prompt for the description part.
+            %l          Like %a, but only insert the literal link.
+            %c          Current kill ring head.
+            %x          Content of the X clipboard.
+            %k          Title of the currently clocked task.
+            %K          Link to the currently clocked task.
+            %n          User name (taken from user-full-name).
+            %f          File visited by current buffer when org-capture was called.
+            %F          Full path of the file or directory visited by current buffer.
+            %:keyword   Specific information for certain link types, see below.
+            %^g         Prompt for tags, with completion on tags in target file.
+            %^G         Prompt for tags, with completion all tags in all agenda files.
+            %^t         Like %t, but prompt for date.  Similarly %^T, %^u, %^U.
+                        You may define a prompt like %^{Birthday}t.
+            %^C         Interactive selection of which kill or clip to use.
+            %^L         Like %^C, but insert as link.
+            %^{prop}p   Prompt the user for a value for property prop.
+            %^{prompt}  prompt the user for a string and replace this sequence with it.
+                        You may specify a default value and a completion table with
+                        %^{prompt|default|completion2|completion3...}.
+                        The arrow keys access a prompt-specific history.
+            %\n         Insert the text entered at the nth %^{prompt}, where n is
+                        a number, starting from 1.
+            %?          After completing the template, position cursor here.
+            ```
+            * For specific link types
+            ```
+                Link type                        |  Available keywords
+                ---------------------------------+----------------------------------------------
+                bbdb                             |  %:name %:company
+                irc                              |  %:server %:port %:nick
+                vm, vm-imap, wl, mh, mew, rmail  |  %:type %:subject %:message-id
+                                                 |  %:from %:fromname %:fromaddress
+                                                 |  %:to   %:toname   %:toaddress
+                                                 |  %:date (message date header field)
+                                                 |  %:date-timestamp (date as active timestamp)
+                                                 |  %:date-timestamp-inactive (date as inactive timestamp)
+                                                 |  %:fromto (either "to NAME" or "from NAME")94
+                gnus                             |  %:group, for messages also all email fields
+                w3, w3m                          |  %:url
+                info                             |  %:file %:node
+                calendar                         |  %:date
+            ``` 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-### 09. Capture ### Refile ### Archive
 ### 10. Agenda Views
 ### 11. Markup for rich export
 ### 12. Exporting
