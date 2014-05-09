@@ -59,6 +59,8 @@ Learning Vim
         * `d$, d[End], D`, delete to end of line
         * `dto`, `dTx`, delete to(not include) "x", forward / backward
         * `d/th`, delete until first match of "th"
+        * `diw`, delete current word
+        * `di(`, delete within the current parens
     * `s`, substitude
         * `s`(one and more char), `S`(whole line).
     * `x, X`, delete one char, forward, or backward, respectively   (not necessary)
@@ -386,6 +388,7 @@ Learning Vim
 2. Executing Unix Commands
     * `:!cmd`
     * `:r !date`, output to file, Thu May  1 12:59:55 CST 2014
+    * `:. !date`, same as `:r`, but overwrite current line
     * `:r Learning-Vim.md`, this is .... Good.
 
 3. Filtering Text Through a Command
@@ -408,8 +411,24 @@ Learning Vim
 
 
 
+--------------------------------------------------------------------------------
 
+## Tricks
 
+1. `diw`, `di"`, `di{}`
+2. `:!xxd`, hex editor
+   `:!xxd -r`
+3. `de`, then `.` as you want
+4. `ddp`, swap current and next line
+5. `bye`, `yiw`
+6. `'.`, last edited line
+7. ```` `. ````, last edited char
+8. `:changes`, list changes
+9. :g/rgba/y A
+10.`gv`, reselects last visual selection
+11. `g~~`, `gUU`, `guu`
+12. `>>`, `<<`, indent
+13. `#`, `*`, search word under cursor
 
 
 
