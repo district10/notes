@@ -1015,7 +1015,7 @@ TOC
     * Exporting to a file
     * Quit and Exit
 
-6. Custom agenda views 
+6. Custom agenda views
     * Storing searches
     * Block agenda
     * Setting options for custom commands
@@ -1029,7 +1029,7 @@ TOC
 
 
 
---------------------------------------------------------------------------------              
+--------------------------------------------------------------------------------
 
 ### 11. Markup for rich export
 
@@ -1039,15 +1039,15 @@ TOC
     * **Headings and sections**: The document structure as seen by the exporter
         * `#+OPTIONS: H:4`
     * **Table of contents**: The if and where of the table of contents
-        *
         ```
             #+OPTIONS: toc:2          (only to two levels in TOC)
             #+OPTIONS: toc:nil        (no default TOC at all)
             #+TOC: headlines 2        (insert TOC here, with two headline levels)
             #+TOC: listings           (build a list of listings)
             #+TOC: tables             (build a list of tables)
-        ``` 
+        ```
     * **Lists**: unordered, ordered, and description lists
+    * **Paragraphs**: Paragraphs
         * line breaks: `\\`, en empty line, or this way:
             ```
                 #+BEGIN_VERSE
@@ -1058,17 +1058,98 @@ TOC
                     -- AlexSchroeder
                 #+END_VERSE
             ```
-
-
-
- 
-    * **Paragraphs**: Paragraphs
+            ```
+                #+BEGIN_QUOTE
+                Everything should be made as simple as possible,
+                but not any simpler -- Albert Einstein
+                #+END_QUOTE
+            ```
+            ```
+                #+BEGIN_CENTER
+                Everything should be made as simple as possible, \\
+                but not any simpler
+                #+END_CENTER
+            ```
     * **Footnote markup**: Footnotes
     * **Emphasis and monospace**: Bold, italic, etc.
-    * **Horizontal rules**: Make a line
+        ```
+            make words *bold*, /italic/, _underlined_, =verbatim= and ~code~, and, if you must, ‘+strike-through+’.
+        ```
+        * `org-fontify-emphasized-text`
+    * **Horizontal rules**: Make a line, at least **5 dashes**
     * **Comment lines**: What will *not* be exported
+        ```
+            #+BEGIN_COMMENT
+            #+END_COMMENT
+        ```
+        * `C-c ;`, toggle comment
 
+2. Images and Tables
+    * CAPTION 1: Table
+        ```
+            #+CAPTION: This is the caption for the next table (or link)
+            #+NAME:   tab:basic-data
+                | ... | ...|
+                |-----|----|
+        ```
+    * CAPTION 2: Tables    
+        ```
+            #+CAPTION[Caption for list of tables]: Caption for table.    
+        ```     
+    * Image Caption  
+        ```
+            #+CAPTION: This is the caption for the next figure link (or table)
+            #+NAME:   fig:SED-HR4049
+            [[./img/a.jpg]]    
+        ```
 
+3. Literal examples
+    * plain text example    
+        ```
+            #+BEGIN_EXAMPLE
+            Some example from a text file.
+            #+END_EXAMPLE
+        ```
+    * code block example
+        ``` 
+            #+BEGIN_SRC emacs-lisp
+              (defun org-xor (a b)
+                     "Exclusive or."
+                  (if a (not b) b))
+            #+END_SRC
+        ```
+    * `C-c '`, `C-c l`
+
+4. Include files
+    * Examples
+        ```
+            #+INCLUDE: "~/.emacs" src emacs-lisp`, "src" is the markup, other markups: ‘quote’, ‘example’, etc
+            #+INCLUDE: "~/my-book/chapter2.org" :minlevel 1
+            #+INCLUDE: "~/.emacs" :lines "5-10"   Include lines 5 to 10, 10 excluded
+            #+INCLUDE: "~/.emacs" :lines "-10"    Include lines 1 to 10, 10 excluded
+            #+INCLUDE: "~/.emacs" :lines "10-"    Include lines from 10 to EOF
+        ```
+    * `C-c '`, Visit the include file at point.    
+
+5. [Index entries][gen-index]
+    ```
+        * Curriculum Vitae
+        #+INDEX: CV
+        #+INDEX: Application!CV
+    ```
+
+6. Macro replacement
+    * Define a text snippet: `#+MACRO: name   replacement text $1, $2 are arguments`
+    * then use `{{{name(arg1,arg2)}}}` to refer it  
+    * `{{{title}}}`, `{{{author}}}` will refer to `#+TITLE: title`, `#+AUTHOR: author`
+    * `{{{time(FORMAT)}}}`, `{{{modification-time(FORMAT)}}}`
+
+7. Embedded LaTeX
+    * Special symbols
+        * `Angles are written as Greek letters \alpha, \beta and \gamma.`
+        * `C-c C-x \`, Toggle display of entities as UTF-8 characters.
+    * Subscripts and superscripts    
+        * The mass of the sun is M_sun = 1.989 x 10^30 kg. The radius of the sun is R_{sun} = 6.96 x 10^8 m.
 
 
 
@@ -1091,3 +1172,4 @@ TOC
 [checkboxes]: src/org-todo-progress.png
 [property-api]: http://orgmode.org/org.html#Using-the-property-API
 [org-protocol]: http://orgmode.org/worg/org-contrib/org-protocol.html
+[gen-index]: http://orgmode.org/org.html#Generating-an-index
