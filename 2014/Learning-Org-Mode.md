@@ -1,4 +1,4 @@
-lLearning Org-Mode
+Learning Org-Mode
 =================
 
 ***[The Org Manual][org-manual]*** by Carsten Dominik
@@ -851,13 +851,234 @@ TOC
         * > in the speedbar frame     (org-agenda-remove-restriction-lock)
 
 2. The agenda dispatcher
+    * agenda dispatcher, bound to `C-c a`
+        * `a`            calendar-like agenda
+        * `t / T`        TODO
+        * `m / M`        Create a list of headlines matching a TAGS expression
+        * `L`            Create the timeline view for the current buffer
+        * `s`            Create a list of entries selected by a boolean expression of keywords and/or regular expressions that must or must not occur in the entry.
+        * `/`            Search for a regular expression
+        * `# / !`        Create a list of stuck projects
+        * `<`            Restrict an agenda command to the current buffer100. After pressing <, you still need to press the character selecting the command.
+        * `< <`
+        * `*`            Toggle sticky agenda views
+
+3. The built-in agenda views
+    * The weekly/daily agenda
+        * C-c a a     (org-agenda-list)
+        * C-u 2 1 C-c a a   (21 days)
+        * (setq org-agenda-start-day "+10d")
+        * Calendar/Diary integration  (setq org-agenda-include-diary t)
+        * Anniversaries from BBDB
+        * Appointment reminders: org-agenda-to-appt
+    * The global TODO list
+        * C-c a t     (org-todo-list) show list
+        * C-c a T     (org-todo-list)
+    * Matching tags and properties
+        * C-c a m     (org-tags-view)  `C-c / m`
+        * C-c a M     (org-tags-view)
+        * Match syntax
+            * `+`, `-`, `&`, `|`;
+            * `work`, `work&boss`, `+work-boss`, `work|laptop`, `work|laptop+night`, `work+{^boss.*}`
+    * Timeline for a single file
+        * C-c a L     (org-timeline) When called with a C-u prefix, all unfinished TODO entries (scheduled or not) are also listed under the current date.
+    * Search view
+        * C-c a s     (org-search-view)
+    * Stuck projects
+        * C-c a #     (org-agenda-list-stuck-projects)
+        * C-c a !     Customize the variable org-stuck-projects to define what a stuck project is and how to find it.
+
+4. Presentation and sorting
+    * Categories
+        * Specify Cat: `#+CATEGORY: Thesis`
+        * Set up icons for category by customizing the `org-agenda-category-icon-alist` variable.
+    * Time-of-day specifications
+        * Variable: `org-agenda-use-time-grid`
+        * Configured it with `org-agenda-time-grid`
+    * Sorting agenda items
+        * `org-agenda-sorting-strategy`
+    * Filtering/limiting agenda items
+        * Filtering in the agenda
+            * /                                   (org-agenda-filter-by-tag)
+            * \                                   (org-agenda-filter-by-tag-refine)
+            * [words] {regexpr}                   in search view
+            * <                                   (org-agenda-filter-by-category)
+            * ^                                   (org-agenda-filter-by-top-headline)
+            * =                                   (org-agenda-filter-by-regexp)
+            * |                                   (org-agenda-filter-remove-all)
+        * Setting limits for the agenda
+            * org-agenda-max-entries
+            * org-agenda-max-effort               `(setq org-agenda-max-effort 100)`, set max effort to 100 mins
+            * org-agenda-max-todos
+            * org-agenda-max-tags
+
+5. Commands in the agenda buffer
+    * Motion
+        * `n`, `<down>`, `C-n`          (org-agenda-next-line)
+        * `p`, `<up>`, `C-p`            (org-agenda-previous-line)
+    * View/Go to Org file
+        * <SPC> or mouse-3              (org-agenda-show-and-scroll-up)
+        * L                             (org-agenda-recenter)
+        * <TAB> or mouse-2              (org-agenda-goto)
+        * <RET>                         (org-agenda-switch-to)
+        * F                             (org-agenda-follow-mode)      very good~
+        * C-c C-x b                     (org-agenda-tree-to-indirect-buffer)
+        * C-c C-o                       (org-agenda-open-link)
+    * Change display
+        * `A`                           Interactively select another agenda view and append it to the current view.
+        * `o`                           Delete other windows.
+        * `v d` or `short d`            (org-agenda-day-view)
+        * `v w` or `short w`            (org-agenda-week-view)
+        * `v t`                         (org-agenda-fortnight-view)
+        * `v m`                         (org-agenda-month-view)
+        * `v y`                         (org-agenda-year-view)
+        * `v SPC`                       (org-agenda-reset-view)
+        * `v SPC`                       (org-agenda-reset-view)
+        * `f`                           (org-agenda-later) Go forward in time to display the following org-agenda-current-span days.
+        * `b`                           (org-agenda-earlier) Go backward in time to display earlier dates.
+        * ```                           (org-agenda-goto-today) Go to today.
+        * `j`                           (org-agenda-goto-date) Prompt for a date and go there.
+        * `J`                           (org-agenda-clock-goto) Go to the currently clocked-in task in the agenda buffer.
+        * `D`                           (org-agenda-toggle-diary) Toggle the inclusion of diary entries. See Weekly/daily agenda.
+        * `v l` or short `l`            (org-agenda-log-mode)
+        * `v [` or short `[`            (org-agenda-manipulate-query-add)
+        * `v a`                         (org-agenda-archives-mode)
+        * `v A`                         (org-agenda-archives-mode 'files)
+        * `v R` or short `R`            (org-agenda-clockreport-mode)
+        * `v c`                         Show overlapping clock entries, clocking gaps, and other clocking problems in the current agenda range.
+        * `v E` or short `E`            (org-agenda-entry-text-mode)
+        * `G`                           (org-agenda-toggle-time-grid)
+        * `g`, `r`                      (org-agenda-redo)
+        * `C-x C-s` or short `s`        (org-save-all-org-buffers)
+        * `C-c C-x C-c`                 (org-agenda-columns)
+        * `C-c C-x >`                   (org-agenda-remove-restriction-lock)
+    * Secondary filtering and query editing
+        * /                             (org-agenda-filter-by-tag)
+        * \                             (org-agenda-filter-by-tag-refine)
+        * <                             (org-agenda-filter-by-category)
+        * ^                             (org-agenda-filter-by-top-headline)
+        * =                             (org-agenda-filter-by-regexp)
+        * |                             (org-agenda-filter-remove-all)
+    * Remote editing
+        * `0--9`                        Digit argument.
+        * `C-_`                         (org-agenda-undo)
+        * `t`                           (org-agenda-todo)
+        * `C-S-<right>`, `C-S-<left>`   (org-agenda-todo-nextset), (org-agenda-todo-previousset)
+        * `C-k`                         (org-agenda-kill)
+        * `C-c C-w`                     (org-agenda-refile)
+        * `C-c C-x C-a` or short `a`    (org-agenda-archive-default-with-confirmation)
+        * `C-c C-x a`                   (org-agenda-toggle-archive-tag)
+        * `C-c C-x A`                   (org-agenda-archive-to-archive-sibling)
+        * `C-c C-x C-s` or short `$`    (org-agenda-archive)
+        * `T`                           (org-agenda-show-tags)
+        * `:`                           (org-agenda-set-tags)
+        * `,`                           Set the priority for the current item (org-agenda-priority)
+        * `P`                           (org-agenda-show-priority)
+        * `+` or `S-<up>`               (org-agenda-priority-up)
+        * `-` or `S-<down>`             (org-agenda-priority-down)
+        * `z` or `C-c C-z`              (org-agenda-add-note)
+        * `C-c C-a`                     (org-attach) Dispatcher for all command related to attachments.
+        * `C-c C-s`                     (org-agenda-schedule) Schedule this item. With prefix arg remove the scheduling timestamp
+        * `C-c C-d`                     (org-agenda-deadline) Set a deadline for this item. With prefix arg remove the deadline.
+        * `S-<right>`                   (org-agenda-do-date-later)
+        * `S-<left>`                    (org-agenda-do-date-earlier)
+        * `>`                           (org-agenda-date-prompt)
+        * `I`                           (org-agenda-clock-in)
+        * `O`                           (org-agenda-clock-out)
+        * `X`                           (org-agenda-clock-cancel) Cancel the currently running clock.
+        * `J`                           (org-agenda-clock-goto) Jump to the running clock in another window.
+        * `k`                           (org-agenda-capture) Like org-capture, but use the date at point as the default date for the capture template.
+    * Dragging agenda lines forward/backward
+        * M-<up>     (org-agenda-drag-line-backward)
+        * M-<down>     (org-agenda-drag-line-forward)
+    * Bulk remote editing selected entries
+        * `m`              (org-agenda-bulk-mark) Mark the entry at point for bulk action. With numeric prefix argument, mark that many successive entries.
+        * `*`              (org-agenda-bulk-mark-all) Mark all visible agenda entries for bulk action.
+        * `u`              (org-agenda-bulk-unmark)
+        * `U`              (org-agenda-bulk-remove-all-marks)
+        * `M-m`            (org-agenda-bulk-toggle)
+        * `M-*`            (org-agenda-bulk-toggle-all)
+        * `%`              (org-agenda-bulk-mark-regexp) Mark entries matching a regular expression for bulk action.
+        * `B`              (org-agenda-bulk-action)
+            * `*`          Toggle persistent marks.
+            * `$`          Archive all selected entries.
+            * `A`          Archive entries by moving them to their respective archive siblings.
+            * `t`          Change TODO state.
+            * `+`          Add a tag to all selected entries.
+            * `-`          Remove a tag from all selected entries.
+            * `s`          Schedule all items to a new date.
+            * `d`          Set deadline to a specific date.
+            * `r`          Prompt for a single refile target and move all entries.
+            * `S`          Reschedule randomly into the coming N days. N will be prompted for. With prefix arg (C-u B S), scatter only across weekdays.
+            * `f`          Apply a function to marked entries.
+    * Calendar commands <TODO>
+    * Exporting to a file
+    * Quit and Exit
+
+6. Custom agenda views 
+    * Storing searches
+    * Block agenda
+    * Setting options for custom commands
+
+7. Exporting Agenda Views
+
+8. Using column view in the agenda
+    * C-c C-x C-c     (org-agenda-columns)
 
 
 
 
 
+--------------------------------------------------------------------------------              
 
 ### 11. Markup for rich export
+
+1. Structural markup elements
+    * **Document title**: Where the title is taken from
+        * `#+TITLE: This is the title of the document`
+    * **Headings and sections**: The document structure as seen by the exporter
+        * `#+OPTIONS: H:4`
+    * **Table of contents**: The if and where of the table of contents
+        *
+        ```
+            #+OPTIONS: toc:2          (only to two levels in TOC)
+            #+OPTIONS: toc:nil        (no default TOC at all)
+            #+TOC: headlines 2        (insert TOC here, with two headline levels)
+            #+TOC: listings           (build a list of listings)
+            #+TOC: tables             (build a list of tables)
+        ``` 
+    * **Lists**: unordered, ordered, and description lists
+        * line breaks: `\\`, en empty line, or this way:
+            ```
+                #+BEGIN_VERSE
+                Great clouds overhead
+                Tiny black birds rise and fall
+                Snow covers Emacs
+
+                    -- AlexSchroeder
+                #+END_VERSE
+            ```
+
+
+
+ 
+    * **Paragraphs**: Paragraphs
+    * **Footnote markup**: Footnotes
+    * **Emphasis and monospace**: Bold, italic, etc.
+    * **Horizontal rules**: Make a line
+    * **Comment lines**: What will *not* be exported
+
+
+
+
+
+
+
+
+
+
+
+
 ### 12. Exporting
 ### 13. Publishing
 ### 14. Working with source code
