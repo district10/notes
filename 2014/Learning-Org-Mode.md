@@ -132,10 +132,10 @@ TOC
 
 11. The Orgstruct minor mode
     * Add Hook
-        ```
-            (add-hook 'message-mode-hook 'turn-on-orgstruct)
-            (add-hook 'message-mode-hook 'turn-on-orgstruct++)
-        ```
+    ```
+        (add-hook 'message-mode-hook 'turn-on-orgstruct)
+        (add-hook 'message-mode-hook 'turn-on-orgstruct++)
+    ```
 
 12. Org syntax
     * To explore the abstract structure of an Org buffer, run this in a buffer: `M-: (org-element-parse-buffer) RET`
@@ -148,12 +148,12 @@ TOC
 
 1. The built-in table editor
     * Example
-        ```
-            | Name  | Phone | Age |
-            |-------+-------+-----|
-            | Peter |  1234 |  17 |
-            | Anna  |  4321 |  25 |
-        ```
+    ```
+        | Name  | Phone | Age |
+        |-------+-------+-----|
+        | Peter |  1234 |  17 |
+        | Anna  |  4321 |  25 |
+    ```
     * Keys
         * `<RET>`, add line
         * `<TAB>`, align
@@ -198,20 +198,20 @@ TOC
 
 2. Column width and alignment
     * Specify Col Width
-        ```
-            |---+------------------------------|               |---+--------|
-            |   |                              |               |   | <6>    |
-            | 1 | one                          |               | 1 | one    |
-            | 2 | two                          |     ----\     | 2 | two    |
-            | 3 | This is a long chunk of text |     ----/     | 3 | This=> |
-            | 4 | four                         |               | 4 | four   |
-            |---+------------------------------|               |---+--------|
-        ```
+    ```
+        |---+------------------------------|               |---+--------|
+        |   |                              |               |   | <6>    |
+        | 1 | one                          |               | 1 | one    |
+        | 2 | two                          |     ----\     | 2 | two    |
+        | 3 | This is a long chunk of text |     ----/     | 3 | This=> |
+        | 4 | four                         |               | 4 | four   |
+        |---+------------------------------|               |---+--------|
+    ```
     * `org-startup-align-all-tables`
-        ```
-                #+STARTUP: align
-                #+STARTUP: noalign
-        ```
+    ```
+            #+STARTUP: align
+            #+STARTUP: noalign
+    ```
     * `<r>`, `<c>` or `<l>`, or `<r20>`
 
 3. Column groups
@@ -289,28 +289,28 @@ TOC
     * `C-c C-x C-p`      (**org-previous-link**)
 
 5. Using links outside Org
-   ```
-   (global-set-key "\C-c L" 'org-insert-link-global)
-   (global-set-key "\C-c o" 'org-open-at-point-global)
-   ```
+    ```
+    (global-set-key "\C-c L" 'org-insert-link-global)
+    (global-set-key "\C-c o" 'org-open-at-point-global)
+    ```
 
 6. Link abbreviations
-   ```
-       (setq org-link-abbrev-alist
-             '(("bugzilla"  . "http://10.1.2.9/bugzilla/show_bug.cgi?id=")
-               ("url-to-ja" . "http://translate.google.fr/translate?sl=en&tl=ja&u=%h")
-               ("google"    . "http://www.google.com/search?q=")
-               ("ads"       . "http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?author=%s&db_key=AST")))
-   ```
+    ```
+        (setq org-link-abbrev-alist
+              '(("bugzilla"  . "http://10.1.2.9/bugzilla/show_bug.cgi?id=")
+                ("url-to-ja" . "http://translate.google.fr/translate?sl=en&tl=ja&u=%h")
+                ("google"    . "http://www.google.com/search?q=")
+                ("ads"       . "http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?author=%s&db_key=AST")))
+    ```
 
 7. Search options in file links
-   ```
-       [[file:~/code/main.c::255]]
-       [[file:~/xx.org::My Target]]
-       [[file:~/xx.org::*My Target]]
-       [[file:~/xx.org::#my-custom-id]]
-       [[file:~/xx.org::/regexp/]]
-   ```
+    ```
+        [[file:~/code/main.c::255]]
+        [[file:~/xx.org::My Target]]
+        [[file:~/xx.org::*My Target]]
+        [[file:~/xx.org::#my-custom-id]]
+        [[file:~/xx.org::/regexp/]]
+    ```
 
 8. Custom Searches
 
