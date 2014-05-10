@@ -2,7 +2,9 @@ Learning Org-Mode
 =================
 
 ***[The Org Manual][org-manual]*** by Carsten Dominik
----------------------------------------
+-----------------------------------------------------
+
+
 
 TOC
 ---
@@ -22,7 +24,8 @@ TOC
 * 13. Publishing
 * 14. Working with source code
 * 15. Miscellaneous
-* 16. GNU Free Documentation License
+* 16. Appendix A Hacking
+* 17. GNU Free Documentation License
 
 
 
@@ -31,7 +34,7 @@ TOC
 
 ### 01. A Introduction
 
-1. Org is a **toolbox** and can be used in different ways and for different ends, for example:
+* Org is a **toolbox** and can be used in different ways and for different ends, for example:
     * an outline extension with visibility cycling and structure editing
     * an ASCII system and table editor for taking structured notes
     * a TODO list editor
@@ -40,6 +43,7 @@ TOC
     * a simple hypertext system, with HTML and L TEX export
     * a publishing tool to create a set of interlinked web pages
     * **an environment for literate programming**
+
 
 
 --------------------------------------------------------------------------------
@@ -128,14 +132,13 @@ TOC
 
 11. The Orgstruct minor mode
     * Add Hook
-    ```
+        ```
             (add-hook 'message-mode-hook 'turn-on-orgstruct)
             (add-hook 'message-mode-hook 'turn-on-orgstruct++)
-    ```
+        ```
 
 12. Org syntax
     * To explore the abstract structure of an Org buffer, run this in a buffer: `M-: (org-element-parse-buffer) RET`
-
 
 
 
@@ -145,12 +148,12 @@ TOC
 
 1. The built-in table editor
     * Example
-    ```
-        | Name  | Phone | Age |
-        |-------+-------+-----|
-        | Peter |  1234 |  17 |
-        | Anna  |  4321 |  25 |
-    ```
+        ```
+            | Name  | Phone | Age |
+            |-------+-------+-----|
+            | Peter |  1234 |  17 |
+            | Anna  |  4321 |  25 |
+        ```
     * Keys
         * `<RET>`, add line
         * `<TAB>`, align
@@ -195,20 +198,20 @@ TOC
 
 2. Column width and alignment
     * Specify Col Width
-    ```
-        |---+------------------------------|               |---+--------|
-        |   |                              |               |   | <6>    |
-        | 1 | one                          |               | 1 | one    |
-        | 2 | two                          |     ----\     | 2 | two    |
-        | 3 | This is a long chunk of text |     ----/     | 3 | This=> |
-        | 4 | four                         |               | 4 | four   |
-        |---+------------------------------|               |---+--------|
-    ```
+        ```
+            |---+------------------------------|               |---+--------|
+            |   |                              |               |   | <6>    |
+            | 1 | one                          |               | 1 | one    |
+            | 2 | two                          |     ----\     | 2 | two    |
+            | 3 | This is a long chunk of text |     ----/     | 3 | This=> |
+            | 4 | four                         |               | 4 | four   |
+            |---+------------------------------|               |---+--------|
+        ```
     * `org-startup-align-all-tables`
-    ```
-            #+STARTUP: align
-            #+STARTUP: noalign
-    ```
+        ```
+                #+STARTUP: align
+                #+STARTUP: noalign
+        ```
     * `<r>`, `<c>` or `<l>`, or `<r20>`
 
 3. Column groups
@@ -229,14 +232,14 @@ TOC
             * `@III+2` which is the second data line after the third hline in the table
             * `@0` and `$0` refer to the current row and column, respectively
         * Range references
-        ```
-            $1..$3        first three fields in the current row
-            $P..$Q        range, using column names (see under Advanced)
-            $<<<..$>>     start in third column, continue to the one but last
-            @2$1..@4$3    6 fields between these two fields (same as A2..C4)
-            @-1$-2..@-1   3 fields in the row above, starting from 2 columns on the left
-            @I..II        between first and second hline, short for @I..@II
-        ```
+            ```
+                $1..$3        first three fields in the current row
+                $P..$Q        range, using column names (see under Advanced)
+                $<<<..$>>     start in third column, continue to the one but last
+                @2$1..@4$3    6 fields between these two fields (same as A2..C4)
+                @-1$-2..@-1   3 fields in the row above, starting from 2 columns on the left
+                @I..II        between first and second hline, short for @I..@II
+            ```
         * Field coordinates in formulas
         * Named references
             * `#+CONSTANTS: c=299792458. pi=3.14 eps=2.4e-6`
@@ -293,11 +296,11 @@ TOC
 
 6. Link abbreviations
    ```
-   (setq org-link-abbrev-alist
-       '(("bugzilla"  . "http://10.1.2.9/bugzilla/show_bug.cgi?id=")
-         ("url-to-ja" . "http://translate.google.fr/translate?sl=en&tl=ja&u=%h")
-         ("google"    . "http://www.google.com/search?q=")
-         ("ads"       . "http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?author=%s&db_key=AST")))
+       (setq org-link-abbrev-alist
+             '(("bugzilla"  . "http://10.1.2.9/bugzilla/show_bug.cgi?id=")
+               ("url-to-ja" . "http://translate.google.fr/translate?sl=en&tl=ja&u=%h")
+               ("google"    . "http://www.google.com/search?q=")
+               ("ads"       . "http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?author=%s&db_key=AST")))
    ```
 
 7. Search options in file links
@@ -1149,23 +1152,146 @@ TOC
         * `Angles are written as Greek letters \alpha, \beta and \gamma.`
         * `C-c C-x \`, Toggle display of entities as UTF-8 characters.
     * Subscripts and superscripts    
-        * The mass of the sun is M_sun = 1.989 x 10^30 kg. The radius of the sun is R_{sun} = 6.96 x 10^8 m.
+        * `The mass of the sun is M_sun = 1.989 x 10^30 kg. The radius of the sun is R_{sun} = 6.96 x 10^8 m.`
+    * LaTeX fragments    
+        * Not need any special snippet at all  
+            ```
+                \begin{equation}
+                x=\sqrt{b}
+                \end{equation}
+
+                If $a^2=b$ and \( b=2 \), then the solution must be
+                either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
+            ```   
+        * `org-export-with-latex`     
+            ```
+                #+OPTIONS: tex:t          Do the right thing automatically (MathJax)
+                #+OPTIONS: tex:nil        Do not process LaTeX fragments at all
+                #+OPTIONS: tex:verbatim   Verbatim export, for jsMath or so
+            ```
+    * Previewing LaTeX fragments
+        * `C-c C-x C-l`, (org-preview-latex-segment)
+        * `C-c C-c`, Remove the overlay preview images.
+        * Turn on/off preview
+            ```
+                #+STARTUP: latexpreview
+                #+STARTUP: nolatexpreview
+            ```
+    * Using CDLaTeX to enter math 
+
+8. Special blocks
+    ```
+    #+BEGIN_LATEX
+    #+BEGIN_ABSTRACT
+    #+BEGIN_VIDEO
+    ```
+    * Refer to back-end specific documentation for more information.
 
 
 
 
-
-
-
-
-
+--------------------------------------------------------------------------------
 
 ### 12. Exporting
-### 13. Publishing
-### 14. Working with source code
-### 15. Miscellaneous
-### 16. GNU Free Documentation License
 
+01. **The Export Dispatcher**: The main exporter interface
+02. **Export back-ends**: Built-in export formats
+03. **Export settings**: Generic export settings
+04. **ASCII/Latin-1/UTF-8 export**: Exporting to flat files with encoding
+05. **Beamer export**: Exporting as a Beamer presentation
+06. **HTML export**: Exporting to HTML
+07. **LaTeX and PDF export**: Exporting to LaTeX, and processing to PDF
+08. **Markdown export**: Exporting to Markdown
+09. **OpenDocument Text export**: Exporting to OpenDocument Text
+10. **Org export**: Exporting to Org
+11. **iCalendar export**: Exporting to iCalendar
+12. **Other built-in back-ends**: Exporting to Texinfo or a man page
+13. **Export in foreign buffers**: Author tables and lists in Org syntax
+14. **Advanced configuration**: Fine-tuning the export output
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+### 13. Publishing
+
+01. **Configuration**: Defining projects
+02. **Uploading files**: How to get files up on the server
+03. **Sample configuration**: Example projects
+04. **Triggering publication**: Publication commands
+
+
+
+
+--------------------------------------------------------------------------------
+
+### 14. Working with source code
+
+01. **Structure of code blocks**: Code block syntax described
+02. **Editing source code**: Language major-mode editing
+03. **Exporting code blocks**: Export contents and/or results
+04. **Extracting source code**: Create pure source code files
+05. **Evaluating code blocks**: Place results of evaluation in the Org mode buffer
+06. **Library of Babel**: Use and contribute to a library of useful code blocks
+07. **Languages**: List of supported code block languages
+08. **Header arguments**: Configure code block functionality
+09. **Results of evaluation**: How evaluation results are handled
+10. **Noweb reference syntax**: Literate programming in Org mode
+11. **Key bindings and useful functions**: Work quickly with code blocks
+12. **Batch execution**: Call functions from the command line
+
+
+
+
+--------------------------------------------------------------------------------
+
+### 15. Miscellaneous
+
+01. **Completion**: M-TAB knows what you need
+02. **Easy Templates**: Quick insertion of structural elements
+03. **Speed keys**: Electric commands at the beginning of a headline
+04. **Code evaluation security**: Org mode files evaluate inline code
+05. **Customization**: Adapting Org to your taste
+06. **In-buffer settings**: Overview of the #+KEYWORDS
+07. **The very busy C-c C-c key**: When in doubt, press C-c C-c
+08. **Clean view**: Getting rid of leading stars in the outline
+09. **TTY keys**: Using Org on a tty
+10. **Interaction**: Other Emacs packages
+11. **org-crypt**: Encrypting Org files
+
+
+
+
+
+
+--------------------------------------------------------------------------------
+
+### 16. Appendix A Hacking
+
+01. **Hooks**: How to reach into Org's internals
+02. **Add-on packages**: Available extensions
+03. **Adding hyperlink types**: New custom link types
+04. **Adding export back-ends**: How to write new export back-ends
+05. **Context-sensitive commands**: How to add functionality to such commands
+06. **Tables in arbitrary syntax**: Orgtbl for LaTeX and other programs
+07. **Dynamic blocks**: Automatically filled blocks
+08. **Special agenda views**: Customized views
+09. **Speeding up your agendas**: Tips on how to speed up your agendas
+10. **Extracting agenda information**: Post-processing of agenda information
+11. **Using the property API**: Writing programs that use entry properties
+12. **Using the mapping API**: Mapping over all or selected entries
+
+
+
+--------------------------------------------------------------------------------
+
+### 17. GNU Free Documentation License
+
+
+
+--------------------------------------------------------------------------------
 
 
 [org-manual]: http://orgmode.org/org.html
