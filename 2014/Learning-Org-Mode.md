@@ -232,14 +232,14 @@ TOC
             * `@III+2` which is the second data line after the third hline in the table
             * `@0` and `$0` refer to the current row and column, respectively
         * Range references
-            ```
-                $1..$3        first three fields in the current row
-                $P..$Q        range, using column names (see under Advanced)
-                $<<<..$>>     start in third column, continue to the one but last
-                @2$1..@4$3    6 fields between these two fields (same as A2..C4)
-                @-1$-2..@-1   3 fields in the row above, starting from 2 columns on the left
-                @I..II        between first and second hline, short for @I..@II
-            ```
+        ```
+            $1..$3        first three fields in the current row
+            $P..$Q        range, using column names (see under Advanced)
+            $<<<..$>>     start in third column, continue to the one but last
+            @2$1..@4$3    6 fields between these two fields (same as A2..C4)
+            @-1$-2..@-1   3 fields in the row above, starting from 2 columns on the left
+            @I..II        between first and second hline, short for @I..@II
+        ```
         * Field coordinates in formulas
         * Named references
             * `#+CONSTANTS: c=299792458. pi=3.14 eps=2.4e-6`
@@ -570,7 +570,7 @@ TOC
     * `S-<down>`             (org-timestamp-down-down)
     * `C-c C-y`              (org-evaluate-time-range)
     * Format I.
-        * 1.
+        * 1. format 1
         ```
             +0            ⇒ today
             .             ⇒ today
@@ -580,14 +580,14 @@ TOC
             ++5           ⇒ five days from default date
             +2tue         ⇒ second Tuesday from now
             -wed          ⇒ last Wednesday
-            ```
-        * 2.
+        ```
+        * 2. format 2
         ```
             11am-1:15pm    ⇒ 11:00-13:15
             11am--1:15pm   ⇒ same as above
             11am+2:15      ⇒ same as above
         ```
-        * 3.
+        * 3. format 3
         ```
             <RET>                     Choose date at cursor in calendar.
             mouse-1                   Select date by clicking on it.
@@ -1075,12 +1075,14 @@ TOC
             ```
     * **Footnote markup**: Footnotes
     * **Emphasis and monospace**: Bold, italic, etc.
+        * e.g.         
         ```
             make words *bold*, /italic/, _underlined_, =verbatim= and ~code~, and, if you must, ‘+strike-through+’.
         ```
         * `org-fontify-emphasized-text`
     * **Horizontal rules**: Make a line, at least **5 dashes**
     * **Comment lines**: What will *not* be exported
+        * e.g.
         ```
             #+BEGIN_COMMENT
             #+END_COMMENT
@@ -1089,49 +1091,49 @@ TOC
 
 2. Images and Tables
     * CAPTION 1: Table
-        ```
-            #+CAPTION: This is the caption for the next table (or link)
-            #+NAME:   tab:basic-data
-                | ... | ...|
-                |-----|----|
-        ```
+    ```
+        #+CAPTION: This is the caption for the next table (or link)
+        #+NAME:   tab:basic-data
+            | ... | ...|
+            |-----|----|
+    ```
     * CAPTION 2: Tables    
-        ```
-            #+CAPTION[Caption for list of tables]: Caption for table.    
-        ```     
+    ```
+        #+CAPTION[Caption for list of tables]: Caption for table.    
+    ```     
     * Image Caption  
-        ```
-            #+CAPTION: This is the caption for the next figure link (or table)
-            #+NAME:   fig:SED-HR4049
-            [[./img/a.jpg]]    
-        ```
+    ```
+        #+CAPTION: This is the caption for the next figure link (or table)
+        #+NAME:   fig:SED-HR4049
+        [[./img/a.jpg]]    
+    ```
 
 3. Literal examples
     * plain text example    
-        ```
-            #+BEGIN_EXAMPLE
-            Some example from a text file.
-            #+END_EXAMPLE
-        ```
+    ```
+        #+BEGIN_EXAMPLE
+        Some example from a text file.
+        #+END_EXAMPLE
+    ```
     * code block example
-        ``` 
-            #+BEGIN_SRC emacs-lisp
-              (defun org-xor (a b)
-                     "Exclusive or."
-                  (if a (not b) b))
-            #+END_SRC
-        ```
+    ``` 
+        #+BEGIN_SRC emacs-lisp
+          (defun org-xor (a b)
+                 "Exclusive or."
+              (if a (not b) b))
+        #+END_SRC
+    ```
     * `C-c '`, `C-c l`
 
 4. Include files
     * Examples
-        ```
-            #+INCLUDE: "~/.emacs" src emacs-lisp`, "src" is the markup, other markups: ‘quote’, ‘example’, etc
-            #+INCLUDE: "~/my-book/chapter2.org" :minlevel 1
-            #+INCLUDE: "~/.emacs" :lines "5-10"   Include lines 5 to 10, 10 excluded
-            #+INCLUDE: "~/.emacs" :lines "-10"    Include lines 1 to 10, 10 excluded
-            #+INCLUDE: "~/.emacs" :lines "10-"    Include lines from 10 to EOF
-        ```
+    ```
+        #+INCLUDE: "~/.emacs" src emacs-lisp`, "src" is the markup, other markups: ‘quote’, ‘example’, etc
+        #+INCLUDE: "~/my-book/chapter2.org" :minlevel 1
+        #+INCLUDE: "~/.emacs" :lines "5-10"   Include lines 5 to 10, 10 excluded
+        #+INCLUDE: "~/.emacs" :lines "-10"    Include lines 1 to 10, 10 excluded
+        #+INCLUDE: "~/.emacs" :lines "10-"    Include lines from 10 to EOF
+    ```
     * `C-c '`, Visit the include file at point.    
 
 5. [Index entries][gen-index]
@@ -1155,35 +1157,35 @@ TOC
         * `The mass of the sun is M_sun = 1.989 x 10^30 kg. The radius of the sun is R_{sun} = 6.96 x 10^8 m.`
     * LaTeX fragments    
         * Not need any special snippet at all  
-            ```
-                \begin{equation}
-                x=\sqrt{b}
-                \end{equation}
+        ```
+            \begin{equation}
+            x=\sqrt{b}
+            \end{equation}
 
-                If $a^2=b$ and \( b=2 \), then the solution must be
-                either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
-            ```   
+            If $a^2=b$ and \( b=2 \), then the solution must be
+            either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
+        ```   
         * `org-export-with-latex`     
-            ```
-                #+OPTIONS: tex:t          Do the right thing automatically (MathJax)
-                #+OPTIONS: tex:nil        Do not process LaTeX fragments at all
-                #+OPTIONS: tex:verbatim   Verbatim export, for jsMath or so
-            ```
+        ```
+            #+OPTIONS: tex:t          Do the right thing automatically (MathJax)
+            #+OPTIONS: tex:nil        Do not process LaTeX fragments at all
+            #+OPTIONS: tex:verbatim   Verbatim export, for jsMath or so
+        ```
     * Previewing LaTeX fragments
         * `C-c C-x C-l`, (org-preview-latex-segment)
         * `C-c C-c`, Remove the overlay preview images.
         * Turn on/off preview
-            ```
-                #+STARTUP: latexpreview
-                #+STARTUP: nolatexpreview
-            ```
+        ```
+            #+STARTUP: latexpreview
+            #+STARTUP: nolatexpreview
+        ```
     * Using CDLaTeX to enter math 
 
 8. Special blocks
     ```
-    #+BEGIN_LATEX
-    #+BEGIN_ABSTRACT
-    #+BEGIN_VIDEO
+        #+BEGIN_LATEX
+        #+BEGIN_ABSTRACT
+        #+BEGIN_VIDEO
     ```
     * Refer to back-end specific documentation for more information.
 
