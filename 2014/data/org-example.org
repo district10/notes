@@ -1,81 +1,122 @@
 #+STARTUP: showall # the last command will overide the former onesde
-#+STARTUP: hideblocks 
+#+STARTUP: hideblocks
 #+TODO: test-todo | test-done
 #+TODO: TEST-todo | TEST-done
 #+TAGS: @work @home @tennisclub
 #+TAGS: laptop car pc sailboat
 
-
+///\\\\\//
 0:01:53
-0:01:50  
-
+0:01:50
+----------------
 
 
 ** test-todo Se[50%]cond level                                       :a:z...: :@work:
    DEADLINE: <2014-05-10 Sat>
    - [X] done
    - [ ]  oei
-0:00:00 
-0:00:04 
+0:00:00
+0:00:04
 <2014-09-19 Fri>
 *** 3rd level
-****** DONE some text, shit                                          :ATTACH:
+****** COMMENT DONE some text, shit                                          :ATTACH:
        :PROPERTIES:
-       :Attachments: Learning-Vim.md
+       :Attachments:
+Learning-Vim.md
        :ID:       85592c08-e7e9-4dc1-89ce-bbb549c11ef2
        :END:
 
-0:00:24 
+0:00:24
 0:00:25
-
+o
 
 
 * good
-** Lord of the Rings
    - Note taken on [2014-05-08 Thu 02:43] \\
-     what do you want to do?
+** COMMENT Lord of the Rings
+
+what do you want to do?
+        1.
    My favorite scenes are (in this order)
-        1. The attack of the Rohirrim
-        2. Eowyn's fight with the witch king
            + this was already my favorite scene in the book
+        2. Eowyn's FIGHT with the witch king
            + I really like Miranda Otto.
-        3. Peter Jackson being shot by Legolas
            - on DVD only
            He makes a really funny face when it happens.
-   But in the end, no individual scenes matter but the film as a whole.
+.
    Important actors in this film are:
-        - Elijah Wood :: He plays Frodo
-        - Sean Austin :: He plays Sam, Frodo's friend.  I still remember
+        - lijahe wood :: he plays frodo
+        - sean austin :: he plays sam, frodo's friend.  i still remember
                          him very well from his role as Mikey Walsh in The Goonies.
 :shit:
 
 :END:
    <2014-05-08 Thu>
-                         
+
 (defun va  )
 *** four[fn:2]
     :PROPERTIES:
     :END:
-
-
-
-
+one
+one
+three
 * one
 * three
 
 
 
+C-c '
 
 
 
 
+3. Literal examples
+    * plain text example    
+        ```
+            #+BEGIN_EXAMPLE
+            Some example from a text file.
+            #+END_EXAMPLE
+        ```
+    * code block example
+        ``` 
+            #+BEGIN_SRC emacs-lisp
+              (defun org-xor (a b)
+                     "Exclusive or."
+                  (if a (not b) b))
+              
+              (message "hello org-mode")
+            #+END_SRC
+        ```
+    * `C-c '`, `C-c l`
+
+
+
+\alpha 
+
+\beta
+aoe是一iaoei能了是一活i
+
+
+
+\alpha, \beta, \delta, \gamma  
+
+The mass of the sun is M_sun = 1.989 x 10^30 kg.  The radius of   19^20  x^2 + y^2 = z^2  
+      the sun is Raoei_{suoein} = 6.96 x 10^8 m.
+
+
+
+
+aoei
+
+
+  码
 
 
 
 *** on[fn:4]e
-*** three
+*** # TODO: hree
     :PROPERTIES:
-    :END: 
+    :END:
 *** two
 **** good
 
@@ -86,7 +127,7 @@
 
 | good  | shit |
 |-------+------|
-| aoeii |      | 
+| aoeii |      |
 
 
 
@@ -104,27 +145,27 @@
 
 | one  | two  | three |
 | four | five | six   |
-  
+
 *************** sitaoei
-******************* 
+*******************
 
-******************* TODO 
-*s**** 
-******************* 
+******************* TODO
+*s****
+*******************
 ******************* TODO wash hands
-******************* 
+*******************
 
 
-******************* good 
+******************* good
                     bad
 
 
 
-                  
-******************* DONE 
-******************* 
-******************* 
-******************* 
+
+******************* DONE
+*******************
+*******************
+*******************
 ******************** good[fn:5]                              :good:fantastic:
 ******** Archive                                                    :ARCHIVE:
 ********* good                                                      :ARCHIVE:
@@ -134,7 +175,7 @@
 good
 *oei****************** 5t
 ******************** h level
-******************** TODO 
+******************** TODO
 
 * Chapter Two [fn:7]
 
@@ -171,18 +212,42 @@ good
 ****** TODO good myself
 
 
+* Birthdays and similar stuff
+  #+CATEGORY: Holiday
+  %%(org-calendar-holiday)   ; special function for holiday names
+  #+CATEGORY: Ann
+  %%(org-anniversary 1956  5 14)103 Arthur Dent is %d years old
+  %%(org-anniversary 1869 10  2) Mahatma Gandhi would be %d years old
+
+* Anniversaries
+  :PROPERTIES:
+  :CATEGORY: Anniv
+  :END:
+  %%()his"th
+
+Fri May  9 20:59:10 CST 2014
+""
+riods positihis"th
+this"th
+
+his"th
+
+
+Fri May  9 20:59:17 CST 2014
+Fri May  9 20:59:59 CST 2014
+
+zsh:1: command not found: $
+e s   ?
+
+vim
 
 
 
-
-
-
-
-
-
-[[http://www.baidu.com]]
+good
+good[[http://www.baidu.com]his"th]goodgood
+good
 | mon  | tue    | tue |    fri | to | sun |
-|------+--------+-----+--------+----+-----|
+|------+--------+-----+--------+----+-----|his"th
 | good | for    | to  |    you | do | it  |
 |------+--------+-----+--------+----+-----|
 | male | female |     |    you | do |     |
@@ -222,7 +287,7 @@ good
 |      |        |     | 112337 |    |     |
 |      |        |     | 112338 |    |     |
 |      |        |     | 112339 |    |     |
-# 
+#
 |------+--------+-----+--------+----+-----|
 |------+--------+-----+--------+----+-----|
 |      |        |     |        |    |     |
@@ -252,11 +317,11 @@ oeanoeitraoie
 |      | oeintraoeintraoei          |    28 |
 |      |                            |    29 |
 |      |                            |    30 |
-#+TBLFM: 
+#+TBLFM:
 
-| good | fine 
+| good | fine
 
-| good | fine 
+| good | fine
 
 
 
@@ -284,11 +349,11 @@ oeanoeitraoie
 
 [[th][that]]
 
-*    
+*
   :PROPERTIES:
   :PRIORITY_ALL: oei
   :TODO_ALL: oei
-  :END:   
+  :END:
 | good | fine |[10]
 
 |  N | N^2 |  N^3 |   N^4 |   sqrt(n) | sqrt[4](N) |
@@ -325,7 +390,7 @@ oeanoeitraoie
 
 
 
-* 
+*
 | Naming             | Conventions  |         |            |        |        |       |
 | ================== |              |         |            |        |        |       |
 |                    |              |         |            |        |        |       |
@@ -357,14 +422,14 @@ oeanoeitraoie
 | (fun2              | 'myoption    | "good") |            |        |        |       |
 
 
-  
+
 | good                                     | fine       | fabulous |
 |                                          | long longlonglonglong |          |
 | <40>                                     | <10>       |          |
 |                                          |            |          |
 |                                          |            |          |
 |                                          |            |          |
-#+TBLFM: 
+#+TBLFM:
 
 
 
@@ -373,7 +438,7 @@ oeanoeitraoie
 | <20>                 | <10>       |
 |                      |            |
 |                      |            |
-    
+
 * Another top level headline
 
 
@@ -406,8 +471,8 @@ oeanoeitraoie
 
 
 
-[fn:3] good, it can be created automatically 
- 
+[fn:3] good, it can be created automatically
+
 
 
 
@@ -418,7 +483,7 @@ l headline
 
 [fn:2] good
 
-[fn:4] terrible 
+[fn:4] terrible
 
 [fn:5] terrible
 
@@ -426,14 +491,14 @@ l headline
 
 [fn:7] http://www.baidu.com
 
-[fn:8] something 
+[fn:8] something
 
 [fn:9] something else
 
 
 ** Second level
 *** 3rd level
- 
+
 
 
 
@@ -450,7 +515,7 @@ her top level headline
 
 
 
- 
+
 * th
 
 
@@ -492,13 +557,3 @@ her top level headline
 **** oo-TT
 ***** tt-oo
 ***** tt-OO
-
-
-
-
-
-
-
-
-
-
