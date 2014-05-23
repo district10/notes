@@ -72,17 +72,15 @@ TOC
         * Set `org-catch-invisible-edits` to `non-nil`
 
 4. Motion
-     * `C-c C-n`     (**outline-next-visible-heading**)
-     * `C-c C-p`     (**outline-previous-visible-heading**)
-     * `C-c C-f`     (**org-forward-same-level**)
-     * `C-c C-b`     (**org-backward-same-level**)
-     * `C-c C-u`     (**outline-up-heading**)
-     * `C-c C-j`     (**org-goto**)
+     * `C-c C-n`, `C-c C-p`    (**outline-next-visible-heading**), (**outline-previous-visible-heading**)
+     * `C-c C-f`, `C-c C-b`    (**org-forward-same-level**), (**org-backward-same-level**)
+     * `C-c C-u`               (**outline-up-heading**)
+     * `C-c C-j`               (**org-goto**)
 
 5. Structure editing
-    * `M-<RET>`      (**org-insert-heading**)
+    * `M-<RET>`      (org-insert-heading)
     * `C-<RET>`      (**org-insert-heading-respect-content**) (seems better, not truncate current line)
-    * `M-S-<RET>`    (**org-insert-todo-heading**)
+    * `M-S-<RET>`    (org-insert-todo-heading)
     * `C-S-<RET>`    (**org-insert-todo-heading-respect-content**) (seems better)
     * `M-<left>`     (**org-do-promote**)
     * `M-<right>`    (**org-do-demote**)
@@ -394,7 +392,6 @@ TOC
 
 6. Checkboxes
     * `[ ]`, `[/]`, `[%]`
-    * `C-c C-c`,                togggle checked/unchecked
     * `C-c C-c`                 (**org-toggle-checkbox**)
     * `C-c C-x C-b`             (**org-toggle-checkbox**)
     * `M-S-<RET>`               (**org-insert-todo-heading**)
