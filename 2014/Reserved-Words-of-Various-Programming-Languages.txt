@@ -21,10 +21,10 @@ Refs
 7. [Python][python-reserved-words] 
 8. [Ruby][ruby-reserved-words] 
 
-[c-reserverd-words]: http://tigcc.ticalc.org/doc/keywords.html
+[c-reserved-words]: http://tigcc.ticalc.org/doc/keywords.html
 [csharp-reserved-words]: http://msdn.microsoft.com/en-us/library/x53a06bb.aspx
 [css-reserved-words]: http://www.w3schools.com/cssref/
-[html-reverved-words]: http://www.w3schools.com/tags/att_global_accesskey.asp
+[html-reserved-words]: http://www.w3schools.com/tags/att_global_accesskey.asp
 [java-reserved-words]: http://en.wikipedia.org/wiki/List_of_Java_keywords
 [javascript-reserved-words]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Reserved_Words
 [python-reserved-words]: https://docs.python.org/3.0/reference/lexical_analysis.html#id8
