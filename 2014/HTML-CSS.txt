@@ -13,3 +13,5 @@ margin-left: 20px;
 padding: 1px 2px 3px 4px;
 margin-top: -20px; /* Move top by 20 pixels */
 float: right;
+position: absolute/relative/fixed;
+width: 45%;
