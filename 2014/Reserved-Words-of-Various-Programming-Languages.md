@@ -1,36 +1,46 @@
 C
-Java
 C#
+CSS
+HTML
+Java
+JavaScript
 Python
 Ruby
-JavaScript
-HTML
-CSS
 
+
+
+Refs
 ================================================================================
 
-[C][c-reserved-words] [c-reserverd-words]: http://tigcc.ticalc.org/doc/keywords.html
-[Java][java-reserved-words] [java-reserved-words]: http://en.wikipedia.org/wiki/List_of_Java_keywords
-[Python][python-reserved-words] [python-reserved-words]: https://docs.python.org/3.0/reference/lexical_analysis.html#id8
-[Ruby][ruby-reserved-words] [ruby-reserved-words]: http://www.tutorialspoint.com/ruby/ruby_quick_guide.htm
-[C#][csharp-reserved-words] [csharp-reserved-words]: http://msdn.microsoft.com/en-us/library/x53a06bb.aspx
-[JavaScript][javascript-reserved-words] [javascript-reserved-words]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Reserved_Words
-[HTML][html-reserved-words] [html-reverved-words]: http://www.w3schools.com/tags/att_global_accesskey.asp
-[CSS][css-reserved-words] [css-reserved-words]: http://www.w3schools.com/cssref/
+1. [C][c-reserved-words] 
+2. [C#][csharp-reserved-words] 
+3. [CSS][css-reserved-words] 
+4. [HTML][html-reserved-words] 
+5. [Java][java-reserved-words] 
+6. [JavaScript][javascript-reserved-words] 
+7. [Python][python-reserved-words] 
+8. [Ruby][ruby-reserved-words] 
+
+[c-reserverd-words]: http://tigcc.ticalc.org/doc/keywords.html
+[csharp-reserved-words]: http://msdn.microsoft.com/en-us/library/x53a06bb.aspx
+[css-reserved-words]: http://www.w3schools.com/cssref/
+[html-reverved-words]: http://www.w3schools.com/tags/att_global_accesskey.asp
+[java-reserved-words]: http://en.wikipedia.org/wiki/List_of_Java_keywords
+[javascript-reserved-words]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Reserved_Words
+[python-reserved-words]: https://docs.python.org/3.0/reference/lexical_analysis.html#id8
+[ruby-reserved-words]: http://www.tutorialspoint.com/ruby/ruby_quick_guide.htm
 
 
 
 
 
-
-
-                                    #####
-                                   #     #
-                                   #
-                                   #
-                                   #
-                                   #     #
-                                    #####
+                                    OOOOO
+                                   O     O
+                                   O
+                                   O
+                                   O
+                                   O     O
+                                    OOOOO
 ================================================================================
 auto
 break
@@ -68,13 +78,13 @@ while
 
 
 
-                            #
-                            #    ##    #    #    ##
-                            #   #  #   #    #   #  #
-                            #  #    #  #    #  #    #
-                      #     #  ######  #    #  ######
-                      #     #  #    #   #  #   #    #
-                       #####   #    #    ##    #    #
+                            O
+                            O    OO    O    O    OO
+                            O   O  O   O    O   O  O
+                            O  O    O  O    O  O    O
+                      O     O  OOOOOO  O    O  OOOOOO
+                      O     O  O    O   O  O   O    O
+                       OOOOO   O    O    OO    O    O
 ================================================================================
 abstract
 assert
@@ -132,13 +142,13 @@ while
 
 
 
-                ######
-                #     #   #   #   #####  #    #   ####   #    #
-                #     #    # #      #    #    #  #    #  ##   #
-                ######      #       #    ######  #    #  # #  #
-                #           #       #    #    #  #    #  #  # #
-                #           #       #    #    #  #    #  #   ##
-                #           #       #    #    #   ####   #    #
+                OOOOOO
+                O     O   O   O   OOOOO  O    O   OOOO   O    O
+                O     O    O O      O    O    O  O    O  OO   O
+                OOOOOO      O       O    OOOOOO  O    O  O O  O
+                O           O       O    O    O  O    O  O  O O
+                O           O       O    O    O  O    O  O   OO
+                O           O       O    O    O   OOOO   O    O
 ================================================================================
 and
 as
@@ -178,13 +188,13 @@ yield
 
 
 
-                        ######
-                        #     #  #    #  #####    #   #
-                        #     #  #    #  #    #    # #
-                        ######   #    #  #####      #
-                        #   #    #    #  #    #     #
-                        #    #   #    #  #    #     #
-                        #     #   ####   #####      #
+                        OOOOOO
+                        O     O  O    O  OOOOO    O   O
+                        O     O  O    O  O    O    O O
+                        OOOOOO   O    O  OOOOO      O
+                        O   O    O    O  O    O     O
+                        O    O   O    O  O    O     O
+                        O     O   OOOO   OOOOO      O
 ================================================================================
 BEGIN
 END
@@ -228,13 +238,13 @@ __LINE__
 
 
 
-                                #####         # #
-                               #     #        # #
-                               #            #######
-                               #              # #
-                               #            #######
-                               #     #        # #
-                                #####         # #
+                                OOOOO         O O
+                               O     O        O O
+                               O            OOOOOOO
+                               O              O O
+                               O            OOOOOOO
+                               O     O        O O
+                                OOOOO         O O
 ================================================================================
 abstract
 add
@@ -343,13 +353,13 @@ yield
 
 
 
-      #                          #####
-      #    ##    #    #    ##   #     #   ####   #####      #    #####    #####
-      #   #  #   #    #   #  #  #        #    #  #    #     #    #    #     #
-      #  #    #  #    #  #    #  #####   #       #    #     #    #    #     #
-#     #  ######  #    #  ######       #  #       #####      #    #####      #
-#     #  #    #   #  #   #    # #     #  #    #  #   #      #    #          #
- #####   #    #    ##    #    #  #####    ####   #    #     #    #          #
+      O                          OOOOO
+      O    OO    O    O    OO   O     O   OOOO   OOOOO      O    OOOOO    OOOOO
+      O   O  O   O    O   O  O  O        O    O  O    O     O    O    O     O
+      O  O    O  O    O  O    O  OOOOO   O       O    O     O    O    O     O
+O     O  OOOOOO  O    O  OOOOOO       O  O       OOOOO      O    OOOOO      O
+O     O  O    O   O  O   O    O O     O  O    O  O   O      O    O          O
+ OOOOO   O    O    OO    O    O  OOOOO    OOOO   O    O     O    O          O
 ================================================================================
 break
 case
@@ -382,13 +392,13 @@ with
 
 
 
-                        #     # ####### #     # #
-                        #     #    #    ##   ## #
-                        #     #    #    # # # # #
-                        #######    #    #  #  # #
-                        #     #    #    #     # #
-                        #     #    #    #     # #
-                        #     #    #    #     # #######
+                        O     O OOOOOOO O     O O
+                        O     O    O    OO   OO O
+                        O     O    O    O O O O O
+                        OOOOOOO    O    O  O  O O
+                        O     O    O    O     O O
+                        O     O    O    O     O O
+                        O     O    O    O     O OOOOOOO
 ================================================================================
 <!-->
 <a>
@@ -518,13 +528,13 @@ style
 
 
 
-                            #####   #####   #####
-                           #     # #     # #     #
-                           #       #       #
-                           #        #####   #####
-                           #             #       #
-                           #     # #     # #     #
-                            #####   #####   #####
+                            OOOOO   OOOOO   OOOOO
+                           O     O O     O O     O
+                           O       O       O
+                           O        OOOOO   OOOOO
+                           O             O       O
+                           O     O O     O O     O
+                            OOOOO   OOOOO   OOOOO
 ================================================================================
 after
 align
