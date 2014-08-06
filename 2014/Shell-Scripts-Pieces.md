@@ -37,7 +37,7 @@ require_tool $@
 ```
 
 - Read
-```
+```bash
     read "a?$1 [y/N] "
     if [[ $a == "N" || $a == "n" || $a = "" ]]; then
         return 0
@@ -50,7 +50,7 @@ require_tool $@
 
 
 - You Should  man these
-```
+```bash
 man test
 
 ```
