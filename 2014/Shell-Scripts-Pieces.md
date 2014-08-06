@@ -5,7 +5,7 @@
 - tr '[:lower:]' '[:upper:]'
 
 - Define Functions
-```
+```bash
 usage ()
 {
 	cat <<EOF
@@ -17,7 +17,7 @@ EOF
 ```
 
 - Parse Parameters
-```
+```bash
 for arg in $@; do
     case $arg in
         -h|--help)
@@ -52,7 +52,6 @@ require_tool $@
 - You Should  man these
 ```bash
 man test
-
 ```
 
 - Skills
@@ -65,5 +64,3 @@ man test
     - ack-grep
 
 - Words You should Google
-
- 
