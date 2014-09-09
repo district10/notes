@@ -11,6 +11,17 @@
 * [ ] [Learning Vim](Learning-Vim.md)
 * [ ] [Meta Programming Ruby](Meta-Programming-Ruby.md)
 
+* [ ] [An Introduction to Using TeX](An-Introduction-to-Using-TeX.md)
+* [ ] [Economic Principles 01: How the Economic Machine Works](Economic-Principles-01-How-the-Economic-Machine-Works.md)
+* [ ] [Economic Principles 02: Debt Cycles](Economic-Principles-02-Debt-Cycles.md)
+* [ ] [Economic Principles 03: Productivity](Economic-Principles-03-Productivity.md)
+* [ ] [Engines of Logic](Engines-of-Logic.md)
+* [ ] [暗时间](暗时间.md)
+* [ ] [如果让我重做一次研究生](如果让我重做一次研究生.md)
+* [ ] [数理统计学简史](数理统计学简史.md)
+* [ ] [田中宥久子的美体按摩法](田中宥久子的美体按摩法.md)
+* [ ] [像外行一样思考-像专家一样实践--科研成功之道](像外行一样思考-像专家一样实践--科研成功之道.md)
+* [ ] [LaTeX 入门](LaTeX入门.md)
 
 ### Other Notes
 
