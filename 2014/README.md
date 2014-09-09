@@ -10,7 +10,6 @@
 * [ ] [Postgre](Postgre.md)
 * [ ] [Learning Vim](Learning-Vim.md)
 * [ ] [Meta Programming Ruby](Meta-Programming-Ruby.md)
-
 * [ ] [An Introduction to Using TeX](An-Introduction-to-Using-TeX.md)
 * [ ] [Economic Principles 01: How the Economic Machine Works](Economic-Principles-01-How-the-Economic-Machine-Works.md)
 * [ ] [Economic Principles 02: Debt Cycles](Economic-Principles-02-Debt-Cycles.md)
@@ -20,14 +19,15 @@
 * [ ] [如果让我重做一次研究生](如果让我重做一次研究生.md)
 * [ ] [数理统计学简史](数理统计学简史.md)
 * [ ] [田中宥久子的美体按摩法](田中宥久子的美体按摩法.md)
-* [ ] [像外行一样思考-像专家一样实践--科研成功之道](像外行一样思考-像专家一样实践--科研成功之道.md)
+* [ ] [像外行一样思考 像专家一样实践](像外行一样思考-像专家一样实践--科研成功之道.md)
 * [ ] [LaTeX 入门](LaTeX入门.md)
+
 
 ### Other Notes
 
-* [ ] [24,000-words](24,000-words.txt)
+* [ ] [24,000 Words](24,000-words.txt)
 * [ ] [Dvorak *vs.* Qwerty](Dvorak-vs-Qwerty.md)
-* [ ] [HTML-CSS](HTML-CSS.txt)
+* [ ] [HTML CSS](HTML-CSS.txt)
 * [ ] [Learning Ruby](Learning-Ruby.md)
 * [ ] [Lisp](Lisp.md)
 * [ ] [Longman Communication 3000 words](Longman-Communication-3000-words.txt)
