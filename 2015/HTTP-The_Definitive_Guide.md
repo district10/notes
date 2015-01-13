@@ -147,10 +147,10 @@ See also
 * http://www.acm.org/sigcomm/ccr/archive/2001/jan01/ccr-200101-mogul.pdf
 
 
-Part II: HTTP Architechture
+Part II. HTTP Architechture
 ---------------------------
 
-### Chapter 5. Web Servers
+### Chapter 05. Web Servers
 
 Web Server Implementations: HTTP, TCP
 
@@ -204,7 +204,7 @@ What Real Web Servers Do
     * Step 7: Logging
 
 
-### Chapter 6. Proxies
+### Chapter 06. Proxies
 
 Web Intermediaries
 
@@ -288,7 +288,7 @@ Handling Unsupported Headers and Methods
 The Allow Header
 
 
-### Chapter 7. Caching
+### Chapter 07. Caching
 
 Redundant Data Transfers
 Bandwidth Bottlenecks
@@ -389,7 +389,7 @@ Caches and Advertising
 Log Migration
 
 
-### Chapter 8. Integration Points: Gateways, Tunnels, and Relays
+### Chapter 08. Integration Points: Gateways, Tunnels, and Relays
 
 Client-Side and Server-Side Gateways
 <client-protocol>/<server-protocol>
@@ -420,7 +420,7 @@ User-agent: Mozilla/4.0
 Relays
 
 
-### Chapter 9. Web Robots
+### Chapter 09. Web Robots
 
 Crawlers and Crawling
 
@@ -482,3 +482,90 @@ User-Agent: <robot-name> # case-insensitive substring of the robot’s name
 Caching and Expiration of robots.txt
 
 Robot Exclusion Perl Code
+
+HTML Robot-Control META Tags
+NOINDEX, NOFOLLOW, INDEX, FOLLOW, NOARCHIVE, ALL, NONE
+
+Robot Etiquette(礼仪)
+* http://www.robotstxt.org/wc/guidelines.html
+
+
+### Chapter 10. HTTP-NG
+
+HTTP’s Growing Pains
+[HTTP-NG] Activity = HTTP: The Next Generation (HTTP-NG)
+
+Modularize and Enhance
+* Layer {1..3}
+* Distributed Objects
+* Layer 1: [Messaging (WebMUX)](http://www.w3.org/Protocols/MUX/WD-mux-980722.html)
+* Layer 2: Remote Invocation ([Binary Wire Protocol](http://www.w3.org/Protocols/HTTP-NG/1998/08/draft-janssen-httpng-wire-00.txt))
+* Layer 3: Web Application
+
+[HTTP-NG]: http://www.w3.org/Protocols/HTTP-NG/
+
+
+PART III. Identification, Authorization, and Security
+-----------------------------------------------------
+
+### Chapter 11. Client Identification and Cookies
+
+The Personal Touch
+
+1. HTTP Headers
+2. Client IP Address
+3. User Login (Pretty soon, Fred will give up on the Internet and go back to watching Oprah...)
+4. Fat URLs
+* Ugly URLs
+* Can't share URLs
+* Breaks caching
+* Extral server load
+* Excape hatches (may lost your shopping cart)
+* Not persistent across sessions
+5. Cookies
+* Types of Cookies: session and persistent
+* How Cookies Work
+* Cookie Jar: Client-Side State
++ domain
++ allh
++ path
++ secure
++ expiration
++ name
++ value
+* Different Cookies for Different Sites (`Set-Cookie: key=val`, Cookie: key=value`)
++ Cookie Domain attribute: `domain=<SITE>`, <SITE> e.g. "www.jianshu.com"
++ Cookie Path attribute: `path=/autos/`
+* Cookie Ingredients
++ Version 0 (Netscape) Cookies
++ Version 1 (RFC 2965) Cookies
+* Cookies and Session Tracking
+* Cookies and Caching
++ Mark documents uncacheable if they are
++ Be cautious about caching Set-Cookie headers
++ Be cautious about requests with Cookie headers
+* Cookies, Security, and Privacy
+
+
+### Chapter 12. Basic Authentication
+
+* Authentication
+* Authentication Protocols and Headers
+* Security Realms
+* Basic Authentication
++ Challenge/Response 
+- Challenge(server2client): `WWW-Authenticate: Basic realm=<quoted-realm>`
+- Response(client2server): `Authorization: Basic <base64-username-and-password>`
+- Base-64 Username/Password Encoding: BASE64ENC(<username>:<passwd>)
+* Proxy Authentication
+
+| Web Server | Proxy Server |
+| :---: | :---: |
+| Unauthorized status code: 401 | Unauthorized status code: 407 |
+| WWW-Authenticate | Proxy-Authenticate |
+| Authorization | Proxy-Authorization |
+| Authentication-Info | Proxy-Authentication-Info |
+
+
+
+
