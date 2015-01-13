@@ -391,3 +391,94 @@ Log Migration
 
 ### Chapter 8. Integration Points: Gateways, Tunnels, and Relays
 
+Client-Side and Server-Side Gateways
+<client-protocol>/<server-protocol>
+
+Protocol Gateways
+* HTTP/*: Server-Side Web Gateways
+* HTTP/HTTPS: Server-Side Security Gateways
+* HTTPS/HTTP: Client-Side Security Accelerator Gateways
+
+Resource Gateways
+* Common Gateway Interface(CGI)
+* Server Extension APIs
+
+Application Interfaces and Web Services
+
+Tunnels
+* Establishing HTTP Tunnels with CONNECT (a raw byte relay)
++ CONNECT requests
+CONNECT home.netscape.com:443 HTTP/1.0
+User-agent: Mozilla/4.0
++ CONNECT responses
+* Data Tunneling, Timing, and Connection Management
++ SSL Tunneling
++ SSL Tunneling Versus HTTP/HTTPS Gateways
+* Tunnel Authentication
+* Tunnel Security Considerations
+
+Relays
+
+
+### Chapter 9. Web Robots
+
+Crawlers and Crawling
+
+Where to Start: The “Root Set”
+* stranded—isolated, 
+
+Extracting Links and Normalizing Relative Links
+* Loops and Dups
+
+Trails of Breadcrumbs
+* Trees and hash tables
+* Lossy presence bit maps
+* Checkpoints
+* Partitioning
+
+Aliases and Robot Cycles
+* Canonicalizing URLs
+* Filesystem Link Cycles
+* Dynamic Virtual Web Spaces
+
+Avoiding Loops and Dups
+* Canonicalizing URLs
+* Breadth-first crawling
+* Throttling
+* Limit URL size
+* URL/site blacklist
+* Pattern detection (`/subdir/subdir/subdir...`)
+* Content fingerprinting
+* Human monitoring
+
+Robotic HTTP
+* Identifying Request Headers
+* Virtual Hosting
+* Conditional Requests
+* Response Handling
++ status codes
++ entities
+* User-Agent Targeting
+
+
+Misbehaving Robots
+* Runaway robots
+* Stale URLs
+* Long, wrong URLs
+* Nosy robots
+* Dynamic gateway access
+
+Excluding Robots
+* Robots Exclusion Standard (robots.txt)
+* Web Sites and robots.txt Files
++ retrive `robots.txt` and check response codes
++ robots.txt File Format
+```xml
+User-Agent: <robot-name> # case-insensitive substring of the robot’s name
+```
++ Disallow/Allow prefix matching
+* Other robots.txt Wisdom
+
+Caching and Expiration of robots.txt
+
+Robot Exclusion Perl Code
