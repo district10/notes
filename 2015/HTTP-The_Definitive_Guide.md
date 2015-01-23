@@ -566,6 +566,137 @@ The Personal Touch
 | Authorization | Proxy-Authorization |
 | Authentication-Info | Proxy-Authentication-Info |
 
+* The Security Flaws of Basic Authentication
 
 
+### Chapter 13. Digest Authentication
 
+The Improvements of Digest Authentication
+* Transport Layer Security (TLS)
+* Secure HTTP (HTTPS)
+
+Using Digests to Keep Passwords Secret
+
+One-Way Digests
+* aliases of `Digest functions`= `cryptographic checksums`, `one-way hash functions`, or `fingerprint functions`
+
+* MD5
+
+| Input | MD5 digest |
+| :---: | :---: |
+| “Hi” | C1A5298F939E87E8F962A5EDFC206918 |
+| “bri:Ow!” | BEAAA0E34EBDB072F8627C038AB211F8 |
+| “3.1415926535897” | 475B977E19ECEE70835BC6DF46F4F6DE |
+
+Using Nonces to Prevent Replays
+* a special token called a `nonce`
+
+The Digest Authentication Handshake
+* chanllenge, nonce, algorithms...
+
+## Digest Calculations
+
+Digest Algorithm Input Data
+
+Digests are computed from three components:
+* A pair of functions consisting of a one-way hash function H(d) and digest KD(s,d), where s stands for secret and d stands for data
+* A chunk of data containing security information, including the secret password, called A1
+* A chunk of data containing nonsecret attributes of the request message, called A2
+The two pieces of data, A1 and A2, are processed by H and KD to yield a digest.
+
+
+H(<data>) = MD5(<data>)
+KD(<secret>,<data>) = H(concatenate(<secret>:<data>))
+qop: quality of protection
+<request-method>: HTTP request method
+<uri-directive-value>: the request URI from the request line
+nc: nonce count
+
+The Security-Related Data (A1)
+| Algorithm | A1 |
+| :---: | :---: |
+| MD5 | A1 = <user>:<realm>:<password> |
+| MD5-sess | A1 = MD5(<user>:<realm>:<password>):<nonce>:<cnonce> |
+
+The Message-Related Data (A2)
+| qop | A2 |
+| undefined | <request-method>:<uri-directive-value> |
+| auth | <request-method>:<uri-directive-value> |
+| auth-int | <request-method>:<uri-directive-value>:H(<request-entity-body>) |
+
+Overall Digest Algorithm
+* Old and new digest algorithms
+| qop | Digest algorithm | Notes |
+| :---: | :---: | :---: |
+| undefined | KD(H(A1), <nonce>:H(A2)) | Deprecated |
+| auth or auth-int | KD(H(A1), <nonce>:<nc>:<cnonce>:<qop>:H(A2)) | Preferred |
+* Unfolded digest algorithm cheat sheet
+| qop | Algorithm | Unfolded algorithm |
+| :---: | :---: | :---: |
+| undefined | <undefined>, MD5, MD5-sess | MD5(MD5(A1):<nonce>:MD5(A2)) |
+| auth | <undefined>, MD5, MD5-sess | MD5(MD5(A1):<nonce>:<nc>:<cnonce>:<qop>:MD5(A2)) |
+| auth-int | <undefined>, MD5, MD5-sess | MD5(MD5(A1):<nonce>:<nc>:<cnonce>:<qop>:MD5(A2)) |
+
+Digest Authentication Session
+
+Preemptive Authorization
+* Next nonce pregeneration
+* Limited nonce reuse
+* Synchronized nonce generation
+
+Nonce Selection
+* Suggested by RFC 2617, nonce = BASE64(time-stamp H(time-stamp ":" ETag ":" private-key))
+* ETag: the HTTP ETag header associated with the requested entity
+
+Symmetric Authentication
+* Definitions for A2 by algorithm (request digests)
+| qop | A2 |
+| :---: | :---: |
+| undefined | <request-method>:<uri-directive-value> |
+| auth | <request-method>:<uri-directive-value> |
+| auth-int | <request-method>:<uri-directive-value>:H(<request-entity-body>) |
+* Definitions for A2 by algorithm (response digests)
+| qop | A2 |
+| :---: | :---: |
+| undefined | :<uri-directive-value> |
+| auth | :<uri-directive-value> |
+| auth-int | :<uri-directive-value>:H(<response-entity-body>) |
+
+Quality of Protection Enhancements
+* Use of qop is optional, but only for backward compatibility with the older RFC 2069 specification.
+
+Message Integrity Protection
+
+Digest Authentication Headers
+
+Practical Considerations
+* Multiple Challenges
+* Error Handling
+* Protection Spaces
+* Rewriting URIs
+* Caches
+
+Security Considerations
+* Header Tampering
+* Replay Attacks
+* Multiple Authentication Mechanisms
+* Dictionary Attacks
+* Hostile Proxies and Man-in-the-Middle Attacks
+* Chosen Plaintext Attacks
+* Storing Passwords
+
+
+### Chapter 14. Secure HTTP
+
+Making HTTP Safe
+HTTPS
+Digital Cryptography: The Art and Science of Secret Coding
+Cipher
+
+
+Symmetric-Key Cryptography
+* (e=k), encoding = decoding
+* P = D(C, d)
+* DES, Triple-DES, RC2, and RC4
+* Key Length and Enumeration Attacks
+v
