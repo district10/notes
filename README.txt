@@ -10,4 +10,4 @@
 #     #     #                 #    ##  #    #     #    #       #    #
 #     #     #                 #     #   ####      #    ######   ####
 
-已经废置。陆续会被整合到 <http://blog.tangzhixiong.com>。
+已经废置。陆续会被整合到 http://blog.tangzhixiong.com
