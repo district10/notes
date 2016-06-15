@@ -1,19 +1,25 @@
-PUBDIR:=publish
-
 SRC:=$(wildcard *.md 2014/*.md 2015/*.md 2016/*.md)
-DST:=$(addprefix $(PUBDIR)/, $(SRC:%.md=%.html))
+DST:=$(addprefix publish/, $(SRC:%.md=%.html))
+CSS:=publish/github-markdown.css publish/highlight.css publish/lazyload.min.js
 
-all: $(DST)
+all: $(DST) $(CSS)
 clean:
-	rm -rf $(PUBDIR)/*
+	rm -rf publish/*
+gh:
+	git add -A; git commit -m "`date +%s`"; git push;
 
-$(PUBDIR)/%.html: %.md
+publish/index.html: index.md
+	@mkdir -p $(@D)
+	pandoc -S -s --ascii $< -o $@
+
+publish/%.html: %.md
 	@mkdir -p $(@D)
 	pandoc \
-		-S -s --ascii -c http://tangzx.qiniudn.com/main.css \
+		-S -s --ascii --mathjax \
 		-f markdown+east_asian_line_breaks+emoji \
+		--template meta/note.template \
 		$< -o $@
 
-edit: e
-e:
-	$(EDITOR) 2016/
+publish/%: meta/%
+	@mkdir -p $(@D)
+	cp $< $@

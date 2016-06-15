@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="author" content="district10" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>好好学习，天天向上</title>
+    <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+        code{ white-space: pre; }
+        q   { quotes: "“" "”" "‘" "’"; }
+        .markdown-body {
+            box-sizing: border-box;
+            min-width: 200px;
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 45px;
+        }
+        * html #navigator   { position: absolute; }
+        #navigator          { position: fixed; top: 1em; left: 1em; }
+        #navigator a        { border-bottom: none; color: #887ddd; }
+        #navigator a:hover  { border-bottom: none;}
+    </style>
+    <link rel="stylesheet" href="../github-markdown.css" type="text/css" />
+    <link rel="stylesheet" href="../highlight.css" type="text/css" />
+$if(math)$
+  $math$
+$endif$
+</head>
+<body class="markdown-body">
+<div id="navigator"><a href="../index.html" title="【回到笔记索引】">☣</a></div>
+$body$
+<script src="../lazyload.min.js"></script>
+<script>
+var imgs = document.getElementsByTagName('img');
+for( var i = 0; i < imgs.length; ++i ) {
+    imgs[i].setAttribute('data-src', imgs[i].src);
+    imgs[i].src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
+    imgs[i].setAttribute('onload', 'lzld(this)');
+}
+</script>
+</body>
+</html>
