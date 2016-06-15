@@ -1,0 +1,16 @@
+language: c
+sudo: true
+before_install:
+  - export PATH="/tmp/bin:$HOME/bin:$PATH"
+install:
+  - mkdir -p /tmp/bin && cd /tmp/bin
+  - wget https://github.com/whudoc/statics/raw/master/qrsync.tar.gz
+  - tar xfz qrsync.tar.gz
+  - chmod +x qrsync
+  - wget https://github.com/jgm/pandoc/releases/download/1.17/pandoc-1.17-1-amd64.deb
+  - sudo dpkg -i pandoc*.deb
+script:
+  - cd ~/build/district10/notes;
+  - make
+  - cat conf.json.in | sed -e "s/QiNiuAK/$QiNiuAK/" | sed -e "s/QiNiuSK/$QiNiuSK/" > conf.json
+  - qrsync conf.json
