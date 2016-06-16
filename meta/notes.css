@@ -1,0 +1,128 @@
+// h1, h2, h3, h4, h5, h6 { padding-right: 0.4em; }
+
+h1:before, h1:after,
+h2:before, h2:after,
+h3:before, h3:after,
+h4:before, h4:after,
+h5:before, h5:after,
+h6:before, h6:after  {
+    color: #9ddcff;
+}
+
+h1:before { content: "/     "; }
+h2:before { content: "//    "; }
+h3:before { content: "///   "; }
+h4:before { content: "////  "; }
+h5:before { content: "///// "; }
+h6:before { content: "//////"; }
+
+h1:after  { content: "     /"; }
+h2:after  { content: "    //"; }
+h3:after  { content: "   ///"; }
+h4:after  { content: "  ////"; }
+h5:after  { content: " /////"; }
+h6:after  { content: "//////"; }
+
+img {
+    transition: transform 0.4s ease;
+    transition: all 0.5s ease-in-out;
+
+    -webkit-transition: -webkit-transform 0.4s ease;
+    -moz-transition: -moz-transform 0.4s ease;
+    -o-transition: -o-transform 0.4s ease;
+    transition: -o-transform 0.4s ease;
+
+    -webkit-transition-property: -webkit-transform;
+    -moz-transition-property: -moz-transform;
+    -o-transition-property: -o-transform;
+    transition-property: transform;
+
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+
+    -webkit-transition-timing-function: ease;
+    -moz-transition-timing-function: ease;
+    -o-transition-timing-function: ease;
+    transition-timing-function: ease;
+
+    -webkit-transition-delay: initial;
+    -moz-transition-delay: initial;
+    -o-transition-delay: initial;
+    transition-delay: initial;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    -transform-style: preserve-3d;
+
+    z-index: 1;
+    max-width: 95%;
+}
+
+.figure {
+    margin: 0 auto 20px;
+    text-align: center;
+    display: block;
+}
+
+.figure img {
+    display: block;
+    max-width: 95%;
+    width: auto\9;
+    width: auto;
+    height: auto;
+    margin: auto;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.tzx-fright .figure img,
+.tzx-fleft  .figure img {
+    max-width: 50%;
+}
+
+.figure img:hover,
+p img:hover {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+p a img:hover {
+    -webkit-transform: scale(1.35);
+    -moz-transform: scale(1.35);
+    -o-transform: scale(1.35);
+    transform: scale(1.35);
+    border: 3px solid rgba(155, 155, 155, 0.5);
+}
+
+.figure .caption {
+    min-width: 20%;
+    max-width: 70%;
+    min-height: 22px;
+    display: inline-block;
+    padding: 10px;
+    margin: 0 auto;
+    border-bottom: 1px solid #d9d9d9;
+    font-size: 18px;
+    font-style: italic;
+    color: #999999;
+    line-height: 1.6;
+}
+
+.figure .caption code {
+    border: none;
+    background-color: inherit;
+}
+
+.markdown-body dl dt               { font-size: 120%; padding-top: 1.1em; padding-bottom: 0.4em; }
+.markdown-body dl dl dt            { font-size: 115%; padding-top: 1.0em; padding-bottom: 0.2em; }
+.markdown-body dl dl dl dt         { font-size: 110%; padding-top: 0.8em; padding-bottom: 0.2em; }
+.markdown-body dl dl dl dl dt      { font-size: 105%; padding-top: 0.6em; padding-bottom: 0.1em; }
+.markdown-body dl dt:first-letter {
+    font-size: 125%;
+    text-transform: uppercase;
+}

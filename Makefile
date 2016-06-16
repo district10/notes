@@ -1,6 +1,10 @@
 SRC:=$(wildcard *.md 2014/*.md 2015/*.md 2016/*.md)
 DST:=$(addprefix publish/, $(SRC:%.md=%.html))
-CSS:=publish/github-markdown.css publish/highlight.css publish/lazyload.min.js
+CSS:=publish/github-markdown.css \
+     publish/highlight.css \
+     publish/lazyload.min.js \
+     publish/notes.js \
+     publish/notes.css \
 
 all: $(DST) $(CSS)
 clean:
@@ -23,3 +27,7 @@ publish/%.html: %.md
 publish/%: meta/%
 	@mkdir -p $(@D)
 	cp $< $@
+
+note: n
+n:
+	$(EDITOR) index.md 2016/
