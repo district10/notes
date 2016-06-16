@@ -1,4 +1,4 @@
-kRC:=$(wildcard index.md 2014/*.md 2015/*.md 2016/*.md caffe-notes/*.md)
+SRC:=$(wildcard index.md 2014/*.md 2015/*.md 2016/*.md caffe-notes/*.md)
 DST:=$(addprefix publish/, $(SRC:%.md=%.html))
 CSS:=publish/github-markdown.css \
      publish/highlight.css \
