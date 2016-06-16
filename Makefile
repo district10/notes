@@ -1,4 +1,4 @@
-SRC:=$(wildcard *.md 2014/*.md 2015/*.md 2016/*.md)
+kRC:=$(wildcard index.md 2014/*.md 2015/*.md 2016/*.md caffe-notes/*.md)
 DST:=$(addprefix publish/, $(SRC:%.md=%.html))
 CSS:=publish/github-markdown.css \
      publish/highlight.css \
@@ -30,4 +30,7 @@ publish/%: meta/%
 
 note: n
 n:
-	$(EDITOR) index.md 2016/
+	$(EDITOR) index.md ./
+	make -C caffe-notes n
+m:
+	$(EDITOR) Makefile
