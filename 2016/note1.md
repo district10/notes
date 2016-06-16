@@ -16,3 +16,6 @@ nothing here right now.
 
     git clone --recursive git@github.com:yashiro1899/icecube.git
     ```
+
+- [ ] not done
+- [x] done
