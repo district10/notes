@@ -2,15 +2,17 @@
 
 nothing here right now.
 
-```bash
-git submodule add git@github.com:district10/caffe-notes.git caffe-notes
+[Git - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 
-git submodule foreach --recursive git pull origin master
-```
+:   ```bash
+    git submodule add git@github.com:district10/caffe-notes.git caffe-notes
 
-git submodule init
-git submodule update --recursive
+    git submodule foreach --recursive git pull origin master
 
-git submodule update --init --recursive
+    git submodule init
+    git submodule update --recursive
 
-git clone --recursive git@github.com:yashiro1899/icecube.git
+    git submodule update --init --recursive
+
+    git clone --recursive git@github.com:yashiro1899/icecube.git
+    ```
