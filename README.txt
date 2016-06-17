@@ -11,7 +11,12 @@
 
 http://tangzx.qiniudn.com/notes
 
-To myself：请不要把本 repo 作为 http://github.com/district10/blog 的 submodule。
+如果你也有笔记想放到这里（毕竟我的笔记太美），可以给我发一个 issue，
+告诉我 repo 地址（user-name/repo-name），我可以添加进来，大概每天更新一次到
+http://tangzx.qiniudn.com/notes/user-name/repo-name 。
+在这个 repo 里，需要有个 index.md 作为索引，其他的 markdown 文件都应该放在根目录。
+用 Markdown 写笔记，可以以我的笔记作为例子参考，或直接查阅 Pandoc 文档。
 
-如果你也有笔记想放到这里，可以 fork，然后添加一个 submodule，然后提交 Pull Request，
-我的 travis 可以自动生成 HTML 传送到 http://tangzx.qiniudn.com/notes .
+-------------------------------------------------------------------------------
+
+To myself：请不要把本 repo 作为 http://github.com/district10/blog 的 submodule。

@@ -39,3 +39,6 @@ n:
 	$(EDITOR) index.md ./
 m:
 	$(EDITOR) Makefile
+
+caffe:
+	cd caffe-notes; git pull origin master;

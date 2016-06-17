@@ -128,5 +128,42 @@ p a img:hover {
 }
 
 a.featured {
+    border: 1px solid #9ddcff;
+    border-radius: 3px;
+    padding: 0.2em;
+}
+a.heart:after {
     color: red;
+    content: " ❤";
+}
+a.flag:after {
+    color: red;
+    content: " ⚑";
+}
+a.todo:after {
+    color: green;
+    content: "♻";
+}
+
+.markdown-body code.heart:after {
+    color: red;
+    content: "\00a0❤";
+}
+.markdown-body code.flag:after {
+    color: blue;
+    content: "\00a0⚑";
+}
+.markdown-body code.todo:after {
+    color: green;
+    content: "\00a0♻";
+}
+
+.markdown-body code.heart,
+.markdown-body code.flag,
+.markdown-body code.todo {
+    background-color: white;
+    font-weight: bold;
+    padding-right: 0.5em;
+    border: 1px solid #9ddcff;
+    border-radius: 3px;
 }

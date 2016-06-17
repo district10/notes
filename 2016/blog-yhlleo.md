@@ -1,8 +1,8 @@
-# 博客摘记之 yhlleo
+k 博客摘记之 yhlleo
 
 博客地址
 
--   [文章列表 - yhl_leo - 博客频道 - CSDN.NET](http://blog.csdn.net/yhl_leo)
+-   [文章列表 - yhl_leo - 博客频道 - CSDN.NET](http://blog.csdn.net/yhl_leo){.featured}
 -   [yhl's blog – Better and better.](http://115.159.156.28/)
 
 ## pdftex, etc
@@ -558,6 +558,6 @@ refs and see also
 
 refs and see also
 
-  - [Opencv YAML 和 XML 格式文件操作详解 - 博客频道 - CSDN.NET](http://blog.csdn.net/YhL_Leo/article/details/47660943)
+  - [Opencv YAML 和 XML 格式文件操作详解 - 博客频道 - CSDN.NET](http://blog.csdn.net/YhL_Leo/article/details/47660943){.heart}
 
 [Android 编译环境配置 - 博客频道 - CSDN.NET](http://blog.csdn.net/YhL_Leo/article/details/47617553)
