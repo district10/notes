@@ -68,3 +68,9 @@ egg
         $('.show').removeClass('show').addClass('show');
     })
     .listen();
+
+$( "a" ).attr( "target", "_blank" );
+$( "a[href*='#']" ).attr( "target", "" );
+$('img').on('click', function(event){
+    event.stopPropagation();
+});

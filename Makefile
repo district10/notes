@@ -18,7 +18,9 @@ all: $(DST) $(CSS)
 clean:
 	rm -rf publish/*
 gh:
-	git add -A; git commit -m "`date`"; git push;
+	make caffereset
+	make caffeupdate
+	git add -A; git commit -m "`uname` -- `date`"; git push;
 
 publish/index.html: index.md
 	@mkdir -p $(@D)
