@@ -55,5 +55,9 @@ n:
 m:
 	$(EDITOR) Makefile
 
+localcaffe:
+	@mkdir -p caffe-notes
+	rsync ../caffe-notes/*.md caffe-notes/
 caffe:
-	cd caffe-notes; git pull origin master;
+	@rm -rf caffe-notes; 
+	git submodule update --init --recursive
