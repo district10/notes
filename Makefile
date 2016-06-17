@@ -5,6 +5,7 @@ CSS:=publish/github-markdown.css \
      publish/lazyload.min.js \
      publish/notes.js \
      publish/notes.css \
+     publish/fork-me-on-github.png \
 
 FROM := markdown+abbreviations
 ifeq (,$(DUMB))

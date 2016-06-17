@@ -29,4 +29,4 @@ nothing special.
 -   [历史笔记 6](2016/history6.html){title=2016/history6.md}
 -   [历史笔记 7](2016/history7.html){title=2016/history7.md}
 
-<a href="https://github.com/district10/notes"><img style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;" src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png" alt="Fork me on GitHub"></a>
+<a href="https://github.com/district10/notes"><img style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;" src="fork-me-on-github.png" alt="Fork me on GitHub"></a>

@@ -46,8 +46,7 @@ $endif$
 <a href="https://github.com/district10/notes">
     <img
         style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;"
-        src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png"
-        alt="Fork me on GitHub"></a>
+        src="../fork-me-on-github.png" alt="Fork me on GitHub"></a>
 <div id="navigator"><a href="../index.html" title="【回到笔记索引 | Back to Index】">☣</a></div>
 $body$
 <script src="../lazyload.min.js"></script>
