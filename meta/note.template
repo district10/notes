@@ -51,6 +51,7 @@ $endif$
 $body$
 <script src="../lazyload.min.js"></script>
 <script src="../jquery-3.0.0.min.js"></script>
+<script src="../egg.min.js"></script>
 <script src="../notes.js"></script>
 </body>
 </html>

@@ -4,6 +4,7 @@ CSS:=publish/github-markdown.css \
      publish/highlight.css \
      publish/lazyload.min.js \
      publish/jquery-3.0.0.min.js \
+     publish/egg.min.js \
      publish/notes.js \
      publish/notes.css \
      publish/fork-me-on-github.png \
@@ -17,7 +18,7 @@ all: $(DST) $(CSS)
 clean:
 	rm -rf publish/*
 gh:
-	git add -A; git commit -m "`date +%s`"; git push;
+	git add -A; git commit -m "`date`"; git push;
 
 publish/index.html: index.md
 	@mkdir -p $(@D)

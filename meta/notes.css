@@ -234,3 +234,5 @@ dd dd dd dd dt.drawer + dd {
     height: 1px;
     background-color: lightgray;
 }
+
+.hide { display: none; }
