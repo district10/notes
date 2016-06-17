@@ -3,6 +3,7 @@ DST:=$(addprefix publish/, $(SRC:%.md=%.html))
 CSS:=publish/github-markdown.css \
      publish/highlight.css \
      publish/lazyload.min.js \
+     publish/jquery-3.0.0.min.js \
      publish/notes.js \
      publish/notes.css \
      publish/fork-me-on-github.png \

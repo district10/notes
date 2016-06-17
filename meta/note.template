@@ -50,6 +50,7 @@ $endif$
 <div id="navigator"><a href="../index.html" title="【回到笔记索引 | Back to Index】">☣</a></div>
 $body$
 <script src="../lazyload.min.js"></script>
+<script src="../jquery-3.0.0.min.js"></script>
 <script src="../notes.js"></script>
 </body>
 </html>

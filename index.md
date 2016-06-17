@@ -12,8 +12,8 @@ nothing special.
 
 ## 2016
 
+-   [【working notes】](2016/note1.html){title=2016/note1.md}
 -   [博客摘记之 yhlleo](2016/blog-yhlleo.html){title=2016/blog-yhlleo.md}
--   [working notes](2016/note1.html){title=2016/note1.md}
 
 ## 独立笔记
 

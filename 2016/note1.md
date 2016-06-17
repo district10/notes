@@ -13,7 +13,7 @@
         `这个地方很难，下次再看`{.todo}。
     -   `.heart`{.heart}, `.flag`{.flag}
 
-[Git - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+[Git - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) `@`{.fold}
 
 :   1.  add submodule (won't pull the source)
 
@@ -74,6 +74,23 @@
     6.  checkout non-master branch
 
         ```bash
+        # checkout `stable' branch instead of `master' branch
+        git config -f .gitmodules submodule.caffe-notes.branch stable
+        ```
+
+    diff submodules `@`{.fold}
+
+    :   ```bash
+        # method 1
+        git diff --cached DbConnector
+
+        # method 2
+        git diff --cached --submodule
+        ```
+
+    checkout non-master branch
+
+    :   ```bash
         # checkout `stable' branch instead of `master' branch
         git config -f .gitmodules submodule.caffe-notes.branch stable
         ```

@@ -61,6 +61,14 @@ img {
     max-width: 95%;
 }
 
+img.dumb:hover {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+    border: none;
+}
+
 .figure {
     margin: 0 auto 20px;
     text-align: center;
@@ -118,10 +126,6 @@ p a img:hover {
     background-color: inherit;
 }
 
-.markdown-body dl dt               { font-size: 120%; padding-top: 1.1em; padding-bottom: 0.4em; }
-.markdown-body dl dl dt            { font-size: 115%; padding-top: 1.0em; padding-bottom: 0.2em; }
-.markdown-body dl dl dl dt         { font-size: 110%; padding-top: 0.8em; padding-bottom: 0.2em; }
-.markdown-body dl dl dl dl dt      { font-size: 105%; padding-top: 0.6em; padding-bottom: 0.1em; }
 .markdown-body dl dt:first-letter {
     font-size: 125%;
     text-transform: uppercase;
@@ -136,34 +140,97 @@ a.heart:after {
     color: red;
     content: " ❤";
 }
-a.flag:after {
-    color: red;
-    content: " ⚑";
-}
 a.todo:after {
     color: green;
     content: "♻";
+}
+a.flag:after {
+    color: blue;
+    content: " ⚑";
 }
 
 .markdown-body code.heart:after {
     color: red;
     content: "\00a0❤";
 }
-.markdown-body code.flag:after {
-    color: blue;
-    content: "\00a0⚑";
-}
 .markdown-body code.todo:after {
     color: green;
     content: "\00a0♻";
+}
+.markdown-body code.flag:after {
+    color: blue;
+    content: "\00a0⚑";
 }
 
 .markdown-body code.heart,
 .markdown-body code.flag,
 .markdown-body code.todo {
+    margin: 0.4em;
     background-color: white;
     font-weight: bold;
     padding-right: 0.5em;
     border: 1px solid #9ddcff;
     border-radius: 3px;
+}
+
+.fold { display: none; }
+
+a.footnoteRef { color: #ff8345; }
+a.footnoteRef:hover {
+    color: #ff1244;
+    border: none;
+    text-decoration: none;
+}
+a[id^=fnref].footnoteRef:target { border: 1px solid #9ddcff; }
+
+dt:before               { letter-spacing: -1em; }
+dt.drawerOpen:before    { content: "\00a0\00a0\00a0▼"; }
+dt.drawerClose:before   { content: "\00a0\00a0\00a0▶"; }
+dd.drawerHide           { display: none; }
+dt.drawer,
+dt.drawer + dd,
+dd dd dt.drawer,
+dd dd dt.drawer + dd {
+    cursor: crosshair;
+}
+dd dt.drawer,
+dd dt.drawer + dd,
+dd dd dd dt.drawer,
+dd dd dd dd dt.drawer + dd {
+    cursor: cell;
+}
+
+.footnotes {
+    font-size: 70%;
+    line-height: 80%;
+}
+.footnotes ol li ol li {
+    line-height: 100%;
+}
+.footnotes [id^=fn] {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.footnotes [id^=fn]:target {
+    background-color: rgba(0,127,255,0.02);
+    border-right: 5px solid lightgray;
+    border-top:   1px solid lightgray;
+    border-bottom:1px solid lightgray;
+    border-radius: 1em;
+
+    -webkit-box-shadow: 0 0 25px 10px rgba(155, 155, 155, 0.5);
+    -moz-box-shadow:    0 0 25px 10px rgba(155, 155, 155, 0.5);
+    -o-box-shadow:      0 0 25px 10px rgba(155, 155, 155, 0.5);
+    box-shadow:         0 0 25px 10px rgba(155, 155, 155, 0.5);
+}
+.footnotes [id^=fn]:hover {
+    background-color: rgba(0,127,255,0.05);
+}
+.markdown-body div.footnotes hr:first-child {
+    height: 1px;
+    background-color: lightgray;
 }
