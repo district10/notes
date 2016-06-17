@@ -31,6 +31,5 @@ publish/%: meta/%
 note: n
 n:
 	$(EDITOR) index.md ./
-	make -C caffe-notes n
 m:
 	$(EDITOR) Makefile
