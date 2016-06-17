@@ -126,3 +126,7 @@ p a img:hover {
     font-size: 125%;
     text-transform: uppercase;
 }
+
+a.featured {
+    color: red;
+}

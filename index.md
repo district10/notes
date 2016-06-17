@@ -19,9 +19,7 @@ nothing special.
 
 -   [Caffe 笔记](caffe-notes/index.html){title=caffe-notes/index.md}
 
----
-
-## 历史笔记系列
+## 历史笔记
 
 -   [历史笔记 1](2016/history1.html){title=2016/history1.md}
 -   [历史笔记 2](2016/history2.html){title=2016/history2.md}
@@ -31,4 +29,4 @@ nothing special.
 -   [历史笔记 6](2016/history6.html){title=2016/history6.md}
 -   [历史笔记 7](2016/history7.html){title=2016/history7.md}
 
-<a href="https://github.com/district10/notes"> <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/52760788cde945287fbb584134c4cbc2bc36f904/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f77686974655f6666666666662e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_white_ffffff.png"></a>
+<a href="https://github.com/district10/notes"><img style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;" src="http://aral.github.com/fork-me-on-github-retina-ribbons/right-graphite@2x.png" alt="Fork me on GitHub"></a>

@@ -6,6 +6,11 @@ CSS:=publish/github-markdown.css \
      publish/notes.js \
      publish/notes.css \
 
+FROM := markdown+abbreviations
+ifeq (,$(DUMB))
+	FROM := $(FROM)+east_asian_line_breaks+emoji
+endif
+
 all: $(DST) $(CSS)
 clean:
 	rm -rf publish/*
@@ -20,7 +25,7 @@ publish/%.html: %.md
 	@mkdir -p $(@D)
 	pandoc \
 		-S -s --ascii --mathjax \
-		-f markdown+east_asian_line_breaks+emoji \
+		-f $(FROM) \
 		--template meta/note.template \
 		$< -o $@
 
