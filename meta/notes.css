@@ -151,15 +151,15 @@ a.flag:after {
 
 .markdown-body code.heart:after {
     color: red;
-    content: "\00a0❤";
+    content: "\00a0 ❤";
 }
 .markdown-body code.todo:after {
     color: green;
-    content: "\00a0♻";
+    content: "\00a0 ♻";
 }
 .markdown-body code.flag:after {
     color: blue;
-    content: "\00a0⚑";
+    content: "\00a0 ⚑";
 }
 
 .markdown-body code.heart,
@@ -184,8 +184,8 @@ a.footnoteRef:hover {
 a[id^=fnref].footnoteRef:target { border: 1px solid #9ddcff; }
 
 dt:before               { letter-spacing: -1em; }
-dt.drawerOpen:before    { content: "\00a0\00a0\00a0▼"; }
-dt.drawerClose:before   { content: "\00a0\00a0\00a0▶"; }
+dt.drawerOpen:before    { content: "\00a0\00a0\00a0 ▼"; }
+dt.drawerClose:before   { content: "\00a0\00a0\00a0 ▶"; }
 dd.drawerHide           { display: none; }
 dt.drawer,
 dt.drawer + dd,
@@ -201,11 +201,7 @@ dd dd dd dd dt.drawer + dd {
 }
 
 .footnotes {
-    font-size: 70%;
-    line-height: 80%;
-}
-.footnotes ol li ol li {
-    line-height: 100%;
+    font-size: 80%;
 }
 .footnotes [id^=fn] {
     margin-top: 0px;

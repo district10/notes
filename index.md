@@ -1,7 +1,5 @@
 # TZX's Notes
 
----
-
 ## 2014
 
 nothing special.

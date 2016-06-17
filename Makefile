@@ -22,11 +22,24 @@ gh:
 
 publish/index.html: index.md
 	@mkdir -p $(@D)
-	pandoc -S -s --ascii $< -o $@
-
+	pandoc \
+		-V ISINDEX=true \
+		-S -s --ascii --mathjax \
+		-f $(FROM) \
+		--template meta/note.template \
+		$< -o $@
+publish/%/index.html: %/index.md
+	@mkdir -p $(@D)
+	pandoc \
+		-V ISINDEX=true -V NOTBASE=true \
+		-S -s --ascii --mathjax \
+		-f $(FROM) \
+		--template meta/note.template \
+		$< -o $@
 publish/%.html: %.md
 	@mkdir -p $(@D)
 	pandoc \
+		-V NOTBASE=true \
 		-S -s --ascii --mathjax \
 		-f $(FROM) \
 		--template meta/note.template \
