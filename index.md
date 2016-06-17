@@ -1,21 +1,17 @@
 # TZX's Notes
 
-## 2014
+## 独立笔记
 
-nothing special.
-
-## 2015
-
-nothing special.
+-   [Caffe 笔记](caffe-notes/index.html){title=caffe-notes/index.md}
 
 ## 2016
 
 -   [【working notes】](2016/note1.html){title=2016/note1.md}
 -   [博客摘记之 yhlleo](2016/blog-yhlleo.html){title=2016/blog-yhlleo.md}
 
-## 独立笔记
+## 2014 & 2015
 
--   [Caffe 笔记](caffe-notes/index.html){title=caffe-notes/index.md}
+nothing special.
 
 ## 历史笔记
 
