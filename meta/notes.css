@@ -1,9 +1,9 @@
-@keyframes flickerAnimation {
+@keyframes waveAnimation {
   0%   { padding-right: 0em }
   50%  { padding-right: 2em }
   100% { padding-right: 0em }
 }
-@-o-keyframes flickerAnimation {
+@-o-keyframes waveAnimation {
   0%   { padding-right: 0em }
   50%  { padding-right: 2em }
   100% { padding-right: 0em }
@@ -13,7 +13,7 @@
   50%  { padding-right: 2em }
   100% { padding-right: 0em }
 }
-@-webkit-keyframes flickerAnimation {
+@-webkit-keyframes waveAnimation {
   0%   { padding-right: 0em }
   50%  { padding-right: 2em }
   100% { padding-right: 0em }
@@ -203,8 +203,6 @@ a.flag:after {
     border-radius: 3px;
 }
 
-.hide, .fold, .foldable { display: none; }
-
 a.footnoteRef { color: #ff8345; }
 a.footnoteRef:hover {
     color: #ff1244;
@@ -213,34 +211,93 @@ a.footnoteRef:hover {
 }
 a[id^=fnref].footnoteRef:target { border: 1px solid #9ddcff; }
 
-dt:before               { letter-spacing: -1em; }
-dt.drawerOpen:before    { content: "\00a0\00a0\00a0 ▼"; }
-dt.drawerClose:before   { content: "\00a0\00a0\00a0 ▶"; }
-dd.drawerHide           { display: none; }
+p.simpledrawer:before,
+dt.drawer:before,
+li.drawer:before {
+    letter-spacing: -1em;
+}
+p.simpledrawerOpen:before,
+dt.drawerOpen:before,
+li.drawerOpen:before {
+    content: "\00a0\00a0\00a0 ▼";
+}
+p.simpledrawerClose:before,
+dt.drawerClose:before,
+li.drawerClose:before {
+    content: "\00a0\00a0\00a0 ▶";
+}
+
+.hide,
+.fold,
+.foldable,
+dd.drawerHide,
+ul.drawerHide,
+ol.drawerHide,
+ul.simpledrawerHide,
+ol.simpledrawerHide {
+    display: none;
+}
+
+p.simpledrawer,
+p.simpledrawer + ul,
+p.simpledrawer + ol {
+    cursor: help;
+}
+li.drawer,
+li.drawer > ul,
+li.drawer > ol,
+li.drawer li.drawer li.drawer,
+li.drawer li.drawer li.drawer > ul,
+li.drawer li.drawer li.drawer > ol,
+li.drawer li.drawer li.drawer li.drawer li.drawer,
+li.drawer li.drawer li.drawer li.drawer li.drawer > ul,
+li.drawer li.drawer li.drawer li.drawer li.drawer > ol,
 dt.drawer,
-dt.drawer + dd,
-dd dd dt.drawer,
-dd dd dt.drawer + dd {
+dt.drawer+dd,
+dt.drawer+dd dt.drawer+dd dt.drawer,
+dt.drawer+dd dt.drawer+dd dt.drawer+dd,
+dt.drawer+dd dt.drawer+dd dt.drawer+dd dt.drawer+dd dt.drawer,
+dt.drawer+dd dt.drawer+dd dt.drawer+dd dt.drawer+dd dt.drawer+dd {
     cursor: crosshair;
 }
-dd dt.drawer,
-dd dt.drawer + dd,
-dd dd dd dt.drawer,
-dd dd dd dd dt.drawer + dd {
+
+li.drawer li.drawer,
+li.drawer li.drawer > ul,
+li.drawer li.drawer > ol,
+li.drawer li.drawer li.drawer li.drawer,
+li.drawer li.drawer li.drawer li.drawer + ul,
+li.drawer li.drawer li.drawer li.drawer + ol,
+dt.drawer+dd dt.drawer,
+dt.drawer+dd dt.drawer+dd,
+dt.drawer+dd dt.drawer+dd dt.drawer+dd dt.drawer,
+dt.drawer+dd dt.drawer+dd dt.drawer+dd dt.drawer+dd {
     cursor: cell;
 }
-dt.focus {
+p.focus,
+dt.focus,
+li.focus {
     border-bottom: 1px solid lightgray;
 }
-dt.focus.drawerClose {
+p.focus.simpledrawerClose,
+dt.focus.drawerClose,
+li.focus.drawerClose {
     border-right: 1px solid lightgray;
     border-bottom: 3px double lightgray;
 }
-dd.focus {
+dd.focus,
+ol.focus,
+ul.focus {
     border-left: 3px double lightgray;
 }
-dt.focus.drawer.drawerClose:before {
+
+p.focus.simpledrawer:before,
+dt.focus.drawer:before,
+li.focus.drawer:before {
     color: #ff1244;
+}
+p.focus.simpledrawer.simpledrawerClose:before,
+dt.focus.drawer.drawerClose:before,
+li.focus.drawer.drawerClose:before {
     -webkit-animation: waveAnimation 3s infinite;
     -moz-animation: waveAnimation 3s infinite;
     -o-animation: waveAnimation 3s infinite;

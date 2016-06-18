@@ -20,20 +20,6 @@
         * html #navigator   { position: absolute; }
         #navigator          { position: fixed; top: 1em; left: 1em; }
         #navigator a        { color: #887ddd; }
-
-        .hdrRef {
-            margin-left: 5px;
-            text-decoration: none;
-            transition: all 0.5s ease-in-out;
-            color: rgba(255,255,255,0.3);
-        }
-        .hdrRef a {
-            text-decoration: none;
-            border: none;
-        }
-        .hdrRef:hover {
-            color: rgba(255, 0, 0,1.0);
-        }
     </style>
     <link rel="stylesheet" href="$if(NOTBASE)$../$endif$github-markdown.css" type="text/css" />
     <link rel="stylesheet" href="$if(NOTBASE)$../$endif$highlight.css" type="text/css" />
