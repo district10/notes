@@ -4,38 +4,40 @@
 
     :   In one sip, Caffe is brewed for
 
-        +   Expression: models and optimizations are defined as plaintext schemas instead of code.
-        +   Speed: for research and industry alike speed is crucial for state-of-the-art models and massive data.
-        +   Modularity: new tasks and settings require flexibility and extension.
-        +   Openness: scientific and applied progress call for common code, reference models, and reproducibility.
-        +   Community: academic research, startup prototypes, and industrial applications all share strength by joint discussion and development in a BSD-2 project.
+        -   **Expression**: models and optimizations are defined as plaintext schemas instead of code.
+        -   **Speed**: for research and industry alike speed is crucial for state-of-the-art models and massive data.
+        -   **Modularity**: new tasks and settings require flexibility and extension.
+        -   **Openness**: scientific and applied progress call for common code, reference models, and reproducibility.
+        -   **Community**: academic research, startup prototypes, and industrial applications
+            all share strength by joint discussion and development in a BSD-2 project.
 
 -   Tour `@`{.fold}
 
     :   +   [Nets, Layers, and Blobs](http://caffe.berkeleyvision.org/tutorial/net_layer_blob.html): the anatomy of a Caffe model. `@`{.fold}
 
-            :   在 caffe 的模型里，layer 是一层层定义，从下往上是 data to loss 的过
-                程。数据和其导数(artifacts)在网络层中前后传播，通过的就是 blob，它既是 array，
+            :   在 caffe 的模型里，layer 是一层层定义，从下往上是 data 层到 loss 层的过
+                程。数据和其衍生物（derivatives）在网络层中前后传播，通过的就是 blob，它既是 array，
                 又是 unified memory interface for the network（就像 struct）。
 
                 *   层（layer）是来自“模型”和“计算”。
                 *   网（net）来自 layer 和 layer 的连接。
 
-                说 blob，就是说它如何在 layer 和 net 里存储和沟通（communicate）。
+                blob 主要的任务是协助 layer 和 net 里进行存储和沟通（communicate）。
 
                 blob 首先是数据存储的 wrapper，屏蔽了 CPU 和 GPU 之间的 gap，可以定义为：
-                “blob is an N-dimensional array stored in a C-contiguous fashion.”。
+                “**blob is an N-dimensional array stored in a C-contiguous fashion.**”。
 
-                可以存储图片，模型参数（model parameters），已经 derivatives for optimization（优化过程中的产生的数据？）。
+                可以存储图片，模型参数（model parameters），已经 derivatives
+                for optimization（优化过程中的产生的数据？）。
 
                 既然是 N-dim array，其计算方式为：For example, in a 4D blob, the value
                 at index (n, k, h, w) is physically located at index
-                `((n * K + k) * H + h) * W + w`，并没有什么独特的。
+                `((n * K + k) * H + h) * W + w`。并没有什么独特的。最前的一个维度是最大的尺度。
 
                 上面的 K，H，W 是 k，h，w 的个数。看成 RGB 图片的话，就是 w,h 是宽和高，
                 k 是 channel 数目也就是 3，n 是批处理的个数，也就是一次处理多少张图片。
                 如果从右向左看，w,h 正好对饮 OpenCV 坐标里的 x 和 y。不同的是 OpenCV 里，
-                图片的 rgb 通常都放在一起，而不是一个 channel 一个 channel 分开。
+                图片的 rgb（顺序是 b，g，r）通常都放在一起，而不是一个 channel 一个 channel 分开。
 
                 -   Number / N is the batch size of the data. Batch processing achieves
                     better throughput for communication and device processing. For an
@@ -52,10 +54,12 @@
 
                 如上面，filter 的 96 x 3 x 11 x 11 一定要理解。
 
+                另外需要注意的是 matlab 里的维度不是 `[n,k,h,w]` 而是 `[w,h,k,n]`。
+
                 For an inner product / fully-connected layer with 1000 output channels
                 and 1024 input channels the parameter blob is 1000 x 1024.
 
-                `不太理解为什么要这么定义！`{.todo}
+                `不太理解为什么要这么定义……`{.todo}
 
                 blob 里有两大部分，一个是 data，一个是 diff，前者是我们传进去的数据，后者是
                 网络自己训练出来的 gradient。这些数据可以在 CPU 中，也可以在 GPU 中，
@@ -66,7 +70,8 @@
                 Dtype* mutable_cpu_data();
                 ```
 
-                再复杂一点，If you want to check out when a Blob will copy data, here is an illustrative example:
+                再复杂一点，If you want to check out when a Blob will copy
+                data, here is an illustrative example:
 
                 ```cpp
                 // Assuming that data are on the CPU initially, and we have a blob.
@@ -91,8 +96,7 @@
                 and hinge. See the layer catalogue for all operations. Most of the
                 types needed for state-of-the-art deep learning tasks are there.
 
-                ![A layer takes input through bottom connections and makes output
-                    through top connections.](http://caffe.berkeleyvision.org/tutorial/fig/layer.jpg)
+                ![A layer takes input through bottom connections and makes output through top connections.](http://caffe.berkeleyvision.org/tutorial/fig/layer.jpg){.hide}
 
                 每个 layer 有三种重要的计算：setup，forward 和 backward。
 

@@ -118,6 +118,10 @@ $('ul,ol').on('click', function(event){
     if(getSelection().toString()){ return; }
     $p = $(this).prev();
     if ($p.is('p.simpledrawer')) {
+        if( !$p.hasClass('focus') ) {
+            $p.addClass('focus');
+            return event.stopPropagation();
+        }
         $('.focus').removeClass('focus');
         $(this).addClass('simpledrawerHide');
         $p.addClass('simpledrawerClose').removeClass('simpledrawerOpen').addClass('focus');

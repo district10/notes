@@ -1,7 +1,91 @@
 # 本笔记本简介
 
+## Pandoc Markdown + GitHub Markdown CSS
 
-## Pandoc Markdown
+[Geo Projections · mbostock/d3 Wiki](https://github.com/mbostock/d3/wiki/Geo-Projections)
+
+> [Wiki](Home) ▸ [[API Reference]] ▸ [[Geo]] ▸ **Geo Projections**
+
+<table class="highlight">
+<tr height="146" valign="top">
+<td>d3.geo.albersUsa<br><a href="http://bl.ocks.org/mbostock/4090848"><img src="http://bl.ocks.org/mbostock/raw/4090848/thumbnail.png" width="202"></a></td>
+<td>d3.geo.azimuthalEqualArea<br><a href="http://bl.ocks.org/mbostock/3757101"><img src="http://bl.ocks.org/mbostock/raw/3757101/thumbnail.png" width="202"></a></td>
+<td>d3.geo.azimuthalEquidistant<br><a href="http://bl.ocks.org/mbostock/3757110"><img src="http://bl.ocks.org/mbostock/raw/3757110/thumbnail.png" width="202"></a></td>
+</tr>
+<tr height="146" valign="top">
+<td>d3.geo.conicEqualArea<br><a href="http://bl.ocks.org/mbostock/3734308"><img src="http://bl.ocks.org/mbostock/raw/3734308/thumbnail.png" width="202"></a></td>
+<td>d3.geo.conicConformal<br><a href="http://bl.ocks.org/mbostock/3734321"><img src="http://bl.ocks.org/mbostock/raw/3734321/thumbnail.png" width="202"></a></td>
+<td>d3.geo.conicEquidistant<br><a href="http://bl.ocks.org/mbostock/3734317"><img src="http://bl.ocks.org/mbostock/raw/3734317/thumbnail.png" width="202"></a></td>
+</tr>
+<tr height="146" valign="top">
+<td>d3.geo.equirectangular<br><a href="http://bl.ocks.org/mbostock/3757119"><img src="http://bl.ocks.org/mbostock/raw/3757119/thumbnail.png" width="202"></a></td>
+<td>d3.geo.gnomonic<br><a href="http://bl.ocks.org/mbostock/3757349"><img src="http://bl.ocks.org/mbostock/raw/3757349/thumbnail.png" width="202"></a></td>
+<td>d3.geo.mercator<br><a href="http://bl.ocks.org/mbostock/3757132"><img src="http://bl.ocks.org/mbostock/raw/3757132/thumbnail.png" width="202"></a></td>
+</tr>
+<tr height="146" valign="top">
+<td>d3.geo.orthographic<br><a href="http://bl.ocks.org/mbostock/3757125"><img src="http://bl.ocks.org/mbostock/raw/3757125/thumbnail.png" width="202"></a></td>
+<td>d3.geo.stereographic<br><a href="http://bl.ocks.org/mbostock/3757137"><img src="http://bl.ocks.org/mbostock/raw/3757137/thumbnail.png" width="202"></a></td>
+<td>d3.geo.transverseMercator<br><a href="http://bl.ocks.org/mbostock/5126418"><img src="http://bl.ocks.org/mbostock/raw/5126418/thumbnail.png" width="202"></a></td>
+</tr>
+</table>
+
+
+<a name="projectionMutator" href="#projectionMutator">#</a> d3.geo.<b>projectionMutator</b>(<i>rawFactory</i>)
+
+Using d3.geo.projectionMutator, you can implement a standard projection
+that allows the parallels to be changed, reassigning the raw projection
+used internally by d3.geo.projection:
+
+![](http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png){.w2 .r}
+
+```javascript
+function albers() {
+  var φ0 = 29.5,
+      φ1 = 45.5,
+      mutate = d3.geo.projectionMutator(albersRaw),
+      projection = mutate(φ0, φ1);
+
+  projection.parallels = function(_) {
+    if (!arguments.length) return [φ0, φ1];
+    return mutate(φ0 = +_, φ1 = +_);
+  };
+
+  return projection;
+}
+```
+
+![big fish](http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png)
+
+---
+
+------
+![img]
+------
+
+![](http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png){.w2}
+![](http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png){.w2}
+
+------ ------
+![img] ![img]
+------ ------
+
+![with caption 1](http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png){.w2}
+![with caption 2](http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png){.w2}
+
+------ ------ ------
+![img] ![img] ![img]
+------ ------ ------
+
+![](http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png){.w3}
+![](http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png){.w3}
+![](http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png){.w3}
+
+
+------ ------ ------ ------ ------ ------
+![img] ![img] ![img] ![img] ![img] ![img]
+------ ------ ------ ------ ------ ------
+
+[img]: http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png
 
 ## Format
 
@@ -142,6 +226,33 @@
 
 最后的最后，回车键可以切换当前折叠盒（有红色折叠标记）。
 
+## 图片
+
+`.r`, `.l`,
+`.w2`, `.w3`, `w4`
+
 ---
 
-P.S. 如果你想看本文源码，请访问：<https://github.com/district10/notes/blob/master/2016/intro-to-my-note.md>。
+P.S. 如果你想看本文源码，请访问：
+<https://raw.githubusercontent.com/district10/notes/master/2016/intro-to-my-note.md>。
+
+## TODO
+
+1.  两/三/四/五张图片横着。再多就用 table 吧。
+2.  图片和说明并列。
+3.  两张图片，有 caption，但是 pandoc 生成的没有 caption。如果加上 `.cap` 则添加 caption。
+4.  jQuery 里可以从 p 找它的两/多个孩子。
+
+    ```html
+    <p>
+    <img alt="with caption 1" src="http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png" class="w2">
+    <img alt="with caption 2" src="http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png" class="w2">
+    </p>
+    ```
+
+    ```html
+    <div class="figure">
+    <img src="http://gnat-tang-shared-image.qiniudn.com/big-fish/57.png" alt="big fish">
+    <p class="caption">big fish</p>
+    </div>
+    ```

@@ -161,6 +161,19 @@ p a img:hover {
     text-transform: uppercase;
 }
 
+.markdown-body img.l { float: left; }
+.markdown-body img.r { float: right; }
+.markdown-body img.w2,
+.markdown-body img.w3,
+.markdown-body img.w4,
+.markdown-body img.l,
+.markdown-body img.r {
+    clear: both;
+}
+.markdown-body img.w2 { max-width: 40%; }
+.markdown-body img.w3 { max-width: 30%; }
+.markdown-body img.w4 { max-width: 20%; }
+
 a.featured {
     border: 1px solid #9ddcff;
     border-radius: 3px;
@@ -227,14 +240,14 @@ li.drawerClose:before {
     content: "\00a0\00a0\00a0 ▶";
 }
 
-.hide,
-.fold,
-.foldable,
-dd.drawerHide,
-ul.drawerHide,
-ol.drawerHide,
-ul.simpledrawerHide,
-ol.simpledrawerHide {
+.markdown-body .hide,
+.markdown-body .fold,
+.markdown-body .foldable,
+.markdown-body dd.drawerHide,
+.markdown-body ul.drawerHide,
+.markdown-body ol.drawerHide,
+.markdown-body ul.simpledrawerHide,
+.markdown-body ol.simpledrawerHide {
     display: none;
 }
 
@@ -333,4 +346,8 @@ li.focus.drawer.drawerClose:before {
 .markdown-body div.footnotes hr:first-child {
     height: 1px;
     background-color: lightgray;
+}
+
+.markdown-body table {
+    max-width: 100%;
 }
