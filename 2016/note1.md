@@ -113,3 +113,5 @@
 [jQuery - keydown / keypress /keyup ENTERKEY detection? - Stack Overflow](http://stackoverflow.com/questions/3462995/jquery-keydown-keypress-keyup-enterkey-detection)
 
 :   nice
+
+以上是对英文没问题的同学，如果英文有问题怎么办呢？请先转化到没问题的状态。
