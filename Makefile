@@ -56,12 +56,11 @@ n:
 	$(EDITOR) index.md ./
 m:
 	$(EDITOR) Makefile
-
-caffesync:
-	@mkdir -p caffe-notes
-	rsync ../caffe-notes/*.md caffe-notes/
-caffereset:
-	@rm -rf caffe-notes; 
-	git submodule update --init --recursive
-caffeupdate:
-	cd caffe-notes; git pull origin master;
+sm: sitemap
+sitemap:
+	touch publish/sitemap.html
+	find publish/ | \
+		sed -e "s/^publish/-   <http:\/\/tangzx.qiniudn.com\/notes/" | \
+		sed -e "s/$$/>/" | tee sitemap.md | \
+		pandoc --ascii -o publish/sitemap.html
+	cat sitemap.md
