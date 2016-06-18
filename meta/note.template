@@ -7,20 +7,6 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TZX's Notes</title>
-    <style type="text/css">
-        code{ white-space: pre; }
-        q   { quotes: "“" "”" "‘" "’"; }
-        .markdown-body {
-            box-sizing: border-box;
-            min-width: 200px;
-            max-width: 980px;
-            margin: 0 auto;
-            padding: 45px;
-        }
-        * html #navigator   { position: absolute; }
-        #navigator          { position: fixed; top: 1em; left: 1em; }
-        #navigator a        { color: #887ddd; }
-    </style>
     <link rel="stylesheet" href="$if(NOTBASE)$../$endif$github-markdown.css" type="text/css" />
     <link rel="stylesheet" href="$if(NOTBASE)$../$endif$highlight.css" type="text/css" />
     <link rel="stylesheet" href="$if(NOTBASE)$../$endif$notes.css" type="text/css" />
@@ -33,7 +19,7 @@ $endif$
     <img
         style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;"
         src="../fork-me-on-github.png" alt="Fork me on GitHub"></a>
-<div id="navigator"><a href="$if(ISINDEX)$../$endif$index.html" title="【回到笔记索引 | Back to Index】">☣</a></div>
+<div id="navigator"><a id="gotoindex" href="$if(ISINDEX)$../$endif$index.html" title="【回到笔记索引 | Back to Index】">☣</a></div>
 $body$
 <script src="$if(NOTBASE)$../$endif$lazyload.min.js"></script>
 <script src="$if(NOTBASE)$../$endif$jquery-3.0.0.min.js"></script>

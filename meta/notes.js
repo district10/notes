@@ -52,6 +52,7 @@ $('p > code.foldable').each(function(){
 
 $('dt.drawer').on('click', function(event){
     if(getSelection().toString()){ return; }
+    if($('body').hasClass('locked')){ return; }
     $('.focus').removeClass('focus');
     $(this).addClass('focus').next('dd').addClass('focus');
     $(this)
@@ -62,8 +63,14 @@ $('dt.drawer').on('click', function(event){
 });
 $('dd').on('click', function(event){
     if(getSelection().toString()){ return; }
+    if($('body').hasClass('locked')){ return; }
     var $dt = $(this).prev('dt');
     if ($dt.hasClass('drawer')) {
+        if( !$dt.hasClass('focus') ) {
+            $dt.addClass('focus');
+            $(this).addClass('focus');
+            return event.stopPropagation();
+        }
         $('.focus').removeClass('focus');
         $(this).addClass('focus').prev('dt').addClass('focus');
         $dt
@@ -79,6 +86,7 @@ $('dd').on('click', function(event){
 });
 $('li.drawer').on('click', function(event){
     if(getSelection().toString()){ return; }
+    if($('body').hasClass('locked')){ return; }
     $('.focus').removeClass('focus');
     $(this).addClass('focus').children('ul,ol').addClass('focus');
     $(this)
@@ -89,6 +97,7 @@ $('li.drawer').on('click', function(event){
 });
 $('ul').on('click', function(event){
     if(getSelection().toString()){ return; }
+    if($('body').hasClass('locked')){ return; }
     var $li = $(this).prev('li');
     if ($li.hasClass('drawer')) {
         $('.focus').removeClass('focus');
@@ -106,6 +115,7 @@ $('ul').on('click', function(event){
 });
 $('p.simpledrawer').on('click', function(event){
     if(getSelection().toString()){ return; }
+    if($('body').hasClass('locked')){ return; }
     $list = $(this).next();
     if ($list.is('ul') || $list.is('ol') ) {
         $('.focus').removeClass('focus');
@@ -116,6 +126,7 @@ $('p.simpledrawer').on('click', function(event){
 });
 $('ul,ol').on('click', function(event){
     if(getSelection().toString()){ return; }
+    if($('body').hasClass('locked')){ return; }
     $p = $(this).prev();
     if ($p.is('p.simpledrawer')) {
         if( !$p.hasClass('focus') ) {
@@ -133,6 +144,7 @@ $('ul,ol').on('click', function(event){
 });
 $('body').on('click', function(event){
     if(getSelection().toString()){ return; }
+    if($('body').hasClass('locked')){ return; }
     $('.focus').removeClass('focus');
 });
 
@@ -156,13 +168,36 @@ function debug() {
     $('.hide').css({'border': '1px solid red', 'display': 'block'});
 }
 
+$('body').addClass('foldable').removeClass('locked');
+var $nav = $('#navigator a:eq(0)');
+var navTitle = $nav.attr('title');
+var navHref  = $nav.attr('href');
+function toggleLock() {
+    $('body').toggleClass('foldable').toggleClass('locked');
+    if( $('body').hasClass('locked') ) {
+        $nav.attr('title', 'Page Locked! Press "<backspace>" or "<right><right><right>" to unlock.');
+        $nav.attr('href', '#');
+    } else {
+        $nav.attr('title', navTitle);
+        $nav.attr('href',  navHref);
+    }
+}
+
 $('body').keydown(function(e){
     var code = e.which;
-    if(code==13) { // key: enter/return
+    if(code==8) { // key: backspace
+        toggleLock();
+    } else if(code==13) { // key: enter/return
         $f = $('dt.drawer.focus, li.drawer.focus, p.simpledrawer.focus');
         if ($f.length) {
             $f[0].click();
         }
+    }
+});
+$('#gotoindex').on('click', function(event){
+    if($('body').hasClass('locked')) {
+        alert($(this).attr('title'));
+        return stopPropagation();
     }
 });
 
@@ -174,6 +209,7 @@ egg
     // right,right
     .addCode(   "right,right,down",     function() {    expandAll();    }).addCode(     "e,x,p,a,n,d",  function() {    expandAll();    })
     .addCode(   "right,right,up",       function() {    foldAll();      }).addCode(     "f,o,l,d",      function() {    foldAll();      })
+    .addCode(   "right,right,right",    function() {    toggleLock();   })
     // left,right
     .addCode(   "left,right,down",      function() {    show();         }).addCode(     "s,h,o,w",      function() {    show();         })
     .addCode(   "left,right,up",        function() {    hide();         }).addCode(     "h,i,d,e",      function() {    hide();         })

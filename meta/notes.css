@@ -1,3 +1,13 @@
+code{ white-space: pre; }
+q   { quotes: "“" "”" "‘" "’"; }
+.markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 45px;
+}
+
 @keyframes waveAnimation {
   0%   { padding-right: 0em }
   50%  { padding-right: 2em }
@@ -350,4 +360,13 @@ li.focus.drawer.drawerClose:before {
 
 .markdown-body table {
     max-width: 100%;
+}
+
+* html #navigator   { position: absolute; }
+#navigator          { position: fixed; top: 1em; left: 1em; }
+#gotoindex { color: #887ddd; }
+.foldable #gotoindex { border: none; }
+.locked #gotoindex {
+    border: 3px solid red;
+    border-radius: 10px;
 }
