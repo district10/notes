@@ -95,14 +95,20 @@ $('li.drawer').on('click', function(event){
     $(this).children('ul,ol').toggleClass('drawerHide');
     event.stopPropagation();
 });
-$('ul').on('click', function(event){
+$('ul,ol').on('click', function(event){
     if(getSelection().toString()){ return; }
-    if($('body').hasClass('locked')){ return; }
     var $li = $(this).prev('li');
     if ($li.hasClass('drawer')) {
+        if (!$li.hasClass('focus')) {
+            $li.addClass('focus');
+            $(this).addClass('focus');
+            return stopPropagation();
+        }
+        if($('body').hasClass('locked')){ return; }
         $('.focus').removeClass('focus');
-        $(this).addClass('focus').prev('li').addClass('focus');
+        $(this).addClass('focus');
         $li
+            .addClass('focus')
             .toggleClass('drawerOpen')
             .toggleClass('drawerClose');
         if ($(this).toggleClass('drawerHide').hasClass('drawerHide')) {
@@ -126,13 +132,13 @@ $('p.simpledrawer').on('click', function(event){
 });
 $('ul,ol').on('click', function(event){
     if(getSelection().toString()){ return; }
-    if($('body').hasClass('locked')){ return; }
     $p = $(this).prev();
     if ($p.is('p.simpledrawer')) {
         if( !$p.hasClass('focus') ) {
             $p.addClass('focus');
             return event.stopPropagation();
         }
+        if($('body').hasClass('locked')){ return; }
         $('.focus').removeClass('focus');
         $(this).addClass('simpledrawerHide');
         $p.addClass('simpledrawerClose').removeClass('simpledrawerOpen').addClass('focus');

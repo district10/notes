@@ -364,9 +364,9 @@ li.focus.drawer.drawerClose:before {
 
 * html #navigator   { position: absolute; }
 #navigator          { position: fixed; top: 1em; left: 1em; }
-#gotoindex { color: #887ddd; }
-.foldable #gotoindex { border: none; }
-.locked #gotoindex {
+#gotoindex          { color: #887ddd; }
+body.foldable #gotoindex { border: none; }
+body.locked #gotoindex {
     border: 3px solid red;
     border-radius: 10px;
 }
