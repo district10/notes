@@ -4,7 +4,7 @@
 
 ---
 
-[横山宏---科幻军事之父](http://site.douban.com/106758/widget/notes/174077/note/148694802/) `@`{.hide}
+[横山宏---科幻军事之父](http://site.douban.com/106758/widget/notes/174077/note/148694802/) `@`{.fold}
 
 :   这姑娘逗……
 
@@ -16,7 +16,7 @@
 
 [CCMakefile4iOS/Makefile at master · webfrogs/CCMakefile4iOS](https://github.com/webfrogs/CCMakefile4iOS/blob/master/Makefile)
 
-[windows - How to pass command line parameters to a batch file? - Stack Overflow](http://stackoverflow.com/questions/26551/how-to-pass-command-line-parameters-to-a-batch-file) `@`{.hide}
+[windows - How to pass command line parameters to a batch file? - Stack Overflow](http://stackoverflow.com/questions/26551/how-to-pass-command-line-parameters-to-a-batch-file) `@`{.fold}
 
 :   ```bash
     echo off
@@ -45,7 +45,7 @@
     fake-command /u %arg1% /p %arg2% %*
     ```
 
-[启动或停止 Web 服务器 (IIS 8)](https://technet.microsoft.com/zh-cn/library/jj635851.aspx) `@`{.hide}
+[启动或停止 Web 服务器 (IIS 8)](https://technet.microsoft.com/zh-cn/library/jj635851.aspx) `@`{.fold}
 
 :   用 nodejs 开 80 端口的 http 服务器，需要先关闭 IIS：`net stop WAS`（实际上用 `net pause WAS` 更好）
 
@@ -88,7 +88,7 @@
 
 [shell - How can I concatenate string variables in Bash? - Stack Overflow](http://stackoverflow.com/questions/4181703/how-can-i-concatenate-string-variables-in-bash/18041780#18041780)
 
-[crop - Cropping a PDF using Ghostscript 9.01 - Stack Overflow](http://stackoverflow.com/questions/6183479/cropping-a-pdf-using-ghostscript-9-01) `@`{.hide}
+[crop - Cropping a PDF using Ghostscript 9.01 - Stack Overflow](http://stackoverflow.com/questions/6183479/cropping-a-pdf-using-ghostscript-9-01) `@`{.fold}
 
 :   ```bash
     gswin64c.exe \
@@ -118,7 +118,7 @@
 
 [Perl Regular Expression Syntax - 1.49.0](http://www.boost.org/doc/libs/1_49_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html#boost_regex.syntax.perl_syntax.perl_regular_expression_syntax)
 
-[网络科学导论](http://zhiyuan.sjtu.edu.cn/Course/netsci.htm) `@`{.hide}
+[网络科学导论](http://zhiyuan.sjtu.edu.cn/Course/netsci.htm) `@`{.fold}
 
 :   Network Science: An Introduction
 
@@ -143,7 +143,7 @@
     拓扑性质、网络拓扑模型和网络动力学。
     本书适合作为研究生和高年级本科生的网络科学教材，也可供自然科学、工程技术科学和社会科学领域的研究人员与学生参考。
 
-[王友来：《我在美国坐牢——美国联邦监狱揭密》 | 海外文摘 - Bay Area Chinese--灣區華人 - Powered by PHPWind](http://www.bachinese.com/forum/simple/?t20389.html) `@`{.hide}
+[王友来：《我在美国坐牢——美国联邦监狱揭密》 | 海外文摘 - Bay Area Chinese--灣區華人 - Powered by PHPWind](http://www.bachinese.com/forum/simple/?t20389.html) `@`{.fold}
 
 :   晚饭在图书馆借书，发现了令我奇怪的事情。金三角坤沙贩毒集团的贩毒分子赵福生
     （他是坤沙的侄子）也在图书馆借了《毛泽东著作选读》甲种本上、下集两本。我惊
@@ -432,7 +432,7 @@
         主要是英国人的后代，我们不过是效仿你们老祖宗的做法，你们美国人抓我们没
         有道理的（大笑，大概自认为是强词夺理吧）。
 
-[Machiavellianism - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Machiavellianism) `@`{.hide}
+[Machiavellianism - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Machiavellianism) `@`{.fold}
 
 :   Machiavellianism is "**the employment of cunning and duplicity (两面派) in
     statecraft or in general conduct**". The word comes from the Italian
@@ -466,7 +466,7 @@
 
       - [马基雅维利主义-百度百科](http://baike.baidu.com/view/1201238.htm)
 
-[日本有哪些好的歌手？ - 知乎](https://www.zhihu.com/question/22782650) `@`{.hide}
+[日本有哪些好的歌手？ - 知乎](https://www.zhihu.com/question/22782650) `@`{.fold}
 
 :   ZARD 听到就让人泪目的摇滚乐团无需多言。这首《君に逢いたくなったら》是
     1997 年的单曲，每次听到都会十分感动。ZARD 的曲子里充满着从骨子里发出的不
@@ -476,7 +476,7 @@
 
 [科学网—我是河南人 - 施一公的博文](http://blog.sciencenet.cn/home.php?mod=space&uid=46212&do=blog&id=284162)
 
-[埃瓦里斯特·伽罗瓦-百度百科](http://baike.baidu.com/link?url=RYtI1uUwSNSdH-8aadFGVjY6TEivoTIcIhGXY-rHHMQLkt02C23vKXJE5xYgRxwOIC3CKyby0hjSkL_WmNQy45roMynw1pOXa7k7kbl5Rlr2wyGb4l42qV74hnvKY80he7MvG-So-Aq3p-eH9H1MIa) `@`{.hide}
+[埃瓦里斯特·伽罗瓦-百度百科](http://baike.baidu.com/link?url=RYtI1uUwSNSdH-8aadFGVjY6TEivoTIcIhGXY-rHHMQLkt02C23vKXJE5xYgRxwOIC3CKyby0hjSkL_WmNQy45roMynw1pOXa7k7kbl5Rlr2wyGb4l42qV74hnvKY80he7MvG-So-Aq3p-eH9H1MIa) `@`{.fold}
 
 :   埃瓦里斯特·伽罗瓦，1811 年 10 月 25 日生，法国数学家。现代数学中的分支学科
     群论的创立者。用群论彻底解决了根式求解代数方程的问题，而且由此发展了一整套
@@ -504,7 +504,7 @@
 
       - [Évariste Galois - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/%C3%89variste_Galois)
 
-[虽然去不了 Google，走到这步大概也不错了 - laike9m's blog](https://laike9m.com/blog/sui-ran-qu-bu-liao-googlezou-dao-zhe-bu-da-gai-ye-bu-cuo-liao,72/) `@`{.hide}
+[虽然去不了 Google，走到这步大概也不错了 - laike9m's blog](https://laike9m.com/blog/sui-ran-qu-bu-liao-googlezou-dao-zhe-bu-da-gai-ye-bu-cuo-liao,72/) `@`{.fold}
 
 :   所以说，Google 并不在乎你的表现如何，在乎的是你的表现必须超出别的应聘者
     一大截。对我来讲，这是不可能做到的事，至少我没法在中国做到。
@@ -527,7 +527,7 @@
 
       - [一个普通人离杀人有多远——梁文道讲《路西法效应》](http://www.douban.com/group/topic/21241596/)
 
-[如何才能去做喜欢的事情](http://www.wanglianghome.org/zh_CN/translation/HowToDoWhatYouLove.html) `@`{.hide}
+[如何才能去做喜欢的事情](http://www.wanglianghome.org/zh_CN/translation/HowToDoWhatYouLove.html) `@`{.fold}
 
 :   How To Do What You Love
 
@@ -543,7 +543,7 @@
     我认为，一个人不应该在乎别人的看法，除非是他的朋友。不要想着出名，不必太在
     意众人的意见。能够得到尊敬的人的意见就够了，何必在乎那些根本就不认识的人呢？
 
-[书是好书，但记忆法…… (评论: Moonwalking With Einstein)](http://book.douban.com/review/5312595/) `@`{.hide}
+[书是好书，但记忆法…… (评论: Moonwalking With Einstein)](http://book.douban.com/review/5312595/) `@`{.fold}
 
 :   在一次采访中，记忆学引起了福尔浓厚的兴趣。在结识了诸多记忆界大师级人物后，
     福尔决定亲身体验记忆学的真谛，并拜英国记忆大师艾德·库克为师。在经过一年的勤

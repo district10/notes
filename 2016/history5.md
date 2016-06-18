@@ -4,8 +4,7 @@
 
 ---
 
-<div class="tzx-drawer" shy>
-我来说说腾讯，一条一条地黑，想到什么黑什么
+我来说说腾讯，一条一条地黑，想到什么黑什么 `@`{.fold}
 
 :   -   不同部门之间年终奖差别非常大
     -   对码农来说，加班不一定意味着钱多，但是不加班钱就一定少
@@ -3780,8 +3779,7 @@ A girl likes to be crossed in love now and then.
 
 [Introduction](http://singlepageappbook.com/)
 
-<div class="tzx-drawer" shy>
-[寻找光影流年 – ButMan World](http://butman.club/category/notes/movie/movingpicture/)
+[寻找光影流年 – ButMan World](http://butman.club/category/notes/movie/movingpicture/) `@`{.fold}
 
 :   导读：因为暑假（蹭程子芸小朋友的高中）毕业旅行的小契机，终有机会踏上早已在
     无数光影中痴迷过其浪漫情调和特有的法兰西美貌的“神圣”之地——法国。在法国的行

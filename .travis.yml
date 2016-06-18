@@ -11,6 +11,6 @@ install:
   - sudo dpkg -i pandoc*.deb
 script:
   - cd ~/build/district10/notes;
-  - make
+  - make all sitemap
   - cat meta/conf.json.in | sed -e "s/QiNiuAK/$QiNiuAK/" | sed -e "s/QiNiuSK/$QiNiuSK/" > conf.json
   - qrsync conf.json

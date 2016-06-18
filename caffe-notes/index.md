@@ -6,7 +6,7 @@ installation, howto?? see yhlleo's blog post: [Ubuntu14.04 安装CUDA7.5 + Caffe
 
 -   [pre knowledge](pre.html){title=pre.md}
 
--   [Official tutorial](tutorial.html){title=tutorial.md}
+-   [Official tutorial](tutorial.html){title=tutorial.md .featured}
 
     the most important!
 

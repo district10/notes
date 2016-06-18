@@ -1,3 +1,6 @@
+$('a[href*=":"]').attr( "target", "_blank" );
+$('a').on('click', function(event){ event.stopPropagation(); });
+
 $('img').each(function(index){
     var src = $(this).attr('src');
     $(this).attr({
@@ -7,18 +10,24 @@ $('img').each(function(index){
     });
     $a = $(this).parent('a');
     if ($a.length) {
-        $a.addClass('tzx-dumb');
-        $(this).addClass('tzx-dumb');
+        $a.addClass('dumb');
+        $(this).addClass('dumb');
     }
 });
 
-// $('dt').each(function(){ $(this).addClass('drawer').addClass('drawerOpen'); });
 $('dt > code.fold').each(function(){
     $(this)
         .parent().addClass('drawerClose').addClass('drawer')
         .next('dd').addClass('drawerHide');
 });
+$('dt > code.foldable').each(function(){
+    $(this)
+        .parent().addClass('drawerOpen').addClass('drawer')
+});
 $('dt.drawer').on('click', function(event){
+    if(getSelection().toString()){ return; }
+    $('dt.focus,dd.focus').removeClass('focus');
+    $(this).addClass('focus').next('dd').addClass('focus');
     $(this)
         .toggleClass('drawerOpen')
         .toggleClass('drawerClose');
@@ -26,8 +35,11 @@ $('dt.drawer').on('click', function(event){
     event.stopPropagation();
 });
 $('dd').on('click', function(event){
+    if(getSelection().toString()){ return; }
     var $dt = $(this).prev('dt');
     if ($dt.hasClass('drawer')) {
+        $('dt.focus,dd.focus').removeClass('focus');
+        $(this).addClass('focus').prev('dt').addClass('focus');
         $dt
             .toggleClass('drawerOpen')
             .toggleClass('drawerClose');
@@ -45,6 +57,9 @@ function expandAll() {
 }
 function foldAll() {
     $('dt.drawerOpen').removeClass('drawerOpen').addClass('drawerClose').next('dd').addClass('drawerHide');
+}
+function goUpDir() {
+    $('#navigator a')[0].click();
 }
 
 var egg = new Egg();
@@ -67,10 +82,10 @@ egg
     .addCode("h,i,d,e", function() {
         $('.show').removeClass('show').addClass('show');
     })
+    .addCode("u,p", function() {
+        goUpDir();
+    })
+    .addCode("left,left,left", function() {
+        goUpDir();
+    })
     .listen();
-
-$( "a" ).attr( "target", "_blank" );
-$( "a[href*='#']" ).attr( "target", "" );
-$('img').on('click', function(event){
-    event.stopPropagation();
-});

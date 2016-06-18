@@ -1,17 +1,4 @@
-# 笔记[^features]
-
-[^features]: 关于本笔记的一些标记：
-
-    -   值得仔细阅读的链接：`[title](url){.featured}`{.markdown}，如
-        [Welcome to dvorak4tzx’s Blog.](http://tangzx.qiniudn.com){.featured}。
-    -   加 ♥ 的：`{.heart}`的都是特别赞的，如
-        [Welcome to dvorak4tzx’s Blog.](http://tangzx.qiniudn.com){.heart}。
-    -   加 flag 的，表明很重要，不弄懂可能无法继续阅读：`{.flag}`，如
-        [Welcome to dvorak4tzx’s Blog.](http://tangzx.qiniudn.com){.flag}。
-    -   加 todo 的，还没弄懂：`{.todo}`，如
-        [Welcome to dvorak4tzx’s Blog.](http://tangzx.qiniudn.com){.todo} 以及
-        `这个地方很难，下次再看`{.todo}。
-    -   `.heart`{.heart}, `.flag`{.flag}
+# 笔记
 
 [Git - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) `@`{.fold}
 
@@ -78,7 +65,7 @@
         git config -f .gitmodules submodule.caffe-notes.branch stable
         ```
 
-    diff submodules `@`{.fold}
+    diff submodules `@`{.foldable}
 
     :   ```bash
         # method 1
@@ -94,3 +81,31 @@
         # checkout `stable' branch instead of `master' branch
         git config -f .gitmodules submodule.caffe-notes.branch stable
         ```
+
+[javascript - jQuery .click() is triggering when selecting/highlighting text - Stack Overflow](http://stackoverflow.com/questions/10390010/jquery-click-is-triggering-when-selecting-highlighting-text)
+
+:   ```javascript
+    $('dt.drawer').on('click', function(event){
+        if(getSelection().toString()){ return; } // !!! NICE !!!
+        $('dt.focus,dd.focus').removeClass('focus');
+        $(this).addClass('focus').next('dd').addClass('focus');
+        $(this)
+            .toggleClass('drawerOpen')
+            .toggleClass('drawerClose');
+        $(this).next('dd').toggleClass('drawerHide');
+        event.stopPropagation();
+    });
+    ```
+
+    有人回复：
+
+    >   To not break the whole app when a user has text selected somewhere else it
+    >   might be good to check that the selected text is in the relevant element:
+    >   `if(!e.target.contains(getSelection().anchorNode))`{.javascript}.
+
+    然而其实不必要，因为当你点击的时候，你的 selection 就被清空了。如果 selection 还在，
+    一定选中的是当前 node 的文字。（我是实测发现并没有 bug 才注意到这句话，才多想了一下。）
+
+[4ker/jquery-popup-overlay: jQuery plugin for responsive and accessible modal windows and tooltips.](https://github.com/4ker/jquery-popup-overlay)
+
+:   我想把 overlay 功能加到笔记里。

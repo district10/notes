@@ -1,4 +1,33 @@
-h2 { padding-top: 2em; }
+@keyframes flickerAnimation {
+  0%   { padding-right: 0em }
+  50%  { padding-right: 2em }
+  100% { padding-right: 0em }
+}
+@-o-keyframes flickerAnimation {
+  0%   { padding-right: 0em }
+  50%  { padding-right: 2em }
+  100% { padding-right: 0em }
+}
+@-moz-keyframes waveAnimation {
+  0%   { padding-right: 0em }
+  50%  { padding-right: 2em }
+  100% { padding-right: 0em }
+}
+@-webkit-keyframes flickerAnimation {
+  0%   { padding-right: 0em }
+  50%  { padding-right: 2em }
+  100% { padding-right: 0em }
+}
+
+h1,h2,h3,h4 { padding-top: 2em; }
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+    padding-top: 0.5em;
+}
 
 h1:before, h1:after,
 h2:before, h2:after,
@@ -61,6 +90,7 @@ img {
     max-width: 95%;
 }
 
+a.dumb:hover { text-decoration: none; }
 img.dumb:hover {
     -webkit-transform: scale(1);
     -moz-transform: scale(1);
@@ -173,7 +203,7 @@ a.flag:after {
     border-radius: 3px;
 }
 
-.fold { display: none; }
+.hide, .fold, .foldable { display: none; }
 
 a.footnoteRef { color: #ff8345; }
 a.footnoteRef:hover {
@@ -198,6 +228,23 @@ dd dt.drawer + dd,
 dd dd dd dt.drawer,
 dd dd dd dd dt.drawer + dd {
     cursor: cell;
+}
+dt.focus {
+    border-bottom: 1px solid lightgray;
+}
+dt.focus.drawerClose {
+    border-right: 1px solid lightgray;
+    border-bottom: 3px double lightgray;
+}
+dd.focus {
+    border-left: 3px double lightgray;
+}
+dt.focus.drawer.drawerClose:before {
+    color: #ff1244;
+    -webkit-animation: waveAnimation 3s infinite;
+    -moz-animation: waveAnimation 3s infinite;
+    -o-animation: waveAnimation 3s infinite;
+    animation: waveAnimation 3s infinite;
 }
 
 .footnotes {
@@ -230,5 +277,3 @@ dd dd dd dd dt.drawer + dd {
     height: 1px;
     background-color: lightgray;
 }
-
-.hide { display: none; }

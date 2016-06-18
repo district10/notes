@@ -1,6 +1,6 @@
 ## [Caffe | Caffe Tutorial](http://caffe.berkeleyvision.org/tutorial/)
 
--   Philosophy `@`{.fold}
+-   Philosophy `@`{.foldable}
 
     :   In one sip, Caffe is brewed for
 
@@ -162,10 +162,9 @@
 
         +   [Forward / Backward](http://caffe.berkeleyvision.org/tutorial/forward_backward.html): the essential computations of layered compositional models. `@`{.fold}
 
-            :   ![](http://caffe.berkeleyvision.org/tutorial/fig/forward_backward.png){width=200px}
-
-                ![](http://caffe.berkeleyvision.org/tutorial/fig/forward.jpg)
-                ![](http://caffe.berkeleyvision.org/tutorial/fig/backward.jpg)
+            :   ![](http://caffe.berkeleyvision.org/tutorial/fig/forward_backward.png){width=30%}
+                ![](http://caffe.berkeleyvision.org/tutorial/fig/forward.jpg){width=30% id="here"}
+                ![](http://caffe.berkeleyvision.org/tutorial/fig/backward.jpg){width=30%}
 
                 These computations follow immediately from defining the model: Caffe
                 plans and carries out the forward and backward passes for you.

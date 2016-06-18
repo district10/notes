@@ -18,8 +18,6 @@ all: $(DST) $(CSS)
 clean:
 	rm -rf publish/*
 gh:
-	make caffereset
-	make caffeupdate
 	git add -A; git commit -m "`uname` -- `date`"; git push;
 
 publish/index.html: index.md
@@ -53,9 +51,15 @@ publish/%: meta/%
 
 note: n
 n:
-	$(EDITOR) index.md ./
+	$(EDITOR) index.md 2016/ caffe-notes/
 m:
 	$(EDITOR) Makefile
+t:
+	$(EDITOR) meta/note.template
+j:
+	$(EDITOR) meta/notes.js
+c:
+	$(EDITOR) meta/notes.css
 sm: sitemap
 sitemap:
 	touch publish/sitemap.html
