@@ -185,7 +185,7 @@ var navHref  = $nav.attr('href');
 function toggleLock() {
     $('body').toggleClass('foldable').toggleClass('locked');
     if( $('body').hasClass('locked') ) {
-        $nav.attr('title', 'Page Locked! Press "<backspace>" or "<right><right><right>" to unlock.');
+        $nav.attr('title', 'Page Locked! Press "<right><right><right>" to unlock.');
         $nav.attr('href', '#');
     } else {
         $nav.attr('title', navTitle);
@@ -194,9 +194,13 @@ function toggleLock() {
 }
 function help() {
     alert(  '方向键有如下功能：\n\n'
-         +  '\t**展开**所有折叠盒：<right><right><down>\n'
-         +  '\t**收起**所有折叠盒：<right><right><up>\n'
-         +  '\t**锁定**所有折叠盒：<right><right><right>\n' );
+         +  '\t1. 展开所有折叠盒：<right><right><down>\n'
+         +  '\t2. 收起所有折叠盒：<right><right><up>\n'
+         +  '\t3. 锁定所有折叠盒：<right><right><right>\n'
+         +  '\n\n'
+         +  '其他功能：\n\n'
+         +  '\t1. 折叠/展开当前折叠盒（有红色标记）：<enter> \n'
+         +  '\t2. 页面跳转，返回上一级：<left><left><left>' );
 }
 
 $('body').keydown(function(e){
@@ -206,6 +210,7 @@ $('body').keydown(function(e){
         help();
     } else if(code==8) {        // key: backspace,      toggle lock
         toggleLock();
+        return false;
     } else if(code==13) {       // key: enter/return,   toggle fold/expand of drawer.focus
         $f = $('dt.drawer.focus, li.drawer.focus, p.simpledrawer.focus');
         if ($f.length) {

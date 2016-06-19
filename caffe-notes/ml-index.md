@@ -37,95 +37,95 @@ python notes <-
 
 yhlleo 推荐的论文 <-
 
-```
-ml
-├── DeepLearning
-│   ├── Bag-of-Words models.pdf
-│   ├── Beyond Bags of Features Spatial Pyramid Matching-CVPR2006.pdf
-│   ├── Deep Learning - Methods and Applications.pdf
-│   ├── Fast accurate detection of 100000 object classes on a single machine-CVPR2013.pdf
-│   ├── faster r-cnn towards real-time object detection with region proposal networks-NIPS2015.pdf
-│   ├── Fast R-CNN-ICCV2015.pdf
-│   ├── ImageNet Classification with Deep Convolutional Neural Networks-NIPS2012.pdf
-│   ├── LabelMe a database and web-based tool for image.pdf
-│   ├── Microsoft COCO Common Objects in Context-ECCV2014.pdf
-│   ├── Object Detection with Discriminatively Trained Part Based Model-ppt.pdf
-│   ├── Object Detection with Discriminatively Trained Part-Based Models-PAMI2014.pdf
-│   ├── R-CNN for object detection-ppt.pdf
-│   ├── Recognition using Regions-CVPR2009.pdf
-│   ├── Regionlets for Generic Object Detection-ICCV2013.pdf
-│   ├── Rich feature hierarchies for accurate object detection and semantic segmentation-CVPR2013.pdf
-│   ├── Selective Search for Object Recognition-IJCV2013.pdf
-│   ├── Semantic Segmentation with Second-Order Pooling.pdf
-│   ├── Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition-PAMI2015.pdf
-│   ├── What is an object-CVPR2010.pdf
-│   ├── 博客Bag-of-words.pdf
-│   ├── 博客SPM.pdf
-│   ├── 如何评价rcnn、fast-rcnn和faster-rcnn这一系列方法？ - 机器学习 - 知乎.pdf
-│   ├── 深度学习研究理解：SSP.pdf
-│   ├── 论文笔记Fast R-CNN.pdf
-│   ├── 论文笔记SPP-net.pdf
-│   └── 论文笔记SPP.pdf
-├── EdgeContour
-│   ├── CVPR2015-DeepContour-A-Deep-Convolutional-Feature-Learned-by-Positive-sharing-Loss-for-Contour-Detection-draft-version.pdf
-│   ├── CVPR2015-DeepEdge-A-Multi-Scale-Bifurcated-Deep-Network-for-Top-Down-Contour-Detection.pdf
-│   ├── DeepContour - A Deep Convolutional Feature Learned by Positive-sharing Lossfor Contour Detection.pdf
-│   ├── DeepEdge - A Multi-Scale Bifurcated Deep Networkfor Top-Down Contour Detection.pdf
-│   └── EdgeLineDetection.pdf
-└── TextDetection
-    ├── 1510.03283v1.pdf
-    ├── 5638-faster-r-cnn-towards-real-time-object-detection-with-region-proposal-networks.pdf
-    ├── Automatic Script Identification in the Wild.pdf
-    ├── Detecting Texts of Arbitrary Orientations in Natural Images.pdf
-    ├── FCS_TextSurvey_2015.pdf
-    ├── Gordo_Supervised_Mid-Level_Features_2015_CVPR_paper.pdf
-    ├── Text Flow - A Unified Text Detection System in Natural Scene Images.pdf
-    ├── wangwucoatesng_icpr2012.pdf
-    └── Yao_Strokelets_2014_CVPR_paper.pdf
+:   ```
+    ml
+    ├── DeepLearning
+    │   ├── Bag-of-Words models.pdf
+    │   ├── Beyond Bags of Features Spatial Pyramid Matching-CVPR2006.pdf
+    │   ├── Deep Learning - Methods and Applications.pdf
+    │   ├── Fast accurate detection of 100000 object classes on a single machine-CVPR2013.pdf
+    │   ├── faster r-cnn towards real-time object detection with region proposal networks-NIPS2015.pdf
+    │   ├── Fast R-CNN-ICCV2015.pdf
+    │   ├── ImageNet Classification with Deep Convolutional Neural Networks-NIPS2012.pdf
+    │   ├── LabelMe a database and web-based tool for image.pdf
+    │   ├── Microsoft COCO Common Objects in Context-ECCV2014.pdf
+    │   ├── Object Detection with Discriminatively Trained Part Based Model-ppt.pdf
+    │   ├── Object Detection with Discriminatively Trained Part-Based Models-PAMI2014.pdf
+    │   ├── R-CNN for object detection-ppt.pdf
+    │   ├── Recognition using Regions-CVPR2009.pdf
+    │   ├── Regionlets for Generic Object Detection-ICCV2013.pdf
+    │   ├── Rich feature hierarchies for accurate object detection and semantic segmentation-CVPR2013.pdf
+    │   ├── Selective Search for Object Recognition-IJCV2013.pdf
+    │   ├── Semantic Segmentation with Second-Order Pooling.pdf
+    │   ├── Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition-PAMI2015.pdf
+    │   ├── What is an object-CVPR2010.pdf
+    │   ├── 博客Bag-of-words.pdf
+    │   ├── 博客SPM.pdf
+    │   ├── 如何评价rcnn、fast-rcnn和faster-rcnn这一系列方法？ - 机器学习 - 知乎.pdf
+    │   ├── 深度学习研究理解：SSP.pdf
+    │   ├── 论文笔记Fast R-CNN.pdf
+    │   ├── 论文笔记SPP-net.pdf
+    │   └── 论文笔记SPP.pdf
+    ├── EdgeContour
+    │   ├── CVPR2015-DeepContour-A-Deep-Convolutional-Feature-Learned-by-Positive-sharing-Loss-for-Contour-Detection-draft-version.pdf
+    │   ├── CVPR2015-DeepEdge-A-Multi-Scale-Bifurcated-Deep-Network-for-Top-Down-Contour-Detection.pdf
+    │   ├── DeepContour - A Deep Convolutional Feature Learned by Positive-sharing Lossfor Contour Detection.pdf
+    │   ├── DeepEdge - A Multi-Scale Bifurcated Deep Networkfor Top-Down Contour Detection.pdf
+    │   └── EdgeLineDetection.pdf
+    └── TextDetection
+        ├── 1510.03283v1.pdf
+        ├── 5638-faster-r-cnn-towards-real-time-object-detection-with-region-proposal-networks.pdf
+        ├── Automatic Script Identification in the Wild.pdf
+        ├── Detecting Texts of Arbitrary Orientations in Natural Images.pdf
+        ├── FCS_TextSurvey_2015.pdf
+        ├── Gordo_Supervised_Mid-Level_Features_2015_CVPR_paper.pdf
+        ├── Text Flow - A Unified Text Detection System in Natural Scene Images.pdf
+        ├── wangwucoatesng_icpr2012.pdf
+        └── Yao_Strokelets_2014_CVPR_paper.pdf
 
-3 directories, 40 files
+    3 directories, 40 files
 
-- 1510.03283v1.pdf
-- 5638-faster-r-cnn-towards-real-time-object-detection-with-region-proposal-networks.pdf
-- Automatic Script Identification in the Wild.pdf
-- Bag-of-Words models.pdf
-- Beyond Bags of Features Spatial Pyramid Matching-CVPR2006.pdf
-- CVPR2015-DeepContour-A-Deep-Convolutional-Feature-Learned-by-Positive-sharing-Loss-for-Contour-Detection-draft-version.pdf
-- CVPR2015-DeepEdge-A-Multi-Scale-Bifurcated-Deep-Network-for-Top-Down-Contour-Detection.pdf
-- Deep Learning - Methods and Applications.pdf
-- DeepContour - A Deep Convolutional Feature Learned by Positive-sharing Lossfor Contour Detection.pdf
-- DeepEdge - A Multi-Scale Bifurcated Deep Networkfor Top-Down Contour Detection.pdf
-- Detecting Texts of Arbitrary Orientations in Natural Images.pdf
-- EdgeLineDetection.pdf
-- FCS_TextSurvey_2015.pdf
-- Fast R-CNN-ICCV2015.pdf
-- Fast accurate detection of 100000 object classes on a single machine-CVPR2013.pdf
-- Gordo_Supervised_Mid-Level_Features_2015_CVPR_paper.pdf
-- ImageNet Classification with Deep Convolutional Neural Networks-NIPS2012.pdf
-- LabelMe a database and web-based tool for image.pdf
-- Microsoft COCO Common Objects in Context-ECCV2014.pdf
-- Object Detection with Discriminatively Trained Part Based Model-ppt.pdf
-- Object Detection with Discriminatively Trained Part-Based Models-PAMI2014.pdf
-- R-CNN for object detection-ppt.pdf
-- Recognition using Regions-CVPR2009.pdf
-- Regionlets for Generic Object Detection-ICCV2013.pdf
-- Rich feature hierarchies for accurate object detection and semantic segmentation-CVPR2013.pdf
-- Selective Search for Object Recognition-IJCV2013.pdf
-- Semantic Segmentation with Second-Order Pooling.pdf
-- Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition-PAMI2015.pdf
-- Text Flow - A Unified Text Detection System in Natural Scene Images.pdf
-- What is an object-CVPR2010.pdf
-- Yao_Strokelets_2014_CVPR_paper.pdf
-- faster r-cnn towards real-time object detection with region proposal networks-NIPS2015.pdf
-- wangwucoatesng_icpr2012.pdf
-- 博客Bag-of-words.pdf
-- 博客SPM.pdf
-- 如何评价rcnn、fast-rcnn和faster-rcnn这一系列方法？ - 机器学习 - 知乎.pdf
-- 深度学习研究理解：SSP.pdf
-- 论文笔记Fast R-CNN.pdf
-- 论文笔记SPP-net.pdf
-- 论文笔记SPP.pdf
-```
+    - 1510.03283v1.pdf
+    - 5638-faster-r-cnn-towards-real-time-object-detection-with-region-proposal-networks.pdf
+    - Automatic Script Identification in the Wild.pdf
+    - Bag-of-Words models.pdf
+    - Beyond Bags of Features Spatial Pyramid Matching-CVPR2006.pdf
+    - CVPR2015-DeepContour-A-Deep-Convolutional-Feature-Learned-by-Positive-sharing-Loss-for-Contour-Detection-draft-version.pdf
+    - CVPR2015-DeepEdge-A-Multi-Scale-Bifurcated-Deep-Network-for-Top-Down-Contour-Detection.pdf
+    - Deep Learning - Methods and Applications.pdf
+    - DeepContour - A Deep Convolutional Feature Learned by Positive-sharing Lossfor Contour Detection.pdf
+    - DeepEdge - A Multi-Scale Bifurcated Deep Networkfor Top-Down Contour Detection.pdf
+    - Detecting Texts of Arbitrary Orientations in Natural Images.pdf
+    - EdgeLineDetection.pdf
+    - FCS_TextSurvey_2015.pdf
+    - Fast R-CNN-ICCV2015.pdf
+    - Fast accurate detection of 100000 object classes on a single machine-CVPR2013.pdf
+    - Gordo_Supervised_Mid-Level_Features_2015_CVPR_paper.pdf
+    - ImageNet Classification with Deep Convolutional Neural Networks-NIPS2012.pdf
+    - LabelMe a database and web-based tool for image.pdf
+    - Microsoft COCO Common Objects in Context-ECCV2014.pdf
+    - Object Detection with Discriminatively Trained Part Based Model-ppt.pdf
+    - Object Detection with Discriminatively Trained Part-Based Models-PAMI2014.pdf
+    - R-CNN for object detection-ppt.pdf
+    - Recognition using Regions-CVPR2009.pdf
+    - Regionlets for Generic Object Detection-ICCV2013.pdf
+    - Rich feature hierarchies for accurate object detection and semantic segmentation-CVPR2013.pdf
+    - Selective Search for Object Recognition-IJCV2013.pdf
+    - Semantic Segmentation with Second-Order Pooling.pdf
+    - Spatial Pyramid Pooling in Deep Convolutional Networks for Visual Recognition-PAMI2015.pdf
+    - Text Flow - A Unified Text Detection System in Natural Scene Images.pdf
+    - What is an object-CVPR2010.pdf
+    - Yao_Strokelets_2014_CVPR_paper.pdf
+    - faster r-cnn towards real-time object detection with region proposal networks-NIPS2015.pdf
+    - wangwucoatesng_icpr2012.pdf
+    - 博客Bag-of-words.pdf
+    - 博客SPM.pdf
+    - 如何评价rcnn、fast-rcnn和faster-rcnn这一系列方法？ - 机器学习 - 知乎.pdf
+    - 深度学习研究理解：SSP.pdf
+    - 论文笔记Fast R-CNN.pdf
+    - 论文笔记SPP-net.pdf
+    - 论文笔记SPP.pdf
+    ```
 
 二：课程资源 <-
 
@@ -578,7 +578,7 @@ similarity metric: sim_pearson, sim_distance
 [Programming Collective Intelligence (豆瓣)](https://book.douban.com/subject/2209702/) <-
 
 :   -   simulated annealing（模拟退火）
-    -   genetic algorithms（遗传算法）
+    -   genetic algorithms（遗传算法） <=
         +   population（种群），hand-designed or 随机的；user-defined task
         +   elitism（精英选拔）
         +   mutation（变异）
@@ -588,15 +588,15 @@ similarity metric: sim_pearson, sim_distance
         +   evaluating trees
     - massand-spring algorithms（质点弹簧算法）
     - flipping around（调换求解）
-    - decision trees
+    - decision trees <=
         + CART（classification and regression trees）
         + pruning the tree（剪枝）
-    - kNN: k-Nearest Neighbors
+    - kNN: k-Nearest Neighbors <=
         + weighted kNN
         + cross validation（交叉验证）
     - kernel methods
         + kernel trick: radial-basis function （径向基函数）
-    - SVM
+    - SVM <=
         + mamimum-margin hyperplane
         + 位于分割线：支持向量
         + 找到支持向量的算法：支持向量机
@@ -627,75 +627,75 @@ similarity metric: sim_pearson, sim_distance
 
 ## CS229, Machine Learning, Andrew Ng, Sanford University
 
-### Advice for applying Machine Learning
+Advice for applying Machine Learning <-
 
--> Key ideas <-
+:   Key ideas <-
 
-1.  Diagnostics for debugging learning algorithms.
-2.  Error analyses and ablative analysis.
-3.  How to get started on a machine learning problem.
-    – Premature (statistical) optimization.
+    1.  Diagnostics for debugging learning algorithms.
+    2.  Error analyses and ablative analysis.
+    3.  How to get started on a machine learning problem.
+        – Premature (statistical) optimization.
 
--> Diagnostic for bias vs. variance <-
+    Diagnostic for bias vs. variance <-
 
-:   Suppose you suspect the problem is either:
+    :   Suppose you suspect the problem is either:
 
-      - Overfitting (high variance).
-      - Too few features to classify spam (high bias).
+          - Overfitting (high variance).
+          - Too few features to classify spam (high bias).
 
-    Diagnostic:
+        Diagnostic:
 
-      - Variance: Training error will be much lower than test error.
-      - Bias: Training error will also be high.
+          - Variance: Training error will be much lower than test error.
+          - Bias: Training error will also be high.
 
-    ![Typical learning curve for high variance](http://whudoc.qiniudn.com/2016/20160505134652.png)
+        ![Typical learning curve for high variance](http://whudoc.qiniudn.com/2016/20160505134652.png)
 
-      - Test error still decreasing as m increases. Suggests larger training set
-        will help.
-      - Large gap between training and test error.
+          - Test error still decreasing as m increases. Suggests larger training set
+            will help.
+          - Large gap between training and test error.
 
-    ![Typical learning curve for high bias](http://whudoc.qiniudn.com/2016/20160505135614.png)
+        ![Typical learning curve for high bias](http://whudoc.qiniudn.com/2016/20160505135614.png)
 
-      - Even training error is unacceptably high.
-      - Small gap between training and test error.
+          - Even training error is unacceptably high.
+          - Small gap between training and test error.
 
-Is the algorithm (gradient descent for logistic regression) converging?
+    Is the algorithm (gradient descent for logistic regression) converging?
 
-Error analysis & Ablative (`['æblətɪv]`, 离格) analysis
+    Error analysis & Ablative (`['æblətɪv]`, 离格) analysis <-
 
-:   ![](http://whudoc.qiniudn.com/2016/20160505142736.png)
+    :   ![](http://whudoc.qiniudn.com/2016/20160505142736.png)
 
-    Error analysis tries to explain the difference between current performance and perfect performance.
-    Ablative analysis tries to explain the difference between some baseline (much poorer) performance and current performance.
+        Error analysis tries to explain the difference between current performance and perfect performance.
+        Ablative analysis tries to explain the difference between some baseline (much poorer) performance and current performance.
 
-    Just what accounts for your improvement from 94 to 99.9%?
+        Just what accounts for your improvement from 94 to 99.9%?
 
-Getting started on a learning problem
+    Getting started on a learning problem <=
 
-:   -   Approach #1: **Careful design**
+    :   -   Approach #1: **Careful design**
 
-    -   Approach #2: **Build-and-fix**
+        -   Approach #2: **Build-and-fix**
 
-        Implement something quick-and-dirty
+            Implement something quick-and-dirty
 
-Premature statistical optimization
+    Premature statistical optimization
 
-:   is bad.
+    :   is bad.
 
-    The only way to find out what needs work is to implement something quickly,
-    and find out what parts break.
+        The only way to find out what needs work is to implement something quickly,
+        and find out what parts break.
 
-Sammary
+    Sammary <=
 
--   Time spent coming up with diagnostics for learning algorithms is time
-    well-spent.
--   It's often up to your own ingenuity (`[,ɪndʒə'nuəti]`, n. 独创性；精巧) to
-    come up with right diagnostics.
--   Error analyses and ablative analyses also give insight into the problem.
--   Two approaches to applying learning algorithms:
-    +   Design very carefully, then implement.
-        *   Risk of premature (statistical) optimization.
-    +   Build a quick-and-dirty prototype, diagnose, and fix.
+    -   Time spent coming up with diagnostics for learning algorithms is time
+        well-spent.
+    -   It's often up to your own ingenuity (`[,ɪndʒə'nuəti]`, n. 独创性；精巧) to
+        come up with right diagnostics.
+    -   Error analyses and ablative analyses also give insight into the problem.
+    -   Two approaches to applying learning algorithms:
+        +   Design very carefully, then implement.
+            *   Risk of premature (statistical) optimization.
+        +   Build a quick-and-dirty prototype, diagnose, and fix.
 
 ---
 
@@ -705,7 +705,7 @@ Sammary
 
 ---
 
-[Tensor - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Tensor)
+[Tensor - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Tensor) <-
 
 :   Tensors are geometric objects that describe linear relations between
     geometric vectors, scalars, and other tensors. Elementary examples of such
@@ -753,11 +753,13 @@ Sammary
     concept enabled an alternative formulation of the intrinsic differential
     geometry of a manifold in the form of the Riemann curvature tensor.
 
-[Tutorial — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/)
+[Tutorial — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/) <-
 
 :   Theano is a Python library that allows you to define, optimize, and
     evaluate mathematical expressions involving multi-dimensional arrays
-    efficiently. Theano features:
+    efficiently.
+
+    Theano features: <=
 
       - **tight integration with NumPy** – Use numpy.ndarray in Theano-compiled functions.
       - **transparent use of a GPU** – Perform data-intensive calculations up to 140x faster than with CPU.(float32 only)
@@ -769,11 +771,12 @@ Sammary
     Theano has been powering large-scale computationally intensive scientific
     investigations **since 2007**. But it is also approachable enough to be used in
     the classroom (University of Montreal’s deep learning/machine learning
-    classes).
+    classes). <-
 
     -   You should learn some python. ^[[Tutorial — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/).]
 
-    -   Matrix **conventions** for machine learning ^[see [NumPy refresher — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/numpy.html#broadcasting).]
+    -   Matrix **conventions** for machine learning ^[see [NumPy refresher —
+        Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/numpy.html#broadcasting).]
 
         +   Every row is an example.
 
@@ -803,9 +806,9 @@ Sammary
 
             see more at [numpy user guide: basics broadcasting](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html).
 
-    -   Basics
+    -   Basics <=
 
-        +   Baby Steps - Algebra
+        +   Baby Steps - Algebra <-
 
             *   Adding two Scalars
 
@@ -873,7 +876,7 @@ Sammary
 
             *   Notes
 
-                The following types are available:
+                The following types are available: <-
 
                   - scalar, vector, matrix, row, col, tensor3, tensor4
                   - b: byte
@@ -912,7 +915,7 @@ Sammary
 
             *    [Basic Tensor Functionality — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/library/tensor/basic.html#libdoc-basic-tensor)
 
-        +   More Examples
+        +   More Examples <-
 
             *   Logistic Function
 
@@ -1186,7 +1189,7 @@ Sammary
 
                   - [function - defines theano.function — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/library/compile/function.html#function.function)
 
-        +   Derivatives in Theano ^[[Derivatives in Theano — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/gradients.html).]
+        +   Derivatives in Theano ^[[Derivatives in Theano — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/gradients.html).] <-
 
             *   Computing Gradients
 
@@ -1357,7 +1360,7 @@ Sammary
                     efficiently the full Jacobian and the Hessian matrix as well as
                     the Jacobian times vector.
 
-        +   Conditions ^[[Conditions — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/conditions.html).]
+        +   Conditions ^[[Conditions — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/conditions.html).] <-
 
             *   IfElse vs Switch
 
@@ -1401,7 +1404,7 @@ Sammary
                 There is no automatic optimization replacing a switch with a
                 broadcasted scalar to an ifelse, as this is not always faster.
 
-        +   Loop
+        +   Loop <-
 
             *   Scan
 
@@ -1561,9 +1564,9 @@ Sammary
 
                 nil.
 
-    -   Advanced
+    -   Advanced <-
 
-        +   Sparse
+        +   Sparse <-
 
             *   Compressed Sparse Format
 
@@ -1576,7 +1579,7 @@ Sammary
                 -   Structured Operation
                 -   Gradient
 
-        +   Using the GPU
+        +   Using the GPU <-
 
             *   CUDA backend
 
@@ -1604,7 +1607,7 @@ Sammary
 
             *   Note
 
-        +   Using multiple GPUs
+        +   Using multiple GPUs <-
 
             *   Defining the context map
             *   A simple graph on two GPUs
@@ -1615,7 +1618,7 @@ refs and see also
   - [Python Memory Management — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/python-memory-management.html#python-memory-management)
   - [LSTM Networks for Sentiment Analysis — DeepLearning 0.1 documentation](http://www.deeplearning.net/tutorial/lstm.html)
 
-printing – Graph Printing and Symbolic Print Statement `@`{.tzx-anchor #theano-graph-printing}
+printing – Graph Printing and Symbolic Print Statement `@`{.tzx-anchor #theano-graph-printing} <-
 
 :   友好的打印结果：
 
@@ -1682,7 +1685,7 @@ printing – Graph Printing and Symbolic Print Statement `@`{.tzx-anchor #theano
 
 ---
 
-[TensorFlow中文社区-首页](http://tensorfly.cn/)
+[TensorFlow中文社区-首页](http://tensorfly.cn/) <-
 
 :   TensorFlow™ 是一个采用数据流图（data flow graphs），用于数值计算的开源软件
     库。节点（Nodes）在图中表示数学操作，图中的线（edges）则表示在节点间相互联
@@ -1693,7 +1696,7 @@ printing – Graph Printing and Symbolic Print Statement `@`{.tzx-anchor #theano
     其也可广泛用于其他计算领域。
 
 
-    什么是数据流图（Data Flow Graph）?
+    什么是数据流图（Data Flow Graph）? <-
 
     :   数据流图用“结点”（nodes）和“线”(edges)的有向图来描述数学计算。“节点” 一
         般用来表示施加的数学操作，但也可以表示数据输入（feed in）的起点/输出（
@@ -1757,7 +1760,7 @@ shown above. It's hard to imagine that there's any good historical reason
 the component shapes of the digit will be closely related to (say) the most
 significant bit in the output.
 
-[Download and Setup](https://www.tensorflow.org/versions/r0.8/get_started/os_setup.html#pip-installation)
+[Download and Setup](https://www.tensorflow.org/versions/r0.8/get_started/os_setup.html#pip-installation) <-
 
 :   ```bash
     sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0-cp27-none-linux_x86_64.whl
@@ -1783,7 +1786,7 @@ significant bit in the output.
 
 [机器学习（一）：生成学习算法Generative Learning algorithms - zjgtan - 博客园](http://www.cnblogs.com/zjgtan/archive/2013/06/08/3127490.html)
 
-Rectifier (neural networks)
+Rectifier (neural networks) <-
 
 :   In the context of artificial neural networks, the rectifier is an
     activation function defined as
@@ -1813,7 +1816,7 @@ Rectifier (neural networks)
     Rectified linear units find applications in computer vision, and speech
     recognition using deep neural nets.
 
-[UFLDL 教程 - Ufldl](http://deeplearning.stanford.edu/wiki/index.php/UFLDL%E6%95%99%E7%A8%8B)
+[UFLDL 教程 - Ufldl](http://deeplearning.stanford.edu/wiki/index.php/UFLDL%E6%95%99%E7%A8%8B) <-
 
 :   如果选择 \textstyle f(z) = 1/(1+\exp(-z)) ，也就是 sigmoid 函数，那么它的导
     数就是 \textstyle f'(z) = f(z) (1-f(z)) （如果选择 tanh 函数，那它的导数就
@@ -1824,9 +1827,9 @@ Rectifier (neural networks)
 
 [CSC2515F : lectures](http://www.cs.nyu.edu/~roweis/csc2515-2006/lectures.html)
 
-[CIE 1931 color space - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/CIE_1931_color_space)
+[CIE 1931 color space - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/CIE_1931_color_space) <-
 
-:   [Lab color space - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Lab_color_space)
+:   [Lab color space - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Lab_color_space) <=
 
     :   A Lab color space is a color-opponent space with dimension L for
         lightness and a and b for the color-opponent dimensions, based on

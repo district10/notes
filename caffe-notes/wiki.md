@@ -23,3 +23,5 @@ A caffe model is distributed as a directory containing:
 ## [Borrowing Weights from a Pretrained Network · BVLC/caffe Wiki](https://github.com/BVLC/caffe/wiki/Borrowing-Weights-from-a-Pretrained-Network)
 
 ## [Caffe | Developing and Contributing](http://caffe.berkeleyvision.org/development.html)
+
+## [Fine Tuning or Training Certain Layers Exclusively · BVLC/caffe Wiki](https://github.com/BVLC/caffe/wiki/Fine-Tuning-or-Training-Certain-Layers-Exclusively)

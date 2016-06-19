@@ -114,8 +114,9 @@
 
 :   nice
 
-以上是对英文没问题的同学，如果英文有问题怎么办呢？请先转化到没问题的状态。
+以上是对英文没问题的同学，如果英文有问题怎么办呢？请先转化到没问题的状态。:smile:
 
+```perl
 if(/^(\s*)(-> )(.*)$/) {
     my $line = $1 . $3;
     $line =~ s/\r?\n?$//;
@@ -128,3 +129,6 @@ if(/^(\s*)(=> )(.*)$/) {
     print $line . " `@`{.foldable}\n";
     next;
 }
+```
+
+Caffeinated Companies，语言用得好妙！caffein-ated companies……

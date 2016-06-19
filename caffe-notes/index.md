@@ -4,6 +4,8 @@
 
 installation, howto?? see yhlleo's blog post: [Ubuntu14.04 安装CUDA7.5 + Caffe + cuDNN](http://blog.csdn.net/YhL_Leo/article/details/50961542).
 
+[BVLC/caffe: Caffe: a fast open framework for deep learning.](https://github.com/BVLC/caffe)
+
 -   [预备知识](pre.html){title=pre.md .hide}：Linux + Python
 
 -   [官网教程导读](tutorial.html){title=tutorial.md .featured .heart}
