@@ -1,6 +1,6 @@
 # 笔记
 
-[Git - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) `@`{.fold}
+[Git - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) <-
 
 :   1.  add submodule (won't pull the source)
 
@@ -65,7 +65,7 @@
         git config -f .gitmodules submodule.caffe-notes.branch stable
         ```
 
-    diff submodules `@`{.foldable}
+    diff submodules <=
 
     :   ```bash
         # method 1
@@ -115,3 +115,16 @@
 :   nice
 
 以上是对英文没问题的同学，如果英文有问题怎么办呢？请先转化到没问题的状态。
+
+if(/^(\s*)(-> )(.*)$/) {
+    my $line = $1 . $3;
+    $line =~ s/\r?\n?$//;
+    print $line . " `@`{.fold}\n";
+    next;
+}
+if(/^(\s*)(=> )(.*)$/) {
+    my $line = $1 . $3;
+    $line =~ s/\r?\n?$//;
+    print $line . " `@`{.foldable}\n";
+    next;
+}

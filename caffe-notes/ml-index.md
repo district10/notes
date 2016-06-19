@@ -14,14 +14,14 @@ Machine Learning
 
 >   已经很久没看 lstm 了, 很多这方面的工作已经不了解了诶。
 
-MISC Notes `@`{.fold}
+MISC Notes <-
 
   - **contrived** example, 造的例子
   - logistic, `[lo'dʒɪstɪk]`, adj. 后勤学的；符号逻辑的
   - hessian, `['hɛʃən]`
   - theano, thy yah noo
 
-python notes `@`{.fold}
+python notes <-
 
 :   -   cp src dst, mv src dst^[[10.10. shutil — High-level file operations —
         Python 2.7.11 documentation](https://docs.python.org/2/library/shutil.html)]
@@ -35,7 +35,7 @@ python notes `@`{.fold}
         shutil.copyfile(src, dst)   # dst can only be a file
         ```
 
--> yhlleo 推荐的论文 `@`{.fold}
+yhlleo 推荐的论文 <-
 
 ```
 ml
@@ -127,7 +127,7 @@ ml
 - 论文笔记SPP.pdf
 ```
 
-二：课程资源 `@`{.fold}
+二：课程资源 <-
 
 1.  Tom Mitchell：http://work.caltech.edu/library/181.html http://www.cs.cmu.edu/~tom/10701_sp11/lectures.shtml
 2.  Andrew Ng：https://www.coursera.org/learn/machine-learning/home/welcome
@@ -136,13 +136,13 @@ ml
 5.  Youshua Bengio：http://deeplearning.net/tutorial/他编写的书《Deep Learning》：http://deeplearning.net/tutorial/contents.html
 6.  Andrew Stanford课程：UFLDL：http://ufldl.stanford.edu/tutorial/
 
-三、代码资源：
+三、代码资源： <-
 
-1. Keras：https://github.com/fchollet/keras Keras Documentation：http://keras.io/
-2. Scikit-Learn: Machine Learning in Python: http://scikit-learn.org/stable/
-3. PredictionIO: Open Source Machine Learning Server: https://prediction.io/
-4. Visual Recognition and Search(计算机视觉资源汇总网站): http://rogerioferis.com/VisualRecognitionAndSearch2014/Resources.html
-5. JMLR Machine Learning Open Source Software: http://jmlr.org/mloss/
+1.  Keras：https://github.com/fchollet/keras Keras Documentation：http://keras.io/
+2.  Scikit-Learn: Machine Learning in Python: http://scikit-learn.org/stable/
+3.  PredictionIO: Open Source Machine Learning Server: https://prediction.io/
+4.  Visual Recognition and Search(计算机视觉资源汇总网站): http://rogerioferis.com/VisualRecognitionAndSearch2014/Resources.html
+5.  JMLR Machine Learning Open Source Software: http://jmlr.org/mloss/
 
 ### (res) 深度学习研究理解：SSP.pdf
 
@@ -153,7 +153,7 @@ refs and see also
   - [深度学习入门必看的书和论文？有哪些必备的技能需学习？ - 深度学习（Deep Learning） - 知乎](http://www.zhihu.com/question/31785984)
   - [Reading List « Deep Learning](http://deeplearning.net/reading-list/)
 
-[如何评价 rcnn、fast-rcnn 和 faster-rcnn 这一系列方法？ - 知乎](https://www.zhihu.com/question/35887527)
+[如何评价 rcnn、fast-rcnn 和 faster-rcnn 这一系列方法？ - 知乎](https://www.zhihu.com/question/35887527) <-
 
 :   (res) 如何评价 rcnn、fast-rcnn 和 faster-rcnn 这一系列方法？ - 机器学习 - 知乎.pdf
 
@@ -202,7 +202,7 @@ refs and see also
       - [rbg's home page](http://www.cs.berkeley.edu/~rbg/index.html)
       - [rbgirshick (Ross Girshick)](https://github.com/rbgirshick)
 
-[如何简单形象又有趣地讲解神经网络是什么？ - 知乎](https://www.zhihu.com/question/22553761)
+[如何简单形象又有趣地讲解神经网络是什么？ - 知乎](https://www.zhihu.com/question/22553761) <-
 
 :   2012 年多伦多大学的 Krizhevsky 等人构造了一个超大型卷积神经网络 ，有 9 层，共
     65 万个神经元，6 千万个参数。网络的输入是图片，输出是 1000 个类，比如小虫、美洲
@@ -217,7 +217,7 @@ refs and see also
       - 第四层的一些神经元负责识别萌狗的脸、七星瓢虫和一堆圆形物体的存在。
       - 第五层的一些神经元可以识别出花、圆形屋顶、键盘、鸟、黑眼圈动物。
 
-[如何向非物理专业的同学解释重整化群？ - 知乎](https://www.zhihu.com/question/30174067)
+[如何向非物理专业的同学解释重整化群？ - 知乎](https://www.zhihu.com/question/30174067) <-
 
 :   怎么办呢？你想了想，觉得铁球这么大，你不用把模拟搞得这么精细也能得到正确答
     案。所以你决定把模拟用的水分子体积加 10 倍，这样就只要模拟 10^25 个分子了。
@@ -255,7 +255,7 @@ refs and see also
 
       - [如何理解「深度学习和重整化群可以建立严格映射」？这一结论对领域有何影响？ - 知乎](https://www.zhihu.com/question/29854624)
 
-[如何看待 2014 年以来计算机视觉（Computer Vision）界创业潮？ - 知乎](https://www.zhihu.com/question/31430100)
+[如何看待 2014 年以来计算机视觉（Computer Vision）界创业潮？ - 知乎](https://www.zhihu.com/question/31430100) <-
 
 :   首先，毋庸置疑，computer vision 作为一个研究领域，正处在整个人工智能史上发
     展速度最惊人的阶段. 从 research 的角度来看，这是 vision 最好的一个时代，也
@@ -263,7 +263,7 @@ refs and see also
 
     利益相关：我在 Cogtu，女朋友在 Linkface
 
-[CNN(卷积神经网络)、RNN(循环神经网络)、DNN(深度神经网络) 的内部网络结构有什么区别？ - 知乎](https://www.zhihu.com/question/34681168)
+[CNN(卷积神经网络)、RNN(循环神经网络)、DNN(深度神经网络) 的内部网络结构有什么区别？ - 知乎](https://www.zhihu.com/question/34681168) <-
 
 :   神经网络技术起源于上世纪五、六十年代，当时叫感知机（perceptron），拥有输入
     层、输出层和一个隐含层。输入的特征向量通过隐含层变换达到输出层，在输出层得
@@ -353,19 +353,21 @@ refs and see also
         习机器学习的人都应该看一下，我甚至在某公司的招聘要求上看到过：认真看过
         并深入研究过Andrew Ng的机器学习课程，由此可见其重要性。
 
-[有哪些 LSTM(Long Short Term Memory) 和 RNN(Recurrent) 网络的教程？ - 知乎](https://www.zhihu.com/question/29411132)
+[有哪些 LSTM(Long Short Term Memory) 和 RNN(Recurrent) 网络的教程？ - 知乎](https://www.zhihu.com/question/29411132) <-
 
 :   先给出一个最快的了解+上手的教程：
 
-    直接看 theano 官网的 LSTM 教程 + 代码：[LSTM Networks for Sentiment Analysis — DeepLearning 0.1 documentation](http://deeplearning.net/tutorial/lstm.html)
+    直接看 theano 官网的 LSTM 教程 + 代码：[LSTM Networks for Sentiment
+    Analysis — DeepLearning 0.1 documentation](http://deeplearning.net/tutorial/lstm.html)
     但是，前提是你有 RNN 的基础，因为 LSTM 本身不是一个完整的模型，LSTM 是对 RNN 隐含
     层的改进。一般所称的 LSTM 网络全叫全了应该是使用 LSTM 单元的 RNN 网络。教程就给了
     个 LSTM 的图，它只是 RNN 框架中的一部分，如果你不知道 RNN 估计看不懂。比较好的是
     ，你只需要了解前馈过程，你都不需要自己求导就能写代码使用了。补充，今天刚发
-    现一个中文的博客：[LSTM 简介以及数学推导 (FULL BPTT) - 天道酬勤，做一个务实的理想主义者 - 博客频道 - CSDN.NET](http://blog.csdn.net/a635661820/article/details/45390671)
+    现一个中文的博客：[LSTM 简介以及数学推导 (FULL BPTT) - 天道酬勤，做一个务实
+    的理想主义者 - 博客频道 - CSDN.NET](http://blog.csdn.net/a635661820/article/details/45390671)
     不过，稍微深入下去还是得老老实实的好好学，下面是我认为比较好的
 
-    完整LSTM学习流程：
+    完整LSTM学习流程： <-
 
     :   我一直都觉得了解一个模型的前世今生对模型理解有巨大的帮助。到LSTM这里（
         假设题主零基础）那比较好的路线是MLP->RNN->LSTM。还有LSTM本身的发展路线
@@ -410,7 +412,8 @@ refs and see also
         Paragraphs and Documents 》 。使用不同的LSTM分别处理词、句子和段落级别输入
         ，并使用自动编码器（autoencoder）来检测LSTM的文档特征抽取和重建能力。
 
-        还有一篇文章 《 Chung J, Gulcehre C, Cho K, et al.  Gated feedback recurrent neural networks[J]. arXiv preprint arXiv:1502.02367, 2015. 》，
+        还有一篇文章 《 Chung J, Gulcehre C, Cho K, et al.  Gated feedback
+        recurrent neural networks[J]. arXiv preprint arXiv:1502.02367, 2015. 》，
         把gated的思想从记忆单元扩展到了网络架构上，提出多层RNN各个层的隐含层数据可以相互利用（之前的
         多层RNN多隐含层只是单向自底向上连接），不过需要设置门（gated）来调节。
 
@@ -419,7 +422,7 @@ refs and see also
         hidden unit。两者效果相近，但是GRU相对LSTM来说参数更少，所以更加不容易过拟
         合。（大家堆模型堆到dropout也不管用的时候可以试试换上GRU这种参数少的
 
-        图像处理（对，不用CNN用RNN）：
+        图像处理（对，不用CNN用RNN）： <-
 
         :   《 Visin F, Kastner K, Cho K, et al. ReNet: A Recurrent Neural Network Based Alternative to Convolutional Networks[J]. arXiv preprint arXiv:1505.00393, 2015 》
 
@@ -475,7 +478,7 @@ refs and see also
 
     [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 
-[Facebook 的人工智能实验室 (FAIR) 有哪些厉害的大牛和技术积累？ - 田渊栋的回答 - 知乎](https://www.zhihu.com/question/30924352/answer/50176654)
+[Facebook 的人工智能实验室 (FAIR) 有哪些厉害的大牛和技术积累？ - 田渊栋的回答 - 知乎](https://www.zhihu.com/question/30924352/answer/50176654) <-
 
 :   人员方面，Yann LeCun毫无疑问是整个组的Director，其它大牛有VC维和SVM的缔造者
     Vladimir Vapnik，提出随机梯度下降法的Léon Bottou，做出高性能PHP虚拟机HHVM的
@@ -551,8 +554,6 @@ refs and see also
   - [深度学习（Deep Learning） - 话题精华 - 知乎](https://www.zhihu.com/topic/19813032/top-answers?page=1)
   - [神经网络 - 话题精华 - 知乎](https://www.zhihu.com/topic/19607065/top-answers)
 
----
-
 ```
 // euclidean distance
 distance d -> [0, inf], 1/(d+1) -> [0, 1]
@@ -568,60 +569,55 @@ similarity metric: sim_pearson, sim_distance
 
 <http://whudoc.qiniudn.com/2016/notepad++.7z>
 
----
-
 [cataska/programming-collective-intelligence-code: Examples from Programming Collective Intelligence](https://github.com/cataska/programming-collective-intelligence-code)
 
 [集体智慧编程 (豆瓣)](https://book.douban.com/subject/3288908/)
 
 [Programming Collective Intelligence - O'Reilly Media](http://shop.oreilly.com/product/9780596529321.do)
 
-[Programming Collective Intelligence (豆瓣)](https://book.douban.com/subject/2209702/)
+[Programming Collective Intelligence (豆瓣)](https://book.douban.com/subject/2209702/) <-
 
-- simulated annealing（模拟退火）
-- genetic algorithms（遗传算法）
-    + population（种群），hand-designed or 随机的；user-defined task
-    + elitism（精英选拔）
-    + mutation（变异）
-    + crossover/breeding
-    + 优胜劣汰的 evolutionary pressure：survival of the fittest
-    + a round-robin tournament
-    + evaluating trees
-- massand-spring algorithms（质点弹簧算法）
-- flipping around（调换求解）
-- decision trees
-    + CART（classification and regression trees）
-    + pruning the tree（剪枝）
-- kNN: k-Nearest Neighbors
-    + weighted kNN
-    + cross validation（交叉验证）
-- kernel methods
-    + kernel trick: radial-basis function （径向基函数）
-- SVM
-    + mamimum-margin hyperplane
-    + 位于分割线：支持向量
-    + 找到支持向量的算法：支持向量机
-- data intensive（数据量大）
-- libsvm
-- bayesian classification
-- trading volume（成交量）
-- Non-negative Matrix Factorization (NFM)
-- tanimoto coefficient
-- gini impurity
-- entropy
+:   -   simulated annealing（模拟退火）
+    -   genetic algorithms（遗传算法）
+        +   population（种群），hand-designed or 随机的；user-defined task
+        +   elitism（精英选拔）
+        +   mutation（变异）
+        +   crossover/breeding
+        +   优胜劣汰的 evolutionary pressure：survival of the fittest
+        +   a round-robin tournament
+        +   evaluating trees
+    - massand-spring algorithms（质点弹簧算法）
+    - flipping around（调换求解）
+    - decision trees
+        + CART（classification and regression trees）
+        + pruning the tree（剪枝）
+    - kNN: k-Nearest Neighbors
+        + weighted kNN
+        + cross validation（交叉验证）
+    - kernel methods
+        + kernel trick: radial-basis function （径向基函数）
+    - SVM
+        + mamimum-margin hyperplane
+        + 位于分割线：支持向量
+        + 找到支持向量的算法：支持向量机
+    - data intensive（数据量大）
+    - libsvm
+    - bayesian classification
+    - trading volume（成交量）
+    - Non-negative Matrix Factorization (NFM)
+    - tanimoto coefficient
+    - gini impurity
+    - entropy
 
----
+<!--...-->
 
----
-
-[Data Mining (豆瓣)](https://book.douban.com/subject/4888560/)
-
-[Data Mining (豆瓣)](https://book.douban.com/subject/6533777/)
+-   [Data Mining (豆瓣)](https://book.douban.com/subject/4888560/)
+-   [Data Mining (豆瓣)](https://book.douban.com/subject/6533777/)
 
 ---
 
-- [Pattern Recognition And Machine Learning (豆瓣)](https://book.douban.com/subject/2061116/)
-- [Christopher M. Bishop | PRML](http://research.microsoft.com/en-us/um/people/cmbishop/PRML/)
+-   [Pattern Recognition And Machine Learning (豆瓣)](https://book.douban.com/subject/2061116/)
+-   [Christopher M. Bishop | PRML](http://research.microsoft.com/en-us/um/people/cmbishop/PRML/)
 
 ![](http://whudoc.qiniudn.com/2016/prmlfigs-png/Figure1.1.png)
 
@@ -633,14 +629,14 @@ similarity metric: sim_pearson, sim_distance
 
 ### Advice for applying Machine Learning
 
-Key ideas:
+-> Key ideas <-
 
 1.  Diagnostics for debugging learning algorithms.
 2.  Error analyses and ablative analysis.
 3.  How to get started on a machine learning problem.
     – Premature (statistical) optimization.
 
-Diagnostic for bias vs. variance
+-> Diagnostic for bias vs. variance <-
 
 :   Suppose you suspect the problem is either:
 

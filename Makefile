@@ -22,28 +22,31 @@ gh:
 
 publish/index.html: index.md
 	@mkdir -p $(@D)
+	(perl meta/cat.pl $< 2>/dev/null || cat $<) | \
 	pandoc \
 		-V ISINDEX=true \
 		-S -s --ascii --mathjax \
 		-f $(FROM) \
 		--template meta/note.template \
-		$< -o $@
+		-o $@
 publish/%/index.html: %/index.md
 	@mkdir -p $(@D)
+	(perl meta/cat.pl $< 2>/dev/null || cat $<) | \
 	pandoc \
 		-V ISINDEX=true -V NOTBASE=true \
 		-S -s --ascii --mathjax \
 		-f $(FROM) \
 		--template meta/note.template \
-		$< -o $@
+		-o $@
 publish/%.html: %.md
 	@mkdir -p $(@D)
+	(perl meta/cat.pl $< 2>/dev/null || cat $<) | \
 	pandoc \
 		-V NOTBASE=true \
 		-S -s --ascii --mathjax \
 		-f $(FROM) \
 		--template meta/note.template \
-		$< -o $@
+		-o $@
 
 publish/%: meta/%
 	@mkdir -p $(@D)
