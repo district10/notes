@@ -370,3 +370,10 @@ body.locked #gotoindex {
     border: 3px solid red;
     border-radius: 10px;
 }
+
+#help {
+    padding-right: 160px;
+    color: silver;
+    float: right;
+    cursor: help;
+}

@@ -18,8 +18,10 @@ $endif$
 <a href="https://github.com/district10/notes">
     <img
         style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;"
-        src="../fork-me-on-github.png" alt="Fork me on GitHub"></a>
-<div id="navigator"><a id="gotoindex" href="$if(ISINDEX)$../$endif$index.html" title="【回到笔记索引 | Back to Index】">☣</a></div>
+        src="$if(NOTBASE)$../$endif$fork-me-on-github.png" alt="Fork me on GitHub"></a>
+<div id="navigator"><a id="gotoindex" href="$if(ISINDEX)$../$endif$index.html" title="【回到笔记索引 | Back to Index】">☣</a>
+</div>
+<span id="help">按下 "h" 获取页面帮助。</span>
 $body$
 <script src="$if(NOTBASE)$../$endif$lazyload.min.js"></script>
 <script src="$if(NOTBASE)$../$endif$jquery-3.0.0.min.js"></script>

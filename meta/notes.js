@@ -67,6 +67,7 @@ $('dd').on('click', function(event){
     var $dt = $(this).prev('dt');
     if ($dt.hasClass('drawer')) {
         if( !$dt.hasClass('focus') ) {
+            $('.focus').removeClass('focus');
             $dt.addClass('focus');
             $(this).addClass('focus');
             return event.stopPropagation();
@@ -100,6 +101,7 @@ $('ul,ol').on('click', function(event){
     var $li = $(this).prev('li');
     if ($li.hasClass('drawer')) {
         if (!$li.hasClass('focus')) {
+            $('.focus').removeClass('focus');
             $li.addClass('focus');
             $(this).addClass('focus');
             return stopPropagation();
@@ -135,7 +137,9 @@ $('ul,ol').on('click', function(event){
     $p = $(this).prev();
     if ($p.is('p.simpledrawer')) {
         if( !$p.hasClass('focus') ) {
+            $('.focus').removeClass('focus');
             $p.addClass('focus');
+            $(this).addClass('focus');
             return event.stopPropagation();
         }
         if($('body').hasClass('locked')){ return; }
@@ -188,12 +192,20 @@ function toggleLock() {
         $nav.attr('href',  navHref);
     }
 }
+function help() {
+    alert(  '方向键有如下功能：\n\n'
+         +  '\t**展开**所有折叠盒：<right><right><down>\n'
+         +  '\t**收起**所有折叠盒：<right><right><up>\n'
+         +  '\t**锁定**所有折叠盒：<right><right><right>\n' );
+}
 
 $('body').keydown(function(e){
     var code = e.which;
-    if(code==8) { // key: backspace
+    if(code==68) {              // key: h,              show help
+        help();
+    } else if(code==8) {        // key: backspace,      toggle lock
         toggleLock();
-    } else if(code==13) { // key: enter/return
+    } else if(code==13) {       // key: enter/return,   toggle fold/expand of drawer.focus
         $f = $('dt.drawer.focus, li.drawer.focus, p.simpledrawer.focus');
         if ($f.length) {
             $f[0].click();
@@ -206,6 +218,9 @@ $('#gotoindex').on('click', function(event){
         return stopPropagation();
     }
 });
+$('#help').on('click', function(event){
+    help();
+});
 
 var egg = new Egg();
 egg
@@ -215,7 +230,7 @@ egg
     // right,right
     .addCode(   "right,right,down",     function() {    expandAll();    }).addCode(     "e,x,p,a,n,d",  function() {    expandAll();    })
     .addCode(   "right,right,up",       function() {    foldAll();      }).addCode(     "f,o,l,d",      function() {    foldAll();      })
-    .addCode(   "right,right,right",    function() {    toggleLock();   })
+    .addCode(   "right,right,right",    function() {    toggleLock();   }).addCode(     "l,o,c,k",      function() {    toggleLock();   })
     // left,right
     .addCode(   "left,right,down",      function() {    show();         }).addCode(     "s,h,o,w",      function() {    show();         })
     .addCode(   "left,right,up",        function() {    hide();         }).addCode(     "h,i,d,e",      function() {    hide();         })
