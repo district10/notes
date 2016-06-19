@@ -132,3 +132,9 @@ if(/^(\s*)(=> )(.*)$/) {
 ```
 
 Caffeinated Companies，语言用得好妙！caffein-ated companies……
+
+`"★★★★★☆☆☆☆☆".substring(5 - rating, 10 - rating )`{.javascript}
+
+I saw this code being written byAddison Phillips (Page on linkedin.com) when I
+was at Amazon. I'm not sure if he is the original author, but I loved it for
+its elegance.

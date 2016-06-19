@@ -258,3 +258,27 @@ P.S. 如果你想看本文源码，请访问：
     <p class="caption">big fish</p>
     </div>
     ```
+
+## include other files
+
+**grammer**
+
+`@include <-[optional line prefix]=path/to/file="`
+
+**examples**
+
+**`@include <-=include/poem-snow-chairman-mao.txt=`** <=
+
+:   @include <-=include/poem-snow-chairman-mao.txt=
+
+**`@include <-|   =include/poem-snow-chairman-mao.txt=`** <=
+
+:   @include <-|   =include/poem-snow-chairman-mao.txt=
+
+**`@include <--   =include/poem-snow-chairman-mao.txt=`** <=
+
+:   @include <--   =include/poem-snow-chairman-mao.txt=
+
+**`    @include <--   =include/poem-snow-chairman-mao.txt=`** <=
+
+:   @include <--   =include/poem-snow-chairman-mao.txt=
