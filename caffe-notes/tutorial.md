@@ -260,29 +260,41 @@
             :   这里讲得很详细，介绍了每个层有哪些 required 参数，有哪些 optional 参数。
                 头文件，以及 CPU/GPU 实现的文件。
 
-                ```bash
-                # cd $CAFFE_ROOT
+                [caffe.proto](https://github.com/district10/caffe-rc3/blob/master/src/caffe/proto/caffe.proto) <-
 
-                >>> ls src/caffe/layers/*loss*.cpp
-                src/caffe/layers/contrastive_loss_layer.cpp
-                src/caffe/layers/euclidean_loss_layer.cpp
-                src/caffe/layers/hinge_loss_layer.cpp
-                src/caffe/layers/infogain_loss_layer.cpp
-                src/caffe/layers/loss_layer.cpp
-                src/caffe/layers/multinomial_logistic_loss_layer.cpp
-                src/caffe/layers/sigmoid_cross_entropy_loss_layer.cpp
-                src/caffe/layers/softmax_loss_layer.cpp
+                :   ```bash
+                    # cd $CAFFE_ROOT
 
-                >>> ls src/caffe/layers/*loss*.cu
-                src/caffe/layers/contrastive_loss_layer.cu
-                src/caffe/layers/euclidean_loss_layer.cu
-                src/caffe/layers/sigmoid_cross_entropy_loss_layer.cu
-                src/caffe/layers/softmax_loss_layer.cu
-                ```
+                    >>> ls src/caffe/layers/*loss*.cpp
+                    src/caffe/layers/contrastive_loss_layer.cpp
+                    src/caffe/layers/euclidean_loss_layer.cpp
+                    src/caffe/layers/hinge_loss_layer.cpp
+                    src/caffe/layers/infogain_loss_layer.cpp
+                    src/caffe/layers/loss_layer.cpp
+                    src/caffe/layers/multinomial_logistic_loss_layer.cpp
+                    src/caffe/layers/sigmoid_cross_entropy_loss_layer.cpp
+                    src/caffe/layers/softmax_loss_layer.cpp
+
+                    >>> ls src/caffe/layers/*loss*.cu
+                    src/caffe/layers/contrastive_loss_layer.cu
+                    src/caffe/layers/euclidean_loss_layer.cu
+                    src/caffe/layers/sigmoid_cross_entropy_loss_layer.cu
+                    src/caffe/layers/softmax_loss_layer.cu
+                    ```
 
                 *   Vision Layers
 
+                    输入的是三维的 w*h*c 的图片，输出一个一维的 w*h*c 的
+                    big vector。
+
+                    **ignore the spatial structure of the input**
+
                     -   卷积层, `Convolution`
+
+                        implemetaion <=
+
+                        +   /src/caffe/layers/convolution_layer.cpp
+                        +   /src/caffe/layers/convolution_layer.cpp
 
                     -   池化层, `Pooling`
 

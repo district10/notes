@@ -201,7 +201,8 @@ function help() {
 
 $('body').keydown(function(e){
     var code = e.which;
-    if(code==68) {              // key: h,              show help
+    // alert(code);
+    if(code==72) {              // key: h,              show help
         help();
     } else if(code==8) {        // key: backspace,      toggle lock
         toggleLock();
