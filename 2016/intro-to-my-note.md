@@ -107,7 +107,7 @@ function albers() {
 如果一份笔记无法折叠，往往会让人陷入细节而不能看到 big picture。所以折叠是
 一个好用的笔记必备的功能。
 
-这是一个折叠了的列表。点击可以切换**（折叠/显示）**。 <-
+这是一个折叠了的列表。点击可以切换**（折叠/显示）**。 -<
 
 -   在一行文字后添加 `` `@`{.fold} ``，可以折叠它后面的列表；
 -   `.fold` 会使得页面载入后初始为已经折叠状态，如果你希望折叠盒初始为展开，可以把
@@ -115,7 +115,7 @@ function albers() {
 -   折叠的时候可以像这样：
 
     ```markdown
-    下面的内容会折叠到本行下，隐藏起来 <-
+    下面的内容会折叠到本行下，隐藏起来 -<
 
     -   one
     -   two
@@ -128,7 +128,7 @@ function albers() {
 
     ```markdown
     因为这一行特别长，我决定把它分成两行，
-    但不幸的是 pandoc 不允许你这样。这是错误的！<-
+    但不幸的是 pandoc 不允许你这样。这是错误的！-<
 
     -   one
     -   two
@@ -137,7 +137,7 @@ function albers() {
     -   three
     ```
 
--   折叠当然可以嵌套，比如我就是一个嵌套了的，而且默认展开的折叠盒~ <=
+-   折叠当然可以嵌套，比如我就是一个嵌套了的，而且默认展开的折叠盒~ +<
 
     +   你看得到我
     +   我也看得到你
@@ -150,7 +150,7 @@ function albers() {
 折叠起来。语法一样，也是添加 `{.fold}` 或 `{.foldable}` 到行尾，如：
 
 ```markdown
-定义 <=
+定义 +<
 
 :   这个概念说的是……
 
@@ -159,7 +159,7 @@ function albers() {
     这就是这个概念的简要介绍，你可以……获取更多相关信息。
 ```
 
-定义 <=
+定义 +<
 
 :   这个概念说的是……
 
@@ -169,9 +169,9 @@ function albers() {
 
 下面是一个较为复杂的折叠盒。
 
-如何配置服务器 SSH 登陆？ <=
+如何配置服务器 SSH 登陆？ +<
 
-:   用户的添加和权限的配置 <=
+:   用户的添加和权限的配置 +<
 
     :   ```bash
         sudo useradd -r -m -s /bin/bash yhlleo
@@ -179,7 +179,7 @@ function albers() {
         # add this line: `yhlleo ALL=(ALL:ALL) ALL'
         ```
 
-    ssh 服务器的安装、配置和使用 <-
+    ssh 服务器的安装、配置和使用 -<
 
     :   ```bash
         sudo apt-get install openssh-server
@@ -201,16 +201,16 @@ function albers() {
         ssh yhlleo@192.168.1.108
         ```
 
-    其他笔记 <-
+    其他笔记 -<
 
-    :   用 scp 传递（拷贝）文件 <=
+    :   用 scp 传递（拷贝）文件 +<
 
         :   ```bash
             scp /path/to/local/file tzx@192.168.1.108:~/Downloads/
             scp tzx@192.168.1.108:~/Downloads/file ./
             ```
 
-        端口重映射 <-
+        端口重映射 -<
 
         :   把远程服务器上只能本地打开的端口 8889 映射到本机端口 8888，
             这样就能通过 `localhost:8888` 访问服务器上的 8889 端口了。
@@ -267,18 +267,18 @@ P.S. 如果你想看本文源码，请访问：
 
 **examples**
 
-**`@include <-=include/poem-snow-chairman-mao.txt=`** <=
+**`@include <-=include/poem-snow-chairman-mao.txt=`** +<
 
 :   @include <-=include/poem-snow-chairman-mao.txt=
 
-**`@include <-|   =include/poem-snow-chairman-mao.txt=`** <=
+**`@include <-|   =include/poem-snow-chairman-mao.txt=`** +<
 
 :   @include <-|   =include/poem-snow-chairman-mao.txt=
 
-**`@include <--   =include/poem-snow-chairman-mao.txt=`** <=
+**`@include <--   =include/poem-snow-chairman-mao.txt=`** +<
 
 :   @include <--   =include/poem-snow-chairman-mao.txt=
 
-**`    @include <--   =include/poem-snow-chairman-mao.txt=`** <=
+**`    @include <--   =include/poem-snow-chairman-mao.txt=`** +<
 
 :   @include <--   =include/poem-snow-chairman-mao.txt=

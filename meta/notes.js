@@ -49,6 +49,16 @@ $('p > code.foldable').each(function(){
     $(this)
         .parent().addClass('simpledrawerOpen').addClass('simpledrawer');
 });
+$('p > code.fold-ng').each(function(){
+    $(this)
+        .parent().addClass('drawer-ng-this').addClass('drawer-ng-close')
+        .siblings().addClass('drawer-ng-siblings').addClass('drawer-ng-hide');
+});
+$('p > code.foldable-ng').each(function(){
+    $(this)
+        .parent().addClass('drawer-ng-this').addClass('drawer-ng-open')
+        .siblings().addClass('drawer-ng-siblings');
+});
 
 $('dt.drawer').on('click', function(event){
     if(getSelection().toString()){ return; }
@@ -152,6 +162,40 @@ $('ul,ol').on('click', function(event){
         event.stopPropagation();
     }
 });
+$('p.drawer-ng-this').on('click', function(event){
+    if(getSelection().toString()){ return; }
+    if($('body').hasClass('locked')){ return; }
+    if( !$(this).hasClass('focus') ) {
+        $('.focus').removeClass('focus');
+        $(this).addClass('focus');
+        $(this).siblings('.drawer-ng-siblings').addClass('focus');
+    }
+    $(this).toggleClass('drawer-ng-open').toggleClass('drawer-ng-close');
+    if($(this).hasClass('drawer-ng-open')) {
+        $(this).siblings('.drawer-ng-siblings').removeClass('drawer-ng-hide');
+    } else {
+        $(this).siblings('.drawer-ng-siblings').addClass('drawer-ng-hide');
+    }
+});
+$('.drawer-ng-siblings').on('click', function(event){
+    if(getSelection().toString()){ return; }
+    if($('body').hasClass('locked')){ return; }
+    if( !$(this).hasClass('focus') ) {
+        $('.focus').removeClass('focus');
+        $(this).addClass('focus');
+        $(this).siblings().addClass('focus');
+        event.stopPropagation();
+    }
+    $dnt = $(this).siblings('p.drawer-ng-this');
+    $dnt.toggleClass('drawer-ng-open').toggleClass('drawer-ng-close');
+    if($dnt.hasClass('drawer-ng-open')) {
+        $dnt.siblings('.drawer-ng-siblings').removeClass('drawer-ng-hide');
+    } else {
+        $dnt.siblings('.drawer-ng-siblings').addClass('drawer-ng-hide');
+    }
+});
+
+
 $('body').on('click', function(event){
     if(getSelection().toString()){ return; }
     if($('body').hasClass('locked')){ return; }

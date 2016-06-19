@@ -14,14 +14,14 @@ Machine Learning
 
 >   已经很久没看 lstm 了, 很多这方面的工作已经不了解了诶。
 
-MISC Notes <-
+MISC Notes -<
 
   - **contrived** example, 造的例子
   - logistic, `[lo'dʒɪstɪk]`, adj. 后勤学的；符号逻辑的
   - hessian, `['hɛʃən]`
   - theano, thy yah noo
 
-python notes <-
+python notes -<
 
 :   -   cp src dst, mv src dst^[[10.10. shutil — High-level file operations —
         Python 2.7.11 documentation](https://docs.python.org/2/library/shutil.html)]
@@ -35,7 +35,7 @@ python notes <-
         shutil.copyfile(src, dst)   # dst can only be a file
         ```
 
-yhlleo 推荐的论文 <-
+yhlleo 推荐的论文 -<
 
 :   ```
     ml
@@ -127,7 +127,7 @@ yhlleo 推荐的论文 <-
     - 论文笔记SPP.pdf
     ```
 
-二：课程资源 <-
+二：课程资源 -<
 
 1.  Tom Mitchell：http://work.caltech.edu/library/181.html http://www.cs.cmu.edu/~tom/10701_sp11/lectures.shtml
 2.  Andrew Ng：https://www.coursera.org/learn/machine-learning/home/welcome
@@ -136,7 +136,7 @@ yhlleo 推荐的论文 <-
 5.  Youshua Bengio：http://deeplearning.net/tutorial/他编写的书《Deep Learning》：http://deeplearning.net/tutorial/contents.html
 6.  Andrew Stanford课程：UFLDL：http://ufldl.stanford.edu/tutorial/
 
-三、代码资源： <-
+三、代码资源： -<
 
 1.  Keras：https://github.com/fchollet/keras Keras Documentation：http://keras.io/
 2.  Scikit-Learn: Machine Learning in Python: http://scikit-learn.org/stable/
@@ -153,7 +153,7 @@ refs and see also
   - [深度学习入门必看的书和论文？有哪些必备的技能需学习？ - 深度学习（Deep Learning） - 知乎](http://www.zhihu.com/question/31785984)
   - [Reading List « Deep Learning](http://deeplearning.net/reading-list/)
 
-[如何评价 rcnn、fast-rcnn 和 faster-rcnn 这一系列方法？ - 知乎](https://www.zhihu.com/question/35887527) <-
+[如何评价 rcnn、fast-rcnn 和 faster-rcnn 这一系列方法？ - 知乎](https://www.zhihu.com/question/35887527) -<
 
 :   (res) 如何评价 rcnn、fast-rcnn 和 faster-rcnn 这一系列方法？ - 机器学习 - 知乎.pdf
 
@@ -202,7 +202,7 @@ refs and see also
       - [rbg's home page](http://www.cs.berkeley.edu/~rbg/index.html)
       - [rbgirshick (Ross Girshick)](https://github.com/rbgirshick)
 
-[如何简单形象又有趣地讲解神经网络是什么？ - 知乎](https://www.zhihu.com/question/22553761) <-
+[如何简单形象又有趣地讲解神经网络是什么？ - 知乎](https://www.zhihu.com/question/22553761) -<
 
 :   2012 年多伦多大学的 Krizhevsky 等人构造了一个超大型卷积神经网络 ，有 9 层，共
     65 万个神经元，6 千万个参数。网络的输入是图片，输出是 1000 个类，比如小虫、美洲
@@ -217,7 +217,7 @@ refs and see also
       - 第四层的一些神经元负责识别萌狗的脸、七星瓢虫和一堆圆形物体的存在。
       - 第五层的一些神经元可以识别出花、圆形屋顶、键盘、鸟、黑眼圈动物。
 
-[如何向非物理专业的同学解释重整化群？ - 知乎](https://www.zhihu.com/question/30174067) <-
+[如何向非物理专业的同学解释重整化群？ - 知乎](https://www.zhihu.com/question/30174067) -<
 
 :   怎么办呢？你想了想，觉得铁球这么大，你不用把模拟搞得这么精细也能得到正确答
     案。所以你决定把模拟用的水分子体积加 10 倍，这样就只要模拟 10^25 个分子了。
@@ -255,7 +255,7 @@ refs and see also
 
       - [如何理解「深度学习和重整化群可以建立严格映射」？这一结论对领域有何影响？ - 知乎](https://www.zhihu.com/question/29854624)
 
-[如何看待 2014 年以来计算机视觉（Computer Vision）界创业潮？ - 知乎](https://www.zhihu.com/question/31430100) <-
+[如何看待 2014 年以来计算机视觉（Computer Vision）界创业潮？ - 知乎](https://www.zhihu.com/question/31430100) -<
 
 :   首先，毋庸置疑，computer vision 作为一个研究领域，正处在整个人工智能史上发
     展速度最惊人的阶段. 从 research 的角度来看，这是 vision 最好的一个时代，也
@@ -263,7 +263,7 @@ refs and see also
 
     利益相关：我在 Cogtu，女朋友在 Linkface
 
-[CNN(卷积神经网络)、RNN(循环神经网络)、DNN(深度神经网络) 的内部网络结构有什么区别？ - 知乎](https://www.zhihu.com/question/34681168) <-
+[CNN(卷积神经网络)、RNN(循环神经网络)、DNN(深度神经网络) 的内部网络结构有什么区别？ - 知乎](https://www.zhihu.com/question/34681168) -<
 
 :   神经网络技术起源于上世纪五、六十年代，当时叫感知机（perceptron），拥有输入
     层、输出层和一个隐含层。输入的特征向量通过隐含层变换达到输出层，在输出层得
@@ -353,7 +353,7 @@ refs and see also
         习机器学习的人都应该看一下，我甚至在某公司的招聘要求上看到过：认真看过
         并深入研究过Andrew Ng的机器学习课程，由此可见其重要性。
 
-[有哪些 LSTM(Long Short Term Memory) 和 RNN(Recurrent) 网络的教程？ - 知乎](https://www.zhihu.com/question/29411132) <-
+[有哪些 LSTM(Long Short Term Memory) 和 RNN(Recurrent) 网络的教程？ - 知乎](https://www.zhihu.com/question/29411132) -<
 
 :   先给出一个最快的了解+上手的教程：
 
@@ -367,7 +367,7 @@ refs and see also
     的理想主义者 - 博客频道 - CSDN.NET](http://blog.csdn.net/a635661820/article/details/45390671)
     不过，稍微深入下去还是得老老实实的好好学，下面是我认为比较好的
 
-    完整LSTM学习流程： <-
+    完整LSTM学习流程： -<
 
     :   我一直都觉得了解一个模型的前世今生对模型理解有巨大的帮助。到LSTM这里（
         假设题主零基础）那比较好的路线是MLP->RNN->LSTM。还有LSTM本身的发展路线
@@ -422,7 +422,7 @@ refs and see also
         hidden unit。两者效果相近，但是GRU相对LSTM来说参数更少，所以更加不容易过拟
         合。（大家堆模型堆到dropout也不管用的时候可以试试换上GRU这种参数少的
 
-        图像处理（对，不用CNN用RNN）： <-
+        图像处理（对，不用CNN用RNN）： -<
 
         :   《 Visin F, Kastner K, Cho K, et al. ReNet: A Recurrent Neural Network Based Alternative to Convolutional Networks[J]. arXiv preprint arXiv:1505.00393, 2015 》
 
@@ -478,7 +478,7 @@ refs and see also
 
     [The Unreasonable Effectiveness of Recurrent Neural Networks](http://karpathy.github.io/2015/05/21/rnn-effectiveness/)
 
-[Facebook 的人工智能实验室 (FAIR) 有哪些厉害的大牛和技术积累？ - 田渊栋的回答 - 知乎](https://www.zhihu.com/question/30924352/answer/50176654) <-
+[Facebook 的人工智能实验室 (FAIR) 有哪些厉害的大牛和技术积累？ - 田渊栋的回答 - 知乎](https://www.zhihu.com/question/30924352/answer/50176654) -<
 
 :   人员方面，Yann LeCun毫无疑问是整个组的Director，其它大牛有VC维和SVM的缔造者
     Vladimir Vapnik，提出随机梯度下降法的Léon Bottou，做出高性能PHP虚拟机HHVM的
@@ -575,10 +575,10 @@ similarity metric: sim_pearson, sim_distance
 
 [Programming Collective Intelligence - O'Reilly Media](http://shop.oreilly.com/product/9780596529321.do)
 
-[Programming Collective Intelligence (豆瓣)](https://book.douban.com/subject/2209702/) <-
+[Programming Collective Intelligence (豆瓣)](https://book.douban.com/subject/2209702/) -<
 
 :   -   simulated annealing（模拟退火）
-    -   genetic algorithms（遗传算法） <=
+    -   genetic algorithms（遗传算法） +<
         +   population（种群），hand-designed or 随机的；user-defined task
         +   elitism（精英选拔）
         +   mutation（变异）
@@ -588,15 +588,15 @@ similarity metric: sim_pearson, sim_distance
         +   evaluating trees
     - massand-spring algorithms（质点弹簧算法）
     - flipping around（调换求解）
-    - decision trees <=
+    - decision trees +<
         + CART（classification and regression trees）
         + pruning the tree（剪枝）
-    - kNN: k-Nearest Neighbors <=
+    - kNN: k-Nearest Neighbors +<
         + weighted kNN
         + cross validation（交叉验证）
     - kernel methods
         + kernel trick: radial-basis function （径向基函数）
-    - SVM <=
+    - SVM +<
         + mamimum-margin hyperplane
         + 位于分割线：支持向量
         + 找到支持向量的算法：支持向量机
@@ -627,16 +627,16 @@ similarity metric: sim_pearson, sim_distance
 
 ## CS229, Machine Learning, Andrew Ng, Sanford University
 
-Advice for applying Machine Learning <-
+Advice for applying Machine Learning -<
 
-:   Key ideas <-
+:   Key ideas -<
 
     1.  Diagnostics for debugging learning algorithms.
     2.  Error analyses and ablative analysis.
     3.  How to get started on a machine learning problem.
         – Premature (statistical) optimization.
 
-    Diagnostic for bias vs. variance <-
+    Diagnostic for bias vs. variance -<
 
     :   Suppose you suspect the problem is either:
 
@@ -661,7 +661,7 @@ Advice for applying Machine Learning <-
 
     Is the algorithm (gradient descent for logistic regression) converging?
 
-    Error analysis & Ablative (`['æblətɪv]`, 离格) analysis <-
+    Error analysis & Ablative (`['æblətɪv]`, 离格) analysis -<
 
     :   ![](http://whudoc.qiniudn.com/2016/20160505142736.png)
 
@@ -670,7 +670,7 @@ Advice for applying Machine Learning <-
 
         Just what accounts for your improvement from 94 to 99.9%?
 
-    Getting started on a learning problem <=
+    Getting started on a learning problem +<
 
     :   -   Approach #1: **Careful design**
 
@@ -685,7 +685,7 @@ Advice for applying Machine Learning <-
         The only way to find out what needs work is to implement something quickly,
         and find out what parts break.
 
-    Sammary <=
+    Sammary +<
 
     -   Time spent coming up with diagnostics for learning algorithms is time
         well-spent.
@@ -705,7 +705,7 @@ Advice for applying Machine Learning <-
 
 ---
 
-[Tensor - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Tensor) <-
+[Tensor - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Tensor) -<
 
 :   Tensors are geometric objects that describe linear relations between
     geometric vectors, scalars, and other tensors. Elementary examples of such
@@ -753,13 +753,13 @@ Advice for applying Machine Learning <-
     concept enabled an alternative formulation of the intrinsic differential
     geometry of a manifold in the form of the Riemann curvature tensor.
 
-[Tutorial — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/) <-
+[Tutorial — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/) -<
 
 :   Theano is a Python library that allows you to define, optimize, and
     evaluate mathematical expressions involving multi-dimensional arrays
     efficiently.
 
-    Theano features: <=
+    Theano features: +<
 
       - **tight integration with NumPy** – Use numpy.ndarray in Theano-compiled functions.
       - **transparent use of a GPU** – Perform data-intensive calculations up to 140x faster than with CPU.(float32 only)
@@ -771,7 +771,7 @@ Advice for applying Machine Learning <-
     Theano has been powering large-scale computationally intensive scientific
     investigations **since 2007**. But it is also approachable enough to be used in
     the classroom (University of Montreal’s deep learning/machine learning
-    classes). <-
+    classes). -<
 
     -   You should learn some python. ^[[Tutorial — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/).]
 
@@ -806,9 +806,9 @@ Advice for applying Machine Learning <-
 
             see more at [numpy user guide: basics broadcasting](http://docs.scipy.org/doc/numpy/user/basics.broadcasting.html).
 
-    -   Basics <=
+    -   Basics +<
 
-        +   Baby Steps - Algebra <-
+        +   Baby Steps - Algebra -<
 
             *   Adding two Scalars
 
@@ -876,7 +876,7 @@ Advice for applying Machine Learning <-
 
             *   Notes
 
-                The following types are available: <-
+                The following types are available: -<
 
                   - scalar, vector, matrix, row, col, tensor3, tensor4
                   - b: byte
@@ -915,7 +915,7 @@ Advice for applying Machine Learning <-
 
             *    [Basic Tensor Functionality — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/library/tensor/basic.html#libdoc-basic-tensor)
 
-        +   More Examples <-
+        +   More Examples -<
 
             *   Logistic Function
 
@@ -1189,7 +1189,7 @@ Advice for applying Machine Learning <-
 
                   - [function - defines theano.function — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/library/compile/function.html#function.function)
 
-        +   Derivatives in Theano ^[[Derivatives in Theano — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/gradients.html).] <-
+        +   Derivatives in Theano ^[[Derivatives in Theano — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/gradients.html).] -<
 
             *   Computing Gradients
 
@@ -1360,7 +1360,7 @@ Advice for applying Machine Learning <-
                     efficiently the full Jacobian and the Hessian matrix as well as
                     the Jacobian times vector.
 
-        +   Conditions ^[[Conditions — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/conditions.html).] <-
+        +   Conditions ^[[Conditions — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/conditions.html).] -<
 
             *   IfElse vs Switch
 
@@ -1404,7 +1404,7 @@ Advice for applying Machine Learning <-
                 There is no automatic optimization replacing a switch with a
                 broadcasted scalar to an ifelse, as this is not always faster.
 
-        +   Loop <-
+        +   Loop -<
 
             *   Scan
 
@@ -1564,9 +1564,9 @@ Advice for applying Machine Learning <-
 
                 nil.
 
-    -   Advanced <-
+    -   Advanced -<
 
-        +   Sparse <-
+        +   Sparse -<
 
             *   Compressed Sparse Format
 
@@ -1579,7 +1579,7 @@ Advice for applying Machine Learning <-
                 -   Structured Operation
                 -   Gradient
 
-        +   Using the GPU <-
+        +   Using the GPU -<
 
             *   CUDA backend
 
@@ -1607,7 +1607,7 @@ Advice for applying Machine Learning <-
 
             *   Note
 
-        +   Using multiple GPUs <-
+        +   Using multiple GPUs -<
 
             *   Defining the context map
             *   A simple graph on two GPUs
@@ -1618,7 +1618,7 @@ refs and see also
   - [Python Memory Management — Theano 0.8.0 documentation](http://deeplearning.net/software/theano/tutorial/python-memory-management.html#python-memory-management)
   - [LSTM Networks for Sentiment Analysis — DeepLearning 0.1 documentation](http://www.deeplearning.net/tutorial/lstm.html)
 
-printing – Graph Printing and Symbolic Print Statement `@`{.tzx-anchor #theano-graph-printing} <-
+printing – Graph Printing and Symbolic Print Statement `@`{.tzx-anchor #theano-graph-printing} -<
 
 :   友好的打印结果：
 
@@ -1685,7 +1685,7 @@ printing – Graph Printing and Symbolic Print Statement `@`{.tzx-anchor #theano
 
 ---
 
-[TensorFlow中文社区-首页](http://tensorfly.cn/) <-
+[TensorFlow中文社区-首页](http://tensorfly.cn/) -<
 
 :   TensorFlow™ 是一个采用数据流图（data flow graphs），用于数值计算的开源软件
     库。节点（Nodes）在图中表示数学操作，图中的线（edges）则表示在节点间相互联
@@ -1696,7 +1696,7 @@ printing – Graph Printing and Symbolic Print Statement `@`{.tzx-anchor #theano
     其也可广泛用于其他计算领域。
 
 
-    什么是数据流图（Data Flow Graph）? <-
+    什么是数据流图（Data Flow Graph）? -<
 
     :   数据流图用“结点”（nodes）和“线”(edges)的有向图来描述数学计算。“节点” 一
         般用来表示施加的数学操作，但也可以表示数据输入（feed in）的起点/输出（
@@ -1760,7 +1760,7 @@ shown above. It's hard to imagine that there's any good historical reason
 the component shapes of the digit will be closely related to (say) the most
 significant bit in the output.
 
-[Download and Setup](https://www.tensorflow.org/versions/r0.8/get_started/os_setup.html#pip-installation) <-
+[Download and Setup](https://www.tensorflow.org/versions/r0.8/get_started/os_setup.html#pip-installation) -<
 
 :   ```bash
     sudo pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-0.8.0-cp27-none-linux_x86_64.whl
@@ -1786,7 +1786,7 @@ significant bit in the output.
 
 [机器学习（一）：生成学习算法Generative Learning algorithms - zjgtan - 博客园](http://www.cnblogs.com/zjgtan/archive/2013/06/08/3127490.html)
 
-Rectifier (neural networks) <-
+Rectifier (neural networks) -<
 
 :   In the context of artificial neural networks, the rectifier is an
     activation function defined as
@@ -1816,7 +1816,7 @@ Rectifier (neural networks) <-
     Rectified linear units find applications in computer vision, and speech
     recognition using deep neural nets.
 
-[UFLDL 教程 - Ufldl](http://deeplearning.stanford.edu/wiki/index.php/UFLDL%E6%95%99%E7%A8%8B) <-
+[UFLDL 教程 - Ufldl](http://deeplearning.stanford.edu/wiki/index.php/UFLDL%E6%95%99%E7%A8%8B) -<
 
 :   如果选择 \textstyle f(z) = 1/(1+\exp(-z)) ，也就是 sigmoid 函数，那么它的导
     数就是 \textstyle f'(z) = f(z) (1-f(z)) （如果选择 tanh 函数，那它的导数就
@@ -1827,9 +1827,9 @@ Rectifier (neural networks) <-
 
 [CSC2515F : lectures](http://www.cs.nyu.edu/~roweis/csc2515-2006/lectures.html)
 
-[CIE 1931 color space - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/CIE_1931_color_space) <-
+[CIE 1931 color space - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/CIE_1931_color_space) -<
 
-:   [Lab color space - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Lab_color_space) <=
+:   [Lab color space - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Lab_color_space) +<
 
     :   A Lab color space is a color-opponent space with dimension L for
         lightness and a and b for the color-opponent dimensions, based on

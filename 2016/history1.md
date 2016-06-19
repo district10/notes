@@ -4,7 +4,7 @@
 
 ---
 
-[横山宏---科幻军事之父](http://site.douban.com/106758/widget/notes/174077/note/148694802/) `@`{.fold}
+[横山宏---科幻军事之父](http://site.douban.com/106758/widget/notes/174077/note/148694802/) -<
 
 :   这姑娘逗……
 
@@ -16,7 +16,7 @@
 
 [CCMakefile4iOS/Makefile at master · webfrogs/CCMakefile4iOS](https://github.com/webfrogs/CCMakefile4iOS/blob/master/Makefile)
 
-[windows - How to pass command line parameters to a batch file? - Stack Overflow](http://stackoverflow.com/questions/26551/how-to-pass-command-line-parameters-to-a-batch-file) `@`{.fold}
+[windows - How to pass command line parameters to a batch file? - Stack Overflow](http://stackoverflow.com/questions/26551/how-to-pass-command-line-parameters-to-a-batch-file) -<
 
 :   ```bash
     echo off
@@ -45,7 +45,7 @@
     fake-command /u %arg1% /p %arg2% %*
     ```
 
-[启动或停止 Web 服务器 (IIS 8)](https://technet.microsoft.com/zh-cn/library/jj635851.aspx) `@`{.fold}
+[启动或停止 Web 服务器 (IIS 8)](https://technet.microsoft.com/zh-cn/library/jj635851.aspx) -<
 
 :   用 nodejs 开 80 端口的 http 服务器，需要先关闭 IIS：`net stop WAS`（实际上用 `net pause WAS` 更好）
 
@@ -64,11 +64,105 @@
     START /B CMD /C CALL "blog.sh"
     ```
 
-[Batch Indentation with Emacs](http://www.cslab.pepperdine.edu/warford/BatchIndentationEmacs.html)
+[Batch Indentation with Emacs](http://www.cslab.pepperdine.edu/warford/BatchIndentationEmacs.html) -<
 
-[Keybr.com 小工具](http://whudoc.qiniudn.com/keybr.html)
+:   File: emacs-format-file +<
 
-[氛围音乐推荐（看书，写论文，调整心情必备良药） - 简书](http://www.jianshu.com/p/8b086b1c09df)
+    :   ```commonlisp
+        ;;; File: emacs-format-file
+        ;;; Stan Warford
+        ;;; 17 May 2006
+
+        (defun emacs-format-function ()
+           "Format the whole buffer."
+           (c-set-style "stroustrup")
+           (indent-region (point-min) (point-max) nil)
+           (untabify (point-min) (point-max))
+           (save-buffer)
+        )
+        ```
+
+    bash +<
+
+    :   ```bash
+        emacs -batch file-to-indent -l ~/bin/emacs-format-file -f emacs-format-function
+        ```
+
+    batch +<
+
+    :   ```bash
+        #!/bin/sh
+        # File: my-indent
+        # Opens a set of files in emacs and executes the emacs-format-function.
+        # Assumes the function named emacs-format-function is defined in the
+        # file named emacs-format-file.
+
+        if [ $# -eq 0 ]
+        then
+           echo "my-indent requires at least one argument." 1>&2
+           echo "Usage: my-indent files-to-indent" 1>&2
+           exit 1
+        fi
+        while [ $# -ge 1 ]
+        do
+           if [ -d $1 ]
+           then
+              echo "Argument of my-indent $1 cannot be a directory." 1>&2
+              exit 1
+           fi
+           # Check for existence of file:
+           ls $1 2> /dev/null | grep $1 > /dev/null
+           if [ $? != 0 ]
+           then
+              echo "my-indent: $1 not found." 1>&2
+              exit 1
+           fi
+           echo "Indenting $1 with emacs in batch mode"
+           emacs -batch $1 -l ~/bin/emacs-format-file -f emacs-format-function
+           echo
+           shift 1
+        done
+        exit 0
+        ```
+
+[Keybr.com 小工具](http://whudoc.qiniudn.com/keybr.html) -<
+
+:   raw javascript event listener. written by me.
+
+    ```javascript
+    var d0 = new Date();
+    var d1 = new Date();
+    var threshold = 100;
+    document.addEventListener("keydown", function(e) {
+        var cur = document.getElementsByClassName('Fragment-item--cursor')[0];
+        var len = document.getElementsByClassName('Fragment-item').length;
+        var fst = document.getElementsByClassName('Fragment-item')[0];
+        var lst = document.getElementsByClassName('Fragment-item')[len-1];
+        if ( cur === fst ) {
+            d0 = new Date();
+        }
+        if ( cur === lst ) {
+            d1 = new Date();
+            var dt = (d1-d0)/1000.0/60.0;
+            var wpm = len / dt / 5;
+            console.log( 'WPM: ' + wpm );
+            if ( wpm < threshold ) {
+                document.getElementById('Practice-ctlReset').click();
+                e.preventDefault();
+            }
+        }
+    }, true);
+    ```
+
+[氛围音乐推荐（看书，写论文，调整心情必备良药） - 简书](http://www.jianshu.com/p/8b086b1c09df) -<
+
+:   Ambient（氛围音乐）源于70年代艺术家们的一种实验性的电子合成音乐，代表人物如
+    Brian Eno、Kraftwerk以及Harold Budd，同时也具有80年代trance风格的数码舞蹈乐
+    曲。氛围音乐是一种有足够空间让人发挥的有着声波结构的电子音乐。它没有作词或
+    作曲的束缚。尽管艺术家在创作之间有暗示性的差异，但对于偶然一次的听众来说，
+    它只是不断地在重复和没有变化的声音。
+
+    [DJ-OKAWARI-Flower Dance](http://www.xiami.com/song/1769834090?spm=a1z1s.6659509.0.0.GPBCxW)
 
 [优秀且免费的照片库 - 简书](http://www.jianshu.com/p/5b7b09b93875#)
 
@@ -88,7 +182,7 @@
 
 [shell - How can I concatenate string variables in Bash? - Stack Overflow](http://stackoverflow.com/questions/4181703/how-can-i-concatenate-string-variables-in-bash/18041780#18041780)
 
-[crop - Cropping a PDF using Ghostscript 9.01 - Stack Overflow](http://stackoverflow.com/questions/6183479/cropping-a-pdf-using-ghostscript-9-01) `@`{.fold}
+[crop - Cropping a PDF using Ghostscript 9.01 - Stack Overflow](http://stackoverflow.com/questions/6183479/cropping-a-pdf-using-ghostscript-9-01) -<
 
 :   ```bash
     gswin64c.exe \
@@ -118,7 +212,7 @@
 
 [Perl Regular Expression Syntax - 1.49.0](http://www.boost.org/doc/libs/1_49_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html#boost_regex.syntax.perl_syntax.perl_regular_expression_syntax)
 
-[网络科学导论](http://zhiyuan.sjtu.edu.cn/Course/netsci.htm) `@`{.fold}
+[网络科学导论](http://zhiyuan.sjtu.edu.cn/Course/netsci.htm) -<
 
 :   Network Science: An Introduction
 
@@ -143,7 +237,7 @@
     拓扑性质、网络拓扑模型和网络动力学。
     本书适合作为研究生和高年级本科生的网络科学教材，也可供自然科学、工程技术科学和社会科学领域的研究人员与学生参考。
 
-[王友来：《我在美国坐牢——美国联邦监狱揭密》 | 海外文摘 - Bay Area Chinese--灣區華人 - Powered by PHPWind](http://www.bachinese.com/forum/simple/?t20389.html) `@`{.fold}
+[王友来：《我在美国坐牢——美国联邦监狱揭密》 | 海外文摘 - Bay Area Chinese--灣區華人 - Powered by PHPWind](http://www.bachinese.com/forum/simple/?t20389.html) -<
 
 :   晚饭在图书馆借书，发现了令我奇怪的事情。金三角坤沙贩毒集团的贩毒分子赵福生
     （他是坤沙的侄子）也在图书馆借了《毛泽东著作选读》甲种本上、下集两本。我惊
@@ -192,7 +286,7 @@
         他们。还有那些黑人，就更差劲儿，经常上顿吃完，下顿饭还不知何处去找的主
         儿，你抢他？他还想去抢你呢。
 
-    正文 第二十六节 串谋的株连 `@`{.fold}
+    正文 第二十六节 串谋的株连 -<
 
     :   美国有个“串谋”犯罪的法律规定，它不是一个特定的罪名，串谋的内容指向什么，
         就是串谋犯某罪。这个“串谋”的法律规定，是从六十年代初肯尼迪总统被刺杀后
@@ -227,7 +321,7 @@
         几句，挂断电话，这下就是认识了，第二次，第三次就好像真和老朋友一样聊了
         起来，再就是引你上钩，陷害你，接上面的伎俩来录音等。
 
-    正文 第二十七节 多事的美国医生 `@`{.fold}
+    正文 第二十七节 多事的美国医生 -<
 
     :   OTV 学校的杨小姐请了北京来的刘先生（已为美国公民）在教堂专给华人讲他在
         美国的体会和教训。他用他的切身的体会讲了一件事。一天晚上，他和妻子给仅
@@ -269,7 +363,7 @@
         办事了。在这里，只要有钱，仍然能过上很不错的生活，享有很多的自由和特权。钱
         能通神，这是全世界通行的真理。
 
-    正文 第四十三节 政府律师的虚伪性 `@`{.fold}
+    正文 第四十三节 政府律师的虚伪性 -<
 
     :   对于没有钱或者其他原因而不请律师（如认罪的人，请律师是没有必要的），美
         国司法貌似公正，给你指定律师，特别是那些少数族裔的人，不但给律师，连翻
@@ -291,7 +385,7 @@
         是他为我请翻译，而是我将大量的汉文译成英文给他。所以，在法律规定上的公
         正和实际行使这些权利的公正完全是两码事。
 
-    正文 第五十一节 CIA特工的厉害之处 `@`{.fold}
+    正文 第五十一节 CIA特工的厉害之处 -<
 
     :   CIA，即美国中央情报局，以前早闻其大名，印象中是专指情报和暗杀的。没想到
         我撞上了它（不，应当是它找上了我）。那个以开律师所为掩护的保罗，是典型
@@ -312,7 +406,7 @@
         得多）。作为一名 CIA 特工，他真是具备了这个才能，由此可知，CIA决不小视，
         非等闲之辈。
 
-    正文 第六十四节 种族歧视的另一种形式 `@`{.fold}
+    正文 第六十四节 种族歧视的另一种形式 -<
 
     :   在美国，种族歧视表现多个方面。有一对白人年轻大学生，在校恋爱，女的怀孕
         后生下一小孩，便和男的一起在卫生间将小孩溺死，结果法院判女的坐牢 2 年半，
@@ -326,7 +420,7 @@
         将非洲的优等劳动力掠夺走，非洲的生产力就不会遭到破坏，这些劳动力没到美
         国来，美国也没有今天的繁荣。
 
-    正文 第七十节 马太郎其人 `@`{.fold}
+    正文 第七十节 马太郎其人 -<
 
     :   不知为什么，从洛杉矶那边转过来一人叫马伯潜，报纸上将他叫“作弊大王”，
         （其作案经过待以后详叙）。他特别崇拜日本，当然日语也讲得不错，他说他常
@@ -356,7 +450,7 @@
         生捡垃圾实在是有辱斯文，太降低了他的身份，想去学校当助教，请马来陈帮他
         给校长说，最后也没成功。
 
-    正文 第七十四节 监狱里的性问题 `@`{.fold}
+    正文 第七十四节 监狱里的性问题 -<
 
     :   在监狱里流行着大量的黄色杂志、画刊，允许犯人订阅这些。据说监狱里曾经禁
         止犯人订阅和邮寄这些性刊物等，但被以《花花公子》为首的几家黄乐刊物告上
@@ -367,7 +461,7 @@
         和真人一样大小的裸女画。在浴室，经常看到扔在地上，或者水淋淋贴在墙上的
         这类图片。
 
-    正文 第八十一节 美国监狱对重刑者的下马威 `@`{.fold}
+    正文 第八十一节 美国监狱对重刑者的下马威 -<
 
     :   美国对那些几十年几百年或者终身监禁的囚犯怎么对待呢？判决生效后（而且特
         别注明不得保释者），首先将你一人关在一个单独的房间，连门都用电焊焊死，
@@ -384,7 +478,7 @@
         定程度上满足处境，安于现状，安于牢狱生活，不会闹事，直到老死狱中。据说
         这种方法是很多心理学家等共同研制出来的。
 
-    正文 第八十八节 黑社会人说黑社会 `@`{.fold}
+    正文 第八十八节 黑社会人说黑社会 -<
 
     :   和韩得平聊天，他倒坦率，承认他就是“飞龙帮”成员。他说，联邦以黑社会为名
         抓了不少人，其实很多不是帮会的。那些从大陆偷渡来的福建人，有一小部分，
@@ -401,7 +495,7 @@
         们这些人，在大陆早已被枪毙过好几次了，所以，在某种意义上讲，让美国人抓
         来判几年刑，他们也觉得可以接受。
 
-    正文 第一百零四节 可恶的台湾籍警察 `@`{.fold}
+    正文 第一百零四节 可恶的台湾籍警察 -<
 
     :   华人如果当起洋买卖来，比真正的洋人坏得多。MCC 有一个台湾籍的警察，坏透
         了。整起自己的同胞来，比洋人警察坏多了。有次同房的福州人陈明等和我一道
@@ -432,7 +526,7 @@
         主要是英国人的后代，我们不过是效仿你们老祖宗的做法，你们美国人抓我们没
         有道理的（大笑，大概自认为是强词夺理吧）。
 
-[Machiavellianism - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Machiavellianism) `@`{.fold}
+[Machiavellianism - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Machiavellianism) -<
 
 :   Machiavellianism is "**the employment of cunning and duplicity (两面派) in
     statecraft or in general conduct**". The word comes from the Italian
@@ -466,7 +560,7 @@
 
       - [马基雅维利主义-百度百科](http://baike.baidu.com/view/1201238.htm)
 
-[日本有哪些好的歌手？ - 知乎](https://www.zhihu.com/question/22782650) `@`{.fold}
+[日本有哪些好的歌手？ - 知乎](https://www.zhihu.com/question/22782650) -<
 
 :   ZARD 听到就让人泪目的摇滚乐团无需多言。这首《君に逢いたくなったら》是
     1997 年的单曲，每次听到都会十分感动。ZARD 的曲子里充满着从骨子里发出的不
@@ -476,7 +570,7 @@
 
 [科学网—我是河南人 - 施一公的博文](http://blog.sciencenet.cn/home.php?mod=space&uid=46212&do=blog&id=284162)
 
-[埃瓦里斯特·伽罗瓦-百度百科](http://baike.baidu.com/link?url=RYtI1uUwSNSdH-8aadFGVjY6TEivoTIcIhGXY-rHHMQLkt02C23vKXJE5xYgRxwOIC3CKyby0hjSkL_WmNQy45roMynw1pOXa7k7kbl5Rlr2wyGb4l42qV74hnvKY80he7MvG-So-Aq3p-eH9H1MIa) `@`{.fold}
+[埃瓦里斯特·伽罗瓦-百度百科](http://baike.baidu.com/link?url=RYtI1uUwSNSdH-8aadFGVjY6TEivoTIcIhGXY-rHHMQLkt02C23vKXJE5xYgRxwOIC3CKyby0hjSkL_WmNQy45roMynw1pOXa7k7kbl5Rlr2wyGb4l42qV74hnvKY80he7MvG-So-Aq3p-eH9H1MIa) -<
 
 :   埃瓦里斯特·伽罗瓦，1811 年 10 月 25 日生，法国数学家。现代数学中的分支学科
     群论的创立者。用群论彻底解决了根式求解代数方程的问题，而且由此发展了一整套
@@ -504,7 +598,7 @@
 
       - [Évariste Galois - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/%C3%89variste_Galois)
 
-[虽然去不了 Google，走到这步大概也不错了 - laike9m's blog](https://laike9m.com/blog/sui-ran-qu-bu-liao-googlezou-dao-zhe-bu-da-gai-ye-bu-cuo-liao,72/) `@`{.fold}
+[虽然去不了 Google，走到这步大概也不错了 - laike9m's blog](https://laike9m.com/blog/sui-ran-qu-bu-liao-googlezou-dao-zhe-bu-da-gai-ye-bu-cuo-liao,72/) -<
 
 :   所以说，Google 并不在乎你的表现如何，在乎的是你的表现必须超出别的应聘者
     一大截。对我来讲，这是不可能做到的事，至少我没法在中国做到。
@@ -527,7 +621,7 @@
 
       - [一个普通人离杀人有多远——梁文道讲《路西法效应》](http://www.douban.com/group/topic/21241596/)
 
-[如何才能去做喜欢的事情](http://www.wanglianghome.org/zh_CN/translation/HowToDoWhatYouLove.html) `@`{.fold}
+[如何才能去做喜欢的事情](http://www.wanglianghome.org/zh_CN/translation/HowToDoWhatYouLove.html) -<
 
 :   How To Do What You Love
 
@@ -543,7 +637,7 @@
     我认为，一个人不应该在乎别人的看法，除非是他的朋友。不要想着出名，不必太在
     意众人的意见。能够得到尊敬的人的意见就够了，何必在乎那些根本就不认识的人呢？
 
-[书是好书，但记忆法…… (评论: Moonwalking With Einstein)](http://book.douban.com/review/5312595/) `@`{.fold}
+[书是好书，但记忆法…… (评论: Moonwalking With Einstein)](http://book.douban.com/review/5312595/) -<
 
 :   在一次采访中，记忆学引起了福尔浓厚的兴趣。在结识了诸多记忆界大师级人物后，
     福尔决定亲身体验记忆学的真谛，并拜英国记忆大师艾德·库克为师。在经过一年的勤
@@ -589,7 +683,7 @@
     "It's cheap enough to be disposable but, unless you hit it with a hammer,
     it will never stop."
 
-[如果他玩微博，秒杀一切段子手 - 简书](http://www.jianshu.com/p/12abee0e372e#)
+[如果他玩微博，秒杀一切段子手 - 简书](http://www.jianshu.com/p/12abee0e372e#) -<
 
 :   伍迪·艾伦
 
@@ -744,7 +838,7 @@
        你记住的当月的数字。嗯，8月是4。将日期加上你记住的数字。嗯，15+4=19.
        将结果除以7，取余数。嗯，19/7=2……5完成！2014年8月15日是星期五。
 
-[单词拼写，怎么记又快又好？](http://www.baicizhan.com/article/4) `@`{.fold}
+[单词拼写，怎么记又快又好？](http://www.baicizhan.com/article/4) -<
 
 :   Read more
 
@@ -753,7 +847,7 @@
     -   [如何在一天内记200个单词？](http://www.baicizhan.com/article/3)
     -   [百词斩TV 黑暗料理单词视频](http://tv.baicizhan.com/playlist/1000322)
     -   [百词斩TV 成为学霸的10个秘诀单词视频](http://tv.baicizhan.com/playlist/1000323)
-    -   [百词斩TV 羞羞的知识单词视频](http://tv.baicizhan.com/playlist/1000513) `@`{.fold}
+    -   [百词斩TV 羞羞的知识单词视频](http://tv.baicizhan.com/playlist/1000513) -<
         +   carnal desire 肉欲
         +   ba-ccha-na-lian (`[.bækə'neɪliən]`，把酒狂欢) antics (滑稽搞笑的动作)
         +   contra-sepive

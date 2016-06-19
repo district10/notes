@@ -241,23 +241,28 @@ li.drawer:before {
 }
 p.simpledrawerOpen:before,
 dt.drawerOpen:before,
-li.drawerOpen:before {
+li.drawerOpen:before,
+p.drawer-ng-open:before {
     content: "\00a0\00a0\00a0 ▼";
 }
 p.simpledrawerClose:before,
 dt.drawerClose:before,
-li.drawerClose:before {
+li.drawerClose:before,
+p.drawer-ng-close:before {
     content: "\00a0\00a0\00a0 ▶";
 }
 
 .markdown-body .hide,
 .markdown-body .fold,
 .markdown-body .foldable,
+.markdown-body .fold-ng,
+.markdown-body .foldable-ng,
 .markdown-body dd.drawerHide,
 .markdown-body ul.drawerHide,
 .markdown-body ol.drawerHide,
 .markdown-body ul.simpledrawerHide,
-.markdown-body ol.simpledrawerHide {
+.markdown-body ol.simpledrawerHide,
+.markdown-body *.drawer-ng-siblings.drawer-ng-hide {
     display: none;
 }
 
@@ -266,6 +271,9 @@ p.simpledrawer + ul,
 p.simpledrawer + ol {
     cursor: help;
 }
+
+p.drawer-ng-this,
+*.drawer-ng-siblings,
 li.drawer,
 li.drawer > ul,
 li.drawer > ol,
@@ -321,6 +329,7 @@ li.focus.drawer:before {
 p.focus.simpledrawer.simpledrawerClose:before,
 dt.focus.drawer.drawerClose:before,
 li.focus.drawer.drawerClose:before {
+p.focus.drawer-ng.drawer-ng-close:before {
     -webkit-animation: waveAnimation 3s infinite;
     -moz-animation: waveAnimation 3s infinite;
     -o-animation: waveAnimation 3s infinite;
@@ -376,4 +385,13 @@ body.locked #gotoindex {
     color: silver;
     float: right;
     cursor: help;
+}
+
+.markdown-body .red,
+.red {
+    border: 1px solid red;
+}
+.markdown-body .green,
+.green {
+    border: 1px solid green;
 }

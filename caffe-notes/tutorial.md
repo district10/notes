@@ -1,6 +1,6 @@
 ## [Caffe | Caffe Tutorial](http://caffe.berkeleyvision.org/tutorial/)
 
--   Philosophy <=
+-   Philosophy +<
 
     :   In one sip, Caffe is brewed for
 
@@ -11,9 +11,9 @@
         -   **Community**: academic research, startup prototypes, and industrial applications
             all share strength by joint discussion and development in a BSD-2 project.
 
--   Tour <-
+-   Tour -<
 
-    :   +   [Nets, Layers, and Blobs](http://caffe.berkeleyvision.org/tutorial/net_layer_blob.html): the anatomy of a Caffe model. <-
+    :   +   [Nets, Layers, and Blobs](http://caffe.berkeleyvision.org/tutorial/net_layer_blob.html): the anatomy of a Caffe model. -<
 
             :   在 caffe 的模型里，layer 是一层层定义，从下往上是 data 层到 loss 层的过
                 程。数据和其衍生物（derivatives）在网络层中前后传播，通过的就是 blob，它既是 array，
@@ -118,7 +118,7 @@
 
                 ![](http://caffe.berkeleyvision.org/tutorial/fig/logreg.jpg)
 
-                网就是一个 DAG（有向无环图） <-
+                网就是一个 DAG（有向无环图） -<
 
                 :   ```json
                     name: "LogReg"
@@ -164,7 +164,7 @@
                 Caffe 用了 google 的 google protocal buffer，因为它的 txt 和 binary 等价，便于阅读，
                 而且有 C++ 和 python 的接口。
 
-        +   [Forward / Backward](http://caffe.berkeleyvision.org/tutorial/forward_backward.html): the essential computations of layered compositional models. <-
+        +   [Forward / Backward](http://caffe.berkeleyvision.org/tutorial/forward_backward.html): the essential computations of layered compositional models. -<
 
             :   ![](http://caffe.berkeleyvision.org/tutorial/fig/forward_backward.png){width=30%}
                 ![](http://caffe.berkeleyvision.org/tutorial/fig/forward.jpg){width=30% id="here"}
@@ -192,7 +192,7 @@
                 更多参见：[Caffe | Layer Catalogue](http://caffe.berkeleyvision.org/tutorial/layers.html)。这里介绍了
                 各层的参数配置。
 
-        +   [Loss](http://caffe.berkeleyvision.org/tutorial/loss.html): the task to be learned is defined by the loss. <-
+        +   [Loss](http://caffe.berkeleyvision.org/tutorial/loss.html): the task to be learned is defined by the loss. -<
 
             :   机器学习里学习就是 loss 驱动的，loss 也常被称为 error，cost 以及 objective function（这个很牵强了，这是恰好你的
                 objective 是降低 loss 而已。）。
@@ -234,7 +234,7 @@
 
                 `这部分一定要好好理解清楚。`{.todo}
 
-        +   [Solver](caffe.berkeleyvision.org/tutorial/solver.html): the solver coordinates model optimization. <-
+        +   [Solver](caffe.berkeleyvision.org/tutorial/solver.html): the solver coordinates model optimization. -<
 
             :   *   Stochastic Gradient Descent (type: `SGD`),
                 *   AdaDelta (type: `AdaDelta`),
@@ -255,12 +255,12 @@
 
                 `然后下面讲了不同 solver 使用的方法（一堆数学公式），以后再细看。`{.todo}
 
-        +   [Layer Catalogue](http://caffe.berkeleyvision.org/tutorial/layers.html): the layer is the fundamental unit of modeling and computation – Caffe’s catalogue includes layers for state-of-the-art models.  <-
+        +   [Layer Catalogue](http://caffe.berkeleyvision.org/tutorial/layers.html): the layer is the fundamental unit of modeling and computation – Caffe’s catalogue includes layers for state-of-the-art models.  -<
 
             :   这里讲得很详细，介绍了每个层有哪些 required 参数，有哪些 optional 参数。
                 头文件，以及 CPU/GPU 实现的文件。
 
-                [caffe.proto](https://github.com/district10/caffe-rc3/blob/master/src/caffe/proto/caffe.proto) <-
+                [caffe.proto](https://github.com/district10/caffe-rc3/blob/master/src/caffe/proto/caffe.proto) -<
 
                 :   ```bash
                     # cd $CAFFE_ROOT
@@ -291,7 +291,7 @@
 
                     -   卷积层, `Convolution`
 
-                        implemetaion <=
+                        implemetaion +<
 
                         +   /src/caffe/layers/convolution_layer.cpp
                         +   /src/caffe/layers/convolution_layer.cpp
@@ -395,7 +395,7 @@
                     -   SoftMax
                     -   Mean-Variance Normalization
 
-        +   [Interfaces](http://caffe.berkeleyvision.org/tutorial/interfaces.html): command line, Python, and MATLAB Caffe. <-
+        +   [Interfaces](http://caffe.berkeleyvision.org/tutorial/interfaces.html): command line, Python, and MATLAB Caffe. -<
 
             :   *   命令行，在 `caffe/build/tools` 文件夹。
 
@@ -484,7 +484,7 @@
 
                     TODO
 
-        +   [Data](http://caffe.berkeleyvision.org/tutorial/data.html): how to caffeinate data for model input. <-
+        +   [Data](http://caffe.berkeleyvision.org/tutorial/data.html): how to caffeinate data for model input. -<
 
             :   Data flows through Caffe as Blobs. Data layers load input and save
                 output by converting to and from Blob to other formats. Common
@@ -493,7 +493,7 @@
                 developing a new data layer – the rest of the Net follows by the
                 modularity of the Caffe layer catalogue.
 
-                load MNIST digits <-
+                load MNIST digits -<
 
                 :   ```
                     layer {
@@ -554,7 +554,7 @@
 
                 -   Multiple Inputs
 
--   Deeper Learning <-
+-   Deeper Learning -<
 
     :   some tutorial on deeper learning.
 
