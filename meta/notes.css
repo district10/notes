@@ -239,17 +239,20 @@ dt.drawer:before,
 li.drawer:before {
     letter-spacing: -1em;
 }
+
+// content: "\00a0\00a0\00a0 ▼"; // down
+// content: "\00a0\00a0\00a0 ▶"; // right
 p.simpledrawerOpen:before,
 dt.drawerOpen:before,
 li.drawerOpen:before,
 p.drawer-ng-open:before {
-    content: "\00a0\00a0\00a0 ▼";
+    content: "\00a0\00a0\00a0 +";
 }
 p.simpledrawerClose:before,
 dt.drawerClose:before,
 li.drawerClose:before,
 p.drawer-ng-close:before {
-    content: "\00a0\00a0\00a0 ▶";
+    content: "\00a0\00a0\00a0 -";
 }
 
 .markdown-body *.drawer-ng-siblings.drawer-ng-hide,
