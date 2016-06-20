@@ -269,6 +269,7 @@ $('#gotoindex').on('click', function(event){
     }
 });
 $('#help').on('click', function(event){
+    if(getSelection().toString()){ return; }
     help();
 });
 

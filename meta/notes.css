@@ -252,6 +252,7 @@ p.drawer-ng-close:before {
     content: "\00a0\00a0\00a0 ▶";
 }
 
+.markdown-body *.drawer-ng-siblings.drawer-ng-hide,
 .markdown-body .hide,
 .markdown-body .fold,
 .markdown-body .foldable,
@@ -261,8 +262,7 @@ p.drawer-ng-close:before {
 .markdown-body ul.drawerHide,
 .markdown-body ol.drawerHide,
 .markdown-body ul.simpledrawerHide,
-.markdown-body ol.simpledrawerHide,
-.markdown-body *.drawer-ng-siblings.drawer-ng-hide {
+.markdown-body ol.simpledrawerHide {
     display: none;
 }
 
@@ -328,7 +328,7 @@ li.focus.drawer:before {
 }
 p.focus.simpledrawer.simpledrawerClose:before,
 dt.focus.drawer.drawerClose:before,
-li.focus.drawer.drawerClose:before {
+li.focus.drawer.drawerClose:before,
 p.focus.drawer-ng.drawer-ng-close:before {
     -webkit-animation: waveAnimation 3s infinite;
     -moz-animation: waveAnimation 3s infinite;
