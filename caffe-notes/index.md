@@ -1,3 +1,7 @@
+---
+title: Caffe 笔记
+...
+
 # Caffe 笔记
 
 ## caffe basic
@@ -8,9 +12,11 @@ installation, howto?? see yhlleo's blog post: [Ubuntu14.04 安装CUDA7.5 + Caffe
 
 -   [预备知识](pre.html){title=pre.md .hide}：Linux + Python
 
--   [官网教程导读](tutorial.html){title=tutorial.md .featured .heart}
+-   [官网教程导读](tutorial.html){.featured .heart title=tutorial.md}
 
     必读。Caffe 基础。
+
+-   [protobuf](protobuf.html){title=protobuf.md}
 
 -   [暂未归类笔记](misc.html){title=misc.md .flag}
 
@@ -39,9 +45,13 @@ My fork: [district10/caffe-rc3: Play with caffe.](https://github.com/district10/
         refer to ...
 
     -   [01-learning-lenet.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/01-learning-lenet.ipynb)
+
     -   [02-brewing-logreg.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/02-brewing-logreg.ipynb)
+
     -   [03-fine-tuning.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/03-fine-tuning.ipynb)
+
     -   [net_surgery.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/net_surgery.ipynb)
+
     -   [detection.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/detection.ipynb)
 
 ---

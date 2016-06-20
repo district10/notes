@@ -1,3 +1,7 @@
+---
+title: Working Notes
+...
+
 # 笔记
 
 [Git - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) -<
@@ -270,3 +274,14 @@ Caffeinated Companies，语言用得好妙！caffein-ated companies……
 -   nice -<
     +   1
     +   2
+
+[Shields.io: Quality metadata badges for open source projects](http://shields.io/)
+
+:   弹出来的窗口倒是很赞。我的 notes 里也想有这个 feature。
+
+[ImageMagick(CVE-2016-3714) 影响 / 利用 / 修复 / 检测](http://wufeifei.com/imagemagick/)
+
+:   此次漏洞导致的直接危害为远程代码执行（RCE）
+
+    也就是说，如果你的业务中有用到 ImageMagick 处理图片，则攻击者只需要上传一个
+    特殊构造的图片即可拿到你服务器的权限。

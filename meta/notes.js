@@ -243,8 +243,8 @@ function help() {
          +  '\t3. 锁定所有折叠盒：<right><right><right>\n'
          +  '\n\n'
          +  '其他功能：\n\n'
-         +  '\t1. 折叠/展开当前折叠盒（有红色标记）：<enter> \n'
-         +  '\t2. 页面跳转，返回上一级：<left><left><left>' );
+         +  '\t4. 折叠/展开当前折叠盒（有红色标记）：<enter> \n'
+         +  '\t5. 页面跳转，返回上一级：<left><left><left>' );
 }
 
 $('body').keydown(function(e){

@@ -1,3 +1,7 @@
+---
+title: 历史笔记 4
+...
+
 ## 历史笔记 4
 
 原载于 <https://github.com/district10/blog/blob/master/_pages/notes.md>。

@@ -554,7 +554,7 @@
 
                 -   Multiple Inputs
 
--   Deeper Learning -<
+-   Deeper Learning +<
 
     :   some tutorial on deeper learning.
 

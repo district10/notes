@@ -1,3 +1,7 @@
+---
+title: 历史笔记 6
+...
+
 ## 历史笔记 6
 
 原载于 <https://github.com/district10/blog/blob/master/_pages/notes.md>。

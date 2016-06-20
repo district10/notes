@@ -1,8 +1,13 @@
+---
+title: TZX's Notes
+...
+
 # TZX's Notes
 
 ## 独立笔记
 
 -   [Caffe 笔记](caffe-notes/index.html){title=caffe-notes/index.md}
+-   [Languages](lang/index.html){title=lang/index.md}
 
 ## 2016
 

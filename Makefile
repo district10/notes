@@ -1,4 +1,4 @@
-SRC:=$(wildcard index.md 2014/*.md 2015/*.md 2016/*.md caffe-notes/*.md)
+SRC:=$(wildcard index.md 2014/*.md 2015/*.md 2016/*.md caffe-notes/*.md lang/*.md)
 DST:=$(addprefix publish/, $(SRC:%.md=%.html))
 CSS:=publish/github-markdown.css \
      publish/highlight.css \
@@ -22,7 +22,7 @@ gh:
 
 publish/index.html: index.md
 	@mkdir -p $(@D)
-	(perl meta/cat.pl $< 2>/dev/null || cat $<) | \
+	(perl meta/cat.pl $< | perl meta/drawer.pl || cat $<) | \
 	pandoc \
 		-V ISINDEX=true \
 		-S -s --ascii --mathjax \
@@ -31,7 +31,7 @@ publish/index.html: index.md
 		-o $@
 publish/%/index.html: %/index.md
 	@mkdir -p $(@D)
-	(perl meta/cat.pl $< 2>/dev/null || cat $<) | \
+	(perl meta/cat.pl $< | perl meta/drawer.pl || cat $<) | \
 	pandoc \
 		-V ISINDEX=true -V NOTBASE=true \
 		-S -s --ascii --mathjax \
@@ -40,7 +40,7 @@ publish/%/index.html: %/index.md
 		-o $@
 publish/%.html: %.md
 	@mkdir -p $(@D)
-	(perl meta/cat.pl $< 2>/dev/null || cat $<) | \
+	(perl meta/cat.pl $< | perl meta/drawer.pl || cat $<) | \
 	pandoc \
 		-V NOTBASE=true \
 		-S -s --ascii --mathjax \
