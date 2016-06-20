@@ -11,9 +11,12 @@ void PromptForAddress(tutorial::Person* person) {
   cin >> id;
   person->set_id(id);
   cin.ignore(256, '\n');
+  // 比如可以这么用：cin.ignore(1024,'\n')，通常把第一个参数设置得足够大，这样
+  // 实际上总是只有第二个参数'\n'起作用，所以这一句就是把回车（包括回车）之前的
+  // 所以字符从输入缓冲（流）中清除出去。
 
   cout << "Enter name: ";
-  getline(cin, *person->mutable_name());
+  getline(cin, *person->mutable_name());    // mutable_name
 
   cout << "Enter email address (blank for none): ";
   string email;
@@ -30,7 +33,7 @@ void PromptForAddress(tutorial::Person* person) {
       break;
     }
 
-    tutorial::Person::PhoneNumber* phone_number = person->add_phone();
+    tutorial::Person::PhoneNumber* phone_number = person->add_phone();  // repeated
     phone_number->set_number(number);
 
     cout << "Is this a mobile, home, or work phone? ";
@@ -68,7 +71,7 @@ int main(int argc, char* argv[]) {
     fstream input(argv[1], ios::in | ios::binary);
     if (!input) {
       cout << argv[1] << ": File not found.  Creating a new file." << endl;
-    } else if (!address_book.ParseFromIstream(&input)) {
+    } else if (!address_book.ParseFromIstream(&input)) {  // parse from stream
       cerr << "Failed to parse address book." << endl;
       return -1;
     }

@@ -39,6 +39,9 @@
         }
         ```
 
+        一旦你定义了自己的报文格式(message)，你就可以运行ProtocolBuffer编译器，
+        将你的 .proto 文件编译成特定语言的类。
+
     usage
 
     :   ```cpp
@@ -93,7 +96,7 @@
             @include <-=include/addressbook.pb.h=
             ```
 
-        addressbook.pb.h -<
+        addressbook.pb.cc -<
 
         :   ```cpp
             @include <-=include/addressbook.pb.cc=
@@ -323,14 +326,52 @@
         field will be set at the same time, you can enforce this behavior and
         save memory by using the oneof feature.
 
+[惊帆之静默 » Blog Archive » ProtoBuf开发者指南 – 非官方不完整版](http://gashero.yeax.com/?p=108) -<
+
+
+:   代码风格指导 -<
+
+    :   ```
+        message SongServerRequest {
+            required string song_name=1;
+        }
+        ```
+
+        使用这种命名方式得到的名字如下:
+
+        ```
+        C++:
+            const string& song_name() {...}
+            void set_song_name(const string& x) {...}
+
+        Java:
+            public String getSongName() {...}
+            public Builder setSongName(String v) {...}
+        ```
+
+        ```
+        enum Foo {
+            FIRST_VALUE=1;
+            SECOND_VALUE=2;
+        }
+        ```
+
+        每个枚举值最后以分号结尾，而不是逗号。
+
+        如果你的 .proto 文件定义了RPC服务，你可以使用骆驼风格:
+
+        ```
+        service FooService {
+            rpc GetSomething(FooRequest) returns (FooResponse);
+        }
+        ```
+
 ---
 
 下一步：
 
-See caffe 的 proto 定义：[caffe.proto 注解](caffe.proto.html){title=caffe.proto.md}。
+See caffe 的 proto 定义
 
-we can include it here -<
-
-:   caffe.proto.md
+:   include from include dir
 
     @include <-=include/caffe.proto.md=

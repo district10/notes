@@ -50,7 +50,7 @@ int main(int argc, char* argv[]) {
 
   {
     // Read the existing address book.
-    fstream input(argv[1], ios::in | ios::binary);
+    fstream input(argv[1], ios::in | ios::binary);      // fstream(path, flags)
     if (!address_book.ParseFromIstream(&input)) {
       cerr << "Failed to parse address book." << endl;
       return -1;
