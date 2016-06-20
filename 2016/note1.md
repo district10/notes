@@ -257,9 +257,9 @@ Caffeinated Companies，语言用得好妙！caffein-ated companies……
 
     three
 
--   three +<<
+-   three
 
-    four
+    four +<<
 
     ```python
     printf('good')

@@ -242,33 +242,6 @@ li.drawer:before {
 
 // content: "\00a0\00a0\00a0 ▼"; // down
 // content: "\00a0\00a0\00a0 ▶"; // right
-p.simpledrawerOpen:before,
-dt.drawerOpen:before,
-li.drawerOpen:before,
-p.drawer-ng-open:before {
-    content: "\00a0\00a0\00a0 +";
-}
-p.simpledrawerClose:before,
-dt.drawerClose:before,
-li.drawerClose:before,
-p.drawer-ng-close:before {
-    content: "\00a0\00a0\00a0 -";
-}
-
-.markdown-body *.drawer-ng-siblings.drawer-ng-hide,
-.markdown-body .hide,
-.markdown-body .fold,
-.markdown-body .foldable,
-.markdown-body .fold-ng,
-.markdown-body .foldable-ng,
-.markdown-body dd.drawerHide,
-.markdown-body ul.drawerHide,
-.markdown-body ol.drawerHide,
-.markdown-body ul.simpledrawerHide,
-.markdown-body ol.simpledrawerHide {
-    display: none;
-}
-
 p.simpledrawer,
 p.simpledrawer + ul,
 p.simpledrawer + ol {
@@ -397,4 +370,30 @@ body.locked #gotoindex {
 .markdown-body .green,
 .green {
     border: 1px solid green;
+}
+
+.markdown-body p.simpledrawerOpen:before,
+.markdown-body dt.drawer.drawerOpen:before,
+.markdown-body li.drawer.drawerOpen:before,
+.markdown-body p.drawer-ng-this.drawer-ng-open:before {
+    content: "\00a0\00a0\00a0 +";
+}
+.markdown-body p.simpledrawerClose:before,
+.markdown-body dt.drawerClose:before,
+.markdown-body li.drawerClose:before,
+.markdown-body p.drawer-ng-close:before {
+    content: "\00a0\00a0\00a0 -";
+}
+.markdown-body *.drawer-ng-siblings.drawer-ng-hide,
+.markdown-body .hide,
+.markdown-body code.fold,
+.markdown-body code.foldable,
+.markdown-body code.fold-ng,
+.markdown-body code.foldable-ng,
+.markdown-body dd.drawerHide,
+.markdown-body ul.drawerHide,
+.markdown-body ol.drawerHide,
+.markdown-body ul.simpledrawerHide,
+.markdown-body ol.simpledrawerHide {
+    display: none;
 }
