@@ -287,3 +287,7 @@ egg
     .addCode(   "left,right,up",        function() {    hide();         }).addCode(     "h,i,d,e",      function() {    hide();         })
     // right,left, reserved for what?
     .listen();
+
+$(".tabNav > ul").each(function(){
+    $(this).idTabs($(this).parent().attr('target'));
+});

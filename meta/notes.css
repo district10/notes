@@ -397,3 +397,12 @@ body.locked #gotoindex {
 .markdown-body ol.simpledrawerHide {
     display: none;
 }
+
+.tabNav {                   border-bottom: 1px solid lightgray; padding-bottom: 1em; }
+.tabNav li {                float:left; list-style-image:none;
+                            list-style-position:outside; list-style-type:none; }
+.tabNav ul a {              background:#D2DCF3; display:block; margin-right:2px; padding:3px 8px;
+                            text-decoration:none !important; outline-color:invert; outline-style:none;
+                            outline-width:medium; font-weight: bold; }
+.tabNav ul a:hover {        background:#95B1CB; color:#fff }
+.tabNav ul a.selected   {   background:#1B5790; color:#fff; cursor:default; }

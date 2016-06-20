@@ -25,6 +25,7 @@ $endif$
 $body$
 <script src="$if(NOTBASE)$../$endif$lazyload.min.js"></script>
 <script src="$if(NOTBASE)$../$endif$jquery-3.0.0.min.js"></script>
+<script src="$if(NOTBASE)$../$endif$jquery.idTabs.min.js"></script>
 <script src="$if(NOTBASE)$../$endif$egg.min.js"></script>
 <script src="$if(NOTBASE)$../$endif$notes.js"></script>
 </body>

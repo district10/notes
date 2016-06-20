@@ -4,6 +4,7 @@ CSS:=publish/github-markdown.css \
      publish/highlight.css \
      publish/lazyload.min.js \
      publish/jquery-3.0.0.min.js \
+	 publish/jquery.idTabs.min.js \
      publish/egg.min.js \
      publish/notes.js \
      publish/notes.css \
