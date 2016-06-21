@@ -406,3 +406,12 @@ body.locked #gotoindex {
                             outline-width:medium; font-weight: bold; }
 .tabNav ul a:hover {        background:#95B1CB; color:#fff }
 .tabNav ul a.selected   {   background:#1B5790; color:#fff; cursor:default; }
+
+/*
+pre.diffed {
+    background-color: white;
+    border: 1px dotted #f8bd0b;
+    font-size: 90%;
+    font-family: Consolas, Inpact, Arial, Hiragino, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, STXihei, Heiti, sans-serif;
+}
+*/

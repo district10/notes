@@ -1,4 +1,6 @@
-SRC:=$(wildcard index.md 2014/*.md 2015/*.md 2016/*.md caffe-notes/*.md lang/*.md)
+.PHONY: all clean include
+
+SRC:=$(wildcard index.md 2014/*.md 2015/*.md 2016/*.md caffe-notes/*.md lang/*.md misc/*.md)
 DST:=$(addprefix publish/, $(SRC:%.md=%.html))
 CSS:=publish/github-markdown.css \
      publish/highlight.css \
@@ -16,8 +18,12 @@ ifeq (,$(DUMB))
 endif
 
 all: $(DST) $(CSS)
+serve:
+	cd publish; python -m SimpleHTTPServer
 clean:
 	rm -rf publish/*
+include:
+	make -C include
 gh:
 	git add -A; git commit -m "`uname` -- `date`"; git push;
 

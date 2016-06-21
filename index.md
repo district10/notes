@@ -11,9 +11,10 @@ title: TZX's Notes
 
 ## 2016
 
--   [关于介绍本笔记特性](2016/intro-to-my-note.html){title=2016/intro-to-my-note.md .hide}
 -   [【working notes】](2016/note1.html){title=2016/note1.md}
+-   [关于介绍本笔记特性](2016/intro-to-my-note.html){.hide title=2016/intro-to-my-note.md}
 -   [博客摘记之 yhlleo](2016/blog-yhlleo.html){title=2016/blog-yhlleo.md}
+-   [MISC](misc/index.html){title=misc/index.md}
 
 ## 2014 & 2015
 

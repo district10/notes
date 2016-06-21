@@ -1,5 +1,7 @@
 *~
 *#
+*.diff
+*.bin
 publish/*
 tmp/*
 conf.json

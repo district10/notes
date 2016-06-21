@@ -1,7 +1,6 @@
 # MISC (TMP NOTES)
 
-
-sucks
+sucks -<
 
 :   -   [深度学习源码解读-ch0-talk is cheap - 黑客与画家 - 知乎专栏](https://zhuanlan.zhihu.com/p/20377462?refer=hacker-and-painter)
 
@@ -42,29 +41,29 @@ sucks
 
 :   **作者：贾扬清**
 
-    还是挺标准的linux开发流程：
+    还是挺标准的 linux 开发流程：
 
     -   编辑器：vim（因为要远程在服务器上编辑）+ Sublime Text（本地编辑）
     -   编译：gcc + nvcc + Makefile
-    -   调试：gdb + cuda-gdb (cuda-gdb用得很少），valgrind
-    -   调试cuda代码速度：nvvp
+    -   调试：gdb + cuda-gdb (cuda-gdb 用得很少），valgrind
+    -   调试 cuda 代码速度：nvvp
     -   代码管理：git + github
 
     补充一些不是那么相关的：
 
-    -   远程ssh自动重连：mosh
+    -   远程 ssh 自动重连：mosh
     -   命令行下多窗口：tmux
-    -   偶尔需要用到的vnc：TigerVNC server + Chicken (mac client)
+    -   偶尔需要用到的 vnc：TigerVNC server + Chicken (mac client)
     -   本地多种环境的集成测试：docker（当年没用到，后来开始用）
     -   服务器上的集成测试：Travis CI
 
-    主要用到的dependency：
+    主要用到的 dependency：
 
     -   glog：打印调试信息，这个对于调错很有用。
     -   gflags：命令行参数
     -   gtest：测试框架
     -   protobuf：数据的序列化
-    -   boost：一些类似C++11的feature，因为早期cuda不支持c++11
+    -   boost：一些类似 C++11 的 feature，因为早期 cuda 不支持 c++11
     -   opencv：图像处理函数
     -   leveldb，lmdb：简单的本地数据库。
     -   cuda：这个就不用说了
@@ -73,7 +72,7 @@ sucks
     downloads
 
     -   [Issues · mobile-shell/mosh](https://github.com/mobile-shell/mosh/issues)
-    -   [MobaXterm Xserver with SSH, telnet, RDP, VNC and X11 - Home Edition](http://mobaxterm.mobatek.net/download-home-edition.html)
+    -   [MobaXterm Xserver with SSH, telnet, RDP, VNC and X11 - Home Edition](http://mobaxterm.mobatek.net/download-home-edition.html){.heart .featured}
 
 [CVPR 2016 有什么值得关注的亮点？ - 深度学习（Deep Learning） - 知乎](https://www.zhihu.com/question/47385572)
 
@@ -91,16 +90,61 @@ sucks
 科学家不用做产品没事干天天琢磨怎么把科幻变成现实。终于碰上个能放到产品里了，产
 品的硬实力立马把没有科研积累的苹果和谷歌甩了一大截（当然市场表现另论）。
 
-除了我说的两种很厉害的学者之外，还有两种vision的研究者。第一种是“性能挂帅”：今
-天整个HOG+SIFT，明天换个boosting的目标函数，后天再来个局部特征+整体特征；别人发
-现了deep learning管用了自己马上也摇身变成了deep learning的砖家，跟在别人后面用
-现有的技术把性能从81%做到82%就开始在社交网络上吹嘘自己实现了里程碑，超越了谷歌
+除了我说的两种很厉害的学者之外，还有两种 vision 的研究者。第一种是“性能挂帅”：今
+天整个 HOG+SIFT，明天换个 boosting 的目标函数，后天再来个局部特征 + 整体特征；别人发
+现了 deep learning 管用了自己马上也摇身变成了 deep learning 的砖家，跟在别人后面用
+现有的技术把性能从 81% 做到 82% 就开始在社交网络上吹嘘自己实现了里程碑，超越了谷歌
 MIT。这不是做研究，这是山寨。第二种是“数学挂帅”。遇到这种老板更要趁早退学或者转
-行，否则学术界工业界的工作都不好找。大家对号入座，看看自己和自己的导师是哪一种
-：）
+行，否则学术界工业界的工作都不好找。大家对号入座，看看自己和自己的导师是哪一种 :)
 
 `getSelection().toString()`, or `"*p`
 
-此外有人提到了Feifei对学生的态度。有个故事，到Feifei的主页上查学生去向，在一群硅谷scientist，professor中间有一个空白的，这个人去了街上，收入是其他人的和。
+此外有人提到了 Feifei 对学生的态度。有个故事，到 Feifei 的主页上查学生去向，在
+一群硅谷 scientist，professor 中间有一个空白的，这个人去了街上，收入是其他人的
+和。
 
-使用同样模式运营的lab（青睐国内优秀本科毕业生，要求动手能力强，做大量实验）的华人CV大牛还有UCLA的朱松纯、NUS的颜水城等。
+使用同样模式运营的 lab（青睐国内优秀本科毕业生，要求动手能力强，做大量实验）的
+华人 CV 大牛还有 UCLA 的朱松纯、NUS 的颜水城等。
+
+-   [What does "xavier" mean? · Issue #1537 · BVLC/caffe](https://github.com/BVLC/caffe/issues/1537)
+-   [andy's blog — An Explanation of Xavier Initialization](http://andyljones.tumblr.com/post/110998971763/an-explanation-of-xavier-initialization)
+
+```python
+print("Accuracy: {:.3f}".format(accuracy));
+```
+
+---
+
+include/solver.prototxt -<
+
+:   ```
+    @include <-=include/solver.prototxt=
+    ```
+
+models/finetune_flickr_style/train_val.prototxt -<
+
+:   ```
+    @include <-=include/train_val.prototxt=
+    ```
+
+[rbgirshick (Ross Girshick)](https://github.com/rbgirshick) -<
+
+:   rbg
+
+    -   [rbgirshick/fast-rcnn: Fast R-CNN](https://github.com/rbgirshick/fast-rcnn) -<
+
+        :   790 stars.
+
+    -   [rbgirshick/DeepPyramid: Deep feature pyramids for various computer vision algorithms (DPMs, pyramid R-CNN, etc.)](https://github.com/rbgirshick/DeepPyramid) -<
+
+        :   79 stars.
+
+    -   [rbgirshick/voc-dpm: Object detection system using deformable part models (DPMs) and latent SVM (voc-release5). You may want to use the latest tarball on my website. The github code may include code changes that have not been tested as thoroughly and will not necessarily reproduce the results on the website.](https://github.com/rbgirshick/voc-dpm) -<
+
+        :   282 stars.
+
+---
+
+[Song-Chun Zhu's homepage](http://www.stat.ucla.edu/%7Esczhu/)
+
+ 结束语： 选择专业方向和博士导师是改变你人生轨迹的抉择， 绝非游戏，望你慎重考虑， 谋定而动， 锲而不舍。 你最好认真浏览本实验室的活动、demo、科研项目，多读几篇论文， 问你自己是否愿意长期投身这个方向。“道不同，不相为谋”，如果你不确定、还没想好， 最好不要报， 更不要谎报。

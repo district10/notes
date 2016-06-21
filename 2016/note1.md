@@ -86,7 +86,7 @@ title: Working Notes
         git config -f .gitmodules submodule.caffe-notes.branch stable
         ```
 
-[javascript - jQuery .click() is triggering when selecting/highlighting text - Stack Overflow](http://stackoverflow.com/questions/10390010/jquery-click-is-triggering-when-selecting-highlighting-text)
+[javascript - jQuery .click() is triggering when selecting/highlighting text - Stack Overflow](http://stackoverflow.com/questions/10390010/jquery-click-is-triggering-when-selecting-highlighting-text) -<
 
 :   ```javascript
     $('dt.drawer').on('click', function(event){
@@ -110,11 +110,11 @@ title: Working Notes
     然而其实不必要，因为当你点击的时候，你的 selection 就被清空了。如果 selection 还在，
     一定选中的是当前 node 的文字。（我是实测发现并没有 bug 才注意到这句话，才多想了一下。）
 
-[4ker/jquery-popup-overlay: jQuery plugin for responsive and accessible modal windows and tooltips.](https://github.com/4ker/jquery-popup-overlay)
+[4ker/jquery-popup-overlay: jQuery plugin for responsive and accessible modal windows and tooltips.](https://github.com/4ker/jquery-popup-overlay) -<
 
 :   我想把 overlay 功能加到笔记里。
 
-[jQuery - keydown / keypress /keyup ENTERKEY detection? - Stack Overflow](http://stackoverflow.com/questions/3462995/jquery-keydown-keypress-keyup-enterkey-detection)
+[jQuery - keydown / keypress /keyup ENTERKEY detection? - Stack Overflow](http://stackoverflow.com/questions/3462995/jquery-keydown-keypress-keyup-enterkey-detection) -<
 
 :   nice
 
@@ -137,7 +137,7 @@ if(/^(\s*)(=> )(.*)$/) {
 
 Caffeinated Companies，语言用得好妙！caffein-ated companies……
 
-`"★★★★★☆☆☆☆☆".substring(5 - rating, 10 - rating )`{.javascript}
+`"★★★★★☆☆☆☆☆".substring(5 - rating, 10 - rating )`{.javascript} -<
 
 :   I saw this code being written byAddison Phillips (Page on linkedin.com)
     when I was at Amazon. I'm not sure if he is the original author, but I
@@ -153,7 +153,7 @@ Caffeinated Companies，语言用得好妙！caffein-ated companies……
 
 [What No One Told You About Z-Index — Philip Walton](https://philipwalton.com/articles/what-no-one-told-you-about-z-index/)
 
-[The Definitive Guide to Using Negative Margins – Smashing Magazine](https://www.smashingmagazine.com/2009/07/the-definitive-guide-to-using-negative-margins/)
+[The Definitive Guide to Using Negative Margins – Smashing Magazine](https://www.smashingmagazine.com/2009/07/the-definitive-guide-to-using-negative-margins/) -<
 
 :   ![](https://media-mediatemple.netdna-ssl.com/wp-content/uploads/images/css-negative-margins/margin-motion.gif)
 
@@ -166,91 +166,7 @@ Caffeinated Companies，语言用得好妙！caffein-ated companies……
     ```
 
     ```python
-    #!/usr/bin/env python
-
-    import sys
-    import json
-    import urllib
-    import urllib2
-
-
-    """
-    dict - Chinese/English Translation
-    @author Feei(wufeifei@wufeifei.com)
-    @date   2013.12.09
-    """
-
-
-    class Dict:
-        key = '716426270'
-        keyFrom = 'wufeifei'
-        api = 'http://fanyi.youdao.com/openapi.do?keyfrom=wufeifei&key=716426270&type=data&doctype=json&version=1.1&q='
-        content = None
-
-        def __init__(self, argv):
-            if len(argv) == 1:
-                self.api = self.api + urllib.quote(argv[0])
-                self.translate()
-            else:
-                print 'ERROR'
-
-        def translate(self):
-            content = urllib2.urlopen(self.api).read()
-            self.content = json.loads(content)
-            self.parse()
-
-        def parse(self):
-            code = self.content['errorCode']
-            if code == 0:  # Success
-                try:
-                    u = self.content['basic']['us-phonetic'] # English
-                    e = self.content['basic']['uk-phonetic']
-                except KeyError:
-                    try:
-                        c = self.content['basic']['phonetic'] # Chinese
-                    except KeyError:
-                        c = 'None'
-                    u = 'None'
-                    e = 'None'
-
-                try:
-                    explains = self.content['basic']['explains']
-                except KeyError:
-                    explains = 'None'
-
-                print '\033[1;31m################################### \033[0m'
-                print '\033[1;31m# \033[0m', self.content['query'], self.content['translation'][0],
-                if u != 'None':
-                    print '(U:', u, 'E:', e, ')'
-                elif c != 'None':
-                    print '(Pinyin:', c, ')'
-                else:
-                    print
-
-                if explains != 'None':
-                    for i in range(0, len(explains)):
-                        print '\033[1;31m# \033[0m', explains[i]
-                else:
-                    print '\033[1;31m# \033[0m Explains None'
-                print '\033[1;31m################################### \033[0m'
-                # Phrase
-                # for i in range(0, len(self.content['web'])):
-                #     print self.content['web'][i]['key'], ':'
-                #     for j in range(0, len(self.content['web'][i]['value'])):
-                #         print self.content['web'][i]['value'][j]
-            elif code == 20:  # Text to long
-                print 'WORD TO LONG'
-            elif code == 30:  # Trans error
-                print 'TRANSLATE ERROR'
-            elif code == 40:  # Don't support this language
-                print 'CAN\'T SUPPORT THIS LANGUAGE'
-            elif code == 50:  # Key failed
-                print 'KEY FAILED'
-            elif code == 60:  # Don't have this word
-                print 'DO\'T HAVE THIS WORD'
-
-    if __name__ == '__main__':
-        Dict(sys.argv[1:])
+    @include <-=include/dict.py=
     ```
 
 -   1to3 -<<
@@ -275,11 +191,11 @@ Caffeinated Companies，语言用得好妙！caffein-ated companies……
     +   1
     +   2
 
-[Shields.io: Quality metadata badges for open source projects](http://shields.io/)
+[Shields.io: Quality metadata badges for open source projects](http://shields.io/) -<
 
 :   弹出来的窗口倒是很赞。我的 notes 里也想有这个 feature。
 
-[ImageMagick(CVE-2016-3714) 影响 / 利用 / 修复 / 检测](http://wufeifei.com/imagemagick/)
+[ImageMagick(CVE-2016-3714) 影响 / 利用 / 修复 / 检测](http://wufeifei.com/imagemagick/) -<
 
 :   此次漏洞导致的直接危害为远程代码执行（RCE）
 
@@ -302,10 +218,68 @@ Caffeinated Companies，语言用得好妙！caffein-ated companies……
 -   [tab3](#tab3)
 -   [tab4](#tab4)
 </div>
-
-<div style="clear:both;"></div>
-
 <div class="tabs">
 <div id="tab3"> tab3 content.  </div>
 <div id="tab4"> tab4 content.  </div>
 </div>
+
+[Win10 怎么查看无线网络密码_百度经验](http://jingyan.baidu.com/article/90808022dd61a0fd90c80f61.html)
+
+:   1.  图标右键；
+    2.  打开网络和共享中心；
+    3.  更改适配器设置；
+    4.  双击相应 BSSID；
+    5.  无线属性 -- 安全 -- 显示密码。
+
+---
+
+<div class="tabNav" target="tab5">
+-   [tab5](#tab5)
+-   [tab6](#tab6)
+-   [tab7](#tab7)
+</div>
+
+<div class="tabs">
+<div id="tab5">
+
+@include <-|   =include/diff_a.txt=
+
+</div>
+<div id="tab6">
+
+@include <-|   =include/diff_b.txt=
+
+</div>
+<div id="tab7">
+
+@include <-=include/diff_c.diff=
+
+</div>
+</div>
+
+@include <-=include/diff_bvlc_flickr.diff=
+
+```python
+im_input = im[np.newaxis, np.newaxis, :, :]
+net.blobs['data'].reshape(*im_input.shape)
+net.blobs['data'].data[...] = im_input
+
+params = ['fc6', 'fc7', 'fc8']
+# fc_params = {name: (weights, biases)}
+fc_params = {pr: (net.params[pr][0].data, net.params[pr][1].data) for pr in params}
+
+
+```
+
+conv
+
+-   fc6 weights are (4096, 9216) dimensional and biases are (4096,) dimensional
+-   Consider the shapes of the inner product parameters. The weight dimensions are the output and input sizes while the bias dimension is the output size.
+
+fc-conv
+
+-   fc6-conv weights are (4096, 256, 6, 6) dimensional and biases are (4096,) dimensional
+-   The convolution weights are arranged in output x input x height x width dimensions.
+
+The classifications include various cats -- 282 = tiger cat, 281 = tabby, 283 = persian -- and foxes and other mammals.
+

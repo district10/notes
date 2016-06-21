@@ -1,3 +1,7 @@
+---
+title: Protocal Buffers
+...
+
 ## Protocol Buffers
 
 [google/protobuf: Protocol Buffers - Google's data interchange format](https://github.com/google/protobuf) +<
@@ -328,7 +332,6 @@
 
 [惊帆之静默 » Blog Archive » ProtoBuf开发者指南 – 非官方不完整版](http://gashero.yeax.com/?p=108) -<
 
-
 :   代码风格指导 -<
 
     :   ```
@@ -370,7 +373,7 @@
 
 下一步：
 
-See caffe 的 proto 定义
+See caffe 的 proto 定义 -<
 
 :   include from include dir
 

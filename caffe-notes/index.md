@@ -54,6 +54,8 @@ My fork: [district10/caffe-rc3: Play with caffe.](https://github.com/district10/
 
     -   [detection.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/detection.ipynb)
 
+        Let's run detection on an image of a bicyclist riding a fish bike in the desert (from the ImageNet challenge—no joke).
+
 ---
 
 ## HED 边缘检测

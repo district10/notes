@@ -4,6 +4,8 @@
 
 ## Bash, Vim, Perl, etc
 
+-   [learning perl](perl.html){title=perl.md}
+
 ## HTML, CSS, JavaScript
 
 ## Python
