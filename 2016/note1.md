@@ -283,3 +283,39 @@ fc-conv
 
 The classifications include various cats -- 282 = tiger cat, 281 = tabby, 283 = persian -- and foxes and other mammals.
 
+```python
+# Make sure that caffe is on the python path:
+caffe_root = '../../'  # this file is expected to be in {caffe_root}/examples/hed/
+import sys
+sys.path.insert(0, caffe_root + 'python')
+```
+
+[Holistically-Nested Edge Detection](http://arxiv.org/abs/1504.06375) -<
+
+:   holistic    `[hoʊ'lɪstɪk]` adj. 整体的；全面的；功能整体性的
+
+    We develop a new edge detection algorithm that tackles two important issues
+    in this long-standing vision problem: (1) holistic image training and
+    prediction; and (2) multi-scale and multi-level feature learning. Our
+    proposed method, holistically-nested edge detection (HED), performs
+    image-to-image prediction by means of a deep learning model that leverages
+    fully convolutional neural networks and deeply-supervised nets. HED
+    automatically learns rich hierarchical representations (guided by deep
+    supervision on side responses) that are important in order to approach the
+    human ability resolve the challenging ambiguity in edge and object boundary
+    detection. We significantly advance the state-of-the-art on the BSD500
+    dataset (ODS F-score of .782) and the NYU Depth dataset (ODS F-score of .746),
+    and do so with an improved speed (0.4 second per image) that is
+    orders of magnitude faster than some recent CNN-based edge detection
+    algorithms.
+
+    Our method shows promising results in performing image-to-image learning by
+    combining multi-scale and multi-level visual responses, even though
+    explicit contextual and high-level information has not been enforced.
+
+set parameters s.t. deconvolutional layers compute bilinear interpolation
+N.B. this is for deconvolution without groups
+N.B. 啥意思？：
+
+-   Derived from the Latin (and italian) nota bene, meaning note well (take notice).：
+-   It is used to draw the attention to a certain aspect.

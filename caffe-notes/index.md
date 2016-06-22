@@ -46,6 +46,37 @@ My fork: [district10/caffe-rc3: Play with caffe.](https://github.com/district10/
 
     -   [01-learning-lenet.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/01-learning-lenet.ipynb)
 
+        :   null.
+
+            关于维度的操作。（详见 notebook。） -<
+
+            :   显示所有的 filters。4 行 5 列：
+
+                ```python
+                imshow(solver.net.params['conv1'][0].diff[:, 0].reshape(4, 5, 5, 5)
+                       .transpose(0, 2, 1, 3).reshape(4*5, 5*5), cmap='gray')
+                ```
+
+                ![](http://whudoc.qiniudn.com/2016/4x5.png)
+
+                只显示第 1 行：
+
+                ```python
+                imshow(solver.net.params['conv1'][0].diff[:5, 0].reshape(1, 5, 5, 5)
+                    .transpose(0, 2, 1, 3).reshape(1*5, 5*5), cmap='gray')
+                ```
+
+                ![](http://whudoc.qiniudn.com/2016/4x1.png)
+
+                右下角的 2x3 个 filters：
+
+                ```python
+                imshow(solver.net.params['conv1'][0].diff[[12,13,14,17,18,19], 0].reshape(2, 3, 5, 5)
+                    .transpose(0, 2, 1, 3).reshape(2*5, 3*5), cmap='gray')
+                ```
+
+                ![](http://whudoc.qiniudn.com/2016/2x3.png)
+
     -   [02-brewing-logreg.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/02-brewing-logreg.ipynb)
 
     -   [03-fine-tuning.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/03-fine-tuning.ipynb)
@@ -72,6 +103,49 @@ My fork: [district10/hed](https://github.com/district10/hed)
 
         训练 model。当然，训练起来很慢。需要 days，不是 hours。
 
+        ```python
+        # make a bilinear interpolation kernel
+        # credit @longjon
+        def upsample_filt(size):
+            factor = (size + 1) // 2 # ‘//’ 确保了结果是整数，和‘/’不一样
+            if size % 2 == 1:
+                center = factor - 1
+            else:
+                center = factor - 0.5
+            og = np.ogrid[:size, :size]
+            return (1 - abs(og[0] - center) / factor) * \
+                   (1 - abs(og[1] - center) / factor)
+
+        # set parameters s.t. deconvolutional layers compute bilinear interpolation
+        # N.B. this is for deconvolution without groups
+        # N.B. 啥意思？：
+        #       Derived from the Latin (and italian) nota bene, meaning note well (take notice).：
+        #       It is used to draw the attention to a certain aspect.
+        def interp_surgery(net, layers):
+            for l in layers:
+                m, k, h, w = net.params[l][0].data.shape
+                if m != k:
+                    print 'input + output channels need to be the same'
+                    raise
+                if h != w:
+                    print 'filters need to be square'
+                    raise
+                filt = upsample_filt(h)
+                # 对 layer l 的 weights 进行设置（设置一个 filter）
+                net.params[l][0].data[range(m), range(k), :, :] = filt
+        ```
+
+        ```
+        image_data_param {
+            root_folder: "../../data/HED-BSDS/"
+            source: "../../data/HED-BSDS/train_pair.lst"
+            batch_size: 1
+            shuffle: true
+            new_height: 192
+            new_width: 193
+        }
+        ```
+
 ---
 
 -   [python interface](python-interface.html){title=python-interface.md .hide}
@@ -82,4 +156,6 @@ My fork: [district10/hed](https://github.com/district10/hed)
 
     null.
 
--   [ml intro](ml-index.html){title=ml-index.md .heart}
+-   [ml intro](ml-index.html){.heart title=ml-index.md}
+
+-   [backpropagation](backpropagation.html){.heart .featured title=backpropagation.md}

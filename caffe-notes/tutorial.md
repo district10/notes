@@ -164,6 +164,9 @@
                 Caffe 用了 google 的 google protocal buffer，因为它的 txt 和 binary 等价，便于阅读，
                 而且有 C++ 和 python 的接口。
 
+                -   `blob = {data, diff}`
+                -   `params = [weights, biases]`
+
         +   [Forward / Backward](http://caffe.berkeleyvision.org/tutorial/forward_backward.html): the essential computations of layered compositional models. -<
 
             :   ![](http://caffe.berkeleyvision.org/tutorial/fig/forward_backward.png){width=30%}
@@ -236,12 +239,23 @@
 
         +   [Solver](caffe.berkeleyvision.org/tutorial/solver.html): the solver coordinates model optimization. -<
 
-            :   *   Stochastic Gradient Descent (type: `SGD`),
-                *   AdaDelta (type: `AdaDelta`),
-                *   Adaptive Gradient (type: `AdaGrad`),
-                *   Adam (type: `Adam`),
-                *   Nesterov’s Accelerated Gradient (type: `Nesterov`) and
-                *   RMSprop (type: `RMSProp`)
+            :   -   Stochastic Gradient Descent (type: `SGD`),
+                -   AdaDelta (type: `AdaDelta`),
+                -   Adaptive Gradient (type: `AdaGrad`),
+                -   Adam (type: `Adam`),
+                -   Nesterov’s Accelerated Gradient (type: `Nesterov`) and
+                -   RMSprop (type: `RMSProp`)
+
+                The solver
+
+                -   scaffolds the optimization bookkeeping and creates the
+                    training network for learning and test network(s) for
+                    evaluation.
+                -   iteratively optimizes by calling forward / backward and
+                    updating parameters
+                -   (periodically) evaluates the test networks
+                -   snapshots the model and solver state throughout the
+                    optimization
 
                 solver 通过不断调用 forward/backward，调整 parameters 来降低 loss。
                 还可以周期性 test networks，还可以不断生成 model 和 solver state。
@@ -254,6 +268,31 @@
                 *   updates the solver state according to learning rate, history, and method
 
                 `然后下面讲了不同 solver 使用的方法（一堆数学公式），以后再细看。`{.todo}
+
+                `caffe-rc3/docs/tutorial/solver.md`
+
+                The solver methods address the general optimization problem of loss minimization.
+                For dataset $D$, the optimization objective is the average
+                loss over all $|D|$ data instances throughout the dataset
+
+                $$
+                    L(W) = \frac{1}{|D|} \sum_i^{|D|} f_W\left(X^{(i)}\right) + \lambda r(W)
+                $$
+
+                where $f_W\left(X^{(i)}\right)$ is the loss on data instance $X^{(i)}$ and $r(W)$ is a regularization term with weight $\lambda$.
+                $|D|$ can be very large, so in practice, in each solver
+                iteration we use a stochastic approximation of this objective,
+                drawing a mini-batch of $N << |D|$ instances:
+
+                $$
+                    L(W) \approx \frac{1}{N} \sum_i^N f_W\left(X^{(i)}\right) + \lambda r(W)
+                $$
+
+                The model computes $f_W$ in the forward pass and the gradient $\nabla f_W$ in the backward pass.
+
+                The parameter update $\Delta W$ is formed by the solver from
+                the error gradient $\nabla f_W$, the regularization gradient
+                $\nabla r(W)$, and other particulars to each method.
 
         +   [Layer Catalogue](http://caffe.berkeleyvision.org/tutorial/layers.html): the layer is the fundamental unit of modeling and computation – Caffe’s catalogue includes layers for state-of-the-art models.  -<
 

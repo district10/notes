@@ -163,6 +163,8 @@ Probability theory -<
     :   ![Geometric visualisation of the mode, median and mean of an arbitrary
             probability density function.](https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Visualisation_mode_median_mean.svg/150px-Visualisation_mode_median_mean.svg.png)
 
+        才注意到这里 mean 表示成了一个天平一样的东西……
+
     Moment (mathematics) -<
 
     :   In mathematics, a moment is a specific quantitative measure, used in
@@ -1588,7 +1590,7 @@ Gamma function -<
 
     TODO: [Gamma function - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Gamma_function)
 
-Digamma function
+Digamma function -<
 
 :   这个定义和这个希腊字母也太贴切了……
 
@@ -1871,7 +1873,12 @@ F-distribution -<
     write X ~ F(d1, d2). Then the probability density function (pdf) for X is
     given by
 
-    $$\begin{align} f(x; d_1,d_2) &= \frac{\sqrt{\frac{(d_1\,x)^{d_1}\,\,d_2^{d_2}} {(d_1\,x+d_2)^{d_1+d_2}}}} {x\,\mathrm{B}\!\left(\frac{d_1}{2},\frac{d_2}{2}\right)} \\ &=\frac{1}{\mathrm{B}\!\left(\frac{d_1}{2},\frac{d_2}{2}\right)} \left(\frac{d_1}{d_2}\right)^{\frac{d_1}{2}} x^{\frac{d_1}{2} - 1} \left(1+\frac{d_1}{d_2}\,x\right)^{-\frac{d_1+d_2}{2}} \end{align}$$
+    $$\begin{align} f(x; d_1,d_2) &=
+    \frac{\sqrt{\frac{(d_1\,x)^{d_1}\,\,d_2^{d_2}} {(d_1\,x+d_2)^{d_1+d_2}}}}
+    {x\,\mathrm{B}\!\left(\frac{d_1}{2},\frac{d_2}{2}\right)} \\
+    &=\frac{1}{\mathrm{B}\!\left(\frac{d_1}{2},\frac{d_2}{2}\right)}
+    \left(\frac{d_1}{d_2}\right)^{\frac{d_1}{2}} x^{\frac{d_1}{2} - 1}
+    \left(1+\frac{d_1}{d_2}\,x\right)^{-\frac{d_1+d_2}{2}} \end{align}$$
 
     for real x ≥ 0. Here $\mathrm{B}$ is the beta function. In many
     applications, the parameters d1 and d2 are positive integers, but the
@@ -1895,17 +1902,17 @@ F-distribution -<
     CDF         $I_{\frac{d_1 x}{d_1 x + d_2}} \left(\tfrac{d_1}{2}, \tfrac{d_2}{2} \right)$
     ---------   -----------------------------
 
-Characterization
+    Characterization -<
 
-:   A random variate of the F-distribution with parameters d1 and d2 arises as
-    the ratio of two appropriately scaled chi-squared variates:
+    :   A random variate of the F-distribution with parameters d1 and d2 arises as
+        the ratio of two appropriately scaled chi-squared variates:
 
-    $$X = \frac{U_1/d_1}{U_2/d_2}$$
+        $$X = \frac{U_1/d_1}{U_2/d_2}$$
 
-    where
+        where
 
-      - U1 and U2 have chi-squared distributions with d1 and d2 degrees of freedom respectively, and
-      - U1 and U2 are independent.
+          - U1 and U2 have chi-squared distributions with d1 and d2 degrees of freedom respectively, and
+          - U1 and U2 are independent.
 
 Marginal distribution -<
 
@@ -2480,8 +2487,6 @@ Nonparametric regression -<
 
     Regression trees
 
-[Norm (mathematics) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Norm_(mathematics))
-
 Least absolute deviations -<
 
 :   **Least absolute deviations (LAD)**, also known as **least absolute errors (LAE)**,
@@ -2929,7 +2934,7 @@ Kalman filter -<
 
     TODO
 
-Wiener filter
+Wiener filter -<
 
 :   TODO
 
@@ -3131,22 +3136,6 @@ Bayesian statistics -<
                 new data point, marginalized over the prior:
 
                 $$p(\tilde{x} \mid \alpha) = \int_{\theta} p(\tilde{x} \mid \theta) p(\theta \mid \alpha) \operatorname{d}\!\theta$$
-
-[^hyperparameter]: In Bayesian statistics, a hyperparameter is a parameter of a
-    prior distribution; the term is used to distinguish them from parameters of the
-    model for the underlying system under analysis.
-
-    For example, if one is using a beta distribution to model the distribution of the parameter p of a Bernoulli distribution, then:
-
-      - p is a parameter of the underlying system (Bernoulli distribution), and
-      - α and β are parameters of the prior distribution (beta distribution),
-        hence hyperparameters.
-
-    One may take a single value for a given hyperparameter, or one can iterate
-    and take a probability distribution on the hyperparameter itself, called a
-    hyperprior.
-
-    see more at [Hyperparameter - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hyperparameter).
 
 Bayesian inference `@`{.anchor #bayesian-inference} -<
 
@@ -3388,7 +3377,7 @@ Ground truth -<
         word "Groundtruth" in the sense of a "fundamental truth" from Henry Ellison's
         poem "The Siberian Exile's Tale", published in 1833.
 
-Simpson's paradox
+Simpson's paradox -<
 
 :   Simpson's paradox, or the Yule–Simpson effect, is a paradox in probability
     and statistics, in which a trend appears in different groups of data but
@@ -3402,7 +3391,7 @@ Simpson's paradox
     believe that the mainstream public should be informed of the
     counter-intuitive results in statistics such as Simpson's paradox.
 
-    UC Berkeley gender bias
+    UC Berkeley gender bias -<
 
     :   One of the best-known examples of Simpson's paradox is a study of gender
         bias among graduate school admissions to University of California,
@@ -3435,7 +3424,7 @@ Simpson's paradox
         from specific departments constitute a proper defense against charges
         of discrimination are formulated in the book Causality by Pearl.
 
-Generating function
+Generating function -<
 
 :   Ordinary generating function
       ~ $$G(a_n;x)=\sum_{n=0}^\infty a_nx^n.$$
@@ -3453,7 +3442,7 @@ Generating function
 
     TODO: [Generating function - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Generating_function)
 
-Moment-generating function (moment generating fuction)
+Moment-generating function (moment generating fuction) -<
 
 :   In probability theory and statistics, the moment-generating function of a
     random variable is **an alternative specification of its probability distribution**.
@@ -3615,8 +3604,7 @@ Moment-generating function (moment generating fuction)
 
     may not exist. The lognormal distribution is an example of when this occurs.
 
-
-Characteristic function (probability theory)
+Characteristic function (probability theory) -<
 
 :   In probability theory and statistics, the characteristic function of any
     real-valued random variable completely defines its probability
@@ -3719,7 +3707,7 @@ Characteristic function (probability theory)
 
       - [如何理解统计中的特征函数？ - 数学 - 知乎](http://www.zhihu.com/question/23686709)
 
-[Jacobian matrix and determinant - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Jacobian_matrix)
+[Jacobian matrix and determinant - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Jacobian_matrix) -<
 
 :   In vector calculus, the Jacobian matrix (`/dʒᵻˈkoʊbiən/`, `/jᵻˈkoʊbiən/`) is
     the matrix of all **first-order partial derivatives of a vector-valued function**.
@@ -3787,7 +3775,7 @@ Characteristic function (probability theory)
     f(\varphi(t))\varphi'(t)\, dt.$ ^[[Integration by substitution - Wikipedia,
     the free encyclopedia](https://en.wikipedia.org/wiki/Integration_by_substitution).]
 
-[Hessian matrix - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hessian_matrix)
+[Hessian matrix - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hessian_matrix) -<
 
 :   Hessian, `['hesiən]`
 
@@ -3835,6 +3823,354 @@ Characteristic function (probability theory)
     \right) = \frac {\partial}{\partial x_j} \left(\frac {\partial f }{\partial
     x_i} \right).
     $$
+
+[Softmax function - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Softmax_function) -<
+
+:   In mathematics, in particular probability theory and related fields, the
+    softmax function, or normalized exponential, is a generalization of
+    the logistic function that "squashes" a K-dimensional vector \mathbf{z} of
+    arbitrary real values to a K-dimensional vector \sigma(\mathbf{z}) of real
+    values in the range (0, 1) that add up to 1. The function is given by
+
+    $$\sigma(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}}    for j = 1, ..., K.$$
+
+    The softmax function is the gradient-log-normalizer of the categorical
+    probability distribution. For this reason, the softmax function is used in
+    various probabilistic multiclass classification methods including
+    multinomial logistic regression, multiclass linear discriminant
+    analysis, naive Bayes classifiers and artificial neural networks.
+    Specifically, in multinomial logistic regression and linear discriminant
+    analysis, the input to the function is the result of K distinct linear
+    functions, and the predicted probability for the j'th class given a sample
+    vector x is:
+
+    $$P(y=j|\mathbf{x}) = \frac{e^{\mathbf{x}^\mathsf{T}\mathbf{w}_j}}{\sum_{k=1}^K e^{\mathbf{x}^\mathsf{T}\mathbf{w}_k}}$$
+
+    This can be seen as the composition of K linear functions
+    $\mathbf{x} \mapsto \mathbf{x}^\mathsf{T}\mathbf{w}_1, \ldots, \mathbf{x}
+    \mapsto \mathbf{x}^\mathsf{T}\mathbf{w}_K$ and the softmax function.
+
+    在 softmax 回归中，我们解决的是多分类问题（相对于 logistic 回归解决的二分类
+    问题），类标 $\textstyle y$ 可以取 $\textstyle k$ 个不同的值（而不是 2 个）。因
+    此，对于训练集 $\{ (x^{(1)}, y^{(1)}), \ldots, (x^{(m)}, y^{(m)}) \}$，我们有
+    $y^{(i)} \in \{1, 2, \ldots, k\}$。（注意此处的类别下标从 1 开始，而不是 0）。
+    例如，在 MNIST 数字识别任务中，我们有 $\textstyle k=10$ 个不同的类别。
+
+    我们的代价函数为：
+
+    $$
+        \begin{align}
+            J(\theta) = - \frac{1}{m} \left[ \sum_{i=1}^{m} \sum_{j=1}^{k}  1\left\{y^{(i)} = j\right\} \log \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k e^{ \theta_l^T x^{(i)} }}\right]
+        \end{align}
+    $$
+
+    值得注意的是，上述公式是 logistic 回归代价函数的推广。logistic 回归代价函数可以改为：
+
+    $$
+        \begin{align}
+            J(\theta) &= -\frac{1}{m} \left[ \sum_{i=1}^m   (1-y^{(i)}) \log (1-h_\theta(x^{(i)})) + y^{(i)} \log h_\theta(x^{(i)}) \right] \\
+                      &= - \frac{1}{m} \left[ \sum_{i=1}^{m} \sum_{j=0}^{1} 1\left\{y^{(i)} = j\right\} \log p(y^{(i)} = j | x^{(i)} ; \theta) \right]
+        \end{align}
+    $$
+
+    可以看到，Softmax 代价函数与 logistic 代价函数在形式上非常类似，只是在
+    Softmax 损失函数中对类标记的 $\textstyle k$ 个可能值进行了累加。注意在
+    Softmax 回归中将 $\textstyle x$ 分类为类别 $\textstyle j$ 的概率为：
+
+    $$
+        p(y^{(i)} = j | x^{(i)} ; \theta) = \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k e^{ \theta_l^T x^{(i)}} }
+    $$
+
+    对于 $\textstyle J(\theta)$ 的最小化问题，目前还没有闭式解法。因此，我们使
+    用迭代的优化算法（例如梯度下降法，或 L-BFGS）。经过求导，我们得到梯度公式如
+    下：
+
+    $$
+        \begin{align}
+            \nabla_{\theta_j} J(\theta) = - \frac{1}{m} \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ y^{(i)} = j\}  - p(y^{(i)} = j | x^{(i)}; \theta) \right) \right]  }
+        \end{align}
+    $$
+
+    **Softmax 回归与 Logistic 回归的关系**
+
+    当类别数 $\textstyle k = 2$ 时，softmax 回归退化为 logistic 回归。这表明
+    softmax 回归是 logistic 回归的一般形式。具体地说，当 $\textstyle k = 2$ 时，
+    softmax 回归的假设函数为：
+
+    $$
+    \begin{align}
+    h_\theta(x) &=
+    \frac{1}{ e^{\theta_1^Tx}  + e^{ \theta_2^T x^{(i)} } }
+    \begin{bmatrix}
+    e^{ \theta_1^T x } \\
+    e^{ \theta_2^T x }
+    \end{bmatrix}
+    \end{align}
+    $$
+
+    利用 softmax 回归参数冗余的特点，我们令 $\textstyle \psi = \theta_1$，并且从
+    两个参数向量中都减去向量 $\textstyle \theta_1$，得到:
+
+    $$
+        \begin{align}
+            h(x)
+            &=
+                \frac{1}{ e^{\vec{0}^Tx}  + e^{ (\theta_2-\theta_1)^T x^{(i)} } }
+                \begin{bmatrix}
+                e^{ \vec{0}^T x } \\
+                e^{ (\theta_2-\theta_1)^T x }
+                \end{bmatrix} \\
+            &=
+                \begin{bmatrix}
+                \frac{1}{ 1 + e^{ (\theta_2-\theta_1)^T x^{(i)} } } \\
+                \frac{e^{ (\theta_2-\theta_1)^T x }}{ 1 + e^{ (\theta_2-\theta_1)^T x^{(i)} } }
+                \end{bmatrix} \\
+            &=
+                \begin{bmatrix}
+                \frac{1}{ 1  + e^{ (\theta_2-\theta_1)^T x^{(i)} } } \\
+                1 - \frac{1}{ 1  + e^{ (\theta_2-\theta_1)^T x^{(i)} } } \\
+                \end{bmatrix}
+        \end{align}
+    $$
+
+    因此，用 $\textstyle \theta'$ 来表示 $\textstyle \theta_2-\theta_1$，我们就会发现
+    softmax 回归器预测其中一个类别的概率为
+    $\textstyle \frac{1}{ 1  + e^{ (\theta')^T x^{(i)} } }$，另一个类别概率的为
+    $\textstyle 1 - \frac{1}{ 1 + e^{ (\theta')^T x^{(i)} } }$，这与 logistic 回归是一致的。
+
+    在第一个例子中，三个类别是互斥的，因此更适于选择 softmax 回归分类器 。而在
+    第二个例子中，建立三个独立的 logistic 回归分类器更加合适。
+
+    权重衰减 weight decay
+
+    refs and see also
+
+      - [Softmax 回归 - Ufldl](http://ufldl.stanford.edu/wiki/index.php/Softmax%E5%9B%9E%E5%BD%92)
+
+[Hyperbolic function - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hyperbolic_function#Tanh) -<
+
+:   ![A ray through the unit hyperbola $\scriptstyle x^2\ -\ y^2\ =\ 1$ in the point
+        $\scriptstyle (\cosh\,a,\,\sinh\,a),$ where $\scriptstyle a$ is twice the area
+        between the ray, the hyperbola, and the $\scriptstyle x-axis$. For points on
+        the hyperbola below the $\scriptstyle x-axis$, the area is considered
+        negative (see animated version with comparison with the trigonometric
+        (circular) functions).](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Hyperbolic_functions-2.svg/444px-Hyperbolic_functions-2.svg.png)
+
+    hyperbola, `[haɪ'pɜ:bələ]`, n.双曲线
+
+    In mathematics, hyperbolic functions are analogs of the ordinary
+    trigonometric, or circular functions. The basic hyperbolic functions are
+    the hyperbolic sine "sinh" (`/ˈsɪntʃ/` or `/ˈʃaɪn/`), and the hyperbolic
+    cosine "cosh" (`/ˈkɒʃ/`), from which are derived the hyperbolic tangent
+    "tanh" (`/ˈtæntʃ/` or `/ˈθæn/`), hyperbolic cosecant "csch" or "cosech" (/ˈ
+    koʊʃɛk/ or `/ˈkoʊsɛtʃ/`), hyperbolic secant "sech" (`/ˈʃɛk/` or `/ˈsɛtʃ/`),
+    and hyperbolic cotangent "coth" (`/ˈkoʊθ/` or `/ˈkɒθ/`), corresponding to
+    the derived trigonometric functions. The inverse hyperbolic functions are
+    the area hyperbolic sine "arsinh" (also called "asinh" or sometimes
+    "arcsinh") and so on.
+
+[Latent variable model - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Latent_variable_model) -<
+
+:   latent, `['leɪt(ə)nt]`, adj.潜在的；潜伏的；隐藏的 n.隐约的指印网络存在但看
+    不见的；隐性的；潜伏性
+
+    A **latent variable model** is a statistical model that relates a set of
+    variables (so-called manifest variables) to a set of latent variables.
+
+    It is assumed that the responses on the indicators or manifest variables
+    are the result of an individual's position on the latent variable(s), and
+    that the manifest variables have nothing in common after controlling for
+    the latent variable (local independence).
+
+    Different types of the latent variable model can be grouped according to
+    whether the manifest and latent variables are categorical or continuous:
+
+    ------------------- --------------------------  ---------------------------
+                        Manifest variables
+
+    Latent variables    Continuous                  Categorical
+    ------------------- --------------------------  ---------------------------
+    Continuous          Factor analysis             Item response theory
+
+    Categorical         Latent profile analysis     Latent class analysis
+    ------------------- --------------------------  ---------------------------
+
+[Matrix multiplication - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Matrix_multiplication) -<
+
+:   ![Arithmetic process of multiplying numbers (solid lines) in row i in matrix A
+        and column j in matrix B, then adding the terms (dashed lines) to obtain entry
+        ij in the final matrix.](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Matrix_multiplication_row_column_correspondance.svg/450px-Matrix_multiplication_row_column_correspondance.svg.png)
+
+    ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Matrix_multiplication_diagram_2.svg/470px-Matrix_multiplication_diagram_2.svg.png)
+
+    -   Not commutative:
+
+    -   Distributive over matrix addition:
+
+        +   Left distributivity
+        +   Right distributivity
+        +   Scalar multiplication is compatible with matrix multiplication
+
+    -   Transpose
+
+        $$(\mathbf{AB})^\mathrm{T} = \mathbf{B}^\mathrm{T}\mathbf{A}^\mathrm{T}$$
+
+        where T denotes the transpose, the interchange of row i with column i
+        in a matrix. This identity holds for any matrices over a commutative
+        ring, but not for all rings in general. Note that A and B are reversed.
+
+    -   Complex conjugate
+
+        If A and B have complex entries, then
+
+        $$(\mathbf{AB})^\star = \mathbf{A}^\star\mathbf{B}^\star$$
+
+        where `*` denotes the complex conjugate of a matrix.
+
+    refs and see also
+
+      - [Kronecker product - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Kronecker_product)
+
+[Convolution - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Convolution) -<
+
+:   The convolution of f and g is written f∗g, using an
+    asterisk or star. It is defined as the integral of the
+    product of the two functions after one is reversed and
+    shifted. As such, it is a particular kind of integral
+    transform:
+
+    $$
+        \begin{align}
+            (f * g )(t)\ \ \, &\stackrel{\mathrm{def}}{=}\ \int_{-\infty}^\infty f(\tau)\, g(t - \tau)\, d\tau \\
+                              &= \int_{-\infty}^\infty f(t-\tau)\, g(\tau)\, d\tau.
+        \end{align}
+    $$
+
+    While the symbol t is used above, it need not represent the
+    time domain. But in that context, the convolution formula
+    can be described as a weighted average of the function f(τ)
+    at the moment t where the weighting is given by g(−τ)
+    simply shifted by amount t. As t changes, the weighting
+    function emphasizes different parts of the input function.
+
+[Spline (mathematics) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Spline_(mathematics)) -<
+
+:   TODO
+
+[Precision and recall - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Precision_and_recall) -<
+
+:   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/525px-Precisionrecall.svg.png)
+
+    [Precision Recall vs ROC (Receiver Operating Characteristic)](http://nlp.stanford.edu/IR-book/roc.html)
+
+[H-theorem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/H-theorem) -<
+
+:   TODO
+
+[Entropy (information theory) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Entropy_(information_theory)) -<
+
+:   TODO
+
+[Information retrieval - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Information_retrieval) -<
+
+:   Average precision -<
+
+    :   Precision and recall are single-value metrics based on the whole list
+        of documents returned by the system. For systems that return a ranked
+        sequence of documents, it is desirable to also consider the order in
+        which the returned documents are presented. By computing a precision
+        and recall at every position in the ranked sequence of documents, one
+        can plot a **precision-recall curve**, plotting precision ${\displaystyle p(r)}$
+        as a function of recall ${\displaystyle r}$.  Average precision
+        computes the average value of ${\displaystyle p(r)}$ over the
+        interval from ${\displaystyle r=0}$ to ${\displaystyle r=1}$:
+
+        $$
+            \operatorname {AveP} =\int _{0}^{1}p(r)dr
+        $$
+
+        That is the area under the precision-recall curve. This integral is in
+        practice replaced with a finite sum over every position in the ranked
+        sequence of documents:
+
+        $$
+            \displaystyle \operatorname {AveP} =\sum _{k=1}^{n}P(k)\Delta r(k)
+        $$
+
+        where ${\displaystyle k}$ is the rank in the sequence of retrieved
+        documents, ${\displaystyle n}$ is the number of retrieved documents,
+        ${\displaystyle P(k)}$ is the precision at cut-off ${\displaystyle k}$
+        in the list, and ${\displaystyle \Delta r(k)}$ is the change in recall
+        from items ${\displaystyle k-1}$ to ${\displaystyle k}$.
+
+        This finite sum is equivalent to:
+
+        $$
+            \displaystyle \operatorname {AveP} ={\frac {\sum _{k=1}^{n}(P(k)\times \operatorname {rel} (k))}{\mbox{number of relevant documents}}}\!
+        $$
+
+        where ${\displaystyle \operatorname {rel} (k)}$ is an indicator
+        function equaling 1 if the item at rank ${\displaystyle k}$ is a
+        relevant document, zero otherwise. Note that the average is over all
+        relevant documents and the relevant documents not retrieved get a
+        precision score of zero.
+
+        Some authors choose to interpolate the ${\displaystyle p(r)}$
+        function to reduce the impact of "wiggles" in the curve. For example,
+        the PASCAL Visual Object Classes challenge (a benchmark for computer
+        vision object detection) computes average precision by averaging the
+        precision over a set of evenly spaced recall levels {0, 0.1, 0.2, ...
+        1.0}:
+
+        AveP = 1 11 ∑ r ∈ { 0 , 0.1 , … , 1.0 } p interp ( r ) {\displaystyle
+        \operatorname {AveP} ={\frac {1}{11}}\sum _{r\in \{0,0.1,\ldots
+        ,1.0\}}p_{\operatorname {interp} }(r)}
+
+        where p interp ( r ) {\displaystyle p_{\operatorname {interp} }(r)} is
+        an interpolated precision that takes the maximum precision over all
+        recalls greater than r {\displaystyle r} :
+
+        p interp ( r ) = max r ~ : r ~ ≥ r ⁡ p ( r ~ ) {\displaystyle
+        p_{\operatorname {interp} }(r)=\operatorname {max} _{{\tilde
+        {r}}:{\tilde {r}}\geq r}p({\tilde {r}})} .
+
+        An alternative is to derive an analytical p ( r ) {\displaystyle p(r)}
+        function by assuming a particular parametric distribution for the
+        underlying decision values. For example, a binormal precision-recall
+        curve can be obtained by assuming decision values in both classes to
+        follow a Gaussian distribution.
+
+        下面这个解释也很清楚：
+
+        [Alternate explanation of Mean Average Precision - Facebook Recruiting Competition | Kaggle](https://www.kaggle.com/c/FacebookRecruiting/forums/t/2002/alternate-explanation-of-mean-average-precision)
+
+        :   this.
+
+        [IR 的评价指标 - MAP,NDCG 和 MRR - ywl925 - 博客园](http://www.cnblogs.com/ywl925/archive/2013/08/16/3262209.html)
+
+        refs and see also
+
+          - [Mean Average Precision | Kaggle](https://www.kaggle.com/wiki/MeanAveragePrecision)
+          - [Evaluation of ranked retrieval results](http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html)
+          - [Precision Recall vs ROC (Receiver Operating Characteristic)](http://nlp.stanford.edu/IR-book/roc.html)
+
+[^hyperparameter]: In Bayesian statistics, a hyperparameter is a parameter of a
+    prior distribution; the term is used to distinguish them from parameters of the
+    model for the underlying system under analysis.
+
+    For example, if one is using a beta distribution to model the distribution of the parameter p of a Bernoulli distribution, then:
+
+      - p is a parameter of the underlying system (Bernoulli distribution), and
+      - α and β are parameters of the prior distribution (beta distribution),
+        hence hyperparameters.
+
+    One may take a single value for a given hyperparameter, or one can iterate
+    and take a probability distribution on the hyperparameter itself, called a
+    hyperprior.
+
+    see more at [Hyperparameter - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hyperparameter).
+
+---
 
 refs and see also
 
@@ -3915,326 +4251,3 @@ refs and see also
 [Moment (mathematics) - Wikipedia, the free encyclopedia]: https://en.wikipedia.org/wiki/Moment_(mathematics)
 [Uniform distribution (continuous) - Wikipedia, the free encyclopedia]: https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)
 [Uniform distribution (discrete) - Wikipedia, the free encyclopedia]: https://en.wikipedia.org/wiki/Uniform_distribution_(discrete)
-
-[Softmax function - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Softmax_function)
-
-:   In mathematics, in particular probability theory and related fields, the
-    softmax function, or normalized exponential, is a generalization of
-    the logistic function that "squashes" a K-dimensional vector \mathbf{z} of
-    arbitrary real values to a K-dimensional vector \sigma(\mathbf{z}) of real
-    values in the range (0, 1) that add up to 1. The function is given by
-
-    $$\sigma(\mathbf{z})_j = \frac{e^{z_j}}{\sum_{k=1}^K e^{z_k}}    for j = 1, ..., K.$$
-
-    The softmax function is the gradient-log-normalizer of the categorical
-    probability distribution. For this reason, the softmax function is used in
-    various probabilistic multiclass classification methods including
-    multinomial logistic regression, multiclass linear discriminant
-    analysis, naive Bayes classifiers and artificial neural networks.
-    Specifically, in multinomial logistic regression and linear discriminant
-    analysis, the input to the function is the result of K distinct linear
-    functions, and the predicted probability for the j'th class given a sample
-    vector x is:
-
-    $$P(y=j|\mathbf{x}) = \frac{e^{\mathbf{x}^\mathsf{T}\mathbf{w}_j}}{\sum_{k=1}^K e^{\mathbf{x}^\mathsf{T}\mathbf{w}_k}}$$
-
-    This can be seen as the composition of K linear functions
-    $\mathbf{x} \mapsto \mathbf{x}^\mathsf{T}\mathbf{w}_1, \ldots, \mathbf{x}
-    \mapsto \mathbf{x}^\mathsf{T}\mathbf{w}_K$ and the softmax function.
-
-    在 softmax 回归中，我们解决的是多分类问题（相对于 logistic 回归解决的二分类
-    问题），类标 $\textstyle y$ 可以取 $\textstyle k$ 个不同的值（而不是 2 个）。因
-    此，对于训练集 $\{ (x^{(1)}, y^{(1)}), \ldots, (x^{(m)}, y^{(m)}) \}$，我们有
-    $y^{(i)} \in \{1, 2, \ldots, k\}$。（注意此处的类别下标从 1 开始，而不是 0）。
-    例如，在 MNIST 数字识别任务中，我们有 $\textstyle k=10$ 个不同的类别。
-
-    我们的代价函数为：
-
-    $$
-        \begin{align}
-            J(\theta) = - \frac{1}{m} \left[ \sum_{i=1}^{m} \sum_{j=1}^{k}  1\left\{y^{(i)} = j\right\} \log \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k e^{ \theta_l^T x^{(i)} }}\right]
-        \end{align}
-    $$
-
-    值得注意的是，上述公式是 logistic 回归代价函数的推广。logistic 回归代价函数可以改为：
-
-    $$
-        \begin{align}
-            J(\theta) &= -\frac{1}{m} \left[ \sum_{i=1}^m   (1-y^{(i)}) \log (1-h_\theta(x^{(i)})) + y^{(i)} \log h_\theta(x^{(i)}) \right] \\
-                      &= - \frac{1}{m} \left[ \sum_{i=1}^{m} \sum_{j=0}^{1} 1\left\{y^{(i)} = j\right\} \log p(y^{(i)} = j | x^{(i)} ; \theta) \right]
-        \end{align}
-    $$
-
-    可以看到，Softmax 代价函数与 logistic 代价函数在形式上非常类似，只是在
-    Softmax 损失函数中对类标记的 $\textstyle k$ 个可能值进行了累加。注意在
-    Softmax 回归中将 $\textstyle x$ 分类为类别 $\textstyle j$ 的概率为：
-
-    $$
-        p(y^{(i)} = j | x^{(i)} ; \theta) = \frac{e^{\theta_j^T x^{(i)}}}{\sum_{l=1}^k e^{ \theta_l^T x^{(i)}} }
-    $$
-
-    对于 $\textstyle J(\theta)$ 的最小化问题，目前还没有闭式解法。因此，我们使
-    用迭代的优化算法（例如梯度下降法，或 L-BFGS）。经过求导，我们得到梯度公式如
-    下：
-
-    $$
-        \begin{align}
-            \nabla_{\theta_j} J(\theta) = - \frac{1}{m} \sum_{i=1}^{m}{ \left[ x^{(i)} \left( 1\{ y^{(i)} = j\}  - p(y^{(i)} = j | x^{(i)}; \theta) \right) \right]  }
-        \end{align}
-    $$
-
-
-    **Softmax 回归与 Logistic 回归的关系**
-
-    当类别数 $\textstyle k = 2$ 时，softmax 回归退化为 logistic 回归。这表明
-    softmax 回归是 logistic 回归的一般形式。具体地说，当 $\textstyle k = 2$ 时，
-    softmax 回归的假设函数为：
-
-    $$
-    \begin{align}
-    h_\theta(x) &=
-    \frac{1}{ e^{\theta_1^Tx}  + e^{ \theta_2^T x^{(i)} } }
-    \begin{bmatrix}
-    e^{ \theta_1^T x } \\
-    e^{ \theta_2^T x }
-    \end{bmatrix}
-    \end{align}
-    $$
-
-    利用 softmax 回归参数冗余的特点，我们令 $\textstyle \psi = \theta_1$，并且从
-    两个参数向量中都减去向量 $\textstyle \theta_1$，得到:
-
-    $$
-        \begin{align}
-            h(x)
-            &=
-                \frac{1}{ e^{\vec{0}^Tx}  + e^{ (\theta_2-\theta_1)^T x^{(i)} } }
-                \begin{bmatrix}
-                e^{ \vec{0}^T x } \\
-                e^{ (\theta_2-\theta_1)^T x }
-                \end{bmatrix} \\
-            &=
-                \begin{bmatrix}
-                \frac{1}{ 1 + e^{ (\theta_2-\theta_1)^T x^{(i)} } } \\
-                \frac{e^{ (\theta_2-\theta_1)^T x }}{ 1 + e^{ (\theta_2-\theta_1)^T x^{(i)} } }
-                \end{bmatrix} \\
-            &=
-                \begin{bmatrix}
-                \frac{1}{ 1  + e^{ (\theta_2-\theta_1)^T x^{(i)} } } \\
-                1 - \frac{1}{ 1  + e^{ (\theta_2-\theta_1)^T x^{(i)} } } \\
-                \end{bmatrix}
-        \end{align}
-    $$
-
-    因此，用 $\textstyle \theta'$ 来表示 $\textstyle \theta_2-\theta_1$，我们就会发现
-    softmax 回归器预测其中一个类别的概率为
-    $\textstyle \frac{1}{ 1  + e^{ (\theta')^T x^{(i)} } }$，另一个类别概率的为
-    $\textstyle 1 - \frac{1}{ 1 + e^{ (\theta')^T x^{(i)} } }$，这与 logistic 回归是一致的。
-
-    在第一个例子中，三个类别是互斥的，因此更适于选择 softmax 回归分类器 。而在
-    第二个例子中，建立三个独立的 logistic 回归分类器更加合适。
-
-    权重衰减 weight decay
-
-    refs and see also
-
-      - [Softmax 回归 - Ufldl](http://ufldl.stanford.edu/wiki/index.php/Softmax%E5%9B%9E%E5%BD%92)
-
-[Hyperbolic function - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hyperbolic_function#Tanh)
-
-:   ![A ray through the unit hyperbola $\scriptstyle x^2\ -\ y^2\ =\ 1$ in the point
-        $\scriptstyle (\cosh\,a,\,\sinh\,a),$ where $\scriptstyle a$ is twice the area
-        between the ray, the hyperbola, and the $\scriptstyle x-axis$. For points on
-        the hyperbola below the $\scriptstyle x-axis$, the area is considered
-        negative (see animated version with comparison with the trigonometric
-        (circular) functions).](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Hyperbolic_functions-2.svg/444px-Hyperbolic_functions-2.svg.png)
-
-    hyperbola, `[haɪ'pɜ:bələ]`, n.双曲线
-
-    In mathematics, hyperbolic functions are analogs of the ordinary
-    trigonometric, or circular functions. The basic hyperbolic functions are
-    the hyperbolic sine "sinh" (`/ˈsɪntʃ/` or `/ˈʃaɪn/`), and the hyperbolic
-    cosine "cosh" (`/ˈkɒʃ/`), from which are derived the hyperbolic tangent
-    "tanh" (`/ˈtæntʃ/` or `/ˈθæn/`), hyperbolic cosecant "csch" or "cosech" (/ˈ
-    koʊʃɛk/ or `/ˈkoʊsɛtʃ/`), hyperbolic secant "sech" (`/ˈʃɛk/` or `/ˈsɛtʃ/`),
-    and hyperbolic cotangent "coth" (`/ˈkoʊθ/` or `/ˈkɒθ/`), corresponding to
-    the derived trigonometric functions. The inverse hyperbolic functions are
-    the area hyperbolic sine "arsinh" (also called "asinh" or sometimes
-    "arcsinh") and so on.
-
-[Latent variable model - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Latent_variable_model)
-
-:   latent, `['leɪt(ə)nt]`, adj.潜在的；潜伏的；隐藏的 n.隐约的指印网络存在但看
-    不见的；隐性的；潜伏性
-
-    A **latent variable model** is a statistical model that relates a set of
-    variables (so-called manifest variables) to a set of latent variables.
-
-    It is assumed that the responses on the indicators or manifest variables
-    are the result of an individual's position on the latent variable(s), and
-    that the manifest variables have nothing in common after controlling for
-    the latent variable (local independence).
-
-    Different types of the latent variable model can be grouped according to
-    whether the manifest and latent variables are categorical or continuous:
-
-    ------------------- --------------------------  ---------------------------
-                        Manifest variables
-
-    Latent variables    Continuous                  Categorical
-    ------------------- --------------------------  ---------------------------
-    Continuous          Factor analysis             Item response theory
-
-    Categorical         Latent profile analysis     Latent class analysis
-    ------------------- --------------------------  ---------------------------
-[Matrix multiplication - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Matrix_multiplication)
-
-:   ![Arithmetic process of multiplying numbers (solid lines) in row i in matrix A
-        and column j in matrix B, then adding the terms (dashed lines) to obtain entry
-        ij in the final matrix.](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Matrix_multiplication_row_column_correspondance.svg/450px-Matrix_multiplication_row_column_correspondance.svg.png)
-
-    ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Matrix_multiplication_diagram_2.svg/470px-Matrix_multiplication_diagram_2.svg.png)
-
-    -   Not commutative:
-
-    -   Distributive over matrix addition:
-
-        +   Left distributivity
-        +   Right distributivity
-        +   Scalar multiplication is compatible with matrix multiplication
-
-    -   Transpose
-
-        $$(\mathbf{AB})^\mathrm{T} = \mathbf{B}^\mathrm{T}\mathbf{A}^\mathrm{T}$$
-
-        where T denotes the transpose, the interchange of row i with column i
-        in a matrix. This identity holds for any matrices over a commutative
-        ring, but not for all rings in general. Note that A and B are reversed.
-
-    -   Complex conjugate
-
-        If A and B have complex entries, then
-
-        $$(\mathbf{AB})^\star = \mathbf{A}^\star\mathbf{B}^\star$$
-
-        where `*` denotes the complex conjugate of a matrix.
-
-    refs and see also
-
-      - [Kronecker product - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Kronecker_product)
-
-[Convolution - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Convolution)
-
-:   The convolution of f and g is written f∗g, using an
-    asterisk or star. It is defined as the integral of the
-    product of the two functions after one is reversed and
-    shifted. As such, it is a particular kind of integral
-    transform:
-
-    $$
-        \begin{align}
-            (f * g )(t)\ \ \, &\stackrel{\mathrm{def}}{=}\ \int_{-\infty}^\infty f(\tau)\, g(t - \tau)\, d\tau \\
-                              &= \int_{-\infty}^\infty f(t-\tau)\, g(\tau)\, d\tau.
-        \end{align}
-    $$
-
-    While the symbol t is used above, it need not represent the
-    time domain. But in that context, the convolution formula
-    can be described as a weighted average of the function f(τ)
-    at the moment t where the weighting is given by g(−τ)
-    simply shifted by amount t. As t changes, the weighting
-    function emphasizes different parts of the input function.
-
-[Spline (mathematics) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Spline_(mathematics))
-
-[Precision and recall - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Precision_and_recall)
-
-:   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Precisionrecall.svg/525px-Precisionrecall.svg.png)
-
-    [Precision Recall vs ROC (Receiver Operating Characteristic)](http://nlp.stanford.edu/IR-book/roc.html)
-
-[H-theorem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/H-theorem)
-[Entropy (information theory) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Entropy_(information_theory))
-
-[Information retrieval - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Information_retrieval)
-
-:   Average precision
-
-    :   Precision and recall are single-value metrics based on the whole list
-        of documents returned by the system. For systems that return a ranked
-        sequence of documents, it is desirable to also consider the order in
-        which the returned documents are presented. By computing a precision
-        and recall at every position in the ranked sequence of documents, one
-        can plot a **precision-recall curve**, plotting precision ${\displaystyle p(r)}$
-        as a function of recall ${\displaystyle r}$.  Average precision
-        computes the average value of ${\displaystyle p(r)}$ over the
-        interval from ${\displaystyle r=0}$ to ${\displaystyle r=1}$:
-
-        $$
-            \operatorname {AveP} =\int _{0}^{1}p(r)dr
-        $$
-
-        That is the area under the precision-recall curve. This integral is in
-        practice replaced with a finite sum over every position in the ranked
-        sequence of documents:
-
-        $$
-            \displaystyle \operatorname {AveP} =\sum _{k=1}^{n}P(k)\Delta r(k)
-        $$
-
-        where ${\displaystyle k}$ is the rank in the sequence of retrieved
-        documents, ${\displaystyle n}$ is the number of retrieved documents,
-        ${\displaystyle P(k)}$ is the precision at cut-off ${\displaystyle k}$
-        in the list, and ${\displaystyle \Delta r(k)}$ is the change in recall
-        from items ${\displaystyle k-1}$ to ${\displaystyle k}$.
-
-        This finite sum is equivalent to:
-
-        $$
-            \displaystyle \operatorname {AveP} ={\frac {\sum _{k=1}^{n}(P(k)\times \operatorname {rel} (k))}{\mbox{number of relevant documents}}}\!
-        $$
-
-        where ${\displaystyle \operatorname {rel} (k)}$ is an indicator
-        function equaling 1 if the item at rank ${\displaystyle k}$ is a
-        relevant document, zero otherwise. Note that the average is over all
-        relevant documents and the relevant documents not retrieved get a
-        precision score of zero.
-
-        Some authors choose to interpolate the ${\displaystyle p(r)}$
-        function to reduce the impact of "wiggles" in the curve. For example,
-        the PASCAL Visual Object Classes challenge (a benchmark for computer
-        vision object detection) computes average precision by averaging the
-        precision over a set of evenly spaced recall levels {0, 0.1, 0.2, ...
-        1.0}:
-
-        AveP = 1 11 ∑ r ∈ { 0 , 0.1 , … , 1.0 } p interp ( r ) {\displaystyle
-        \operatorname {AveP} ={\frac {1}{11}}\sum _{r\in \{0,0.1,\ldots
-        ,1.0\}}p_{\operatorname {interp} }(r)}
-
-        where p interp ( r ) {\displaystyle p_{\operatorname {interp} }(r)} is
-        an interpolated precision that takes the maximum precision over all
-        recalls greater than r {\displaystyle r} :
-
-        p interp ( r ) = max r ~ : r ~ ≥ r ⁡ p ( r ~ ) {\displaystyle
-        p_{\operatorname {interp} }(r)=\operatorname {max} _{{\tilde
-        {r}}:{\tilde {r}}\geq r}p({\tilde {r}})} .
-
-        An alternative is to derive an analytical p ( r ) {\displaystyle p(r)}
-        function by assuming a particular parametric distribution for the
-        underlying decision values. For example, a binormal precision-recall
-        curve can be obtained by assuming decision values in both classes to
-        follow a Gaussian distribution.
-
-        下面这个解释也很清楚：
-
-        [Alternate explanation of Mean Average Precision - Facebook Recruiting Competition | Kaggle](https://www.kaggle.com/c/FacebookRecruiting/forums/t/2002/alternate-explanation-of-mean-average-precision)
-
-        :   this.
-
-        [IR 的评价指标 - MAP,NDCG 和 MRR - ywl925 - 博客园](http://www.cnblogs.com/ywl925/archive/2013/08/16/3262209.html)
-
-        refs and see also
-
-          - [Mean Average Precision | Kaggle](https://www.kaggle.com/wiki/MeanAveragePrecision)
-          - [Evaluation of ranked retrieval results](http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html)
-          - [Precision Recall vs ROC (Receiver Operating Characteristic)](http://nlp.stanford.edu/IR-book/roc.html)
