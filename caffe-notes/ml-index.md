@@ -1844,3 +1844,29 @@ Rectifier (neural networks) -<
 [余凯在清华的讲座笔记 - huangbo10 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/huangbo10/article/details/22944007)
 
 [Learning and neural networks - Wikiversity](https://en.wikiversity.org/wiki/Learning_and_neural_networks)
+
+[Hacker's guide to Neural Networks](http://karpathy.github.io/neuralnets/)
+
+:   [Andrej Karpathy Academic Website](http://cs.stanford.edu/people/karpathy/)
+
+    这里有更完整的代码和 materials。
+
+    -   [CS231n Convolutional Neural Networks for Visual Recognition](http://cs231n.github.io/)
+    -   [Stanford University CS231n: Convolutional Neural Networks for Visual Recognition](http://cs231n.stanford.edu/syllabus.html)
+
+    More materials
+
+    -   [Artificial neural network - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Artificial_neural_network)
+    -   [Artificial neural network - Wikipedia, the free encyclopedia](https://en.m.wikipedia.org/wiki/Artificial_neural_network)
+
+    My personal experience with Neural Networks is that everything became much
+    clearer when I started ignoring full-page, dense derivations of
+    backpropagation equations and just started writing code. Thus, this
+    tutorial will contain very little math (I don’t believe it is necessary and
+    it can sometimes even obfuscate simple concepts).
+
+    Chapter 1: Real-valued Circuits
+
+我们刚刚做出了一个艰难的决定
+
+[虎落平阳被犬欺_百度百科](http://baike.baidu.com/link?url=lOXv_2p1NBl2yYFXSwd7myiKBQdjCHe6gB7QUTIeL26gjYPuEWAdnGUQtIFwXCHEJLPufFjzhVqvi-jBy1b90K)

@@ -321,3 +321,21 @@ N.B. 啥意思？：
 -   It is used to draw the attention to a certain aspect.
 
 `<script>document.write("hello")</script>`{.javascript}
+
+[version control - Ignore files that have already been committed to a Git repository - Stack Overflow](http://stackoverflow.com/questions/1139762/ignore-files-that-have-already-been-committed-to-a-git-repository)
+
+再举个例子，我一个平时巨怂的朋友，打球
+
+都是有气无力的，但是有一次他喜欢的妹子在旁边出现的时候，他（打球）突然变得像驴一样凶残（比喻可能不恰当），知道这
+
+个事情的时候，我也很想笑（原谅我笑点低），虽然回头想想，这种事情也是极为合理的。
+
+她并不是讨厌自己发表的那些内容，也不是厌恶那时候的自己，实际上我们都是非常好的
+朋友，她只是不想让那些长篇大论被人看到而已，那其中感情表露的太多了，或许被不相
+干的人看到并不是一件合适的事。
+
+
+
+
+
+

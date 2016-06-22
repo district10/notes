@@ -87,6 +87,17 @@ My fork: [district10/caffe-rc3: Play with caffe.](https://github.com/district10/
                 #       ('ip2', (10,))]
                 ```
 
+                关于卷积层的维度
+
+                :   conv layer
+
+                    -  weights: `(4096, 9216)` -> `[output, input]`
+                    -  biases: `(4096,)` -> `[output]`
+
+                    fc-conv layer
+
+                    -   weights: `(4096, 256, 6, 6)` -> `[output, input, h, w]`
+
             train net & test net
 
             :   ```python
