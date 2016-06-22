@@ -6,4 +6,4 @@ publish/*
 tmp/*
 conf.json
 /sitemap.md
-.ipynb_checkpoints
+.ipynb_checkpoints/
