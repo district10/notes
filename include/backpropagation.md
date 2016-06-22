@@ -1,4 +1,6 @@
-# Principles of training multi-layer neural network using backpropagation
+<!--
+    title: Principles of training multi-layer neural network using backpropagation
+-->
 
 The project describes teaching process of multi-layer neural network employing
 *backpropagation* algorithm. To illustrate this process the three layer neural

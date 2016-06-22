@@ -24,7 +24,7 @@ installation, howto?? see yhlleo's blog post: [Ubuntu14.04 安装CUDA7.5 + Caffe
 
     I'm working on this right now.
 
--   [wiki](wiki.html){title=wiki.md .hide}
+-   [wiki](wiki.html){title=wiki.md}
 
 ## caffe 代码
 
@@ -32,27 +32,78 @@ My fork: [district10/caffe-rc3: Play with caffe.](https://github.com/district10/
 
 :   我注解过的 notebook：^[虽然 GitHub 现在支持显示 `.ipynb` 文件，我还是更喜欢 jupyter 提供的 nbviewer 链接。]
 
-    -   [00-classification.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/00-classification.ipynb){.heart}
+    -   [00-classification.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/00-classification.ipynb){.heart} -<
 
-        ```
-        filters([n,k,h,w])---->transpose(0,2,3,1)---->filters([n,h,w,k])---->feed into----> vis_square
-        ```
+        :   ```
+            filters([n,k,h,w])---->transpose(0,2,3,1)---->filters([n,h,w,k])---->feed into----> vis_square
+            ```
 
-        ```python
-        # the parameters are a list of [weights, biases]
-        filters = net.params['conv1'][0].data
-        vis_square(filters.transpose(0, 2, 3, 1))
-        ```
+            ```python
+            # the parameters are a list of [weights, biases]
+            filters = net.params['conv1'][0].data
+            vis_square(filters.transpose(0, 2, 3, 1))
+            ```
 
-        refer to ...
+            refer to ...
 
-    -   [01-learning-lenet.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/01-learning-lenet.ipynb)
+    -   [01-learning-lenet.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/01-learning-lenet.ipynb){.heart} -<
 
         :   null.
 
-            关于维度的操作。（详见 notebook。） -<
+            blobs and params -<
 
-            :   显示所有的 filters。4 行 5 列：
+            :   `blob = {data, diff}`, shape: (batch size, feature dim, spatial dim)
+
+                ```python
+                # each output is (batch size, feature dim, spatial dim)
+                [(k, v.data.shape) for k, v in solver.net.blobs.items()]
+
+                #       [('data', (64, 1, 28, 28)),
+                #        ('label', (64,)),
+                #        ('conv1', (64, 20, 24, 24)),
+                #        ('pool1', (64, 20, 12, 12)),
+                #        ('conv2', (64, 50, 8, 8)),
+                #        ('pool2', (64, 50, 4, 4)),
+                #        ('ip1', (64, 500)),
+                #        ('ip2', (64, 10)),
+                #        ('loss', ())]
+                ```
+
+                `params = [weights, biases]`
+
+                ```python
+                # weights
+                [(k, v[0].data.shape) for k, v in solver.net.params.items()]
+                #       [('conv1', (20, 1, 5, 5)),
+                #        ('conv2', (50, 20, 5, 5)),
+                #        ('ip1', (500, 800)),
+                #        ('ip2', (10, 500))]
+
+                # biases
+                [(k, v[1].data.shape) for k, v in solver.net.params.items()]
+                #       [('conv1', (20,)),
+                #       ('conv2', (50,)),
+                #       ('ip1', (500,)),
+                #       ('ip2', (10,))]
+                ```
+
+            train net & test net
+
+            :   ```python
+                # train net
+                solver.net.forward()
+
+                # test net (there can be more than one)
+                solver.test_nets[0].forward()
+                #       {'loss': array(2.4466583728790283, dtype=float32)}
+                ```
+
+            维度的操作 -<
+
+            :   这部分你需要理解如下的维度操作：`[n, k, h, w]` -> `[n, k=1, h, w]`
+                -> `[n1, n2, h, w]` -> `[n1, h, n2, w]`，具体的解释可以参考我的 notebook。
+
+                显示所有的 filters（共 20 filters）。4 行 5 列：
 
                 ```python
                 imshow(solver.net.params['conv1'][0].diff[:, 0].reshape(4, 5, 5, 5)
@@ -85,9 +136,11 @@ My fork: [district10/caffe-rc3: Play with caffe.](https://github.com/district10/
 
     -   [net_surgery.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/net_surgery.ipynb)
 
-    -   [detection.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/detection.ipynb)
+    -   [detection.ipynb](http://nbviewer.jupyter.org/github/district10/caffe-rc3/blob/master/examples/detection.ipynb) -<
 
-        Let's run detection on an image of a bicyclist riding a fish bike in the desert (from the ImageNet challenge—no joke).
+        :   Let's run detection on an image of a bicyclist riding a fish bike in the desert (from the ImageNet challenge—no joke).
+
+            这个例子跑不起来了。
 
 ---
 
@@ -160,4 +213,4 @@ My fork: [district10/hed](https://github.com/district10/hed)
 
 -   [ml intro](ml-index.html){.heart title=ml-index.md}
 
--   [backpropagation](backpropagation.html){.heart .featured title=backpropagation.md}
+-   [Principles of training multi-layer neural network using backpropagation](backpropagation.html){.heart .featured title=backpropagation.md}

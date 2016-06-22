@@ -1,3 +1,9 @@
+---
+title: Principles of training multi-layer neural network using backpropagation
+...
+
+# Principles of training multi-layer neural network using backpropagation
+
 @include <-=include/backpropagation.md=
 
 ---

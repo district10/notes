@@ -10,6 +10,10 @@ tags:
 Machine Learning
 ================
 
+Featured links
+
+-   [Principles of training multi-layer neural network using backpropagation](backpropagation.html){.heart .featured title=backpropagation.md}
+
 网上看到一句很蛋疼的话：
 
 >   已经很久没看 lstm 了, 很多这方面的工作已经不了解了诶。
@@ -1838,3 +1842,5 @@ Rectifier (neural networks) -<
 [Minimum distance estimation - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Minimum_distance_estimation)
 
 [余凯在清华的讲座笔记 - huangbo10 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/huangbo10/article/details/22944007)
+
+[Learning and neural networks - Wikiversity](https://en.wikiversity.org/wiki/Learning_and_neural_networks)

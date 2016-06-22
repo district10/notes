@@ -269,7 +269,7 @@
 
                 `然后下面讲了不同 solver 使用的方法（一堆数学公式），以后再细看。`{.todo}
 
-                `caffe-rc3/docs/tutorial/solver.md`
+                `@`{.hide title=d:/tzx/git/caffe-rc3/docs/tutorial/solver.md}
 
                 The solver methods address the general optimization problem of loss minimization.
                 For dataset $D$, the optimization objective is the average
@@ -294,7 +294,272 @@
                 the error gradient $\nabla f_W$, the regularization gradient
                 $\nabla r(W)$, and other particulars to each method.
 
-        +   [Layer Catalogue](http://caffe.berkeleyvision.org/tutorial/layers.html): the layer is the fundamental unit of modeling and computation – Caffe’s catalogue includes layers for state-of-the-art models.  -<
+                Methods:
+
+                :   -   SGD -<
+
+                        :   **Stochastic gradient descent** (`type: "SGD"`) updates
+                            the weights $W$ by a linear combination of the negative
+                            gradient $\nabla L(W)$ and the previous weight update
+                            $V_t$. The **learning rate** $\alpha$ is the weight of
+                            the negative gradient.  The **momentum** $\mu$ is the
+                            weight of the previous update.
+
+                            Formally, we have the following formulas to compute the
+                            update value $ V_{t+1} $ and the updated weights $
+                            W_{t+1} $ at iteration $ t+1 $, given the previous
+                            weight update $ V_t $ and current weights $ W_t $:
+
+                            $$
+                                V_{t+1} = \mu V_t - \alpha \nabla L(W_t)
+                            $$
+
+                            $$
+                                W_{t+1} = W_t + V_{t+1}
+                            $$
+
+                            The learning "hyperparameters" ($\alpha$ and $\mu$)
+                            might require a bit of tuning for best results.  If
+                            you're not sure where to start, take a look at the
+                            "Rules of thumb" below, and for further information you
+                            might refer to Leon Bottou's [Stochastic Gradient
+                            Descent Tricks](http://research.microsoft.com/pubs/192769/tricks-2012.pdf).
+
+                            学习率可以先设置为 α ≈ 0.01，然后慢慢降低。$\mu$ 可以设置为 0.9。
+
+                            By smoothing the weight updates across iterations,
+                            momentum tends to make deep learning with SGD both
+                            stabler and faster.
+
+                            ```
+                            base_lr: 0.01     # 初始 lr
+
+                            lr_policy: "step" # 阶段下降。drop the learning rate in "steps"
+                                              # by a factor of gamma every stepsize iterations
+
+                            gamma: 0.1        # 每个 step 降低到原来的 0.1
+
+                            stepsize: 100000  # 每 100, 000 阶梯下降一次
+
+                            max_iter: 350000  # train for 350K iterations total
+
+                            momentum: 0.9
+                            ```
+
+                            Note that the momentum setting $\mu$ effectively
+                            multiplies the size of your updates by a factor of
+                            $\frac{1}{1 - \mu}$ after many iterations of training,
+                            so if you increase $\mu$, it may be a good idea to
+                            **decrease** $\alpha$ accordingly (and vice versa).
+
+                            For example, with $\mu = 0.9$, we have an effective
+                            update size multiplier of $\frac{1}{1 - 0.9} = 10$.
+                            If we increased the momentum to $\mu = 0.99$, we've
+                            increased our update size multiplier to 100, so we
+                            should drop $\alpha$ (`base_lr`) by a factor of 10.
+
+                    -   AdaDelta -<
+
+                        :   The **AdaDelta** (`type: "AdaDelta"`) method (M.
+                            Zeiler) is a "robust learning rate method". It is a
+                            gradient-based optimization method (like SGD). The
+                            update formulas are
+
+                            $$
+                                \begin{align}
+                                    (v_t)_i &=
+                                        \frac{\operatorname{RMS}((v_{t-1})_i)}{\operatorname{RMS}\left(
+                                        \nabla L(W_t) \right)_{i}} \left( \nabla L(W_{t'})
+                                        \right)_i \\
+                                    \operatorname{RMS}\left( \nabla L(W_t) \right)_{i} &=
+                                        \sqrt{E[g^2] + \varepsilon} \\
+                                    E[g^2]_t &=
+                                        \delta{E[g^2]_{t-1} } + (1-\delta)g_{t}^2
+                                \end{align}
+                            $$
+
+                            and
+
+                            $$
+                                (W_{t+1})_i = (W_t)_i - \alpha (v_t)_i.
+                            $$
+
+                    -   AdaGrad -<
+
+                        :   The **adaptive gradient** (`type: "AdaGrad"`) method
+                            (Duchi et al.) is a gradient-based optimization method
+                            (like SGD) that attempts to "find needles in haystacks
+                            in the form of very predictive but rarely seen
+                            features," in Duchi et al.'s words.
+
+                            Given the update information from all previous
+                            iterations $$ \left( \nabla L(W) \right)_{t'} $$ for $$
+                            t' \in \{1, 2, ..., t\} $$,
+                            the update formulas proposed by  are as follows, specified for each component $$i$$ of the weights $$W$$:
+
+                            $$
+                            (W_{t+1})_i =
+                            (W_t)_i - \alpha
+                            \frac{\left( \nabla L(W_t) \right)_{i}}{
+                                \sqrt{\sum_{t'=1}^{t} \left( \nabla L(W_{t'}) \right)_i^2}
+                            }
+                            $$
+
+                    -   Adam -<
+
+                        :   like SGD.
+
+                    -   NAG -<
+
+                        :   Nesterov’s accelerated gradient
+
+                    -   RMSprop
+
+                        :   like SGD.
+
+                Scaffolding:
+
+                :   -   The solver scaffolding prepares the optimization method and initializes the model to be learned in `Solver::Presolve()`{.cpp}. -<
+
+                        :   ```bash
+                            >>> caffe train -solver examples/mnist/lenet_solver.prototxt
+                            I0902 13:35:56.474978 16020 caffe.cpp:90] Starting Optimization
+                            I0902 13:35:56.475190 16020 solver.cpp:32] Initializing solver from parameters:
+                            test_iter: 100
+                            test_interval: 500
+                            base_lr: 0.01
+                            display: 100
+                            max_iter: 10000
+                            lr_policy: "inv"
+                            gamma: 0.0001
+                            power: 0.75
+                            momentum: 0.9
+                            weight_decay: 0.0005
+                            snapshot: 5000
+                            snapshot_prefix: "examples/mnist/lenet"
+                            solver_mode: GPU
+                            net: "examples/mnist/lenet_train_test.prototxt"
+                            ```
+
+                    -   Net initialization -<
+
+                        :   ```bash
+                            I0902 13:35:56.655681 16020 solver.cpp:72] Creating training net from net file: examples/mnist/lenet_train_test.prototxt
+                            [...]
+                            I0902 13:35:56.656740 16020 net.cpp:56] Memory required for data: 0
+                            I0902 13:35:56.656791 16020 net.cpp:67] Creating Layer mnist
+                            I0902 13:35:56.656811 16020 net.cpp:356] mnist -> data
+                            I0902 13:35:56.656846 16020 net.cpp:356] mnist -> label
+                            I0902 13:35:56.656874 16020 net.cpp:96] Setting up mnist
+                            I0902 13:35:56.694052 16020 data_layer.cpp:135] Opening lmdb examples/mnist/mnist_train_lmdb
+                            I0902 13:35:56.701062 16020 data_layer.cpp:195] output data size: 64,1,28,28
+                            I0902 13:35:56.701146 16020 data_layer.cpp:236] Initializing prefetch
+                            I0902 13:35:56.701196 16020 data_layer.cpp:238] Prefetch initialized.
+                            I0902 13:35:56.701212 16020 net.cpp:103] Top shape: 64 1 28 28 (50176)
+                            I0902 13:35:56.701230 16020 net.cpp:103] Top shape: 64 1 1 1 (64)
+                            [...]
+                            I0902 13:35:56.703737 16020 net.cpp:67] Creating Layer ip1
+                            I0902 13:35:56.703753 16020 net.cpp:394] ip1 <- pool2
+                            I0902 13:35:56.703778 16020 net.cpp:356] ip1 -> ip1
+                            I0902 13:35:56.703797 16020 net.cpp:96] Setting up ip1
+                            I0902 13:35:56.728127 16020 net.cpp:103] Top shape: 64 500 1 1 (32000)
+                            I0902 13:35:56.728142 16020 net.cpp:113] Memory required for data: 5039360
+                            I0902 13:35:56.728175 16020 net.cpp:67] Creating Layer relu1
+                            I0902 13:35:56.728194 16020 net.cpp:394] relu1 <- ip1
+                            I0902 13:35:56.728219 16020 net.cpp:345] relu1 -> ip1 (in-place)
+                            I0902 13:35:56.728240 16020 net.cpp:96] Setting up relu1
+                            I0902 13:35:56.728256 16020 net.cpp:103] Top shape: 64 500 1 1 (32000)
+                            I0902 13:35:56.728270 16020 net.cpp:113] Memory required for data: 5167360
+                            I0902 13:35:56.728287 16020 net.cpp:67] Creating Layer ip2
+                            I0902 13:35:56.728304 16020 net.cpp:394] ip2 <- ip1
+                            I0902 13:35:56.728333 16020 net.cpp:356] ip2 -> ip2
+                            I0902 13:35:56.728356 16020 net.cpp:96] Setting up ip2
+                            I0902 13:35:56.728690 16020 net.cpp:103] Top shape: 64 10 1 1 (640)
+                            I0902 13:35:56.728705 16020 net.cpp:113] Memory required for data: 5169920
+                            I0902 13:35:56.728734 16020 net.cpp:67] Creating Layer loss
+                            I0902 13:35:56.728747 16020 net.cpp:394] loss <- ip2
+                            I0902 13:35:56.728767 16020 net.cpp:394] loss <- label
+                            I0902 13:35:56.728786 16020 net.cpp:356] loss -> loss
+                            I0902 13:35:56.728811 16020 net.cpp:96] Setting up loss
+                            I0902 13:35:56.728837 16020 net.cpp:103] Top shape: 1 1 1 1 (1)
+                            I0902 13:35:56.728849 16020 net.cpp:109]     with loss weight 1
+                            I0902 13:35:56.728878 16020 net.cpp:113] Memory required for data: 5169924
+                            ```
+
+                    -   Loss -<
+
+                        :   ```bash
+                            I0902 13:35:56.728893 16020 net.cpp:170] loss needs backward computation.
+                            I0902 13:35:56.728909 16020 net.cpp:170] ip2 needs backward computation.
+                            I0902 13:35:56.728924 16020 net.cpp:170] relu1 needs backward computation.
+                            I0902 13:35:56.728938 16020 net.cpp:170] ip1 needs backward computation.
+                            I0902 13:35:56.728953 16020 net.cpp:170] pool2 needs backward computation.
+                            I0902 13:35:56.728970 16020 net.cpp:170] conv2 needs backward computation.
+                            I0902 13:35:56.728984 16020 net.cpp:170] pool1 needs backward computation.
+                            I0902 13:35:56.728998 16020 net.cpp:170] conv1 needs backward computation.
+                            I0902 13:35:56.729014 16020 net.cpp:172] mnist does not need backward computation.
+                            I0902 13:35:56.729027 16020 net.cpp:208] This network produces output loss
+                            I0902 13:35:56.729053 16020 net.cpp:467] Collecting Learning Rate and Weight Decay.
+                            I0902 13:35:56.729071 16020 net.cpp:219] Network initialization done.
+                            I0902 13:35:56.729085 16020 net.cpp:220] Memory required for data: 5169924
+                            I0902 13:35:56.729277 16020 solver.cpp:156] Creating test net (#0) specified by net file: examples/mnist/lenet_train_test.prototxt
+                            ```
+
+                    -   Completion -<
+
+                        :   ```
+                            I0902 13:35:56.806970 16020 solver.cpp:46] Solver scaffolding done.
+                            I0902 13:35:56.806984 16020 solver.cpp:165] Solving LeNet
+                            ```
+
+                Updating Parameters:
+
+                :   权重的更新（weight update）是 solver 提交给的 net，调用的函数是
+                    `Solver::ComputeUpdateValue()`。
+
+                    The `ComputeUpdateValue` method incorporates any weight
+                    decay $$ r(W) $$ into the weight gradients (which currently
+                    just contain the error gradients) to get the final gradient
+                    with respect to each network weight.  Then these gradients
+                    are scaled by the learning rate $$ \alpha $$ and the update
+                    to subtract is stored in each parameter Blob's `diff`
+                    field.  Finally, the `Blob::Update` method is called on
+                    each parameter blob, which performs the final update
+                    (subtracting the Blob's `diff` from its `data`).
+
+                Snapshotting and Resuming: -<
+
+                :   The solver snapshots the **weights** and **its own state** during
+                    training in `Solver::Snapshot()`{.cpp} and
+                    `Solver::SnapshotSolverState()`{.cpp}. The weight snapshots export
+                    the learned model while the solver snapshots allow training
+                    to be resumed from a given point. Training is resumed by
+                    `Solver::Restore()`{.cpp} and `Solver::RestoreSolverState()`{.cpp}.
+
+                    Weights are saved without extension while solver states are
+                    saved with `.solverstate` extension. Both files will have an
+                    `_iter_N` suffix for the snapshot iteration number.
+
+                    Snapshotting is configured by:
+
+                    ```
+                    # The snapshot interval in iterations.
+                    snapshot: 5000
+                    # File path prefix for snapshotting model weights and solver state.
+                    # Note: this is relative to the invocation of the `caffe` utility, not the
+                    # solver definition file.
+                    snapshot_prefix: "/path/to/model"
+                    # Snapshot the diff along with the weights. This can help debugging training
+                    # but takes more storage.
+                    snapshot_diff: false
+                    # A final snapshot is saved at the end of training unless
+                    # this flag is set to false. The default is true.
+                    snapshot_after_train: true
+                    ```
+
+                    in the solver definition prototxt.
+
+        +   [Layer Catalogue](http://caffe.berkeleyvision.org/tutorial/layers.html): the layer is the fundamental unit of modeling and computation – Caffe’s catalogue includes layers for state-of-the-art models. -<
 
             :   这里讲得很详细，介绍了每个层有哪些 required 参数，有哪些 optional 参数。
                 头文件，以及 CPU/GPU 实现的文件。

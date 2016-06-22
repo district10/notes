@@ -319,3 +319,5 @@ N.B. 啥意思？：
 
 -   Derived from the Latin (and italian) nota bene, meaning note well (take notice).：
 -   It is used to draw the attention to a certain aspect.
+
+`<script>document.write("hello")</script>`{.javascript}

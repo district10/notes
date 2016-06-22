@@ -271,18 +271,24 @@ P.S. 如果你想看本文源码，请访问：
 
 **examples**
 
-**`@include <-=include/poem-snow-chairman-mao.txt=`** +<
+**`@include <-=include/poem-snow-chairman-mao.txt=`**
 
-:   @include <-=include/poem-snow-chairman-mao.txt=
+@include <-=include/poem-snow-chairman-mao.txt=
 
-**`@include <-|   =include/poem-snow-chairman-mao.txt=`** +<
+**`@include <-|   =include/poem-snow-chairman-mao.txt=`**
 
-:   @include <-|   =include/poem-snow-chairman-mao.txt=
+@include <-|   =include/poem-snow-chairman-mao.txt=
 
-**`@include <--   =include/poem-snow-chairman-mao.txt=`** +<
+**`@include <--   =include/poem-snow-chairman-mao.txt=`**
 
-:   @include <--   =include/poem-snow-chairman-mao.txt=
+@include <--   =include/poem-snow-chairman-mao.txt=
 
-**`    @include <--   =include/poem-snow-chairman-mao.txt=`** +<
+**`    @include <--   =include/poem-snow-chairman-mao.txt=`**
 
-:   @include <--   =include/poem-snow-chairman-mao.txt=
+    @include <--   =include/poem-snow-chairman-mao.txt=
+
+## emojis
+
+@include <-=include/emojis.md=
+
+<span title=":yum:" alt=":yum:">:yum:</span>
