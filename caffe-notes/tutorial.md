@@ -96,8 +96,6 @@
                 and hinge. See the layer catalogue for all operations. Most of the
                 types needed for state-of-the-art deep learning tasks are there.
 
-                ![A layer takes input through bottom connections and makes output through top connections.](http://caffe.berkeleyvision.org/tutorial/fig/layer.jpg){.hide}
-
                 每个 layer 有三种重要的计算：setup，forward 和 backward。
 
                 -   setup 是初始化时候用的，初始化 layer 以及 layer 的连接。只会调用一次。
@@ -114,9 +112,6 @@
                 and to the inputs, which are in turn back-propagated to earlier layers.
                 These passes are simply the composition of each layer’s forward and
                 backward.
-
-
-                ![](http://caffe.berkeleyvision.org/tutorial/fig/logreg.jpg)
 
                 网就是一个 DAG（有向无环图） -<
 
@@ -170,8 +165,13 @@
         +   [Forward / Backward](http://caffe.berkeleyvision.org/tutorial/forward_backward.html): the essential computations of layered compositional models. -<
 
             :   ![](http://caffe.berkeleyvision.org/tutorial/fig/forward_backward.png){width=30%}
-                ![](http://caffe.berkeleyvision.org/tutorial/fig/forward.jpg){width=30% id="here"}
+                ![](http://caffe.berkeleyvision.org/tutorial/fig/forward.jpg){width=30%}
                 ![](http://caffe.berkeleyvision.org/tutorial/fig/backward.jpg){width=30%}
+
+                espresso, `[eˈspresəʊ]`, n.浓咖啡；一杯浓咖啡
+
+                关于反向传播，强烈推荐这篇文章：
+                [Principles of training multi-layer neural network using backpropagation](backpropobation.html){.featured .heart title=backpropobation.md}
 
                 These computations follow immediately from defining the model: Caffe
                 plans and carries out the forward and backward passes for you.
@@ -301,7 +301,12 @@
 
                 [caffe.proto](https://github.com/district10/caffe-rc3/blob/master/src/caffe/proto/caffe.proto) -<
 
-                :   ```bash
+                :   所有的 layers 都定义在
+                    [caffe:/src/caffe/layers](https://github.com/district10/caffe-rc3/tree/master/src/caffe/layers)。
+
+                    my noteed source code: [include/caffe-annotated.md](caffe-annotated.html){title=caffe-annotated.md}
+
+                    ```bash
                     # cd $CAFFE_ROOT
 
                     >>> ls src/caffe/layers/*loss*.cpp
@@ -323,7 +328,7 @@
 
                 *   Vision Layers
 
-                    输入的是三维的 w*h*c 的图片，输出一个一维的 w*h*c 的
+                    输入的是三维的 `w*h*c` 的图片，输出一个一维的 `w*h*c` 的
                     big vector。
 
                     **ignore the spatial structure of the input**
@@ -601,5 +606,6 @@
 
 refs and see also
 
--   [caffe/caffe.proto at master · BVLC/caffe](https://github.com/BVLC/caffe/blob/master/src/caffe/proto/caffe.proto)
+-   [caffe/caffe.proto at master · BVLC/caffe](https://github.com/BVLC/caffe/blob/master/src/caffe/proto/caffe.proto){.heart}
 -   [Caffe | Feature extraction with Caffe C++ code.](http://caffe.berkeleyvision.org/gathered/examples/feature_extraction.html)
+-   [caffe 学习 (2)——基本原理 - dongbeidami - 博客园](http://www.cnblogs.com/wm123/p/5462728.html)

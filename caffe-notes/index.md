@@ -18,6 +18,8 @@ installation, howto?? see yhlleo's blog post: [Ubuntu14.04 安装CUDA7.5 + Caffe
 
 -   [protobuf](protobuf.html){title=protobuf.md}
 
+-   [annotated caffe source code](caffe-annotated.html){.heart .featured title=caffe-annotated.md}
+
 -   [暂未归类笔记](misc.html){.flag title=misc.md}
 
     I'm working on this right now.

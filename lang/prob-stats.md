@@ -5,14 +5,16 @@
 
 TODO: -<
 
-  - 《统计学习方法》
-
-    +   [k-d tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Kd-tree)
-    +   cart: classification and regression tree;, gini index
+:   -   《统计学习方法》
+    -   [k-d tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Kd-tree)
+    -   cart: classification and regression tree;, gini index
 
 MISC Notes -<
 
-:   -   说 chi-squared 和 chi-square，都可以, 维基上是 chi-squared，用这个比较好。
+:   -   一个分布有 mean，一个随机变量有 ev。如果这个随机变量 rv 分布为 x，则 rv
+        的 ev 就是 x 的 mean。
+
+    -   说 chi-squared 和 chi-square，都可以, 维基上是 chi-squared，用这个比较好。
 
     -   全概率：原因 -> 结果
 
@@ -663,9 +665,6 @@ Bernoulli distribution 伯努利分布 -<
     PGF                   $q+pz\,$
     Fisher information    $\frac{1}{p(1-p)}$
     -------------------   ---------------------------------------------------------------------------------
-
-一个分布有 mean，一个随机变量有 ev。如果这个随机变量 rv 分布为 x，则 rv 的
-ev 就是 x 的 mean。
 
 Binomial distribution 二项分布 -<
 
