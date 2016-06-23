@@ -324,18 +324,35 @@ N.B. 啥意思？：
 
 [version control - Ignore files that have already been committed to a Git repository - Stack Overflow](http://stackoverflow.com/questions/1139762/ignore-files-that-have-already-been-committed-to-a-git-repository)
 
-再举个例子，我一个平时巨怂的朋友，打球
-
-都是有气无力的，但是有一次他喜欢的妹子在旁边出现的时候，他（打球）突然变得像驴一样凶残（比喻可能不恰当），知道这
-
-个事情的时候，我也很想笑（原谅我笑点低），虽然回头想想，这种事情也是极为合理的。
+再举个例子，我一个平时巨怂的朋友，打球都是有气无力的，但是有一次他喜欢的妹子在
+旁边出现的时候，他（打球）突然变得像驴一样凶残（比喻可能不恰当），知道这个事情
+的时候，我也很想笑（原谅我笑点低），虽然回头想想，这种事情也是极为合理的。
 
 她并不是讨厌自己发表的那些内容，也不是厌恶那时候的自己，实际上我们都是非常好的
 朋友，她只是不想让那些长篇大论被人看到而已，那其中感情表露的太多了，或许被不相
 干的人看到并不是一件合适的事。
 
+![CDN gif](https://uploads.intercomcdn.com/i/o/4605475/2bef99bad4fbcb44d6f90df2/load-time-animation.gif)
 
+[Use the full MathJax configuration to maximize loading speed by ickc · Pull Request #2908 · jgm/pandoc](https://github.com/jgm/pandoc/pull/2908)
 
+:   ```html
+    $if(math)$
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+    $endif$
+    <!--
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+    -->
+    ```
 
+    -   Sounds like a good idea.
 
+        PS. In the future, please rebase the PRs so that they don't have merge commits. It makes it easier to see what's going on later.
 
+    -   Thanks for letting me know. Sorry for the ignorance.
+
+    -   No, problem, thanks for the contribution!
+
+我们刚刚做出了一个艰难的决定
+
+[虎落平阳被犬欺_百度百科](http://baike.baidu.com/link?url=lOXv_2p1NBl2yYFXSwd7myiKBQdjCHe6gB7QUTIeL26gjYPuEWAdnGUQtIFwXCHEJLPufFjzhVqvi-jBy1b90K)
