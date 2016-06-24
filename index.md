@@ -30,3 +30,5 @@ nothing special.
 -   [历史笔记 5](2016/history5.html){title=2016/history5.md}
 -   [历史笔记 6](2016/history6.html){title=2016/history6.md}
 -   [历史笔记 7](2016/history7.html){title=2016/history7.md}
+
+`start demo.png`

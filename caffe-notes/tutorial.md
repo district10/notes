@@ -239,7 +239,32 @@
 
         +   [Solver](caffe.berkeleyvision.org/tutorial/solver.html): the solver coordinates model optimization. -<
 
-            :   -   Stochastic Gradient Descent (type: `SGD`),
+            :   一个例子：
+
+                ```
+                net: "train_val.prototxt"           # 指定网络结构，这个文件有各种 layer 的设定，
+                                                    # 以及 `name: "net name"`
+                test_iter: 0
+                test_interval: 1000000
+                # lr for fine-tuning should be lower than when starting from scratch
+                #debug_info: true
+                base_lr: 0.000001
+                lr_policy: "step"
+                gamma: 0.1
+                iter_size: 10
+                # stepsize should also be lower, as we're closer to being done
+                stepsize: 10000
+                display: 20
+                max_iter: 30001
+                momentum: 0.9
+                weight_decay: 0.0002
+                snapshot: 1000
+                snapshot_prefix: "hed"
+                # uncomment the following to default to CPU mode solving
+                # solver_mode: CPU
+                ```
+
+                -   Stochastic Gradient Descent (type: `SGD`),
                 -   AdaDelta (type: `AdaDelta`),
                 -   Adaptive Gradient (type: `AdaGrad`),
                 -   Adam (type: `Adam`),
@@ -417,7 +442,7 @@
 
                         :   like SGD.
 
-                Scaffolding:
+                `Scaffolding`{.heart} -<
 
                 :   -   The solver scaffolding prepares the optimization method and initializes the model to be learned in `Solver::Presolve()`{.cpp}. -<
 
@@ -749,23 +774,117 @@
 
                     *   Common Layers -<
 
-                        :   -   Inner Product, `InnerProduct`
+                        :   -   Inner Product, `InnerProduct` -<
 
-                                The InnerProduct layer (also usually referred to as the fully connected
-                                layer) treats the input as a simple vector and produces an output in
-                                the form of a single vector (with the blob’s height and width set to
-                                1).
+                                :   The InnerProduct layer (also usually referred to as the fully connected
+                                    layer) treats the input as a simple vector and produces an output in
+                                    the form of a single vector (with the blob’s height and width set to
+                                    1).
 
-                            -   Splitting, `Split`
-                            -   Flattening, `Flatten`
-                            -   Reshape, `Reshape`
+                                    sig: `[ n * c_i * h_i * w_i ]` -> `[n * c_o * 1 * 1]`
 
-                                As another example, specifying `reshape_param { shape { dim: 0 dim: -1 } }`
-                                makes the layer behave in exactly the same way as the Flatten
-                                layer.
+                                    ```
+                                    layer {
+                                      name: "fc8"
+                                      type: "InnerProduct"
+                                      # learning rate and decay multipliers for the weights
+                                      param { lr_mult: 1 decay_mult: 1 }
+                                      # learning rate and decay multipliers for the biases
+                                      param { lr_mult: 2 decay_mult: 0 }
+                                      inner_product_param {
+                                        num_output: 1000
+                                        weight_filler {
+                                          type: "gaussian"
+                                          std: 0.01
+                                        }
+                                        bias_filler {
+                                          type: "constant"
+                                          value: 0
+                                        }
+                                      }
+                                      bottom: "fc7"
+                                      top: "fc8"
+                                    }
+                                    ```
 
-                            -   Concatenation, `Concat`
-                            -   Slicing
+                                    简单的说，对 ip 层而言，所有的 feature 都看成一串数字（`c*h*w`），
+                                    ip 层的任务是学习 `c_o` 个同样大小（`c*h*w`）的权重。
+
+                            -   Splitting, `Split` -<
+
+                                :   就是 split 咯。
+
+                            -   Flattening, `Flatten` -<
+
+                                :   sig: `[n * c * h * w]` -> `[n * (c*h*w)]`
+
+                            -   Reshape, `Reshape` -<
+
+                                :   As another example, specifying `reshape_param { shape { dim: 0 dim: -1 } }`
+                                    makes the layer behave in exactly the same way as the Flatten
+                                    layer.
+
+                                    ```
+                                    layer {
+                                    name: "reshape"
+                                    type: "Reshape"
+                                    bottom: "input"
+                                    top: "output"
+                                    reshape_param {
+                                      shape {
+                                        dim: 0  # copy the dimension from below
+                                        dim: 2
+                                        dim: 3
+                                        dim: -1 # infer it from the other dimensions
+                                      }
+                                    }
+                                    }
+                                    ```
+
+                            -   Concatenation, `Concat` -<
+
+                                :   可以用来把好几个 bottom 的数据合起来。
+
+                                    -   `axis`, {0, 1}, 0 for n, 1 for c.
+                                    -   `[n_i * c_i * h * w]`
+                                    -   如果 c 都一样，而且 axis = 0: 就把所有
+                                        都数据串联起来，输出为：`[(n_1 + n_2 + ... + n_K) * c_1 * h * w]`
+                                    -   如果 n 都一样，而且 axis = 1：就把每组
+                                        数据的 c 个 feature 串联起来，输出为：
+                                        `[n_1 * (c_1 + c_2 + ... + c_K) * h * w]`
+
+                                    ```
+                                    layer {
+                                      name: "concat"
+                                      bottom: "in1"
+                                      bottom: "in2"
+                                      top: "out"
+                                      type: "Concat"
+                                      concat_param {
+                                        axis: 1 # 把 feature 合起来，n 不变。
+                                      }
+                                    }
+                                    ```
+
+                            -   Slicing -<
+
+                                :   ```
+                                    layer {
+                                      name: "slicer_label"
+                                      type: "Slice"
+                                      bottom: "label"
+                                      ## Example of label with a shape N x 3 x 1 x 1
+                                      top: "label1"
+                                      top: "label2"
+                                      top: "label3"
+                                      slice_param {
+                                        axis: 1
+                                        slice_point: 1
+                                        slice_point: 2
+                                      }
+                                    }
+                                    ```
+
                             -   Elementwise Operations
                             -   ArgMax
                             -   SoftMax

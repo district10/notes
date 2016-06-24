@@ -366,3 +366,27 @@ N.B. 啥意思？：
 417.6 毫米，山区 600 毫米左右；塔城盆地 342.7 毫米，山区 400 毫米左右；阿勒泰山
 区 202.6 毫米；其余地区 100-200 毫米。年平均日照时数：伊犁河谷 2898.4 小时；塔
 城地区 2714.7 小时；阿勒泰地区 2976.8 小时。
+
+[理科 557 分！文科 547 分！他们是怎么考出来的啊？！](http://mp.weixin.qq.com/s?__biz=MzA5NTIyODgzOQ==&mid=2650182788&idx=1&sn=753ed9dad821699e1ace978de1f4fe87&scene=23&srcid=0623ZbnnnkDNhH7ADA1syfok#rd)
+
+[deep learning - Building custom Caffe layer in python - Stack Overflow](http://stackoverflow.com/questions/33778225/building-custom-caffe-layer-in-python)
+
+[ipython notebook - Cheat sheet for caffe / pycaffe? - Stack Overflow](http://stackoverflow.com/questions/32379878/cheat-sheet-for-caffe-pycaffe)
+
+ caffe train -solver models/finetune_flickr_style/solver.prototxt
+-weights bvlc_reference_caffenet.caffemodel
+
+pretrained_net = caffe.Net(
+"net.prototxt", "net.caffemodel")
+solver = caffe.SGDSolver("solver.prototxt")
+solver.net.copy_from(pretrained_net)
+solver.solve()
+
+transferability
+n.〔物〕可转换性；可转移性
+of features.
+
+提示：因优酷官方禁止下载，目前已停止了优酷视频解析支持，请理解，您可以优先从其
+他视频网站找资源下载。
+
+[torrvision/crfasrnn: This repository contains the source code for the semantic image segmentation method described in the ICCV 2015 paper: Conditional Random Fields as Recurrent Neural Networks. http://crfasrnn.torr.vision/](https://github.com/torrvision/crfasrnn)

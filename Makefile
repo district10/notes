@@ -25,7 +25,7 @@ clean:
 include:
 	make -C include
 gh:
-	git add -A; git commit -m "`uname` -- `date`"; git push;
+	git add -A; git commit -m "`uname`"; git push;
 
 publish/index.html: index.md
 	@mkdir -p $(@D)
