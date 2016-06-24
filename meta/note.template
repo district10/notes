@@ -11,12 +11,13 @@
     <link rel="stylesheet" href="$if(NOTBASE)$../$endif$highlight.css" type="text/css" />
     <link rel="stylesheet" href="$if(NOTBASE)$../$endif$notes.css" type="text/css" />
 $if(math)$
-    <script src="//cdn.bootcss.com/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+    <script src="http://whudoc.qiniudn.com/2016/MathJax-2.5-latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 $endif$
 <!--
-    before: <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-    new: <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
-    //cdn.bootcss.com/mathjax/2.6.1/MathJax.js
+    options:
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+        <script src="//cdn.bootcss.com/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 -->
 </head>
 <body class="markdown-body">

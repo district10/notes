@@ -1,6 +1,6 @@
 ## [Caffe | Caffe Tutorial](http://caffe.berkeleyvision.org/tutorial/)
 
--   Philosophy +<
+-   Philosophy -<
 
     :   In one sip, Caffe is brewed for
 
@@ -591,118 +591,185 @@
                     src/caffe/layers/softmax_loss_layer.cu
                     ```
 
-                *   Vision Layers
+                `@`{.hide title=D:/tzx/git/caffe-rc3/docs/tutorial/layers.md}
 
-                    输入的是三维的 `w*h*c` 的图片，输出一个一维的 `w*h*c` 的
-                    big vector。
+                所有的 layers -<
 
-                    **ignore the spatial structure of the input**
+                :   *   Vision Layers -<
 
-                    -   卷积层, `Convolution`
+                        :   输入的是三维的 `w*h*c` 的图片，输出一个一维的 `w*h*c` 的
+                            big vector。
 
-                        implemetaion +<
+                            **ignore the spatial structure of the input**
 
-                        +   /src/caffe/layers/convolution_layer.cpp
-                        +   /src/caffe/layers/convolution_layer.cpp
+                            -   卷积层, `Convolution` -<
 
-                    -   池化层, `Pooling`
+                                :   implemetaion
 
-                        池化方法有 MAX, AVE, or STOCHASTIC
+                                    +   /src/caffe/layers/convolution_layer.cpp
+                                    +   /src/caffe/layers/convolution_layer.cpp
 
-                    -   Local Response Normalization, `LRN`
+                                    sig: `[n * c_i * h_i * w_i]` -> `[n * c_o * h_o * w_o]`,
 
-                        The local response normalization layer performs a kind of “lateral
-                        inhibition” by normalizing over local input regions. In ACROSS_CHANNELS
-                        mode, the local regions extend across nearby channels, but have no
-                        spatial extent (i.e., they have shape local_size x 1 x 1). In
-                        WITHIN_CHANNEL mode, the local regions extend spatially, but are in
-                        separate channels (i.e., they have shape 1 x local_size x local_size).
-                        Each input value is divided by (1+(α/n)∑ix2i)β, where n is the size of
-                        each local region, and the sum is taken over the region centered at
-                        that value (zero padding is added where necessary).
+                                    where `h_o = (h_i + 2 * pad_h - kernel_h) / stride_h + 1`
 
-                *   Loss Layers
+                                    一个 prototxt 例子，来自 ./models/bvlc_reference_caffenet/train_val.prototxt -<
 
-                    -   Softmax, `SoftmaxWithLoss`
+                                    :   ```
+                                        layer {
+                                          name: "conv1"
+                                          type: "Convolution"
+                                          bottom: "data"
+                                          top: "conv1"
+                                          # learning rate and decay multipliers for the filters
+                                          param { lr_mult: 1 decay_mult: 1 }
+                                          # learning rate and decay multipliers for the biases
+                                          param { lr_mult: 2 decay_mult: 0 }
+                                          convolution_param {
+                                            num_output: 96     # learn 96 filters
+                                            kernel_size: 11    # each filter is 11x11
+                                            stride: 4          # step 4 pixels between each filter application
+                                            weight_filler {
+                                              type: "gaussian" # initialize the filters from a Gaussian
+                                              std: 0.01        # distribution with stdev 0.01 (default mean: 0)
+                                            }
+                                            bias_filler {
+                                              type: "constant" # initialize the biases to zero (0)
+                                              value: 0
+                                            }
+                                          }
+                                        }
+                                        ```
 
-                    -   Sum-of-Squares / Euclidean, `EuclideanLoss`
+                                    -   **`weight_filler`**
+                                    -   `bias_term`
+                                    -   `stride`
+                                    -   `group`
 
-                    -   Hinge / Margin, `HingeLoss`
+                            -   池化层, `Pooling` -<
 
-                *   Activation / Neuron Layers
+                                :   sig: `[n * c * h_i * w_i]` -> `[n * c * h_o * w_o]`
 
-                    In general, activation / Neuron layers are element-wise operators, taking
-                    one bottom blob and producing one top blob of the same size. In the layers
-                    below, we will ignore the input and out sizes as they are identical: { input,
-                    output: n * c * h * w }.
+                                    ```
+                                    layer {
+                                      name: "pool1"
+                                      type: "Pooling"
+                                      bottom: "conv1"
+                                      top: "pool1"
+                                      pooling_param {
+                                        pool: MAX
+                                        kernel_size: 3 # pool over a 3x3 region
+                                        stride: 2      # step two pixels (in the bottom blob) between pooling regions
+                                      }
+                                    }
+                                    ```
 
-                    -   ReLU / Rectified-Linear and Leaky-ReLU, `ReLU`
+                                    池化方法有 MAX, AVE, or STOCHASTIC
 
-                        max(0, x)
+                            -   Local Response Normalization, `LRN` -<
 
-                    -   Sigmoid, `Sigmoid`
+                                :   The local response normalization layer performs a kind of
+                                    “lateral inhibition” `[.ɪnhɪ'bɪʃ(ə)n]` n.抑制；禁止；拘谨；拘束感
+                                    by normalizing over local input regions. In `ACROSS_CHANNELS`
+                                    mode, the local regions extend across nearby channels, but have no
+                                    spatial extent (i.e., they have shape `local_size x 1 x 1`). In
+                                    `WITHIN_CHANNEL` mode, the local regions extend spatially, but are in
+                                    separate channels (i.e., they have shape `1 x local_size x local_size`).
+                                    Each input value is divided by $(1+(α/n)∑_ix^2_i)^β$,
+                                    where n is the size of each local region, and the sum
+                                    is taken over the region centered at that value (zero
+                                    padding is added where necessary).
 
-                        sigmoid(x)
+                            -   im2col -<
 
-                    -   TanH / Hyperbolic Tangent, `TanH`
+                                :   Im2col is a helper for doing the image-to-column
+                                    transformation that you most likely do not need to
+                                    know about. This is used in Caffe’s original
+                                    convolution to do matrix multiplication by laying
+                                    out all patches into a matrix.
 
-                    -   Absolute Value, `AbsVal`
+                    *   Loss Layers -<
 
-                    -   Power, `Power`
+                        :   -   Softmax, `SoftmaxWithLoss`
 
-                        `power(x, power=1, scale=1, shift=0) = (shift+scale*x)^power`
+                            -   Sum-of-Squares / Euclidean, `EuclideanLoss`
 
-                    -   BNLL, `BNLL`
+                            -   Hinge / Margin, `HingeLoss`
 
-                        The BNLL (binomial normal log likelihood) layer computes the output as
-                        `log(1 + exp(x))` for each input element x.
+                    *   Activation / Neuron Layers -<
 
-                *   Data Layers
+                        :   In general, activation / Neuron layers are element-wise operators, taking
+                            one bottom blob and producing one top blob of the same size. In the layers
+                            below, we will ignore the input and out sizes as they are identical: { input,
+                            output: n * c * h * w }.
 
-                    Data enters Caffe through data layers: they lie at the bottom of nets. Data
-                    can come from efficient databases (LevelDB or LMDB), directly from memory,
-                    or, when efficiency is not critical, from files on disk in HDF5 or common
-                    image formats.
+                            -   ReLU / Rectified-Linear and Leaky-ReLU, `ReLU`
 
-                    -   Database, `Data`
+                                max(0, x)
 
-                    -   In-Memory, `MemoryData`
+                            -   Sigmoid, `Sigmoid`
 
-                    -   HDF5 Input, `HDF5Data`
+                                sigmoid(x)
 
-                    -   HDF5 Output, `HDF5Output`
+                            -   TanH / Hyperbolic Tangent, `TanH`
 
-                    -   Images, `ImageData`
+                            -   Absolute Value, `AbsVal`
 
-                        source: name of a text file, with each line giving an image filename and label
+                            -   Power, `Power`
 
-                    -   Dummy, `DummyData`
+                                `power(x, power=1, scale=1, shift=0) = (shift+scale*x)^power`
 
-                        `DummyData` is for development and debugging. See `DummyDataParam`.
+                            -   BNLL, `BNLL`
 
-                *   Common Layers
+                                The BNLL (binomial normal log likelihood) layer computes the output as
+                                `log(1 + exp(x))` for each input element x.
 
-                    -   Inner Product, `InnerProduct`
+                    *   Data Layers -<
 
-                        The InnerProduct layer (also usually referred to as the fully connected
-                        layer) treats the input as a simple vector and produces an output in
-                        the form of a single vector (with the blob’s height and width set to
-                        1).
+                        :   Data enters Caffe through data layers: they lie at the bottom of nets. Data
+                            can come from efficient databases (LevelDB or LMDB), directly from memory,
+                            or, when efficiency is not critical, from files on disk in HDF5 or common
+                            image formats.
 
-                    -   Splitting, `Split`
-                    -   Flattening, `Flatten`
-                    -   Reshape, `Reshape`
+                            -   Database, `Data`
 
-                        As another example, specifying `reshape_param { shape { dim: 0 dim: -1 } }`
-                        makes the layer behave in exactly the same way as the Flatten
-                        layer.
+                            -   In-Memory, `MemoryData`
 
-                    -   Concatenation, `Concat`
-                    -   Slicing
-                    -   Elementwise Operations
-                    -   ArgMax
-                    -   SoftMax
-                    -   Mean-Variance Normalization
+                            -   HDF5 Input, `HDF5Data`
+
+                            -   HDF5 Output, `HDF5Output`
+
+                            -   Images, `ImageData`
+
+                                source: name of a text file, with each line giving an image filename and label
+
+                            -   Dummy, `DummyData`
+
+                                `DummyData` is for development and debugging. See `DummyDataParam`.
+
+                    *   Common Layers -<
+
+                        :   -   Inner Product, `InnerProduct`
+
+                                The InnerProduct layer (also usually referred to as the fully connected
+                                layer) treats the input as a simple vector and produces an output in
+                                the form of a single vector (with the blob’s height and width set to
+                                1).
+
+                            -   Splitting, `Split`
+                            -   Flattening, `Flatten`
+                            -   Reshape, `Reshape`
+
+                                As another example, specifying `reshape_param { shape { dim: 0 dim: -1 } }`
+                                makes the layer behave in exactly the same way as the Flatten
+                                layer.
+
+                            -   Concatenation, `Concat`
+                            -   Slicing
+                            -   Elementwise Operations
+                            -   ArgMax
+                            -   SoftMax
+                            -   Mean-Variance Normalization
 
         +   [Interfaces](http://caffe.berkeleyvision.org/tutorial/interfaces.html): command line, Python, and MATLAB Caffe. -<
 

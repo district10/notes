@@ -356,3 +356,13 @@ N.B. 啥意思？：
 我们刚刚做出了一个艰难的决定
 
 [虎落平阳被犬欺_百度百科](http://baike.baidu.com/link?url=lOXv_2p1NBl2yYFXSwd7myiKBQdjCHe6gB7QUTIeL26gjYPuEWAdnGUQtIFwXCHEJLPufFjzhVqvi-jBy1b90K)
+
+[乌鲁木齐（新疆维吾尔自治区首府）_百度百科](http://baike.baidu.com/link?url=UD_ZutmIjayEONudv80glBuccQUz639tU_sJ4VUCMb8BWv9B-h2hhmaYiTDo4l2mNsGjBkKwWtHdIfpHqjCltzvn_bgEeJ9JKeP_fiIzYya)
+
+[伊犁哈萨克自治州_百度百科](http://baike.baidu.com/link?url=HBrLnLFgoneKSIY4J2ptgH1cavn-DjZYcfWeWVJndwMboj1x0cqFHKOGBukfJLUqs19PR5fyvfZGlzY1GSr2Af4qK56h5nDn3CHSTHcsvcl29tCiNaBGiHQdGtaIU0Z-)
+
+伊犁州极端最高气温 42.8℃，极端最低气温 - 51.0℃，其中伊犁河谷年平均气温 10.4℃，
+塔城地区年平均气温 8.7℃，阿勒泰地区年平均气温 5.8℃。年平均降水量：伊犁河谷
+417.6 毫米，山区 600 毫米左右；塔城盆地 342.7 毫米，山区 400 毫米左右；阿勒泰山
+区 202.6 毫米；其余地区 100-200 毫米。年平均日照时数：伊犁河谷 2898.4 小时；塔
+城地区 2714.7 小时；阿勒泰地区 2976.8 小时。
