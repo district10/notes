@@ -138,9 +138,9 @@ title: 历史笔记 1
     var d1 = new Date();
     var threshold = 100;
     document.addEventListener("keydown", function(e) {
-        var cur = document.getElementsByClassName('Fragment-item--cursor')[0];
+        var cur = document.getElementsByClassName('Fragment-item--cursor');
         var len = document.getElementsByClassName('Fragment-item').length;
-        var fst = document.getElementsByClassName('Fragment-item')[0];
+        var fst = document.getElementsByClassName('Fragment-item');
         var lst = document.getElementsByClassName('Fragment-item')[len-1];
         if ( cur === fst ) {
             d0 = new Date();
@@ -160,13 +160,13 @@ title: 历史笔记 1
 
 [氛围音乐推荐（看书，写论文，调整心情必备良药） - 简书](http://www.jianshu.com/p/8b086b1c09df) -<
 
-:   Ambient（氛围音乐）源于70年代艺术家们的一种实验性的电子合成音乐，代表人物如
-    Brian Eno、Kraftwerk以及Harold Budd，同时也具有80年代trance风格的数码舞蹈乐
-    曲。氛围音乐是一种有足够空间让人发挥的有着声波结构的电子音乐。它没有作词或
-    作曲的束缚。尽管艺术家在创作之间有暗示性的差异，但对于偶然一次的听众来说，
-    它只是不断地在重复和没有变化的声音。
+:   Ambient（氛围音乐）源于 70 年代艺术家们的一种实验性的电子合成音乐，代表人物
+    如 Brian Eno、Kraftwerk 以及 Harold Budd，同时也具有 80 年代 trance 风格的
+    数码舞蹈乐曲。氛围音乐是一种有足够空间让人发挥的有着声波结构的电子音乐。它
+    没有作词或作曲的束缚。尽管艺术家在创作之间有暗示性的差异，但对于偶然一次的
+    听众来说，它只是不断地在重复和没有变化的声音。
 
-    [DJ-OKAWARI-Flower Dance](http://www.xiami.com/song/1769834090?spm=a1z1s.6659509.0.0.GPBCxW)
+    [DJ-OKAWARI-Flower Dance](http://www.xiami.com/song/1769834090?spm=a1z1s.6659509.0.0.GPBCxW){.heart}
 
 [优秀且免费的照片库 - 简书](http://www.jianshu.com/p/5b7b09b93875#)
 
@@ -180,11 +180,98 @@ title: 历史笔记 1
 
 [productivity - What is your most productive shortcut with Vim? - Stack Overflow](http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim?rq=1)
 
-[字符编码笔记：ASCII，Unicode和UTF-8 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
+[字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
 
-[怎样区别公司名称后缀 - 简书](http://www.jianshu.com/p/830036e46179)
+[怎样区别公司名称后缀 - 简书](http://www.jianshu.com/p/830036e46179) -<
 
-[shell - How can I concatenate string variables in Bash? - Stack Overflow](http://stackoverflow.com/questions/4181703/how-can-i-concatenate-string-variables-in-bash/18041780#18041780)
+:   -   Inc. 全拼是 Incorporated，即股份有限公司
+
+        :   Inc. 考虑的是公司的 “法人” 性质，以具体的模式保护股东、高管和董事的
+            利益。选择 Inc. 主要是考虑其“有限责任”，股东、董事和成员对债务以及
+            公司义务是不需要承担责任的
+
+            -   Inc. 最适用于大公司的组织结构，而 Ltd 适用于稍小一些的
+            -   Inc. 比 Ltd. 的股东人数更多
+            -   Inc. 的股东和董事不需要考虑公司债务问题，而 Ltd. 没有这样的规定
+
+    -   Co.,Ltd. 全拼是 Company Limited，即有限责任公司
+
+        :   -   Ltd. 公司适用于规模较小的企业，设立更灵活，可以是一个人设立，以出资额为限独立承担对公司的责任。有些 Ltd. 是由公众募资的方式设立
+            -   Ltd. 公司三个特点：
+                +   股东承担与出资额相应的债务责任；
+                +   公司所得单独缴纳所得税，与股东所得无关；
+                +   未认购的股本可以随时认购，股份转让可以由买卖双方私人间进行；
+
+            最常见的就是 Inc.&Co.,Ltd, 这两者的关系通过举个例子其实也会很好理解，
+            一般在 App Store 中，一个公司如果上市或者比较大了，都会在公司名称的
+            后缀上加 Inc. 旗下可能有多家子公司 or 产品线，那么旗下的公司 or 产
+            品就会以 Co.,Ltd 为后缀。例如腾讯，旗下 qq, 微信等等都会以 Co.,Ltd
+            为后缀。而腾讯则是以 Inc. 后缀结尾。
+
+    -   LLC. 全拼是 Limited-liability company，即有限责任公司
+
+        :   LLC 虽然也是代表有限责任公司，但是 LLC 适用于小型企业，虽然公司 “成
+            员” 对公司债务承担有限的责任，但成员可以选择公司收入单独缴纳所得税，
+            还是成员的收入作为公司所得税共同缴纳；在组织框架上比 Ltd 灵活
+
+            -   在 Ltd. 中，股东责任限于出资金额。在 LLC 中，成员或多或少要承担公司的债务
+            -   Ltd. 的股票不能公开出售，而 LLC 允许成员由一个扩大为多个（新成员以购买股票形式加入）
+            -   Ltd. 公司的税收是以独立实体缴纳，然而 LLC. 就类似于合伙企业或者合伙公司，成员承担公司税收
+
+    -   Corp. 全拼是 Corporation，即财团，集团，机构
+
+        :   corporation 主要是用于大公司，大集团的后缀，比如中国移动集团，阿里巴巴集团。
+
+[shell - How can I concatenate string variables in Bash? - Stack Overflow](http://stackoverflow.com/questions/4181703/how-can-i-concatenate-string-variables-in-bash/18041780#18041780) -<
+
+:   -   `+=`: Append to variable
+
+        :   ```bash
+            # append to string
+            a=2
+            a+=4
+            echo $a
+            24
+
+            foo="Hello"
+            foo+=" World"
+            echo $foo
+            Hello World
+
+            # append to number
+            echo $a
+            24
+            ((a+=12))
+            echo $a
+            36
+
+            # append to array
+            echo ${a[@]}
+            36
+
+            a+=(18)
+
+            echo ${a[@]}
+            36 18
+            echo ${a[0]}
+            36
+            echo ${a[1]}
+            18
+            ```
+
+        -   printf
+
+            ```bash
+            printf -v a "%s./.%s...'%s' '%s', '%s'=='%s'=='%s'" "${a[@]}"
+            echo $a
+            36./.18...'one' 'word', 'hello world!'=='hello world!'=='hello world!'
+
+            # forked printf
+            foo="Hello"
+            foo=$(printf "%s World" "$foo")
+            echo $foo
+            Hello World
+            ```
 
 [crop - Cropping a PDF using Ghostscript 9.01 - Stack Overflow](http://stackoverflow.com/questions/6183479/cropping-a-pdf-using-ghostscript-9-01) -<
 
@@ -196,6 +283,9 @@ title: 历史笔记 1
     -c " /PAGES pdfmark" \
     -f test.pdf
     ```
+
+    话说装了 TexLive 后，就有了 gswin32，应该是一样的。
+
 [SVG Pocket Guide](http://svgpocketguide.com/book/)
 
 [在 org-mode 中使用 Graphviz 畫關係圖 | coldnew's blog](http://coldnew.github.io/blog/2013/07-13_07e15/)
@@ -611,7 +701,7 @@ title: 历史笔记 1
 
 [`all_in_utf8/convert_to_utf8.py` at master · laike9m/`all_in_utf8`](https://github.com/laike9m/all_in_utf8/blob/master/convert_to_utf8.py)
 
-[The Lucifer Effect by Philip Zimbardo](http://www.lucifereffect.com/)
+[The Lucifer Effect by Philip Zimbardo](http://www.lucifereffect.com/) -<
 
 :   Welcome to LuciferEffect.org, official web site of The Lucifer Effect:
     Understanding How Good People Turn Evil (Random House, 2007). In this
@@ -658,11 +748,11 @@ title: 历史笔记 1
 
 [Choosing an HTTP Status Code — Stop Making It Hard | Racksburg](http://racksburg.com/choosing-an-http-status-code/)
 
-[聪明书签](http://fatduck.org/smartbookmark.html)
+[聪明书签](http://fatduck.org/smartbookmark.html) -<
 
 :   ![](http://fatduck.org/images/smartbookmark2.jpg)
 
-[Casio F-91W: The strangely ubiquitous watch - BBC News](http://www.bbc.com/news/magazine-13194733)
+[Casio F-91W: The strangely ubiquitous watch - BBC News](http://www.bbc.com/news/magazine-13194733) -<
 
 :   ubiquitous, `[ju'bɪkwɪtəs]`, 无所不在的
 
@@ -694,21 +784,18 @@ title: 历史笔记 1
     美国编剧家协会（WGA）今年投票选出的“影史最有趣”101部电影剧本中，他自编自导
     自演的《安妮·霍尔》，当选第一。
 
-    如果他们说你配得到这个奖你就接受了，那么下次他们说你不配的时候，你也得接受。
-
-    “每当我跟他呆在一起，我就忘了我是谁，我在哪儿。”
-
     虽然据说在现实中，伍迪·艾伦出名的害羞，跟女演员讲话都会紧张。
 
     伍迪·艾伦的电影大多跟性、爱、生、死相关。
 
-    “一段关系就像是一条鲨鱼。它必须不断往前，不然就会死掉。”
-
-    “在一段恋爱中，做离开的那个人，好过做被离开的那个人。”
+    -   如果他们说你配得到这个奖你就接受了，那么下次他们说你不配的时候，你也得接受。
+    -   “每当我跟他呆在一起，我就忘了我是谁，我在哪儿。”
+    -   “一段关系就像是一条鲨鱼。它必须不断往前，不然就会死掉。”
+    -   “在一段恋爱中，做离开的那个人，好过做被离开的那个人。”
 
 [RFC 1345 - Character Mnemonics and Character Sets](https://tools.ietf.org/html/rfc1345)
 
-[降级论 | Meditic](http://meditic.com/degrading-for-success)
+[降级论 | Meditic](http://meditic.com/degrading-for-success) -<
 
 :   后来我开始反思最初的目标，为什么要在自己身上挂一个“拳击高手”的招牌，被那么
     多泰森追着打？ 我把这块招牌卸了，找个完全没练武的人去比拼，不是更容易赢么？
@@ -737,7 +824,7 @@ title: 历史笔记 1
 
 [sigslot - C++ Signal/Slot Library](http://sigslot.sourceforge.net/)
 
-[一个Sqrt函数引发的血案 | 帝都码农](http://diducoder.com/sotry-about-sqrt.html)
+[一个Sqrt函数引发的血案 | 帝都码农](http://diducoder.com/sotry-about-sqrt.html) -<
 
 :   <http://www.math.purdue.edu/~clomont/Math/Papers/2003/InvSqrt.pdf>
 
@@ -753,7 +840,7 @@ title: 历史笔记 1
     }
     ```
 
-[《了不起的盖茨比》：绿光 - 读立写生](http://cnfeat.com/blog/2014/03/05/green-light/)
+[《了不起的盖茨比》：绿光 - 读立写生](http://cnfeat.com/blog/2014/03/05/green-light/) -<
 
 :   有记者采访莱昂纳多，询问他是否会因为从未得到过学院青睐而感到不服。他笑
     了笑，回答道：「很有意思的是，大家似乎都觉得学院欠我什么。」他随后一直
@@ -763,9 +850,9 @@ title: 历史笔记 1
 
     ![](http://ww3.sinaimg.cn/large/617ccc0ctw1ee4ymi0dd6j20zk0k00vd.jpg)
 
-[The Intentionality of Evil (Aaron Swartz's Raw Thought)](file:///E:/blogs/Aarow-Swartz/www.aaronsw.com/weblog/intentionalevil-4.html)
+[The Intentionality of Evil (Aaron Swartz's Raw Thought)](file:///E:/blogs/Aarow-Swartz/www.aaronsw.com/weblog/intentionalevil-4.html) -<
 
-:   The problem is that the villains know they’re evil.
+:   The problem is that **the villains know they’re evil**.
 
     我们在孩子很小的时候就开始给他们看大量的漫画（现在是从漫画改编的电影），在
     漫画和电影中，勇敢的英雄从恶魔的手中一次又一次的拯救我们的星球。现在几乎公
@@ -779,7 +866,7 @@ title: 历史笔记 1
     with a good intent” explain to them that’s no defense; the only people who
     don’t are characters in comic books.
 
-[I Hate the News (Aaron Swartz's Raw Thought)](file:///E:/blogs/Aarow-Swartz/www.aaronsw.com/weblog/hatethenews.html)
+[I Hate the News (Aaron Swartz's Raw Thought)](http://aaronsw.com/weblog/hatethenews.html) -<
 
 :   None of these stories have relevance to my life. Reading them may be
     enjoyable, but **it’s an enjoyable waste of time**. They will have no
@@ -790,7 +877,7 @@ title: 历史笔记 1
     的砸死了，车祸几死几伤，等等。都是一些无聊的破事。（如果你看到这句话，觉得
     我没有人性。呵呵。）
 
-[Wi-Fi 是什么的缩写 - 第九阅览室 - 提供科学养分](http://9yls.net/19760.html)
+[Wi-Fi 是什么的缩写 - 第九阅览室 - 提供科学养分](http://9yls.net/19760.html) -<
 
 :   从 Wi-Fi 扩展成 wireless fidelity，也就是把一个词当作缩写逆向扩展出某种
     含义的过程，是一种文字游戏，叫 **backronym** `['bækrənɪm]`，意思和 acronym 相对。
@@ -817,30 +904,54 @@ title: 历史笔记 1
     wireless devices in a network to communicate with each other, all devices
     must be configured with the same SSID.
 
-[有哪些让你笑了半辈子，每次给别人讲自己都会爆笑的笑话？ - 知乎](https://www.zhihu.com/question/23547779)
+[有哪些让你笑了半辈子，每次给别人讲自己都会爆笑的笑话？ - 知乎](https://www.zhihu.com/question/23547779) -<
 
-[日常生活中有哪些十分钟就能学会并可以终生受用的技能？ - 知乎](https://www.zhihu.com/question/20894671)
+:   -   在 “对不起” 中间加哪两个字最心酸。
 
-:   #. **office 里双击格式刷可以多次使用**
-    #. Ctrl+BackSpace是以单词为单位删除文本
-    #. control+click, shift+click
-    #. `C:\Docume~1\Admini~1`
-    #. 空格键长度最短的键盘是日语键盘
-    #. `data:text/html,<html contenteditable>`
-    #. 当你保存你的ppt时，用后缀.pps或.ppsx，那样的话，打开时会直接进入幻灯片播放模式。
-    #. 人们最终记住的不是你说过的话，而是你让他们产生的感觉。几乎所有的人都喜欢谈论自己的事情，所以，多问问题。
-    #. 在外住旅社时，在门后放一个玻璃水杯，提防陌生人入门。
-    #. 打错电话时，除了说不好意思打扰了，还可以再多说一句祝您生活愉快，真的让人更容易接受你的歉意。
-    #. 出门的时候检查必备物品就是四个：“伸手要钱”。（身份证、手机、钥匙、钱包）
-    #. 拍证件照时用舌头顶住上颚，笑的会很自然。
-    #. 在外旅游，被劝玩各种项目时，只要说“跟团”俩字，别人一般不会再纠缠，在多个城市亲自测试，有效！
-    #. 当人恐惧时，血液从手臂流向腿部，这样为逃跑做好准备，手会先冷下来
-    #. 如何在10分钟内记住某一年的日历。只要记忆12个数字就可以了。让我们试着记住
-       2014年的日历吧。255 136 140 250（在你的脑海里试着用小图像的方法记住
-       它）含义是明显的，每一个数字代表一个月，比如 2代表1月，5代表2月，5代
-       表3月……为了得到具体某一天是周几其实很简单。以2014年8月15日为例：回忆
-       你记住的当月的数字。嗯，8月是4。将日期加上你记住的数字。嗯，15+4=19.
-       将结果除以7，取余数。嗯，19/7=2……5完成！2014年8月15日是星期五。
+        对三，要不起。
+
+    -   从前有只麋鹿，它在森林里玩儿，不小心走丢了。于是它给它的好朋友长颈鹿打
+        电话：“喂… 我迷路啦。”
+
+        长颈鹿听见了回答说：“喂，我长颈鹿啦~”
+
+    -   看 “片” 字，仔细看，认真看，像不像奥特曼打小怪兽的姿势 这个当时让我笑了
+        好久，我承认我笑点低啊。。。
+
+    -   诸葛亮正与刘备在帐中议事，诸葛亮忽然想放屁，又怕被刘备听见，不好意思。
+        他灵机一动，道：“主公，为了调节一下气氛，我学啄木鸟叫给你听怎么样？” 刘
+        备点点头。诸葛亮模拟啄木鸟叫了两声，趁机把屁给放了。然后问道：“怎么样主
+        公？我学的象不象？”
+
+        刘备道：“你再学一次吧，刚才你放屁的声音太大，我没听见”
+
+    -   有个人落难到了非洲，被食人族给抓了，准备把他给洗洗吃了，他仰天长啸：“老
+        天，难道这下我死定了？” 这时，天空中飘来一个声音：“还没有！拿起身边的这
+        个石头，把他们的族长给砸死！” 于是他照办了，然后向天空喊道：“这下我得救
+        了么？” 天空中又飘来了一个声音：“这下你才死定了！”
+
+[日常生活中有哪些十分钟就能学会并可以终生受用的技能？ - 知乎](https://www.zhihu.com/question/20894671) -<
+
+:   -   **office 里双击格式刷可以多次使用**
+    -   Ctrl+BackSpace 是以单词为单位删除文本
+    -   control+click, shift+click
+    -   `C:\Docume~1\Admini~1`
+    -   空格键长度最短的键盘是日语键盘
+    -   `data:text/html,<html contenteditable>`
+    -   当你保存你的 ppt 时，用后缀.pps 或.ppsx，那样的话，打开时会直接进入幻灯片播放模式。
+    -   人们最终记住的不是你说过的话，而是你让他们产生的感觉。几乎所有的人都喜欢谈论自己的事情，所以，多问问题。
+    -   在外住旅社时，在门后放一个玻璃水杯，提防陌生人入门。
+    -   打错电话时，除了说不好意思打扰了，还可以再多说一句祝您生活愉快，真的让人更容易接受你的歉意。
+    -   出门的时候检查必备物品就是四个：“伸手要钱”。（身份证、手机、钥匙、钱包）
+    -   拍证件照时用舌头顶住上颚，笑的会很自然。
+    -   在外旅游，被劝玩各种项目时，只要说“跟团”俩字，别人一般不会再纠缠，在多个城市亲自测试，有效！
+    -   当人恐惧时，血液从手臂流向腿部，这样为逃跑做好准备，手会先冷下来
+    -   如何在 10 分钟内记住某一年的日历。只要记忆 12 个数字就可以了。让我们试着记住
+        2014 年的日历吧。255 136 140 250（在你的脑海里试着用小图像的方法记住
+        它）含义是明显的，每一个数字代表一个月，比如 2 代表 1 月，5 代表 2 月，5 代
+        表 3 月……为了得到具体某一天是周几其实很简单。以 2014 年 8 月 15 日为例：回忆
+        你记住的当月的数字。嗯，8 月是 4。将日期加上你记住的数字。嗯，15+4=19.
+        将结果除以 7，取余数。嗯，19/7=2……5 完成！2014 年 8 月 15 日是星期五。
 
 [单词拼写，怎么记又快又好？](http://www.baicizhan.com/article/4) -<
 
@@ -883,15 +994,17 @@ title: 历史笔记 1
         +   in gentle voice, give you a gentle pat on the back before I yell at you again
     -   [百词斩TV 霸道总裁爱上我单词视频](http://tv.baicizhan.com/playlist/1000516)
 
-[dae/anki](https://github.com/dae/anki)
+[dae/anki](https://github.com/dae/anki){.del} -<
 
-:   python 2, pyqt. no need to install.
+:   官方 repo，1500+ stars。
 
-[【弄"潮"儿】英文中的20种orgasm](http://mp.weixin.qq.com/s?__biz=MjM5NTExMTk5MA==&mid=404899112&idx=1&sn=11953362f9dbfb81c1c595a8091a6829&scene=0#wechat_redirect)
+    ~~python 2, pyqt. no need to install.~~
+
+[【弄"潮"儿】英文中的 20 种 orgasm](http://mp.weixin.qq.com/s?__biz=MjM5NTExMTk5MA==&mid=404899112&idx=1&sn=11953362f9dbfb81c1c595a8091a6829&scene=0#wechat_redirect)
 
 [Bachelor tax - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Bachelor_tax)
 
-[舌尖上的忘词&背单词的秘诀](http://mp.weixin.qq.com/s?__biz=MjM5NTExMTk5MA==&mid=409398412&idx=1&sn=a592c82fd0a57b15559832c983033ca8&scene=0#wechat_redirect)
+[舌尖上的忘词 & 背单词的秘诀](http://mp.weixin.qq.com/s?__biz=MjM5NTExMTk5MA==&mid=409398412&idx=1&sn=a592c82fd0a57b15559832c983033ca8&scene=0#wechat_redirect) -<
 
 :   四熟是指眼熟，耳熟，意熟，用熟。
 
@@ -909,11 +1022,11 @@ title: 历史笔记 1
 
       - [你是如何将词汇量提升到 2 万，甚至 3 万的？ - 尼克六六的回答 - 知乎](https://www.zhihu.com/question/26814125/answer/47842171)
       - [Corpus of Contemporary American English (COCA)](http://corpus.byu.edu/coca/)
-      - [[bnc] British National Corpus](http://www.natcorp.ox.ac.uk/)
+      - [`[bnc]` British National Corpus](http://www.natcorp.ox.ac.uk/)
 
 [Highest Voted 'qt' Questions - Stack Overflow](http://stackoverflow.com/questions/tagged/qt?sort=votes)
 
-[Inno Setup](http://www.jrsoftware.org/isinfo.php)
+[Inno Setup](http://www.jrsoftware.org/isinfo.php) -<
 
 :   一个打包工具。
 
@@ -921,7 +1034,7 @@ title: 历史笔记 1
     1997, Inno Setup today rivals and even surpasses many commercial installers
     in feature set and stability.
 
-[Recommended Reading for Developers](http://blog.codinghorror.com/recommended-reading-for-developers/)
+[Recommended Reading for Developers](http://blog.codinghorror.com/recommended-reading-for-developers/) -<
 
 :   **Programming Pearls** is the next best thing to working side by side with
     a master programmer for a year or so. It is the collective wisdom of
@@ -944,28 +1057,28 @@ title: 历史笔记 1
       - Designing Web Usability
       - and more...
 
-[What is Trolling?](http://blog.codinghorror.com/what-is-trolling)
+[What is Trolling?](http://blog.codinghorror.com/what-is-trolling) -<
 
 :   I almost feel sorry for **Quentin Tarantino** (昆汀·塔伦蒂诺), who is so
     obviously passionate about what he does, because this guy is a **classic troll**.
 
-    01. He came to generate argument.
-    02. He **doesn't truly care about the topic**.
+    -   He came to generate argument.
+    -   He **doesn't truly care about the topic**.
 
     So the next time you encounter someone who can't stop arguing, who
     seems **unable to generate anything other than heat and friction**, whose
     actions amply demonstrate that they are no longer **participating in the
     conversation in good faith**… just walk away. **Don't take the bait.**
 
-[这一年来 - BYVoid](https://www.byvoid.com/zhs/blog/recent-one-year)
+[这一年来 - BYVoid](https://www.byvoid.com/zhs/blog/recent-one-year) -<
 
 :   之前在微软做的是「研究」，听起来好像是很厉害的样子，其实有时候做的东西简直
     是浪费时间。因为我从一开始就清楚，在研究院做的东西只是为了在特定领域有一个
     突破，至于这个成果会不会造福人类，那可不好说。运气好的话会被微软产品组看中，
     做成产品，算是为人类做贡献了。大多数时候你的成果还是被打入冷宫，永远无人问
     津。更普遍的情况是进入了微软的专利库，别人想做成产品都不行，这简直是阻碍人
-    类社会进步了。我在微软亚洲研究院长达十个月的实习给我最大的收获就是让我决定
-    了将来一定不会去读博士。
+    类社会进步了。**我在微软亚洲研究院长达十个月的实习给我最大的收获就是让我决定
+    了将来一定不会去读博士。**
 
     其实我还是挺喜欢比较小的公司的，虽然不是很「正规」，但却有让你在大公司感觉
     不到的真诚的人情味。
@@ -1009,7 +1122,7 @@ title: 历史笔记 1
     要有一颗宽广的心去容纳。人在年轻的时候机会成本是最低的，所有你因为顾虑不敢
     做的事，将来只会顾虑更多。
 
-[Notes on Programming in C](http://kamalatta.ddnss.de/otherdocs/pikestyle.html)
+[Notes on Programming in C](http://kamalatta.ddnss.de/otherdocs/pikestyle.html){.featured} -<
 
 :   Finally, I prefer minimum-length but maximum-information names, and
     then let the context ﬁll in the rest. Globals, for instance, typically
@@ -1060,7 +1173,7 @@ title: 历史笔记 1
 
     -   Rule 6. There is no Rule 6.
 
-[有什么好的锻炼自己 LaTeX 能力的方法？ - 学习 - 知乎](http://www.zhihu.com/question/26941928)
+[有什么好的锻炼自己 LaTeX 能力的方法？ - 学习 - 知乎](http://www.zhihu.com/question/26941928) -<
 
 :   其次，学 LaTeX 之后掌握的不仅仅是 LaTeX 本身。能获得的知识有什么呢？比如说
     字体的知识，图像处理的知识，甚至还能掌握到一定的编程技能。当然，如果说是我
@@ -1086,7 +1199,7 @@ title: 历史笔记 1
         +   the University of Wisconsin--Madisonthe
         +   University of Wisconsin--Milwaukee
     -   EM Dash
-        +   She outlined the strategy---a strategy that would, she hoped, secure the peace.
+        +   `She outlined the strategy---a strategy that would, she hoped, secure the peace.`{.heart}
         +   Consensus---that was the will-o'-the wisp he doggedly pursued.
 
     refs and see also
@@ -1101,7 +1214,7 @@ title: 历史笔记 1
       - [虚拟机是怎么实现的？ | 马牛不是人](http://www.manio.org/cn/virtual-machine-implementation/)
       - [如何使用 ggplot2？ - R（编程语言） - 知乎](http://www.zhihu.com/question/24779017)
 
-[阮玲玉（中国早期著名女影星）_百度百科](http://baike.baidu.com/subview/34091/6236325.htm)
+[阮玲玉（中国早期著名女影星）_百度百科](http://baike.baidu.com/subview/34091/6236325.htm) -<
 
 :   张曼玉说：“我觉得阮玲玉的骨子里有一种讲不出来的妖媚。”
 
@@ -1118,11 +1231,13 @@ title: 历史笔记 1
     但对于一个智识者，尤其是对于一个出到社会上了的女性，却足够使她受伤，更不必
     说故意张扬，特别渲染的文字了。
 
+    阮玲玉生前出演电影 29 部，但历经乱世战火，目前仅发现 9 部幸存。
+
     refs and see also
 
       - [论人言可畏_百度百科](http://baike.baidu.com/view/14786977.htm)
 
-[陌生拜访之如何搞定门卫 | 老K博客](http://www.laokboke.com/2015/02/12/mb/)
+[陌生拜访之如何搞定门卫 | 老K博客](http://www.laokboke.com/2015/02/12/mb/) -<
 
 :   基本上所有的政府单位都有门卫，他们往往就是陌生拜访要过的第一道关卡，如果连
     他们都搞不定，那陌生拜访肯定是不成功的，因为你连客户的面都没见着。
@@ -1138,13 +1253,13 @@ title: 历史笔记 1
       - **准备烟和火机**。虽然我不抽烟，但我出去陌拜的时候，一定要带上烟和火机，以
         备不时之需。
 
-[为什么 XML 这么笨重的数据结构仍在广泛应用？ - XML - 知乎](http://www.zhihu.com/question/20738607)
+[为什么 XML 这么笨重的数据结构仍在广泛应用？ - XML - 知乎](http://www.zhihu.com/question/20738607) -<
 
 :   refs and see also
 
       - [JSON: The Fat-Free Alternative to XML](http://www.json.org/xml)
 
-[QString 乱谈(1) - 1+1=10 - 博客频道 - CSDN.NET](http://blog.csdn.net/dbzhang800/article/details/7517422)
+[QString 乱谈(1) - 1+1=10 - 博客频道 - CSDN.NET](http://blog.csdn.net/dbzhang800/article/details/7517422) -<
 
 :   （这个系列写得十分凌乱。）
 
@@ -1220,10 +1335,10 @@ title: 历史笔记 1
       - [Qt stylesheet 源码学习 - 1+1=10 - 博客频道 - CSDN.NET](http://blog.csdn.net/dbzhang800/article/details/6875352)
       - [学习与记忆](http://mindhacks.cn/2008/06/05/how-memory-works/)
 
-[BBC ON THIS DAY | 18 | 1978: Mass suicide leaves 900 dead](http://news.bbc.co.uk/onthisday/hi/dates/stories/november/18/newsid_2540000/2540209.stm)
+[BBC ON THIS DAY | 18 | 1978: Mass suicide leaves 900 dead](http://news.bbc.co.uk/onthisday/hi/dates/stories/november/18/newsid_2540000/2540209.stm) -<
 
-:   The bodies of 914 people, including 276 children, have been found in Guyana
-    in South America.
+:   The bodies of 914 people, including 276 children, have been found in
+    Guyana in South America.
 
     南美洲圭亚那琼斯镇
 
@@ -1245,7 +1360,7 @@ title: 历史笔记 1
 
       - [人民圣殿教_百度百科](http://baike.baidu.com/link?url=jiQo3xkLIyCuG6ECsC6FRI3U0m1xotpkP3og6EOpfRt88_J4JlAfkepFU23qWmqzEsKfK5W7WzCFfAj8T1mbia)
 
-[c++ - RapidJSON library getting a value inside an array by its index - Stack Overflow](http://stackoverflow.com/questions/10037778/rapidjson-library-getting-a-value-inside-an-array-by-its-index)
+[c++ - RapidJSON library getting a value inside an array by its index - Stack Overflow](http://stackoverflow.com/questions/10037778/rapidjson-library-getting-a-value-inside-an-array-by-its-index) -<
 
 :   exactly what I want.
 
@@ -1255,7 +1370,7 @@ title: 历史笔记 1
         AppVeyor（供 Windows 平台）会对所有修改进行编译及执行单元测试。在 Linux 下
         还会使用 Valgrind 去检测内存泄漏。
 
-[Jank Free: Let's Make the Web Silky Smooth!](http://jankfree.org/)
+[Jank Free: Let's Make the Web Silky Smooth!](http://jankfree.org/) -<
 
 :   What is Jank?
 
@@ -1272,7 +1387,7 @@ title: 历史笔记 1
 
 [lazysizes - the ultimate lazyloader for responsive images, iframes and widget](http://afarkas.github.io/lazysizes/)
 
-[微软实现深层神经网络重大技术突破 - 微软亚洲研究院](http://www.msra.cn/zh-cn/news/headlines/imagenet-20151211.aspx)
+[微软实现深层神经网络重大技术突破 - 微软亚洲研究院](http://www.msra.cn/zh-cn/news/headlines/imagenet-20151211.aspx) -<
 
 :   2015 年 12 月 10 日——美国东部时间，微软亚洲研究院视觉计算组在 2015 ImageNet
     计算机识别挑战赛中凭借深层神经网络技术的最新突破，以绝对优势获得图像分类、
@@ -1290,9 +1405,9 @@ title: 历史笔记 1
     和如何实现等细节，更多地去关注论文简介及作者所做的与研究相关的工作，他
     人的研究思路，然后在前人的基础上去思考，寻找对自己工作有帮助的要点；
 
-    提高英语能力。虽然 GRE、IELTS 等考试并不是必须要参加的，但是这类考试确实
+    **提高英语能力。虽然 GRE、IELTS 等考试并不是必须要参加的，但是这类考试确实
     能够极大地锻炼英语读写能力。如果不具备优秀的英语能力，在日后的研究中会
-    比较吃亏；
+    比较吃亏；**
 
     关注细节。无论是撰写论文还是编写代码，很多时候，粗略看上去会感觉还可以，但
     是仔细推敲后就会发现各种问题。所以在进行研究的过程中，首先要对自己所做的内
@@ -1304,7 +1419,7 @@ title: 历史笔记 1
       - [潜心科研，砥砺前行，让梦想照进现实——记西安交通大学校友孙剑博士专访 - 微软亚洲研究院](http://www.msra.cn/zh-cn/connections/stories/jian-sun-20150616.aspx)
       - [厚积薄发的研究之路 - 微软亚洲研究院](http://msra.cn/zh-cn/connections/talents/tomorrowstars/stories/kaiminghe.aspx)
 
-[google/googletest](https://github.com/google/googletest)
+[google/googletest](https://github.com/google/googletest) -<
 
 :   Welcome to Google Test, Google's C++ test framework!
 
@@ -1315,7 +1430,7 @@ title: 历史笔记 1
     后来我在自己的小项目中也用到了 GoogleTest，见 [district10/algo](https://github.com/district10/algo), 还有
     GoogleTest 的笔记：[doc-google-test](doc-google-test.html)
 
-[google/WebFundamentals](https://github.com/google/WebFundamentals)
+[google/WebFundamentals](https://github.com/google/WebFundamentals) -<
 
 :   Best practices for modern web development
     <https://developers.google.com/web/fundamentals>
@@ -1325,7 +1440,7 @@ title: 历史笔记 1
     developers that’s as curated and thorough as developer.android.com or
     iOS Dev Center.
 
-[Public domain - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Public_domain)
+[Public domain - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Public_domain) -<
 
 :   Works in the public domain are those whose **intellectual property rights
     have expired**, have been ** forfeited**, or are **inapplicable**. For example,
@@ -1336,23 +1451,23 @@ title: 历史笔记 1
     residual rights, in which case use of the work is referred to as "under
     license" or "with permission".
 
-[Clang 比 GCC 好在哪里？ - 编译器 - 知乎](http://www.zhihu.com/question/20235742)
+[Clang 比 GCC 好在哪里？ - 编译器 - 知乎](http://www.zhihu.com/question/20235742) -<
 
 :   编译速度更快、编译产出更小、出错提示更友好。尤其是在比较极端的情况下。
 
     最后一点，其他同学也有讲到，就是 Clang 采用的是 BSD 协议。这是苹果资助 LLVM、
     FreeBSD 淘汰 GCC 换用 Clang 的一个重要原因。
 
-      - 编译速度有显著提升，记得大约是 g++ 的 1/3 或 1/4
-      - 编译过程中的内存消耗差别好像不大
-      - 中间产出物及最终链接产物，记得也是 g++ 的 1/3 或 1/4
-      - 相较于 g++，编译错误可读性有所飞跃，至少不会出现编译错误过长被截断的问题了
+    -   编译速度有显著提升，记得大约是 g++ 的 1/3 或 1/4
+    -   编译过程中的内存消耗差别好像不大
+    -   中间产出物及最终链接产物，记得也是 g++ 的 1/3 或 1/4
+    -   相较于 g++，编译错误可读性有所飞跃，至少不会出现编译错误过长被截断的问题了
 
     从代码上说，clang 结构更简单。因为 clang 只需要完成词法和语法分析，代码优化和
     机器代码的生成工作由 llvm 完成。所以和全部由自己包下的 gcc 比起来，clang 可以更
     专注地做好一件事。
 
-    这种结构也使 clang 可以被单独拿出来用在其他的程序里。比如 vim 的 clang_complete
+    这种结构也使 clang 可以被单独拿出来用在其他的程序里。比如 vim 的 `clang_complete`
     插件就是利用 clang 进行语法分析后给出精确的自动补全和语法错误提示的。而 gcc 就
     没法很方便地做到这一点。
 
@@ -1371,16 +1486,15 @@ title: 历史笔记 1
       - [ClangDiagnosticsComparison - GCC Wiki](http://gcc.gnu.org/wiki/ClangDiagnosticsComparison)
       - [Comparing clang to other open source compilers](http://clang.llvm.org/comparison.html)
 
-[Mac OS X 背后的故事_知识库_博客园](http://kb.cnblogs.com/page/114879/)
+[Mac OS X 背后的故事_知识库_博客园](http://kb.cnblogs.com/page/114879/) -<
 
-:   <div class="tzx-drawer" shy>
-    Mac OS X 背后的故事（一）力挽狂澜的Ellen Hancock
+:   Mac OS X 背后的故事（一）力挽狂澜的 Ellen Hancock -<
 
     :   1991 年 5 月 13 日，蓝组顺利按时完成开发任务，发布了 Mac OS 7（一般被称
-        为 System 7），而粉组却没做出什么有实际用途的东西来，因此接连跳票。而且
-        ，由于 Mac OS 7 的发布缺乏人手，为了保持正常发布，常常需要从粉组抽调人
-        员参加蓝组的开发，再加上 Apple 当时把重心放在了和 IBM 等公司的合作上（
-        Taligent 项目）而不是在粉组上，最终导致了粉组项目夭折。
+        为 System 7），而粉组却没做出什么有实际用途的东西来，因此接连跳票。而且，
+        由于 Mac OS 7 的发布缺乏人手，为了保持正常发布，常常需要从粉组抽调人
+        员参加蓝组的开发，再加上 Apple 当时把重心放在了和 IBM 等公司的合作上
+        （Taligent 项目）而不是在粉组上，最终导致了粉组项目夭折。
 
         Taligent 项目挂掉后，Apple 自己尝试过十多个不同的内部项目，但大多没做多
         久就夭折了。而这时正是 Windows NT 走向成熟的关键时期。
@@ -1396,16 +1510,14 @@ title: 历史笔记 1
         而被炒。Steve Jobs 把信得过的人（很多是前 NeXT 员工）拉拢到周围，开始新
         政，而同 Gil Amelio 有关的 Ellen Hancock 则在人事变动中被疏远。
 
-        Gil Amelio 总结他在 Apple 时期的工作时说：“Apple 是一艘底部有洞漏水的船
-        ，而我的工作是把这船引向正道。”（Apple is like a ship with a hole in a
+        Gil Amelio 总结他在 Apple 时期的工作时说：“Apple 是一艘底部有洞漏水的船，
+        而我的工作是把这船引向正道。”（Apple is like a ship with a hole in a
         bottom, leaking water, and my job is to get this ship pointed in the
         right direction. ）Ellen Hancock 虽然同 Gil Amelio 一样，不知如何去堵这
         个漏水的洞，但正是由于她在 Apple 的出色表现，不但把船引到了正道上，还找
         来了有能力堵这个洞的人。
-    </div>
 
-    <div class="tzx-drawer" shy>
-    Mac OS X 背后的故事（二）Linus Torvalds的短视
+    Mac OS X 背后的故事（二）Linus Torvalds的短视 -<
 
     :   一方面，设计一个微内核和相关的服务，可能造成各种设计上的灾难。GNU/Hurd
         早在八十年代末就考虑尝试在 Mach 上写一系列 Unix 的服务层，结果他们始终
@@ -1433,10 +1545,8 @@ title: 历史笔记 1
         ，觉得还不如自己造轮子来得方便，因此 Apple 推动了类似 LLVM 这样宏伟的项
         目，并且在短短几年内，使其成为最领先的开源软件技术。这无异于扇了 Linux
         小组、GCC 小组一记响亮的耳光。
-    </div>
 
-    <div class="tzx-drawer" shy>
-    Mac OS X 背后的故事（三）Mach之父Avie Tevanian
+    Mac OS X 背后的故事（三）Mach 之父 Avie Tevanian -<
 
     :   所以 Mach 3 出来后，虽有少数微内核信徒继续执著地改进 Mach，或者开始其他
         微内核比如 L4 的研究。但学术界对 Mach 的兴趣大减，因而 Mach 3 也成为最
@@ -1451,10 +1561,8 @@ title: 历史笔记 1
         国语言的图片告诉用户你的内核崩溃了，以让内核崩得看起来更优雅一点。
 
         ![](http://images.cnitblog.com/kb/1/201301/21213305-bf0bdab7c3024291bea697c65e51b93c.jpg)
-    </div>
 
-    <div class="tzx-drawer" shy>
-    Mac OS X 背后的故事（四）政客的跨界
+    Mac OS X 背后的故事（四）政客的跨界 -<
 
     :   这之后，Al Gore 在 Apple 内部的决策究竟起了什么作用，和 Mac OS X 的开发
         有何关联，在正式的渠道很少有史料，但是他后来的各种公开活动，却给 Mac OS
@@ -1463,8 +1571,8 @@ title: 历史笔记 1
 
         因此作为苹果展现公司软实力的重要机会，苹果非常重视这场讲话，请公司的图
         形设计小组带领完成各种所需设计，苹果甚至特地请来了专业的设计公司 Duarte
-        来进行讲稿和讲话内容的安排。因此，不管是内容安排、图形设计还是技术支持
-        ，Al Gore 都有强有力的后盾，他们能够帮助Al Gore 完成任何想达到的目标。
+        来进行讲稿和讲话内容的安排。因此，不管是内容安排、图形设计还是技术支持，
+        Al Gore 都有强有力的后盾，他们能够帮助Al Gore 完成任何想达到的目标。
         不论是 FinalCut 还是 Keynote，一旦缺少任何 Al Gore 想要的功能，Apple 都
         可以给他开小灶实现。在片末的走马灯字幕中，有大量 Apple 的 Keynote 组、
         Final Cut 组和图形设计组的员工名字，以示鸣谢。
@@ -1474,13 +1582,11 @@ title: 历史笔记 1
 
         可以说，没有 Mac OS X，就没有这部电影。而实际上这部电影的作用远胜过任何
         一部 Apple 公司的广告。
-    </div>
 
-    <div class="tzx-drawer" shy>
-    Mac OS X 背后的故事（五）Jean-Marie Hullot的Interface Builder神话
+    Mac OS X 背后的故事（五）Jean-Marie Hullot 的 Interface Builder 神话 -<
 
-    :   聪明的 Hullot 开始动脑筋改进 Mac 编写用户程序难的现状。他开发了一个程序
-        ，有点像现在 Windows 系统中的“画板”。一侧的工具条，是类似菜单这样的大量
+    :   聪明的 Hullot 开始动脑筋改进 Mac 编写用户程序难的现状。他开发了一个程序，
+        有点像现在 Windows 系统中的“画板”。一侧的工具条，是类似菜单这样的大量
         可重用的对象；而另一侧，则是程序员想构建的用户程序界面。只要把工具条上
         的工具拖放到程序界面中，那么类似“打开”、“打印”等相关的功能，就可以被添
         加到用户界面中。事实上，这个程序，是最早的一批能通过鼠标把控件拖入界面
@@ -1489,8 +1595,8 @@ title: 历史笔记 1
         这个跨时代的发明被称作 SOS，用 Lisp 语言编写【注：What are we going to
         called this thing 中认为此时就是 Interface Builder，但据 The NeXTonian
         等多处资料表明，在 Steve Jobs 见到以前，该程序名为 SOS】。当时，
-        ExperTelligence 开发了一种叫做 ExperLisp 的方言，SOS 即用此语言写成【注
-        ：http://en.wikipedia.org/wiki/Interface_Builder】。
+        ExperTelligence 开发了一种叫做 ExperLisp 的方言，SOS 即用此语言写成【注：
+        http://en.wikipedia.org/wiki/Interface_Builder】。
 
         经过不断努力，Hullot 找到了一个值得推销自己发明的好地方——剑桥的苹果大学
         联盟（Apple University Consortium）。
@@ -1508,7 +1614,7 @@ title: 历史笔记 1
         “不行，老乔”，Hullot 表示：“我不游美国，我可要环游欧洲，你七个礼拜后再
         打给我吧。”
 
-        Steve Jobs 虽然一骨子傲气，但他明白一个简单的道理：21世纪最缺的是什么——
+        Steve Jobs 虽然一骨子傲气，但他明白一个简单的道理：21 世纪最缺的是什么——
         是人才！即使 Jean-Marie Hullot 玩起了大牌，这电话自然还是要打的。Hullot
         刚一度完假回来，Steve Jobs 的电话就如期而至。
 
@@ -1529,32 +1635,28 @@ title: 历史笔记 1
 
         一年后，世界首个 HTTP 服务在 CERN 的 NeXT 计算机运行起来，而使用
         Objective-C 和 Interface Builder 所编写的超文本语言编辑器兼浏览器同步发
-        行。他给这个主从式架构起了个好听的名字——World Wide Web（万维网）。
-    </div>
+        行。他给这个主从式架构起了个好听的名字---World Wide Web（万维网）。
 
-    <div class="tzx-drawer" shy>
-    Mac OS X 背后的故事（六）上善若水
+    Mac OS X 背后的故事（六）上善若水 -<
 
     :   Apple 将“What's not a computer!”（看起来不是电脑的电脑）的概念应用在硬
-        件外观上，设计出具有浪漫主义气质，半透明“果冻” 式且具有艺术美感的 iMac
-        ，这成了 Aqua 设计灵感的来源。
+        件外观上，设计出具有浪漫主义气质，半透明“果冻” 式且具有艺术美感的 iMac，
+        这成了 Aqua 设计灵感的来源。
 
         Cocoa 之父 Bertrand Serlet，作为 Cordell Ratzlaff 的上司，对新界面很满
         意。但当时，他们认为这个新界面实现起来难度很大，既没有时间也没有资源把
         这个想法在 Mac OS X 中付诸实现。于是先前那位孤独的照葫芦画瓢的设计者只
         好继续工作。
-    </div>
 
-    <div class="tzx-drawer" shy>
-    Mac OS X 背后的故事（七）上善若水下——Cordell Ratzlaff 引发的 Aqua 革命
+    Mac OS X 背后的故事（七）上善若水下——Cordell Ratzlaff 引发的 Aqua 革命 -<
 
     :   在加班奋战的三周后，设计组用 Macromedia Director 完成了一个试验品。
         Steve Jobs 亲自来 Cordell Ratzlaff 办公室视察了一下午。结果是他激动地握
         着 Cordell Ratzlaff 的手，吐露心声：“你是苹果里我见到的第一个智商是三位
         数字的人。”
 
-        设计是个有趣的领域。有些人认为，设计就是产品的外观看上去什么样。但其实
-        ，如果细想一下，你会发现设计其实是有关产品如何工作的学问。
+        设计是个有趣的领域。有些人认为，设计就是产品的外观看上去什么样。但其实，
+        如果细想一下，你会发现设计其实是有关产品如何工作的学问。
 
         18个月转瞬即逝，“你们就是一群白痴”的骂声依旧清晰，而此时的 Mac OS X 的
         图形界面，已今非昔彼。
@@ -1564,10 +1666,8 @@ title: 历史笔记 1
         18 个月后的 2000 年 1 月，新世纪的钟声刚刚敲响，Steve Jobs 镇定地走上
         MacWorld 大会的舞台，独领风骚的新世纪的经典大作 Aqua，此时，就要被他揭
         开帷幕。
-    </div>
 
-    <div class="tzx-drawer" shy>
-    Mac OS X 背后的故事（八）三好学生Chris Lattner的LLVM编译工具链
+    Mac OS X 背后的故事（八）三好学生 Chris Lattner 的 LLVM 编译工具链 -<
 
     :   在 Objective-C 中，设计了一个叫做 NSAutoReleasePool 的池，当开发者需要
         完成一个任务时（比如每开启一个线程，或者开始一个函数），可以手动创立一
@@ -1577,15 +1677,14 @@ title: 历史笔记 1
         束线程了，或者退出那个函数），则开发者需对这个池子发送一个 drain 消息。
         这时，NSAutoReleasePool 会对池子中所有的物件发送 release 消息，把它们的
         引用计数都减一 ——这就好比游泳池关门时通知所有客人都“滚蛋”一样。所以开发
-        者无需显式声明 release，所有的物件也会在池子清空时自动呼叫 release 函数
-        ，如果引用计数变成零了，系统才回收那块内存。所以这是个半自动、半手动的
-        方式。
+        者无需显式声明 release，所有的物件也会在池子清空时自动呼叫 release 函数，
+        如果引用计数变成零了，系统才回收那块内存。所以这是个半自动、半手动的方式。
 
-        2000年，本科毕业的 Chris Lattner 像中国多数大学生一样，按部就班地考了
+        2000 年，本科毕业的 Chris Lattner 像中国多数大学生一样，按部就班地考了
         GRE，最终前往 UIUC（伊利诺伊大学厄巴纳香槟分校），开始了艰苦读计算机硕
         士和博士的生涯。在这阶段，他不仅周游美国各大景点，更是努力学习科学文化
-        知识，翻烂了“龙书”（《Compilers: Principles, Techniques, and Tools》）
-        ，成了 GPA 牛人【注：最终学分积 4.0 满分】，以及不断地研究探索关于编译
+        知识，翻烂了“龙书”（《Compilers: Principles, Techniques, and Tools》），
+        成了 GPA 牛人【注：最终学分积 4.0 满分】，以及不断地研究探索关于编译
         器的未知领域，发表了一篇又一篇的论文，是中国传统观念里的“三好学生”。他
         的硕士毕业论文提出了一套完整的在编译时、链接时、运行时甚至是在闲置时优
         化程序的编译思想，直接奠定了 LLVM 的基础。
@@ -1607,7 +1706,7 @@ title: 历史笔记 1
         器（如 GCC、MSVC）用了十多年甚至二十多年来完善对 C++ 的支持，但效果依然
         不很理想。Clang 的 C++ 支持却一直如火如荼地展开着。2010 年 2 月 4 日，
         Clang 已经成熟到能自举（即使用 Clang 编译 Clang，到我发稿时，LLVM 3.0
-        发布已完整支持所有 ISO C++ 标准，以及大部分C++ 0x 的新特性。
+        发布已完整支持所有 ISO C++ 标准，以及大部分 C++ 0x 的新特性。
 
         不单单是 Apple，诸多的项目和编程语言都从 LLVM 里取得了关键性的技术。
         Haskell 语言编译器 GHC 使用 LLVM 作为后端，实现了高质量的代码编译。
@@ -1622,10 +1721,8 @@ title: 历史笔记 1
         理争端的决心和手腕，并一跃成为最领先的开源软件技术。而 Chris Lattner 在
         2010 年也赢得了他应有的荣誉——Programming Languages Software Award（程序
         设计语言软件奖）。
-    </div>
 
-    <div class="tzx-drawer" shy>
-    Mac OS X 背后的故事（九）半导体的丰收
+    Mac OS X 背后的故事（九）半导体的丰收 -<
 
     :   苹果向 64 位处理器的迁移花了整整 6 年时间，远长于该公司其他技术的迁移——
         向 Intel 的迁移仅用了一年时间，从经典 Mac OS 到 Mac OS X 也仅用了三年时
@@ -1643,10 +1740,8 @@ title: 历史笔记 1
         Computing Language。这项技术从本质上来说，和 CUDA 并没有太多的两样，但
         由于苹果在借鉴他人技术并把他人技术改得更棒这一点上是出了名的，所以
         OpenCL 很好地解决了以上所有问题。
-    </div>
 
-    <div class="tzx-drawer" shy>
-    Mac OS X 背后的故事（十）Mac OS X文件系统的来龙去脉
+    Mac OS X 背后的故事（十）Mac OS X 文件系统的来龙去脉 -<
 
     :   ZFS 的一个重大特点就是拥有大容量。ZFS 是一个 128 位的文件系统，这意味着
         它能存储 1800 亿亿（18.4×1018）倍于当前 64 位文件系统的数据。ZFS 的设计
@@ -1658,9 +1753,8 @@ title: 历史笔记 1
         此外，ZFS 的一个重要指导思想是不单单去做一个文件系统，而是实现一套完整的卷管理方案。
 
         无论如何，Mac OS X的 ZFS 支持，如昙花一现般消失了。
-    </div>
 
-[开源云计算技术初探 | YY42](http://www.yy42.net/blog/?p=381)
+[开源云计算技术初探 | YY42](http://www.yy42.net/blog/?p=381) -<
 
 :   Ruby 和 JavaScript 是云时代的主流编程语言，Python 紧追，PHP 应了那句话了
     “**not even close**”。heroku 将 matz 叔挖过去的时候，明确放话 Ruby 是云时代
@@ -1680,7 +1774,7 @@ title: 历史笔记 1
 
     还有些没有说完的话题今后会在补遗中写写。
 
-[Hamming weight - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hamming_weight)
+[Hamming weight - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hamming_weight){.featured} -<
 
 :   说一个故事，四五年前我为面试出了一条笔试题目，恰巧和本书的题目 2.1 很相似，
     计算一个无号整数 (我要求 32-bit，书中的是 8-bit) 在二进制中 1 的个数。当时
@@ -1854,7 +1948,7 @@ title: 历史笔记 1
 
       - [迟来的书评和感想──给喜爱编程的朋友 (评论: 编程之美)](https://book.douban.com/review/3010762/)
 
-[trigonometry - How to use the PI constant in C++ - Stack Overflow](http://stackoverflow.com/questions/1727881/how-to-use-the-pi-constant-in-c)
+[trigonometry - How to use the PI constant in C++ - Stack Overflow](http://stackoverflow.com/questions/1727881/how-to-use-the-pi-constant-in-c) -<
 
 :   use math defines, math.h
 
@@ -1863,7 +1957,6 @@ title: 历史笔记 1
     #include <math.h>
     ```
 
-    <div class="tzx-drawer" shy>
     `math.h`:
 
     :   ```cpp
@@ -1907,7 +2000,6 @@ title: 历史笔记 1
 
         #endif  /* _USE_MATH_DEFINES */
         ```
-    </div>
 
     refs and see also
 
@@ -1917,7 +2009,7 @@ title: 历史笔记 1
 
 [CodeTank 代码坦克 - 互联网智能代码坦克机器人编程游戏](http://codetank.alloyteam.com/)
 
-[Web 查询引擎 -- Lingoes Translator 灵格斯词霸](http://www.lingoes.cn/zh/translator/webengine.htm)
+[Web 查询引擎 -- Lingoes Translator 灵格斯词霸](http://www.lingoes.cn/zh/translator/webengine.htm) -<
 
 :   这个 grease monkey 插件可以看看：[search engine jump for academic](https://greasyfork.org/en/scripts/2765-search-engine-jump-for-academic)。
 
@@ -1944,14 +2036,14 @@ title: 历史笔记 1
     |   有道词典         |  `<engine id="yodao.com" name="有道" url="http://dict.yodao.com/search?q=[$key]&ue=utf8&keyfrom=dict.index" />`  |
     ```
 
-[Ubuntu 14.04 重启网卡 — » Kumu's Blog](http://blog.opskumu.com/ubuntu-network-br0.html)
+[Ubuntu 14.04 重启网卡 — » Kumu's Blog](http://blog.opskumu.com/ubuntu-network-br0.html) -<
 
 :   >   Stopping or restarting the networking job is not supported. Use
     >   `ifdown`{.bash} & `ifup`{.bash} to reconfigure desired interface.
 
     ```bash
     $ cat /etc/issue
-    $ service  networking restart
+    $ service networking restart
     $ tail -f /var/log/upstart/networking.log
     ```
 
@@ -1992,11 +2084,11 @@ title: 历史笔记 1
     br0     8000.02000a0080e1   no      eth0
     ```
 
-[Google Pro Tip: Use Back-of-the-envelope-calculations to Choose the Best Design - High Scalability -](http://highscalability.com/blog/2011/1/26/google-pro-tip-use-back-of-the-envelope-calculations-to-choo.html)
+[Google Pro Tip: Use Back-of-the-envelope-calculations to Choose the Best Design - High Scalability -](http://highscalability.com/blog/2011/1/26/google-pro-tip-use-back-of-the-envelope-calculations-to-choo.html) -<
 
 :   back-of-the-envelop (无需精心(或不必复杂)计算的)
 
-[Jeff Dean facts: How a Google programmer became the Chuck Norris of the Internet.](http://www.slate.com/articles/technology/doers/2013/01/jeff_dean_facts_how_a_google_programmer_became_the_chuck_norris_of_the_internet.single.html)
+[Jeff Dean facts: How a Google programmer became the Chuck Norris of the Internet.](http://www.slate.com/articles/technology/doers/2013/01/jeff_dean_facts_how_a_google_programmer_became_the_chuck_norris_of_the_internet.single.html){.featured .heart} -<
 
 :   -   If you could harness the power of the multiverse you could try every
         possible option in the design space and see which worked best. But
@@ -2059,7 +2151,7 @@ title: 历史笔记 1
 
 [Emacs 简易教程](http://www.perfect-is-shit.com/emacs-simple-tutorial.html)
 
-[dirtysalt's homepage](http://dirlt.com/)
+[dirtysalt's homepage](http://dirlt.com/) -<
 
 :   TL;DR
 
@@ -2094,21 +2186,21 @@ title: 历史笔记 1
       - 机器学习技法 on Coursera
       - The Django Book 不错的 Django 入门材料
 
-[为什么会出现LNK2005"符号已定义"的链接错误? - 歌谣在风中飘舞 - 博客频道 - CSDN.NET](http://blog.csdn.net/soloist/article/details/493238)
+[为什么会出现LNK2005"符号已定义"的链接错误? - 歌谣在风中飘舞 - 博客频道 - CSDN.NET](http://blog.csdn.net/soloist/article/details/493238) -<
 
-:   Read CSAPP! More!
+:   **Read CSAPP! More!**
 
     不然你连 CSDN 上的文章都看不懂。
 
-[云风的 BLOG: 学习从历史开始](file:///E:/blogs/YunFeng/blog.codingnow.com/2007/12/history.html)
+[云风的 BLOG: 学习从历史开始](file:///E:/blogs/YunFeng/blog.codingnow.com/2007/12/history.html) -<
 
 :   和上次一样，陈榕调侃了许多大公司，尤其是微软。但他更语重心长的讲了一个
     浅显的道理：微软的人并不比大家苯，当然也不比大家聪明。我们都能看到的问
     题，比如系统臃肿，软件结构不合理，等等，不可能微软自己人就意识不到。种
     种问题，绝对不能只用当局者迷，旁观者清来解释。
 
-    **我们只有从历史看过来，方能理解历史的局限性。**做出那些错误决定的无奈放在
-    大背景上大多会得到一个合理的解释。也只有这样，我们才可以领悟到未来正确的路。
+    **我们只有从历史看过来，方能理解历史的局限性。做出那些错误决定的无奈放在
+    大背景上大多会得到一个合理的解释。也只有这样，我们才可以领悟到未来正确的路。**
 
     我有一个忘记从哪继承来的观点：无论我们想学什么，都应该从学习他的历史开
     始。极端点说，无论学什么，都是在学他的历史。
@@ -2119,17 +2211,17 @@ title: 历史笔记 1
     弄明白。搞明白之后，到底有什么价值，可以创造多少财富，这是我从来不关心
     的。反而这样，知识给予的回馈是最大的。
 
-[id-Software/DOOM-3-BFG](https://github.com/id-Software/DOOM-3-BFG)
+[id-Software/DOOM-3-BFG](https://github.com/id-Software/DOOM-3-BFG) -<
 
 :   BFG, for "Big F***ing Gun"
 
 [C Programming - A Modern Approach, 2nd Edition (豆瓣)](https://book.douban.com/subject/2585403/)
 
-[mc-gulu/mooc_chinese_culture](https://github.com/mc-gulu/mooc_chinese_culture)
+[mc-gulu/mooc_chinese_culture](https://github.com/mc-gulu/mooc_chinese_culture) -<
 
 :   中国文化概论
 
-[The Chicken and the Pig - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/The_Chicken_and_the_Pig)
+[The Chicken and the Pig - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/The_Chicken_and_the_Pig) -<
 
 :   The business fable of The Chicken and the Pig is about commitment to a
     project or cause. When producing a dish made of ham and eggs, the pig
@@ -2138,7 +2230,7 @@ title: 历史笔记 1
     committed in that dish while the chicken is **only involved**, yet both are
     needed to produce the dish.
 
-[技术管理猪鸡-1 开篇 « 4G spaces](http://blog.youxu.info/2015/05/17/tech-lead-1/)
+[技术管理猪鸡-1 开篇 « 4G spaces](http://blog.youxu.info/2015/05/17/tech-lead-1/) -<
 
 :   而刚入行的工程师，只能报告一些比较琐碎的成就。
 
@@ -2158,7 +2250,7 @@ title: 历史笔记 1
     尽管写日记并不能直接解决技术管理上的难题，却**打开了反思之门，也把许多事情前
     因后果连接起来**。
 
-[Alexander Pope - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Alexander_Pope)
+[Alexander Pope - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Alexander_Pope) -<
 
 :   爱伦坡
 
@@ -2171,13 +2263,13 @@ title: 历史笔记 1
     second-most frequently quoted writer in The Oxford Dictionary of
     Quotations, after Shakespeare.
 
-[cloudwu/bpa](https://github.com/cloudwu/bpa)
+[cloudwu/bpa](https://github.com/cloudwu/bpa) -<
 
 :   A bump pointer allocator.
 
     by 云风
 
-[Wikipedia:Too long; didn't read - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read)
+[Wikipedia:Too long; didn't read - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Wikipedia:Too_long;_didn%27t_read) -<
 
 :   **Too long; didn't read** (abbreviated **tl;dr** (注意分号后没有空格) and
     **tldr**) is a shorthand notation added by an editor indicating a passage
@@ -2198,12 +2290,12 @@ title: 历史笔记 1
 
     这段英文有点难……
 
-[有什么道理是开始注重外表几年后才能悟出来的？ - Sophia 的回答 - 知乎](http://www.zhihu.com/question/31637529/answer/54173168)
+[有什么道理是开始注重外表几年后才能悟出来的？ - Sophia 的回答 - 知乎](http://www.zhihu.com/question/31637529/answer/54173168) -<
 
 :   你以为人与人之间颜值的区别就真的只是颜值的区别？你错了，只不过是自控力
     和执行力的差别，反映到了颜值上。
 
-[理解，真是世界上最奢侈的事](http://www.douban.com/note/279511136/)
+[理解，真是世界上最奢侈的事](http://www.douban.com/note/279511136/) -<
 
 :   曾经我非常介意别人对我的误解。听到好友的一些话表面上“呵呵”过去，但其实心里
     很受伤，“你怎么会觉得我是那样的人？”“你怎么这么不了解我？”
@@ -2219,7 +2311,7 @@ title: 历史笔记 1
 
     在乎的太多就活的太累啦。
 
-[科学网—导师为何不能帮助学生找工作呢？ - 鲍海飞的博文](http://blog.sciencenet.cn/blog-278905-944000.html)
+[科学网—导师为何不能帮助学生找工作呢？ - 鲍海飞的博文](http://blog.sciencenet.cn/blog-278905-944000.html) -<
 
 :   导师是否要为学生找工作，这是个仁者见仁，智者见智的问题。
 
@@ -2244,7 +2336,7 @@ title: 历史笔记 1
     学生是好样的。而作为学生，在新的境地环境，也不要辜负导师的一片苦心。导师不
     推荐学生，也是由于某种原因，作为学生也不能强人所难，因为时代境况都不同了。
 
-[`brian d foy` style guide](http://www252.pair.com/comdog/style.html)
+[`brian d foy` style guide](http://www252.pair.com/comdog/style.html) -<
 
 :   Any capitalization is incorrect unless each letter is capitalized.
     **Title case** is incorrect.
@@ -2264,7 +2356,7 @@ title: 历史笔记 1
       - [How I learned Perl](http://www.perlmonks.org/index.pl?node_id=385334)
       - [brian d foy](http://www252.pair.com/comdog/)
 
-[How to get the query string by javascript? - Stack Overflow](http://stackoverflow.com/questions/2907482/how-to-get-the-query-string-by-javascript)
+[How to get the query string by javascript? - Stack Overflow](http://stackoverflow.com/questions/2907482/how-to-get-the-query-string-by-javascript) -<
 
 :   ```javascript
     function getQueryStrings() {
@@ -2292,19 +2384,19 @@ title: 历史笔记 1
 
     then, go to browser, `http://tangzx.qiniudn.com?show=true`.
 
-[常用 Git 命令清单 - Web Rube - 噜吧](http://www.webrube.com/git-web_rube/6962)
+[常用 Git 命令清单 - Web Rube - 噜吧](http://www.webrube.com/git-web_rube/6962) -<
 
 :   ![](http://www.webrube.com/pics/62/6962_1.png)
 
-["I Draw Pictures All Day" – Smashing Magazine](http://www.smashingmagazine.com/2012/08/i-draw-pictures-all-day/?goback=.gde_5057526_member_249720659)
+["I Draw Pictures All Day" – Smashing Magazine](http://www.smashingmagazine.com/2012/08/i-draw-pictures-all-day/?goback=.gde_5057526_member_249720659) -<
 
 :   > "So, you do nothing all day."
 
-    > But for us designers and artists, drawing pictures all day is integral to our
-    > process and to who we are as creative people, and despite the idea that those
-    > who doodle waste time, we still get our work done. So, then, why are those of
-    > us who draw pictures all day even tempted to think that someone who is
-    > doodling or drawing pictures in a meeting or lecture is not paying attention?
+    >   But for us designers and artists, drawing pictures all day is integral to our
+    >   process and to who we are as creative people, and despite the idea that those
+    >   who doodle waste time, we still get our work done. So, then, why are those of
+    >   us who draw pictures all day even tempted to think that someone who is
+    >   doodling or drawing pictures in a meeting or lecture is not paying attention?
 
     It turns out that the **simple act of scribbling on a page** helps us think, remember and learn.
 
@@ -2332,7 +2424,7 @@ title: 历史笔记 1
     >   preemptive measure to stop you from losing focus. Additionally, it has a
     >   profound effect on creative problem-solving and deep information processing.”
 
-[cmd - Windows equivalent to UNIX pwd - Stack Overflow](http://stackoverflow.com/questions/921741/windows-equivalent-to-unix-pwd)
+[cmd - Windows equivalent to UNIX pwd - Stack Overflow](http://stackoverflow.com/questions/921741/windows-equivalent-to-unix-pwd) -<
 
 :   this prints it in the console: `echo %cd%`{.bash}
 
@@ -2343,11 +2435,11 @@ title: 历史笔记 1
     echo echo ^%cd^%) > C:\WINDOWS\pwd.bat
     ```
 
-    可以看到 `cd` 其实是一个环境变量，跟 `PATH` 一样。（不区分大小写）
+    可以看到 `cd` 其实是一个环境变量（不区分大小写）。
 
 [Posts ‐ apple4us](http://apple4us.com/post/)
 
-[如何保证网页的字体在各平台都尽量显示为最高质量的黑体？ - 平面设计 - 知乎](http://www.zhihu.com/question/19911793)
+[如何保证网页的字体在各平台都尽量显示为最高质量的黑体？ - 平面设计 - 知乎](http://www.zhihu.com/question/19911793) -<
 
 :   Linux 社区常用的简体中文介面字体似乎主要有文泉驿点阵宋体、文泉驿正黑和文泉
     驿微米黑，另有一些人会把 Windows 或 OS X 的字体拿去用。文泉驿点阵宋体类似
@@ -2357,19 +2449,22 @@ title: 历史笔记 1
 
     为网页设定字体时有以下目的须达成：
 
-      - 对于 Windows：在中易宋体和微软雅黑之间二选一。粗体和较大字号的文本用微
+    -   对于 Windows：在中易宋体和微软雅黑之间二选一。粗体和较大字号的文本用微
         软雅黑。没有微软雅黑的系统会回退到中易宋体。
-      - 对于 OS X：尽量使用冬青黑体简体中文。没有冬青黑体简体中文的系统会回退到
-        华文黑体。
-      - 对于 iOS：系统会自动使用华文黑体。
-      - 对于 Linux：尽量使用文泉驿微米黑。没有文泉驿微米黑的系统会回退到别的字
-        体。
-      - 对于 Android：系统会自动使用 Droid Sans。
+
+    -   对于 OS X：尽量使用冬青黑体简体中文。没有冬青黑体简体中文的系统会回退到华
+        文黑体。
+
+    -   对于 iOS：系统会自动使用华文黑体。
+
+    -   对于 Linux：尽量使用文泉驿微米黑。没有文泉驿微米黑的系统会回退到别的字体。
+
+    -   对于 Android：系统会自动使用 Droid Sans。
 
     two choices
 
-    - 控制（为 Windows 选择微软雅黑，为 Linux 选择文泉驿微米黑）
-    - 自由（仅在 OS X 上尽量使用冬青黑体简体中文，放任其他平台使用默认字体）
+    -   控制（为 Windows 选择微软雅黑，为 Linux 选择文泉驿微米黑）
+    -   自由（仅在 OS X 上尽量使用冬青黑体简体中文，放任其他平台使用默认字体）
 
     不要轻易把中文网页的 font-family 写成以「serif」结尾，因为如果列出的字体都
     没有，系统会按照「serif」的指示去用归于 serif 的中文字体，这样不符合我们尽
@@ -2383,7 +2478,7 @@ title: 历史笔记 1
 
       - [在网页中嵌入任意字体的解决方案 - 网页制作 - 蓝色理想](http://www.blueidea.com/tech/web/2009/7263.asp)
 
-[Web 中文字体应用指南 » Topics » Ruby China](https://ruby-china.org/topics/14005)
+[Web 中文字体应用指南 » Topics » Ruby China](https://ruby-china.org/topics/14005) -<
 
 :   **中文字体也有英文名称**
 
@@ -2410,23 +2505,22 @@ title: 历史笔记 1
 
     fonts
 
-      - 冬青黑体简体中文, Hiragino Sans GB
-      - WenQuanYi Micro Hei
-      - Microsoft YaHei
-      - 中易宋体, SimSun
-      - 华文细黑, STXihei
+    -   冬青黑体简体中文, Hiragino Sans GB
+    -   WenQuanYi Micro Hei
+    -   Microsoft YaHei
+    -   中易宋体, SimSun
+    -   华文细黑, STXihei
 
-
-    ```tzx-bigquote
-    Windows     OS X
-    黑体：SimHei    冬青黑体: Hiragino Sans GB [NEW FOR SNOW LEOPARD]
-    宋体：SimSun    华文细黑：STHeiti Light [STXihei]
-    新宋体：NSimSun     华文黑体：STHeiti
-    仿宋：FangSong  华文楷体：STKaiti
-    楷体：KaiTi     华文宋体：STSong
-    仿宋_GB2312：FangSong_GB2312    华文仿宋：STFangsong
-    楷体_GB2312：KaiTi_GB2312
-    微软雅黑体：Microsoft YaHei [as of Win7]
+    ```
+    Windows                 OS X
+    黑体：SimHei            冬青黑体: Hiragino Sans GB [NEW FOR SNOW LEOPARD]
+    宋体：SimSun            华文细黑：STHeiti Light [STXihei]
+    新宋体：NSimSun         华文黑体：STHeiti
+    仿宋：FangSong          华文楷体：STKaiti
+    楷体：KaiTi             华文宋体：STSong
+    仿宋_GB2312：           FangSong_GB2312    华文仿宋：STFangsong
+    楷体_GB2312：           KaiTi_GB2312
+    微软雅黑体：            Microsoft YaHei [as of Win7]
     ```
 
     refs and see also
@@ -2434,36 +2528,50 @@ title: 历史笔记 1
       - [中文字体网页开发指南 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2014/07/chinese_fonts.html)
       - [Chinese Standard Web Fonts: A Guide to CSS Font Family Declarations for Web Design in Simplified Chinese | Kendra Schaefer](http://www.kendraschaefer.com/2012/06/chinese-standard-web-fonts-the-ultimate-guide-to-css-font-family-declarations-for-web-design-in-simplified-chinese/)
 
-[Larry Wall 专访——语言学、Perl 6 的设计和发布 - 简书](http://www.jianshu.com/p/b920a1a469b2)
+[Larry Wall 专访——语言学、Perl 6 的设计和发布 - 简书](http://www.jianshu.com/p/b920a1a469b2) -<
 
 :   LW：到现在为止，Python 社区在低阶方面的教学工作做得比我们要好。我们也很想在
     这一方面做点什么，这也是我们有蝴蝶 logo 的部分原因，以此来吸引七岁大小的女孩子！
 
     ![Perl 6 : Camelia](https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Camelia.svg/640px-Camelia.svg.png)
 
-[Vim - 知乎专栏](http://zhuanlan.zhihu.com/hack-vim)
+[Vim - 知乎专栏](http://zhuanlan.zhihu.com/hack-vim) -<
 
-:   为什么说 Vim 写代码快？ 前提你累死过3次，成功配置了Vim。那么开始神奇的Vim之旅。你就发现。
+:   为什么说 Vim 写代码快？ 前提你累死过 3 次，成功配置了 Vim。那么开始神奇的
+    Vim 之旅。你就发现。
 
     -   你删代码比队友快 “first blood”
+
     -   自动补全比队友快
-    -   在20个G的文件堆里定位代码各种秒杀你队友
-    -   在vim中完成各种shell ， 秒杀你队友 “Killing spree (无节制的狂热行为)”!
-    -   优雅的更新升级， 删除 Vim插件（前提 Vundle） “Dominating”!
-    -   随性的自定义快捷键，完全属于你自己的风格， 一个配置文件随身带着走。或者压缩Vim文件包带着走， 想去哪就去哪，不用等你队友带节奏。 Unstoppable！
+
+    -   在 20 个 G 的文件堆里定位代码各种秒杀你队友
+
+    -   在 vim 中完成各种 shell ， 秒杀你队友 “Killing spree (无节制的狂热行
+        为)”!
+
+    -   优雅的更新升级， 删除 Vim 插件（前提 Vundle） “Dominating”!
+
+    -   随性的自定义快捷键，完全属于你自己的风格， 一个配置文件随身带着走。或者
+        压缩 Vim 文件包带着走， 想去哪就去哪，不用等你队友带节奏。 Unstoppable！
+
     -   你队友还在用鼠标？那你已经进化了 。 Wicked Sick！！
-    -   什么？ 开始用 Vim Markdown 来写文档了？ 我草，你已经超神了！！ God Like！！！
-    -   你已经离不开Vim了。 从最开始被各种折腾到想要砸键盘的你， 如今你已经爱上他了。 aM-m-m-m....（重复8次）Monster Kill
+
+    -   什么？ 开始用 Vim Markdown 来写文档了？ 我草，你已经超神了！！ God
+        Like！！！
+
+    -   你已经离不开 Vim 了。 从最开始被各种折腾到想要砸键盘的你， 如今你已经爱
+        上他了。 aM-m-m-m....（重复 8 次）Monster Kill
+
     -   你注定和 Vim 过完这一生！......Holy Shit
 
-[如何评价坂井泉水？ - 你如何评价 X - 知乎](http://www.zhihu.com/question/22177383)
+[如何评价坂井泉水？ - 你如何评价 X - 知乎](http://www.zhihu.com/question/22177383) -<
 
 :   后来，我当然知道了它们原来是如此的巧合，以至于我对于这两首歌都有着特殊
     的喜爱。它们有着同样的作曲者织田哲郎，同样的作词者坂井泉水，同样的演唱
-    者FIELD OF VIEW。
+    者 FIELD OF VIEW。
 
     直到现在，听回那些经典动画的主题曲或者片尾曲，还能深深感受到那股浓浓的
-    Being系摇滚味道，那是一种令人精神振奋、又流畅悦耳的熟悉旋律，那是一种已
+    Being 系摇滚味道，那是一种令人精神振奋、又流畅悦耳的熟悉旋律，那是一种已
     经融入血液的童年的记忆。
 
     词曲兼修，才华横溢，歌声清新，外形亲切，是我对坂井泉水的评价。但最令我
@@ -2471,71 +2579,69 @@ title: 历史笔记 1
     以此为噱头，她拥有令人难忘的声线，却精于歌词的创作。遍观日本乃至中国乐
     坛，都很难找到一位如此完美的歌手。
 
-    『What a beautiful moment』，ZARD第一次也是最后一次演唱会，2004年将近40
+    『What a beautiful moment』，ZARD 第一次也是最后一次演唱会，2004 年将近 40
     岁的坂井泉水依然温婉动人，如今看来，令人感叹生命无常
 
-    ZARD-（ZA-DO） 坂井泉水（Lzumi Sakai）ZARD的歌，声线独特，歌词优美，总
+    ZARD-（ZA-DO） 坂井泉水（Lzumi Sakai）ZARD 的歌，声线独特，歌词优美，总
     是给人向上的力量，她总是微笑的，很有阳光气的一个女孩，很少化妆，她的音
     乐成就除了连续九张百万级专辑轰动日本乃至世界歌坛外，更多的应该以音乐的
     形式告诉人们要勇敢面对生活的坎坷，永不认输的真理，她是影响日本一个时代
     的歌手。
 
-    她最红的时段是上世纪九十年代，那个时代也是日式摇滚的崛起与顶峰，而在这
-    巅峰的时代里，zard作为日本第一个女子摇滚乐队出道，并在唱片销量史上创下
-    惊人的记录，就其影响来说，可谓是巨大而不可磨灭的。那个时代的摇滚歌手，
-    B'z也好Zard也好，都有一种奠基人的感觉，甚至到了现在可以说是一种代表，象
-    征。曾经有个日本妹子（初中生）问我最喜欢的歌手，我说是Zard。她忽然很长
-    地“哦～”了一声。对她来说，Zard已经是旧事物了，尽管不了解，但她也有所耳
-    闻，并且报以极大的尊敬。这也能显示Zard在日本的地位和影响吧。就像至今都
-    有各处会播放邓丽君的歌，问起美国人卡朋特是谁，也没有不认识的。Zard的負
-    けないで还被编入了日本学校的音乐教材里，311日本大地震时，电台里点播量第
-    一名的依旧是zard的負けないで，而那时候距Zard去世已有4年之久。要说日本女
-    子摇滚的代表是谁？那一定会有Zard坂井泉水的名字。
+    她最红的时段是上世纪九十年代，那个时代也是日式摇滚的崛起与顶峰，而在这巅峰
+    的时代里，zard 作为日本第一个女子摇滚乐队出道，并在唱片销量史上创下惊人的记
+    录，就其影响来说，可谓是巨大而不可磨灭的。那个时代的摇滚歌手，B'z 也好 Zard
+    也好，都有一种奠基人的感觉，甚至到了现在可以说是一种代表，象征。曾经有个日
+    本妹子（初中生）问我最喜欢的歌手，我说是 Zard。她忽然很长地“哦～”了一声。对
+    她来说，Zard 已经是旧事物了，尽管不了解，但她也有所耳闻，并且报以极大的尊敬。
+    这也能显示 Zard 在日本的地位和影响吧。就像至今都有各处会播放邓丽君的歌，问
+    起美国人卡朋特是谁，也没有不认识的。Zard 的負けないで还被编入了日本学校的音
+    乐教材里，311 日本大地震时，电台里点播量第一名的依旧是 zard 的負けないで，
+    而那时候距 Zard 去世已有 4 年之久。要说日本女子摇滚的代表是谁？那一定会有
+    Zard 坂井泉水的名字。
 
     refs and see also
 
       - [如何从专业角度评价一下zard（坂井泉水）的音乐？ - 动漫 - 知乎](http://www.zhihu.com/question/26574738)
       - [ZARD!!](http://www.douban.com/doulist/537743/?start=25&sort=time&sub_type=)
 
-[2B Lab欢乐多-死线年年有年年都很多 - 与食巨近贱多食广地蹦跶在不列颠 - 知乎专栏](http://zhuanlan.zhihu.com/ciciatc/19589985)
+[2B Lab欢乐多-死线年年有年年都很多 - 与食巨近贱多食广地蹦跶在不列颠 - 知乎专栏](http://zhuanlan.zhihu.com/ciciatc/19589985) -<
 
 :   学姐和我给屋里每个人起了一个昵称，比如乔治欧是三舅舅等等，以保证无论中文英
     文八卦他们都听不懂。
 
     三年来屋里人来人往，一直没有中国人。今年老板忽然招了一个中国学生。这下我俩
-    真的很发愁啊ToT... 如何起一个昵称让他即使用中文听到也不知道是他呢？最后我决
+    真的很发愁啊 ToT... 如何起一个昵称让他即使用中文听到也不知道是他呢？最后我决
     定管这位新生叫：那个外国人。
 
     某一天舅舅忍不住了从冰箱里拿了一个提拉米苏。舅舅一边吃一边跟学姐感慨：「我
-    得跟Cheng谈谈，以后不能再买那么多甜点了。我管不住自个儿。」他话音刚落我就拎
-    着新一袋子的甜点晃悠进来了。于是我很疑惑地看着斯巴达的舅舅不知道发生了什么
-    。
+    得跟 Cheng 谈谈，以后不能再买那么多甜点了。我管不住自个儿。」他话音刚落我就拎
+    着新一袋子的甜点晃悠进来了。于是我很疑惑地看着斯巴达的舅舅不知道发生了什么。
 
     最后，虽然早餐吃一大盘水果非常开心，可我真的真的真的很想吃油条, 小笼包，鸡
     蛋灌饼，煎饼果子...
 
-    Two Dots。 一个一两分钟可以打完一局的小游戏， iOS only,  英国区美国区免费，
+    Two Dots。一个一两分钟可以打完一局的小游戏， iOS only,  英国区美国区免费，
     中区原版未上架，只有一个山寨。原版免费，中国区的山寨收费。这件事现在把我恶
     心到了。
 
-    反正每次一般就只补一个洞就是了。一般预约到三天后就可以烧高香庆祝人品好。做3
-    颗牙的重新补+洗牙做了一个多月。每次打完麻药后，脸都要麻一个下午。回到lab之
-    后，意大利熊伙伴乔万尼总是摩拳擦掌地问：我现在是不是扇你一个耳光你都不会痛
-    ！s
+    反正每次一般就只补一个洞就是了。一般预约到三天后就可以烧高香庆祝人品好。做 3
+    颗牙的重新补 + 洗牙做了一个多月。每次打完麻药后，脸都要麻一个下午。回到 lab 之
+    后，意大利熊伙伴乔万尼总是摩拳擦掌地问：我现在是不是扇你一个耳光你都不会痛！
 
     通过小伙伴们的指点，我终于领会了在英国看医生和牙医的奥义：一定不能精准地描
     述自己的病情，请务必把自己往死里说。
 
-    我：……甲硝唑，剂量是xxx。阿姨：噢，那是我给你开的剂量不够啊，那我再给你开点
-    。……阿姨，我是中国人，我们从小拿抗生素当糖吃的，这在世界上都有reputation的
+    我：……甲硝唑，剂量是 xxx。阿姨：噢，那是我给你开的剂量不够啊，那我再给你开点。
+    ……阿姨，我是中国人，我们从小拿抗生素当糖吃的，这在世界上都有 reputation 的
     吧……现在你来跟我说上次的剂量不够要加大？？？？
 
     经验教训：有牙该拔直接拔，莫待牙疼狂挠墙。去英国前最好在国内看好牙医。英国
     牙医适合做洗牙。补牙勉强也算可以，尽量不要在英国等着公立医院排队拔牙。另，
-    有在美国加州的朋友说：他拔了2颗阻生智齿+做了根管治疗和牙冠，在保险公司付了
-    一部分费用之后，他自己还需要为每颗牙付1000美金。英国免费医疗，所以医生倾向
-    于不作为，尽量叫你弃疗自愈。比如不舒服了想约全科医生十有八九都约到10天以后
-    。根本无法约专科医生，都是全科医生GP。 GP觉得你哪里不对了，才会推荐你去专科
+    有在美国加州的朋友说：他拔了 2 颗阻生智齿 + 做了根管治疗和牙冠，在保险公司付了
+    一部分费用之后，他自己还需要为每颗牙付 1000 美金。英国免费医疗，所以医生倾向
+    于不作为，尽量叫你弃疗自愈。比如不舒服了想约全科医生十有八九都约到 10 天以后。
+    根本无法约专科医生，都是全科医生 GP。 GP 觉得你哪里不对了，才会推荐你去专科
     医生。美国医生倾向于过度治疗。反正自己付钱，收费单经常吓死人。
 
     refs and see also
@@ -2543,7 +2649,7 @@ title: 历史笔记 1
       - [美国公司英国分部的食堂，只有早餐可以调众口了 - 与食巨近贱多食广地蹦跶在不列颠 - 知乎专栏](http://zhuanlan.zhihu.com/p/20057948)
       - [英国牙医历险记（血泪史） - 与食巨近贱多食广地蹦跶在不列颠 - 知乎专栏](http://zhuanlan.zhihu.com/p/19715685)
 
-[Matrix67 水平怎么样？ - 吴告于的回答 - 知乎](http://www.zhihu.com/question/20823906/answer/16329313)
+[Matrix67 水平怎么样？ - 吴告于的回答 - 知乎](http://www.zhihu.com/question/20823906/answer/16329313) -<
 
 :   如果一个人踢球，看起来还不错，有旁边的人就很好奇，问：他踢球的水平怎么
     样，能踢世界杯吗？另一个看客鄙夷地说，他根本和马拉多纳不在一个档次，连
@@ -2552,7 +2658,7 @@ title: 历史笔记 1
 
     **为毛 我们发展出这种恶心的逻辑趣味？**
 
-[Web设计开发资源分享 | Meditic](http://meditic.com/web-design-development-resources)
+[Web设计开发资源分享 | Meditic](http://meditic.com/web-design-development-resources) -<
 
 :   从08年开始创业以来，世界变了很多，但是有一个观点我一直坚信不疑：软件吞噬一
     切，而Web吞噬软件。
@@ -2562,12 +2668,12 @@ title: 历史笔记 1
 
     （好多工具……）
 
-[苹果电脑/Mac OS及其它 | Meditic](http://meditic.com/explore-your-mac-os)
+[苹果电脑/Mac OS及其它 | Meditic](http://meditic.com/explore-your-mac-os) -<
 
 :   看看 QQ 的苹果版的设计，就能理解两个系统的天差地别。再流氓的软件，到了苹
     果下都得重新设计过，而且绝对不敢做弹窗广告，这不是偶然的。
 
-[碰巧而已 | Meditic](http://meditic.com/you-just-dont-belong-to-anyone)
+[碰巧而已 | Meditic](http://meditic.com/you-just-dont-belong-to-anyone) -<
 
 :   人们喜欢把自己套在一个群体里，以获取安全感。如果自己比不过别人，就可以
     去拿这个群体和别人比。比如北大的很多学生，聚会的时候，跳舞远不如海淀走
@@ -2579,7 +2685,7 @@ title: 历史笔记 1
 
 [如何降低用户的价格敏感度 | Meditic](http://meditic.com/how-to-cut-down-price-sensitivity-for-users)
 
-[关于/meditic是谁 | Meditic](http://meditic.com/about)
+[关于/meditic是谁 | Meditic](http://meditic.com/about) -<
 
 :   “非常无聊”，深得我心。
 
@@ -2587,7 +2693,7 @@ title: 历史笔记 1
     其实我是生活狂。对我来说，吃喝拉撒不是生活，那只是维持肉体存活的手段，
     **非常无聊**；从不断的工作和作品中获得乐趣，才是我的生活。
 
-[我有个朋友，做图源的，最近被捕了 - 文章](http://weibo.com/p/1001603915337371370351)
+[我有个朋友，做图源的，最近被捕了 - 文章](http://weibo.com/p/1001603915337371370351) -<
 
 :   所以当我知道原来他是图源帝的时候，我非常平静，只表示了一个“噢~”。**这就像
     你知道一个人的工作是死刑执行人的时候，你不会对这份工作表现出想要参与其
@@ -2598,70 +2704,76 @@ title: 历史笔记 1
     ，他回敬我一首 Melt。我唱一首 1 期 OP，他回敬我一首 2 期 ED。我说我是御
     姐控，他说太俗了，老子是伪娘控。
 
-    有一次，我看到图源帝在贴吧回应那些歇斯底里的催更党，他说，你要知道，中
-    国汉化组给的那点破钱，加个 0 都算不上我现在挣的钱的零头。国外的论坛啥的我
-    也看，就 TM 中国的这儿一天到晚有人催更，**还一个个都跟自己是大爷似的**
-    。我说，你其实已经完全不需要给中国提供图源了阿，甭搭理他们呗。图源帝语
-    重心长地跟我说：“唉，毕竟咱中国人这么着也不能汉奸成那样阿。”
+    有一次，我看到图源帝在贴吧回应那些歇斯底里的催更党，他说，你要知道，中国汉
+    化组给的那点破钱，加个 0 都算不上我现在挣的钱的零头。国外的论坛啥的我也看，
+    就 TM 中国的这儿一天到晚有人催更，**还一个个都跟自己是大爷似的**。我说，你
+    其实已经完全不需要给中国提供图源了阿，甭搭理他们呗。图源帝语重心长地跟我说：
+    “唉，毕竟咱中国人这么着也不能汉奸成那样阿。”
 
     总之，这就是我认识的图源帝。一个死宅，伪娘控，ACG 通吃，但仅限 2 次元，
-    AKB48 什么的反而非常生疏。一个技术宅，对设备，质量，精益求精，程序，音
-    乐，图像加工，都是精通领域。一个里世界的国际大咖，引领图源“事业”的先锋
-    ，言语畅通，八面玲珑，在图源这个稳赔不赚的事业上做到发家致富。一个中国
-    人，会在贴吧吐槽，在 B 站传视频。冒着风险，顶着伸手党的炮火，也不忘在自己
-    最困难的时候赞助过自己的同胞。
+    AKB48 什么的反而非常生疏。一个技术宅，对设备，质量，精益求精，程序，音乐，
+    图像加工，都是精通领域。一个里世界的国际大咖，引领图源“事业”的先锋，言语畅
+    通，八面玲珑，在图源这个稳赔不赚的事业上做到发家致富。一个中国人，会在贴吧
+    吐槽，在 B 站传视频。冒着风险，顶着伸手党的炮火，也不忘在自己最困难的时候赞
+    助过自己的同胞。
 
-[【社长presents】电子书-LOVE-ZARD字幕社](http://lovezardfansub.lofter.com/post/25be0f_7feda66)
+[【社长presents】电子书-LOVE-ZARD字幕社](http://lovezardfansub.lofter.com/post/25be0f_7feda66) -<
 
-:   ```tzx-bigquote
-    ZARD 是？
-    ZARD，是一个传奇。
-    ZARD = 坂井泉水？
-    其实可以这么说。
-    ZARD不是最红的，
-    但是，日本大街小巷的人们，
-    几乎都知道 ZARD。
-    就算不知道 ZARD，
-    也知道那首鼓励了无数人的《負けないで》。
-    ZARD 一直低调的发片，几乎零宣传。
-    却在泉水小姐逝世之后，仍然保持着日本 CD 总销量第八的记录。
-    泉水小姐不在了，但是，她付出自己的一生打造的 ZARD，
-    永远是个传奇。
-    ```
+:   |   ZARD 是？
+    |   ZARD，是一个传奇。
+    |   ZARD = 坂井泉水？
+    |   其实可以这么说。
+    |   ZARD 不是最红的，
+    |   但是，日本大街小巷的人们，
+    |   几乎都知道 ZARD。
+    |   就算不知道 ZARD，
+    |   也知道那首鼓励了无数人的《負けないで》。
+    |   ZARD 一直低调的发片，几乎零宣传。
+    |   却在泉水小姐逝世之后，仍然保持着日本 CD 总销量第八的记录。
+    |   泉水小姐不在了，但是，她付出自己的一生打造的 ZARD，
+    |   永远是个传奇。
 
-[程序人生-代码疯子的技术博客-Www.ProgramLife.Net](http://www.programlife.net/)
+[程序人生 - 代码疯子的技术博客 -Www.ProgramLife.Net](http://www.programlife.net/)
 
-[如何在windows下编译Chrome源代码 - namelcx的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/namelcx/article/details/5971159)
+[如何在 windows 下编译 Chrome 源代码 - namelcx 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/namelcx/article/details/5971159) -<
 
 :   当时是为了找到一个插件能让浏览器的 tab 放在左边。后来发现 chrome 不行（chromium 可以，但要自己编译）。
-    再后来，发现 Firefox 上有这么一个插件，叫“Tab Kit”。大赞！
+    再后来，发现 Firefox 上有这么一个插件，叫“Tab Kit 2”。大赞！
 
     refs and see also
 
       - [Developer Toolbar - Firefox Developer Tools | MDN](https://developer.mozilla.org/en-US/docs/Tools/GCLI)
 
-[为什么特别成功的人喜欢每天都穿一样的衣服？ - 简书](http://www.jianshu.com/p/7730696482f9)
+[为什么特别成功的人喜欢每天都穿一样的衣服？ - 简书](http://www.jianshu.com/p/7730696482f9) -<
 
 :   <!-- 我就不专门点出“成功”这两个字并不让我喜欢了。除了这一点本文很“深得我心”！ -->
 
     Ego-Depletion
 
-    #. 我真的很幸运，每天醒来都能为全球逾 10 亿用户服务。如果我把精力花在一
+    -   我真的很幸运，每天醒来都能为全球逾 10 亿用户服务。如果我把精力花在一
         些愚蠢、轻率的事情上，我会觉得我没有做好我的工作。
-    #. 主要是因为这样**很方便**，而且还能表达一种个人风格。
-    #. 每天吃这些食物可能会让别人觉得有点单调，但对我来说并不在意这样。
-    #. 常常看着手机纠结几分钟甚至十几分钟，直到大脑疲惫混乱，精疲力尽的时候，
+
+    -   主要是因为这样**很方便**，而且还能表达一种个人风格。
+
+    -   每天吃这些食物可能会让别人觉得有点单调，但对我来说并不在意这样。
+
+    -   常常看着手机纠结几分钟甚至十几分钟，直到大脑疲惫混乱，精疲力尽的时候，
         匆匆选一样，物质的丰富和选项的繁多常常让我们无所适从。
-    #. 这些日常生活中的琐碎，无关痛痒，却消磨了我们的资源。但其实如果午餐就
+
+    -   这些日常生活中的琐碎，无关痛痒，却消磨了我们的资源。但其实如果午餐就
         点小组饭，反正菜品数量有限每天又不重样，随便点哪个菜，都是自己喜欢
         或者可以接受的，真的可以节约好多时间和精力。
-    #. 虽然每天吃同一家店的东西看似有些枯燥也缺乏美感，但人生已经足够复杂，
+
+    -   虽然每天吃同一家店的东西看似有些枯燥也缺乏美感，但人生已经足够复杂，
         不要再让日常的琐碎来消磨我们的幸福啦。简化无关紧要的选择，把这些时
         间花在重要的决策上，把精力集中在我们真正喜欢的人和事上，我们的生活
         将会不一样。
-    #. 让我们简单点，再简单点。
-    #. Simplicity is the ultimate sophistication - Da Vinci
-    #. Less is more.
+
+    -   让我们简单点，再简单点。
+
+    -   Simplicity is the ultimate sophistication - Da Vinci
+
+    -   Less is more.
 
     **Ego depletion** refers to the idea that self-control or willpower
     draw upon **a limited pool of mental resources that can be used up.
@@ -2681,116 +2793,114 @@ title: 历史笔记 1
 
       - [Ego depletion - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Ego_depletion)
 
-[JavaScript: How to Change CSS](http://xahlee.info/js/css_change.html)
+[JavaScript: How to Change CSS](http://xahlee.info/js/css_change.html) -<
 
-:   <div style="font-size:80%">
-
-    | CSS Syntax | JavaScript DOM Syntax |
+:   | CSS Syntax | JavaScript DOM Syntax |
     | ---------- | --------------------- |
     | `padding:1em`{.css} | `ele.style.padding="1em"`{.javascript} |
     | `border:solid thin red`{.css} | `ele.style.border="solid thin red"`{.javascript} |
     | `font-family:"DejaVu Sans",sans-serif`{.css} | `ele.style.fontFamily='"DejaVu Sans",sans-serif'`{.javascript} |
 
-    </div>
-
     CSS's pseudo selectors (`a:visited`{.css}, `a:link`{.css}, `div.nav:before`{.css}, `div.nav:first-child`{.css}) cannot be scripted.
 
-[计算的威力，智慧的传奇](http://history.programmer.com.cn/1903/)
+    如果用 jQuery 的话，就是 `$.attr('key', 'value')`{.javascript}。
+
+[计算的威力，智慧的传奇](http://history.programmer.com.cn/1903/) -<
 
 :   ![](http://ww2.sinaimg.cn/large/7cc829d3gw1ezqqxvrhcuj20an085myk.jpg)
 
-    Fabrice Bellard 走的是完全不同的路，Bellard的绝大多数贡献都集中在自由软件与
-    开源领域，除了QEMU之外，最为人熟知的就是FFMPEG，他被誉为过去20年中最闪亮和
-    最有影响力的程序员之一，但他的名声远远却低于他的贡献。
+    Fabrice Bellard 走的是完全不同的路，Bellard 的绝大多数贡献都集中在自由软件
+    与开源领域，除了 QEMU 之外，最为人熟知的就是 FFMPEG，他被誉为过去 20 年中最
+    闪亮和最有影响力的程序员之一，但他的名声远远却低于他的贡献。
 
-    如果说FFMPEG体现了Bellard深厚的数学和信号学天分，那么QEMU 的实现就体现了
-    Bellard对于计算机体系架构的深刻理解和程序设计的深厚功底。
+    如果说 FFMPEG 体现了 Bellard 深厚的数学和信号学天分，那么 QEMU 的实现就体现
+    了 Bellard 对于计算机体系架构的深刻理解和程序设计的深厚功底。
 
-    2011年，他用JavaScript写了一个PC虚拟机Jslinux。这个虚拟机仿真了一个32位的
-    x86兼容处理器，一个8259可编程中断控制器，一个8254可编程中断计时器，和一个
-    16450 UART。 http://bellard.org/jslinux/，在笔者的普通桌面电脑的Chrome浏览
-    器中，Jslinux只用了仅仅5.075秒就启动了Linux。
+    2011 年，他用 JavaScript 写了一个 PC 虚拟机 Jslinux。这个虚拟机仿真了一个
+    32 位的x86 兼容处理器，一个 8259 可编程中断控制器，一个 8254 可编程中断计时
+    器，和一个16450 UART。 http://bellard.org/jslinux/，在笔者的普通桌面电脑的
+    Chrome 浏览器中，Jslinux 只用了仅仅 5.075 秒就启动了 Linux。
 
-    最后，让我们不妨八卦一下，在Google中输入Fabrice Bellard vs Linus Torvalds会
-    出现什么呢？毕竟，在笔者心目中，他们就像罗伯特德尼罗PK阿尔帕西诺。
+    最后，让我们不妨八卦一下，在 Google 中输入 Fabrice Bellard vs Linus
+    Torvalds 会出现什么呢？毕竟，在笔者心目中，他们就像罗伯特德尼罗 PK 阿尔帕西
+    诺。
 
-    映入眼帘的第一个结果，是财富杂志科技栏目专访全球在线支付巨头Stripe的创始人
+    映入眼帘的第一个结果，是财富杂志科技栏目专访全球在线支付巨头 Stripe 的创始人
     的一篇文章，其中提到。There are also a few individual people, like Fabrice
     Bellard, Jeff Dean, and Dan Bernstein, who are just generally fabulously
     productive and make me feel guilty about how little I get done. 好吧，Jeff
-    Dean…，与Jeff Dean并列，足以说明Fabrice Bellard的超强实力与卓越成就。
+    Dean…，与 Jeff Dean 并列，足以说明 Fabrice Bellard 的超强实力与卓越成就。
 
     refs and see also
 
       - [Fabrice Bellard's Home Page](http://bellard.org/)
       - [云计算技术背后的那些天才程序员：FFmpeg的作者法布里斯·贝拉 - 博客 - 伯乐在线](http://blog.jobbole.com/69582/)
 
+[图灵社区 : 阅读 : 连城：大数据场景下的“搔到痒处”和“戳到痛处”（图灵访谈）](http://www.ituring.com.cn/article/179495) -<
 
-[图灵社区 : 阅读 : 连城：大数据场景下的“搔到痒处”和“戳到痛处”（图灵访谈）](http://www.ituring.com.cn/article/179495)
+:   初二时班级重组，恰好发现坐我前面的男生下课时间在草稿纸上涂写 BASIC 程序，一
+    问才知道他从小学就开始写程序，于是拜师学艺。后来成了莫逆之交。现在他也在湾
+    区工作。那时候其实也写不出什么有技术含量的东西。但是无知无畏啊，觉得写程序
+    的时候有造物主的感觉，于是就下定决心走这条路了。
 
-:   初二时班级重组，恰好发现坐我前面的男生下课时间在草稿纸上涂写BASIC程序，一问
-    才知道他从小学就开始写程序，于是拜师学艺。后来成了莫逆之交。现在他也在湾区
-    工作。那时候其实也写不出什么有技术含量的东西。但是无知无畏啊，觉得写程序的
-    时候有造物主的感觉，于是就下定决心走这条路了。
+    玩 Erlang 的时候，我开始对 Erlang 的很多特性感到好奇，包括匿名函数、GC、尾
+    递归调用等等，这些特性在 Python、Ruby 等一些动态语言中也同样存在，但是我只
+    知其然，而不知其所以然。我觉得好奇的是，第一、函数式语言跟普通的命令式语言
+    的本质相比有什么优势；第二、这些特性背后的运行时机制到底是什么。那个时候我
+    在百度已经开始做管理，基本脱离了一线开发，说实话少了挺多乐趣。我就决定用业
+    余时间把函数式编程搞清楚。
 
-    玩Erlang的时候，我开始对Erlang的很多特性感到好奇，包括匿名函数、GC、尾递归
-    调用等等，这些特性在Python、Ruby等一些动态语言中也同样存在，但是我只知其然
-    ，而不知其所以然。我觉得好奇的是，第一、函数式语言跟普通的命令式语言的本质
-    相比有什么优势；第二、这些特性背后的运行时机制到底是什么。那个时候我在百度
-    已经开始做管理，基本脱离了一线开发，说实话少了挺多乐趣。我就决定用业余时间
-    把函数式编程搞清楚。
-
-    我自己的习惯是每年都会做一个side project，我觉得要把函数式搞明白，最简单的
-    办法就是自己做一个实验性的函数式语言实现，比如一个最简单的解释器什么的，也
-    不求它能够多么高效、实用，只求把个中原理搞明白。既然是实验，目标语言当然越
-    简单越好，于是选中了Scheme。Scheme的整个R5RS标准连目录带附录总共才50页，特
-    别精简。
+    我自己的习惯是每年都会做一个 **side project**，我觉得要把函数式搞明白，最简
+    单的办法就是自己做一个实验性的函数式语言实现，比如一个最简单的解释器什么的，
+    也不求它能够多么高效、实用，只求把个中原理搞明白。既然是实验，目标语言当然
+    越简单越好，于是选中了 Scheme。Scheme 的整个 R5RS 标准连目录带附录总共才 50
+    页，特别精简。
 
     因为都是业余时间做，这个小项目断断续续地做了两年，期间用不同方法重写了若干
     遍。项目整个做完了之后，确实把动态类型函数式语言最基本的东西，从运行时模型
     到理论上的一些概念和原理都弄明白了。实际上就跟我之前研究的分布式系统一样，
     也是把主要文献都粗略扫了一遍。
 
-    巧的是，13年六月份意外得知Intel中国研究院在招会Scala的实习生做Spark。那时候
-    Scala还在国内还没有多少动静，不要说会，听说过Scala的学生都不多。当时我对
-    Spark还一无所知，简单看了一下，发现这个项目很好地结合了分布式系统和函数式语
-    言这两个我最为感兴趣的技术方向。耐不住在家赋闲刷题的无聊，我最终以
-    contractor身份加入了Intel，并和Intel中国研究院吴甘沙和杨栋带领的团队一起做
-    了大半年Hadoop和Spark相关的研究。
+    巧的是，13 年六月份意外得知 Intel 中国研究院在招会 Scala 的实习生做 Spark。
+    那时候 Scala 还在国内还没有多少动静，不要说会，听说过 Scala 的学生都不多。
+    当时我对 Spark 还一无所知，简单看了一下，发现这个项目很好地结合了分布式系统
+    和函数式语言这两个我最为感兴趣的技术方向。耐不住在家赋闲刷题的无聊，我最终
+    以 contractor 身份加入了 Intel，并和 Intel 中国研究院吴甘沙和杨栋带领的团队
+    一起做了大半年 Hadoop 和 Spark 相关的研究。
 
-    JVM在大数据领域的流行，与Hadoop脱不开干系。Hadoop本身的成功，与Java的低入门
-    门槛、高开发效率（相对于C++而已）应该有相当大的关系。在HDFS、Hadoop
-    MapReduce流行之后，为了能与Hadoop无缝互操作，后续的一些大数据系统自然而然地
-    也选择了Java。近年来，虽然Java在语言层面发展缓慢，越来越被诟病，但Clojure、
-    Scala等JVM上的新语言却层出不穷，这又进一步激发了人们继续以JVM为平台搭建新兴
-    大数据系统的热情。Hadoop生态圈越做越大，而试图加入这个生态圈的新系统若想无
-    缝利用现有的遗产，就只能选择JVM。于是雪球越滚越大，进而令JVM几乎垄断了整个
-    大数据行业。
+    JVM 在大数据领域的流行，与 Hadoop 脱不开干系。Hadoop 本身的成功，与 Java 的
+    低入门门槛、高开发效率（相对于 C++ 而已）应该有相当大的关系。在 HDFS、
+    Hadoop MapReduce 流行之后，为了能与 Hadoop 无缝互操作，后续的一些大数据系统
+    自然而然地也选择了 Java。近年来，虽然 Java 在语言层面发展缓慢，越来越被诟病，
+    但 Clojure、Scala 等 JVM 上的新语言却层出不穷，这又进一步激发了人们继续以
+    JVM 为平台搭建新兴大数据系统的热情。Hadoop 生态圈越做越大，而试图加入这个生
+    态圈的新系统若想无缝利用现有的遗产，就只能选择 JVM。于是雪球越滚越大，进而
+    令 JVM 几乎垄断了整个大数据行业。
 
-    据我了解到的情况，国内的很多企业，尤其是电信行业的企业，过往大量依赖Oracle
-    和DB2，业务紧密依赖SQL。而在近几年的去IOE潮流中，又偏偏缺乏高效的能够处理大
-    数据的SQL执行引擎。这个时候，Shark和Spark SQL的出现给大家带来了较好的选择。
-    以此为契机，大量的开发者被吸引到了Spark SQL社区。此外，Shark的作者辛湜博士
+    据我了解到的情况，国内的很多企业，尤其是电信行业的企业，过往大量依赖 Oracle
+    和 DB2，业务紧密依赖 SQL。而在近几年的去 IOE 潮流中，又偏偏缺乏高效的能够处理大
+    数据的 SQL 执行引擎。这个时候，Shark 和 Spark SQL 的出现给大家带来了较好的选择。
+    以此为契机，大量的开发者被吸引到了 Spark SQL 社区。此外，Shark 的作者辛湜博士
     本人就是中国人，这点不知道是不是也有关系 :-)
 
-[色情片看得越多的人越自恋？ - Article - JIJITANG](http://www.jijitang.com/article/540faac920296a4535b9370c)
+[色情片看得越多的人越自恋？ - Article - JIJITANG](http://www.jijitang.com/article/540faac920296a4535b9370c) -<
 
 :   一份最新研究显示，有自恋倾向的人看片数量比其它人更多，并且一个人在网上看色
     情作品数量越多，越容易产生自恋感。
 
-    研究人员发现，测试者在自恋数值上的得分越高，越可能看过在线Porn。
+    研究人员发现，测试者在自恋数值上的得分越高，越可能看过在线 Porn。
 
-    在该研究中，所有看过porn的人，花在看porn上的时间越多，自恋程度就越高，两者
+    在该研究中，所有看过 porn 的人，花在看 porn 上的时间越多，自恋程度就越高，两者
     成正相关。
 
-[你写论文时发现了哪些神网站？ - 曲晓峰的回答 - 知乎](http://www.zhihu.com/question/35931336/answer/68972601)
+[你写论文时发现了哪些神网站？ - 曲晓峰的回答 - 知乎](http://www.zhihu.com/question/35931336/answer/68972601) -<
 
 :   <http://Overleaf.com> (<http://ShareLaTeX.com>) + <http://Lucidchart.com>
     (<http://Gliffy.com>) + <http://Mendeley.com>
 
 [Real World Haskell](http://book.realworldhaskell.org/read/index.html)
 
-[Download · coolwanglu/pdf2htmlEX Wiki](https://github.com/coolwanglu/pdf2htmlEX/wiki/Download)
+[Download · coolwanglu/pdf2htmlEX Wiki](https://github.com/coolwanglu/pdf2htmlEX/wiki/Download) -<
 
 :   Run from Docker container is the easiest way to convert pdf file to html, which
 
@@ -2804,18 +2914,21 @@ title: 历史笔记 1
 
 [NW.js & Electron Compared - TangibleJS](http://tangiblejs.com/posts/nw-js-electron-compared)
 
-[What are all the Jeff Dean facts? - Quora](https://www.quora.com/What-are-all-the-Jeff-Dean-facts)
+[What are all the Jeff Dean facts? - Quora](https://www.quora.com/What-are-all-the-Jeff-Dean-facts) -<
 
 :   段子：
 
-    #. 当 Richard Stallman 听说 Jeff Dean 的自传专属 Kindle 平台，他就去买
+    -   当 Richard Stallman 听说 Jeff Dean 的自传专属 Kindle 平台，他就去买
         了 Kindle。
-    #. Jeff 来面试谷歌时，被问到等式 P=NP 成立的条件，他回答，P=0 或者 N=1
+
+    -   Jeff 来面试谷歌时，被问到等式 P=NP 成立的条件，他回答，P=0 或者 N=1
         时成立。然后在面试官哈哈大笑的时候，他看了一眼谷歌公有证书，就直接
         在白板上写出了相应的私钥。
-    #. 在 2000 年末的时候，Jeff Dean 写代码的速度突然增长了 40 倍，原因是他
+
+    -   在 2000 年末的时候，Jeff Dean 写代码的速度突然增长了 40 倍，原因是他
         把自己的键盘升级到了 USB 2.0。
-    #. When Jeff gives a seminar at Stanford, it's so crowded Don Knuth has
+
+    -   When Jeff gives a seminar at Stanford, it's so crowded Don Knuth has
         to sit on the floor. (TRUE)
 
     refs and see also
@@ -2823,18 +2936,18 @@ title: 历史笔记 1
       - [趣文：谷歌大牛 Jeff Dean 的那些“惊人真相” - 博客 - 伯乐在线](http://blog.jobbole.com/51607/)
       - [Jeff Dean_百度百科](http://baike.baidu.com/link?url=ZWotR3Ro10Wai8ASDOL0aSITl9dnaI4bFNeLo_aXFUaqVdqgztiRb5mnuIDaYj9E0eCuJ5fVIrGxNhQkH35IoK)
 
-[高级语言写代码时就能够想到对应的汇编代码是怎样一种体验？ - Milo Yip 的回答 - 知乎](http://www.zhihu.com/question/38330356/answer/75939138)
+[高级语言写代码时就能够想到对应的汇编代码是怎样一种体验？ - Milo Yip 的回答 - 知乎](http://www.zhihu.com/question/38330356/answer/75939138) -<
 
 :   最不能忍的是，编译器（主要是较老的版本）不能生成我想要的指令，多了一些
     无意义的垃圾。之前做 SIMD 库的时候用 intrinsics（固有的；本质的）常会出
     现，要用各种 hacks 去调教编译器。我曾说过，脚本语言如 JavaScript 并不适
     合学习计算机科学，因为中间有太多黑盒，不能直觉地知道代码到底会怎样执行。
 
-    > 啥叫差距。。。有人拿着编译器实现不了需求，有人却担心编译器干不好活
+    >   啥叫差距。。。有人拿着编译器实现不了需求，有人却担心编译器干不好活
 
 [Regular expression - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Regular_expression)
 
-[MFC、WTL、WPF、wxWidgets、Qt、GTK 各有什么特点？ - 姚冬的回答 - 知乎](http://www.zhihu.com/question/23480014/answer/24809080)
+[MFC、WTL、WPF、wxWidgets、Qt、GTK 各有什么特点？ - 姚冬的回答 - 知乎](http://www.zhihu.com/question/23480014/answer/24809080) -<
 
 :   Qt，虽然它也是上世纪 90 年代出现的，但是它在 21 世纪有了长足的进步。应
     该说它的起点就比较高，一开始就定位跨平台，而且不满足于简单封装系统 API，
@@ -2850,16 +2963,17 @@ title: 历史笔记 1
     前 **Qt 是支持平台最多的框架没有之一**。由于早期授权的问题，Qt 对于开源
     社区不是很友好，导致推广不太顺利，直到它改成了 LGPL 方式，如果 Qt 能早点
     想开了，恐怕就没有 wxWidgets 的生存空间了。Qt 的缺点也是有的，就是太大，
-    不过可以自己剪裁，我可以把 QT 库剪裁到发行包压缩后 2.5 MB。
+    不过可以自己剪裁，**我可以把 QT 库剪裁到发行包压缩后 2.5 MB。**
 
-    最后我想补充下真正的UI库之王，cocoa。Apple的成功有很多原因，其中之一就是
-    cocoa，cocoa理念十分先进，而且出来得早，我都怀疑Qt和WPF有不少思想都是借鉴
-    cocoa的。定义式的UI，用xib就可以定义UI的绝大部分细节，而且提供所见即所得的
-    可视化设计工具。严格的MVC，而且定义非常清晰，分工明确。signal/slot，虽然不
-    叫这个名字，但思想就是，而且真的是拖动鼠标就能connect。提供了ARC，闭包和反
-    射，给UI开发带来巨大的便利性，当然这得益于Objective-C这个语言。
+    最后我想补充下真正的 UI 库之王，cocoa。Apple 的成功有很多原因，其中之一就是
+    cocoa，cocoa 理念十分先进，而且出来得早，我都怀疑 Qt 和 WPF 有不少思想都是
+    借鉴 cocoa 的。定义式的 UI，用 xib 就可以定义 UI 的绝大部分细节，而且提供所
+    见即所得的可视化设计工具。严格的 MVC，而且定义非常清晰，分工明确。
+    signal/slot，虽然不叫这个名字，但思想就是，而且真的是拖动鼠标就能 connect。
+    提供了 ARC，闭包和反射，给 UI 开发带来巨大的便利性，当然这得益于
+    Objective-C 这个语言。
 
-[怀旧梦想家的程序世界 - Living Computer Museum](http://www.douban.com/note/429783660/)
+[怀旧梦想家的程序世界 - Living Computer Museum](http://www.douban.com/note/429783660/) -<
 
 :   这些书对我“影响最大”，但未必因为它本身有多好，更多的是一种机缘巧合：
     它碰巧出现在那个时候，带我走进一个**全新的世界**。
@@ -2874,11 +2988,11 @@ title: 历史笔记 1
     但现在不这么想了。经历了和不同背景的人合作去完成一些完全超越自身能力和
     眼界的事情以后，我想这几万刀也算没白花。
 
-    > "Oh god, it's starting to rain."
+    >   "Oh god, it's starting to rain."
     >
-    > "That's okay. I don't mind getting wet. Paris is the most beautiful in the rain."
+    >   "That's okay. I don't mind getting wet. Paris is the most beautiful in the rain."
     >
-    > "Oh what a thing to say. I couldn't agree more."
+    >   "Oh what a thing to say. I couldn't agree more."
 
     旧的问题还会有新的角度，**旧的知识还会有更深层的理解**，不能被自己的自大冲昏了脑袋。
 
@@ -2891,11 +3005,11 @@ title: 历史笔记 1
 
 [LaTeX/Macros - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/LaTeX/Macros)
 
-[Code Simplicity » The Singular Secret of the Rockstar Programmer](http://www.codesimplicity.com/post/the-singular-secret-of-the-rockstar-programmer/)
+[Code Simplicity » The Singular Secret of the Rockstar Programmer](http://www.codesimplicity.com/post/the-singular-secret-of-the-rockstar-programmer/) -<
 
 :   There is only one, singular fact:
 
-    > **The better you understand what you are doing, the better you will do it.**
+    >   **The better you understand what you are doing, the better you will do it.**
 
     **Rockstar programmers** understand what they are doing far, far better
     than average or mediocre programmers.
@@ -2904,7 +3018,7 @@ title: 历史笔记 1
     And at the end of it, you may find yourself suddenly the amazing senior
     engineer who everyone comes to for advice.
 
-[Wikipedia:Stub - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Wikipedia:Stub)
+[Wikipedia:Stub - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Wikipedia:Stub) -<
 
 :   A stub is an article deemed too short to provide encyclopedic coverage of a
     subject. The objective of this page is to provide a general guide for
@@ -2916,7 +3030,7 @@ title: 历史笔记 1
     lists, categories, templates, talk pages, and redirects, are not regarded
     as stubs.
 
-[pandoc中文pdf转换攻略 - 一个架构士的思考与沉淀之地](http://afoo.me/posts/2013-07-10-how-to-transform-chinese-pdf-with-pandoc.html)
+[pandoc 中文 pdf 转换攻略 - 一个架构士的思考与沉淀之地](http://afoo.me/posts/2013-07-10-how-to-transform-chinese-pdf-with-pandoc.html) -<
 
 :   ```makefile
     SOURCES := $(wildcard *.md)
@@ -3008,27 +3122,30 @@ title: 历史笔记 1
       - [博客生成脚本](http://www.synbe.com/index/posts/html/help-code/sh.md.html)
       - [pages/convert.sh at gh-pages · tzengyuxio/pages](https://github.com/tzengyuxio/pages/blob/gh-pages/pandoc/convert.sh)
 
-[一个架构士的思考与沉淀之地](http://afoo.me/favorite.html)
+[一个架构士的思考与沉淀之地](http://afoo.me/favorite.html) -<
 
-:   个人感觉，真正的黑客可能用 Mac，但一定不会用 Mac Pro。通常都是 11' 的 Macbook Air。
+:   个人感觉，真正的黑客可能用 Mac，但一定不会用 Mac Pro。通常都是 11' 的
+    Macbook Air。
 
-    #. 对于我现在的工作来说，11 寸的 air 可以很好的满足需求， 轻便性是我现在
+    -   对于我现在的工作来说，11 寸的 air 可以很好的满足需求， 轻便性是我现在
         追求的主要特性， 尤其是现在很多是文案性的工作。
-    #. Windows 下有 visio，Mac 下其实有 OmniGraffle, 不过， 后者实在 tnd
+
+    -   Windows 下有 visio，Mac 下其实有 OmniGraffle, 不过， 后者实在 tnd
         太贵了，某一段时间又特别装逼要用正版，就只好找其它的 alternatives， 辗
         转反侧良久， 最终定下来使用这款 yEd。
-    #. plantuml, 其它图都使用 yed 搞定了， 只有 sequence 图有点儿不太好画， 所
+
+    -   plantuml, 其它图都使用 yed 搞定了， 只有 sequence 图有点儿不太好画， 所
         以， 选来选去找到这个小东东，bravo~
 
 [CodeMirror](http://codemirror.net/)
 
 [CSS3动画详解 | BeiYuu.com](http://beiyuu.com/css3-animation/)
 
-[又见C++诡异问题 | Vimer的程序世界](http://www.vimer.cn/2011/09/%e5%8f%88%e8%a7%81c%e8%af%a1%e5%bc%82%e9%97%ae%e9%a2%98.html)
+[又见C++诡异问题 | Vimer的程序世界](http://www.vimer.cn/2011/09/%e5%8f%88%e8%a7%81c%e8%af%a1%e5%bc%82%e9%97%ae%e9%a2%98.html) -<
 
 :   `Class a()`{.cpp} &ne; `Class a`{.cpp}
 
-[[译] Vim 的蔓延 - 依云's Blog](http://lilydjwg.is-programmer.com/2015/11/16/vim-creep.188665.html)
+[Vim 的蔓延 - 依云's Blog](http://lilydjwg.is-programmer.com/2015/11/16/vim-creep.188665.html) -<
 
 :   你微笑了一下，准备说出那个改变了你的一生的词。那个词，如果你的同事也选
     择追随的话，**他会掉进同样的兔子洞**，进入一个充满无限可能的无限组合的
@@ -3036,7 +3153,6 @@ title: 历史笔记 1
     多年以前那个昏暗的计算机实验室里的自己。带着些许兴奋，你轻轻地说出那个
     词。
 
-    <div class="tzx-drawer" shy>
     良心编辑器，编辑器之神。
 
     :   ```vimrc
@@ -3182,7 +3298,6 @@ title: 历史笔记 1
             :r          root (one extension removed)
             :e          extension only
         ```
-    </div>
 
     Vim more
 
@@ -3193,7 +3308,7 @@ title: 历史笔记 1
       - [陈列室 - 依云's Blog](http://lilydjwg.is-programmer.com/pages/19540.html)
       - [Vim Commands Cheat Sheet](http://bullium.com/support/vim.html)
 
-[Differential (mechanical device) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Differential_(mechanical_device))
+[Differential (mechanical device) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Differential_(mechanical_device)) -<
 
 :   A differential is a particular type of simple planetary gear train that
     has the property that the angular velocity of its carrier is the
@@ -3218,7 +3333,7 @@ title: 历史笔记 1
 
 [Best of VIM Tips, gVIM's Key Features zzapper](http://www.rayninfo.co.uk/vimtips.html)
 
-[visual studio 2010 - CMake configuring fails. "cl.exe is not able to compile a simple test program" - Stack Overflow](http://stackoverflow.com/questions/14590947/cmake-configuring-fails-cl-exe-is-not-able-to-compile-a-simple-test-program)
+[visual studio 2010 - CMake configuring fails. "cl.exe is not able to compile a simple test program" - Stack Overflow](http://stackoverflow.com/questions/14590947/cmake-configuring-fails-cl-exe-is-not-able-to-compile-a-simple-test-program) -<
 
 :   装了 Atom 编辑器，VS 就挂了，然后解决方案是：**Downgrade .NET to 4.0**……
 
@@ -3227,7 +3342,7 @@ title: 历史笔记 1
       - [cmake错误：C编译器不能简单的编译一个测试程序 - 开源中国社区](http://www.oschina.net/question/1378817_128323)
       - [dcmtk - CMake: "cl.exe not able to compile a simple test program" - Stack Overflow](http://stackoverflow.com/questions/22392976/cmake-cl-exe-not-able-to-compile-a-simple-test-program)
 
-[turing_machine/buildall.sh at master · gigix/turing_machine](https://github.com/gigix/turing_machine/blob/master/clojure/buildall.sh)
+[turing_machine/buildall.sh at master · gigix/turing_machine](https://github.com/gigix/turing_machine/blob/master/clojure/buildall.sh) -<
 
 :   `pushd`{.bash} & `popd`{.bash}
 
@@ -3242,16 +3357,9 @@ title: 历史笔记 1
     ./build.sh
     ```
 
-<div class="tzx-drawer">
-[Content Folding | CSS-Tricks](https://css-tricks.com/content-folding/)
+[Content Folding | CSS-Tricks](https://css-tricks.com/content-folding/){.heart}
 
-:   我现在用的是 `tzx-drawer` 来 fold 掉 `<dd>`{.html} 元素，点击可以切换
-    fold 的状态。
-
-    单击这里，就可以隐藏内容。
-</div>
-
-[Styling `<hr>`{.html} with CSS](http://www.sovavsiti.cz/css/hr.html)
+[Styling `<hr>`{.html} with CSS](http://www.sovavsiti.cz/css/hr.html) -<
 
 :   有点赖皮。
 
@@ -3270,9 +3378,12 @@ title: 历史笔记 1
     }
     ```
 
+    GitHub 里那个加粗了的 hr 的实现更好。
+    不信你可以打开 console，看本文的 hr 的 stylesheets。
+
 [刘未鹏 | MIND HACKS | 所有文章](file:///E:/blogs/MindHacks/mindhacks.cn/archives/index.html)
 
-[Frequently Used Commands of git - 羡辙杂俎](http://zhangwenli.com/blog/notes/note/2014/10/09/git/)
+[Frequently Used Commands of git - 羡辙杂俎](http://zhangwenli.com/blog/notes/note/2014/10/09/git/) -<
 
 :   ```bash
     # add tracked files only
@@ -3352,7 +3463,7 @@ title: 历史笔记 1
 
       - [Is there a quick git command to see an old version of a file? - Stack Overflow](http://stackoverflow.com/questions/338436/is-there-a-quick-git-command-to-see-an-old-version-of-a-file)
 
-[为什么你应该（从现在开始就）写博客](http://mindhacks.cn/2009/02/15/why-you-should-start-blogging-now/)
+[为什么你应该（从现在开始就）写博客](http://mindhacks.cn/2009/02/15/why-you-should-start-blogging-now/) -<
 
 :   如果你选择经常总结自己的知识体系，并说出来给你的读者听，你就会发现你自
     己创造了这样的机会。如果我们平时不反思，**我们觉得很多事情都是当然的**，
@@ -3377,7 +3488,7 @@ title: 历史笔记 1
 
 [mastering-emacs-in-one-year-guide/guide-zh.org at master · redguardtoo/mastering-emacs-in-one-year-guide](https://github.com/redguardtoo/mastering-emacs-in-one-year-guide/blob/master/guide-zh.org)
 
-[钗黛双收：若你也同Vim难割舍，却又看Emacs情切切 | Emacs中文网](http://emacser.com/vimvsemacs.htm)
+[钗黛双收：若你也同Vim难割舍，却又看Emacs情切切 | Emacs中文网](http://emacser.com/vimvsemacs.htm) -<
 
 :   由于两位佳人的理念差别之大，加上各自阵营之间的鸿沟之深，使得先贤先哲基本上
     都会在这两个阵营里面挑一个来站队。
@@ -3390,10 +3501,10 @@ title: 历史笔记 1
     不要就转身踏入了 Emacs 阵营——在那边起码知道怎么打字。
 
     玩电脑的都是懒人，懒人有个癖好叫“Don’t repeat yourself”，如果谁弄出一套比较
-    高效的键盘操作方式，能让我学一次以后就不用再学了，那就暂时去tnnd 的门派。
+    高效的键盘操作方式，能让我学一次以后就不用再学了，那就暂时去 tnnd 的门派。
 
     电影《社交网络 The Social Network》里面有这样一个镜头，在扎克伯格同学悲愤不
-    已，要把女生头像和畜生猪狗一起打分时，他来了句“有必要重启Emacs，修改代码”。
+    已，要把女生头像和畜生猪狗一起打分时，他来了句“有必要重启 Emacs，修改代码”。
     这个杜撰的场景告诉我们，IT 巨星再怎么胸怀壮志，始于足下的不过是手指另一端连
     着的编辑器。当 geek 们叫嚣要在世界上留下一个痕迹（make a dent in the
     universe）的时候，手里常常拎着一把折凳，折凳背面写着——Emacs。
@@ -3403,27 +3514,27 @@ title: 历史笔记 1
 
     可是作为 Vim 的死忠，对于手掌几乎不挪窝的向往，那是消失不掉的。
 
-[早上好，我的公主！](http://www.douban.com/note/527349294/)
+[早上好，我的公主！](http://www.douban.com/note/527349294/) -<
 
 :   这大概是生活态度和情趣把。
 
-    > 所以，早上好，我的公主！
+    >   所以，早上好，我的公主！
     >
-    > 新的一天又要开始啦！
+    >   新的一天又要开始啦！
 
-[Github is Your New Resume – code.dblock.org | tech blog](http://code.dblock.org/2011/07/14/github-is-your-new-resume.html)
+[Github is Your New Resume – code.dblock.org | tech blog](http://code.dblock.org/2011/07/14/github-is-your-new-resume.html) -<
 
 :   Github is your new resume. Here’s how to make the best of it.
 
       - College and Personal Projects
       - Make Github Your Biggest Asset
 
-[给我看你的博客 | 透明思考](http://gigix.thoughtworkers.org/2011/6/8/show-me-your-blog/)
+[给我看你的博客 | 透明思考](http://gigix.thoughtworkers.org/2011/6/8/show-me-your-blog/) -<
 
 :   所以涅，应聘的童鞋们，最好把你的博客一起告诉我们。看到一个精彩的博客，
     简历神马的都是浮云～
 
-[怎样花两年时间去面试一个人](http://mindhacks.cn/2011/11/04/how-to-interview-a-person-for-two-years/)
+[怎样花两年时间去面试一个人](http://mindhacks.cn/2011/11/04/how-to-interview-a-person-for-two-years/) -<
 
 :   正是这样的不容易，才有不少公司走内部培养的办法，这里的逻辑是：一上来就
     招到靠谱的人太难了，但找一块靠谱的璞玉然后雕琢雕琢相对就简单很多。这倒
@@ -3456,85 +3567,86 @@ title: 历史笔记 1
 
     列一下我所认为的，你面试微软前必须要读的十本书：
 
-    #. Code: The Hidden Language of Computer Hardware and Software （《编码的奥秘》）
-    #. &hearts; Computer System: A Programmer’s Perspective （《深入理解计算机系统》） / Windows via C/C++ （《Windows核心编程》 / 《程序员的自我修养》
-    #. Code Complete 2（《代码大全》）/ The Pragmatic Programmer （《程序员修炼之道》，我也把这本书称为《代码小全》）
-    #. &hearts; Programming Pearls （《编程珠玑》） / Algorithms / Algorithm Design / 《编程之美》
-    #. &hearts; The C Programming Language
-    #. The C++ Programming Language / Programming: Principles and Practice Using C++ / Accelerated C++
-    #. &hearts; The Structure and Interpretation of Computer Programs （《计算机程序的构造和解释》）
-    #. Clean Code / Implementation Patterns
-    #. &hearts; Design Patterns （《设计模式》） / Agile Software Development, Principles, Patterns, and Practices
-    #. Refactoring （《重构》）
+    #.  Code: The Hidden Language of Computer Hardware and Software （《编码的奥秘》）
+    #.  &hearts; Computer System: A Programmer’s Perspective （《深入理解计算机系统》） / Windows via C/C++ （《Windows核心编程》 / 《程序员的自我修养》
+    #.  Code Complete 2（《代码大全》）/ The Pragmatic Programmer （《程序员修炼之道》，我也把这本书称为《代码小全》）
+    #.  &hearts; Programming Pearls （《编程珠玑》） / Algorithms / Algorithm Design / 《编程之美》
+    #.  &hearts; The C Programming Language
+    #.  The C++ Programming Language / Programming: Principles and Practice Using C++ / Accelerated C++
+    #.  &hearts; The Structure and Interpretation of Computer Programs （《计算机程序的构造和解释》）
+    #.  Clean Code / Implementation Patterns
+    #.  &hearts; Design Patterns （《设计模式》） / Agile Software Development, Principles, Patterns, and Practices
+    #.  Refactoring （《重构》）
 
     云风：
 
-    #. C++ 编程思想
-    #. Effective C++
-    #. 深度探索 C++ 对象模型
-    #. C++ 语言的设计和演化
-    #. C 专家编程
-    #. C 陷阱与缺陷
-    #. C 语言接口与实现
-    #. Lua 程序设计
-    #. Linkers and Loaders
-    #. COM 本质论
-    #. Windows 核心编程
-    #. 深入解析 Windows 操作系统
-    #. 程序员修炼之道
-    #. 代码大全
-    #. UNIX 编程艺术
-    #. 设计模式
-    #. 代码优化：有效使用内存
-    #. 深入理解计算机系统
-    #. 深入理解 LINUX 内核
-    #. TCP/IP 详解
+    #.  C++ 编程思想
+    #.  Effective C++
+    #.  深度探索 C++ 对象模型
+    #.  C++ 语言的设计和演化
+    #.  C 专家编程
+    #.  C 陷阱与缺陷
+    #.  C 语言接口与实现
+    #.  Lua 程序设计
+    #.  Linkers and Loaders
+    #.  COM 本质论
+    #.  Windows 核心编程
+    #.  深入解析 Windows 操作系统
+    #.  程序员修炼之道
+    #.  代码大全
+    #.  UNIX 编程艺术
+    #.  设计模式
+    #.  代码优化：有效使用内存
+    #.  深入理解计算机系统
+    #.  深入理解 LINUX 内核
+    #.  TCP/IP 详解
 
     张峥（微软亚洲研究院副院长）：
 
-    #. Algorithms (by Sanjoy Dasgupta, Christos Papadimitriou and Umesh Vazirani)
-    #. Data Structure and Algorithms
-    #. The C Programming Language
-    #. The Design of the UNIX Operating System
-    #. Compilers （龙书）
-    #. Computer Architecture: A Quantitative Approach
-    #. Flow
-    #. Outliers (why hard work and luck are both important)
+    #.  Algorithms (by Sanjoy Dasgupta, Christos Papadimitriou and Umesh Vazirani)
+    #.  Data Structure and Algorithms
+    #.  The C Programming Language
+    #.  The Design of the UNIX Operating System
+    #.  Compilers （龙书）
+    #.  Computer Architecture: A Quantitative Approach
+    #.  Flow
+    #.  Outliers (why hard work and luck are both important)
 
     邹欣（MSRA 创新工程中心首席研发经理）：
 
-    #. The Myths of Innovation
-    #. The Innovator’s Dilemma
-    #. The Innovator’s Solution
-    #. Crossing the Chasm
-    #. Inside Intuit
-    #. 盛田昭夫
-    #. 杰克·韦尔奇自传
-    #. 梦断代码
-    #. Innovation
-    #. 浪潮之巅
+    #.  The Myths of Innovation
+    #.  The Innovator’s Dilemma
+    #.  The Innovator’s Solution
+    #.  Crossing the Chasm
+    #.  Inside Intuit
+    #.  盛田昭夫
+    #.  杰克·韦尔奇自传
+    #.  梦断代码
+    #.  Innovation
+    #.  浪潮之巅
 
-[创业公司应该如何招人？ - 创业公司 - 知乎](http://www.zhihu.com/question/19551593)
+[创业公司应该如何招人？ - 创业公司 - 知乎](http://www.zhihu.com/question/19551593) -<
 
 :   知乎创始人：
 
-      - 上 twitter，看 XXX 的 follower，一个一个看，看他们的 twitter，博客，
+    -   上 twitter，看 XXX 的 follower，一个一个看，看他们的 twitter，博客，
         Google Reader 分享，想办法搞到邮件，联系，半夜电话骚扰。
-      - **上豆瓣，前端后端挑几本重量级的书，去找想看，看过，正在看这本书的人，
+
+    -   **上豆瓣，前端后端挑几本重量级的书，去找想看，看过，正在看这本书的人，
         一个一个看，看他们的活动，博客，Google Reader 分享，想办法搞到邮件，联
         系，半夜电话骚扰。**
-      - 找同事，问他们都看什么技术博客，想办法搞到邮件，联系，半夜电话骚扰。
+
+    -   找同事，问他们都看什么技术博客，想办法搞到邮件，联系，半夜电话骚扰。
 
     作为一个小公司，加入我们是有风险的，小公司倒闭的几率比大公司大多了，只
     不过大多不上报纸而已。
 
 [6.1. GitHub:Gist — GotGitHub](http://www.worldhello.net/gotgithub/06-side-projects/gist.html)
 
-[解决VS2010自带的C/C++编译器CL找不到mspdb100.dll的问题 - dudu - 博客园](http://www.cnblogs.com/dudu/archive/2011/05/21/2053104.html)
+[解决 VS2010 自带的 C/C++ 编译器 CL 找不到 mspdb100.dll 的问题 - dudu - 博客园](http://www.cnblogs.com/dudu/archive/2011/05/21/2053104.html) -<
 
 :   `C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE` &rarr; `%PATH%`
 
-    <div class="tzx-drawer" shy>
     `Common7\Tools\vsvars32.bat`:
 
     :   ```plain
@@ -3657,9 +3769,8 @@ title: 历史笔记 1
 
         :end
         ```
-    </div>
 
-[热爱正当年，青葱已做汤。](http://www.douban.com/note/518991649/)
+[热爱正当年，青葱已做汤。](http://www.douban.com/note/518991649/) -<
 
 :   那个妞是隔壁班的，短发很俏皮，笑容很俏皮，打扮也很俏皮。
 
@@ -3672,18 +3783,18 @@ title: 历史笔记 1
 
     那时我还是个孩子，**我说你不懂，这是爱情**。
 
-    很奇怪，我一个那么自卑的人，居然会写情书。在这封人生中唯一的一封情书的结尾
-    ，我写到：被人喜欢总算是一件好事情，请你不要害怕。奇怪，为什么那个时候我就
-    知道被陌生人喜欢是一件值得害怕的事？
+    很奇怪，我一个那么自卑的人，居然会写情书。在这封人生中唯一的一封情书的结尾，
+    我写到：被人喜欢总算是一件好事情，请你不要害怕。奇怪，为什么那个时候我就知
+    道被陌生人喜欢是一件值得害怕的事？
 
     那个妞叫什么名字我也不知道，因为性格内向，因为表白被拒，我也不敢去打听任何
-    与她有关的信息。我也没有和她说过任何话，她可能都不知道我是哪个。可是因为她
-    ，**那时的我看起来像是一个诗人**。
+    与她有关的信息。我也没有和她说过任何话，她可能都不知道我是哪个。可是因为她，
+    **那时的我看起来像是一个诗人**。
 
-    初恋是什么？是初次对人动心，还是初次和人恋爱呢？我不知道，我只能自我安慰说
-    ：这可能就是最完美的暗恋吧。
+    初恋是什么？是初次对人动心，还是初次和人恋爱呢？我不知道，我只能自我安慰说：
+    这可能就是最完美的暗恋吧。
 
-[cmderdev/cmder](https://github.com/cmderdev/cmder)
+[cmderdev/cmder](https://github.com/cmderdev/cmder) -<
 
 :   The main advantage of Cmder is portability. It is designed to be
     **totally self-contained with no external dependencies**, which makes
@@ -3692,7 +3803,7 @@ title: 历史笔记 1
 
     windows
 
-[就喜欢这种嘿嘿嘿的短片 - 简书](http://www.jianshu.com/p/15052aaaeaab)
+[就喜欢这种嘿嘿嘿的短片 - 简书](http://www.jianshu.com/p/15052aaaeaab) -<
 
 :   ![](http://gnat.qiniudn.com/pics/tesla.gif)
 
@@ -3702,19 +3813,19 @@ title: 历史笔记 1
 
     一部叽里呱啦吐槽个不停的暗黑动画。
 
-    最近又有一部动画，对Sir大脑发起冲击。
+    最近又有一部动画，对 Sir 大脑发起冲击。
 
     《超级科学家》
 
     Super Science Friends
 
-[SkyPixel](https://www.skypixel.com/videos/2015-m4v)
+[SkyPixel](https://www.skypixel.com/videos/2015-m4v) -<
 
 :   美国果然牛逼！
 
     航拍，美国很美。
 
-[真实世界的我](http://www.aiexp.info/%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E6%88%91.html)
+[真实世界的我](http://www.aiexp.info/%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E6%88%91.html) -<
 
 :   如果问我为什么要做研究工作，我会回答**因为它有趣**，然而如果你追问为什
     么它有趣，这问题就不是那么容易回答了。我觉得我把前面几段文字拍出来，或
@@ -3733,7 +3844,7 @@ title: 历史笔记 1
     里潜移默化地指导着学生做人与做事。每学期的 Kick Off Meeting，俞凯老师都
     会用王蒙的《青春万岁》序诗来勉励我们：
 
-    ```tzx-bigquote
+    ```
     所有的日子，所有的日子都来吧，
     让我编织你们，用青春的金线，
     和幸福的璎珞，编织你们。
@@ -3764,7 +3875,7 @@ title: 历史笔记 1
     每次他朗读这首诗，他都会动情。他常常向学生分享他的故事，他的激情，他的
     态度，他的勤奋，感染着我，给予我源源不断的正能量。
 
-[e，一个常数的传奇 | 科学人 | 果壳网 科技有意思](http://www.guokr.com/article/55381/)
+[e，一个常数的传奇 | 科学人 | 果壳网 科技有意思](http://www.guokr.com/article/55381/) -<
 
 :   数学史上曾经有一个著名问题，称之为悬链线问题：一根柔软不可伸长的链子，
     两头固定在空间中的两个定点上（这两个点不一定要等高），链子形成的曲线是
@@ -3775,14 +3886,14 @@ title: 历史笔记 1
 
 [Conway's Game of Life - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
 
-[Light Table](http://lighttable.com/)
+[Light Table](http://lighttable.com/) -<
 
 :   Clojure 社区的编辑器，大概是除了 Emacs 你想玩 Clojure 的唯一选择吧。
 
     Every bit of Light Table's code is available to the community because
     **none of us are as smart as all of us**.
 
-[Cramer悖论：线性代数的萌芽 | Matrix67: The Aha Moments](http://www.matrix67.com/blog/archives/3803)
+[Cramer 悖论：线性代数的萌芽 | Matrix67: The Aha Moments](http://www.matrix67.com/blog/archives/3803) -<
 
 :   发现从信息的角度理解线性代数更给我更多 intuition。
 
@@ -3795,21 +3906,21 @@ title: 历史笔记 1
     没错，这个 Cramer 正是后来提出线性代数一大基本定理——Cramer 法则——的那
     个人。
 
-[随记：我们需要怎样的数学教育？ | Matrix67: The Aha Moments](http://www.matrix67.com/blog/archives/4294)
+[随记：我们需要怎样的数学教育？ | Matrix67: The Aha Moments](http://www.matrix67.com/blog/archives/4294) -<
 
 :   总有一天，数学教育会拔高到第三层：返朴归真，数学真正牛 B 的还是它本身。你会
     发现，那些伟大的数学思想，那些全新的数学理论，最初研究的动机并不是要急于解
     释我们身边的某某诡异现象，而是它**本身的美妙**。
 
-    其实，如果把“少 2 个”理解成“多 -2 个”，问题是一模一样的，之前的公式同样适用
-    。负数这一新思想立即把三种情况统一在了一起，它们的本质变得一模一样了。（话
-    说三角函数更是把以前需要讨论象限的问题给统一了，你只要在第一象限考虑就行，
-    反正其他象限直接适用于这样得出的结论。）
+    其实，如果把“少 2 个”理解成“多 -2 个”，问题是一模一样的，之前的公式同样适用。
+    负数这一新思想立即把三种情况统一在了一起，它们的本质变得一模一样了。（话说
+    三角函数更是把以前需要讨论象限的问题给统一了，你只要在第一象限考虑就行，反
+    正其他象限直接适用于这样得出的结论。）
 
     对于我来说，最能吸引我学习一个数学课题的，莫过于**一系列非平凡的结论以及它
     的精彩证明了**。
 
-[10大英语套话 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2008/12/top_10_irritating_english_phrases.html)
+[10 大英语套话 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2008/12/top_10_irritating_english_phrases.html) -<
 
 :   Sure we missed our best player but at the end of the day, John, we just
     didn't play well enough to win the game.（我们最好的选手不能上场，但是最终
@@ -3841,14 +3952,13 @@ title: 历史笔记 1
     We're talking basic common sense here - it isn't **rocket science**.（我们在这
     里说的是常识，又不是高深莫测的东西。）
 
-[公共场所英文译写规范 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2011/01/guidelines_for_english_translations_in_public_places.html)
+[公共场所英文译写规范 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2011/01/guidelines_for_english_translations_in_public_places.html) -<
 
 :   <http://whudoc.qiniudn.com/2016/公共场所英文译写规范(公示稿).pdf>
 
     公共场所英文译写规范, 2009-10-01 实施
 
-    <div class="tzx-drawer" shy>
-    第 1 部分：通则；
+    第 1 部分：通则； -<
 
     :   译写原则:
 
@@ -3894,7 +4004,7 @@ title: 历史笔记 1
 
         制作标志时应使用没有衬线的英文黑体字。
 
-        ```tzx-bigquote
+        ```
         办公区域  Administrative Area
         报告厅  Conference Hall
         闭馆整修  Closed for Renovation
@@ -3932,10 +4042,8 @@ title: 历史笔记 1
         ```
 
         page 8
-    </div>
 
-    <div class="tzx-drawer" shy>
-    第 2 部分：实体名称译法；
+    第 2 部分：实体名称译法； -<
 
     :   用汉语拼音拼写。如：长风（长风公园）Changfeng。有习惯译法的除外，
         如：**美琪（大戏院）Majestic**。
@@ -3956,7 +4064,7 @@ title: 历史笔记 1
         汉语拼音中以 a, o, e 开头的音节连接在其他音节后面的时候，如果音节的界限
         发生混淆，用隔音符号（’）隔开，该符号前后不空格，如：静安 Jing’an。
 
-        ```tzx-bigquote
+        ```
         上海博物馆  Shanghai Museum
         中国银行  Bank of China
         上海音乐厅  Shanghai Concert Hall
@@ -4007,10 +4115,8 @@ title: 历史笔记 1
         四海壶具博物馆  Sihai Teapots Museum
         龙华烈士陵园  Longhua Revolutionary Martyrs’ Cemetery
         ```
-    </div>
 
-    <div class="tzx-drawer" shy>
-    第 3 部分：交通；
+    第 3 部分：交通； -<
 
     :   飞机译作 Airplane；航空、航线译作 Airline。
 
@@ -4034,7 +4140,7 @@ title: 历史笔记 1
         小心列车与站台间隙 Mind the Gap，在特定使用场合（如轨道交通站点中）可简
         译。
 
-        ```tzx-bigquote
+        ```
         上海虹桥国际机场  Shanghai Hongqiao International Airport
         上海浦东国际机场  Shanghai Pudong International Airport
         上海火车站；铁路上海站  Shanghai Railway Station
@@ -4073,10 +4179,8 @@ title: 历史笔记 1
         ```
 
         page 29
-    </div>
 
-    <div class="tzx-drawer" shy>
-    第 4 部分：旅游；
+    第 4 部分：旅游； -<
 
     :   会址译作 Site；故居译作 Former Residence 或 Memorial Residence。公园译
         作 Park；园、圃、苑译作 Garden。动物园译作 Zoo；植物园译作 Botanical Garden。
@@ -4099,7 +4203,7 @@ title: 历史笔记 1
 
         儿童须由成人陪同 Children Must Be Accompanied by Adult。
 
-        ```tzx-bigquote
+        ```
         中山故居  Dr. Sun Yat-sen Memorial Residence
         庆龄故居  Mme. Soong Ching-ling Memorial Residence
         泽东故居  Former Residence of Mao Zedong
@@ -4155,10 +4259,8 @@ title: 历史笔记 1
         贵重物品请您自己妥善保管  Please Take Care of Your Valuables
         过山车  Roller Coaster
         ```
-    </div>
 
-    <div class="tzx-drawer" shy>
-    第 5 部分：文化体育；
+    第 5 部分：文化体育； -<
 
     :   文史馆译作 Research Institute of Culture and History。
 
@@ -4170,7 +4272,7 @@ title: 历史笔记 1
 
         竞技体操 Artistic Gymnastics，艺术体操 Rhythmic Gymnastics。
 
-        ```tzx-bigquote
+        ```
         东方网点连锁管理有限公司  Shanghai Eastday Bar Chain Administration Co. Ltd.
         上海东方网点  Eastday Bar
         才智公众电脑屋  Caizhi Internet Café
@@ -4189,10 +4291,8 @@ title: 历史笔记 1
         保安室  Security Office
         步行导览  Walking Tour Guide
         ```
-    </div>
 
-    <div class="tzx-drawer" shy>
-    第 6 部分：教育；
+    第 6 部分：教育； -<
 
     :   本、专科学院一般译作 College。职业学院可译作 Vocational College。职
         业技术学院可译作 Polytechnic College（理工科性质较强）或 Vocational & Technical
@@ -4232,7 +4332,7 @@ title: 历史笔记 1
         南阳实验幼儿园 Nanyang Experimental Kindergarten。模范译作 Model，如：
         上海市南洋模范中学（高中）**Shanghai Nanyang Model High School**。
 
-        ```tzx-bigquote
+        ```
         本校教职员工（停车处）  Reserved (Parking) for Faculty
         不准携带食物到图书馆内  No Food Allowed in the Library
         打印室、复印室、文印间  Printing and Copying Services
@@ -4255,10 +4355,8 @@ title: 历史笔记 1
         田径场  Athletic Field
         文科大楼  Liberal Arts Building
         ```
-    </div>
 
-    <div class="tzx-drawer" shy>
-    第 7 部分：金融；
+    第 7 部分：金融； -<
 
     :   交易所译作 Exchange。证券交易所译作 Stock Exchange，如：上海证券交易所
         Shanghai Stock Exchange。期货交易所译作 Futures Exchange，如：上海期货
@@ -4282,8 +4380,8 @@ title: 历史笔记 1
         险译作 Life Insurance。财产保险译作 Property Insurance。再保险译作
         Reinsurance。
 
-        存取款：存款 Deposit；取款 Withdrawal。贷款 Loan。外汇 Foreign Currency
-        。货币兑换 Currency Exchange。理财 Financing (Management)。基金 Fund。
+        存取款：存款 Deposit；取款 Withdrawal。贷款 Loan。外汇 Foreign Currency。
+        货币兑换 Currency Exchange。理财 Financing (Management)。基金 Fund。
 
         个人质押贷款 Personal Pledge Loan。应使功能指示明确，保持译文简洁，如：
         存折插入口 Please Insert Your Passbook。
@@ -4298,7 +4396,6 @@ title: 历史笔记 1
         存款机（存取款一体机）  CRS (Cash Recycling System)s
 
         page 75
-    </div>
 
     第 8 部分：医疗卫生；
 
@@ -4306,14 +4403,14 @@ title: 历史笔记 1
 
     第 10 部分：商业服务业。
 
-[Behavioral Profiling: The password you can't change.](https://paul.reviews/behavioral-profiling-the-password-you-cant-change/)
+[Behavioral Profiling: The password you can't change.](https://paul.reviews/behavioral-profiling-the-password-you-cant-change/) -<
 
 :   用来解决密码疲劳的一个密码方案。感觉上……不靠谱。因为人类不够 consistent（个
     人看法）。
 
     应该和设备、人的心情有关（换了键盘可能这个人的一些反应力就会变）。
 
-[密码疲劳 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2015/08/password-fatigue.html)
+[密码疲劳 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2015/08/password-fatigue.html) -<
 
 :   心理学有一个名词，叫做"密码疲劳"（**password fatigue**），指某些用户一遇到输入
     密码的场合，就感到厌倦和疲劳。
@@ -4326,7 +4423,7 @@ title: 历史笔记 1
       - 明明已经登陆，但是进入重要功能时，要求再输一遍密码；
       - 创建密码的时候，不显示或者显示占位符，根本看不清自己输入的是什么。
 
-[Git 使用规范流程 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html)
+[Git 使用规范流程 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2015/08/git-use-process.html) -<
 
 :   ![](http://www.ruanyifeng.com/blogimg/asset/2015/bg2015080501.png)
 
@@ -4372,17 +4469,17 @@ title: 历史笔记 1
     $ git push --force origin myfeature
     ```
 
-[经验:我是怎么找电子书的 - 简书](http://www.jianshu.com/p/fe97eb12f12f)
+[经验:我是怎么找电子书的 - 简书](http://www.jianshu.com/p/fe97eb12f12f) -<
 
 :   自己弄一个？把广告去掉。广告真是太影像心情。
 
-[说说“融入美国社会”这件事 - 简书](http://www.jianshu.com/p/927c06c04dcc)
+[说说“融入美国社会”这件事 - 简书](http://www.jianshu.com/p/927c06c04dcc) -<
 
 :   美国同学都很友善，而且都挺话痨的，可是，我**真的有必要为了找到共同话题而硬
     着头皮去看那些根本不感兴趣的超级碗比赛么?**
 
-    后来我才意识到，我根本没有什么“融入美国社会”的问题，因为按很多人的标准来看
-    ，**我连中国人的社会都没融入过**。（其实我觉得很多圈子没必要去融入……）
+    后来我才意识到，我根本没有什么“融入美国社会”的问题，因为按很多人的标准来看，
+    **我连中国人的社会都没融入过**。（其实我觉得很多圈子没必要去融入……）
 
     而与此同时，我越来越觉得，身边**很多人的闲聊都相当无聊无趣**，哪怕有些人已
     经够得上“高级知识分子”的资格了。
@@ -4406,7 +4503,7 @@ title: 历史笔记 1
     社会”存在，并且需要刻意改变自己而去“融入”它，那其实反映的还是内心深处一种毫
     无必要的自卑心态。
 
-[获取学术论文的方法 - 简书](http://www.jianshu.com/p/7e507d7be11d)
+[获取学术论文的方法 - 简书](http://www.jianshu.com/p/7e507d7be11d) -<
 
 :   [Directory of Open Access Journals](https://doaj.org/)
 
@@ -4429,7 +4526,7 @@ title: 历史笔记 1
     文章的版权授予学术期刊。在法律上来讲，在版权转移协议签署生效之后，文章的获
     取与使用必须通过期刊的允许与授权，否则就是侵权行为。
 
-[这样的季节呀，你失落不 - 简书](http://www.jianshu.com/p/00cda101ce25)
+[这样的季节呀，你失落不 - 简书](http://www.jianshu.com/p/00cda101ce25) -<
 
 :   我的裤脚线缝开裂。问老头补一下要多少钱，说要 3 块。我希望他要价高一点，3 块
     钱让我觉得自己是个周扒皮在剥削劳动人民。可是又不好意思主动多给他钱，毕竟人
@@ -4437,7 +4534,7 @@ title: 历史笔记 1
 
     电动车是劳动人民的谋生工具，上海深圳都一样。
 
-[该死 - 简书](http://www.jianshu.com/p/8cc3ad287cb7)
+[该死 - 简书](http://www.jianshu.com/p/8cc3ad287cb7) -<
 
 :   楼这样的事儿，更适合那些觉得自己有冤屈，以至于要在热闹地带当着很多人的面毅
     然跳下，以自己的死表明自己的清白，或者控诉这社会的黑暗。然而你们炒股破产的
@@ -4446,14 +4543,14 @@ title: 历史笔记 1
     但是你抢了人家的眼球啊，这世界上最珍贵的资源就是眼球资源。**人的注意力是有限
     的，你跳楼抢夺了眼球资源，世界上就有冤屈不被人重视。**
 
-[为什么你们不可以叫彭阿姨国母（好文求打赏） - 简书](http://www.jianshu.com/p/a7d54716e002)
+[为什么你们不可以叫彭阿姨国母（好文求打赏） - 简书](http://www.jianshu.com/p/a7d54716e002){.featured .heart}
 
-[为什么要唱反调：饱醉豚TEDxMoonLake—我的点播单—在线播放—优酷网，视频高清在线观看](http://v.youku.com/v_show/id_XNzEyNTMyOTMy_type_99.html?f=420001719)
+[为什么要唱反调：饱醉豚TEDxMoonLake—我的点播单—在线播放—优酷网，视频高清在线观看](http://v.youku.com/v_show/id_XNzEyNTMyOTMy_type_99.html?f=420001719) -<
 
 :   个人很喜欢饱醉豚，不是说他多么“对”。而是他能带来不一样的思考。话说我和他价
     值观还是比较类似，像那篇《生活方式》。
 
-[怎么评价饱醉豚？ - Twitter - 知乎](http://www.zhihu.com/question/22640256)
+[怎么评价饱醉豚？ - Twitter - 知乎](http://www.zhihu.com/question/22640256) -<
 
 :   饱醉豚《民主杀害韩寒，民主强奸徐静蕾》（全文附后）获得不少叫好声，并不
     令人奇怪。该文体现的是2千多年前的“民主观”，即“多数人的暴政”。苏格拉底即
@@ -4462,7 +4559,7 @@ title: 历史笔记 1
 
     附：
 
-    ```tzx-bigquote
+    ```
     民主杀害韩寒，民主强奸徐静蕾
 
     作者：饱醉豚
@@ -4487,7 +4584,7 @@ title: 历史笔记 1
     于是，大家合力杀了韩寒，瓜分了徐静蕾的财产，有性欲的时候就强奸徐静蕾。
     ```
 
-[微博用户『饱醉豚在简书』是谁？ - X 是谁 - 知乎](http://www.zhihu.com/question/27293582)
+[微博用户『饱醉豚在简书』是谁？ - X 是谁 - 知乎](http://www.zhihu.com/question/27293582) -<
 
 :   饱醉豚是推特反民斗的一面旗帜，他从年轻时的 89 一代，走向今天被众民斗“五毛”
     的转变，恰是对民斗圈日益堕落的讽刺。如今的民 yun 圈正如饱醉豚所言：「你们
@@ -4498,17 +4595,17 @@ title: 历史笔记 1
     代，他是为捍卫自己的道德，而走向与那些占据了道德优势，却将优势玩残的民
     斗骗子截然不同的两条路。这条路不好走，但走过来的都是枭雄。
 
-[饱醉豚是干什么的？为什么懂得那么多？ - 网络红人 - 知乎](http://www.zhihu.com/question/27517209)
+[饱醉豚是干什么的？为什么懂得那么多？ - 网络红人 - 知乎](http://www.zhihu.com/question/27517209) -<
 
 :   贴上一段他曾经在 Twitter 里的 Bio：
 
-    > 中文网上第一健笔，中文网上第一贱逼，推特
-    > 疯狗，推特中文圈最牛逼的狗屎，高级职业五毛，五毛教父，豚儒教教主，民主祛魅
-    > 师，摸摸党精神领袖，中华人渣共和国总统，撑哥，饱醉待屠的装逼犯，流氓无敌，
-    > 极品傻逼，吸毒名士，名士面具下的邪教魔头，中国的齐泽克、霍梅尼，淫贱粪豚，
-    > 阉人，杂种，民族云鬼，正邪委员、五毛战神专治各种民主。
+    >   中文网上第一健笔，中文网上第一贱逼，推特
+    >   疯狗，推特中文圈最牛逼的狗屎，高级职业五毛，五毛教父，豚儒教教主，民主祛魅
+    >   师，摸摸党精神领袖，中华人渣共和国总统，撑哥，饱醉待屠的装逼犯，流氓无敌，
+    >   极品傻逼，吸毒名士，名士面具下的邪教魔头，中国的齐泽克、霍梅尼，淫贱粪豚，
+    >   阉人，杂种，民族云鬼，正邪委员、五毛战神专治各种民主。
 
-[饱醉豚语录2015年7月4日 - 简书](http://www.jianshu.com/p/6dd6206a71e2)
+[饱醉豚语录 2015 年 7 月 4 日 - 简书](http://www.jianshu.com/p/6dd6206a71e2) -<
 
 :   那些自称找虐的驴友，大多到四姑娘山要找马夫挑夫的，去雅鲁藏布江大峡谷要找藏
     人给他们当挑夫的，到更高的山就要找夏尔巴人给他们当挑夫。然后他们拍一些美奂
@@ -4524,7 +4621,7 @@ title: 历史笔记 1
     满含毒素，他们觉得中国的水、空气都充满恐怖。他们觉得中国到处是拐卖的孩子。
     他们觉得这社会对不起他，所以他们自己作恶的时候就可以毫无愧疚。
 
-[生活方式 - 简书](http://www.jianshu.com/p/9ab34dd5a1ed) &hearts;
+[生活方式 - 简书](http://www.jianshu.com/p/9ab34dd5a1ed){.featured .heart} -<
 
 :   一旦你进入上海这样的城市，你就觉得当代的都市基本上都是为高度商品化的时髦女
     人而设置的。男人的风味一点都感受不到。或者男人的生活方式已经比女人还精致了。
@@ -4535,7 +4632,7 @@ title: 历史笔记 1
     我没有股票户头，觉得一个人打理自己的股票、时刻盯着股市，那是把自己的闲暇给
     糟蹋了。我永远不会有热情去看股市的。（深得我心！）
 
-[git——How to create an empty stand alone branch in GIT](http://maijunjin.github.io/git/2014/02/18/git%E2%80%94%E2%80%94how-to-create-an-empty-stand-alone-branch-in-git.html)
+[git——How to create an empty stand alone branch in GIT](http://maijunjin.github.io/git/2014/02/18/git%E2%80%94%E2%80%94how-to-create-an-empty-stand-alone-branch-in-git.html) -<
 
 :   useful, checkout an orphan branch
 
@@ -4552,7 +4649,7 @@ title: 历史笔记 1
 
     需要 `git rm -rf .` 是因为 index 虽然全新，但是本地文件还在。
 
-[www.moolenaar.net/habits_paper.txt](http://www.moolenaar.net/habits_paper.txt)
+[www.moolenaar.net/habits_paper.txt](http://www.moolenaar.net/habits_paper.txt) -<
 
 :   救救乌干达的可怜孩子，额……
 
@@ -4566,7 +4663,7 @@ title: 历史笔记 1
     does free-lance work as a systems architect, but actually spends most time
     working on Vim.
 
-[抱歉，我沒有英文名字 - Tzeng Yuxio](http://tzengyuxio.me/blog/2012/06/04/why-have-the-english-name/)
+[抱歉，我沒有英文名字 - Tzeng Yuxio](http://tzengyuxio.me/blog/2012/06/04/why-have-the-english-name/) -<
 
 :   深得我心。
 
@@ -4587,7 +4684,7 @@ title: 历史笔记 1
 
     請多珍惜自己的名字。
 
-[BOM (Byte Order Mark) 與 UTF-8 - Tzeng Yuxio](http://tzengyuxio.me/blog/2012/03/09/bom-byte-order-mark-and-utf-8/)
+[BOM (Byte Order Mark) 與 UTF-8 - Tzeng Yuxio](http://tzengyuxio.me/blog/2012/03/09/bom-byte-order-mark-and-utf-8/) -<
 
 :   (BOM 的解释终于看懂了。)
 
@@ -4607,7 +4704,7 @@ title: 历史笔记 1
     :set nobomb
     ```
 
-[Lip dub - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Lip_dub)
+[Lip dub - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Lip_dub) -<
 
 :   有点双簧。实际上很多电影都是事后录音吧。
 
@@ -4623,7 +4720,7 @@ title: 历史笔记 1
     **They have become popular with the advent of mass participatory video
     content sites like YouTube.**
 
-[豆瓣blog » Blog Archive » 豆瓣见鬼了!](http://blog.douban.com/douban/2005/10/26/42/)
+[豆瓣 blog » Blog Archive » 豆瓣见鬼了!](http://blog.douban.com/douban/2005/10/26/42/) -<
 
 :   阿北。
 
@@ -4642,7 +4739,7 @@ title: 历史笔记 1
     要问别人一个问题：**这年头抄别人的可以沉默，被抄的倒需要出来为自己辩护，
     这到底是他妈的怎么回事?!**
 
-[我的貼標籤規範 - Tzeng Yuxio](http://tzengyuxio.me/blog/2012/04/21/my-tagging-guideline/)
+[我的貼標籤規範 - Tzeng Yuxio](http://tzengyuxio.me/blog/2012/04/21/my-tagging-guideline/) -<
 
 :   為了避免上述問題，雖然目前每個網站的標籤機制如同多頭馬車各行其道，制定一個
     自己個人使用的標籤習慣（或規範）倒是可行的一個作法。這個問題相信困擾的不只是我，
@@ -4684,7 +4781,7 @@ title: 历史笔记 1
     "octopress-plugins", 我可能就只放 "octopress" 跟 "plugin" 兩個標籤就好了。
     太多的標籤也不好維護或回想。
 
-[為什麼台北有中國路名？兼談「馬路」一詞由來 - Tzeng Yuxio](http://tzengyuxio.me/blog/2012/09/02/roads-named-after-other-place/)
+[為什麼台北有中國路名？兼談「馬路」一詞由來 - Tzeng Yuxio](http://tzengyuxio.me/blog/2012/09/02/roads-named-after-other-place/) -<
 
 :   说穿了，不只南京路，其实上海许多以中国地名命名的道路，几乎都是「洋人的玩意」。
     怎麼说？在十九世纪清末时期，上海的英国租界与美国租界合併為「上海公共租界」，租
@@ -4703,7 +4800,7 @@ title: 历史笔记 1
 
 [HTML XHTML Entities](http://elizabethcastro.com/html/extras/entities.html)
 
-[Everything FAQ](http://www.voidtools.com/faq/)
+[Everything FAQ](http://www.voidtools.com/faq/) -<
 
 :   Win 上最牛逼的软件（之一），还不收钱！
 
@@ -4726,7 +4823,7 @@ title: 历史笔记 1
 
 [universal-ctags/ctags](https://github.com/universal-ctags/ctags)
 
-[pages.tzengyuxio.me/articles/how-to-be-more-productive.html](http://pages.tzengyuxio.me/articles/how-to-be-more-productive.html)
+[pages.tzengyuxio.me/articles/how-to-be-more-productive.html](http://pages.tzengyuxio.me/articles/how-to-be-more-productive.html) -<
 
 :   首先，你必须让不同品质下的时间都能得到充分运用。其次，你必须尽可能地让你的
     时间处于高品质状态。
@@ -4754,17 +4851,17 @@ title: 历史笔记 1
     让人乐在其中的。当你尝试著解决一个棘手的问题时，你不仅不会感到精疲力尽，甚
     至会在完成之后让你觉得全力以赴真是一件美妙的事。
 
-[Deleting a buffer without closing the window - Vim Tips Wiki - Wikia](http://vim.wikia.com/wiki/Deleting_a_buffer_without_closing_the_window)
+[Deleting a buffer without closing the window - Vim Tips Wiki - Wikia](http://vim.wikia.com/wiki/Deleting_a_buffer_without_closing_the_window) -<
 
 :   `:bd`
 
     `:E`, go back to explorer
 
-[文章分类 - 陈汝丹](http://chenrudan.github.io/page/category.html)
+[文章分类 - 陈汝丹, chenrudan](http://chenrudan.github.io/page/category.html)
 
 [Caffe、TensorFlow、MXnet三个开源库对比 - 陈汝丹](http://chenrudan.github.io/blog/2015/11/18/comparethreeopenlib.html#0-tsina-1-2654-397232819ff9a47a7b7e80a40613cfe1)
 
-[How do you create a remote Git branch? - Stack Overflow](http://stackoverflow.com/questions/1519006/how-do-you-create-a-remote-git-branch)
+[How do you create a remote Git branch? - Stack Overflow](http://stackoverflow.com/questions/1519006/how-do-you-create-a-remote-git-branch) -<
 
 :   ```bash
     $ git checkout -b gh-pages
@@ -4774,7 +4871,7 @@ title: 历史笔记 1
     $ git checkout master
     ```
 
-[Vim 实用技术，第 1 部分: 实用技巧](http://www.ibm.com/developerworks/cn/linux/l-tip-vim1/index.html)
+[Vim 实用技术，第 1 部分: 实用技巧](http://www.ibm.com/developerworks/cn/linux/l-tip-vim1/index.html) -<
 
 :   ```plain
     ;;;;encoding=utf-8
@@ -4847,25 +4944,25 @@ title: 历史笔记 1
     性较低。命令本身倒是相当简单，用过正则表达
     式的人估计都知道“.”匹配表示除换行符之外的任何字符吧。
 
-    能讓去掉所有的 `/* */` 注释：`:%s!\s*/\*\_.\{-}\*/\s*!!g`。这个略有点复杂了
-    ，用到了几个不太常用的 Vim 正则表达式特性。`\_.` 匹配包含换行在内的所有
-    字符；`\{-}` 表示前一个字符可出现零次或多次，但在整个正则表达式可以匹配
-    成功的前提下，匹配的字符数越少越好；标志 `g` 表示一行里可以匹配和替换多次
-    。替换的结果是个空格的目的是保证像 `int /* space not necessary around comments */ main()`
-    这样的表达式在替换之后仍然是合法的。希望上面的这些简
-    单的例子能够引起你使用 Vim 的正则表达式高效完成任务的兴趣。进一步的信息
-    可参考 `:help regexp`。
+    能讓去掉所有的 `/* */` 注释：`:%s!\s*/\*\_.\{-}\*/\s*!!g`。这个略有点复杂了，
+    用到了几个不太常用的 Vim 正则表达式特性。`\_.` 匹配包含换行在内的所有字符；
+    `\{-}` 表示前一个字符可出现零次或多次，但在整个正则表达式可以匹配成功的前提
+    下，匹配的字符数越少越好；标志 `g` 表示一行里可以匹配和替换多次。替换的结果
+    是个空格的目的是保证像 `int /* space not necessary around comments */
+    main()`这样的表达式在替换之后仍然是合法的。希望上面的这些简单的例子能够引起
+    你使用 Vim 的正则表达式高效完成任务的兴趣。进一步的信息可参考 `:help
+    regexp`。
 
-    #. m：在多字节字符处可以折行，对中文特别有效（否则只在空白字符处折行）；
-    #. M：在拼接两行时（重新格式化，或者是手工使用“J”命令），如果前一行的结尾或
-    后一行的开头是多字节字符，则不插入空格，非常适合中文上面提到的注释.
-    件），然后把结果贴回到邮件编辑窗口中进行发送。`set formatoptions+=mM`.
+    #.  m：在多字节字符处可以折行，对中文特别有效（否则只在空白字符处折行）；
+    #.  M：在拼接两行时（重新格式化，或者是手工使用“J”命令），如果前一行的结尾或
+        后一行的开头是多字节字符，则不插入空格，非常适合中文上面提到的注释.
+        件），然后把结果贴回到邮件编辑窗口中进行发送。`set formatoptions+=mM`.
 
     `gf`, `ga`, `` `. ``
 
     use `.` instead of macros!
 
-[程序员的编辑器——VIM(转) - ma6174 - 博客园](http://www.cnblogs.com/ma6174/articles/2384210.html)
+[程序员的编辑器——VIM(转) - ma6174 - 博客园](http://www.cnblogs.com/ma6174/articles/2384210.html) -<
 
 :   我说这个人怎么这么熟，原来之前用过他的 Vim 配置……
 
@@ -4900,11 +4997,11 @@ title: 历史笔记 1
     #. [tips : vim online](http://www.vim.org/tips/index.php)
     #. [Vim Tips Wiki - Wikia](http://vim.wikia.com/wiki/Vim_Tips_Wiki)
 
-[vi/vim tutorial for Dvorak](http://boredzo.org/vi_tutorial/)
+[vi/vim tutorial for Dvorak](http://boredzo.org/vi_tutorial/) -<
 
 :    [vi for dvorak users](http://boredzo.org/vi_tutorial/vi_tutorial-QWERTY-Color.pdf)
 
-[Why, oh WHY, do those `#?@!` nutheads use vi?](http://www.viemu.com/a-why-vi-vim.html)
+[Why, oh WHY, do those `#?@!` nutheads use vi?](http://www.viemu.com/a-why-vi-vim.html) -<
 
 :   Heck, most vi users were not even born when vi was written!
 
@@ -4943,7 +5040,7 @@ title: 历史笔记 1
 
 [GCC and Make - A Tutorial on how to compile, link and build C/C++ applications](http://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html)
 
-[Creating a shared and static library with the gnu compiler [gcc]](http://www.adp-gmbh.ch/cpp/gcc/create_lib.html)
+[Creating a shared and static library with the gnu compiler [gcc]](http://www.adp-gmbh.ch/cpp/gcc/create_lib.html) -<
 
 :   ```bash
     # create static lib
@@ -5010,7 +5107,7 @@ title: 历史笔记 1
 
 [Duff's device - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Duff%27s_device)
 
-[无插件 Vim 编程技巧 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/11312.html)
+[无插件 Vim 编程技巧 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/11312.html) -<
 
 :   should know
 
@@ -5084,7 +5181,7 @@ title: 历史笔记 1
 
       - [Vim 的分屏功能 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/1679.html)
 
-[橡皮鸭程序调试法 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/1719.html)
+[橡皮鸭程序调试法 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/1719.html) -<
 
 :   小浣熊方法、Feynman 方法
 
@@ -5093,7 +5190,7 @@ title: 历史笔记 1
       - **Once a problem is described in sufficient detail, its solution is
         obvious.**
 
-[c++ - Adding Q_OBJECT macro gives "unresolved external error" in QThread inherited class - Stack Overflow](http://stackoverflow.com/questions/20380017/adding-q-object-macro-gives-unresolved-external-error-in-qthread-inherited-cla)
+[c++ - Adding Q_OBJECT macro gives "unresolved external error" in QThread inherited class - Stack Overflow](http://stackoverflow.com/questions/20380017/adding-q-object-macro-gives-unresolved-external-error-in-qthread-inherited-cla) -<
 
 :   第一种！半天折腾，然后自动就好了……shit……
 
@@ -5105,6 +5202,6 @@ title: 历史笔记 1
       - `moc`{.bash} tool is not instructed to generate those data, for example
         you are missing entry in pro file: `HEADERS += tcustomthread.h`
 
-[Is there any chance that vim will be rewritten in c++ with gtk/qt like other fast modern editors? - Quora](https://www.quora.com/Is-there-any-chance-that-vim-will-be-rewritten-in-c++-with-gtk-qt-like-other-fast-modern-editors)
+[Is there any chance that vim will be rewritten in c++ with gtk/qt like other fast modern editors? - Quora](https://www.quora.com/Is-there-any-chance-that-vim-will-be-rewritten-in-c++-with-gtk-qt-like-other-fast-modern-editors) -<
 
 :   see [equalsraf/vim-qt](https://github.com/equalsraf/vim-qt)

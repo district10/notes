@@ -416,3 +416,7 @@ pre.diffed {
     font-family: Consolas, Inpact, Arial, Hiragino, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, STXihei, Heiti, sans-serif;
 }
 */
+
+.markdown-body .del {
+    text-decoration:line-through;
+}

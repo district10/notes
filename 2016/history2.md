@@ -8,9 +8,9 @@ title: 历史笔记 2
 
 ---
 
-How many Computer Languages are there?
+How many Computer Languages are there? -<
 
-:   ```tzx-plain
+:   ```
     late 1940s
         first electronic computers & LLLs
     1950s
@@ -23,25 +23,23 @@ How many Computer Languages are there?
         more than 2000 HLLs
     ```
 
-Scripting Paradigm
+    Scripting Paradigm
 
-So far, we have been thinking about languages suitable for solving very large
-problems, where the resulting programs are tens of thousands or more lines
-long, written and maintained by more than one person. However, not all problems
-require industrial-strength solutions, and different requirements have given
-rise to different kinds of languages. The situations where they are applicable
-are:
+    :   So far, we have been thinking about languages suitable for solving very large
+        problems, where the resulting programs are tens of thousands or more lines
+        long, written and maintained by more than one person. However, not all problems
+        require industrial-strength solutions, and different requirements have given
+        rise to different kinds of languages. The situations where they are applicable
+        are:
 
-building applications by *gluing together existing components* controlling
-applications that have a programmable interface writing programs where ease of
-development is more important than anything else (such as run-time efficiency,
-or maintainability)
+        >   building applications by *gluing together existing components* controlling
+        >   applications that have a programmable interface writing programs where ease
+        >   of development is more important than anything else (such as run-time
+        >   efficiency, or maintainability)
 
----
+Google Search -<
 
-Google Search
-
-:   ```tzx-bigquote
+:   ```
     inurl:text
     intitle:text allintitle:text
     filetype:pdf
@@ -50,935 +48,946 @@ Google Search
     see more and...
     ```
 
----
+计算机相关词汇 -<
 
-- CGI（公共网关接口，Common Gateway Interface） — 在 Web 服务器上，用来在脚本和
-  ／或应用程序之间传输数据，然后将该数据返回给 Web 页面或浏览器。CGI 脚本经常是
-  使用 Perl 语言创建的，它能够生成动态 Web 内容（包括电子商业购物篮、讨论组、调
-  查表单以及实时新闻等）。
-- CHS（柱面／磁头／扇区，Cylinder/Head/Sector） — FDISK 在分区期间所需的磁盘信
-  息。
-- CLU（命令行实用程序，Command Line Utility） — 从命令行会话或 shell 运行的程序
-  ，如 Tar 或 Mkdir。
-- LILO（Linux 装载程序，LInux LOader） — 一种流行的分区引导管理器实用程序，能够
-  引导到 Linux 以外的操作系统。它并不特定于文件系统。
-- MIME（多用途因特网邮件交换，Multipurpose Internet Mail Exchange） — 允许文本
-  电子邮件消息包含非文本（例如图形、视频或音频）数据的通信协议。
-- PAM（可插入的认证模块，Pluggable Authentication Modules） — 用于系统安全性的
-  可替换的用户认证模块，它允许在不知道将使用何种认证方案的情况下进行编程。这允
-  许将来用其它模块来替换某个模块，却无需重写软件。
-- RCS（修订控制系统，Revision Control System） — 一组程序，它们控制组环境下文件
-  的共享访问并跟踪文本文件的变化。常用于维护源代码模块的编码工作。
-- RFS（远程文件共享，Remote File Sharing） — 一个程序，它让用户访问其它计算机上
-  的文件，就好象文件在用户的系统上一样。
-- RPM（RPM 软件包管理器，RPM Package Manager） — 一种用于因特网下载包的打包及安
-  装工具，它包含在某些 Linux 分发版中。它生成具有 .RPM 扩展名的文件。与 Dpkg 类
-  似。
-- `ag --pager less <qry> [<filename>]`{.bash}
-- 假脱机（Spool）（外围设备联机并发操作，Simultaneous Peripheral Operation
-  On-Line） — 将数据发送给一个程序，该程序将该数据信息放入队列以备将来使用（例
-  如，打印假脱机程序）。
-- 隐写术（Steganography, `[,stegə'nɔgrəfi]` n. 速记式加密）— 将一段信息隐藏在另
-  一段信息中的做法。一个示例是在数字化照片中放置不可见的数字水印。
-- Tux— 虚构的 Linux 企鹅吉祥物的名字。
-- 工作目录（Working Directory）— 当前目录或用户当前工作时所在的目录的另一名称。
-- `"kyy` *vs.* `"Kyy`
-- `"kp` === `"Kp`
-- `:reg`
+:   -   CGI（公共网关接口，Common Gateway Interface） — 在 Web 服务器上，用来在脚本
+        和／或应用程序之间传输数据，然后将该数据返回给 Web 页面或浏览器。CGI 脚本经
+        常是使用 Perl 语言创建的，它能够生成动态 Web 内容（包括电子商业购物篮、讨论
+        组、调查表单以及实时新闻等）。
+    -   CHS（柱面／磁头／扇区，Cylinder/Head/Sector） — FDISK 在分区期间所需的磁盘
+        信息。
+    -   CLU（命令行实用程序，Command Line Utility） — 从命令行会话或 shell 运行的程
+        序，如 Tar 或 Mkdir。
+    -   LILO（Linux 装载程序，LInux LOader） — 一种流行的分区引导管理器实用程序，能
+        够引导到 Linux 以外的操作系统。它并不特定于文件系统。
+    -   MIME（多用途因特网邮件交换，Multipurpose Internet Mail Exchange） — 允许文
+        本电子邮件消息包含非文本（例如图形、视频或音频）数据的通信协议。
+    -   PAM（可插入的认证模块，Pluggable Authentication Modules） — 用于系统安全性
+        的可替换的用户认证模块，它允许在不知道将使用何种认证方案的情况下进行编程。
+        这允许将来用其它模块来替换某个模块，却无需重写软件。
+    -   RCS（修订控制系统，Revision Control System） — 一组程序，它们控制组环境下文
+        件的共享访问并跟踪文本文件的变化。常用于维护源代码模块的编码工作。
+    -   RFS（远程文件共享，Remote File Sharing） — 一个程序，它让用户访问其它计算机
+        上的文件，就好象文件在用户的系统上一样。
+    -   RPM（RPM 软件包管理器，RPM Package Manager） — 一种用于因特网下载包的打包及
+        安装工具，它包含在某些 Linux 分发版中。它生成具有 .RPM 扩展名的文件。与
+        Dpkg 类似。
+    -   `ag --pager less <qry> [<filename>]`{.bash}
+    -   假脱机（Spool）（外围设备联机并发操作，Simultaneous Peripheral Operation
+        On-Line） — 将数据发送给一个程序，该程序将该数据信息放入队列以备将来使用
+        （例如，打印假脱机程序）。
+    -   隐写术（Steganography, `[,stegə'nɔgrəfi]` n. 速记式加密）— 将一段信息隐藏在
+        另一段信息中的做法。一个示例是在数字化照片中放置不可见的数字水印。
+    -   Tux— 虚构的 Linux 企鹅吉祥物的名字。
+    -   工作目录（Working Directory）— 当前目录或用户当前工作时所在的目录的另一名称。
+    -   `"kyy` *vs.* `"Kyy`
+    -   `"kp` === `"Kp`
+    -   `:reg`
 
-> Yank the text you want to copy with `y[motion]` - this text is saved in `"`
-> and `0` registers. Delete the text you want to replace with `d[motion]` - this
-> text is saved in `"` register. Paste the yanked text with `"0p`
+Vim notes -<
 
-We can now just type `@m` to run this macro on the current line. Furthermore,
-we can type `100@m` to do this 100 times! Lifes looking pretty good.
+:   >   Yank the text you want to copy with `y[motion]` - this text is saved in `"`
+    >   and `0` registers. Delete the text you want to replace with `d[motion]` - this
+    >   text is saved in `"` register. Paste the yanked text with `"0p`
 
-`:%normal @a` apply to this region.
+    We can now just type `@m` to run this macro on the current line. Furthermore,
+    we can type `100@m` to do this 100 times! Lifes looking pretty good.
 
-* `J` 合并行，并两行之间增加一个空格
-* `gJ` 合并行没有空格
-* `vip` 我一直使用 <kbd>v</kbd> <kbd>i</kbd> <kbd>p</kbd> 按键组合，快速选中一
-  段，在代码块间使用非常方便。
-* `<c-a> <c-x>` number++, number--
-23
+    `:%normal @a` apply to this region.
 
-* `cat /etc/fstab`{.bash}
-* `mount /cdrom`{.bash}
-* `eject /cdrom`{.bash}
-* `cd`{.bash} + <kbd>TAB</kbd>
+    -   `J` 合并行，并两行之间增加一个空格
+    -   `gJ` 合并行没有空格
+    -   `vip` 我一直使用 <kbd>v</kbd> <kbd>i</kbd> <kbd>p</kbd> 按键组合，快速
+        选中一段，在代码块间使用非常方便。
+    -   `<c-a> <c-x>` number++, number--
+    -   `cat /etc/fstab`{.bash}
+    -   `mount /cdrom`{.bash}
+    -   `eject /cdrom`{.bash}
+    -   `cd`{.bash} + <kbd>TAB</kbd>
+    -   `md path/to/dir` === `mkdir -p path/to/dir`
+    -   `rd path/to/dir` === `rmdir path/to/dir`
+    -   `d` === `dirs -V`: lists last used directories
+    -   Bash: `set -o vi`, `set -o emacs`
+    -   Zsh:  `bindkey -v`, `bindkey -e`
+    -   `C-t` 交换光标所在字符与其前的字符
+    -   `M-t` 交换光标所在的单词与前面单词的位置
+    -   `C-m` 相当于“回车键”
 
-* `md path/to/dir` === `mkdir -p path/to/dir`
-* `rd path/to/dir` === `rmdir path/to/dir`
-* `d` === `dirs -V`: lists last used directories
-* Bash: `set -o vi`, `set -o emacs`
-* Zsh:  `bindkey -v`, `bindkey -e`
-* `C-t` 交换光标所在字符与其前的字符
-* `M-t` 交换光标所在的单词与前面单词的位置
-* `C-m` 相当于“回车键”
-
-> “Unix 用起来容易，但学习起来难”。
-
-Unix/Linux 操作系统的使用作为实践性非常强的一门“技术”，有章可循。每一个命令的命
-令格式、参数、选项都可以通过阅读手册获得，所以用起来很容易。
-
-但它学习起来，并不是每天扫地的阿姨一眼就能轻松掌握的工具。如作者所言，“设计
-Unix 的目的不是为了学习而是为了使用。”为了达到使用 Unix 这一工具的目的，我们需
-要了解其“然”，也就是基本操作：了解如何登陆 Unix、如何使用 Unix 编辑文件、操作目
-录……
-
-Helpful aliases for common git tasks
-
-- `g`{.bash} &rarr; `git`
-- `gst`{.bash} &rarr; `git status`
-- `gl`{.bash} &rarr; `git pull`
-- `gup`{.bash} &rarr; `git pull --rebase`
-- `gp`{.bash} &rarr; `git push`
-- `gd`{.bash} &rarr; `git diff`
-- `gdc`{.bash} &rarr; `git diff --cached`
-- `gdv`{.bash} &rarr; `git diff -w "$@" | view -`
-- `gc`{.bash} &rarr; `git commit -v`
-- `gcR`{.bash} &rarr; `git commit -v --amend`
-- `gca`{.bash} &rarr; `git commit -v -a`
-- `gcaR`{.bash} &rarr; `git commit -v -a --amend`
-- `gcmsg`{.bash} &rarr; `git commit -m`
-- `gco`{.bash} &rarr; `git checkout`
-- `gcm`{.bash} &rarr; `git checkout master`
-- `gr`{.bash} &rarr; `git remote`
-- `grv`{.bash} &rarr; `git remote -v`
-- `grmv`{.bash} &rarr; `git remote rename`
-- `grrm`{.bash} &rarr; `git remote remove`
-- `gsetr`{.bash} &rarr; `git remote set-url`
-- `grup`{.bash} &rarr; `git remote update`
-- `grbi`{.bash} &rarr; `git rebase -i`
-- `grbc`{.bash} &rarr; `git rebase --continue`
-- `grba`{.bash} &rarr; `git rebase --abort`
-- `gb`{.bash} &rarr; `git branch`
-- `gba`{.bash} &rarr; `git branch -a`
-- `gcount`{.bash} &rarr; `git shortlog -sn`
-- `gcl`{.bash} &rarr; `git config --list`
-- `gcp`{.bash} &rarr; `git cherry-pick`
-- `glg`{.bash} &rarr; `git log --stat --max-count=10`
-- `glgg`{.bash} &rarr; `git log --graph --max-count=10`
-- `glgga`{.bash} &rarr; `git log --graph --decorate --all`
-- `glo`{.bash} &rarr; `git log --oneline --decorate --color`
-- `glog`{.bash} &rarr; `git log --oneline --decorate --color --graph`
-- `gss`{.bash} &rarr; `git status -s`
-- `ga`{.bash} &rarr; `git add`
-- `gm`{.bash} &rarr; `git merge`
-- `grh`{.bash} &rarr; `git reset HEAD`
-- `grhh`{.bash} &rarr; `git reset HEAD --hard`
-- `gclean`{.bash} &rarr; `git reset --hard && git clean -dfx`
-- `gwc`{.bash} &rarr; `git whatchanged -p --abbrev-commit --pretty=medium`
-- `gsts`{.bash} &rarr; `git stash show --text`
-- `gsta`{.bash} &rarr; `git stash`
-- `gstp`{.bash} &rarr; `git stash pop`
-- `gstd`{.bash} &rarr; `git stash drop`
-- `ggpull`{.bash} &rarr; `git pull origin $(current_branch)`
-- `ggpur`{.bash} &rarr; `git pull --rebase origin $(current_branch)`
-- `ggpush`{.bash} &rarr; `git push origin $(current_branch)`
-- `ggpnp`{.bash} &rarr; `git pull origin $(current_branch) && git push origin $(current_branch)`
-- `glp`{.bash} &rarr; `git log prettily`
-
----
-
-- what the fuck barbecue = WTFBBQ
-- `extract`{.bash} 'x' alias - swiss knife for archive extracting
-
----
-
-* 表面上看，tuple 的元素确实变了，但其实变的不是 tuple 的元素，而是 list 的元素。
-* list 和 tuple 是 Python 内置的有序集合，一个可变，一个不可变。根据需要来选择使用它们。
-
-```python
-if <条件判断1>:
-    <执行1>
-elif <条件判断2>:
-    <执行2>
-elif <条件判断3>:
-    <执行3>
-else:
-    <执行4>
-```
-
-`birth = int(raw_input(birth: ))`{.python}
-
-要避免 key 不存在的错误，有两种办法，一是通过 `in` 判断 `key` 是否存在：
-
-```python
->>> Thomas in d
->>> False
-```
-
-所以，对于不变对象来说，调用对象自身的任意方法，也不会改变该对象自身的内容。相
-反，这些方法会创建新的对象并返回，这样，就保证了不可变对象本身永远是不可变的。
-
-要保证 hash 的正确性，作为 key 的对象就不能变。在 Python 中，字符串、整数等都是
-不可变的，因此，可以放心地作为 key。而 list 是可变的，就不能作为 key
-
-* `int()`, `float()`, `str()`, `bool()`
-
-原来返回值是一个 tuple！但是，在语法上，返回一个 tuple 可以省略括号，而多个变量
-可以同时接收一个 tuple，按位置赋给对应的值，所以，Python 的函数返回多值其实就是
-返回一个 tuple，但写起来更方便。
-
-```python
-def power(x, n=2):
-    s = 1
-    while n > 0:
-    n = n - 1
-    s = s * x
-    return s
-```
-
-默认参数必须指向不变对象！ `def add_end(L=None):`{.python}
-
-为什么要设计 `str`、`None` 这样的不变对象呢？因为不变对象一旦创建，对象内部的数
-据就不能修改，这样就减少了由于修改数据导致的错误。此外，由于对象不变，多任务环
-境下同时读取对象不需要加锁，同时读一点问题都没有。我们在编写程序时，如果可以设
-计一个不变对象，那就尽量设计成不变对象。
-
-* list: `[1, 2, 3]`
-* tuple: `(1, 2, 3)`
-
-定义可变参数和定义 list 或 tuple 参数相比，仅仅在参数前面加了一个 `*` 号。在函
-数内部，参数 numbers 接收到的是一个 tuple，因此，函数代码完全不变。但是，调用该
-函数时，可以传入任意个参数，包括 0 个参数
-
-```python
-def calc(*numbers):
-    sum = 0
-    for n in numbers:
-    sum = sum + n * n
-    return sum
-
-nums = [1, 2, 3]
-calc(*nums)
-14
-```
-
-```python
->>> kw = {city: Beijing, job: Engineer}
->>> person(Jack, 24, **kw)
-name: Jack age: 24 other: {city: Beijing, job: Engineer}
-```
-
-* 参数定义的顺序必须是：**必选参数**、**默认参数**、**可变参数**和**关键字参数**。
-* args 是可变参数，args 接收的是一个 tuple；
-* `**kw` 是关键字参数，kw 接收的是一个 dict。
-
-尾递归是指，在函数返回的时候，调用自身本身，并且，return 语句不能包含表达式。这
-样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一
-个栈帧，不会出现栈溢出的情况。
-
-```python
->>> L[1:3]
-[Sarah, Tracy]
-
-for key in d:
-for value in d.itervalues():
-for k, v in d.iteritems():
-
-[x*x for x in range(1, 11)]
-
-isinstance(x, str)
-g = (x * x for x in range(10))
-g.next()
-```
-
-* [生成器 - 廖雪峰的官方网站](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/00138681965108490cb4c13182e472f8d87830f13be6e88000) :smile:
-
-![](http://www.liaoxuefeng.com/files/attachments/0013879622109990efbf9d781704b02994ba96765595f56000/0)
-
-* map, reduce
-* `filter(function, list)`{.python}
-
-```python
-def not_empty(s):
-    return s and s.strip()
-
-filter(not_empty, [A, , B, None, C,  ])
-# 结果: [A, B, C]
-```
-
-* `sorted([list], <function>)`{.python}
-* 高阶函数除了可以接受函数作为参数外，还可以把函数作为结果值返回。
-
-```python
-In : def lazy_sum(*args):
-   ...:     def sum():
-   ...:         ax = 0
-   ...:         for n in args:
-   ...:             ax = ax + n
-   ...:         return ax
-   ...:     return sum
-   ...:
-
-In : f = lazy_sum( 1, 2, 3, 4)
-
-In : f
-Out: <function __main__.sum>
-
-In : f()
-Out: 10
-```
-
-在这个例子中，我们在函数 lazy_sum 中又定义了函数 sum，并且，内部函数 sum 可以引
-用外部函数 lazy_sum 的参数和局部变量，当 lazy_sum 返回函数 sum 时，相关参数和变
-量都保存在返回的函数中，这种称为“闭包（Closure）”的程序结构拥有极大的威力。
-
-`lambda x: x*x`
-
-:   ```python
-    import functools
-    int2 = functools.partial(int, base=2)
-    int2('1000000')
+    ```vimrc
+    %s/重车,运营/运营,重车/g
+    %s/,超速报警//g
+    %s/,登录//g
+    g/,设备工作正常/d
+    g!/ACC/d
     ```
 
-    注意到上面的新的 int2 函数，仅仅是把 base 参数重新设定默认值为 2，但也可以
-    在函数调用时传入其他值: `int2("1000000", base=10)`{.python}
+删除中文字符: `:%s/\v[^\x00-\xff]+//g`
 
-    请注意，每一个包目录下面都会有一个 `__init__.py` 的文件，这个文件是必须存在
-    的，否则，Python 就把这个目录当成普通目录，而不是一个包。`__init__.py` 可以
-    是空文件，也可以有 Python 代码，因为 `__init__.py` 本身就是一个模块，而它的模块
-    名就是 mycompany
+“Unix 用起来容易，但学习起来难”。 -<
+
+:   Unix/Linux 操作系统的使用作为实践性非常强的一门“技术”，有章可循。每一个命令的命
+    令格式、参数、选项都可以通过阅读手册获得，所以用起来很容易。
+
+    但它学习起来，并不是每天扫地的阿姨一眼就能轻松掌握的工具。如作者所言，“设计
+    Unix 的目的不是为了学习而是为了使用。”为了达到使用 Unix 这一工具的目的，我们需
+    要了解其“然”，也就是基本操作：了解如何登陆 Unix、如何使用 Unix 编辑文件、操作目
+    录……
+
+Helpful aliases for common git tasks -<
+
+:   - `g`{.bash} &rarr; `git`
+    - `gst`{.bash} &rarr; `git status`
+    - `gl`{.bash} &rarr; `git pull`
+    - `gup`{.bash} &rarr; `git pull --rebase`
+    - `gp`{.bash} &rarr; `git push`
+    - `gd`{.bash} &rarr; `git diff`
+    - `gdc`{.bash} &rarr; `git diff --cached`
+    - `gdv`{.bash} &rarr; `git diff -w "$@" | view -`
+    - `gc`{.bash} &rarr; `git commit -v`
+    - `gcR`{.bash} &rarr; `git commit -v --amend`
+    - `gca`{.bash} &rarr; `git commit -v -a`
+    - `gcaR`{.bash} &rarr; `git commit -v -a --amend`
+    - `gcmsg`{.bash} &rarr; `git commit -m`
+    - `gco`{.bash} &rarr; `git checkout`
+    - `gcm`{.bash} &rarr; `git checkout master`
+    - `gr`{.bash} &rarr; `git remote`
+    - `grv`{.bash} &rarr; `git remote -v`
+    - `grmv`{.bash} &rarr; `git remote rename`
+    - `grrm`{.bash} &rarr; `git remote remove`
+    - `gsetr`{.bash} &rarr; `git remote set-url`
+    - `grup`{.bash} &rarr; `git remote update`
+    - `grbi`{.bash} &rarr; `git rebase -i`
+    - `grbc`{.bash} &rarr; `git rebase --continue`
+    - `grba`{.bash} &rarr; `git rebase --abort`
+    - `gb`{.bash} &rarr; `git branch`
+    - `gba`{.bash} &rarr; `git branch -a`
+    - `gcount`{.bash} &rarr; `git shortlog -sn`
+    - `gcl`{.bash} &rarr; `git config --list`
+    - `gcp`{.bash} &rarr; `git cherry-pick`
+    - `glg`{.bash} &rarr; `git log --stat --max-count=10`
+    - `glgg`{.bash} &rarr; `git log --graph --max-count=10`
+    - `glgga`{.bash} &rarr; `git log --graph --decorate --all`
+    - `glo`{.bash} &rarr; `git log --oneline --decorate --color`
+    - `glog`{.bash} &rarr; `git log --oneline --decorate --color --graph`
+    - `gss`{.bash} &rarr; `git status -s`
+    - `ga`{.bash} &rarr; `git add`
+    - `gm`{.bash} &rarr; `git merge`
+    - `grh`{.bash} &rarr; `git reset HEAD`
+    - `grhh`{.bash} &rarr; `git reset HEAD --hard`
+    - `gclean`{.bash} &rarr; `git reset --hard && git clean -dfx`
+    - `gwc`{.bash} &rarr; `git whatchanged -p --abbrev-commit --pretty=medium`
+    - `gsts`{.bash} &rarr; `git stash show --text`
+    - `gsta`{.bash} &rarr; `git stash`
+    - `gstp`{.bash} &rarr; `git stash pop`
+    - `gstd`{.bash} &rarr; `git stash drop`
+    - `ggpull`{.bash} &rarr; `git pull origin $(current_branch)`
+    - `ggpur`{.bash} &rarr; `git pull --rebase origin $(current_branch)`
+    - `ggpush`{.bash} &rarr; `git push origin $(current_branch)`
+    - `ggpnp`{.bash} &rarr; `git pull origin $(current_branch) && git push origin $(current_branch)`
+    - `glp`{.bash} &rarr; `git log prettily`
+
+---
+
+-   what the fuck barbecue = WTFBBQ
+-   `extract`{.bash} 'x' alias - swiss knife for archive extracting
+
+Python notes -<
+
+:   -   表面上看，tuple 的元素确实变了，但其实变的不是 tuple 的元素，而是 list 的元素。
+    -   list 和 tuple 是 Python 内置的有序集合，一个可变，一个不可变。根据需要来选择使用它们。
 
     ```python
-    if __name__ == '__main__':
-        test()
+    if <条件判断1>:
+        <执行1>
+    elif <条件判断2>:
+        <执行2>
+    elif <条件判断3>:
+        <执行3>
+    else:
+        <执行4>
     ```
 
-```python
-try:
-    import json # python >= 2.6
-except ImportError:
-    import simplejson as json # python <= 2.5
-```
+    `birth = int(raw_input(birth: ))`{.python}
 
-类似 `__xxx__` 这样的变量是特殊变量，可以被直接引用，但是有特殊用途，比如上面的
-`__author__`，`__name__` 就是特殊变量，hello 模块定义的文档注释也可以用特殊变量
-`__doc__` 访问，我们自己的变量一般不要用这种变量名；
+    要避免 key 不存在的错误，有两种办法，一是通过 `in` 判断 `key` 是否存在：
 
-类似 `_xxx` 和 `__xxx` 这样的函数或变量就是非公开的（private），不应该被直接引
-用，比如 `_abc`，`__abc` 等；
-
-外部不需要引用的函数全部定义成 private，只有外部需要引用的函数才定义为 public。
-
-`from __future__ import division`, use python3.x in python2.x
-
-```python
-class Student(object):
-
-    def __init__(self, name, score):
-        self.name = name
-        self.score = score
-
-In : class Me(object):
-   ....:     def __init__(this):
-   ....:         this.name = "shit"
-this.__private_var, this.__not_private_var__, this._not_private_but_dont_touch_me_please
-class Dog(Animal):
-    pass
-instanceof (dog, Dog)
-instanceof (dog, Animal) # true
-
-def run_twice(animal):
-    animal.run()
-    animal.run()
-```
-
-对于一个变量，我们只需要知道它是 Animal 类型，无需确切地知道它的子类型，就可以
-放心地调用 `run()` 方法，而具体调用的 `run()` 方法是作用在 Animal、Dog、Cat 还
-是 Tortoise 对象上，由运行时该对象的确切类型决定，这就是**多态**真正的威力：调
-用方只管调用，不管细节，而当我们新增一种 Animal 的子类时，只要确保 `run()` 方法
-编写正确，不用管原来的代码是如何调用的。这就是著名的“开闭”原则：
-
-* 对扩展开放：允许新增 Animal 子类；
-* 对修改封闭：不需要修改依赖 Animal 类型的 `run_twice()` 等函数。
-
-```python
-type(123), type("string")
->>> import types
-__slots__ = (name, gender)
-
-class Student(object):
-
-    def get_score(self):
-        return self._score
-
-    def set_score(self, value):
-        if not isinstance(value, int):
-            raise ValueError('score must be an integer!')
-        if value < 0 or value > 100:
-            raise ValueError('score must between 0 ~ 100!')
-        self._score = value
->>> s.score = 60 # OK，实际转化为s.set_score(60)
-```
-
-* `@score.setter`
-* `@property` 的实现比较复杂，我们先考察如何使用。把一个 getter 方法变成属性，
-  只需要加上 `@property` 就可以了，此时，`@property` 本身又创建了另一个装饰器
-  `@score.setter`，负责把一个 setter 方法变成属性赋值，于是，我们就拥有一个可控
-  的属性操作
-
-```python
-class Student(object):
-
-    @property
-    def birth(self):
-        return self._birth
-
-    @birth.setter
-    def birth(self, value):
-        self._birth = value
-
-    @property
-    def age(self):
-        return 2014 - self._birth
-```
-
-由于 Python 允许使用多重继承，因此，**Mixin** 就是一种常见的设计。
-只允许单一继承的语言（如 Java）不能使用 Mixin 的设计。
-
-* Mixin
-* `__str__()`, `print(Student("Michael"))`
-* `__repr__ = __str__`
-* `__iter__`
-* `__getitem__`, `s = Student()`, `s`
-* `__getattr__`
-
-当调用不存在的属性时，比如 score，Python 解释器会试图调用 `__getattr__(self, score)` 来尝试获得属性
-
-`__call__`, `s = Student()`, `s()`
-
-```python
-import types
-type(u'abc')==types.UnicodeType
-isinstance(a, (str, unicode)) # string or unicode
-```
-
-如果要获得一个对象的所有属性和方法，可以使用 `dir()` 函数，它返回一个包含字符串
-的 list，比如，获得一个 str 对象的所有属性和方法: `dir(Dog)`
-
-* `getattr()`, `setattr()`, `hasattr()`
-* `hasattr(Dog, "__init__")`
-* `callable(Student())` # true
-* `__getattr__`
-
-`type()` 函数可以查看一个类型或变量的类型，Hello 是一个 class，它的类型就是
-type，而 h 是一个实例，它的类型就是 `class Hello`。
-
-* `type()` to create class,
-* `__metaclass__ = <Class>`
-* `try... except ...finally`.
-
-第二个 except 永远也捕获不到 ValueError，因为 ValueError 是 StandardError 的子
-类，如果有，也被第一个 except 给捕获了。
-
-也就是说，不需要在每个可能出错的地方去捕获错误，只要在合适的层次去捕获错误就可
-以了。这样一来，就大大减少了写 `try...except...finally` 的麻烦。
-
-`import logging # log error and run, with error`{.python}
-
-虽然用 IDE 调试起来比较方便，但是最后你会发现，**logging 才是终极武器**。
-
-如果你听说过“测试驱动开发”（TDD：Test-Driven Development），单元测试就不陌生。
-
-```python
-d = dict(a=1,b=2)
-d = dict({"a":1,"b":2})
-raise FooError("invalid value: %s" % s)
-assert n != 0, "n is zero"
-logging, logging.info("n =%d" %n)
-import logging
-logging.basicConfig(level=logging.INFO)
-python -m pdb err.py
-pdb.set_trace()
-import pdb
-
-file-like object, `StringIO`
-<mode>=rb, f.read().decode("gbk")
-import codecs
-import os
-os.name
-os.path.abspath(".")
-os.getenv("PATH")
-os.path.split("url....") # dirname, basename
-import shutil
-split extension: os.path.splitext(str)==".py"
-```
-
-我们把变量从内存中变成可存储或传输的过程称之为序列化，在 Python 中叫
-**pickling**，在其他语言中也被称之为 **serialization**，**marshalling**(集结待发的)，
-**flattening** 等等，都是一个意思。
-
-```python
-try:
-    import cPickle as pickle
-except ImportError:
-    import pickle
-```
-
-![](http://static.oschina.net/uploads/img/201306/27011038_KCGY.jpg)
-
-python 语言特定的序列化模块是 pickle，但如果要把序列化搞得更通用、更符合 Web 标准，就可以使用 json 模块。
-
-json 模块的 `dumps()` 和 `loads()` 函数是定义得非常好的接口的典范。当我们使用时
-，只需要传入一个必须的参数。但是，当默认的序列化或反序列机制不满足我们的要求时
-，我们又可以传入更多的参数来定制序列化或反序列化的规则，既做到了接口简单易用，
-又做到了充分的扩展性和灵活性。如果要启动大量的子进程，可以用进程池(pool)的方式
-批量创建子进程在 Unix/Linux 下，可以使用 fork() 调用实现多进程。
-
-要实现跨平台的多进程，可以使用 multiprocessing 模块。
-
-进程间通信是通过 Queue、Pipes 等实现的。当多个线程同时执行 `lock.acquire()` 时，
-只有一个线程能成功地获取锁，然后继续执行代码，其他线程就继续等待直到获得锁为止。
-
-获得锁的线程用完后一定要释放锁，否则那些苦苦等待锁的线程将永远等待下去，成为死线程。所以我们用try...finally来确保锁一定会被释放。
-
-`import threading`{.python}
-
-:   ```python
-    # 创建全局 ThreadLocal 对象:
-    local_school = threading.local()
-
-    import re
-    s = r'ABC\-001' # Python的字符串
-
-    In : if re.match(r'^/d{3}\-\d{3,8}$', '010-12345'):
-       ....:     print 'ok'
-       ....:
-
-    In :
-
-    >>> re.split(r'\s+', 'a b   c')
-    ['a', 'b', 'c']
-    >>> re.split(r'[\s\,]+', 'a,b, c  d')
-    ['a', 'b', 'c', 'd']
-
-
-    >>> m = re.match(r'^(\d{3})-(\d{3,8})$', '010-12345')
-    >>> m
-    <_sre.SRE_Match object at 0x1026fb3e8>
-    >>> m.group(0)
-    '010-12345'
-    >>> m.group(1)
-    '010'
-    >>> m.group(2)
-    '12345'
+    ```python
+    >>> Thomas in d
+    >>> False
     ```
 
-贪婪匹配
+    所以，对于不变对象来说，调用对象自身的任意方法，也不会改变该对象自身的内容。相
+    反，这些方法会创建新的对象并返回，这样，就保证了不可变对象本身永远是不可变的。
 
-:   ```python
-    >>> re.match(r'^(\d+)(0*)$', '102300').groups()
-    ('102300', '')
+    要保证 hash 的正确性，作为 key 的对象就不能变。在 Python 中，字符串、整数等都是
+    不可变的，因此，可以放心地作为 key。而 list 是可变的，就不能作为 key
+
+    * `int()`, `float()`, `str()`, `bool()`
+
+    原来返回值是一个 tuple！但是，在语法上，返回一个 tuple 可以省略括号，而多个变量
+    可以同时接收一个 tuple，按位置赋给对应的值，所以，Python 的函数返回多值其实就是
+    返回一个 tuple，但写起来更方便。
+
+    ```python
+    def power(x, n=2):
+        s = 1
+        while n > 0:
+        n = n - 1
+        s = s * x
+        return s
     ```
 
-非贪婪匹配
+    默认参数必须指向不变对象！ `def add_end(L=None):`{.python}
 
-:   ```python
-    >>> re.match(r'^(\d+?)(0*)$', '102300').groups()
-    ('1023', '00')
+    为什么要设计 `str`、`None` 这样的不变对象呢？因为不变对象一旦创建，对象内部的数
+    据就不能修改，这样就减少了由于修改数据导致的错误。此外，由于对象不变，多任务环
+    境下同时读取对象不需要加锁，同时读一点问题都没有。我们在编写程序时，如果可以设
+    计一个不变对象，那就尽量设计成不变对象。
 
-    # 编译:
-    >>> re_telephone = re.compile(r'^(\d{3})-(\d{3,8})$')
-    # 使用：
-    >>> re_telephone.match('010-12345').groups()
-    # ('010', '12345')
+    * list: `[1, 2, 3]`
+    * tuple: `(1, 2, 3)`
+
+    定义可变参数和定义 list 或 tuple 参数相比，仅仅在参数前面加了一个 `*` 号。在函
+    数内部，参数 numbers 接收到的是一个 tuple，因此，函数代码完全不变。但是，调用该
+    函数时，可以传入任意个参数，包括 0 个参数
+
+    ```python
+    def calc(*numbers):
+        sum = 0
+        for n in numbers:
+        sum = sum + n * n
+        return sum
+
+    nums = [1, 2, 3]
+    calc(*nums)
+    14
     ```
 
-Python 之所以自称“batteries included”，就是因为内置了许多非常有用的模块，无需额
-外安装和配置，即可直接使用。
-
-modules
-
-:   ```python
-    from collections import namedtuple
-    from collections import deque
-    q = deque(["a", "b", "c"])
-    q.append("x")
-    q.appendleft("y")
-    q
-    append(), pop(), appendleft(), popleft()
-    from collections import defaultdict
-    from collections import OrderdDict
-    from collections import counter
-
-    %Base64
-    >>> n = 10240099
-    >>> b1 = chr((n & 0xff000000) >> 24)
-    >>> b2 = chr((n & 0xff0000) >> 16)
-    >>> b3 = chr((n & 0xff00) >> 8)
-    >>> b4 = chr(n & 0xff)
-    >>> s = b1 + b2 + b3 + b4
-    >>> s
-    ' ?@c'
+    ```python
+    >>> kw = {city: Beijing, job: Engineer}
+    >>> person(Jack, 24, **kw)
+    name: Jack age: 24 other: {city: Beijing, job: Engineer}
     ```
 
-```python
-import struct
+    * 参数定义的顺序必须是：**必选参数**、**默认参数**、**可变参数**和**关键字参数**。
+    * args 是可变参数，args 接收的是一个 tuple；
+    * `**kw` 是关键字参数，kw 接收的是一个 dict。
 
-struct.pack('>I', 234523452345)
-import hashlib
-md5 = haslib.md5()
-md5.update(how to use md5 in python hashlib?)
-print md5.hexdigest()
-```
+    尾递归是指，在函数返回的时候，调用自身本身，并且，return 语句不能包含表达式。这
+    样，编译器或者解释器就可以把尾递归做优化，使递归本身无论调用多少次，都只占用一
+    个栈帧，不会出现栈溢出的情况。
 
-要注意摘要算法不是加密算法，不能用于加密（因为无法通过摘要反推明文），只能用于
-防篡改，但是它的单向计算特性决定了可以在不存储明文口令的情况下验证用户口令。
+    ```python
+    >>> L[1:3]
+    [Sarah, Tracy]
 
-```python
-import itertools
-natuals = itertools.count(1)
-for n in natuals:
-    print n
-
->>> cs = itertools.cycle('ABC') # 注意字符串也是序列的一种
->>> ns = itertools.repeat('A', 10)
+    for key in d:
+    for value in d.itervalues():
+    for k, v in d.iteritems():
 
->>> natuals = itertools.count(1)
->>> ns = itertools.takewhile(lambda x: x <= 10, natuals)
->>> for n in ns:
-...     print n
+    [x*x for x in range(1, 11)]
+
+    isinstance(x, str)
+    g = (x * x for x in range(10))
+    g.next()
+    ```
+
+    * [生成器 - 廖雪峰的官方网站](http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/00138681965108490cb4c13182e472f8d87830f13be6e88000) :smile:
 
-打印出1到10
+    ![](http://www.liaoxuefeng.com/files/attachments/0013879622109990efbf9d781704b02994ba96765595f56000/0)
+
+    * map, reduce
+    * `filter(function, list)`{.python}
+
+    ```python
+    def not_empty(s):
+        return s and s.strip()
+
+    filter(not_empty, [A, , B, None, C,  ])
+    # 结果: [A, B, C]
+    ```
+
+    * `sorted([list], <function>)`{.python}
+    * 高阶函数除了可以接受函数作为参数外，还可以把函数作为结果值返回。
 
-chain('abc', 'def')
-imap(), *vs.* map()
-ifilter()
-```
-
-XML 虽然比 JSON 复杂，在 Web 中应用也不如以前多了，不过仍有很多地方在用，所以，有
-必要了解如何操作 XML。
+    ```python
+    In : def lazy_sum(*args):
+       ...:     def sum():
+       ...:         ax = 0
+       ...:         for n in args:
+       ...:             ax = ax + n
+       ...:         return ax
+       ...:     return sum
+       ...:
+
+    In : f = lazy_sum( 1, 2, 3, 4)
+
+    In : f
+    Out: <function __main__.sum>
+
+    In : f()
+    Out: 10
+    ```
+
+    在这个例子中，我们在函数 lazy_sum 中又定义了函数 sum，并且，内部函数 sum 可以引
+    用外部函数 lazy_sum 的参数和局部变量，当 lazy_sum 返回函数 sum 时，相关参数和变
+    量都保存在返回的函数中，这种称为“闭包（Closure）”的程序结构拥有极大的威力。
+
+    `lambda x: x*x`
+
+    :   ```python
+        import functools
+        int2 = functools.partial(int, base=2)
+        int2('1000000')
+        ```
+
+        注意到上面的新的 int2 函数，仅仅是把 base 参数重新设定默认值为 2，但也可以
+        在函数调用时传入其他值: `int2("1000000", base=10)`{.python}
+
+        请注意，每一个包目录下面都会有一个 `__init__.py` 的文件，这个文件是必须存在
+        的，否则，Python 就把这个目录当成普通目录，而不是一个包。`__init__.py` 可以
+        是空文件，也可以有 Python 代码，因为 `__init__.py` 本身就是一个模块，而它的模块
+        名就是 mycompany
+
+        ```python
+        if __name__ == '__main__':
+            test()
+        ```
+
+    ```python
+    try:
+        import json # python >= 2.6
+    except ImportError:
+        import simplejson as json # python <= 2.5
+    ```
+
+    类似 `__xxx__` 这样的变量是特殊变量，可以被直接引用，但是有特殊用途，比如上面的
+    `__author__`，`__name__` 就是特殊变量，hello 模块定义的文档注释也可以用特殊变量
+    `__doc__` 访问，我们自己的变量一般不要用这种变量名；
+
+    类似 `_xxx` 和 `__xxx` 这样的函数或变量就是非公开的（private），不应该被直接引
+    用，比如 `_abc`，`__abc` 等；
+
+    外部不需要引用的函数全部定义成 private，只有外部需要引用的函数才定义为 public。
+
+    `from __future__ import division`, use python3.x in python2.x
+
+    ```python
+    class Student(object):
+
+        def __init__(self, name, score):
+            self.name = name
+            self.score = score
+
+    In : class Me(object):
+       ....:     def __init__(this):
+       ....:         this.name = "shit"
+    this.__private_var, this.__not_private_var__, this._not_private_but_dont_touch_me_please
+    class Dog(Animal):
+        pass
+    instanceof (dog, Dog)
+    instanceof (dog, Animal) # true
+
+    def run_twice(animal):
+        animal.run()
+        animal.run()
+    ```
 
-```python
-# 打开一个 jpg 图像文件，注意路径要改成你自己的:
-im = Image.open('/Users/michael/test.jpg')
-# 获得图像尺寸:
-w, h = im.size
-# 缩放到50%:
-im.thumbnail((w//2, h//2))
-# 把缩放后的图像用jpeg格式保存:
-im.save('/Users/michael/thumbnail.jpg', 'jpeg')
-
-msg = MIMEText('hello, send by Python...', 'plain', 'utf-8')
-msg['From'] = _format_addr(u'Python爱好者 <%s>' % from_addr)
-msg['To'] = _format_addr(u'管理员 <%s>' % to_addr)
-msg['Subject'] = Header(u'来自SMTP的问候……', 'utf-8').encode()
-```
-
-这就是传说中的 ORM 技术：`Object-Relational Mapping`，把关系数据库的表结构映射
-到对象上。是不是很简单？
-
-但是由谁来做这个转换呢？所以 ORM 框架应运而生
-这个接口就是 **WSGI：Web Server Gateway Interface**。
-
-```bash
-find where-to-look criteria what-to-do
-find /tmp /var/tmp . $HOME -name foo
-find / -name foo 2>/dev/null
-find -type f | ag some.\*.txt\$ | xargs tar -rf some.tar
-```
-
-`xsel -ob # paste text to >`{.bash}
-
-The first `--` argument that is not an option-argument should be accepted as a
-delimiter indicating the **end of options**. Any following arguments should be
-treated as operands, even if they begin with the `-` character.
-
-For utilities that use operands to represent files to be opened for either
-reading or writing, the `-` operand should be used to mean only standard input
-(or standard output when it is clear from context that an output file is being
-specified) or a file named `-`.
-
-**"options" (or, historically, "flags")**
-
-When a utility has only a few permissible options, they are sometimes shown
-individually, as in the example. Utilities with many flags generally show all
-of the individual flags (that do not take option-arguments) grouped, as in:
-
-* `utility_name [-abcDxyz][-p arg][operand]`{.bash}
-* `utility_name [options][operands]`{.bash}
-
-Utilities with very complex arguments may be shown as follows:
-
-![](http://www.liaoxuefeng.com/files/attachments/001400339839622665127663fb840b5870864895b103c2f000)
-
-在 Jinja2 模板中，我们用 `{{ name }}` 表示一个需要替换的变量。很多时候，还需要
-循环、条件判断等指令语句，在 Jinja2 中，用 `{% ... %}` 表示指令。
-
-* Jinja2, Mako, Cheetah, Django
-
-看起来 A、B 的执行有点像多线程，但协程的特点在于是一个线程执行，那和多线程比，
-协程有何优势？
-
-最大的优势就是**协程极高的执行效率**。因为子程序切换不是线程切换，而是由程序自
-身控制，因此，没有线程切换的开销，和多线程比，线程数量越多，协程的性能优势就越
-明显。
-
-第二大优势就是**不需要多线程的锁机制**，因为只有一个线程，也不存在同时写变量冲突，
-在协程中控制共享资源不加锁，只需要判断状态就好了，所以执行效率比多线程高很多。
-
-因为协程是一个线程执行，那怎么利用多核 CPU 呢？最简单的方法是`多进程+协程`，既
-充分利用多核，又充分发挥协程的高效率，可获得极高的性能。注意到 consumer 函数是
-一个 generator（生成器），把一个 consumer 传入 produce 后：
-
-* 首先调用 `c.next()` 启动生成器；
-* 然后，一旦生产了东西，通过 `c.send(n)` 切换到 consumer 执行；
-* consumer 通过 yield 拿到消息，处理，又通过 yield 把结果传回；
-* produce 拿到 consumer 处理的结果，继续生产下一条消息；
-* produce 决定不生产了，通过 c.close() 关闭 consumer，整个过程结束。
-* 整个流程无锁，由一个线程执行，produce 和 consumer 协作完成任务，所以称为“协程”，
-  而非线程的抢占式多任务。
-
-最后套用 Donald Knuth 的一句话总结协程的特点：
-
-> “子程序就是协程的一种特例。”
-
-当一个 greenlet 遇到 IO 操作时，比如访问网络，就自动切换到其他的 greenlet，等到
-IO 操作完成，再在适当的时候切换回来继续执行。由于 IO 操作非常耗时，经常使程序处
-于等待状态，有了 gevent 为我们自动切换协程，就保证总有 greenlet 在运行，而不是
-等待 IO。
-
-Clojure 提供了很多函数来操作序列（sequence), 而序列是集合的逻辑视图。很多东西可
-以被看作序列：Java 集合, Clojure 的集合, 字符串, 流, 文件系统结构以及 XML 树.从
-已经存在的 clojure 集合来创建新的集合的效率是非常高的，因为这里使用了
-**persistent data structures** 的技术(这对于 clojure 在数据不可更改的情况下，同
-时要保持代码的高效率是非常重要的)。
-
-```clojure
-'(a b c)
-(quote (a b c))
-
-hash-map, sorted-map
-list, vector
-
-'(), []
-```
-
-When a set is used as a function, it returns the argument if it is in the set
-and nil otherwise.
-
-Because the Java invocation syntax in Clojure is clean and simple, it is
-idiomatic to use Java directly, rather than to hide Java behind Lispy wrappers.
-
-* `defn`: define a function
-* user=> `(load-file "/home/gnat/test.clj")`
-* `(conj coll item)`
-* this is a set: `#{}`
-* `conj`: conjoin
-* `(def visitors (ref #{}))`
-* `(dosync (commute visitors conj "stu"))`
-
-```clojure
-@vistors
-(deref vistors)
-user=> (@vistors "stu")
-"stu"
-user=> (if (@vistors "stu") (str "true") (str "false"))
-"true"
-user=> (if (@vistors "tu") (str "true") (str "false"))
-"false"
-```
-
-Here we've got your project's `README`, a `src/` directory containing the code, a
-`test/` directory, and a `project.clj` file which describes your project to
-Leiningen. The `src/my_stuff/core.clj` file corresponds to the `my-stuff.core`
-namespace.
-
-```tzx-plain
-:dependencies [[org.clojure/clojure "1.5.1"]]
-list in a list, [[],[],[],[]] like this
-[[<group-id>/<artifact-id> version-number]]
-```
-
-```clojure
->> lein run one
-This is the foo, and your args are one
->> lein run -m my-stuff.core -main good
-hello main, see you. (-main good)
-
-(require 'clojure.string 'clojure.test)
-vector: (require '[clojure.string :as string])
-user=> (string/capitalize "good")
-"Good"
-
-(require 'clojure.string '[clojure.test :as test])
-Using other namespaces’ code as though it’s yours:
-Using other namespaces’ code as though it’s yours:
-Using other namespaces’ code as though it’s yours:
-Using other namespaces’ code as though it’s yours: use
-user=> (split (str (java.util.Date.)) #":")
-["Mon Feb 16 22" "55" "56 CST 2015"]
-
-(import 'java.util.Date)
-(Date.)
-require and then import: (require 'stuff)
-(import 'stuff.BigWidget)
-```
-
-```clojure
-user=> (let [[x y z] v]
-  #_=> (println "x is: " x ", y is: " y ", z is: " z))
-x is:  11 , y is:  22 , z is:  33
-nil
-user=>
-
-name, namespace, class, #"string as regex"
-user=> (let [[& x ] v] x)
-(11 22 33 "string 44")
-user=> (let [[x & z ] v] z)
-(22 33 "string 44")
-
-user=> (if "true" "true..." "false...")
-"true..."
-user=> (if (true? "true") "true..." "false...")
-"false..."
-```
-
-![](http://math.ecnu.edu.cn/~latex/images/Bezier_2.gif)
-![](http://math.ecnu.edu.cn/~latex/images/Bezier_3.gif)
-![](http://math.ecnu.edu.cn/~latex/images/Bezier_4.gif)
-
-`sudo apt-get install cowsay`{.bash}
-
-```javascript
-var o = {
-    banana: function () {},
-    apple: function () {},
-    default: function () {}
-}
-
-if (o[fruit]) {
-    o[fruit]();
-} else {
-    o['default']();
-}
-
-if () {} else {}
-if () {} else if () {} else {}
-
-switch (VAR) { case VAR1: CMD; break; ...; default: CMD; }
-
-while () {}
-
-for (INIT; TEST; INC) {}
-
-do {} while();
-
-try {} catch {}
-
-break; continue;
-lable, break lable; continue lable;
-
-number, string, boolean,
-object, array, function,
-null, undefined,
-typeof, instenceof, Object.prototype.toString
-true, false,
-&&, ||, !, ===, !==, ==, !=
-```
-
-```javascript
-"abc".length
-"abc"
-.length
-Number.MAX_VALUE
-Number.MIN_VALUE
-var longString = "Long \
-long \
-long \
-string";
-// unicode
-var s = '\u0049'; // "@"
-s.charAt(0) // char
-s.charCodeAt(0) // base-10
-// Base64
-window.btoa('Hellow world')
-window.atob('...')
-```
-
-要将非 ASCII 码字符转为 Base64 编码，必须中间插入一个浏览器转码的环节，再使用这两个方法。
-
-```javascript
-function b64Encode( str ) {
-    return window.btoa(unescape(encodeURIComponent( str )));
-}
-
-function b64Decode( str ) {
-    return decodeURIComponent(escape(window.atob( str )));
-}
-
-// 使用方法
-b64Encode('你好') // "5L2g5aW9"
-b64Decode('5L2g5aW9') // "你好"
-```
-
-```bash
-$ echo '你好' | base64
-5L2g5aW9
-
-$ echo '5L2g5aW9Cg==' | base64 -d
-你好
-
-$ echo '5L2g5aW9Cg' | base64 -d
-你好
-base64: invalid input
-
-# 还要注意换行
-$ echo 'good' | base64
-Z29vZAo=
-$ echo -n 'good' | base64
-Z29vZA==
-
-```
-
-object
-
-```javascript
-var o = {
-    p: "Hello World"
-    q: "Quit, bye"
-};
-o.p // "Hello World"
-o["p"] // "Hello World"
-if ("p" in o) {} // method 1
-if ("0" in o) {} // method 2
-if (0 in o) {} // method 3
-Object.keys(o); // ["p", "q"]
-delete o.p // true
-
-var o = new Object();
-o.hasOwnProperty('toString'); // true
-'toString' in o // true
-for (i in o) {console.log(o.i);}
-
-// with
-o.p1 = 1;
-o.p2 = 2;
-with (o) {
-    p1 = 3;
-    p2 = 6;
-}
-mZ
-var a = [, , ,]; // legth = 3 not enumerable
-var b = [undefined, undefined, undefined]; // length = 3, enumerable
-var c = new Array(3); // length = 3, not enumerable
-```
-
-`easy_install statsmodels`
-
----
-
-[数据处理 API 参考手册#md2html](http://developer.qiniu.com/code/v6/api/dora-api/index.html#md2html)
+    对于一个变量，我们只需要知道它是 Animal 类型，无需确切地知道它的子类型，就可以
+    放心地调用 `run()` 方法，而具体调用的 `run()` 方法是作用在 Animal、Dog、Cat 还
+    是 Tortoise 对象上，由运行时该对象的确切类型决定，这就是**多态**真正的威力：调
+    用方只管调用，不管细节，而当我们新增一种 Animal 的子类时，只要确保 `run()` 方法
+    编写正确，不用管原来的代码是如何调用的。这就是著名的“开闭”原则：
+
+    * 对扩展开放：允许新增 Animal 子类；
+    * 对修改封闭：不需要修改依赖 Animal 类型的 `run_twice()` 等函数。
+
+    ```python
+    type(123), type("string")
+    >>> import types
+    __slots__ = (name, gender)
+
+    class Student(object):
+
+        def get_score(self):
+            return self._score
+
+        def set_score(self, value):
+            if not isinstance(value, int):
+                raise ValueError('score must be an integer!')
+            if value < 0 or value > 100:
+                raise ValueError('score must between 0 ~ 100!')
+            self._score = value
+    >>> s.score = 60 # OK，实际转化为s.set_score(60)
+    ```
+
+    * `@score.setter`
+    * `@property` 的实现比较复杂，我们先考察如何使用。把一个 getter 方法变成属性，
+      只需要加上 `@property` 就可以了，此时，`@property` 本身又创建了另一个装饰器
+      `@score.setter`，负责把一个 setter 方法变成属性赋值，于是，我们就拥有一个可控
+      的属性操作
+
+    ```python
+    class Student(object):
+
+        @property
+        def birth(self):
+            return self._birth
+
+        @birth.setter
+        def birth(self, value):
+            self._birth = value
+
+        @property
+        def age(self):
+            return 2014 - self._birth
+    ```
+
+    由于 Python 允许使用多重继承，因此，**Mixin** 就是一种常见的设计。
+    只允许单一继承的语言（如 Java）不能使用 Mixin 的设计。
+
+    * Mixin
+    * `__str__()`, `print(Student("Michael"))`
+    * `__repr__ = __str__`
+    * `__iter__`
+    * `__getitem__`, `s = Student()`, `s`
+    * `__getattr__`
+
+    当调用不存在的属性时，比如 score，Python 解释器会试图调用 `__getattr__(self, score)` 来尝试获得属性
+
+    `__call__`, `s = Student()`, `s()`
+
+    ```python
+    import types
+    type(u'abc')==types.UnicodeType
+    isinstance(a, (str, unicode)) # string or unicode
+    ```
+
+    如果要获得一个对象的所有属性和方法，可以使用 `dir()` 函数，它返回一个包含字符串
+    的 list，比如，获得一个 str 对象的所有属性和方法: `dir(Dog)`
+
+    * `getattr()`, `setattr()`, `hasattr()`
+    * `hasattr(Dog, "__init__")`
+    * `callable(Student())` # true
+    * `__getattr__`
+
+    `type()` 函数可以查看一个类型或变量的类型，Hello 是一个 class，它的类型就是
+    type，而 h 是一个实例，它的类型就是 `class Hello`。
+
+    * `type()` to create class,
+    * `__metaclass__ = <Class>`
+    * `try... except ...finally`.
+
+    第二个 except 永远也捕获不到 ValueError，因为 ValueError 是 StandardError 的子
+    类，如果有，也被第一个 except 给捕获了。
+
+    也就是说，不需要在每个可能出错的地方去捕获错误，只要在合适的层次去捕获错误就可
+    以了。这样一来，就大大减少了写 `try...except...finally` 的麻烦。
+
+    `import logging # log error and run, with error`{.python}
+
+    虽然用 IDE 调试起来比较方便，但是最后你会发现，**logging 才是终极武器**。
+
+    如果你听说过“测试驱动开发”（TDD：Test-Driven Development），单元测试就不陌生。
+
+    ```python
+    d = dict(a=1,b=2)
+    d = dict({"a":1,"b":2})
+    raise FooError("invalid value: %s" % s)
+    assert n != 0, "n is zero"
+    logging, logging.info("n =%d" %n)
+    import logging
+    logging.basicConfig(level=logging.INFO)
+    python -m pdb err.py
+    pdb.set_trace()
+    import pdb
+
+    file-like object, `StringIO`
+    <mode>=rb, f.read().decode("gbk")
+    import codecs
+    import os
+    os.name
+    os.path.abspath(".")
+    os.getenv("PATH")
+    os.path.split("url....") # dirname, basename
+    import shutil
+    split extension: os.path.splitext(str)==".py"
+    ```
+
+    我们把变量从内存中变成可存储或传输的过程称之为序列化，在 Python 中叫
+    **pickling**，在其他语言中也被称之为 **serialization**，**marshalling**(集结待发的)，
+    **flattening** 等等，都是一个意思。
+
+    ```python
+    try:
+        import cPickle as pickle
+    except ImportError:
+        import pickle
+    ```
+
+    ![](http://static.oschina.net/uploads/img/201306/27011038_KCGY.jpg)
+
+    python 语言特定的序列化模块是 pickle，但如果要把序列化搞得更通用、更符合 Web 标准，就可以使用 json 模块。
+
+    json 模块的 `dumps()` 和 `loads()` 函数是定义得非常好的接口的典范。当我们使用时
+    ，只需要传入一个必须的参数。但是，当默认的序列化或反序列机制不满足我们的要求时
+    ，我们又可以传入更多的参数来定制序列化或反序列化的规则，既做到了接口简单易用，
+    又做到了充分的扩展性和灵活性。如果要启动大量的子进程，可以用进程池(pool)的方式
+    批量创建子进程在 Unix/Linux 下，可以使用 fork() 调用实现多进程。
+
+    要实现跨平台的多进程，可以使用 multiprocessing 模块。
+
+    进程间通信是通过 Queue、Pipes 等实现的。当多个线程同时执行 `lock.acquire()` 时，
+    只有一个线程能成功地获取锁，然后继续执行代码，其他线程就继续等待直到获得锁为止。
+
+    获得锁的线程用完后一定要释放锁，否则那些苦苦等待锁的线程将永远等待下去，成为死线程。所以我们用try...finally来确保锁一定会被释放。
+
+    `import threading`{.python}
+
+    :   ```python
+        # 创建全局 ThreadLocal 对象:
+        local_school = threading.local()
+
+        import re
+        s = r'ABC\-001' # Python的字符串
+
+        In : if re.match(r'^/d{3}\-\d{3,8}$', '010-12345'):
+           ....:     print 'ok'
+           ....:
+
+        In :
+
+        >>> re.split(r'\s+', 'a b   c')
+        ['a', 'b', 'c']
+        >>> re.split(r'[\s\,]+', 'a,b, c  d')
+        ['a', 'b', 'c', 'd']
+
+
+        >>> m = re.match(r'^(\d{3})-(\d{3,8})$', '010-12345')
+        >>> m
+        <_sre.SRE_Match object at 0x1026fb3e8>
+        >>> m.group(0)
+        '010-12345'
+        >>> m.group(1)
+        '010'
+        >>> m.group(2)
+        '12345'
+        ```
+
+    贪婪匹配
+
+    :   ```python
+        >>> re.match(r'^(\d+)(0*)$', '102300').groups()
+        ('102300', '')
+        ```
+
+    非贪婪匹配
+
+    :   ```python
+        >>> re.match(r'^(\d+?)(0*)$', '102300').groups()
+        ('1023', '00')
+
+        # 编译:
+        >>> re_telephone = re.compile(r'^(\d{3})-(\d{3,8})$')
+        # 使用：
+        >>> re_telephone.match('010-12345').groups()
+        # ('010', '12345')
+        ```
+
+    Python 之所以自称“batteries included”，就是因为内置了许多非常有用的模块，无需额
+    外安装和配置，即可直接使用。
+
+    modules
+
+    :   ```python
+        from collections import namedtuple
+        from collections import deque
+        q = deque(["a", "b", "c"])
+        q.append("x")
+        q.appendleft("y")
+        q
+        append(), pop(), appendleft(), popleft()
+        from collections import defaultdict
+        from collections import OrderdDict
+        from collections import counter
+
+        %Base64
+        >>> n = 10240099
+        >>> b1 = chr((n & 0xff000000) >> 24)
+        >>> b2 = chr((n & 0xff0000) >> 16)
+        >>> b3 = chr((n & 0xff00) >> 8)
+        >>> b4 = chr(n & 0xff)
+        >>> s = b1 + b2 + b3 + b4
+        >>> s
+        ' ?@c'
+        ```
+
+    ```python
+    import struct
+
+    struct.pack('>I', 234523452345)
+    import hashlib
+    md5 = haslib.md5()
+    md5.update(how to use md5 in python hashlib?)
+    print md5.hexdigest()
+    ```
+
+    要注意摘要算法不是加密算法，不能用于加密（因为无法通过摘要反推明文），只能用于
+    防篡改，但是它的单向计算特性决定了可以在不存储明文口令的情况下验证用户口令。
+
+    ```python
+    import itertools
+    natuals = itertools.count(1)
+    for n in natuals:
+        print n
+
+    >>> cs = itertools.cycle('ABC') # 注意字符串也是序列的一种
+    >>> ns = itertools.repeat('A', 10)
+
+    >>> natuals = itertools.count(1)
+    >>> ns = itertools.takewhile(lambda x: x <= 10, natuals)
+    >>> for n in ns:
+    ...     print n
+
+    打印出1到10
+
+    chain('abc', 'def')
+    imap(), *vs.* map()
+    ifilter()
+    ```
+
+    XML 虽然比 JSON 复杂，在 Web 中应用也不如以前多了，不过仍有很多地方在用，所以，有
+    必要了解如何操作 XML。
+
+    ```python
+    # 打开一个 jpg 图像文件，注意路径要改成你自己的:
+    im = Image.open('/Users/michael/test.jpg')
+    # 获得图像尺寸:
+    w, h = im.size
+    # 缩放到50%:
+    im.thumbnail((w//2, h//2))
+    # 把缩放后的图像用jpeg格式保存:
+    im.save('/Users/michael/thumbnail.jpg', 'jpeg')
+
+    msg = MIMEText('hello, send by Python...', 'plain', 'utf-8')
+    msg['From'] = _format_addr(u'Python爱好者 <%s>' % from_addr)
+    msg['To'] = _format_addr(u'管理员 <%s>' % to_addr)
+    msg['Subject'] = Header(u'来自SMTP的问候……', 'utf-8').encode()
+    ```
+
+    这就是传说中的 ORM 技术：`Object-Relational Mapping`，把关系数据库的表结构映射
+    到对象上。是不是很简单？
+
+    但是由谁来做这个转换呢？所以 ORM 框架应运而生
+    这个接口就是 **WSGI：Web Server Gateway Interface**。
+
+    ```bash
+    find where-to-look criteria what-to-do
+    find /tmp /var/tmp . $HOME -name foo
+    find / -name foo 2>/dev/null
+    find -type f | ag some.\*.txt\$ | xargs tar -rf some.tar
+    ```
+
+    `xsel -ob # paste text to >`{.bash}
+
+    The first `--` argument that is not an option-argument should be accepted as a
+    delimiter indicating the **end of options**. Any following arguments should be
+    treated as operands, even if they begin with the `-` character.
+
+    For utilities that use operands to represent files to be opened for either
+    reading or writing, the `-` operand should be used to mean only standard input
+    (or standard output when it is clear from context that an output file is being
+    specified) or a file named `-`.
+
+    **"options" (or, historically, "flags")**
+
+    When a utility has only a few permissible options, they are sometimes shown
+    individually, as in the example. Utilities with many flags generally show all
+    of the individual flags (that do not take option-arguments) grouped, as in:
+
+    * `utility_name [-abcDxyz][-p arg][operand]`{.bash}
+    * `utility_name [options][operands]`{.bash}
+
+    Utilities with very complex arguments may be shown as follows:
+
+    ![](http://www.liaoxuefeng.com/files/attachments/001400339839622665127663fb840b5870864895b103c2f000)
+
+    在 Jinja2 模板中，我们用 `{{ name }}` 表示一个需要替换的变量。很多时候，还需要
+    循环、条件判断等指令语句，在 Jinja2 中，用 `{% ... %}` 表示指令。
+
+    * Jinja2, Mako, Cheetah, Django
+
+    看起来 A、B 的执行有点像多线程，但协程的特点在于是一个线程执行，那和多线程比，
+    协程有何优势？
+
+    最大的优势就是**协程极高的执行效率**。因为子程序切换不是线程切换，而是由程序自
+    身控制，因此，没有线程切换的开销，和多线程比，线程数量越多，协程的性能优势就越
+    明显。
+
+    第二大优势就是**不需要多线程的锁机制**，因为只有一个线程，也不存在同时写变量冲突，
+    在协程中控制共享资源不加锁，只需要判断状态就好了，所以执行效率比多线程高很多。
+
+    因为协程是一个线程执行，那怎么利用多核 CPU 呢？最简单的方法是`多进程+协程`，既
+    充分利用多核，又充分发挥协程的高效率，可获得极高的性能。注意到 consumer 函数是
+    一个 generator（生成器），把一个 consumer 传入 produce 后：
+
+    * 首先调用 `c.next()` 启动生成器；
+    * 然后，一旦生产了东西，通过 `c.send(n)` 切换到 consumer 执行；
+    * consumer 通过 yield 拿到消息，处理，又通过 yield 把结果传回；
+    * produce 拿到 consumer 处理的结果，继续生产下一条消息；
+    * produce 决定不生产了，通过 c.close() 关闭 consumer，整个过程结束。
+    * 整个流程无锁，由一个线程执行，produce 和 consumer 协作完成任务，所以称为“协程”，
+      而非线程的抢占式多任务。
+
+    最后套用 Donald Knuth 的一句话总结协程的特点：
+
+    > “子程序就是协程的一种特例。”
+
+    当一个 greenlet 遇到 IO 操作时，比如访问网络，就自动切换到其他的 greenlet，等到
+    IO 操作完成，再在适当的时候切换回来继续执行。由于 IO 操作非常耗时，经常使程序处
+    于等待状态，有了 gevent 为我们自动切换协程，就保证总有 greenlet 在运行，而不是
+    等待 IO。
+
+Clojure -<
+
+:   Clojure 提供了很多函数来操作序列（sequence), 而序列是集合的逻辑视图。很多东西可
+    以被看作序列：Java 集合, Clojure 的集合, 字符串, 流, 文件系统结构以及 XML 树.从
+    已经存在的 clojure 集合来创建新的集合的效率是非常高的，因为这里使用了
+    **persistent data structures** 的技术(这对于 clojure 在数据不可更改的情况下，同
+    时要保持代码的高效率是非常重要的)。
+
+    ```clojure
+    '(a b c)
+    (quote (a b c))
+
+    hash-map, sorted-map
+    list, vector
+
+    '(), []
+    ```
+
+    When a set is used as a function, it returns the argument if it is in the set
+    and nil otherwise.
+
+    Because the Java invocation syntax in Clojure is clean and simple, it is
+    idiomatic to use Java directly, rather than to hide Java behind Lispy wrappers.
+
+    * `defn`: define a function
+    * user=> `(load-file "/home/gnat/test.clj")`
+    * `(conj coll item)`
+    * this is a set: `#{}`
+    * `conj`: conjoin
+    * `(def visitors (ref #{}))`
+    * `(dosync (commute visitors conj "stu"))`
+
+    ```clojure
+    @vistors
+    (deref vistors)
+    user=> (@vistors "stu")
+    "stu"
+    user=> (if (@vistors "stu") (str "true") (str "false"))
+    "true"
+    user=> (if (@vistors "tu") (str "true") (str "false"))
+    "false"
+    ```
+
+    Here we've got your project's `README`, a `src/` directory containing the code, a
+    `test/` directory, and a `project.clj` file which describes your project to
+    Leiningen. The `src/my_stuff/core.clj` file corresponds to the `my-stuff.core`
+    namespace.
+
+    ```
+    :dependencies [[org.clojure/clojure "1.5.1"]]
+    list in a list, [[],[],[],[]] like this
+    [[<group-id>/<artifact-id> version-number]]
+    ```
+
+    ```clojure
+    >> lein run one
+    This is the foo, and your args are one
+    >> lein run -m my-stuff.core -main good
+    hello main, see you. (-main good)
+
+    (require 'clojure.string 'clojure.test)
+    vector: (require '[clojure.string :as string])
+    user=> (string/capitalize "good")
+    "Good"
+
+    (require 'clojure.string '[clojure.test :as test])
+    Using other namespaces’ code as though it’s yours:
+    Using other namespaces’ code as though it’s yours:
+    Using other namespaces’ code as though it’s yours:
+    Using other namespaces’ code as though it’s yours: use
+    user=> (split (str (java.util.Date.)) #":")
+    ["Mon Feb 16 22" "55" "56 CST 2015"]
+
+    (import 'java.util.Date)
+    (Date.)
+    require and then import: (require 'stuff)
+    (import 'stuff.BigWidget)
+    ```
+
+    ```clojure
+    user=> (let [[x y z] v]
+      #_=> (println "x is: " x ", y is: " y ", z is: " z))
+    x is:  11 , y is:  22 , z is:  33
+    nil
+    user=>
+
+    name, namespace, class, #"string as regex"
+    user=> (let [[& x ] v] x)
+    (11 22 33 "string 44")
+    user=> (let [[x & z ] v] z)
+    (22 33 "string 44")
+
+    user=> (if "true" "true..." "false...")
+    "true..."
+    user=> (if (true? "true") "true..." "false...")
+    "false..."
+    ```
+
+MISC -<
+
+:   ![](http://math.ecnu.edu.cn/~latex/images/Bezier_2.gif)
+    ![](http://math.ecnu.edu.cn/~latex/images/Bezier_3.gif)
+    ![](http://math.ecnu.edu.cn/~latex/images/Bezier_4.gif)
+
+    `sudo apt-get install cowsay`{.bash}
+
+    `easy_install statsmodels`{.bash}
+
+JavaScript -<
+
+:   ```javascript
+    var o = {
+        banana: function () {},
+        apple: function () {},
+        default: function () {}
+    }
+
+    if (o[fruit]) {
+        o[fruit]();
+    } else {
+        o['default']();
+    }
+
+    if () {} else {}
+    if () {} else if () {} else {}
+
+    switch (VAR) { case VAR1: CMD; break; ...; default: CMD; }
+
+    while () {}
+
+    for (INIT; TEST; INC) {}
+
+    do {} while();
+
+    try {} catch {}
+
+    break; continue;
+    lable, break lable; continue lable;
+
+    number, string, boolean,
+    object, array, function,
+    null, undefined,
+    typeof, instenceof, Object.prototype.toString
+    true, false,
+    &&, ||, !, ===, !==, ==, !=
+    ```
+
+    ```javascript
+    "abc".length
+    "abc"
+    .length
+    Number.MAX_VALUE
+    Number.MIN_VALUE
+    var longString = "Long \
+    long \
+    long \
+    string";
+    // unicode
+    var s = '\u0049'; // "@"
+    s.charAt(0) // char
+    s.charCodeAt(0) // base-10
+    // Base64
+    window.btoa('Hellow world')
+    window.atob('...')
+    ```
+
+    要将非 ASCII 码字符转为 Base64 编码，必须中间插入一个浏览器转码的环节，再使用这两个方法。
+
+    ```javascript
+    function b64Encode( str ) {
+        return window.btoa(unescape(encodeURIComponent( str )));
+    }
+
+    function b64Decode( str ) {
+        return decodeURIComponent(escape(window.atob( str )));
+    }
+
+    // 使用方法
+    b64Encode('你好') // "5L2g5aW9"
+    b64Decode('5L2g5aW9') // "你好"
+    ```
+
+    ```bash
+    $ echo '你好' | base64
+    5L2g5aW9
+
+    $ echo '5L2g5aW9Cg==' | base64 -d
+    你好
+
+    $ echo '5L2g5aW9Cg' | base64 -d
+    你好
+    base64: invalid input
+
+    # 还要注意换行
+    $ echo 'good' | base64
+    Z29vZAo=
+    $ echo -n 'good' | base64
+    Z29vZA==
+
+    ```
+
+    object
+
+    ```javascript
+    var o = {
+        p: "Hello World"
+        q: "Quit, bye"
+    };
+    o.p // "Hello World"
+    o["p"] // "Hello World"
+    if ("p" in o) {} // method 1
+    if ("0" in o) {} // method 2
+    if (0 in o) {} // method 3
+    Object.keys(o); // ["p", "q"]
+    delete o.p // true
+
+    var o = new Object();
+    o.hasOwnProperty('toString'); // true
+    'toString' in o // true
+    for (i in o) {console.log(o.i);}
+
+    // with
+    o.p1 = 1;
+    o.p2 = 2;
+    with (o) {
+        p1 = 3;
+        p2 = 6;
+    }
+    mZ
+    var a = [, , ,]; // legth = 3 not enumerable
+    var b = [undefined, undefined, undefined]; // length = 3, enumerable
+    var c = new Array(3); // length = 3, not enumerable
+    ```
+
+[数据处理 API 参考手册#md2html](http://developer.qiniu.com/code/v6/api/dora-api/index.html#md2html) -<
 
 :   * <http://whudoc.qiniudn.com/keybr.md?md2html/0/css/aHR0cDovL3Rhbmd6eC5xaW5pdWRuLmNvbS9tYWluLmNzcw==>
-    * <http://tangzx.qiniudn.com/main.css> --[base64 encoding]--> `aHR0cDovL3Rhbmd6eC5xaW5pdWRuLmNvbS9tYWluLmNzcw==`
+    * <http://tangzx.qiniudn.com/main.css> --[base64 encoding](https://www.base64encode.org/) --> `aHR0cDovL3Rhbmd6eC5xaW5pdWRuLmNvbS9tYWluLmNzcw==`
 
-[base64 encoding]: https://www.base64encode.org/
-
-HTTP Redirection
+HTTP Redirection -<
 
 :   `<meta HTTP-EQUIV="REFRESH" content="0; url=http://district10.github.io/">`{.html}
 
@@ -1014,316 +1023,314 @@ HTTP Redirection
     </head> <body> <div id='countdown'>TZX Redirection Page.</div> </body> </html>
     ```
 
-fatality `[fə'tæləti]`: n. 死亡；宿命；致命性；不幸；灾祸
+MISC -<
 
-```css
-article hr::after {
-    letter-spacing: 0.5em;
-    content: "✼ ✼ ✼";
-    position: relative;
-    top: -0.4em;
-}
+:   fatality `[fə'tæləti]`: n. 死亡；宿命；致命性；不幸；灾祸
 
-article hr {
-    text-align: center;
-    color: #CCC;
-}
+    ```css
+    article hr::after {
+        letter-spacing: 0.5em;
+        content: "✼ ✼ ✼";
+        position: relative;
+        top: -0.4em;
+    }
+
+    article hr {
+        text-align: center;
+        color: #CCC;
+    }
+    ```
+
+    markdown blog: `<a id="id"></a>`, then use `url#id`, or in tzx-blog, use `` `@`{.tzx-anchor#id} ``
+
+    把「逼格」改爲「屄格」不是「惡意編輯」。把屄格這樣一個氣質低俗的詞柔化、諱飾成
+    「逼格」，造成「其實沒有那麼難聽」的假象，繼續鼓勵人們使用，纔是真正的大惡。因
+    此禁言，誠爲黑白顛倒。做出這一決策的知乎管理員應該爲此感到羞恥。
+
+    去掉 QDockWidget 的标题栏
+
+    ```cpp
+    QWidget* titleBar = mPropertyWindow->titleBarWidget();
+    mPropertyWindow->setTitleBarWidget( new QWidget() );
+    delete titleBar;
+    ```
+
+    QPixmap 与 HBITMAP、HICON 互转
+
+    -   `QPixmap::toWinHICON();`{.cpp}
+    -   `QPixmap::toWinHBITMAP();`{.cpp}
+    -   `QPixmap::fromWinHICON();`{.cpp}
+    -   `QPixmap::fromWinHBITMAP();`{.cpp}
+
+    Qt 编译后移植到其他地方后，qt 寻找库的路径可能出现错误，这时：
+
+    在 Qt 的 `bin` 目录下自己建一个 `qt.conf`
+
 ```
-
-markdown blog: `<a id="id"></a>`, then use `url#id`, or in tzx-blog, use `｀＠｀｛.ｔｚｘ－ａｎｃｈｏｒ ＃ｉｄ｝`
-
-把「逼格」改爲「屄格」不是「惡意編輯」。把屄格這樣一個氣質低俗的詞柔化、諱飾成
-「逼格」，造成「其實沒有那麼難聽」的假象，繼續鼓勵人們使用，纔是真正的大惡。因
-此禁言，誠爲黑白顛倒。做出這一決策的知乎管理員應該爲此感到羞恥。
-
----
-
-去掉 QDockWidget 的标题栏
-
-```cpp
-QWidget* titleBar = mPropertyWindow->titleBarWidget();
-mPropertyWindow->setTitleBarWidget( new QWidget() );
-delete titleBar;
-```
-
----
-
-QPixmap 与 HBITMAP、HICON 互转
-
-#. `QPixmap::toWinHICON();`{.cpp}
-#. `QPixmap::toWinHBITMAP();`{.cpp}
-#. `QPixmap::fromWinHICON();`{.cpp}
-#. `QPixmap::fromWinHBITMAP();`{.cpp}
-
-Qt 编译后移植到其他地方后，qt 寻找库的路径可能出现错误，这时：
-
-在 Qt 的 `bin` 目录下自己建一个 `qt.conf`
-
-```plain
 [Paths]
 Prefix=C:/dev/qt-4.8.6
-``
-
-```cpp
-void glFrustum( GLdouble left,
-                GLdouble right,
-                GLdouble bottom,
-                GLdouble top,
-                GLdouble nearVal,
-                GLdouble farVal );
 ```
 
-`glFrustum` describes a perspective matrix that produces a perspective
-projection.  The current matrix (see `glMatrixMode`) is multiplied by this matrix
-and the result replaces the current matrix, as if glMultMatrix were called with
-the following matrix as its argument:
+OpenGL & OpenSceneGraph -<
 
-$$\begin{bmatrix}
-\frac{2nearVal}{right - left} & 0 & A & 0 \\
-0 & \frac{2nearVal}{top - bottom} & B & 0 \\
-0 & 0 & C & 0 \\
-0 & 0 & -1 & 0
-\end{bmatrix}$$
+:   ```cpp
+    void glFrustum( GLdouble left,
+                    GLdouble right,
+                    GLdouble bottom,
+                    GLdouble top,
+                    GLdouble nearVal,
+                    GLdouble farVal );
+    ```
 
-$A = \frac{right + left}{right - left}$
-$B = \frac{top + bottom}{top - bottom}$
-$C = -\frac{farVal + nearVal}{farVal - nearVal}$
-$D = -\frac{2farVal \times nearVal}{farVal - nearVal}$
+    `glFrustum` describes a perspective matrix that produces a perspective
+    projection.  The current matrix (see `glMatrixMode`) is multiplied by this matrix
+    and the result replaces the current matrix, as if glMultMatrix were called with
+    the following matrix as its argument:
 
-Typically, the matrix mode is `GL_PROJECTION`, and $(left, bottom, -nearVal)$
-and $(right, top, -nearVal)$ specify the points on the near clipping plane that
-are mapped to the lower left and upper right corners of the window, assuming
-that the eye is located at (0, 0, 0).  - farVal specifies the location of the
-far clipping plane.  Both nearVal and farVal must be positive.
+    $$\begin{bmatrix}
+    \frac{2nearVal}{right - left} & 0 & A & 0 \\
+    0 & \frac{2nearVal}{top - bottom} & B & 0 \\
+    0 & 0 & C & 0 \\
+    0 & 0 & -1 & 0
+    \end{bmatrix}$$
 
-Depth buffer precision is affected by the values specified for nearVal and
-farVal.  The greater the ratio of farVal to nearVal is, the less effective the
-depth buffer will be at distinguishing between surfaces that are near each
-other.  If r = farVal nearVal roughly log 2 ⁡r bits of depth buffer precision
-are lost.  Because r approaches infinity as nearVal approaches 0, nearVal must
-never be set to 0.
+    $A = \frac{right + left}{right - left}$
+    $B = \frac{top + bottom}{top - bottom}$
+    $C = -\frac{farVal + nearVal}{farVal - nearVal}$
+    $D = -\frac{2farVal \times nearVal}{farVal - nearVal}$
 
-<div class="tzx-fright">
-![A view frustum](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/ViewFrustum.svg/330px-ViewFrustum.svg.png)
-</div>
+    Typically, the matrix mode is `GL_PROJECTION`, and $(left, bottom, -nearVal)$
+    and $(right, top, -nearVal)$ specify the points on the near clipping plane that
+    are mapped to the lower left and upper right corners of the window, assuming
+    that the eye is located at (0, 0, 0).  - farVal specifies the location of the
+    far clipping plane.  Both nearVal and farVal must be positive.
 
-VPN
-:   the view-plane normal – a normal to the view plane.
+    Depth buffer precision is affected by the values specified for nearVal and
+    farVal.  The greater the ratio of farVal to nearVal is, the less effective the
+    depth buffer will be at distinguishing between surfaces that are near each
+    other.  If r = farVal nearVal roughly log 2 ⁡r bits of depth buffer precision
+    are lost.  Because r approaches infinity as nearVal approaches 0, nearVal must
+    never be set to 0.
 
-VUV
-:   the view-up vector – the vector on the view plane that indicates the upward
-    direction.
+    <div class="tzx-fright">
+    ![A view frustum](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/ViewFrustum.svg/330px-ViewFrustum.svg.png)
+    </div>
 
-VRP
-:   the viewing reference point – a point located on the view plane, and the
-    origin of the VRC.
+    VPN
+    :   the view-plane normal – a normal to the view plane.
 
-PRP
-:   the projection reference point – the point where the image is projected
-    from, for parallel projection, the PRP is at infinity.
+    VUV
+    :   the view-up vector – the vector on the view plane that indicates the upward
+        direction.
 
-VRC
-:   the viewing-reference coordinate system.
+    VRP
+    :   the viewing reference point – a point located on the view plane, and the
+        origin of the VRC.
 
-The geometry is defined by a field of view angle (in the 'y' direction), as
-well as an aspect ratio. Further, a set of z-planes define the near and far
-bounds of the frustum.
+    PRP
+    :   the projection reference point – the point where the image is projected
+        from, for parallel projection, the PRP is at infinity.
 
-```cpp
-// osg::Camera
-/** Get the orthographic settings of the orthographic projection matrix.
- * Returns false if matrix is not an orthographic matrix, where parameter
- * values are undefined.*/
-bool getProjectionMatrixAsOrtho(double& left, double& right,
-                                double& bottom, double& top,
-                                double& zNear, double& zFar) const;
+    VRC
+    :   the viewing-reference coordinate system.
 
-/** Get the frustum setting of a perspective projection matrix.
-  * Returns false if matrix is not a perspective matrix, where parameter values
-  * are undefined.*/
-bool getProjectionMatrixAsFrustum(double& left, double& right,
-                                  double& bottom, double& top,
-                                  double& zNear, double& zFar) const;
+    The geometry is defined by a field of view angle (in the 'y' direction), as
+    well as an aspect ratio. Further, a set of z-planes define the near and far
+    bounds of the frustum.
 
-/** Get the frustum setting of a symmetric perspective projection matrix.
-  * Returns false if matrix is not a perspective matrix, where parameter values
-  * are undefined.  Note, if matrix is not a symmetric perspective matrix then
-  * the shear will be lost.  Asymmetric matrices occur when stereo, power
-  * walls, caves and reality center display are used.  In these configurations
-  * one should use the 'getProjectionMatrixAsFrustum' method instead.*/
-bool getProjectionMatrixAsPerspective(double& fovy,double& aspectRatio,
+    ```cpp
+    // osg::Camera
+    /** Get the orthographic settings of the orthographic projection matrix.
+     * Returns false if matrix is not an orthographic matrix, where parameter
+     * values are undefined.*/
+    bool getProjectionMatrixAsOrtho(double& left, double& right,
+                                    double& bottom, double& top,
+                                    double& zNear, double& zFar) const;
+
+    /** Get the frustum setting of a perspective projection matrix.
+      * Returns false if matrix is not a perspective matrix, where parameter values
+      * are undefined.*/
+    bool getProjectionMatrixAsFrustum(double& left, double& right,
+                                      double& bottom, double& top,
                                       double& zNear, double& zFar) const;
-```
 
-经过透视投影 （正射投影也一样）变换， 能够把点 从 观察空间（相机坐标系）转换到
-齐次裁剪空间坐标系（又叫规则观察体(Canonical View Volume)中）。这个转化后的空间
-体 不仅独立于 把三维场景转换为二维屏幕空间的投影类型（透视、正射），也独立于屏
-幕的分辨率(Resolution) 以及长宽比(Aspect Ratio).。
+    /** Get the frustum setting of a symmetric perspective projection matrix.
+      * Returns false if matrix is not a perspective matrix, where parameter values
+      * are undefined.  Note, if matrix is not a symmetric perspective matrix then
+      * the shear will be lost.  Asymmetric matrices occur when stereo, power
+      * walls, caves and reality center display are used.  In these configurations
+      * one should use the 'getProjectionMatrixAsFrustum' method instead.*/
+    bool getProjectionMatrixAsPerspective(double& fovy,double& aspectRatio,
+                                          double& zNear, double& zFar) const;
+    ```
 
-![](http://img.blog.csdn.net/20150514145737857?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemh1eWluZ3FpbmdmZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Pyramid_of_vision.svg/900px-Pyramid_of_vision.svg.png)
+    经过透视投影 （正射投影也一样）变换， 能够把点 从 观察空间（相机坐标系）转换到
+    齐次裁剪空间坐标系（又叫规则观察体(Canonical View Volume)中）。这个转化后的空间
+    体 不仅独立于 把三维场景转换为二维屏幕空间的投影类型（透视、正射），也独立于屏
+    幕的分辨率(Resolution) 以及长宽比(Aspect Ratio).。
 
-齐次裁剪空间坐标系（范围  -1<=x <=1,-1<=y<=1,-1<=z <=1, )是左手坐标系，为什么？ 其实也很好理解，如上图 ， A和B点经过投影变换后其x坐标是一样的（不再是投影平截体中的那种相对关系）， 而近裁剪面上的点的z坐标经过投影变换后变为-1 ， 而远裁剪面上的z坐标为1 ，所以齐次裁剪空间坐标系的z轴的正方向正好和相机坐标系中的z轴正方向是相反的。
+    ![](http://img.blog.csdn.net/20150514145737857?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemh1eWluZ3FpbmdmZW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)
+    ![](https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Pyramid_of_vision.svg/900px-Pyramid_of_vision.svg.png)
 
-经过透视投影后，每个顶点的x和y坐标还要除以其z坐标，这个除法是产生透视收缩的方法
+    齐次裁剪空间坐标系（范围  -1<=x <=1,-1<=y<=1,-1<=z <=1, )是左手坐标系，为什么？ 其实也很好理解，如上图 ， A和B点经过投影变换后其x坐标是一样的（不再是投影平截体中的那种相对关系）， 而近裁剪面上的点的z坐标经过投影变换后变为-1 ， 而远裁剪面上的z坐标为1 ，所以齐次裁剪空间坐标系的z轴的正方向正好和相机坐标系中的z轴正方向是相反的。
 
-```cpp
-osgUtil::PolytopeIntersector // 具体不同算法实现类
-osgUtil::IntersectionVisitor //用来遍历节点树的每个节点
-osg::Node * mNode;  //  你要做相交测试的根节点
+    经过透视投影后，每个顶点的x和y坐标还要除以其z坐标，这个除法是产生透视收缩的方法
 
-osg::ref_ptr<osgUtil::PolytopeIntersector> intersector =
-        new osgUtil::PolytopeIntersector(osgUtil::Intersector::WINDOW, xMin, yMin, xMax, yMax);
-intersector->setIntersectionLimit(osgUtil::Intersector::LIMIT_ONE_PER_DRAWABLE);
-osgUtil::IntersectionVisitor iv( intersector.get() );
+    ```cpp
+    osgUtil::PolytopeIntersector // 具体不同算法实现类
+    osgUtil::IntersectionVisitor //用来遍历节点树的每个节点
+    osg::Node * mNode;  //  你要做相交测试的根节点
 
-mRootNode->accept(iv);
-```
+    osg::ref_ptr<osgUtil::PolytopeIntersector> intersector =
+            new osgUtil::PolytopeIntersector(osgUtil::Intersector::WINDOW, xMin, yMin, xMax, yMax);
+    intersector->setIntersectionLimit(osgUtil::Intersector::LIMIT_ONE_PER_DRAWABLE);
+    osgUtil::IntersectionVisitor iv( intersector.get() );
 
-总结：
+    mRootNode->accept(iv);
+    ```
 
-- 在 `osg::ref_ptr<osg::Node>node = new osg::Node;` 其中 node 为 `osg::ref_ptr`
-  的对象，而不是指针。
-- OSG 中新创建的场景对象建议使用 `ref_ptr` 进行内存分配和管理
-- 对于不使用 `ref_ptr` 的对象，引用计数值变得没有意义，并且它无法自动从场景中卸
-  载。
-- 新建对象作为函数结果返回时，应该返回 `release()`。并尽快引入到别的场景中，否
-  则发生内存泄露
-- 只有 `osg::ref_ptr` 类来管理 osg 对象的引用计数，其他脱离了（和osg::ref_ptr对
-  象无关的操作）osg::ref_ptr 管理的操作如：赋值等将不会对引用计数产生影响
+    总结：
 
-`inline void setNodeMask(NodeMask nm) { _nodeMask = nm; }`{.cpp}
+    - 在 `osg::ref_ptr<osg::Node>node = new osg::Node;` 其中 node 为 `osg::ref_ptr`
+      的对象，而不是指针。
+    - OSG 中新创建的场景对象建议使用 `ref_ptr` 进行内存分配和管理
+    - 对于不使用 `ref_ptr` 的对象，引用计数值变得没有意义，并且它无法自动从场景中卸
+      载。
+    - 新建对象作为函数结果返回时，应该返回 `release()`。并尽快引入到别的场景中，否
+      则发生内存泄露
+    - 只有 `osg::ref_ptr` 类来管理 osg 对象的引用计数，其他脱离了（和osg::ref_ptr对
+      象无关的操作）osg::ref_ptr 管理的操作如：赋值等将不会对引用计数产生影响
 
-```cpp
-osg::ref_ptr <osg::MatrixTransform> mat=new osg::MatrixTransform();
-osg::Matrix m = osg::Matrix::scale(1.0f,1.0f,1.0f)
-              * osg ::Matrix::translate(osg::Vec3(0,0,10.0f));
-mat->setMatrix(m);
-mat->addChild(node1.get());
+    `inline void setNodeMask(NodeMask nm) { _nodeMask = nm; }`{.cpp}
 
-osg::ref_ptr<osg::AnimationPathCallback> apcb = new osg::AnimationPathCallback;
-apcb->setAnimationPath( createAnimationPath(50.0f, 6.0f) );
-mat->setUpdateCallback( apcb.get() );
-```
+    ```cpp
+    osg::ref_ptr <osg::MatrixTransform> mat=new osg::MatrixTransform();
+    osg::Matrix m = osg::Matrix::scale(1.0f,1.0f,1.0f)
+                  * osg ::Matrix::translate(osg::Vec3(0,0,10.0f));
+    mat->setMatrix(m);
+    mat->addChild(node1.get());
 
-```cpp
-//创建一个光照
-osg::ref_ptr<osg::Node>createLight(osg::ref_ptr<osg::Node>model)
-{
-    osg::ComputeBoundsVisitor cbbv;
-    model->accept(cbbv);
+    osg::ref_ptr<osg::AnimationPathCallback> apcb = new osg::AnimationPathCallback;
+    apcb->setAnimationPath( createAnimationPath(50.0f, 6.0f) );
+    mat->setUpdateCallback( apcb.get() );
+    ```
 
-    osg::BoundingBox bb=cbbv.getBoundingBox();
+    ```cpp
+    //创建一个光照
+    osg::ref_ptr<osg::Node>createLight(osg::ref_ptr<osg::Node>model)
+    {
+        osg::ComputeBoundsVisitor cbbv;
+        model->accept(cbbv);
 
-
-    osg::ref_ptr<osg::Light>lt=new osg::Light;
-    lt->setLightNum(0);
-
-    //设置环境光的颜色
-    lt->setAmbient(osg::Vec4(1.0f,1.0f,1.0f,1.0f));
-
-    osg::ref_ptr<osg::LightSource>ls=new osg::LightSource();
-
-    ls->setLight(lt.get());
-
-    return ls.get();
-}
-```
-
-```cpp
-int main()
-{
-    osg::ref_ptr<osgViewer::Viewer> viewer = new osgViewer::Viewer();
-    viewer->addEventHandler(new osgViewer::WindowSizeHandler);
-    //创建一个组节点
-    osg::ref_ptr<osg::Group> root = new osg::Group();
-
-    //创建一个阴影节点，并标识接收对象和投影对象
-    osg::ref_ptr<osgShadow::ShadowedScene> shadowedScene = new osgShadow::ShadowedScene();
-    shadowedScene->setReceivesShadowTraversalMask(ReceivesShadowTraversalMask);
-    shadowedScene->setCastsShadowTraversalMask(CastsShadowTraversalMask);
-
-    //创建阴影纹理，使用的是shadowTexture技法
-    osg::ref_ptr<osgShadow::ShadowTexture> st = new osgShadow::ShadowTexture;
-    osg::ref_ptr<osgShadow::ParallelSplitShadowMap> pss = new osgShadow::ParallelSplitShadowMap;
-    //osg::ref_ptr<osgShadow::ShadowVolume> sv = new osgShadow::ShadowVolume;
-    osg::ref_ptr<osgShadow::MinimalShadowMap> ms = new osgShadow::MinimalShadowMap;
-    osg::ref_ptr<osgShadow::StandardShadowMap> ss = new osgShadow::StandardShadowMap;
-    osg::ref_ptr<osgShadow::SoftShadowMap> softS = new osgShadow::SoftShadowMap;
-    osg::ref_ptr<osgShadow::ViewDependentShadowTechnique> vds = new osgShadow::ViewDependentShadowTechnique;
-    //关联阴影纹理
-    shadowedScene->setShadowTechnique(softS);
-
-    //创建一个根节点，并将场景数据、模型赋予节点
-    osg::ref_ptr<osg::Node> node =createModel();
-
-    //添加场景数据并添加光源
-    shadowedScene->addChild(createLight(node.get()));
-    shadowedScene->addChild(node.get());
+        osg::BoundingBox bb=cbbv.getBoundingBox();
 
 
-    root->addChild(shadowedScene.get());
+        osg::ref_ptr<osg::Light>lt=new osg::Light;
+        lt->setLightNum(0);
 
-    //优化场景数据
-    osgUtil::Optimizer optimizer ;
-    optimizer.optimize(root.get()) ;
+        //设置环境光的颜色
+        lt->setAmbient(osg::Vec4(1.0f,1.0f,1.0f,1.0f));
 
-    viewer->setSceneData(root.get());
-    viewer->realize();
-    viewer->run();
+        osg::ref_ptr<osg::LightSource>ls=new osg::LightSource();
 
-    return 0 ;
-}
-```
+        ls->setLight(lt.get());
 
-其实简而言之  就是 `glOrtho` 设置相片的大小，`glViewport` 指定相框大小。如果 `glOrtho`
-指定的相片小了，那么放到同等大小的相框上就相当于放大了。
+        return ls.get();
+    }
+    ```
 
-而如果 `glOrtho` 指定的相片大了，放到同等大小的相框上相当于缩小了场景。
+    ```cpp
+    int main()
+    {
+        osg::ref_ptr<osgViewer::Viewer> viewer = new osgViewer::Viewer();
+        viewer->addEventHandler(new osgViewer::WindowSizeHandler);
+        //创建一个组节点
+        osg::ref_ptr<osg::Group> root = new osg::Group();
 
-在 `OpenGL` 中有两个比较重要的投影变换函数，`glViewport` 和 `glOrtho`。
+        //创建一个阴影节点，并标识接收对象和投影对象
+        osg::ref_ptr<osgShadow::ShadowedScene> shadowedScene = new osgShadow::ShadowedScene();
+        shadowedScene->setReceivesShadowTraversalMask(ReceivesShadowTraversalMask);
+        shadowedScene->setCastsShadowTraversalMask(CastsShadowTraversalMask);
 
-`glOrtho` 是创建一个正交平行的视景体。 一般用于物体不会因为离屏幕的远近而产生大小
-的变换的情况。比如，常用的工程中的制图等。需要比较精确的显示。 而作为它的对立情
-况, `glFrustum` 则产生一个透视投影。这是一种模拟真是生活中，人们视野观测物体的真实
-情况。例如：观察两条平行的火车到，在过了很远之后，这两条铁轨是会相交于一处的。
-还有，离眼睛近的物体看起来大一些，远的物体看起来小一些。
+        //创建阴影纹理，使用的是shadowTexture技法
+        osg::ref_ptr<osgShadow::ShadowTexture> st = new osgShadow::ShadowTexture;
+        osg::ref_ptr<osgShadow::ParallelSplitShadowMap> pss = new osgShadow::ParallelSplitShadowMap;
+        //osg::ref_ptr<osgShadow::ShadowVolume> sv = new osgShadow::ShadowVolume;
+        osg::ref_ptr<osgShadow::MinimalShadowMap> ms = new osgShadow::MinimalShadowMap;
+        osg::ref_ptr<osgShadow::StandardShadowMap> ss = new osgShadow::StandardShadowMap;
+        osg::ref_ptr<osgShadow::SoftShadowMap> softS = new osgShadow::SoftShadowMap;
+        osg::ref_ptr<osgShadow::ViewDependentShadowTechnique> vds = new osgShadow::ViewDependentShadowTechnique;
+        //关联阴影纹理
+        shadowedScene->setShadowTechnique(softS);
 
-`glOrtho(left, right, bottom, top, near, far)`， left 表示视景体左面的坐标，right
-表示右面的坐标，bottom 表示下面的，top 表示上面的。这个函数简单理解起来，就是一个
-物体摆在那里，你怎么去截取他。这里，我们先抛开 glViewport 函数不看。先单独理解
-glOrtho 的功能。 假设有一个球体，半径为 1，圆心在 (0, 0, 0)，那么，我们设定
-`glOrtho(-1.5, 1.5, -1.5, 1.5, -10, 10);` 就表示用一个宽高都是 3 的框框把这个球体整
-个都装了进来。  如果设定 `glOrtho(0.0, 1.5, -1.5, 1.5, -10, 10);` 就表示用一个宽是
-1.5， 高是 3 的框框把整个球体的右面装进来;如果设定 `glOrtho(0.0, 1.5, 0.0, 1.5,
--10, 10);` 就表示用一个宽和高都是1.5的框框把球体的右上角装了进来。
+        //创建一个根节点，并将场景数据、模型赋予节点
+        osg::ref_ptr<osg::Node> node =createModel();
 
-```cpp
-if(root->getChild(i)->getName().compare("Hello") == 0) {
-    osg::Node * tmp = root->getChild(i);
-    root->removeChild(tmp);
-    *node = tmp;
-    // 在这里tmp 已经析构，因为 只有root引用了hello节点，而在root 节点
-    // removechild后 tmp的引用计数为0，此时将析构
-}
-```
+        //添加场景数据并添加光源
+        shadowedScene->addChild(createLight(node.get()));
+        shadowedScene->addChild(node.get());
 
-refs and see also
 
-  - [OpenGL 透视投影 齐次裁剪空间 深度缓存 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/45721643)
-  - [Qt 小技巧 记录 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/44019915)
-  - [glFrustum](https://www.opengl.org/sdk/docs/man2/xhtml/glFrustum.xml)
-  - [OSG 中 相交测试 模块 工作流程及原理 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/37923417)
-  - [OSG 智能指针陷阱 总结 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/25311989)
+        root->addChild(shadowedScene.get());
 
-Read more
+        //优化场景数据
+        osgUtil::Optimizer optimizer ;
+        optimizer.optimize(root.get()) ;
 
-  - [OSG 自定义数据类型 关键帧动画 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/12651017)
-  - [OSG 一个简单的着色器例子 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/8656913)
-  - [osg 路径 动画 效果 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/8248157)
-  - [osg 漫游器 代码框架 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/8249501)
+        viewer->setSceneData(root.get());
+        viewer->realize();
+        viewer->run();
 
----
+        return 0 ;
+    }
+    ```
+
+    其实简而言之  就是 `glOrtho` 设置相片的大小，`glViewport` 指定相框大小。如果 `glOrtho`
+    指定的相片小了，那么放到同等大小的相框上就相当于放大了。
+
+    而如果 `glOrtho` 指定的相片大了，放到同等大小的相框上相当于缩小了场景。
+
+    在 `OpenGL` 中有两个比较重要的投影变换函数，`glViewport` 和 `glOrtho`。
+
+    `glOrtho` 是创建一个正交平行的视景体。 一般用于物体不会因为离屏幕的远近而产生大小
+    的变换的情况。比如，常用的工程中的制图等。需要比较精确的显示。 而作为它的对立情
+    况, `glFrustum` 则产生一个透视投影。这是一种模拟真是生活中，人们视野观测物体的真实
+    情况。例如：观察两条平行的火车到，在过了很远之后，这两条铁轨是会相交于一处的。
+    还有，离眼睛近的物体看起来大一些，远的物体看起来小一些。
+
+    `glOrtho(left, right, bottom, top, near, far)`， left 表示视景体左面的坐标，right
+    表示右面的坐标，bottom 表示下面的，top 表示上面的。这个函数简单理解起来，就是一个
+    物体摆在那里，你怎么去截取他。这里，我们先抛开 glViewport 函数不看。先单独理解
+    glOrtho 的功能。 假设有一个球体，半径为 1，圆心在 (0, 0, 0)，那么，我们设定
+    `glOrtho(-1.5, 1.5, -1.5, 1.5, -10, 10);` 就表示用一个宽高都是 3 的框框把这个球体整
+    个都装了进来。  如果设定 `glOrtho(0.0, 1.5, -1.5, 1.5, -10, 10);` 就表示用一个宽是
+    1.5， 高是 3 的框框把整个球体的右面装进来;如果设定 `glOrtho(0.0, 1.5, 0.0, 1.5,
+    -10, 10);` 就表示用一个宽和高都是1.5的框框把球体的右上角装了进来。
+
+    ```cpp
+    if(root->getChild(i)->getName().compare("Hello") == 0) {
+        osg::Node * tmp = root->getChild(i);
+        root->removeChild(tmp);
+        *node = tmp;
+        // 在这里tmp 已经析构，因为 只有root引用了hello节点，而在root 节点
+        // removechild后 tmp的引用计数为0，此时将析构
+    }
+    ```
+
+    refs and see also
+
+      - [OpenGL 透视投影 齐次裁剪空间 深度缓存 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/45721643)
+      - [Qt 小技巧 记录 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/44019915)
+      - [glFrustum](https://www.opengl.org/sdk/docs/man2/xhtml/glFrustum.xml)
+      - [OSG 中 相交测试 模块 工作流程及原理 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/37923417)
+      - [OSG 智能指针陷阱 总结 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/25311989)
+
+    Read more
+
+      - [OSG 自定义数据类型 关键帧动画 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/12651017)
+      - [OSG 一个简单的着色器例子 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/8656913)
+      - [osg 路径 动画 效果 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/8248157)
+      - [osg 漫游器 代码框架 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/8249501)
 
 ```lisp
 (defun smart-open-line ()
@@ -1336,7 +1343,7 @@ Position the cursor at its beginning, according to the current mode."
 (global-set-key [(shift return)] 'smart-open-line)
 ```
 
-```elisp
+```lisp
 (defun prelude-open-with (arg)
   "Open visited file in default external program.
 
@@ -1352,7 +1359,7 @@ With a prefix ARG always prompt for command to use."
                     (shell-quote-argument buffer-file-name)))))
 ```
 
-```elisp
+```lisp
 (defun copy-file-name-to-clipboard ()
   "Copy the current buffer file name to the clipboard."
   (interactive)
@@ -1364,7 +1371,7 @@ With a prefix ARG always prompt for command to use."
       (message "Copied buffer file name '%s' to the clipboard." filename))))
 ```
 
-```elisp
+```lisp
 (defun indent-buffer ()
   "Indent the currently visited buffer."
   (interactive)
@@ -1383,7 +1390,7 @@ With a prefix ARG always prompt for command to use."
         (message "Indented buffer.")))))
 ```
 
-```elisp
+```lisp
 (defun google ()
   "Google the selected region if any, display a query prompt otherwise."
   (interactive)
@@ -1395,7 +1402,7 @@ With a prefix ARG always prompt for command to use."
        (read-string "Google: "))))))
 ```
 
-```elisp
+```lisp
 (defun indent-defun ()
   "Indent the current defun."
   (interactive)
@@ -1404,11 +1411,11 @@ With a prefix ARG always prompt for command to use."
     (indent-region (region-beginning) (region-end))))
 ```
 
-```elisp
+```lisp
 (electric-indent-mode +1)
 ```
 
-```elisp
+```lisp
 (global-set-key (kbd "C-c o") 'open-with)
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 (global-set-key (kbd "RET") 'newline-and-indent)
@@ -1419,7 +1426,7 @@ With a prefix ARG always prompt for command to use."
 (global-set-key [(control shift down)]  'move-line-down)
 ```
 
-```elisp
+```lisp
 (defun visit-term-buffer ()
   "Create or visit a terminal buffer."
   (interactive)
@@ -1431,7 +1438,7 @@ With a prefix ARG always prompt for command to use."
     (switch-to-buffer-other-window "*ansi-term*")))
 ```
 
-```elisp
+```lisp
 (defun move-line-up ()
   "Move up the current line."
   (interactive)
@@ -1448,13 +1455,13 @@ With a prefix ARG always prompt for command to use."
   (indent-according-to-mode))
 ```
 
-```elisp
+```lisp
 (require 'paren)
 (setq show-paren-style 'parenthesis)
 (show-paren-mode +1)
 ```
 
-```elisp
+```lisp
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
 (global-set-key (kbd "C-c k") 'kill-other-buffers)
@@ -1463,7 +1470,7 @@ With a prefix ARG always prompt for command to use."
                                 (other-window -1)))
 ```
 
-```elisp
+```lisp
 (defun kill-other-buffers ()
   "Kill all buffers but the current one.
 Don't mess with special buffers."
@@ -1473,7 +1480,7 @@ Don't mess with special buffers."
       (kill-buffer buffer))))
 ```
 
-```elisp
+```lisp
 (require 'dash)
 
 (defun prelude-kill-other-buffers ()
@@ -1517,36 +1524,20 @@ Doesn't mess with special buffers."
 
 [Highlight current line - Emacs Redux](http://emacsredux.com/blog/2013/04/02/highlight-current-line/)
 
----
-
 `sudo update-alternatives –config x-terminal-emulator`{.bash}
 `scrot # caputre screenshot`{.bash}
 
-i3
+i3 window manager -<
 
-:   ```tzx-plain
-    X-f: fullscreen
-    arrow keys: get focus
+:   ```
+    X-f:                fullscreen
+    arrow keys:         get focus
     e, s, w
-    X-e: toggle
-    X-s: stacked
-    X-w: tabbed, X-left, X-right
-    shift r: restart i3 inplace
+    X-e:                toggle
+    X-s:                stacked
+    X-w:                tabbed, X-left, X-right
+    shift r:            restart i3 inplace
     ```
-
----
-
-```vimrc
-%s/重车,运营/运营,重车/g
-%s/,超速报警//g
-%s/,登录//g
-g/,设备工作正常/d
-g!/ACC/d
-```
-
-删除中文字符: `:%s/\v[^\x00-\xff]+//g`
-
-<#>(@vim @chinese)
 
 You could use **more expressive version of substitution** you employed when
 assigning OBJECTS: `OBJECTS=$(SOURCES:%.cpp=obj/%.o)`{.makefile}
@@ -1649,38 +1640,32 @@ void f() {
 ~~~
 </div>
 
+a **`type qualifier`** is not allowed on a static member function.
+
 * The emoji repository has a `CNAME` file with the domain `emoji.muan.co`. It
   is owned by muan, whose User Pages repository has a `CNAME` file with the
   domain `muan.co`.
 * The Project Pages site at `muan.github.io/emoji` redirects to `muan.co/emoji`
   and is also available at `emoji.muan.co`.
 
-![2 sites](http://whudoc.qiniudn.com/2016/QQ图片20160325142211.png)
+我的两个域名都在 [DNSPod 控制台](https://www.dnspod.cn/console/dns) 管理。QQ 登录即可。 -<
 
-我的两个域名都在 [DNSPod 控制台](https://www.dnspod.cn/console/dns) 管理。QQ 登录即可。
+:   ![2 sites](http://whudoc.qiniudn.com/2016/QQ图片20160325142211.png)
 
------------         ----------------------  ---------------------
-主机记录            记录类型                记录值
------------         ----------------------  ---------------------
-@                   A                       192.30.252.153
+    -----------         ----------------------  ---------------------
+    主机记录            记录类型                记录值
+    -----------         ----------------------  ---------------------
+    @                   A                       192.30.252.153
 
-@                   A                       192.30.252.154
+    @                   A                       192.30.252.154
 
-blog                CNAME                   district10.github.io.
+    blog                CNAME                   district10.github.io.
 
-www                 CNAME                   district10.github.io.
------------         ----------------------  ---------------------
+    www                 CNAME                   district10.github.io.
+    -----------         ----------------------  ---------------------
 
-<!--
-![花生人偶](http://whudoc.qiniudn.com/2016/1401322-8683102a2fe0cfb5.jpg)
-![site #1](http://whudoc.qiniudn.com/2016/QQ图片20160325142537.png)
-![site #2]http://whudoc.qiniudn.com/2016/QQ图片20160325142553.png
-![git diff](http://whudoc.qiniudn.com/2016/QQ图片20160329185821.png)
--->
 
-a **`type qualifier`** is not allowed on a static member function.
-
-```tzx-plain
+```
 文件夹 PATH 列表
 卷序列号为 00000200 BC08:BFBA
 D:.
@@ -1827,10 +1812,9 @@ you flinched! (畏惧)
 
 [乌普萨拉大学的科技海报主题模板 | LaTeX工作室](http://www.latexstudio.net/archives/3012)
 
-真爱其实叫牺牲 -- 给永远的鼬 (by zak)
+真爱其实叫牺牲 -- 给永远的鼬 (by zak) -<
 
-:   ```tzx-bigquote
-    修罗之道是什么,它通往何方?在火影忍者中,有如此一人,他便在此道上踏歌而行.在他
+:   修罗之道是什么,它通往何方?在火影忍者中,有如此一人,他便在此道上踏歌而行.在他
     之后,留下了无尽之血与泪水；在他前方,只有看不见尽头的黑暗；而他红中泛黑的双
     瞳中,映射出了太多的死亡与破灭。
 
@@ -1841,17 +1825,17 @@ you flinched! (畏惧)
     其实,他只是一位兄长，他只想保护自己的弟弟，就算被自己的弟弟憎恨也无所谓，就
     算被弟弟杀掉也无所谓。“我愚蠢的弟弟啊，如果你想杀我的话，就憎我恨我吧，不断
     地逃，不断地逃只是为了活着而活着，然后，等你哪一天得到了和我相同的眼睛，就
-    来到我面前吧。”他只想让弟弟活下去，便只得噙着泪水这样冷酷的说道，在乱世之中
-    ，这是唯一可以让弟弟强大起来的办法—给予他杀死自己的目标，让他把仇恨全部发泄
-    到自己的身上。
+    来到我面前吧。”他只想让弟弟活下去，便只得噙着泪水这样冷酷的说道，在乱世之中，
+    这是唯一可以让弟弟强大起来的办法—给予他杀死自己的目标，让他把仇恨全部发泄到
+    自己的身上。
 
-    其实,他只是一名忍者，忍者本来就是活在黑暗中的，鼬更把这一忍道贯彻的淋漓尽致
-    。自我牺牲是忍者的本分，这便是鼬的信念。他所渴望的，是村子的兴盛，是整个忍
-    者世界的和平，也许我们看来这个词过于恶俗，但鼬却义无反顾的为之奋斗。他亲手
-    为自己的一族落下了帷幕，是为了避免更惨痛的战争，所谓战争…就一定伴随着双方的
-    死亡伤病和痛苦… 但鼬宁愿独自吞下着苦果，他这么做了。在那个月圆之夜，他亲自
-    动手将自己的族人全部抹杀，唯独他的弟弟，他下不了手。然后，为了不让弟弟仇恨
-    自己的村子，他说了那样的话，他宁愿一个人背负弟弟所有的仇恨。
+    其实,他只是一名忍者，忍者本来就是活在黑暗中的，鼬更把这一忍道贯彻的淋漓尽致。
+    自我牺牲是忍者的本分，这便是鼬的信念。他所渴望的，是村子的兴盛，是整个忍者
+    世界的和平，也许我们看来这个词过于恶俗，但鼬却义无反顾的为之奋斗。他亲手为
+    自己的一族落下了帷幕，是为了避免更惨痛的战争，所谓战争…就一定伴随着双方的死
+    亡伤病和痛苦… 但鼬宁愿独自吞下着苦果，他这么做了。在那个月圆之夜，他亲自动
+    手将自己的族人全部抹杀，唯独他的弟弟，他下不了手。然后，为了不让弟弟仇恨自
+    己的村子，他说了那样的话，他宁愿一个人背负弟弟所有的仇恨。
 
     鼬，这个顶级的幻术高手，给自己的弟弟制造了一个最大的幻术，单纯的佐助，自以
     为自己的写轮眼能看穿一切幻术，但是，他的眼睛，没能看破鼬的任何真相，鼬所制
@@ -1863,8 +1847,7 @@ you flinched! (畏惧)
 
     鼬是故意让佐助杀掉自己的，他只想让自己的弟弟活下去，便只能牺牲自己。为了保
     护自己的村子，他也只能牺牲自己，作为一介罪犯，一个叛徒，而悲惨地死去。他时
-    刻不忘自己的弟弟，自己的村子，甚至整个忍者世界，为了成全大义，只有牺牲自己
-    。
+    刻不忘自己的弟弟，自己的村子，甚至整个忍者世界，为了成全大义，只有牺牲自己。
 
     是鼬告诉了我们，自我牺牲才是真爱，这个冷酷的男人一生都没有哭过，只是在灭族
     的那一天晚上，面对自己的弟弟，落下了悲痛的泪水，没有人知道，这幅冰冷的外表
@@ -1889,16 +1872,14 @@ you flinched! (畏惧)
     这是
 
     最后一次了
-    ```
 
-是命运么，教我如何相信 -- 写给鸣人和佐助 (by zak)
+是命运么，教我如何相信 -- 写给鸣人和佐助 (by zak) -<
 
-:   ```tzx-bigquote
-    一个伴随了我们十年之久的故事，一种在爱与恨中挣扎却无比坚毅的成长，一段用努
-    力和汗水去赢得认可的历程。火影的故事就这样铺陈开来，伴随着我们流逝的青春，
-    刻下磨不灭的印记。
-
-                                                           ——题记
+:   |   一个伴随了我们十年之久的故事，一种在爱与恨中挣扎却无比坚毅的成长，一段用努
+    |   力和汗水去赢得认可的历程。火影的故事就这样铺陈开来，伴随着我们流逝的青春，
+    |   刻下磨不灭的印记。
+    |
+    |                                                          ——题记
 
     两个人，两个完全不同的人。
 
@@ -1931,15 +1912,15 @@ you flinched! (畏惧)
     人想借机会拯救佐助。两个人已经站到了对立的面上，下次相遇，会是难以挽回的命
     运吗？
 
-    “曾经六道真人宣扬忍宗，将世界引导向和平 ，理想为完成之时，他的大限即将来临
-    。六道仙人见忍宗的力量和意志托付给两个孩子。哥哥具有仙人之“眼”，于是传授给
-    他查克拉的力量和精神力。弟弟天生具有仙人之“肉体“，所以传授给他生命力和身体
-    能量。因为领悟到和平必须要有爱……仙人在弥留之际，不得不决定继任者……但是就是
-    那个决定导致了永恒持续的憎恨诅咒……仙人觉得比起追求力量的哥哥……追求爱的弟弟
-    才是最合适的继任者。作为长男认为自己理所应当继任的 哥哥无法认同仙人的选择……
-    因为憎恨他向弟弟宣战。时间流逝，血缘逐渐疏远，两兄弟的子孙依旧持续战争。哥
-    哥的子孙被称为宇智波，弟弟的子孙被称为千手……我宇智波斑和初代火影千手柱间之
-    间的战斗，也是命运。”(选自火影漫画462集斑所说的话）
+    “曾经六道真人宣扬忍宗，将世界引导向和平 ，理想为完成之时，他的大限即将来临。
+    六道仙人见忍宗的力量和意志托付给两个孩子。哥哥具有仙人之“眼”，于是传授给他
+    查克拉的力量和精神力。弟弟天生具有仙人之“肉体“，所以传授给他生命力和身体能
+    量。因为领悟到和平必须要有爱……仙人在弥留之际，不得不决定继任者……但是就是那
+    个决定导致了永恒持续的憎恨诅咒……仙人觉得比起追求力量的哥哥……追求爱的弟弟才
+    是最合适的继任者。作为长男认为自己理所应当继任的 哥哥无法认同仙人的选择……因
+    为憎恨他向弟弟宣战。时间流逝，血缘逐渐疏远，两兄弟的子孙依旧持续战争。哥哥
+    的子孙被称为宇智波，弟弟的子孙被称为千手……我宇智波斑和初代火影千手柱间之间
+    的战斗，也是命运。”(选自火影漫画462集斑所说的话）
 
     鸣人继承了火的意志，而佐助是宇智波一族的后代。
 
@@ -1953,11 +1934,11 @@ you flinched! (畏惧)
     我不是个相信宿命的人，更不相信宿命可以决定一切。
 
     还记得当鸣人还被大家歧视时，他努力的要得到大家的认可，他成功了；当鸣人还是
-    个吊车尾时，他努力要变强，他成功了；中忍考试时，他对战信命的宁次，他胜利了
-    。因此他一次一次对命运反抗，正是因为这种反抗，他才走到了今天。难道这一切都
-    只不过是宿命的安排？教我如何相信，如何相信宿命可以强大到让人无法反抗?难道鸣
-    人的执着，鸣人的坚持，佐助的偏执，佐助的憎恨，都不过是上天安排的一场游戏？
-    我不相信！绝不！
+    个吊车尾时，他努力要变强，他成功了；中忍考试时，他对战信命的宁次，他胜利了。
+    因此他一次一次对命运反抗，正是因为这种反抗，他才走到了今天。难道这一切都只
+    不过是宿命的安排？教我如何相信，如何相信宿命可以强大到让人无法反抗?难道鸣人
+    的执着，鸣人的坚持，佐助的偏执，佐助的憎恨，都不过是上天安排的一场游戏？我
+    不相信！绝不！
 
     宿命么，这么虚无缥缈的东西，不体会过又怎能知道，不反抗又怎么知道不可以？
 
@@ -1965,33 +1946,28 @@ you flinched! (畏惧)
     人。
 
     所以，请期待下去吧。静静地，期待吧…………
-    ```
 
----
+>   废话训练一年，受益持续一生。
 
-> 废话训练一年，受益持续一生。
-
-埃尔德什十分独持。除了衣食住行这些生活基本要知的事之外，他对很多问题也毫不关心
-，年青时甚至被人误以为是同性恋者，但其实他无论对异性或是同性都没有兴趣。事实上
-，他是一个博学的人，对历史了如指掌，但长大后只专注数学，任何其他事情也不管。
+埃尔德什十分独持。除了衣食住行这些生活基本要知的事之外，他对很多问题也毫不关心，
+年青时甚至被人误以为是同性恋者，但其实他无论对异性或是同性都没有兴趣。事实上，
+他是一个博学的人，对历史了如指掌，但长大后只专注数学，任何其他事情也不管。
 
 **`Otaku` Culture**
 
----
+P.L.A.是中国人民解放军（People's Liberation Army)的英文简称。中国人民解放军是中
+国军事力量的主要组成部分，是巩固人民民主专政的坚强柱石、保卫社会主义祖国的钢铁
+长城和建设社会主义的重要力量。中国人民解放军现役总兵力为200万人（截至2015年底）
 
-P.L.A.是中国人民解放军（People's Liberation Army)的英文简称。中国人民解放军是中国军事力量的主要组成部分，是巩固人民民主专政的坚强柱石、保卫社会主义祖国的钢铁长城和建设社会主义的重要力量。中国人民解放军现役总兵力为200万人（截至2015年底）
+军区管辖范围: -<
 
-军区管辖范围:
-
-1. 北京军区： 北京、河北、内蒙古、山西 俄罗斯、蒙古
-2. 沈阳军区： 辽宁、吉林、黑龙江 俄罗斯、朝鲜
-3. 济南军区： 山东、河南 黄海对面
-4. 南京军区： 江苏、安徽、上海、浙江、江西、福建黄海、东海对面
-5. 兰州军区： 甘肃、青海、陕西、宁夏、新疆 蒙古
-6. 成都军区： 四川、重庆、贵州、云南、西藏印度、越南、缅甸
-7. 广州军区： 广东、广西、海南、湖南、湖北越南、南海对面
-
----
+:   1.  北京军区： 北京、河北、内蒙古、山西 俄罗斯、蒙古
+    2.  沈阳军区： 辽宁、吉林、黑龙江 俄罗斯、朝鲜
+    3.  济南军区： 山东、河南 黄海对面
+    4.  南京军区： 江苏、安徽、上海、浙江、江西、福建黄海、东海对面
+    5.  兰州军区： 甘肃、青海、陕西、宁夏、新疆 蒙古
+    6.  成都军区： 四川、重庆、贵州、云南、西藏印度、越南、缅甸
+    7.  广州军区： 广东、广西、海南、湖南、湖北越南、南海对面
 
 ttf 字体安装：`.ttf` 文件放到 `%WINDIR/Fonts` 文件夹即可。
 
@@ -2001,88 +1977,82 @@ ttf 字体安装：`.ttf` 文件放到 `%WINDIR/Fonts` 文件夹即可。
 
 [Modifier key - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Modifier_key#Dual-role_keys)
 
-Dual-role keys
+**Dual-role keys** -<
 
-It is possible to use (with some utility software) one same key both as a normal key and as a modifier.
+:   It is possible to use (with some utility software) one same key both as a normal key and as a modifier.
 
-For example, you can use the space bar both as a normal Space bar and as a
-Shift. Intuitively, it'll be a Space when you want a whitespace, and a Shift
-when you want it to act as a shift. I.e. when you simply press and release it,
-it is the usual space, but when you press other keys, say X, Y and Z, while
-holding down the space, then they will be treated as ⇧ Shift plus X, Y and Z.
+    For example, you can use the space bar both as a normal Space bar and as a
+    Shift. Intuitively, it'll be a Space when you want a whitespace, and a Shift
+    when you want it to act as a shift. I.e. when you simply press and release it,
+    it is the usual space, but when you press other keys, say X, Y and Z, while
+    holding down the space, then they will be treated as ⇧ Shift plus X, Y and Z.
 
-The above example is known as "SandS", standing for **"Space and Shift"** in
-Japan. But any number of any combinations are possible.
+    The above example is known as "SandS", standing for **"Space and Shift"** in
+    Japan. But any number of any combinations are possible.
 
-To press <kbd>shift+space</kbd> in the previous example, you need in addition to a
-space/shift dual role key, one of (a) another space/shift key, (b) a usual
-shift, or (c) a usual space key.
+    To press <kbd>shift+space</kbd> in the previous example, you need in addition to a
+    space/shift dual role key, one of (a) another space/shift key, (b) a usual
+    shift, or (c) a usual space key.
 
-#. 动机与信心原则
-#. 时间分配原则
-#. 数量与质量的关系原则
-#. 复习原则（艾宾浩斯）
-#. 复习点的确定（5 分钟超短期，30 分钟短期，12 小时周期，1 天，2 天，4 天，7 天，15 天）
+-   动机与信心原则
+-   时间分配原则
+-   数量与质量的关系原则
+-   复习原则（艾宾浩斯）
+-   复习点的确定（5 分钟超短期，30 分钟短期，12 小时周期，1 天，2 天，4 天，7 天，15 天）
+-   1, 2, 3 &rarr; 2, 3, 1
+-   早上新单词，中午、晚上复习。
+-   Use the words three times and it's yours.
+-   周期结束，也要复习。
+-   光看不够，还要主动回想（遮住尽力想出来），电话卡都“磨光”了！
+-   如果放弃，前面的单词就白费了！
+-   2.5 小时，2 个 List，300 个单词。
+-   先记住，再慢慢掌握。坚持就是胜利。从一个胜利走向另一个胜利。
+-   GRE 需要 CET4、CET6、TOEFL、GRE（登泰山而小天下）
+-   GMAT 需要 CET4、CET6、TOEFL、GMAT
+-   TOEFL 需要 CET4、CET6、TOEFL
+-   即便把 GRE 背了十遍，还是有很多不认识的单词。即使已经超长发挥背了 100 个，但是
+-   不要停下来，再来 30 个还能记住，这样就能突破极限。“原来自己也可以。”
+-   枯坐良久，甚觉无聊，还是背单词把。
 
-* 1, 2, 3 &rarr; 2, 3, 1
-* 早上新单词，中午、晚上复习。
-* Use the words three times and it's yours.
-* 周期结束，也要复习。
-* 光看不够，还要主动回想（遮住尽力想出来），电话卡都“磨光”了！
-* 如果放弃，前面的单词就白费了！
-* 2.5 小时，2 个 List，300 个单词。
-* 先记住，再慢慢掌握。坚持就是胜利。从一个胜利走向另一个胜利。
-* GRE 需要 CET4、CET6、TOEFL、GRE（登泰山而小天下）
-* GMAT 需要 CET4、CET6、TOEFL、GMAT
-* TOEFL 需要 CET4、CET6、TOEFL
-* 即便把 GRE 背了十遍，还是有很多不认识的单词。即使已经超长发挥背了 100 个，但是
-* 不要停下来，再来 30 个还能记住，这样就能突破极限。“原来自己也可以。”
-* 枯坐良久，甚觉无聊，还是背单词把。
+maverick `['mævrɪk]`, -<
 
-maverick `['mævrɪk]`,
-n, 没打烙印的动物；持不同意见的人
-vt. 用不正当手段获取
-vi. 迷途；背离
-adj. 未打烙印的；行为不合常规的；特立独行的
+:   -   n, 没打烙印的动物；持不同意见的人
+    -   vt. 用不正当手段获取
+    -   vi. 迷途；背离
+    -   adj. 未打烙印的；行为不合常规的；特立独行的
 
 Elon (`eelon` not `eyelon`) Musk
 
----
-
 海航单位
 
-  * 海里，Nautical mile，最短的海里是在赤道，1海里=1843米。最长的海里是在南北两极上，1海里=1862米。
-  * 节（Knot）以前是船员测船速的，每走1海里，船员就在放下的绳子上打一个节，以后就用节做船速的单位。
-  * 链（Chain）十分之一海里。
-
----
+:   -   海里，Nautical mile，最短的海里是在赤道，1海里=1843米。最长的海里是在南北两极上，1海里=1862米。
+    -   节（Knot）以前是船员测船速的，每走1海里，船员就在放下的绳子上打一个节，以后就用节做船速的单位。
+    -   链（Chain）十分之一海里。
 
 ```shell
 shutdown -s -t 1800
 shutdown -a
 ```
 
-> 我们不是为了取悦你们才出家的。
+>   我们不是为了取悦你们才出家的。
 
 <kbd>WIN+D</kbd>
 
-like tears in rain.
+**like tears in rain.**
 
-ditto
+ditto `['dɪtəʊ]` -<
 
-In informal English, you can use ditto to represent a word or phrase that you
-have just used in order to avoid repeating it. In written lists, ditto can be
-represented by ditto marks - the symbol * - underneath the word that you want
-to repeat.
+:   -   n.  a mark used to indicate the word above it should be repeated
+    -   v.  repeat an action or statement
 
-Lister's dead. Ditto three Miami drug dealers and a lady.
+    In informal English, you can use ditto to represent a word or phrase that
+    you have just used in order to avoid repeating it. In written lists, ditto
+    can be represented by ditto marks - the symbol * - underneath the word that
+    you want to repeat.
 
-ditto `['dɪtəʊ]`
+    Lister's dead. Ditto three Miami drug dealers and a lady.
 
-  * n.  a mark used to indicate the word above it should be repeated
-  * v.  repeat an action or statement
-
-Crotch
+Crotch -<
 
 :   A crotch can be any region or an object, where a trunk splits into two or
     more limbs. This can include branching regions of trees, buildings,
@@ -2134,9 +2104,7 @@ to sidle up to it. That's how I learned to program.**
 抓走美女，然后嘿嘿嘿的故事。该系列书名也极为直白坦诚：如《美人被霸王龙抓走了》
 《美人被翼龙抓走了》《美人在恐龙博物馆被抓走了》 《美人和迅猛龙嘿嘿嘿》 等
 
----
-
-[Image Engine](http://image-engine.com/film/)
+[Image Engine](http://image-engine.com/film/) -<
 
 :   ```markdown
     AMERICAN SNIPER
@@ -2148,8 +2116,7 @@ to sidle up to it. That's how I learned to program.**
     LONE SURVIVOR
 
     :   <iframe
-            src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-            data-src="https://player.vimeo.com/video/90177922"
+            src="https://player.vimeo.com/video/90177922"
             width="500" height="281" frameborder="0"
             webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
@@ -2239,86 +2206,87 @@ hover
 
 ---
 
-[A python script to speed up the rendering process of Hexo 3.](https://gist.github.com/wzpan/7db9b0888f06a8d6ff8c)
+[A python script to speed up the rendering process of Hexo 3.](https://gist.github.com/wzpan/7db9b0888f06a8d6ff8c) -<
 
-程序还是越写越好的。
+:   程序还是越写越好的。
 
-```python
-#!/usr/bin/python2
+    ```python
+    #!/usr/bin/python2
 
-'''
-SYNOPSIS:
-$ python speedup.py -f FILE
-or
-$ python speedup.py -d DIR
-'''
+    '''
+    SYNOPSIS:
+    $ python speedup.py -f FILE
+    or
+    $ python speedup.py -d DIR
+    '''
 
-import sys, os, getopt
+    import sys, os, getopt
 
-TARGET_TYPE = [".md", ".markdown"]
+    TARGET_TYPE = [".md", ".markdown"]
 
-def process_file(path):
-    ''' Process a file. '''
-    line = ""
-    quote_flag = False
-    line_list = []
-    with open(path) as f:
-        while True:
-            line = f.readline()
-            if line == "":
-                break
-            if line.startswith("```"):
-                quote_flag = not quote_flag
-            if line.strip()=="```" and quote_flag:
-                line = "``` plain\r\n"
-            line_list.append(line)
-    with open(path, 'w+') as f:
-        f.writelines(line_list)
-
-
-def process_dir(path):
-    ''' Process a directory. '''
-    file_list = []
-    files = os.listdir(path)
-    for file in files:
-        file = os.path.join(path, file)
-        root, ext = os.path.splitext(os.path.basename(file))
-        if os.path.isfile(file) and ext in TARGET_TYPE:
-            process_file(file)
-
-def main():
-    if len(sys.argv) < 2:
-        print "Arguments should be at least 2."
-        print "python speedup.py -f [FILE]"
-        print "python speedup.py -d [DIRECTORY]"
-        exit(1)
-
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], "f:d:", ["file=", "directory="])
-        for arg, value in opts:
-            if arg in ('-f', '--file'):
-                root, ext = os.path.basename(value)
-                if ext in 'TARGET_TYPE':
-                    process_file(value)
-            elif arg in ('-d', '--directory'):
-                process_dir(value)
-            else:
-                print "Argument error. %s" % arg
-                exit(1)
-    except getopt.GetoptError as e:
-        print e
-        exit(1)
+    def process_file(path):
+        ''' Process a file. '''
+        line = ""
+        quote_flag = False
+        line_list = []
+        with open(path) as f:
+            while True:
+                line = f.readline()
+                if line == "":
+                    break
+                if line.startswith("```"):
+                    quote_flag = not quote_flag
+                if line.strip()=="```" and quote_flag:
+                    line = "``` plain\r\n"
+                line_list.append(line)
+        with open(path, 'w+') as f:
+            f.writelines(line_list)
 
 
-if __name__ == '__main__':
-    main()
-```
+    def process_dir(path):
+        ''' Process a directory. '''
+        file_list = []
+        files = os.listdir(path)
+        for file in files:
+            file = os.path.join(path, file)
+            root, ext = os.path.splitext(os.path.basename(file))
+            if os.path.isfile(file) and ext in TARGET_TYPE:
+                process_file(file)
 
----
+    def main():
+        if len(sys.argv) < 2:
+            print "Arguments should be at least 2."
+            print "python speedup.py -f [FILE]"
+            print "python speedup.py -d [DIRECTORY]"
+            exit(1)
 
-**Three Virtues**
+        try:
+            opts, args = getopt.getopt(sys.argv[1:], "f:d:", ["file=", "directory="])
+            for arg, value in opts:
+                if arg in ('-f', '--file'):
+                    root, ext = os.path.basename(value)
+                    if ext in 'TARGET_TYPE':
+                        process_file(value)
+                elif arg in ('-d', '--directory'):
+                    process_dir(value)
+                else:
+                    print "Argument error. %s" % arg
+                    exit(1)
+        except getopt.GetoptError as e:
+            print e
+            exit(1)
 
-:   According to Larry Wall, the original author of the Perl programming
+
+    if __name__ == '__main__':
+        main()
+    ```
+
+**Three Virtues** -<
+
+:   Perl 语言的发明人 Larry Wall 说，好的程序员有 3 种美德： 懒惰、急躁和傲慢
+    （Laziness, Impatience and hubris）。
+
+    According to Larry Wall, the original author of the Perl programming
     language, there are three great virtues of a programmer; Laziness,
     Impatience and Hubris:
 
@@ -2332,17 +2300,14 @@ if __name__ == '__main__':
       - **Hubris**: The quality that makes you write (and maintain) programs
         that other people won't want to say bad things about.
 
-    Perl语言的发明人Larry Wall说，好的程序员有3种美德： 懒惰、急躁和傲慢（Laziness, Impatience and hubris）。
-
     refs and see also
       - [懒惰、急躁和傲慢（Laziness, Impatience and hubris） - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2006/05/laziness_impatience_and_hubris.html)
 
----
-
+MISC
 大小写方式（下划线只是为了突出分割处）
 
-- `Something_And_Somethingelse`
-- `SOMETHING_and_SOMETHINGELSE`
+-   `Something_And_Somethingelse`
+-   `SOMETHING_and_SOMETHINGELSE`
 
 根据《个人所得税》法，80,000 以上的工资要支付 45% 的税（工资）。
 
@@ -2351,8 +2316,8 @@ if __name__ == '__main__':
 为什么整部《水浒》里，最有影响力的老虎要被武松打死呢？因为这事儿拼的不是武力。
 李逵杀虎，靠的是武力。所以李逵打死的老虎都不算老虎，和虾蟹没有太大区别。正因为
 不算老虎，才能一下杀四个。武松杀老虎，只能有一次，只能有一个。而且，必须赤手空
-拳。景阳冈上的老虎，象征自然的神威，象征流俗都不得不畏惧的法则，要对抗这种老虎
-，唯有最纯粹的人才可以。
+拳。景阳冈上的老虎，象征自然的神威，象征流俗都不得不畏惧的法则，要对抗这种老虎，
+唯有最纯粹的人才可以。
 
 因为你会觉得，真正用心去做这件事情是不值的，是很白痴的。你有聪明才智，如果你珍
 惜它，就把它用到该用的地方，而不是被别人肆意地鄙弃。
@@ -2464,7 +2429,7 @@ case "$1" in
 
 :   <http://www.cnblogs.com/xianqingzh/archive/2011/07/08/2101510.html>
 
-[《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks)
+[《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks) -<
 
 :   `freopen`{.c}
 
@@ -2571,7 +2536,7 @@ case "$1" in
 
     :   这个我比较熟悉，如果你能看懂下面这些就够了：
 
-        ```plain
+        ```
         // printf
         %i %d %lld %20d %020d %-20d %+20d
         %f %lf %5.2lf
@@ -2591,20 +2556,17 @@ case "$1" in
         // result == "pi = 3.14"
         ```
 
----
+[Roman numerals - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Roman_numerals) -<
 
-[Roman numerals - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Roman_numerals)
-
-
-Symbol | Value
---- | ---
-I | 1
-V | 5
-X | 10
-L | 50
-C | 100
-D | 500
-M | 1,000
+:   Symbol | Value
+    --- | ---
+    I | 1
+    V | 5
+    X | 10
+    L | 50
+    C | 100
+    D | 500
+    M | 1,000
 
 bible（ai） 和 babel（e） 这两个单词的发音好像啊……
 
@@ -2634,8 +2596,6 @@ survivalism | `[sə'vaɪv(ə)lɪz(ə)m]` | 生存第一主义
 verbatim |  `[vɝ'betɪm]` | 逐字地
 xenophobia | `[,zɛnə'fobɪə]` | 对外国人的畏惧和憎恨
 
----
-
 lossy
 
 :   ```bash
@@ -2646,7 +2606,7 @@ lossy
         -filter Lanczos \
         -quality 85% \
         in.jpg out.jpg
-```
+    ```
 
 It's good to be familiar with other editors like Vi so that you can be
 productive even if that's all you have, and then learn how to make the most of
@@ -2657,28 +2617,28 @@ strategy used in sales, marketing, public relations, politics and propaganda.
 FUD is generally a strategy to influence perception by disseminating negative
 and dubious or false information and a manifestation of the appeal to fear.
 
-* A.D. （公元）: Anno Domini
-* a.m. （上午）: ante meridiem
-* CV （简历）: curriculum vitae
-* e.g. （例如）: exempli gratia
-* etc. （等等…）: et cetera
-* et al. （等人）： et alii
-* i.e. （即是）: id est
-* p.m. （下午）: post meridiem
-* Ph.D. （博士）: Philosophiæ Doctor
-* P.S. （附言）: post scriptum
-* R.I.P. （息止安所）: requiescat in pace
+-   A.D. （公元）: Anno Domini
+-   a.m. （上午）: ante meridiem
+-   CV （简历）: curriculum vitae
+-   e.g. （例如）: exempli gratia
+-   etc. （等等…）: et cetera
+-   et al. （等人）： et alii
+-   i.e. （即是）: id est
+-   p.m. （下午）: post meridiem
+-   Ph.D. （博士）: Philosophiæ Doctor
+-   P.S. （附言）: post scriptum
+-   R.I.P. （息止安所）: requiescat in pace
 
-1001=7*11*13
+1001 = `7 * 11 * 13`
 
-#. [Code Rush - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Code_Rush)
-#. [Code Rush, the Mozilla Documentary from 2000 - Waxy.org](http://waxy.org/2008/06/code_rush/)
-#. [Code Rush (TV Movie 2000) - IMDb](http://www.imdb.com/title/tt0499004/)
-#. [Tara Hernandez | LinkedIn](https://www.linkedin.com/in/tara-hernandez-755b263)
-#. [Stuart Parmenter | LinkedIn](https://www.linkedin.com/in/stuartparmenter)
-#. [Jamie Zawinski - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Jamie_Zawinski)
+Code Rush -<
 
----
+:   -   [Code Rush - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Code_Rush)
+    -   [Code Rush, the Mozilla Documentary from 2000 - Waxy.org](http://waxy.org/2008/06/code_rush/)
+    -   [Code Rush (TV Movie 2000) - IMDb](http://www.imdb.com/title/tt0499004/)
+    -   [Tara Hernandez | LinkedIn](https://www.linkedin.com/in/tara-hernandez-755b263)
+    -   [Stuart Parmenter | LinkedIn](https://www.linkedin.com/in/stuartparmenter)
+    -   [Jamie Zawinski - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Jamie_Zawinski)
 
 sentiment 多愁善感
 
@@ -2688,8 +2648,11 @@ you are but words.
 
 aleph `/ˈɑːlɛf/` $\aleph$
 
-Knuth 先生在 The TeXbook 里主张书应该读若干遍，每一遍阅读的侧重点都不同。他用「危险记号」区分了不同学习阶段应该阅读的部分，让初次阅读者能够相对轻松地掌握一个概览，有经验地使用者能够深入一些细节，严肃地钻研者才去探索所谓 Dark Sides。为此他甚至编了一些「善意的谎言」，让初学者能「大致地理解」一些概念，而不必了解背后的琐碎细节。
-
+Knuth 先生在 The TeXbook 里主张书应该读若干遍，每一遍阅读的侧重点都不同。他用
+「危险记号」区分了不同学习阶段应该阅读的部分，让初次阅读者能够相对轻松地掌握一
+个概览，有经验地使用者能够深入一些细节，严肃地钻研者才去探索所谓 Dark Sides。为
+此他甚至编了一些「善意的谎言」，让初学者能「大致地理解」一些概念，而不必了解背
+后的琐碎细节。
 
 ```bash
 $ texdoc sinutx # texdoc <package-name>
@@ -2700,239 +2663,235 @@ website. All the softwares that claim to do so are scam（`[skæm]`，欺骗）.
 
 ![ASCII Table](http://whudoc.qiniudn.com/ascii.png)
 
----
-
 维基百科的音标
 
-照理说我不需要额外整理音标的内容，因为我很仔细地看过《赖世雄美语音标》，音标基本都会。
-但不幸地是我不知道音标标的是哪一种（美语、英语？），所以还是整理一下维基的音标，这样
-以后会更清楚上面查到的东西的读音。
+:   照理说我不需要额外整理音标的内容，因为我很仔细地看过《赖世雄美语音标》，音标基本都会。
+    但不幸地是我不知道音标标的是哪一种（美语、英语？），所以还是整理一下维基的音标，这样
+    以后会更清楚上面查到的东西的读音。
 
-Constants
+    Constants
 
-IPA | Examples
---- | --------
-`b` | buy, cab
-`d` | dye, cad, do
-`ð` | thy, breathe, father
-`dʒ` | giant, badge, jam
-`f` | fan, caff, phi
-`ɡ`(`ɡ`) | guy, bag
-`h` | high, ahead
-`hw` | why
-`j` | yes, hallelujah
-`k` | sky, crack
-`l` | lie, sly, gal
-`m` | my, smile, cam
-`n` | nigh, snide, can
-`ŋ` | sang, sink, singer
-`θ` | thigh, math
-`p` | pie, spy, cap
-`r` | rye, try, very
-`s` | sigh, mass
-`ʃ` | shy, cash, emotion
-`t` | tie, sty, cat, atom
-`tʃ` | china, catch
-`v` | vie, have
-`w` | wye, swine
-`z` | zoo, has
-`ʒ` | equation, pleasure, vision, beige
+    IPA | Examples
+    --- | --------
+    `b` | buy, cab
+    `d` | dye, cad, do
+    `ð` | thy, breathe, father
+    `dʒ` | giant, badge, jam
+    `f` | fan, caff, phi
+    `ɡ`(`ɡ`) | guy, bag
+    `h` | high, ahead
+    `hw` | why
+    `j` | yes, hallelujah
+    `k` | sky, crack
+    `l` | lie, sly, gal
+    `m` | my, smile, cam
+    `n` | nigh, snide, can
+    `ŋ` | sang, sink, singer
+    `θ` | thigh, math
+    `p` | pie, spy, cap
+    `r` | rye, try, very
+    `s` | sigh, mass
+    `ʃ` | shy, cash, emotion
+    `t` | tie, sty, cat, atom
+    `tʃ` | china, catch
+    `v` | vie, have
+    `w` | wye, swine
+    `z` | zoo, has
+    `ʒ` | equation, pleasure, vision, beige
 
-Marginal consonants
+    Marginal consonants
 
-IPA | Examples
---- | --------
-`x` | ugh, loch, Chanukah
-`ʔ` | uh-oh /ˈʔʌʔoʊ/
-`˜` | bon vivant /ˌbɒ̃ viːˈvɒ̃/
+    IPA | Examples
+    --- | --------
+    `x` | ugh, loch, Chanukah
+    `ʔ` | uh-oh /ˈʔʌʔoʊ/
+    `˜` | bon vivant /ˌbɒ̃ viːˈvɒ̃/
 
-IPA | Full vowels | IPA | ... followed by R
---- | ----------- | --- | -----------------
-`ɑː` | PALM, father, bra | `ɑːr` | START, bard, barn, snarl, star
-`ɒ` | LOT, pod, John | `ɒr` | moral, forage
-`æ` | TRAP, pad, ban | `ær` | barrow, marry
-`aɪ` | PRICE, ride, file, fine, pie | `aɪər` | Ireland, hire (= /aɪr/)
---- | --- | `aɪ.ər` | higher, buyer
-`aʊ` | MOUTH, loud, foul, down, how | `aʊər` | flour (= /aʊr/)
---- | --- | `aʊ.ər` | flower
-`ɛ` | DRESS, bet, fell, men | `ɛr` | error, merry
-`eɪ` | FACE, made, fail, vein, pay | `ɛər` | SQUARE, mare, scarce, cairn, Mary (= /eɪr/)
---- | --- | `eɪ.ər` | layer (one who lays)
-`ɪ` | KIT, lid, fill, bin | `ɪr` | mirror, Sirius
-`iː` | FLEECE, seed, feel, mean, sea | `ɪər` | NEAR, beard, fierce, serious (= /iːr/)
---- | --- | `iː.ər` | freer
-`ɔː` | THOUGHT, Maud, dawn, fall, straw | `ɔːr` | NORTH, born, war, Laura
---- | --- | `ɔː.ər` | sawer
-`ɔɪ` | CHOICE, void, foil, coin, boy | `ɔɪər` | coir (= /ɔɪr/)
---- | --- | `ɔɪ.ər` | employer
-`oʊ` | GOAT, code, foal, bone, go | `ɔər` | FORCE, more, boar, oral (= /oʊr/)
---- | --- | `oʊ.ər` | mower
-`ʊ` | FOOT, good, full, woman | `ʊr` | courier
-`uː` | GOOSE, food, fool, soon, chew, do | `ʊər` | boor, moor, tourist (= /uːr/)
---- | --- | `uː.ər` | truer
-`juː` | cute, mule, puny, beauty, huge, you, tune | `jʊər` | cure (= /juːr/)
---- | --- | `juː.ər` | fewer
-`ʌ` | STRUT, bud, dull, gun | `ɜːr` | NURSE, word, girl, fern, furry
---- | --- | `ʌr` | hurry, nourish (in the UK)
+    IPA | Full vowels | IPA | ... followed by R
+    --- | ----------- | --- | -----------------
+    `ɑː` | PALM, father, bra | `ɑːr` | START, bard, barn, snarl, star
+    `ɒ` | LOT, pod, John | `ɒr` | moral, forage
+    `æ` | TRAP, pad, ban | `ær` | barrow, marry
+    `aɪ` | PRICE, ride, file, fine, pie | `aɪər` | Ireland, hire (= /aɪr/)
+    --- | --- | `aɪ.ər` | higher, buyer
+    `aʊ` | MOUTH, loud, foul, down, how | `aʊər` | flour (= /aʊr/)
+    --- | --- | `aʊ.ər` | flower
+    `ɛ` | DRESS, bet, fell, men | `ɛr` | error, merry
+    `eɪ` | FACE, made, fail, vein, pay | `ɛər` | SQUARE, mare, scarce, cairn, Mary (= /eɪr/)
+    --- | --- | `eɪ.ər` | layer (one who lays)
+    `ɪ` | KIT, lid, fill, bin | `ɪr` | mirror, Sirius
+    `iː` | FLEECE, seed, feel, mean, sea | `ɪər` | NEAR, beard, fierce, serious (= /iːr/)
+    --- | --- | `iː.ər` | freer
+    `ɔː` | THOUGHT, Maud, dawn, fall, straw | `ɔːr` | NORTH, born, war, Laura
+    --- | --- | `ɔː.ər` | sawer
+    `ɔɪ` | CHOICE, void, foil, coin, boy | `ɔɪər` | coir (= /ɔɪr/)
+    --- | --- | `ɔɪ.ər` | employer
+    `oʊ` | GOAT, code, foal, bone, go | `ɔər` | FORCE, more, boar, oral (= /oʊr/)
+    --- | --- | `oʊ.ər` | mower
+    `ʊ` | FOOT, good, full, woman | `ʊr` | courier
+    `uː` | GOOSE, food, fool, soon, chew, do | `ʊər` | boor, moor, tourist (= /uːr/)
+    --- | --- | `uː.ər` | truer
+    `juː` | cute, mule, puny, beauty, huge, you, tune | `jʊər` | cure (= /juːr/)
+    --- | --- | `juː.ər` | fewer
+    `ʌ` | STRUT, bud, dull, gun | `ɜːr` | NURSE, word, girl, fern, furry
+    --- | --- | `ʌr` | hurry, nourish (in the UK)
 
-Reduced Vowels
+    Reduced Vowels
 
-IPA | Reduced vowels | IPA | Reduced Vowels
---- | -------------- | --- | -----------------
-`ᵻ` | roses, enough (either `/ɪ/` or `/ə/`) | `ᵿ` | beautiful, curriculum (`[jᵿ]`) (either `/ʊ/` or `/ə/`)
-`ɵ` | omission (either `/oʊ/` or `/ə/`) | `u` | situation (either `/ʊ/` or `/uː/`)
-`ə` | Rosa’s, a mission, quiet, focus | `ər` | LETTER, perceive
-`i` | HAPPY, serious (either `/ɪ/` or `/i/`) | `əl` | bottle (either `[əl]` or `[l̩]`)
-`ən` | button (either `[ən]` or `[n̩]`) | `əm` | rhythm (either `[əm]` or `[m̩]`)
+    IPA | Reduced vowels | IPA | Reduced Vowels
+    --- | -------------- | --- | -----------------
+    `ᵻ` | roses, enough (either `/ɪ/` or `/ə/`) | `ᵿ` | beautiful, curriculum (`[jᵿ]`) (either `/ʊ/` or `/ə/`)
+    `ɵ` | omission (either `/oʊ/` or `/ə/`) | `u` | situation (either `/ʊ/` or `/uː/`)
+    `ə` | Rosa’s, a mission, quiet, focus | `ər` | LETTER, perceive
+    `i` | HAPPY, serious (either `/ɪ/` or `/i/`) | `əl` | bottle (either `[əl]` or `[l̩]`)
+    `ən` | button (either `[ən]` or `[n̩]`) | `əm` | rhythm (either `[əm]` or `[m̩]`)
 
-Stress & Syllabification
+    Stress & Syllabification
 
-* intonation `/ˌɪntɵˈneɪʃən/`
-* Mikey `/ˈmaɪki/`, Myki `/ˈmaɪ.kiː/`
+    * intonation `/ˌɪntɵˈneɪʃən/`
+    * Mikey `/ˈmaɪki/`, Myki `/ˈmaɪ.kiː/`
 
-refs and see also
+    refs and see also
 
-#. [Help:IPA for English - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Help:IPA_for_English)
+    #. [Help:IPA for English - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Help:IPA_for_English)
 
----
+《影响力》 -<
 
-《影响力》
+:   1. Weapons of Influence: Perceptual Contrast | 对比原理
 
-1. Weapons of Influence: Perceptual Contrast | 对比原理
+    > Everything should be made as simple as possible, but not simpler.
+    >
+    > — *ALBERT E INSTEIN*
 
-> Everything should be made as simple as possible, but not simpler.
->
-> — *ALBERT E INSTEIN*
+    Virtually all of
+    this mothering is triggered by one thing: the “cheep-cheep” sound of
+    young turkey chicks. Other identifying features of the chicks, such as
+    their smell, touch, or appearance, seem to play minor roles in the
+    mothering process. If a chick makes the “cheep-cheep” noise, its
+    mother will care for it; if not, the mother will ignore or sometimes kill
+    it.
 
-Virtually all of
-this mothering is triggered by one thing: the “cheep-cheep” sound of
-young turkey chicks. Other identifying features of the chicks, such as
-their smell, touch, or appearance, seem to play minor roles in the
-mothering process. If a chick makes the “cheep-cheep” noise, its
-mother will care for it; if not, the mother will ignore or sometimes kill
-it.
+    When, however, the same stuffed replica carried inside it a small
+    recorder that played the “cheep-cheep” sound of baby turkeys, the
+    mother not only accepted the oncoming polecat but gathered it under-
+    neath her. When the machine was turned off, the polecat model again
+    drew a vicious attack.
 
-When, however, the same stuffed replica carried inside it a small
-recorder that played the “cheep-cheep” sound of baby turkeys, the
-mother not only accepted the oncoming polecat but gathered it under-
-neath her. When the machine was turned off, the polecat model again
-drew a vicious attack.
+    How ridiculous a female turkey seems under these circumstances:
+    She will embrace a natural enemy just because it goes “cheep-cheep,”
+    and she will mistreat or murder one of her own chicks just because it
+    does not. She looks like an automaton whose maternal instincts are
+    under the automatic control of that single sound.
 
-How ridiculous a female turkey seems under these circumstances:
-She will embrace a natural enemy just because it goes “cheep-cheep,”
-and she will mistreat or murder one of her own chicks just because it
-does not. She looks like an automaton whose maternal instincts are
-under the automatic control of that single sound.
+    when the situation calls for mothering, the maternal-behavior tape gets
+    played. Click and the appropriate tape is activated; whirr and out rolls
+    the standard sequence of behaviors.
 
-when the situation calls for mothering, the maternal-behavior tape gets
-played. Click and the appropriate tape is activated; whirr and out rolls
-the standard sequence of behaviors.
+    Clever use of perceptual contrast is by no means confined to clothiers.
+    I came across a technique that engaged the contrast principle while I
+    was investigating, undercover, the compliance tactics of real-estate
+    companies. To “learn the ropes,” I was accompanying a company realty
+    salesman on a weekend of showing houses to prospective home buyers.
 
-Clever use of perceptual contrast is by no means confined to clothiers.
-I came across a technique that engaged the contrast principle while I
-was investigating, undercover, the compliance tactics of real-estate
-companies. To “learn the ropes,” I was accompanying a company realty
-salesman on a weekend of showing houses to prospective home buyers.
+    The salesman—we can call him Phil—was to give me tips to help me
+    through my break-in period. One thing I quickly noticed was that
+    whenever Phil began showing a new set of customers potential buys,
+    he would start with a couple of undesirable houses. I asked him about
+    it, and he laughed. They were what he called “setup” properties.
 
-The salesman—we can call him Phil—was to give me tips to help me
-through my break-in period. One thing I quickly noticed was that
-whenever Phil began showing a new set of customers potential buys,
-he would start with a couple of undesirable houses. I asked him about
-it, and he laughed. They were what he called “setup” properties.
+    Sharon may be failing chemistry, but she gets an “A” in psychology.
 
-Sharon may be failing chemistry, but she gets an “A” in psychology.
+    2. Reciprocation: The Old Give and Take...and Take | 互惠原理
 
-2. Reciprocation: The Old Give and Take...and Take | 互惠原理
+    > Pay every debt, as if God wrote the bill.
+    >
+    > — *RALPH WALDOE MERSON*
 
-> Pay every debt, as if God wrote the bill.
->
-> — *RALPH WALDOE MERSON*
+    So typical is it for indebtedness to accompany the receipt of
+    such things that a term like “much obliged” has become a synonym for
+    “thank you,” not only in the English language but in others as well.
 
-So typical is it for indebtedness to accompany the receipt of
-such things that a term like “much obliged” has become a synonym for
-“thank you,” not only in the English language but in others as well.
+     It quickly became clear to the Society
+    that it had a considerable public-relations problem. The people being
+    asked for contributions did not like the way the members looked,
+    dressed, or acted.
 
- It quickly became clear to the Society
-that it had a considerable public-relations problem. The people being
-asked for contributions did not like the way the members looked,
-dressed, or acted.
+    The Krishnas’ resolution was brilliant. They switched to a fund-raising
+    tactic that made it unnecessary for target persons to have positive feel-
+    ings toward the fund-raisers. They began to employ a donation-request
+    procedure that engaged the rule for reciprocation, which, as demon-
+    strated by the Regan study, is strong enough to overcome the factor of
+    dislike for the requester. The new strategy still involves the solicitation
+    of contributions in public places with much pedestrian traffic (airports
+    are a favorite), but now, before a donation is requested, the target person
+    is given a “gift”—a book (usually the Bhagavad Gita), the Back to Godhead
 
-The Krishnas’ resolution was brilliant. They switched to a fund-raising
-tactic that made it unnecessary for target persons to have positive feel-
-ings toward the fund-raisers. They began to employ a donation-request
-procedure that engaged the rule for reciprocation, which, as demon-
-strated by the Regan study, is strong enough to overcome the factor of
-dislike for the requester. The new strategy still involves the solicitation
-of contributions in public places with much pedestrian traffic (airports
-are a favorite), but now, before a donation is requested, the target person
-is given a “gift”—a book (usually the Bhagavad Gita), the Back to Godhead
+    magazine of the Society, or, in the most cost-effective version, a flower.
+    The unsuspecting passerby who suddenly finds a flower pressed into
+    his hands or pinned to his jacket is under no circumstances allowed to
+    give it back, even if he asserts that he does not want it. “No, it is our
+    gift to you,” says the solicitor, refusing to accept it.
 
-magazine of the Society, or, in the most cost-effective version, a flower.
-The unsuspecting passerby who suddenly finds a flower pressed into
-his hands or pinned to his jacket is under no circumstances allowed to
-give it back, even if he asserts that he does not want it. “No, it is our
-gift to you,” says the solicitor, refusing to accept it.
+    The Rule Enforces Uninvited Debts
+    The Rule Can Trigger Unfair Exchanges
 
-The Rule Enforces Uninvited Debts
-The Rule Can Trigger Unfair Exchanges
+    The Old Give and Take...**and Take...**
 
-The Old Give and Take...**and Take...**
+    RECIPROCAL CONCESSIONS | 相互退让
 
-RECIPROCAL CONCESSIONS | 相互退让
-
-At first glance, our fortunes
-in such a situation would appear dismal. We could comply with the
-requester’s wish and, in so doing, succumb to the reciprocity rule. Or,
-we could refuse to comply and thereby suffer the brunt of the rule’s
-force upon our deeply conditioned feelings of fairness and obligation.
-Surrender or suffer heavy casualties. Cheerless prospects indeed.
+    At first glance, our fortunes
+    in such a situation would appear dismal. We could comply with the
+    requester’s wish and, in so doing, succumb to the reciprocity rule. Or,
+    we could refuse to comply and thereby suffer the brunt of the rule’s
+    force upon our deeply conditioned feelings of fairness and obligation.
+    Surrender or suffer heavy casualties. Cheerless prospects indeed.
 
 
-3. Commitment and Consistency: Hobgoblins of the Mind | 承偌和一致
+    3. Commitment and Consistency: Hobgoblins of the Mind | 承偌和一致
 
-> It is easier to resist at the beginning than at the end.
->
-> — *LEONARDO DA VINCI*
+    > It is easier to resist at the beginning than at the end.
+    >
+    > — *LEONARDO DA VINCI*
 
-COMMITMENT IS THE KEY
+    COMMITMENT IS THE KEY
 
-4. Social Proof: Truths Are Us
-5. Liking: The Friendly Thief
-6. Authority: Directed Deference
-7. Scarcity: The Rule of the Few
+    4. Social Proof: Truths Are Us
+    5. Liking: The Friendly Thief
+    6. Authority: Directed Deference
+    7. Scarcity: The Rule of the Few
 
-refs and see also
+    refs and see also
 
-#. [我在苏州被和尚骗了, 那和尚一定熟读《影响力》 | 马牛不是人](http://www.manio.org/cn/influence-i-was-treated-by-mock/)
-#. [【豆总摘】大纲和重点──看完不用看书了 (评论: 影响力)](http://book.douban.com/review/5046071/)
+    #. [我在苏州被和尚骗了, 那和尚一定熟读《影响力》 | 马牛不是人](http://www.manio.org/cn/influence-i-was-treated-by-mock/)
+    #. [【豆总摘】大纲和重点──看完不用看书了 (评论: 影响力)](http://book.douban.com/review/5046071/)
 
-jujitsu `[dʒuː'dʒɪtsuː]` 柔术
+jujitsu `[dʒuː'dʒɪtsuː]` 柔术 -<
 
 :   n.  a method of self-defense without weapons that was developed in China
     and Japan; holds and blows are supplemented by clever use of the attacker's
     own weight and strength
 
-阮玲玉生前出演电影 29 部，但历经乱世战火，目前仅发现 9 部幸存。
+RapidJson
 
-```cpp
-// 把整个文件读入buffer
-FILE* fp = fopen("test.json", "r");
-fseek(fp, 0, SEEK_END);
-size_t filesize = (size_t)ftell(fp);
-fseek(fp, 0, SEEK_SET);
-char* buffer = (char*)malloc(filesize + 1);
-size_t readLength = fread(buffer, 1, filesize, fp);
-buffer[readLength] = '\0';
-fclose(fp);
-```
+:   ```cpp
+    // 把整个文件读入buffer
+    FILE* fp = fopen("test.json", "r");
+    fseek(fp, 0, SEEK_END);
+    size_t filesize = (size_t)ftell(fp);
+    fseek(fp, 0, SEEK_SET);
+    char* buffer = (char*)malloc(filesize + 1);
+    size_t readLength = fread(buffer, 1, filesize, fp);
+    buffer[readLength] = '\0';
+    fclose(fp);
+    ```
 
-`In situ` 是一个拉丁文片语，字面上的意思是指「现场」、「在位置」。在许多不同语境
-中，它描述一个事件发生的位置，意指「本地」、「现场」、「在处所」、「就位」。 …… （在计
-算机科学中）一个算法若称为原位算法，或在位算法，是指执行该算法所需的额外内存空间是 `O(1)`
-的，换句话说，无论输入大小都只需要常数空间。例如，堆排序是一个原位排序算法。
+    `In situ` 是一个拉丁文片语，字面上的意思是指「现场」、「在位置」。在许多不同语境
+    中，它描述一个事件发生的位置，意指「本地」、「现场」、「在处所」、「就位」。 …… （在计
+    算机科学中）一个算法若称为原位算法，或在位算法，是指执行该算法所需的额外内存空间是 `O(1)`
+    的，换句话说，无论输入大小都只需要常数空间。例如，堆排序是一个原位排序算法。
 
-在 C++11 中这称为转移赋值操作（move assignment operator）。由于 RapidJSON 支持 C++03，它在赋值
-操作采用转移语意，其它修改形函数如 `AddMember()`，`PushBack()` 也采用转移语意。
+    在 C++11 中这称为转移赋值操作（move assignment operator）。由于 RapidJSON 支持 C++03，它在赋值
+    操作采用转移语意，其它修改形函数如 `AddMember()`，`PushBack()` 也采用转移语意。
 
 XDM 即**“X Display Manager”**，由它来启动 X Window 服务器，并管理图形客户端程序的
 登录、会话、启动窗口管理器（KDE、Gnome）等。KDE 和 Gnome 也提供了自己的 xdm 的实现，分别叫 kdm
@@ -2940,7 +2899,7 @@ XDM 即**“X Display Manager”**，由它来启动 X Window 服务器，并管
 
 `gvim --remote-tab-silent filename`{.bash} 有点类似 Notepad++ 的 mono-instance。
 
-```plain
+```
 set guioptions=""
 set guioptions+=m
 ```
@@ -3012,7 +2971,7 @@ VA 番茄助手的 rename 居然不检查名称的正确性，你可以把 `type
 也太蠢。唯一可能的好处是你可以用这个功能更名为 `const type`，但这么做必然出很多
 问题。
 
-```plain
+```
 Error   1   error C2248: 'QObject::QObject' : cannot access private member
 declared in class 'QObject' ModelLane.h 23  1 ModelStructure
 ```
@@ -3237,7 +3196,7 @@ done
 
 VimFx
 
-:   ```plain
+:   ```
     o               ; address bar
     O               ; search bar
     p               ; paste and go，
@@ -3299,7 +3258,7 @@ int main(int argc, char **argv)
 
 `net stop/start WuAuServ`{.cmd} (windows update)
 
-```plain
+```
 In vim `g#` v.s. `#`
 
 Jumplist `:h jumplist`, `:h CTRL-O` (older), `:h CTRL-I`, `:h ju[mp]`
@@ -4472,7 +4431,7 @@ Assignment Expression
 
 Python: `import this`{.python} => The Zen of Python, by Tim Peters
 
-:   ```tzx-bigquote
+:   ```
     Beautiful is better than ugly.
     **Explicit is better than implicit.**
     Simple is better than complex.
@@ -4851,7 +4810,7 @@ refs and see also
 
 为了把爬虫放进来[^qiniu-robots-default]，参考 [The Web Robots Pages](http://www.robotstxt.org/robotstxt.html) 写了一个 robots.txt，里面只有两行：
 
-```plain
+```
 User-agent: *
 Disallow:
 ```
@@ -5130,7 +5089,7 @@ Disallow:
 
 [Things I Wish I Learned In Engineering School](http://blog.kowalczyk.info/articles/engineering-school.html)
 
-[【新智元—世纪对决】AlphaGo 惊天逆转李世石 ，关键棋局解析](http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=402888309&idx=1&sn=fe4a7f99fde22f5f4c8bc056045a55d6&scene=23&srcid=0309shravqZGaVQnxy1edb98#rd)
+[【新智元—世纪对决】AlphaGo 惊天逆转李世石 ，关键棋局解析](http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=402888309&idx=1&sn=fe4a7f99fde22f5f4c8bc056045a55d6&scene=23&srcid=0309shravqZGaVQnxy1edb98#rd) -<
 
 :   Go (traditional Chinese: 圍棋; simplified Chinese: 围棋; pinyin: About this
     sound wéiqí; Japanese: 囲碁; rōmaji: igo; literally: "encircling game") is
@@ -5157,7 +5116,7 @@ Disallow:
 
 [Filename Extension](http://en.wikipedia.org/wiki/Filename_extension)
 
-[日常生活中有哪些十分钟就能学会但是终生受用的技能？ - 知乎](http://www.zhihu.com/question/20894671#answer-1741917)
+[日常生活中有哪些十分钟就能学会但是终生受用的技能？ - 知乎](http://www.zhihu.com/question/20894671#answer-1741917) -<
 
 :   refs and see also
 
@@ -5204,7 +5163,7 @@ Disallow:
       - [为什么我们无法深入交谈 | 简书](http://www.jianshu.com/p/37f7b7c88729)
       - [我的儿子不可能平庸 - 简书](http://www.jianshu.com/p/c8a1e1482ec4?utm_campaign=newsletter&utm_medium=note-236554&utm_source=weekly-16)
 
-[Help:Displaying a formula - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Help:Displaying_a_formula)
+[Help:Displaying a formula - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Help:Displaying_a_formula) -<
 
 :   refs and see also
 
