@@ -61,7 +61,7 @@ publish/%: meta/%
 
 note: n
 n:
-	$(EDITOR) index.md 2016/ caffe-notes/
+	$(EDITOR) -p index.md 2016/ caffe-notes/
 m:
 	$(EDITOR) Makefile
 t:

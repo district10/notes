@@ -442,8 +442,7 @@ Job
 
 [为什么技术总是被轻视？国内做技术能不能有较大发展？ - Tim Chen 的回答 - 知乎](https://www.zhihu.com/question/24829997/answer/57642321)
 
-:
-    两个差不多能力的人，一个做技术，一个带10人左右的团队。从最终结果来看，做技
+:   两个差不多能力的人，一个做技术，一个带10人左右的团队。从最终结果来看，做技
     术的产生的影响力非常有限，完全不能和十人团队相比。你说这不公平，没什么不公
     平的，最后评定的时候这十人团队的贡献自然是算在团队领袖头上的。
 
@@ -534,3 +533,11 @@ Job
 
     体会是，微软你只要基础好就行了，实习经历会加分。Google你必须要能做acm，工作
     经历啥的基本无视。
+
+---
+
+## TODO
+
+-   [4ker/Cpp-Primer: C++ Primer 5ed answers](https://github.com/4ker/Cpp-Primer)
+-   boost 库的裁剪 /home/tzx/git/blog/_posts/post-0110-boost.md
+-   写作计划见 /home/tzx/git/blog/_pages/orgit.md

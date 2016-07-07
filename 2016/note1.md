@@ -705,3 +705,207 @@ https://www.zhihu.com/question/24099873/answer/26711652
 [看加菲猫学英语汇总目录](http://mp.weixin.qq.com/s?__biz=MzI4MzExMDU1Nw==&mid=502373927&idx=1&sn=0132758c1f37c6f357b7d019e6fc8198&scene=18#wechat_redirect)
 
 [Long Island - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Long_Island)
+
+-   israel
+-   get crowefunding help
+-   belgium launches appel to find 'man in hat' bombing suspect
+-   kidnapped by Islamic State truce voilations
+-   Israeli minister romania
+-   the silicon valley of transylvania
+-   Conspiracy
+-   MathML is a failed web standard.
+-   more than 40% of student borrowers aren't making payments
+-   criminal prosecutions opyright infrigement
+-   clinton and sandrers tensions escalate
+-   mafia
+-   lesbian
+-   icelandicchef snake charmer
+-   tackle pests
+-   Nigerin militants offered olive branch
+-   Syria millitans abduct factor workers
+-   Mandela
+-   Seaw wars Rogue one
+-   lucky escape after lorry crash
+-   skidded out of control
+-   parliament bans payment for sex
+-   Brussels airport attack
+-   panama papers
+-   ukranine
+-   afghan asylum
+-   Iraq introverted
+-   blackout
+-   thwart
+-   hoverboard
+-   affidavit
+-   bribery
+-   bug bounty programme
+-   optimize industrial structure
+-   overcapacity
+-   portfolio
+-   migrant workers
+-   urban/pensions
+-   interstellar
+-   per capita
+-   harassings calls
+-   per puple expenditure
+-   diesel
+
+```bash
+man ascii
+man unicode
+man latin1
+
+$ echo -ne "nice好" | wc -c
+7
+$ echo -ne "nice好" | wc -m
+5
+```
+
+uniq, cut, join, sort
+
+:   ```bash
+    ➜  notes git:(master) ✗ cut -b1,3 <(echo -en "one\ntwo\nthree")
+    oe
+    to
+    tr
+
+    ➜  notes git:(master) ✗ cut -d, -f3,1 <(echo -en "1, mon, good\n2, tue, bad")
+    1, good
+    2, bad
+
+
+    ➜  notes git:(master) ✗ join -j1 <(echo -en "1, mon, good\n2, tue, bad") <(echo -en "1, 周一, good\n2, 周二, bad")
+    1, mon, good 周一, good
+    2, tue, bad 周二, bad
+
+    ➜  notes git:(master) ✗ join -j3 <(echo -en "1, mon, good\n2, tue, bad") <(echo -en "1, 周一, good\n2, 周二, bad")
+    good 1, mon, 1, 周一,
+    bad 2, tue, 2, 周二,
+
+    ➜  notes git:(master) ✗ join -11 -21 <(echo -en "1, mon, good\n2, tue, bad") <(echo -en "1, 周一, good\n2, 周二, bad")
+    1, mon, good 周一, good
+    2, tue, bad 周二, bad
+    ```
+
+```bash
+perl -pi.back -e 's/old/new/g' file
+
+chattr +i file # not deletable
+```
+
+[QT5 中的.pro 文件中为何要加入QT += widgets，而不能在包头文件的时候就包一个widgets/QApplication呢？ - Linux - 知乎](http://www.zhihu.com/question/27253528)
+
+:   在pro里 写 qt+=widgets 表示引入 QtWidget这个module，qmake会在帮你生成makefile的时候，设置好include path 和 lib path，在link时候设置好libs。
+    而仅在源代码里 include <QApplication>仅是引入声明，但是没有lib，所以链接时
+    会出错。
+
+    当然，我们可以批评C++这种源自上世纪70年代的头文件和lib分离的设计是过时的不
+    合理的，现代语言基本都采用package管理，用import解决了。但是我们既然还在用
+    C++，就要接受这种设计，把它搞明白。另外你说在网上找不到资料，我大胆猜测你是
+    用baidu搜索的，因为用google搜索，这类资料是很多的，比如[The compiler,
+    assembler, linker, loader and process address space tutorial - hacking the
+    process of building programs using C language: notes and
+    illustrations](http://www.tenouk.com/ModuleW.html)图文并茂地讲述了编译器 链
+    接器和加载器的工作原理。
+
+    作者：姚冬链接：http://www.zhihu.com/question/27253528/answer/35857943来源
+    ：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+-   [如何评价萨拉丁？ - 历史 - 知乎](http://www.zhihu.com/question/24670166)
+-   [萨拉丁（埃及阿尤布王朝开国君主）_百度百科](http://baike.baidu.com/link?url=yaY1E6YOtdQyCdyfHR7mPkSgkoxl68v7zFTjGBdPb4raVcsr57C-5mIM4UklzG9HGHbk-PJ7kmEFdrceYoxJAbZj1fMBDVQMJ94RYyPMUgK)
+-   [baike.baidu.com/view/122444.htm](http://baike.baidu.com/view/122444.htm)
+-   [宗教疯狂年代的理想主义―――评《天国王朝》 (天国王朝 影评)](https://movie.douban.com/review/1039586/)
+-   [谁谋杀了《天国王朝》？ (天国王朝 影评)](https://movie.douban.com/review/1148037/)
+
+`vcvars32` calls `C:\Program Files\Microsoft Visual Studio 8\Common7\Tools\vsvars32.bat`
+which **sets up the required environment** for compiling and linking.  The
+environment variables are:
+
+#. `INCLUDE`
+#. `LIB`
+#. `PATH`
+
+The compiler looks for header files in the `INCLUDE` path during compile, and
+libraries are fetched from the `LIB` path during link.
+
+---
+
+Refs
+
+#. [c++ - Command line compile using cl.exe? - Stack Overflow](http://stackoverflow.com/questions/7865432/command-line-compile-using-cl-exe)
+#. [c++ - fatal error C1034: windows.h: no include path set - Stack Overflow](http://stackoverflow.com/questions/931652/fatal-error-c1034-windows-h-no-include-path-set)
+#. [Walkthrough: Compiling a C Program on the Command Line](https://msdn.microsoft.com/en-us/library/bb384838.aspx)
+#. [Setting the Path and Environment Variables for Command-Line Builds](https://msdn.microsoft.com/en-us/library/f2ccy3wt.aspx)
+
+[http://doi-2014.qiniudn.com/](http://doi-2014.qiniudn.com/)
+
+-   ARC
+-   GUI 设计的封包、反射
+-   ```bash
+    $ type ls
+    ls is an alias for ls --color=tty
+    $ type type
+    type is a shell builtin
+    $ type cp
+    cp is /bin/cp
+
+    $ which cd
+    cd: shell built-in command
+    $ which ls
+    ls: aliased to ls --color=tty
+    $ which bcp
+    /usr/bin/bcp
+
+    $ whatis
+    whatis what?
+    $ whatis apropos
+    apropos (1)          - search the manual page names and descriptions
+    $ apropos whatis
+    whatis (1)           - display one-line manual page descriptions
+
+    $ echo *
+    pandoc-1.17.0.2-1-amd64.deb Scikit-learn-docs scikit-learn-doc.tar.xz
+    $ echo .*
+    .Rhistory
+    $ echo [[:upper:]]*
+    Scikit-learn-docs
+    ```
+
+    ```
+    man readline
+    echo A{B{1,2},C{,3,4}}
+    printenv
+
+    $ ls -lh $(which cp)
+    -rwxr-xr-x 1 root root 148K 11月  3  2014 /bin/cp
+
+    clear
+
+    history
+    ```
+
+    -   C-x C-e -> editor
+    -   C-y -> paste
+    -   M-? -> possible completions
+    -   `!!`, repeat last command
+    -   `!string`, expand match begin
+    -   `!?string`, expand match string
+    -   `!2`, second in history
+    -   `!-2`, second in history reverse
+    -   `> foo.txt`, 在命令行键入一写内容，可以不能随时用 C-x, C-e 打开 $EDITOR 编辑
+    -   `mask: 0002`，是 mask 掉 write 权限，read 4，write 2，exe 1
+    -   `locate`, `updatedb`
+    -   find
+    -   xargs
+    -   useradd, userdel, adduser
+    -   jobs
+    -   fg %1
+    -   set shell options
+    -   export
+    -   ssh
+    -   sftp
+    -   find
+        +   -and
+        +   -or
+        +   -not
+        +   -type
