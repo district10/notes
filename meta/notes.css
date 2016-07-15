@@ -172,18 +172,16 @@ p a img:hover {
     text-transform: uppercase;
 }
 
-.markdown-body img.l { float: left; }
-.markdown-body img.r { float: right; }
-.markdown-body img.w2,
-.markdown-body img.w3,
-.markdown-body img.w4,
-.markdown-body img.l,
-.markdown-body img.r {
+.markdown-body img.w12 { max-width: 40%; }
+.markdown-body img.w13 { max-width: 30%; }
+.markdown-body img.w14 { max-width: 20%; }
+img[align='left'], img[align='right'] {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
     clear: both;
 }
-.markdown-body img.w2 { max-width: 40%; }
-.markdown-body img.w3 { max-width: 30%; }
-.markdown-body img.w4 { max-width: 20%; }
+img[align='left']   { padding-right:    1.5em; float: left; }
+img[align='right']  { padding-left:     1.5em; float: right; }
 
 a.featured {
     border: 1px solid #9ddcff;

@@ -1662,3 +1662,20 @@ vczh 带师弟 -<
 [Vagrant 快速入门 - Jill Liang的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/jillliang/article/details/8251242)
 
 [Nodesoft Folder Monitor](https://www.nodesoft.com/foldermonitor)
+
+![](https://img3.doubanio.com/view/photo/photo/public/p626210155.jpg){align=right .w12}
+
+[神即是爱 (大河恋 影评)](https://movie.douban.com/review/4968584/)
+
+:   作为回忆者的诺曼亲眼见证了弟弟保罗的高超飞钓技术，见证了他的成长与叛逆，也
+    见证了他的沉沦与沉迷。是的，俊美的保罗就是人间的金色艺术品，而作为他手足血
+    脉的诺曼，却从未能真正理解那艺术背后的幽然暗影。
+
+    然而我想，所有的观众都明白，他们都是好孩子。这个评价并不仅仅是由观众作出，
+    也是影片中父亲的判断。他虽然如此教两个孩子钓鱼，但当两个孩子用不同的节奏钓
+    来的鱼放在一起时，父亲笑着评价道：“都很好。”然后，他再从篓子里拿出自己钓上
+    来的一条鳟鱼，缓缓地说：但是今天上帝还是比较偏爱我一点。两个孩子于是一脸的
+    崇敬。
+
+---
+
