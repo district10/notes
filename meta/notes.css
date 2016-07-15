@@ -348,7 +348,6 @@ p.focus.drawer-ng.drawer-ng-close:before {
     max-width: 100%;
 }
 
-* html #navigator   { position: absolute; }
 #navigator          { position: fixed; top: 1em; left: 1em; }
 #gotoindex          { color: #887ddd; }
 body.foldable #gotoindex { border: none; }
@@ -386,7 +385,7 @@ body.locked #gotoindex {
     content: "\00a0\00a0\00a0 -";
 }
 .markdown-body *.drawer-ng-siblings.drawer-ng-hide,
-.markdown-body .hide,
+.markdown-body *.hide,
 .markdown-body code.fold,
 .markdown-body code.foldable,
 .markdown-body code.fold-ng,
