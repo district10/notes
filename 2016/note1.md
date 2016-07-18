@@ -1679,3 +1679,176 @@ vczh 带师弟 -<
 
 ---
 
+`git clone --depth=1 url`
+
+[C++0X的三件好东西（零） - 孟岩 - 博客频道 - CSDN.NET](http://blog.csdn.net/myan/article/details/5877305)
+
+:   言归正传。
+
+    C++0X 出来之后，网上对它的讨论已经很丰富，大大小小几十个新的特性，如果详细
+    论述，当然又是一本（平庸的）厚书。但在我看来，其中很多特性是不用花太大精力
+    的。分这么几类：
+
+    1.  亡羊补牢的，早就应该有，没有就该遭雷劈的。比如 unordered_table,
+        shared_ptr/weak_ptr, regexp, auto/decltype。
+    2.  锦上添花，可有可无的。比如 tuple, array container, range-base for, initializer lists, delegate/inheriting constructors, nullptr 等等。
+    3.  犄角旮旯，库开发专用工具，一般不推荐使用的：如 static_assert、可变模板参数等。
+    4.  还不成熟的，没有完全想清楚的：主要是 thread，其中的 future, promise 等抽象，勇气可嘉，但有早产嫌疑，仍需留院观察。
+
+    那么 C++0X 中真正的主角，值得你投入精力去学习的，有可能对你的编程实践构成重
+    大影响的，我认为就三个东西：
+
+    1.  Rvalue reference;
+    2.  function/bind;
+    3.  Lambda expression and closure.
+
+    这三个东西，网上的讨论也已经有很多了。我也来凑凑热闹，会陆续写三篇简明扼要
+    的东西，介绍它们的厉害。
+
+[提问须知 - 陈硕的文章 - 知乎专栏](https://zhuanlan.zhihu.com/p/20752519)
+
+:   不要只看网上的零散教程来学习基础知识，入门经典书总要读一遍。搞 C++，至少读一遍
+    C++ Primer 和 Effective C++。搞网络编程，至少读一遍 Unix Network Programming 第
+    一卷。搞 Linux 多线程编程，至少读一遍 APUE。如果你问的问题在 UNP 上直接就有答案，
+    我多半没心情抄书回答。
+
+[chenshuo/documents](https://github.com/chenshuo/documents)
+
+[【开源访谈】Muduo 作者陈硕访谈实录 - 开源中国社区](http://www.oschina.net/question/28_61182)
+
+.tex 文件一律使用 UTF-8 编码，一来避免各种编码转换的问题（某些人名用字在
+GB2312 中没有定义），二来可以直接使用现有的 Linux 命令行工具来处理 .tex 文件。.tex
+文件一般可以按章或按节划分，每个文件不超过 1000 行，以利于编辑。再用一个 .tex 文
+件把它们 \include 到一起。.tex 和图片文件的文件名不要有下划线。
+
+一般常见的 IT 图书的开本（成品书尺寸，可以用尺子量出来）是
+185mm × 230mm，即“国际 18 开”；另外一种常见开本是 185mm × 260mm，即“16 开”。
+本文以“国际 18 开”为例。
+
+对于 10pt 的正文字体，L
+A T E X 默认的行距 { 是 12pt，这对于英文是合适的 | ，但是
+对于中文则显得太密了。因此 CT E X 宏包将 \baselinestretch 定义为 1.3，这样行距是
+1.3×12pt = 15.6pt，阅读起来就比较顺眼了。如果一页排 34 行字，那么版心的高度大约是
+x
+34×15.6pt=530.4pt，本文取 530pt
+y
+。
+综上，对于 39 字 × 34 行的版心，其尺寸是 390pt × 530pt，约合 137mm × 186mm。见
+下图示意。
+
+注意这里 random_shuffle 在行尾断字，那么下划线之后不应该出现连字号“-”，因此应
+写为 random_\linebreak[0]shuffle。
+
+就学习 C++ 语言本身而言，我认为有几个练习非常值得一做。这不是“重复发
+明轮子”，而是必要的编程练习，帮助你熟悉掌握这门语言。一是写一个复数类或者
+大整数类
+34
+，实现基本的加减乘运算，熟悉封装与数据抽象。二是写一个字符串类，
+熟悉内存管理与拷贝控制。三是写一个简化的 vector<T> 类模板，熟悉基本的模板编
+程，你的这个 vector 应该能放入 int 和 std::string 等元素类型。四是写一个表达
+式计算器，实现一个节点类的继承体系（右图），体会面向对象编程。前三个练习是
+写独立的值语义的类，第四个练习是对象语义，同时要考虑类与类之间的关系。
+
+C++ 好书很多，不过优
+秀的 C++ 开源代码很少，而且风格迥异
+37 。我这里按个人口味和经验列几个供读者
+参考阅读：Google 的 protobuf、leveldb、PCRE 的 C++ 封装，我自己写的 muduo
+网络库。这些代码都不长，功能明确，阅读难度不大。如果有时间，还可以读一读
+Chromium 中的基础库源码。在读 Google 开源的 C++ 代码时要连注释一起细读。我
+不建议一开始就读 STL 或 Boost 的源码，因为编写通用 C++ 模板库和编写 C++ 应用
+程序的知识体系相差很大。
+
+什么是 C++ 编程中最重要的编程技法（idiom）？我认为是“用对象来管理资
+
+如果编
+写公司内部的服务器上用的网络程序，那么大可只关注一个平台，比如 Linux。因为编写和维护可移植
+的网络程序的代价相当高，平台间的差异可能远比想象中大，即便是 POSIX 系统之间也有不小的差异
+（比如 Linux 没有 SO_NOSIGPIPE 选项），错误的返回码也大不一样。
+我就不打算把 muduo 往 Windows 或其他操作系统移植。如果需要编写可移植的网络程序，我宁愿
+用 libevent、libuv、Java Netty 这样现成的库，把脏活累活留给别人。
+源”，即 RAII。资源包括动态分配的内存
+41 ，也包括打开的文件、TCP 网络连接、数
+据库连接、互斥锁等等。借助 RAII，我们可以把资源管理和对象生命期管理等同起
+来，而对象生命期管理在现代 C++ 里根本不是困难（见注 5），只需要花几天时间熟
+悉几个智能指针
+42 的基本用法即可。学会了这三招两式，现代的 C++ 程序中可以完
+全不写 delete，也不必为指针或内存错误操心。现代 C++ 程序里出现资源和内存泄
+漏的惟一可能是循环引用，一旦发现，也很容易修正设计和代码。这方面的详细内容
+请参考《Effective C++ 第三版》第 3 章资源管理。
+
+有人为了避免所谓的内存碎片，害怕使用 STL 容器，也不敢 new/delete，这算是 premature
+optimization 还是因噎废食呢？
+
+协议设计是网络编程的核心
+对于专用的业务系统，协议设计是核心任务，决定了系统的开发难度与可靠性，但是这个领域还没
+有形成大家公认的设计流程。
+
+侯捷先生在《漫談程序員與編程》中讲到 STL 运用的三个档次：“會用 STL，是一種檔次。對 STL
+原理有所了解，又是一個檔次。追蹤過 STL 源碼，又是一個檔次。第三種檔次的人用起 STL 來，虎虎生
+風之勢絕非第一檔次的人能夠望其項背。”
+我认为网络编程也可以分为三个层次：
+1. 读过教程和文档
+2. 熟悉本系统 TCP/IP 协议栈的脾气
+3. 自己写过一个简单的 TCP/IP stack
+
+我认为 TCP 网络编程有三个例子最值得学习研究，分别是 echo、chat、proxy，都是长连接协议。
+
+在编写 muduo 的时候，我一般会开四个命令行窗口，其一看 log，其二看 strace，其三用 netcat/
+tempest/ipython 充作通信对方，其四看 tcpdump。各个工具的输出相互验证，很快就摸清了门道。
+muduo 是一个基于 Reactor 模式的 Linux C++网络库 8 ，采用非阻塞 IO，支持高并发和多线程，核心代码
+量不大（3000 多行），示例丰富，可供网络编程的学习者参考。
+
+《TCP/IP Illustrated, Vol. 1: The Protocols》中文名《TCP/IP 详解》，以下简称 TCPv1。
+TCPv1 是一本奇书。
+
+TCPv1 堪称 TCP/IP 领域的圣经。作者 W. Richard Stevens 不是 TCP/IP 协议的发明人，他从使用者
+（程序员）的角度，以 tcpdump 为工具，对 TCP 协议抽丝剥茧娓娓道来（第 17~24 章），让人叹服。
+恐怕 TCP 协议的设计者也难以讲解得如此出色，至少不会像他这么耐心细致地画几百幅收发 package 的
+时序图。
+TCP 作为一个可靠的传输层协议，其核心有三点：
+1. Positive acknowledgement with retransmission
+2. Flow control using sliding window（包括 Nagle 算法等）
+3. Congestion control（包括 slow start、congestion avoidance、fast retransmit 等）
+
+《Unix Network Programming, Vol. 1: Networking API》第二版或第三版（这两版的副标题稍有不同，
+第三版去掉了 XTI），以下统称 UNP，如果需要会以 UNP2e、UNP3e 细分。
+UNP 是 Sockets API 的权威指南，但是网络编程远不是使用那十几个 Sockets API 那么简单，作者
+W. Richard Stevens 深刻地认识到这一点，他在 UNP2e 的前言中写到：
+
+http://www.kohala.com/start/preface.unpv12e.html
+
+>   I have found when teaching network programming that about 80% of all
+>   network programming problems have nothing to do with network programming,
+>   per se. That is, the problems are not with the API functions such as accept
+>   and select, but the problems arise from **a lack of understanding of the
+>   underlying network protocols**. For example, I have found that once a student
+>   understands TCP's three-way handshake and four-packet connection
+>   termination, many network programming problems are immediately understood.
+
+UNP 就像给了你一堆做菜的原料（各种 Sockets 函数的用法），常用和不常用的都给了
+（Out-of- Band Data、Signal-Driven IO 等等），要靠读者自己设法取舍组合，做出一
+盘大菜来。在第一遍读的时候，我建议只读那些基本且重要的章节；另外那些次要的内容
+可略作了解，即便跳过不读也无妨。UNP 是一本操作性很强的书，读这本这本书一定要上
+机练习。
+
+UNP3e 对此有很好的总结（第 6 章： IO 模型，第 30 章：客户端/服务器设计范式 ），
+这里不再赘述。据我了解，在高性能的网络程序中，使用得最为广泛的恐怕要数“non-
+blocking IO + IO multiplexing”这种模型，即 Reactor 模式。
+
+[RSS介绍和简单实现 - laike9m's blog](https://laike9m.com/blog/rssjie-shao-he-jian-dan-shi-xian,51/)
+
+[github-cards/card.js at master · lepture/github-cards](https://github.com/lepture/github-cards/blob/master/src/card.js)
+
+:   可以参考。
+
+所以当时摆在我面前的无非有两条路，一是继续留在学校里面，像那些最后去谷歌的学长
+学姐一样，疯狂的刷面试题目。 等找工作之前先去微软亚洲研究院实习，然后继续刷题，
+最后运气不差的话，拿个谷歌的 offer 。 网上有不少拿了谷歌 offer 的应届生写长篇大
+论关于如何拿到谷歌 offer 如何难如何难 ，其实秘籍很简单：**刷题+实习**。 这个秘籍并
+不是我无中生有，这是有法可依的，至少从去年和今年看，这个方法屡试不爽。 今年刚听
+说一个本科和我一起组队搞北邮 ACM 校赛的学长，也是这么干的，然后也是顺理成章拿到
+了谷歌美国的 offer。
+
+每次回家，都觉得自己在北京还是不够努力。
+
+[只增不减的互联网恶习](http://yanyiwu.com/work/2016/01/21/silly-increment.html)

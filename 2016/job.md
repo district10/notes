@@ -608,3 +608,122 @@ Job
 
 -   [4ker/Cpp-Primer: C++ Primer 5ed answers](https://github.com/4ker/Cpp-Primer)
 -   写作计划见 ../../blog/_pages/orgit.md
+- [fex-team/interview-questions: FEX 面试问题](https://github.com/fex-team/interview-questions)
+- [计算机网络 · GitBook](http://hit-alibaba.github.io/interview/basic/network/)
+- [qiu-deqing/FE-interview: 收集的前端面试题和答案](https://github.com/qiu-deqing/FE-interview)
+- [paddingme/Front-end-Web-Development-Interview-Question: 前端开发面试题大收集](https://github.com/paddingme/Front-end-Web-Development-Interview-Question)
+- [paddingme/Front-end-Web-Development-Interview-Question: 前端开发面试题大收集](https://github.com/paddingme/Front-end-Web-Development-Interview-Question)
+-   [4ker/recipes: Some code snippets for sharing](https://github.com/4ker/recipes)
+-   [4ker/annotated-git-1.0](https://github.com/4ker/annotated-git-1.0/)
+-   [C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#S-const)
+-   [Definitions and ODR - cppreference.com](http://en.cppreference.com/w/cpp/language/definition)
+
+
+[面试 C++ 程序员，什么样的问题是好问题？ - 知乎](https://www.zhihu.com/question/20184857)
+
+:   对于应届生：
+
+    -   标准库各容器的基本操作的复杂度。标准库算法的复杂度，例如 std::sort() 的
+        平均复杂度、最坏复杂度（答 O(N^2) 和 O(N log N) 都算对），最坏情况什么
+        时候出现。
+    -   标准库各容器（deque 除外）的数据结构（标准党勿喷，主流 STL 实现的数据结
+        构都差不多），以及 vector 的容量增长方式。如果回答得特别好，还可以补充
+        问为什么 vector::push_back() 的复杂度是分摊之后的 O(1)，作为加分。
+    -   出一道使用 lower_bound / upper_bound 能轻松解决的简单算法题；或者实现
+        set_intersection() 或 set_union() 或 merge()；或者实现 word count，统计
+        每个单词出现的次数（最多十几行代码），如果有时间，输出时再按出现次数排
+        序。
+
+    作者：陈硕
+
+    既然你是在校学生，而且编程语言和数据结构的基础还不错，我认为应该在《操作系
+    统》和《计算机体系结构》这两门课上下功夫，然后才去读编程方面的 APUE、UNP 等
+    书。
+
+    下面简单谈谈我对学习这两门课的看法和建议，都是站在服务端程序员的角度，从实
+    用主义（pragmatic）的立场出发而言的。
+
+    学习操作系统的目的，不是让你去发明自己操作系统内核，打败 Linux；也不是成为
+    内核开发人员；而是理解操作系统为用户态进程提供了怎样的运行环境，作为程序员
+    应该如何才能充分利用好这个环境，哪些做法是有益的，哪些是做无用功，哪些则是
+    帮倒忙。
+
+    学习计算机体系结构的目的，不是让你去设计自己的 CPU（新的 ISA 或微架构），打
+    败 Intel 和 ARM；也不是参与到 CPU 设计团队，改进现有的微架构；而是明白现代
+    的处理器的能力与特性（例如流水线、多发射、分支预测、乱序执行等等指令级并行
+    手段，内存局部性与 cache，多处理器的内存模型、能见度、重排序等等），在编程
+    的时候通过适当组织代码和数据来发挥 CPU 的效能，避免 pitfalls。Modern
+    Microprocessors
+
+    这两门课程该如何学？看哪些书？这里我告诉你一个通用的办法，去美国计算机系排
+    名靠前的大学的课程主页，找到这两门课最近几年的课程大纲、讲义、参考书目、阅
+    读材料、随堂练习、课后作业、编程实验、期末项目等，然后你就心里有数了。
+
+    **学习任何一门课程都要善于抓住主要矛盾、分清主次、突出重点，关键是掌握知识
+    框架，学会以后真正有用的知识和技能，而不要把精力平均分配在一些琐事上。**
+
+    请允许我再次引用孟岩的观点：<http://blog.csdn.net/myan/article/details/5877305>
+
+    >   我（孟岩）主张，在具备基础之后，学习任何新东西，都要抓住主线，突出重点。
+    >   对于关键理论的学习，要集中精力，速战速决。而旁枝末节和非本质性的知识内
+    >   容，完全可以留给实践去零敲碎打。
+    >
+    >   原因是这样的，任何一个高级的知识内容，其中都只有一小部分是有思想创新、
+    >   有重大影响的，而其它很多东西都是琐碎的、非本质的。因此，集中学习时必须
+    >   把握住真正重要那部分，把其它东西留给实践。对于重点知识，只有集中学习其
+    >   理论，才能确保体系性、连贯性、正确性，而对于那些旁枝末节，只有边干边学
+    >   能够让你了解它们的真实价值是大是小，才能让你留下更生动的印象。如果你把
+    >   精力用错了地方，比如用集中大块的时间来学习那些本来只需要查查手册就可以
+    >   明白的小技巧，而对于真正重要的、思想性东西放在平时零敲碎打，那么肯定是
+    >   事倍功半，甚至适得其反。
+    >
+    >   因此我对于市面上绝大部分开发类图书都不满——它们基本上都是面向知识体系本
+    >   身的，而不是面向读者的。总是把相关的所有知识细节都放在一堆，然后一堆一
+    >   堆攒起来变成一本书。反映在内容上，就是毫无重点地平铺直叙，不分轻重地陈
+    >   述细节，往往在第三章以前就用无聊的细节谋杀了读者的热情。
+
+    比如说操作系统，应该把精力主要放在进程管理与调度、内存管理、并发编程与同步、
+    高效的 IO 等等，而不要过于投入到初始化（从 BIOS 加载引导扇区、设置 GDT、进入
+    保护模式）这种一次性任务上。
+
+    再比方说《计算机网络》，关键之一是理解如何在底层有丢包、重包、乱序的条件下
+    设计出可靠的网络协议，这不算难。难一点的是这个可靠协议能达到“既能充分利用带
+    宽，又能做到足够公平（并发连接大致平均分享带宽）”。而不是学会手算 CRC32，这
+    更适合放到信息论或别的课程里去讲。
+
+    注意分清知识的层次。...“有的人学着学着成了语言专家，反而忘了自己原本是要
+    解决问题来的。”（语出孟岩 [快速掌握一个语言最常用的50%](http://blog.csdn.net/myan/article/details/3144661)）
+
+    对于并发编程来说，掌握 mutex、condition variable 的正确用法，避免误用（例如
+    防止 busy-waiting 和 data race）、避免性能 pitfalls，是一般服务端程序员应该
+    掌握的知识。而如何实现高效的 mutex 则是 libc 和 kernel 开发者应该关心的事，
+    随着硬件的发展（CPU 与内存之间互联方式的改变、核数的增加），最优做法也随之
+    改变。
+
+    注意识别过时的知识。
+
+    另外一点是 low level 优化的知识非常容易过时，编码时要避免过度拟合
+    （overfitting）。
+
+    如果你要记住结论，一定要同时记住前提和适用条件。
+
+    最后一点小建议，服务端开发这几年已经普及 64-bit 多核硬件平台，因此在学习操
+    作系统的时候，可以不必太关心单核上特有的做法（在单核时代，内核代码进入临界
+    区的办法之一是关中断，但到了多核时代，这个做法就行不通了），也不必太花精力
+    在 32-bit 平台上。特别是 32-bit x86 为了能支持大内存，不得已有很多 work
+    around 的做法（困难在于 32-bit 地址空间不够将全部物理内存映射入内核），带来
+    了额外的复杂性，这些做法当时有其积极意义，但现在去深入学似乎不太值得。
+
+    ---
+
+    核心就三门课：
+
+    -   数据结构：看《算法导论》。
+    -   操作系统，看 Tanenbaum 的书，这是最最核心的课程。
+    -   计算机体系结构，看 David Patterson 和 John Hennessy 合写的书。
+
+    另外，“操作系统”不是教你怎么安装配置 Linux，看原问和楼下某些答案太搞笑了。
+
+    refs and see also
+
+    -   [Linux C++ 服务器端这条线怎么走？一年半能做出什么？ - 陈硕的回答 - 知乎](https://www.zhihu.com/question/22608820/answer/21968467)
