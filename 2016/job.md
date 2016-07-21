@@ -534,10 +534,47 @@ Job
     体会是，微软你只要基础好就行了，实习经历会加分。Google你必须要能做acm，工作
     经历啥的基本无视。
 
----
-
 ## TODO
 
 -   [4ker/Cpp-Primer: C++ Primer 5ed answers](https://github.com/4ker/Cpp-Primer)
 -   boost 库的裁剪 /home/tzx/git/blog/_posts/post-0110-boost.md
 -   写作计划见 /home/tzx/git/blog/_pages/orgit.md
+
+NOTES -<
+
+:   [TCP 连接的建立和终止过程 - 辛未羊的博客](http://panqiincs.github.io/blog/2015/10/17/establishment-and-termination-of-tcp-connection/) -<
+
+    :   Richard Stevens 先生在 [UNP2e (UNIX 网络编程 卷 1：套接字联网 API)](http://book.douban.com/subject/4859464/) 的前言中写道：
+
+        >   I have found when teaching network programming that about 80% of all
+        >   network programming problems have nothing to do with network programming,
+        >   per se. That is, the problems are not with the API functions such as
+        >   accept and select, but the problems arise from **a lack of understanding of
+        >   the underlying network protocols**. For example, I have found that once a
+        >   student understands TCP's **three-way handshake and four-packet connection termination**,
+        >   many network programming problems are immediately understood.
+
+        下面是我的 remix。
+
+        **TCP 的三路握手**
+
+        肯定是客户端先表白。
+
+        1.  客户端对服务器：我要和你发展关系。（#1，SYN）
+        2.  服务器对客户端：你可以和我发展关系。（#2，SYN，ACK）
+        3.  客户端对服务器：在一起~（#3，ACK）
+
+        于是三次握手后，他们在一起了（连接建立了）。
+
+        ![](http://www.tcpipguide.com/free/diagrams/tcpopen3way.png)
+
+        **TCP 的四次挥手**
+
+        可以是客户端说分手，也可以是客户端。这里以客户端作为负心汉。
+
+        1. 客户端对服务器：恋爱谈完了，我们分手把。（#1，FIN）
+        2. 服务器对客户端：可以的。（如果还有财务纠纷那就先还钱，不让分手的。）（#2，ACK）
+        3. 服务器对客户端：那就分。（#3，FIN）
+        4. 客户端对服务器：恩。（#4，ACK）
+
+        ![](http://www.tcpipguide.com/free/diagrams/tcpclose.png)
