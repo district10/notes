@@ -11,8 +11,9 @@ title: TZX's Notes
 
 ## 2016
 
--   [【working notes】](2016/note1.html){.flag title=2016/note1.md}
 -   [【working notes】](2016/note2.html){.flag title=2016/note2.md}
+-   [note1.html](2016/note1.html){.flag title=2016/note1.md}
+-   [job](2016/job.html){.hide title=2016/job.md}
 -   [关于介绍本笔记特性](2016/intro-to-my-note.html){.hide title=2016/intro-to-my-note.md}
 -   [博客摘记之 yhlleo](2016/blog-yhlleo.html){title=2016/blog-yhlleo.md}
 -   [MISC](misc/index.html){title=misc/index.md}
