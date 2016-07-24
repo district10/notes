@@ -600,24 +600,7 @@ Job
 
 [如何得到 Google 的工作机会？ - Tony 的回答 - 知乎](https://www.zhihu.com/question/24099873/answer/26711652)
 
----
-
-## TODO
-
--   [4ker/Cpp-Primer: C++ Primer 5ed answers](https://github.com/4ker/Cpp-Primer)
--   写作计划见 ../../blog/_pages/orgit.md
-- [fex-team/interview-questions: FEX 面试问题](https://github.com/fex-team/interview-questions)
-- [计算机网络 · GitBook](http://hit-alibaba.github.io/interview/basic/network/)
-- [qiu-deqing/FE-interview: 收集的前端面试题和答案](https://github.com/qiu-deqing/FE-interview)
-- [paddingme/Front-end-Web-Development-Interview-Question: 前端开发面试题大收集](https://github.com/paddingme/Front-end-Web-Development-Interview-Question)
-- [paddingme/Front-end-Web-Development-Interview-Question: 前端开发面试题大收集](https://github.com/paddingme/Front-end-Web-Development-Interview-Question)
--   [4ker/recipes: Some code snippets for sharing](https://github.com/4ker/recipes)
--   [4ker/annotated-git-1.0](https://github.com/4ker/annotated-git-1.0/)
--   [C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#S-const)
--   [Definitions and ODR - cppreference.com](http://en.cppreference.com/w/cpp/language/definition)
-
-
-[面试 C++ 程序员，什么样的问题是好问题？ - 知乎](https://www.zhihu.com/question/20184857)
+[面试 C++ 程序员，什么样的问题是好问题？ - 知乎](https://www.zhihu.com/question/20184857) -<
 
 :   对于应届生：
 
@@ -764,3 +747,85 @@ NOTES -<
         4. 客户端对服务器：恩。（#4，ACK）
 
         ![](http://www.tcpipguide.com/free/diagrams/tcpclose.png)
+
+---
+
+## TODO
+
+-   [4ker/Cpp-Primer: C++ Primer 5ed answers](https://github.com/4ker/Cpp-Primer)
+-   写作计划见 `../../blog/_pages/orgit.md`
+-   [fex-team/interview-questions: FEX 面试问题](https://github.com/fex-team/interview-questions)
+-   [计算机网络 · GitBook](http://hit-alibaba.github.io/interview/basic/network/)
+-   [qiu-deqing/FE-interview: 收集的前端面试题和答案](https://github.com/qiu-deqing/FE-interview)
+-   [paddingme/Front-end-Web-Development-Interview-Question: 前端开发面试题大收集](https://github.com/paddingme/Front-end-Web-Development-Interview-Question)
+-   [4ker/recipes: Some code snippets for sharing](https://github.com/4ker/recipes)
+-   [4ker/annotated-git-1.0](https://github.com/4ker/annotated-git-1.0/)
+-   [C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#S-const)
+-   [Definitions and ODR - cppreference.com](http://en.cppreference.com/w/cpp/language/definition)
+
+---
+
+Targets
+
+-   [网易 2017 年校园招聘](http://campus.163.com/#/campus/0/0/1) -<
+
+    :   还没有写简历。
+
+        <http://campus.163.com/#/campus/detail?positionId=21>
+
+        图像算法工程师（北京）
+
+        -   负责实现并优化编解码及压缩等图像算法；
+        -   负责图像相关的技术、系统、产品的研发工作：包括但不限于：人脸检测识别、图像分类标注、OCR、增强现实、图像质量评价、图像处理等；
+        -   调研业界的前沿技术，根据需求完成技术转换。
+        -   计算机视觉、通信及相关专业，硕士及以上学历；
+        -   熟练掌握计算机图像处理及图像编解码的基本方法，具有相关项目经验；
+        -   熟练掌握C/C++编程，有linux开发经验者优先；
+        -   具备较好的沟通表达能力和团队合作意识。
+
+        [网易游戏 2017 校园招聘_不拼搏，枉少年！](http://game.campus.163.com/xiaoyuan/zhiwei/zaixian/sjl/2016/07/18/14293_628207.html)
+
+        [网易内推码——针对 2017 年校招 - V2EX](http://v2ex.com/t/293873#reply2)
+        :   GY23708, 843A5Z1
+
+            [[网易] 2017 年网易校招内推码继续放送，内推码 4OE7154 - V2EX](http://v2ex.com/t/293543#reply6)
+
+        [网易游戏、互联网、有道内推来啦！老司机带你上车！](http://note.youdao.com/share/index.html?id=3a4b9ca55380b6ab1b1c0e5af13d07a2&type=note#/)
+
+        :   【网易游戏（雷火＆盘古事业部）】
+
+            可内推岗位：
+            程序类： 研发工程师（移动游戏/PC游戏）、游戏防护工程师（QA）、平台开发工程师、前端开发工程师、人工智能工程师、技术美术工程师
+            策划类： 虚拟世界架构师（移动游戏/PC游戏）、游戏运营策划
+            艺术类： 游戏美术设计师、游戏视觉设计师、游戏配乐师、游戏音频设计师
+            其他类： 项目管理工程师、官网运营策划、用户体验研究员
+
+            想内推游戏的同学，可以以“校招+姓名+意向岗位”为主题，发邮件邮箱到mojiapeng@corp.netease.com，邮件内容必须包含：
+            姓名：
+            电话：
+            邮箱：
+            意向职位：
+            就读高校：
+            专业：
+            学历：
+            毕业时间：
+            个人推荐：（描述下自己的优势，如比赛经历、项目经历等等,越丰富概率越大）
+
+-   Tencent -<
+
+    :   腾讯内部搜索平台部(内推)：负责搜索，社交数据挖掘等场景下自然语言处理，query
+        理解、相关性计算、个性化排序，图像识别等前沿技术的研究和开发
+
+        基本要求：
+
+        -   熟悉 Linux\Unix 下 c/c++, python 等语言开发
+        -   具有较强的分析问题和解决问题能力及兴趣
+        -   精通算法设计/数据结构
+        -   有自然语言处理、用户需求理解、机器学习、数据挖掘、推荐算法，深度学习中至少一项相关经验或背景
+        -   具有图像识别等多媒体处理领域经验为佳
+
+        简历请发到 3178425893@qq.com
+
+-   [招聘流程|校园招聘|阿里巴巴集团2016校园招聘 |此时此刻 非我莫属](https://campus.alibaba.com/index.htm) -<
+
+    :   alibaba
