@@ -785,6 +785,8 @@ Targets
 
         [网易游戏 2017 校园招聘_不拼搏，枉少年！](http://game.campus.163.com/xiaoyuan/zhiwei/zaixian/sjl/2016/07/18/14293_628207.html)
 
+        [♥网易游戏♥ 2017 年校招♥内推♥开始了，开发/策划/艺术/运营等…… - V2EX](http://v2ex.com/t/292489#reply30)
+
         [网易内推码——针对 2017 年校招 - V2EX](http://v2ex.com/t/293873#reply2)
         :   GY23708, 843A5Z1
 
