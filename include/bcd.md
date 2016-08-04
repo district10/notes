@@ -12,7 +12,7 @@ BirX 桥梁检测机器人项目是研究生以来自己参与的第一个项目
 这个【项目总结】只针对自己参与的部分，主要是对各个传感器模块、日志模块、通信模块和
 系统架构进行框架和代码上的总结分析。（代码不方便公开，所以这里的贴的是精简和调整过的示例代码片段。）
 
-![我主要负责整体框架、各传感器模块、日志和通信模块，算法模块由各师兄负责。](http://localhost:8000/system-architecture.png)
+![我主要负责整体框架、各传感器模块、日志和通信模块，算法模块由各师兄负责。](http://whudoc.qiniudn.com/2016/system-architecture.png)
 
 因为篇幅较大，所以计划分成如下六个主题分别讲述：
 
@@ -33,32 +33,32 @@ BirX 桥梁检测机器人项目是研究生以来自己参与的第一个项目
 1）效率低；2）不稳定（人的主观性对检测结果有干扰）。
 图 1 是一些改进方案，但他们都或多或少存在适用性差、效率低、设计得过于复杂等问题。
 
-![图 1](http://localhost:8000/wpp_2016-07-26_10-53-03.png)
+![图 1](http://whudoc.qiniudn.com/2016/wpp_2016-07-26_10-53-03.png)
 
 左下角的方案来自韩国汉阳大学，采用的是桥梁检测车。
 早期的桥梁检测车设计粗糙（往往只是在普通货车上加一个支架），还是依赖人工，如图 2。
 
-![图 2. 第一代桥梁检测车](http://localhost:8000/wps_2016-07-26_10-43-13.png)
+![图 2. 第一代桥梁检测车](http://whudoc.qiniudn.com/2016/wps_2016-07-26_10-43-13.png)
 
 这突然让我想到了农业自动化水平高到令人叹为观止的德国，的……芒果收割机：
 
-![Lemon Harvesting Machine](http://localhost:8000/2016-07-26_13-35-57.gif)
+![Lemon Harvesting Machine](http://whudoc.qiniudn.com/2016/2016-07-26_13-35-57.gif)
 
 哈哈哈哈。这“吊篮式”真是太逗啦。不过桥梁检测车是相对简单、经济、可行的解决方案，
 我们的系统走的也是这条路。这是工作示意图：
 
-![](http://localhost:8000/2016-07-26_10-23-56.png)
+![](http://whudoc.qiniudn.com/2016/2016-07-26_10-23-56.png)
 
 首先，检测车走到桥面上，然后伸出机械臂，把传感器放到桥底合适的位置，然后用前进后退，对桥底进行检测分析。
 下面两张图是我们实际效果。
 
-![图 3. 展臂：把传感器放到合适的位置](http://localhost:8000/wpp_2016-07-26_10-57-54.png)
+![图 3. 展臂：把传感器放到合适的位置](http://whudoc.qiniudn.com/2016/wpp_2016-07-26_10-57-54.png)
 
-![图 4. 行走：用传感器采集桥底影像数据](http://localhost:8000/wpp_2016-07-26_10-58-57.png)
+![图 4. 行走：用传感器采集桥底影像数据](http://whudoc.qiniudn.com/2016/wpp_2016-07-26_10-58-57.png)
 
 下面是驾驶室的控制台。
 
-![图 5. ](http://localhost:8000/2016-07-26_10-21-57.png)
+![图 5. ](http://whudoc.qiniudn.com/2016/2016-07-26_10-21-57.png)
 
 可以看到控制台上有两台电脑，一台高性能计算机、一台工控机，可以对车辆和传感器进行监控和调度。
 
@@ -77,18 +77,18 @@ BirX 桥梁检测机器人项目是研究生以来自己参与的第一个项目
 -   惯导：对 LMS 的传感器平台进行位姿监控；
 -   编码器：测量车辆行走距离（检测车工作时，通过行走论前进后退，通过编码器获取行走的距离和方向）；
 
-![图 6](http://localhost:8000/2016-07-26_10-17-24.png)
+![图 6](http://whudoc.qiniudn.com/2016/2016-07-26_10-17-24.png)
 
-![图 7](http://localhost:8000/2016-07-26_10-17-31.png)
+![图 7](http://whudoc.qiniudn.com/2016/2016-07-26_10-17-31.png)
 
 项目初期，我们在长沙蓝色工业园的厂房内搭建了一个模拟的桥底，用于测试。
 如图 8、9、10。
 
-![图 8. 工场内景](http://localhost:8000/2016-07-26_10-18-18.png)
+![图 8. 工场内景](http://whudoc.qiniudn.com/2016/2016-07-26_10-18-18.png)
 
-![图 9. 测试用的假桥](http://localhost:8000/2016-07-26_10-20-41.png)
+![图 9. 测试用的假桥](http://whudoc.qiniudn.com/2016/2016-07-26_10-20-41.png)
 
-![图 10. 装备了传感器的测试平台](http://localhost:8000/2016-07-26_10-20-51.png)
+![图 10. 装备了传感器的测试平台](http://whudoc.qiniudn.com/2016/2016-07-26_10-20-51.png)
 
 # 2.  系统架构
 
@@ -96,7 +96,7 @@ BirX 桥梁检测机器人项目是研究生以来自己参与的第一个项目
 
 首先，系统的软件部分主要运行在高性能计算机和公控机上。整个系统可分为四部分：
 
-![采集模块+通信模块+算法模块+展示模块（这里没有画出）](http://localhost:8000/system-architecture.png)
+![采集模块+通信模块+算法模块+展示模块（这里没有画出）](http://whudoc.qiniudn.com/2016/system-architecture.png)
 
 采集模块包括个传感器：LMS、IMU、UR 等，传感器分布在两台电脑上（指高性能计算机和工控机），
 具体连接情况要看当时的接线。通信模块指的是两台电脑直接的传感器数据的共享，以及两者间的
@@ -136,23 +136,23 @@ UR 10
 
 这部分我并不负责，只简单说明需要处理的部分难题。
 
-![影像配准和拼接](http://localhost:8000/2016-07-26_10-33-57.png)
+![影像配准和拼接](http://whudoc.qiniudn.com/2016/2016-07-26_10-33-57.png)
 
-![影像配准和拼接](http://localhost:8000/2016-07-26_10-33-46.png)
+![影像配准和拼接](http://whudoc.qiniudn.com/2016/2016-07-26_10-33-46.png)
 
-![影像匀光匀色](http://localhost:8000/wpp_2016-07-26_10-55-18.png)
+![影像匀光匀色](http://whudoc.qiniudn.com/2016/wpp_2016-07-26_10-55-18.png)
 
-![点云配准拼接](http://localhost:8000/wps_2016-07-26_10-50-44.png)
+![点云配准拼接](http://whudoc.qiniudn.com/2016/wps_2016-07-26_10-50-44.png)
 
-![点云面提取](http://localhost:8000/wps_2016-07-26_10-48-51.png)
+![点云面提取](http://whudoc.qiniudn.com/2016/wps_2016-07-26_10-48-51.png)
 
 ## 展示模块
 
-![](http://localhost:8000/2016-07-26_10-32-24.png)
+![](http://whudoc.qiniudn.com/2016/2016-07-26_10-32-24.png)
 
-![](http://localhost:8000/2016-07-26_10-32-31.png)
+![](http://whudoc.qiniudn.com/2016/2016-07-26_10-32-31.png)
 
-三维展示模块主要用的是 OpenSceneGraph，我也参与了一点（但是并不完善），
+三维展示模块主要用的是 OpenSceneGraph，我也参与了一点（但是并不完善，所以没有纳入总结中），
 见 [图片-dvorak4tzx](http://dvorak4tzx.lofter.com/post/1d4021c8_ac12379)。
 
 # 3. Logger 模块和 Utils 模块
@@ -727,7 +727,7 @@ LMS 数据的每个字节就是这么显示出来的。
 插入到这三个操作调用之间。
 
 ![先逆时针转 15 度，再顺时针转 120 度，再逆时针转 15 度，中间都需要等待上一个操
-    作完成，才能进行下一步。](http://localhost:8000/2016-07-26_10-21-40.png)
+    作完成，才能进行下一步。](http://whudoc.qiniudn.com/2016/2016-07-26_10-21-40.png)
 
 这就是 `delay_ms` 函数，它能将线程暂停一定的毫秒数，而不影响主界面的消息循环。
 
@@ -1132,7 +1132,7 @@ QString parseBits2String( const QByteArray &bits )
 
 ## LMS
 
-![](http://localhost:8000/lms_illus.png){align=right .w13}
+![](http://whudoc.qiniudn.com/2016/lms_illus.png){align=right .w13}
 
 在阅读了 [LMS 说明文档](http://gnat-tang-archive.qiniudn.com/lms.pdf) ，明白
 LMS 数据采集和存储基本原理后，LMS 是我完成的第一个传感器模块。
@@ -2598,7 +2598,7 @@ IMU 模块就到这里。下面讲 UR 模块。
 
 在我还在老师的公司做本科毕设的时候，我就看到了 UR10。没想到后来它的控制程序还是我写的。
 
-![放在公司二楼的 UR10 机械臂](http://localhost:8000/2016-07-26_10-20-05.png){align=right}
+![放在公司二楼的 UR10 机械臂](http://whudoc.qiniudn.com/2016/2016-07-26_10-20-05.png){align=right}
 
 先简要介绍一下它：
 
@@ -2631,7 +2631,7 @@ enum {
 如下图，urClient1 连接到端口 30001，用来控制 UR 的移动，使用的是 UR 文档中说到的 UScript 脚本。
 urStatusAgent 连接到端口 30003，用来获取 UR 当前的位姿和状态，数据频率是 100 Hz，每次 1440 个字节的数据。
 
-![](http://localhost:8000/ur-conn-UR.png)
+![](http://whudoc.qiniudn.com/2016/ur-conn-UR.png)
 
 上图原是我画在 processingon 上的，链接在这里：<https://www.processon.com/view/link/56ee186de4b0881f9ac2e009>。
 
@@ -2743,7 +2743,11 @@ void URController::client1Write( QByteArray &ba ) { ... }
 void URController::client2Write( QByteArray &ba ) { ... }
 ```
 
-UR 最重要的是获取 UR 的当前姿态，
+UR 最重要的是获取 UR 的当前姿态，而且我们只 parse 我们需要的数据：
+
+![](http://whudoc.qiniudn.com/2016/ur-decode-status.png)
+
+代码如下：
 
 ```cpp
 void URController::parseURStatus( const QByteArray &ba )
@@ -2905,13 +2909,17 @@ void URController::moveJDiff( const double &x1,
 里面用的是 UR 提供的脚本。UR10 的说明文档里有一本 UScript 1.0，里面对此
 有所说明。我们需要的只是移动关节、移动到某一个位置。所以还不算太复杂。
 
-![这是早期的一个截图](http://localhost:8000/ur-old.png)
+![](http://whudoc.qiniudn.com/2016/ur-process.png)
+
+![这是早期的一个截图](http://whudoc.qiniudn.com/2016/ur-old.png)
 
 UR 就讲到这。
 
 传感器模块也就到底为止了。
 
-# 5.  通信模块：Wrappers 和 Moderator：简介跨电脑 IPC，进行函数调用；
+# 5.  通信模块：Wrappers 和 Moderator
+
+>   简介跨电脑 IPC，进行函数调用；
 
 （这部分很内容也很多。暂时没时间写完。）
 
@@ -2929,10 +2937,22 @@ UR 就讲到这。
 
 其实以前的一篇 post 已经提到过：[封装说明](http://tangzx.qiniudn.com/post-0059-exe-wrapper.html)，
 可以先看这边。这个 post 讲得是架构，也就是说【如何屏蔽程序调用？不管它来自本机，还是异地】。
+对应的代码在 [district10/CrossOS: Cross OS Communication](https://github.com/district10/CrossOS)，
+已经在 Linux 和 Windows 上测试通过。
 
-Wrappers 模块之下，是 Moderator（中介）模块。作用如下：
+在上面 repo 的 README.txt 里，写到：
 
-![](http://localhost:8000/system-flow.png)
+>   还需要定义一个协议，规定相互传递数据的格式。如：
+>   第一个字节代表传输类型，文本？buf？需要保存？数据开始？数据结束？等等。
+>
+>   假设这个规则为 moderator，moderator 需要在发送前对数据进行封装，在收到数据时进行解析和分发。
+>   就好象这个 moderator 是我们的 PDU 解析工具。
+
+基于这个 Wrapper，我设计了 Moderator（中介）模块，专门负责序列化和反序列化后函数调用。
+
+它的作用如下图：
+
+![](http://whudoc.qiniudn.com/2016/system-flow.png)
 
 P.S. 中介通常翻译成 intermediary agent，为什么我要用 moderator 来做这个模块名？
 
@@ -2943,10 +2963,213 @@ P.S. 中介通常翻译成 intermediary agent，为什么我要用 moderator 来
 
 Moderator 主要利用了 Qt 提供的序列化功能，实现了函数调用（以及调用参数）的的序列化。
 
+首先要明确，我们的代码只有一份，只不过高性能计算机上会运行 Master 程序，工控机上会
+运行 Slave 程序，两者都有各个传感器模块，只不过传感器只有一边是真的有，另一边只是
+有一个空壳，它唯一的作用是请求另一边的传感器，并假装自己这边真的有传感器。
+Moderator 在两边都有，下面是代码：
+
+```cpp
+class Moderator
+{
+public:
+    Moderator( );
+    static bool doItYourself( BCD::TypeID tid );
+
+public:
+    static void dispatch( QByteArray &msg );
+
+    typedef QHash<BCD::TypeID, MasterSlaveType> WhichSide;
+    const static WhichSide wss;
+    enum CrossType {
+        // -- G E N E S I S - L M S --
+        GEN_LMS__START__QINT64,
+        GEN_LMS__STOP__VOID,
+        ...
+        // -- G E N E S I S - U R --
+        GEN_UNIT__SET_UR_POSE__DOUBLE_DOUBLE_DOUBLE_DOUBLE_DOUBLE_DOUBLE
+    };
+    // -- G E N E S I S --
+    static QByteArray genLMS_start( const qint64 &dt = 0 );
+    static QByteArray genLMS_stop( );
+    static QByteArray genUnit_setUrPose( double x, double y, double z,
+                                         double rx, double ry, double rz );
+    ...
+
+private:
+    static WhichSide initWhichSides( );
+};
+```
+
+需要留意的地方有：
+
+1.  `static bool doItYourself( BCD::TypeID tid )` 这个函数在一侧返回了 true，在另一侧就要返回 false，
+    因为一个函数要把在 master 上执行，要不再工控机上执行，不能同时为 true（或者 false）。它的实现代码也
+    颇为简单：`return Bundle::whoAmI() == wss.value( tid );`{.cpp}，其中 wss 存储了注册信息，也就是一个
+    模块到底是要在工控机，还是高性能上运行。doItYourself 的参数是 BCD::TypeId
+    tid，就是一个模块的编号。这个在日志模块那一部分讲过：
+
+    ```cpp
+    namespace BCD {
+    // types
+    enum TypeID {
+        TYPE_ARM,       // 对应 BCD::ARM::...
+        TYPE_IMU,       // 对应 BCD::IUM::...
+        TYPE_LMS,       // ...
+        TYPE_MCU,
+        TYPE_UR,
+        ...
+    };
+    ...
+    }
+    ```
+
+    一个传感器要注册到 Master 或者 Slave，在 moderator.cpp 里有实现：
+
+    ```cpp
+    const Moderator::WhichSide Moderator::wss = Moderator::initWhichSides( );
+    Moderator::WhichSide Moderator::initWhichSides( )
+    {
+        WhichSide wss;
+        // Master: 高性能平台
+        // Slave : 工控机
+        wss.insert(  BCD::TYPE_SERVER,                  SLAVE           );
+        wss.insert(  BCD::TYPE_CLIENT,                          MASTER  );
+        wss.insert(  BCD::TYPE_LMS,                             MASTER  );
+        wss.insert(  BCD::TYPE_MCU,                             MASTER  );
+        wss.insert(  BCD::TYPE_UR,                      SLAVE           );
+        wss.insert(  BCD::TYPE_ARM,                     SLAVE           );
+        wss.insert(  BCD::TYPE_SP20000C,                        MASTER  );
+        wss.insert(  BCD::TYPE_MULTIPLICATION_ON_SLAVE, SLAVE           );
+        wss.insert(  BCD::TYPE_ADDITION_ON_MASTER,              MASTER  );
+
+        return wss;
+    }
+    ```
+
+2.  函数的序列化，需要将函数名注册，并和本地函数绑定，`enum CrossType { ... }` 做的
+    就是函数名注册的工作，它里面的每一个标志都对应一个函数，比如 `GEN_LMS__START__QINT64`
+    就对应 `static QByteArray genLMS_start( const qint64 &dt = 0 )`，`GEN_LMS__STOP__VOID`
+    就对应 `static QByteArray genLMS_stop( )`。
+
+    这三个函数的实现放在这里，以做参考：
+
+    ```cpp
+    为了减少输入量，TX_OUT 是一个宏（在通信领域，TX 通常指的是 transmission）
+    #define TX_OUT \
+        QByteArray tx; \
+        QDataStream out( &tx, QIODevice::WriteOnly ); \
+        out.setVersion( QDataStream::Qt_4_8 ); \
+        out
+
+    QByteArray Moderator::genLMS_start( const qint64 &dt /*= 0 */ )
+    {
+        TX_OUT << (int)GEN_LMS__START__QINT64 << dt;
+        return tx;
+    }
+
+    QByteArray Moderator::genLMS_stop( )
+    {
+        TX_OUT << (int)GEN_LMS__STOP__VOID;
+        return tx;
+    }
+
+    QByteArray Moderator::genUnit_setUrPose( double x, double y, double z, double rx, double ry, double rz )
+    {
+        TX_OUT << (int) GEN_UNIT__SET_UR_POSE__DOUBLE_DOUBLE_DOUBLE_DOUBLE_DOUBLE_DOUBLE
+               << x << y << z << rx << ry << rz;
+        return tx;
+    }
+    ```
+
+    其实就是把函数的标志号和参数一一序列化。
+
+3.  dispatch 函数，就是收到反序列化为一个操作，然后如何调用具体的模块：
+
+    ```cpp
+    void Moderator::dispatch( QByteArray &msg )
+    {
+        int flag( -1 );
+
+        QDataStream in( &msg, QIODevice::ReadOnly );
+        in.setVersion ( QDataStream::Qt_4_8 );
+
+        while ( !in.atEnd() ) {
+            in >> flag;
+
+            if ( false ) {
+            }
+            ...
+            else if ( GEN_LMS__START__QINT64 == flag )
+            {
+                qint64 ts;
+                in >> ts;
+                if ( Bundle::activated() && Bundle::whoAmI() == SLAVE ) {
+                    Bundle::getInstance()->m_LMSReader->start( ts );
+                }
+            }
+            else if ( GEN_LMS__STOP__VOID == flag )
+            {
+                if ( Bundle::activated() && Bundle::whoAmI() == SLAVE ) {
+                    Bundle::getInstance()->m_LMSReader->stop();
+                }
+            }
+            ...
+            else if ( GEN_UNIT__SET_UR_POSE__DOUBLE_DOUBLE_DOUBLE_DOUBLE_DOUBLE_DOUBLE == flag )
+            {
+                double x, y, z, rx, ry, rz;
+                in >> x >> y >> z >> rx >> ry >> rz;
+                if ( Bundle::activated() && Bundle::whoAmI() == SLAVE ) {
+                    // config ur pose
+                    if ( Bundle::getInstance() && Bundle::getInstance()->collectionUnit ) {
+                        Bundle::getInstance()->setURPose( x, y, z, rx, ry, rz );
+                    }
+                }
+            }
+            else
+            {
+            }
+        }
+        ```
+
+至此，问题都解决了。
+
 # 6.  总结：收获与不足
 
-refs and see also
+一条条说吧。
+
+收获：
+
+-   从大三认识姚老师，我就在尝试使用 Qt，但经过这个项目，Qt 才算真正入了门；
+-   CMake 原本也是略知一二；但拿到别人的 CMake 工程，跑起来容易；但自己用 CMake 来组织
+    就不简单了，经过这一番项目磨砺，自己对 CMake 和 C++ 的编译链接也有了更多的了解；
+-   做了一个大项目，自己的代码量是最大的，负责了几乎所有的传感器，也学到一些相关
+    硬件知识、通信知识；
+-   认识了长沙团队出色的企业家（科学家）、工程师，认识到知识真的是第一生产力；
+
+不足：
+
+-   基础不牢，写代码的过程中各种磕磕绊绊，比如在类中 static 成员的声明、定义、初始化上，
+    就碰到了不少麻烦；
+-   基础不牢，没有合理使用类的继承，导致重复代码出现得很多；（但也不能说全怪自己基础不扎实，
+    因为项目推进过程中真的很难停下来重构，真的像是给高速上开着的车换轮胎）
+-   基础不牢，friend 函数的使用可以大幅避免 public 成员的出现，却没有使用；
+-   过度工程，比如设置了过多的标志位，为了程序中没有 magic number，使用了太多的宏定义；
+-   花样编码，比如大量使用宏来拼接函数（但这有好有不好，也不算错，只是日后让别人维护起来会有难度）
+-   在长沙吃胖了==
+
+---
+
+参考链接：
 
 -   [district10/changsha: 长沙桥康项目组文档](https://github.com/district10/changsha)
--   图片地址
-    +   <https://www.processon.com/view/link/56ea6c21e4b010c6fe7db713>
+-   跨电脑函数调用：[district10/CrossOS: Cross OS Communication](https://github.com/district10/CrossOS)
+-   [桥梁模型贴纹理文档](http://tangzx.qiniudn.com/post-0025-doc-bridge-texture.html)
+-   [CVRS 参加第二届杭州机器人西湖论坛 - 公告 - 武汉大学计算机视觉与遥感实验室（CVRS Lab）](http://cvrs.whu.edu.cn/index.php?m=content&c=index&a=show&catid=99&id=50)
+-   自己之前画的一些架构图，等
+    +   架构图：<https://www.processon.com/view/link/56ea64a6e4b010c6fe7d1ead>
+    +   系统初始化：<https://www.processon.com/view/link/56ea640be4b00ac2e7a17fb2>
+    +   TCP 连接的建立：<https://www.processon.com/view/link/56ea673be4b00ac2e7a1c344>
+    +   Wrappers 和 Moderator 的作用：<https://www.processon.com/view/link/56ea6c21e4b010c6fe7db713>
+    +   UR 的姿态控制和状态读取：<https://www.processon.com/view/link/56ee186de4b0881f9ac2e009>
+    +   UR 状态数据的解析：<https://www.processon.com/view/link/57986275e4b0636f3aa3bf2d>
+    +   UR 姿态控制：<https://www.processon.com/view/link/56ee1abfe4b0881f9ac2ea0a>

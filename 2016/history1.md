@@ -131,7 +131,9 @@ title: 历史笔记 1
 
 [Keybr.com 小工具](http://whudoc.qiniudn.com/keybr.html) -<
 
-:   raw javascript event listener. written by me.
+:   这是我当时写的。为了让自己可以分别集中练习打字准度和速度。
+
+    raw javascript event listener. written by me.
 
     ```javascript
     var d0 = new Date();
@@ -168,7 +170,7 @@ title: 历史笔记 1
 
     [DJ-OKAWARI-Flower Dance](http://www.xiami.com/song/1769834090?spm=a1z1s.6659509.0.0.GPBCxW){.heart}
 
-[优秀且免费的照片库 - 简书](http://www.jianshu.com/p/5b7b09b93875#)
+[优秀且免费的照片库 - 简书](http://www.jianshu.com/p/5b7b09b93875#){.bad}
 
 [CTest:Using CTEST and CDASH without CMAKE - KitwarePublic](http://www.vtk.org/Wiki/CTest%3aUsing_CTEST_and_CDASH_without_CMAKE#Examples_2)
 
@@ -176,13 +178,103 @@ title: 历史笔记 1
 
 [qwt-plot3d download | SourceForge.net](http://sourceforge.net/projects/qwtplot3d/)
 
-[c++ - Why is "using namespace std;" considered bad practice? - Stack Overflow](http://stackoverflow.com/questions/1452721/why-is-using-namespace-std-considered-bad-practice#comment1299902_1452738)
+[c++ - Why is "using namespace std;" considered bad practice? - Stack Overflow](http://stackoverflow.com/questions/1452721/why-is-using-namespace-std-considered-bad-practice#comment1299902_1452738){.featured .heart} -<
+
+:   有几点：
+
+    -   跟性能无关，主要是不会引起冲突，而且很 explicit
+    -   用 `using namespace std;` 很不好，但可以用 `using std::cout;`
+    -   大家写一个库的时候，都喜欢把 list 用 List，vector 用 Vector，显示指定
+        namespace，没有冲突
+    -   在 header 文件里肯定是错误的，在 cpp 里那就没那么所谓了
+    -   现在 boost 库要渐渐进入标准库，以前的用了 `using namespace boost;` 的
+        都要大大的修改。防止以后碰到这种麻烦，还是不要 using 得太随意
+
+    最后，我补充一点。我在用 OpenCV 的时候就喜欢不加 `using namespace cv;`，因为
+    这样我可以更明确哪个函数是在 cv 命名空间内的，哪些是暴露在全局的。
 
 [productivity - What is your most productive shortcut with Vim? - Stack Overflow](http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim?rq=1)
 
-[字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html)
+[字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html){.heart} -<
 
-[怎样区别公司名称后缀 - 简书](http://www.jianshu.com/p/830036e46179) -<
+:   **ASCII, 0--127**
+
+    ![](http://whudoc.qiniudn.com/ascii.png)
+
+    **Non-ASCII**
+
+    130 在法语编码中代表了 é，在希伯来语编码中却代表了字母 Gimel (ג)，在俄语编码
+    中又会代表另一个符号。但是不管怎样，所有这些编码方式中，0--127 表示的符号是
+    一样的，不一样的只是 128--255 的这一段。
+
+    中文编码的问题需要专文讨论，这篇笔记不涉及。这里只指出，虽然都是用多个字节
+    表示一个符号，但是 GB 类的汉字编码与后文的 Unicode 和 UTF-8 是毫无关系的。
+
+    **Unicode**
+
+    Unicode 当然是一个很大的集合，现在的规模可以容纳 100 多万个符号。每个符号的
+    编码都不一样，比如，U+0639 表示阿拉伯字母 Ain，U+0041 表示英语的大写字母 A，
+    U+4E25 表示汉字"严"。具体的符号对应表，可以查询 unicode.org，或者专门的汉字
+    对应表。
+
+    **UTF-8**
+
+    UTF-8 是 Unicode 的实现方式之一。UTF-8，UTF-16，UTF-32，etc。
+
+    ```
+    Unicode符号范围     | UTF-8编码方式
+    (十六进制)          | （二进制）
+    --------------------+---------------------------------------------
+    0000 0000-0000 007F | 0xxxxxxx
+    0000 0080-0000 07FF | 110xxxxx 10xxxxxx
+    0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
+    0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+    ```
+
+    很简单，**第一个字节**
+
+    0 开头的就是一个 ASCII 字符，0 前面有两个 1（即“110”）则为两个字节
+    的非 ASCII，三个 1，则三个字节的非 ASCII；四个则为四个字节的非 ASCII。
+
+    **第二个字节**
+
+    不是 ASCII，所以不是 0 开头。都以 10 开头。
+
+    不过阮一峰表达得很简洁！：
+
+
+    >   跟据上表，解读 UTF-8 编码非常简单。如果一个字节的第一位是 0，则这个字节
+    >   单独就是一个字符；如果第一位是 1，则连续有多少个 1，就表示当前字符占用
+    >   多少个字节。
+
+    已知"严"的 unicode 是 4E25（100111000100101），根据上表，可以发现 4E25 处在
+    第三行的范围内（0000 0800-0000 FFFF），因此"严"的 UTF-8 编码需要三个字节，
+    即格式是"1110xxxx 10xxxxxx 10xxxxxx"。然后，从"严"的最后一个二进制位开始，
+    依次从后向前填入格式中的 x，多出的位补 0。这样就得到了，"严"的 UTF-8 编码是
+    "11100100 10111000 10100101"，转换成十六进制就是 E4B8A5。
+
+    在 vim 中 `g8` 查看 utf-8 编码，发现“严”是 `e4 b8 a5`，用 `ga` 查看 unicode，
+    还会输出 Dec 值、Hex 值和 Octal 值。
+
+    **Little endian 和 Big endian**
+
+    以汉字"严"为例，Unicode 码是 4E25，需要用两个字节存储，一个字节是 4E，另一
+    个字节是 25。存储的时候，4E 在前，25 在后，就是 Big endian 方式；25 在前，
+    4E 在后，就是 Little endian 方式。
+
+    Unicode 规范中定义，每一个文件的最前面分别加入一个表示编码顺序的字符，这个
+    字符的名字叫做"零宽度非换行空格"（ZERO WIDTH NO-BREAK SPACE），用 FEFF 表示。
+    这正好是两个字节，而且 FF 比 FE 大 1。（增->大端，减->小端）
+
+    Byte Order Mark: BOM
+
+    The UTF-8 representation of the BOM is the byte sequence `0xEF,0xBB,0xBF`.
+
+    refs and see also
+
+    -   [阮一峰：utf-8编码已经成为主流](http://www.ruanyifeng.com/blog/2008/05/growth_of_utf-8_on_the_web.html)
+
+[怎样区别公司名称后缀 - 简书](http://www.jianshu.com/p/830036e46179){.heart} -<
 
 :   -   Inc. 全拼是 Incorporated，即股份有限公司
 
@@ -620,7 +712,7 @@ title: 历史笔记 1
         主要是英国人的后代，我们不过是效仿你们老祖宗的做法，你们美国人抓我们没
         有道理的（大笑，大概自认为是强词夺理吧）。
 
-[Machiavellianism - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Machiavellianism) -<
+[Machiavellianism - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Machiavellianism){.featured .heart} -<
 
 :   Machiavellianism is "**the employment of cunning and duplicity (两面派) in
     statecraft or in general conduct**". The word comes from the Italian
@@ -731,11 +823,11 @@ title: 历史笔记 1
     我认为，一个人不应该在乎别人的看法，除非是他的朋友。不要想着出名，不必太在
     意众人的意见。能够得到尊敬的人的意见就够了，何必在乎那些根本就不认识的人呢？
 
-[书是好书，但记忆法…… (评论: Moonwalking With Einstein)](http://book.douban.com/review/5312595/) -<
+[书是好书，但记忆法…… (评论: Moonwalking With Einstein)](http://book.douban.com/review/5312595/){.heart} -<
 
 :   在一次采访中，记忆学引起了福尔浓厚的兴趣。在结识了诸多记忆界大师级人物后，
-    福尔决定亲身体验记忆学的真谛，并拜英国记忆大师艾德·库克为师。在经过一年的勤
-    学苦练后，年近24岁的福尔成为了美国记忆大赛的冠军。
+    福尔决定亲身体验记忆学的真谛，并拜英国记忆大师艾德·库克为师。在经过一年的 featured
+    学苦练后，年近 24 岁的福尔成为了美国记忆大赛的冠军。
 
     科学研究还显示，**如果我们不去刻意的锻炼一种能力的话，那么该项能力无论如
     何也不会进步**，这也是为什么那些告诉我们夜里听录音就能学外语、或者可以调
@@ -1122,7 +1214,7 @@ title: 历史笔记 1
     要有一颗宽广的心去容纳。人在年轻的时候机会成本是最低的，所有你因为顾虑不敢
     做的事，将来只会顾虑更多。
 
-[Notes on Programming in C](http://kamalatta.ddnss.de/otherdocs/pikestyle.html){.featured} -<
+[Notes on Programming in C](http://kamalatta.ddnss.de/otherdocs/pikestyle.html){.featured .heart} -<
 
 :   Finally, I prefer minimum-length but maximum-information names, and
     then let the context ﬁll in the rest. Globals, for instance, typically
@@ -1774,7 +1866,7 @@ title: 历史笔记 1
 
     还有些没有说完的话题今后会在补遗中写写。
 
-[Hamming weight - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hamming_weight){.featured} -<
+[Hamming weight - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hamming_weight){.featured .heart} -<
 
 :   说一个故事，四五年前我为面试出了一条笔试题目，恰巧和本书的题目 2.1 很相似，
     计算一个无号整数 (我要求 32-bit，书中的是 8-bit) 在二进制中 1 的个数。当时
@@ -3534,7 +3626,7 @@ title: 历史笔记 1
 :   所以涅，应聘的童鞋们，最好把你的博客一起告诉我们。看到一个精彩的博客，
     简历神马的都是浮云～
 
-[怎样花两年时间去面试一个人](http://mindhacks.cn/2011/11/04/how-to-interview-a-person-for-two-years/) -<
+[怎样花两年时间去面试一个人](http://mindhacks.cn/2011/11/04/how-to-interview-a-person-for-two-years/){.heart} -<
 
 :   正是这样的不容易，才有不少公司走内部培养的办法，这里的逻辑是：一上来就
     招到靠谱的人太难了，但找一块靠谱的璞玉然后雕琢雕琢相对就简单很多。这倒
@@ -3893,7 +3985,7 @@ title: 历史笔记 1
     Every bit of Light Table's code is available to the community because
     **none of us are as smart as all of us**.
 
-[Cramer 悖论：线性代数的萌芽 | Matrix67: The Aha Moments](http://www.matrix67.com/blog/archives/3803) -<
+[Cramer 悖论：线性代数的萌芽 | Matrix67: The Aha Moments](http://www.matrix67.com/blog/archives/3803){.featured} -<
 
 :   发现从信息的角度理解线性代数更给我更多 intuition。
 
@@ -4543,7 +4635,7 @@ title: 历史笔记 1
     但是你抢了人家的眼球啊，这世界上最珍贵的资源就是眼球资源。**人的注意力是有限
     的，你跳楼抢夺了眼球资源，世界上就有冤屈不被人重视。**
 
-[为什么你们不可以叫彭阿姨国母（好文求打赏） - 简书](http://www.jianshu.com/p/a7d54716e002){.featured .heart}
+[为什么你们不可以叫彭阿姨国母（好文求打赏） - 简书](http://www.jianshu.com/p/a7d54716e002){.featured .heart .bad}
 
 [为什么要唱反调：饱醉豚TEDxMoonLake—我的点播单—在线播放—优酷网，视频高清在线观看](http://v.youku.com/v_show/id_XNzEyNTMyOTMy_type_99.html?f=420001719) -<
 
@@ -5181,7 +5273,7 @@ title: 历史笔记 1
 
       - [Vim 的分屏功能 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/1679.html)
 
-[橡皮鸭程序调试法 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/1719.html) -<
+[橡皮鸭程序调试法 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/1719.html){.featured} -<
 
 :   小浣熊方法、Feynman 方法
 

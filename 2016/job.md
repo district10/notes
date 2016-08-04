@@ -748,6 +748,17 @@ NOTES -<
 
         ![](http://www.tcpipguide.com/free/diagrams/tcpclose.png)
 
+[北美求职记_QAMichaelPeng_新浪博客](http://blog.sina.com.cn/s/blog_6740daa70101771h.html){.heart}
+
+[为什么 Microsoft 不与“FLAG”并称呢？](http://www.zhihu.com/question/31979481)
+
+:   再回到微软的问题：我之前很早的时候，拿了一个上海的微软（STC，在闵行的紫
+    竹园区）的 offer，当时薪水13.1w，股票125股；后来打听了一下Seattle的微软
+    Package，股票多点，也没翻10倍，所以基本上对FLAG来说就是杯水车薪。而且现
+    在一般大牛的技术人员或者牛逼毕业生，都是只看股票不看薪水的；薪水就是个
+    零花钱，买买车付付房租还行，根本没法发财。所以一般只看裸薪是多少（而没
+    有股票意识）的人，都是没见过世面，也没体会过资本市场的造富速度的人。
+
 ---
 
 ## TODO
@@ -828,6 +839,18 @@ Targets
 
         简历请发到 3178425893@qq.com
 
+        [【分享总结】鹅厂学长告诉你：如何稳拿腾讯实习生offer？(含内推) - 乔布简历](http://cv.qiaobutang.com/post/56ee8f110cf209f9ac3c03fb)
+
+        [技术精英提前约，腾讯2017校园招聘TST项目启动！](http://mp.weixin.qq.com/s?__biz=MTkyNTM0MzA4MQ==&mid=2650880964&idx=1&sn=5e9c984ad8e1431c615b92fbcac2a079&scene=2&srcid=0714T7EXlywGELv4DWAtOg8j&from=groupmessage&isappinstalled=0#wechat_redirect)
+
+        [【腾讯内推】2017校园招聘内推【TST+技术+产品均可】](http://newsmth.net/nForum/#!article/Career_Campus/511199)
+
 -   [招聘流程|校园招聘|阿里巴巴集团2016校园招聘 |此时此刻 非我莫属](https://campus.alibaba.com/index.htm) -<
 
-    :   alibaba
+    :   老大，用支付宝登陆！（再别搞错了！）
+
+        [部门简介](https://campus.alibaba.com/trems.htm)
+
+-   [华为校招](http://career.huawei.com/reccampportal/#campus2/pages/bulletin/recentNews.html)
+
+[最新校招动态以及内推信息_讨论区_牛客网](http://m.nowcoder.com/discuss/6481)

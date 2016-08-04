@@ -14,12 +14,7 @@ title: 历史笔记 7
 
 [[宣讲会后仍接受报名]Indeed Tokyo 2017 校园招聘！高薪 + 全英文环境 + 东京三大人气商区办公楼！](http://mp.weixin.qq.com/s?__biz=MjM5ODAxOTE0MQ==&mid=502663169&idx=1&sn=da348a168e980d4cbbc0005f4d3844d6&scene=0&previewkey=wOTfgvOLXP%2FghUerdohc7MwqSljwj2bfCUaCyDofEow%3D#wechat_redirect)
 
-测试了一下，`.cpp` 也是可以被 include 的。
-
-It's really a matter of convention. Some projects demand hpp to indicate that
-the header files are for C++ and not C.
-
-[linux - Terminal Multiplexer for Microsoft Windows - Installers for GNU Screen or tmux - Stack Overflow](http://stackoverflow.com/questions/5473384/terminal-multiplexer-for-microsoft-windows-installers-for-gnu-screen-or-tmux)
+[linux - Terminal Multiplexer for Microsoft Windows - Installers for GNU Screen or tmux - Stack Overflow](http://stackoverflow.com/questions/5473384/terminal-multiplexer-for-microsoft-windows-installers-for-gnu-screen-or-tmux) -<
 
 :   Look. This is way old, but on the off chance that someone from Google finds
     this, absolutely the best solution to this - (and it is AWESOME) - is to
@@ -36,9 +31,7 @@ the header files are for C++ and not C.
 
 [tmux 的使用方法和个性化配置 | 赖明星](http://mingxinglai.com/cn/2012/09/tmux/)
 
----
-
-[How do I scroll in tmux? - Super User](http://superuser.com/questions/209437/how-do-i-scroll-in-tmux)
+[How do I scroll in tmux? - Super User](http://superuser.com/questions/209437/how-do-i-scroll-in-tmux) -<
 
 :   `Ctrl-b` then `[` then you can use your normal navigation keys to scroll
     around (eg. Up Arrow or PgDn). Press `q` to quit scroll mode.
@@ -49,37 +42,22 @@ the header files are for C++ and not C.
 
 [AUR (en) - breeze-red-cursor-theme](https://aur.archlinux.org/packages/breeze-red-cursor-theme/)
 
--   [深度学习 caffe 的代码怎么读？ - 知乎](https://www.zhihu.com/question/27982282)
-- [wkentaro/fcn: Fully Convolutional Networks (Chainer Implementation)](https://github.com/wkentaro/fcn)
-- [shelhamer/fcn.berkeleyvision.org: Fully Convolutional Networks for Semantic Segmentation by Jonathan Long*, Evan Shelhamer*, and Trevor Darrell. CVPR 2015.](https://github.com/shelhamer/fcn.berkeleyvision.org)
+[深度学习 caffe 的代码怎么读？ - 知乎](https://www.zhihu.com/question/27982282)
 
-```makefile
-all: notes-access.docx notes.docx
-clean:
-    rm *.docx
+[wkentaro/fcn: Fully Convolutional Networks (Chainer Implementation)](https://github.com/wkentaro/fcn)
 
-%.docx: %.md
-    cat $< | sed -e "s/%paperdir%/papers/" | \
-    pandoc --ascii -f markdown+east_asian_line_breaks -o $@
-%-access.docx: %.md
-    cat $< | sed -e "s/%paperdir%/ftp:\/\/zhixiong%2Etang@cvrs.whu.edu.cn\/Users\/ZhixiongTANG\/ML\/papers/" | \
-    pandoc --ascii -f markdown+east_asian_line_breaks -o $@
-
-rename:
-    $(shell for f in papers/*.pdf; do mv "$$f" "$${f// /_}"; done)
-```
+[shelhamer/fcn.berkeleyvision.org: Fully Convolutional Networks for Semantic Segmentation by Jonathan Long*, Evan Shelhamer*, and Trevor Darrell. CVPR 2015.](https://github.com/shelhamer/fcn.berkeleyvision.org)
 
 [Henry David Thoreau - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Henry_David_Thoreau)
 
 [Code Hunt](https://www.codehunt.com/)
 
-LS, 你要知道一点：凡是跟我意见不同的，都是五毛。
-
 [A lone man refusing to do the Nazi salute, 1936](http://rarehistoricalphotos.com/lone-man-refusing-nazi-salute-1936/)
 
-[What are some of the best English names Chinese people give themselves but are not generally found outside China? - Quora](https://www.quora.com/What-are-some-of-the-best-English-names-Chinese-people-give-themselves-but-are-not-generally-found-outside-China)
+[What are some of the best English names Chinese people give themselves but are not generally found outside China? - Quora](https://www.quora.com/What-are-some-of-the-best-English-names-Chinese-people-give-themselves-but-are-not-generally-found-outside-China) -<
 
-:   As a typical wastrel waijiao I've had more than my fair share of strange or unusual student names over the years.  Here's a sampling:
+:   As a typical wastrel waijiao I've had more than my fair share of strange or
+    unusual student names over the years.  Here's a sampling:
 
     Cherry
     Cylinder (we tried to get her to change her name to Selina for months)
@@ -102,24 +80,25 @@ LS, 你要知道一点：凡是跟我意见不同的，都是五毛。
     Michael Schumacher (yes, first and last name)
     Peter Jackson (this was right after LOTR hit China)
 
-[那些发生在面试之后的你不知道的事 - 虹姐说 - 知乎专栏](https://zhuanlan.zhihu.com/p/20190053?refer=hongjieshuo)
+[那些发生在面试之后的你不知道的事 - 虹姐说 - 知乎专栏](https://zhuanlan.zhihu.com/p/20190053?refer=hongjieshuo) -<
 
 :   一些姓名的读音跟想象的不一样！
 
     很多南美裔的人的名字都是西班牙名字，他们的读音规则跟英文不一样。以前虹姐上
-    课的学校有个教授是阿根廷人，名字是Jose，是个非常常见的西班牙名字。虹姐叫了
+    课的学校有个教授是阿根廷人，名字是 Jose，是个非常常见的西班牙名字。虹姐叫了
     人家一个学期的宙斯，到处跟人说宙斯教授的课特别好，人家总是一脸迷茫，最后才
-    知道西班牙语名字J是发H的音的。所以Jose应该是hou'sei的读音（中文翻译过来是何
-    塞）。同理，如果遇到名字是Juan的，也是一个典型的西班牙名字，是读介于‘huan'
-    和'wuan'的读音，别再管人叫娟儿了。还有一个容易读错的名字是Sean，应该是接近’
-    尚‘的一个读音，有人按发音规则读成seen，人家美国人一脸黑线。Evan是另一个，应
-    该读['evən]，而不是一万。Lou应该读/lu:/，是Louis的别名，不要管人家叫楼了！
+    知道西班牙语名字 J 是发 H 的音的。所以 Jose 应该是 hou'sei 的读音（中文翻译
+    过来是何塞）。同理，如果遇到名字是 Juan 的，也是一个典型的西班牙名字，是读
+    介于‘huan'和'wuan'的读音，别再管人叫娟儿了。还有一个容易读错的名字是 Sean，
+    应该是接近’尚‘的一个读音，有人按发音规则读成 seen，人家美国人一脸黑线。Evan
+    是另一个，应该读 `['evən]`，而不是一万。Lou 应该读 `/lu:/`，是 Louis 的别名，
+    不要管人家叫楼了！
 
     Hypocorism（别名，小名）
 
     西方名字有很多种缩写，或者看起来完全不一样的写法。如果一定要打比喻的话，有
-    点类似咱们的大名和小名。还拿Rachel举例子，Rachel是她的大名，但也有很多场合
-    大家称她Rach，甚至Ray Ray。这些就是Rachel这个名字衍生出来的其它叫法。
+    点类似咱们的大名和小名。还拿 Rachel 举例子，Rachel 是她的大名，但也有很多场
+    合大家称她 Rach，甚至 Ray Ray。这些就是 Rachel 这个名字衍生出来的其它叫法。
 
     我出国第一个月一直把 “洗手间” 叫做 toilet，后来发现当地人都用 bathroom 这个
     词。但 bathroom 不是家里洗澡的地方吗？我半年后才明白，当地人也把 “公共场所
@@ -133,9 +112,9 @@ LS, 你要知道一点：凡是跟我意见不同的，都是五毛。
 
     refs and see also
 
-      - [中国英语课本有哪些偏差？ - 知乎](https://www.zhihu.com/question/38529020)
+    -   [中国英语课本有哪些偏差？ - 知乎](https://www.zhihu.com/question/38529020)
 
-[李立：中国人英语比印度人好是幻觉_网易新闻中心](http://view.163.com/14/1219/09/ADQO2TV600012Q9L.html)
+[李立：中国人英语比印度人好是幻觉_网易新闻中心](http://view.163.com/14/1219/09/ADQO2TV600012Q9L.html) -<
 
 :   虹姐来美国前，一直觉得自己在美国一定就跟外国人在中国一样。记得在网上看到过
     一件专门给歪果仁设计的 T-shirt，正面写着‘老外来了’，反面写着‘老外走了’，觉得这个
@@ -164,12 +143,12 @@ LS, 你要知道一点：凡是跟我意见不同的，都是五毛。
 
     refs and see also
 
-      - [为什么印度人讲英语的口音会那么奇怪？ - 英语 - 知乎](http://www.zhihu.com/question/19851390)
-      - [美国留学：这里没有歪果仁 - 虹姐说 - 知乎专栏](https://zhuanlan.zhihu.com/p/20489251)
-      - [如何听懂印度英语口音？ - 英语 - 知乎](http://www.zhihu.com/question/20719857)
-      - [如何有效利用维基百科学习？ - 知乎](https://www.zhihu.com/question/20299997)
+    -   [为什么印度人讲英语的口音会那么奇怪？ - 英语 - 知乎](http://www.zhihu.com/question/19851390)
+    -   [美国留学：这里没有歪果仁 - 虹姐说 - 知乎专栏](https://zhuanlan.zhihu.com/p/20489251)
+    -   [如何听懂印度英语口音？ - 英语 - 知乎](http://www.zhihu.com/question/20719857)
+    -   [如何有效利用维基百科学习？ - 知乎](https://www.zhihu.com/question/20299997)
 
-[Ultimate Fighting Championship - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Ultimate_Fighting_Championship)
+[Ultimate Fighting Championship - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Ultimate_Fighting_Championship) -<
 
 :   UFC Middleweight Cung Le Suspended After Testing Positive for HGH.
 
@@ -180,12 +159,12 @@ LS, 你要知道一点：凡是跟我意见不同的，都是五毛。
 
     refs and see also
 
-      - [Growth hormone - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Growth_hormone)
-      - [UFC Middleweight Cung Le Suspended After Testing Positive for HGH | Bleacher Report](http://bleacherreport.com/articles/2216580-ufc-middleweight-cung-le-suspended-after-testing-positive-for-hgh)
+    -   [Growth hormone - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Growth_hormone)
+    -   [UFC Middleweight Cung Le Suspended After Testing Positive for HGH | Bleacher Report](http://bleacherreport.com/articles/2216580-ufc-middleweight-cung-le-suspended-after-testing-positive-for-hgh)
 
 [Growth hormone - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Growth_hormone)
 
-[Cult film - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Cult_film)
+[Cult film - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Cult_film) -<
 
 :   A cult film, also commonly referred to as a cult classic, is a film that
     has acquired a cult following. Cult films are known for their dedicated,
@@ -205,7 +184,7 @@ LS, 你要知道一点：凡是跟我意见不同的，都是五毛。
 
     refs and see also
 
-      - [Cult following - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Cult_following)
+    -   [Cult following - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Cult_following)
 
 [Concorde - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Concorde)
 
@@ -215,7 +194,7 @@ LS, 你要知道一点：凡是跟我意见不同的，都是五毛。
 
 [Conditional random field - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Conditional_random_field)
 
-[Shia Islam - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Shia_Islam)
+[Shia Islam - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Shia_Islam) -<
 
 :   [Shia LaBeouf - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Shia_LaBeouf)
 
@@ -223,43 +202,7 @@ LS, 你要知道一点：凡是跟我意见不同的，都是五毛。
 
 [约翰 · 多诺万的死与生 (豆瓣)](https://movie.douban.com/subject/25982461/)
 
-```bash
-➜  /tmp time python num.py
-None
-Classification report for classifier SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0, degree=3,
-  gamma=0.001, kernel='rbf', max_iter=-1, probability=False,
-  random_state=None, shrinking=True, tol=0.001, verbose=False):
-             precision    recall  f1-score   support
-
-          0       1.00      0.99      0.99        88
-          1       0.99      0.97      0.98        91
-          2       0.99      0.99      0.99        86
-          3       0.98      0.87      0.92        91
-          4       0.99      0.96      0.97        92
-          5       0.95      0.97      0.96        91
-          6       0.99      0.99      0.99        91
-          7       0.96      0.99      0.97        89
-          8       0.94      1.00      0.97        88
-          9       0.93      0.98      0.95        92
-
-avg / total       0.97      0.97      0.97       899
-
-
-Confusion matrix:
-[[87  0  0  0  1  0  0  0  0  0]
- [ 0 88  1  0  0  0  0  0  1  1]
- [ 0  0 85  1  0  0  0  0  0  0]
- [ 0  0  0 79  0  3  0  4  5  0]
- [ 0  0  0  0 88  0  0  0  0  4]
- [ 0  0  0  0  0 88  1  0  0  2]
- [ 0  1  0  0  0  0 90  0  0  0]
- [ 0  0  0  0  0  1  0 88  0  0]
- [ 0  0  0  0  0  0  0  0 88  0]
- [ 0  0  0  1  0  1  0  0  0 90]]
-python num.py  4.40s user 0.92s system 69% cpu 7.641 total
-```
-
-[如何评价《千年女优》？ - 动画 - 知乎](http://www.zhihu.com/question/24537017)
+[如何评价《千年女优》？ - 动画 - 知乎](http://www.zhihu.com/question/24537017){.heart} -<
 
 :   影片结尾处的那句话网络上的很多字幕翻译的都不算恰当。这句话可以算是影片中最
     重要的一句台词，却由于一些字幕组的不谨慎，使很多人对本片理解有差。原文为「だっ
@@ -286,11 +229,11 @@ python num.py  4.40s user 0.92s system 69% cpu 7.641 total
 
     refs and see also
 
-      - [今敏访谈：「千年女优」（02.12）<上>](https://www.douban.com/note/92570627/)
+    -   [今敏访谈：「千年女优」（02.12）<上>](https://www.douban.com/note/92570627/)
 
 [Machine Learning Video Library - Learning From Data (Abu-Mostafa)](http://work.caltech.edu/library/index.html)
 
-[Li Fei-fei 写给她学生的一封信，如何做好研究以及写好 PAPER（转载） - Teckee - 博客园](http://www.cnblogs.com/Jack-Lee/p/3516588.html)
+[Li Fei-fei 写给她学生的一封信，如何做好研究以及写好 PAPER（转载） - Teckee - 博客园](http://www.cnblogs.com/Jack-Lee/p/3516588.html){.heart} -<
 
 :   De-**mystifying** Good Research and Good Papers
 
@@ -328,7 +271,7 @@ python num.py  4.40s user 0.92s system 69% cpu 7.641 total
 
 [Software — Kernel Machines](http://www.kernel-machines.org/software)
 
-[Agent Honeydew - Dexter's Laboratory Wiki - Wikia](http://dexterslab.wikia.com/wiki/Agent_Honeydew)
+[Agent Honeydew - Dexter's Laboratory Wiki - Wikia](http://dexterslab.wikia.com/wiki/Agent_Honeydew) -<
 
 :   发型不错。
 
@@ -338,39 +281,39 @@ python num.py  4.40s user 0.92s system 69% cpu 7.641 total
 
 [apidoc/apidoc: RESTful web API Documentation Generator.](https://github.com/apidoc/apidoc)
 
-[arnab/jQuery.PrettyTextDiff: A wrapper around Google's diff_match_patch library, to make life easy](https://github.com/arnab/jQuery.PrettyTextDiff)
+[arnab/jQuery.PrettyTextDiff: A wrapper around Google's diff_match_patch library, to make life easy](https://github.com/arnab/jQuery.PrettyTextDiff) -<
 
 :   可以用来表示博客不同版本的之间的修改。
 
-[keybr.com - TANG ZhiXiong typist profile](http://www.keybr.com/user/show/323495)
+[keybr.com - TANG ZhiXiong typist profile](http://www.keybr.com/user/show/323495){.heart} -<
 
 :   我的 keybr.com 账户的主页。（改版后这里不会泄露用户的练习数据。）
 
-[LAPACK: real](http://www.netlib.org/lapack/explore-html/db/dc9/group__single__blas__level3.html#gafe51bacb54592ff5de056acabd83c260)
+[LAPACK: real](http://www.netlib.org/lapack/explore-html/db/dc9/group__single__blas__level3.html#gafe51bacb54592ff5de056acabd83c260) -<
 
 :   cool!
 
     refs and see also
 
-      - [The BLAS Interface — CVXOPT User's Guide](http://cvxopt.org/userguide/blas.html)
+    -   [The BLAS Interface — CVXOPT User's Guide](http://cvxopt.org/userguide/blas.html)
 
-[高架桥桥墩很大，但真正与桥面接触的部位却很小。这是为什么？ - 物理学 - 知乎](http://www.zhihu.com/question/19709406)
+[高架桥桥墩很大，但真正与桥面接触的部位却很小。这是为什么？ - 物理学 - 知乎](http://www.zhihu.com/question/19709406) -<
 
 :   这样不容易“扭”到。虽然压强更大。
 
     refs and see also
 
-      - [知道后最让你震惊的冷知识是什么？ - GreyRhythm 的回答 - 知乎](http://www.zhihu.com/question/38411883/answer/90520708)
+    -   [知道后最让你震惊的冷知识是什么？ - GreyRhythm 的回答 - 知乎](http://www.zhihu.com/question/38411883/answer/90520708)
 
-[跟踪论文开源实现的协同列表网站 GitXiv | 赵毅力的视觉研究博客](http://cs2.swfc.edu.cn/~zyl/?p=2336#more-2336)
+[跟踪论文开源实现的协同列表网站 GitXiv | 赵毅力的视觉研究博客](http://cs2.swfc.edu.cn/~zyl/?p=2336#more-2336) -<
 
 :   arxiv
 
-[HOWTO Create an Import Library for a DLL using MinGW | MinGW](http://www.mingw.org/wiki/CreateImportLibraries)
+[HOWTO Create an Import Library for a DLL using MinGW | MinGW](http://www.mingw.org/wiki/CreateImportLibraries) -<
 
 :   黑科技。
 
-[台湾和大陆有哪些对于同一事物的不同叫法？ - 文化 - 知乎](http://www.zhihu.com/question/31282509)
+[台湾和大陆有哪些对于同一事物的不同叫法？ - 文化 - 知乎](http://www.zhihu.com/question/31282509) -<
 
 :   还没人说那个很经典的：cache
 
@@ -382,18 +325,17 @@ python num.py  4.40s user 0.92s system 69% cpu 7.641 total
     于是看一个大陆任何一个台湾人在讨论行列式和矩阵的时候，那个忙多劲啊。核对之
     后改用英文了。
 
-[Thought Experiment - 你正在解决错误的问题](http://www.lispython.com/post/6480035850/%E4%BD%A0%E6%AD%A3%E5%9C%A8%E8%A7%A3%E5%86%B3%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98)
+[Thought Experiment - 你正在解决错误的问题](http://www.lispython.com/post/6480035850/%E4%BD%A0%E6%AD%A3%E5%9C%A8%E8%A7%A3%E5%86%B3%E9%94%99%E8%AF%AF%E7%9A%84%E9%97%AE%E9%A2%98) -<
 
 :   我没看懂……
 
     refs and see also
 
-      - [Alan Kay - Normal considered harmful - Raw thoughts from Alex Dong](http://alexdong.com/alan-kay-normal-considered-harmful/)
+    -   [Alan Kay - Normal considered harmful - Raw thoughts from Alex Dong](http://alexdong.com/alan-kay-normal-considered-harmful/)
 
--   相对不公平值
--   [Han van Meegeren - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Han_van_Meegeren)
+[Han van Meegeren - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Han_van_Meegeren) -<
 
-    Henricus Antonius "Han" van Meegeren was a Dutch painter and portraitist
+:   Henricus Antonius "Han" van Meegeren was a Dutch painter and portraitist
     and is considered to be one of the most **ingenious (足智多谋) art
     forgers** of the 20th century.
 
@@ -418,70 +360,44 @@ python num.py  4.40s user 0.92s system 69% cpu 7.641 total
 
     真是叼……
 
--   Hamilton 圈问题
--   *s.t.*, subject to.
--   仿射集
--   误差平方和
--   回归平方和
--   残差平方和
--   单纯性法
--   最优纯策略，行取最小，列取最大
--   `max i min j a_{ij} = min j max i a_{ij} = a_{i^*j^*}`
--   makedep
--   cindude2dot
--   win dll decl spec
--   `qmake -recurvise`{.bash}
--   QList<Customer *> list = parent().findChild<Customer *>();
--   parent().deleteLater();
--   spacer, stretch, struct
--   Q_PROPERTY( QString str READ getStr, WRITE setStr, NOTIFY strChanged)
--   qRegisterMetaType
--   conway's game of life
--   file_p.cpp
--   `QMetaObject::invokeMethod(parent(), "save");`{.bash}
--   QScopedPointer
--   `operator*()`{.cpp}
--   `operator->()`{.cpp}
--   `namespace alias = std;`{.cpp}
-
-[Tanuki-san Reference Sheet by FernandaFrick on DeviantArt](http://fernandafrick.deviantart.com/art/Tanuki-san-Reference-Sheet-126381237)
+[Tanuki-san Reference Sheet by FernandaFrick on DeviantArt](http://fernandafrick.deviantart.com/art/Tanuki-san-Reference-Sheet-126381237) -<
 
 :   画风倒是不错。
 
-[想知道日本的高考与大学的黑幕么？看这篇吧 - 你不知道的日本 - 知乎专栏](https://zhuanlan.zhihu.com/p/21285323)
+[想知道日本的高考与大学的黑幕么？看这篇吧 - 你不知道的日本 - 知乎专栏](https://zhuanlan.zhihu.com/p/21285323) -<
 
 :   不是挺容易考，是地区差异比中国还夸张。
 
     refs and see also
 
-      - [给食制度－日本人严谨神话的崩塌 - 你不知道的日本 - 知乎专栏](https://zhuanlan.zhihu.com/p/20434265?refer=chivnjapan)
-      - [日本的援交率真的有30%么？ - 你不知道的日本 - 知乎专栏](https://zhuanlan.zhihu.com/p/20381157?refer=chivnjapan)
+    -   [给食制度－日本人严谨神话的崩塌 - 你不知道的日本 - 知乎专栏](https://zhuanlan.zhihu.com/p/20434265?refer=chivnjapan)
+    -   [日本的援交率真的有 30% 么？ - 你不知道的日本 - 知乎专栏](https://zhuanlan.zhihu.com/p/20381157?refer=chivnjapan)
 
 [为什么说哆啦 A 梦像「狸猫」？日本动漫里出现的「狸猫」是什么动物？ - 动物学 - 知乎](http://www.zhihu.com/question/28202325)
 
-[git + LaTeX workflow - Stack Overflow](http://stackoverflow.com/questions/6188780/git-latex-workflow)
+[git + LaTeX workflow - Stack Overflow](http://stackoverflow.com/questions/6188780/git-latex-workflow) -<
 
 :   用 Perl 写得。
 
     refs and see also
 
-      - [CTAN: Package latexdiff](https://www.ctan.org/pkg/latexdiff)
+    -   [CTAN: Package latexdiff](https://www.ctan.org/pkg/latexdiff)
 
-[Japanese raccoon dog - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Japanese_raccoon_dog)
+[Japanese raccoon dog - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Japanese_raccoon_dog) -<
 
 :   这动物好淫荡……（其实是日本文化里这动物很淫荡）
 
     它以 big balls 著称。
 
-LaTeX 字体。陈硕的 typeset 模板。
+LaTeX 字体。陈硕的 typeset 模板。 -<
 
 :   <http://whudoc.qiniudn.com/2016/typeset-fonts-common.tar.xz>, 43.6 MB.
 
-[布卡（伊斯兰教瓦哈比派女子服装）_百度百科](http://baike.baidu.com/subview/2642399/14166803.htm)
+[布卡（伊斯兰教瓦哈比派女子服装）_百度百科](http://baike.baidu.com/subview/2642399/14166803.htm) -<
 
 :   来自漫画，那时候我正在努力不被人说是一个 racist。
 
-[SivilTaram/BUAAOS-guide-book: 北航小操作系统实验指导书](https://github.com/SivilTaram/BUAAOS-guide-book)
+[SivilTaram/BUAAOS-guide-book: 北航小操作系统实验指导书](https://github.com/SivilTaram/BUAAOS-guide-book) -<
 
 :   有点意思。
 
@@ -492,9 +408,9 @@ LaTeX 字体。陈硕的 typeset 模板。
 
     refs and see also
 
-      - [Travis-CI 与 Latex 构建开源中文 PDF - SivilTaram - 博客园](http://www.cnblogs.com/SivilTaram/p/travis-ci_latex_auto-build_github.html)
+    -   [Travis-CI 与 Latex 构建开源中文 PDF - SivilTaram - 博客园](http://www.cnblogs.com/SivilTaram/p/travis-ci_latex_auto-build_github.html)
 
-[installing - Best way to install packages for TeXLive in Ubuntu? - TeX - LaTeX Stack Exchange](http://tex.stackexchange.com/questions/28528/best-way-to-install-packages-for-texlive-in-ubuntu)
+[installing - Best way to install packages for TeXLive in Ubuntu? - TeX - LaTeX Stack Exchange](http://tex.stackexchange.com/questions/28528/best-way-to-install-packages-for-texlive-in-ubuntu) -<
 
 :   ```bash
     tlmgr install <package name>
@@ -522,23 +438,19 @@ LaTeX 字体。陈硕的 typeset 模板。
         zhmetrics \
     ```
 
-[Image Tilt Effect](http://tympanus.net/Development/ImageTiltEffect/)
+[Image Tilt Effect](http://tympanus.net/Development/ImageTiltEffect/) -<
 
 :   简单介绍了 browserify 的使用。
 
-[The Aviator: The Game | Codrops](http://tympanus.net/Tutorials/TheAviator/index.html)
+[The Aviator: The Game | Codrops](http://tympanus.net/Tutorials/TheAviator/index.html) -<
 
 :   html5 游戏引擎。
 
-If you can´t wait to learn JavaScript - and you shouldn´t - check out the MDN - JavaScript Guide!
-
-"and you  shouldn't" 这个表达好亮。
-
-[Codrops | Useful resources and inspiration for creative minds](http://tympanus.net/codrops/)
+[Codrops | Useful resources and inspiration for creative minds](http://tympanus.net/codrops/) -<
 
 :   制作精良。
 
-[silverwind](https://silverwind.io/)
+[silverwind](https://silverwind.io/) -<
 
 :   ```html
     <svg class="a" xmlns="http://www.w3.org/2000/svg"
@@ -637,7 +549,7 @@ If you can´t wait to learn JavaScript - and you shouldn´t - check out the MDN 
 
     对 svg 立面的元素进行 css 的设置。
 
-[sindresorhus/github-markdown-css: The minimal amount of CSS to replicate the GitHub Markdown style](https://github.com/sindresorhus/github-markdown-css)
+[sindresorhus/github-markdown-css: The minimal amount of CSS to replicate the GitHub Markdown style](https://github.com/sindresorhus/github-markdown-css) -<
 
 :   效果出奇的好！再把代码高亮调成 pygments 就完美了。
 
@@ -691,11 +603,11 @@ If you can´t wait to learn JavaScript - and you shouldn´t - check out the MDN 
 
     refs and see also
 
-      - [sindresorhus/generate-github-markdown-css: Generate the CSS for github-markdown-css](https://github.com/sindresorhus/generate-github-markdown-css)
-      - [giakki/uncss: Remove unused styles from CSS](https://github.com/giakki/uncss)
-      - [sindresorhus/pageres: Capture website screenshots](https://github.com/sindresorhus/pageres)
+    -   [sindresorhus/generate-github-markdown-css: Generate the CSS for github-markdown-css](https://github.com/sindresorhus/generate-github-markdown-css)
+    -   [giakki/uncss: Remove unused styles from CSS](https://github.com/giakki/uncss)
+    -   [sindresorhus/pageres: Capture website screenshots](https://github.com/sindresorhus/pageres)
 
-[html - How to use Bootstrap CDN? - Stack Overflow](http://stackoverflow.com/questions/17377277/how-to-use-bootstrap-cdn/21318735#21318735)
+[html - How to use Bootstrap CDN? - Stack Overflow](http://stackoverflow.com/questions/17377277/how-to-use-bootstrap-cdn/21318735#21318735) -<
 
 :   `//url` 比 `http://url`, `https://url` 好。
 
@@ -706,7 +618,8 @@ If you can´t wait to learn JavaScript - and you shouldn´t - check out the MDN 
           rel="stylesheet">
     ```
 
-    into your HTML. But this doesn't work when you are loading your html from a local file.
+    into your HTML. But this doesn't work when you are loading your html from a
+    local file.
 
     The reason is the missing protocol. When using a CDN, it's usually a good
     idea not to specify the protocol, so that your browser will use either http
@@ -719,21 +632,13 @@ If you can´t wait to learn JavaScript - and you shouldn´t - check out the MDN 
     URL for CDN is more cache friendly
     (http://encosia.com/cripple-the-google-cdns-caching-with-a-single-character/).
 
-[linux - Exclude directory from find . command - Stack Overflow](http://stackoverflow.com/questions/4210042/exclude-directory-from-find-command)
+[linux - Exclude directory from find . command - Stack Overflow](http://stackoverflow.com/questions/4210042/exclude-directory-from-find-command) -<
 
 :   不好用。但能用。
 
 [javascript - How to make an AJAX call without jQuery? - Stack Overflow](http://stackoverflow.com/questions/8567114/how-to-make-an-ajax-call-without-jquery)
 
-成吉思汗牛逼了……：
-
->   It is not enough to succeed; everyone else must fail.
-
-范友们看到拉里 · 埃里森这么作，是不是有种 “你咋不上天” 的感觉？
-
-然而拉里 · 埃里森可以实力回答：“你咋知道我不上天？”
-
-[ppwwyyxx/vim-PinyinSearch: help vim search Chinese by Pinyin](https://github.com/ppwwyyxx/vim-PinyinSearch)
+[ppwwyyxx/vim-PinyinSearch: help vim search Chinese by Pinyin](https://github.com/ppwwyyxx/vim-PinyinSearch) -<
 
 :   ```awk
     awk '{print $2}' chinese_informative.txt
@@ -749,13 +654,13 @@ If you can´t wait to learn JavaScript - and you shouldn´t - check out the MDN 
 
     refs and see also
 
-      - [xuchunyang/pinyin-search.el: [Emacs] Search Chinese by Pinyin](https://github.com/xuchunyang/pinyin-search.el)
+    -   [xuchunyang/pinyin-search.el: [Emacs] Search Chinese by Pinyin](https://github.com/xuchunyang/pinyin-search.el)
 
-[拉里 · 埃里森在他 32 岁创办甲骨文之前的时候是什么样的一个人？性格如何？ - 创业 - 知乎](https://www.zhihu.com/question/20118236)
+[拉里 · 埃里森在他 32 岁创办甲骨文之前的时候是什么样的一个人？性格如何？ - 创业 - 知乎](https://www.zhihu.com/question/20118236) -<
 
 :   有点投机有点浮，我更喜欢 Bill Gates。
 
-[Windows 实用技巧：右键菜单中添加打开方式_百度经验](http://jingyan.baidu.com/article/08b6a591f334f914a809223b.html)
+[Windows 实用技巧：右键菜单中添加打开方式_百度经验](http://jingyan.baidu.com/article/08b6a591f334f914a809223b.html) -<
 
 :   steps:
 
@@ -765,28 +670,30 @@ If you can´t wait to learn JavaScript - and you shouldn´t - check out the MDN 
     -   新建子项，需为 `command`
     -   填入内容，`C:\Vim\vim74\gvim.exe %1`
 
-    然后就可以用了。还可以添加一个图标，在 `Vim instance` 新建字符串，内容为 Icon: path/to/vim.ico。
+    然后就可以用了。还可以添加一个图标，在 `Vim instance` 新建字符串，内容为
+    Icon: path/to/vim.ico。
 
-    还可以在 Vim instance 下新建字符串，默认的那个，修改为“用 Vim 打开”，这样，右键菜单的显示文字就变成了
-    “用 Vim 打开”。
+    还可以在 Vim instance 下新建字符串，默认的那个，修改为“用 Vim 打开”，这样，
+    右键菜单的显示文字就变成了“用 Vim 打开”。
 
     这里分享两个图标：
+
     ![](http://whudoc.qiniudn.com/2016/vim.ico){width=30px}
     ![](http://whudoc.qiniudn.com/2016/vim2.ico){width=30px}
 
-[EmacsWiki: Advising Functions](https://www.emacswiki.org/emacs/AdvisingFunctions)
+[EmacsWiki: Advising Functions](https://www.emacswiki.org/emacs/AdvisingFunctions) -<
 
 :   defadvice? 牛逼。
 
-[Chapter 3 – ISL – ButMan World](http://butman.club/notes/cyber/anintroductiontostatisticallearningwithr/chapter-3-isl/)
+[Chapter 3 – ISL – ButMan World](http://butman.club/notes/cyber/anintroductiontostatisticallearningwithr/chapter-3-isl/) -<
 
 :   读得太慢。
 
-[The Velveteen Rabbit (豆瓣)](https://book.douban.com/subject/4373852/#!/i!/ckDefault)
+[The Velveteen Rabbit (豆瓣)](https://book.douban.com/subject/4373852/#!/i!/ckDefault) -<
 
 :   [The Velveteen Rabbit](http://digital.library.upenn.edu/women/williams/rabbit/rabbit.html)
 
-[如何在论文中画出漂亮的插图？ - 知乎](http://zqdevres.qiniucdn.com/data/20141217174706/index.html)
+[如何在论文中画出漂亮的插图？ - 知乎](http://zqdevres.qiniucdn.com/data/20141217174706/index.html) -<
 
 :   gplot2 太美！
 
@@ -798,19 +705,19 @@ If you can´t wait to learn JavaScript - and you shouldn´t - check out the MDN 
 
     refs and see also
 
-      - [早点获得这个技能，文章插图水平能上好几个层次（多图）](http://daily.zhihu.com/story/4823612)
+    -   [早点获得这个技能，文章插图水平能上好几个层次（多图）](http://daily.zhihu.com/story/4823612)
 
-[曾有哪些错误的对科技的预测？ - 知乎用户的回答 - 知乎](http://www.zhihu.com/question/20387363/answer/32249090)
+[曾有哪些错误的对科技的预测？ - 知乎用户的回答 - 知乎](http://www.zhihu.com/question/20387363/answer/32249090) -<
 
 :   时间改变一切。
 
 [jQAPI - Alternative jQuery Documentation Browser](http://www.jqapi.com/)
 
-[language agnostic - How to write a good README - Stack Overflow](http://stackoverflow.com/questions/2304863/how-to-write-a-good-readme)
+[language agnostic - How to write a good README - Stack Overflow](http://stackoverflow.com/questions/2304863/how-to-write-a-good-readme) -<
 
 :   [c++ - Best Tips for documenting code using doxygen? - Stack Overflow](http://stackoverflow.com/questions/51667/best-tips-for-documenting-code-using-doxygen)
 
-[面试官在想什么 | 谢益辉](http://yihui.name/cn/2015/10/interview/)
+[面试官在想什么 | 谢益辉](http://yihui.name/cn/2015/10/interview/) -<
 
 :   视频会议的评论页面里，有听众提出，要不给计算机系强制增加统计课吧（大概也有
     给统计系强制增加计算机课的意思），让那些无知的计算机学生搞清楚我们伟大的统
@@ -823,22 +730,22 @@ If you can´t wait to learn JavaScript - and you shouldn´t - check out the MDN 
     说到底，还是**有人的地方就有浆糊**。人都想守着自己的山头，并且蹲在山包包上
     翘首以盼有人来继承山大王的衣钵。也许守的是珠穆朗玛峰，也许守的只是个土包而已。
 
-[senny/sablon: Ruby Document Template Processor based on docx templates and Mail Merge fields.](https://github.com/senny/sablon)
+[senny/sablon: Ruby Document Template Processor based on docx templates and Mail Merge fields.](https://github.com/senny/sablon) -<
 
 :   Contributing
 
-      - Fork it ( <https://github.com/senny/sablon/fork> )
-      - Create your feature branch (`git checkout -b my-new-feature`{.bash})
-      - Commit your changes (`git commit -am 'Add some feature'`{.bash})
-      - Push to the branch (`git push origin my-new-feature`{.bash})
-      - Create a new Pull Request
+    -   Fork it ( <https://github.com/senny/sablon/fork> )
+    -   Create your feature branch (`git checkout -b my-new-feature`{.bash})
+    -   Commit your changes (`git commit -am 'Add some feature'`{.bash})
+    -   Push to the branch (`git push origin my-new-feature`{.bash})
+    -   Create a new Pull Request
 
     refs and see also
 
-      - [List of document markup languages - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/List_of_document_markup_languages)
-      - [Mail merge - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Mail_merge)
-      - [Microsoft Office XML formats - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Microsoft_Office_XML_formats)
-      - [yihui/knitr: A general-purpose tool for dynamic report generation in R](https://github.com/yihui/knitr)
+    -   [List of document markup languages - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/List_of_document_markup_languages)
+    -   [Mail merge - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Mail_merge)
+    -   [Microsoft Office XML formats - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Microsoft_Office_XML_formats)
+    -   [yihui/knitr: A general-purpose tool for dynamic report generation in R](https://github.com/yihui/knitr)
 
     [knitr: Elegant, flexible and fast dynamic report generation with R | knitr](http://yihui.name/knitr/)
 
@@ -854,48 +761,35 @@ If you can´t wait to learn JavaScript - and you shouldn´t - check out the MDN 
 
 [renrousousuo/DocumentTemplate: 文件 Markdown 格式。方便书写各种文档。](https://github.com/renrousousuo/DocumentTemplate)
 
-[joshbuchea/HEAD: A list of everything that could go in the <head> of your document](https://github.com/joshbuchea/HEAD)
+[joshbuchea/HEAD: A list of everything that could go in the `<head>` of your document](https://github.com/joshbuchea/HEAD)
 
-[Jeffrey Friedl's Blog » Source of the famous “Now you have two problems” quote](http://regex.info/blog/2006-09-15/247)
+[Jeffrey Friedl's Blog » Source of the famous “Now you have two problems” quote](http://regex.info/blog/2006-09-15/247) -<
 
 :   Some people, when confronted with a problem, think
     “I know, I'll use regular expressions.”   Now they have two problems.
 
-[10 Cloverfield Lane: Original Ending Revealed | Collider](http://collider.com/10-cloverfield-lane-ending-original/)
+[10 Cloverfield Lane: Original Ending Revealed | Collider](http://collider.com/10-cloverfield-lane-ending-original/) -<
 
 :   clover, `['kloʊvər]`, 三叶草；车轴草, 四叶草；幸运草
 
     refs and see also
 
-      - [科洛弗档案 (豆瓣)](https://movie.douban.com/subject/2144242/)
-      - [丽兹 · 卡潘 (豆瓣)](https://movie.douban.com/celebrity/1009234/)
-      - [外星人不是你想有就有的那么自然 (科洛弗道 10 号 影评)](https://movie.douban.com/review/7820965/)
-      - [DV 至死 (科洛弗档案 影评)](https://movie.douban.com/review/1364497/)
+    -   [科洛弗档案 (豆瓣)](https://movie.douban.com/subject/2144242/)
+    -   [丽兹 · 卡潘 (豆瓣)](https://movie.douban.com/celebrity/1009234/)
+    -   [外星人不是你想有就有的那么自然 (科洛弗道 10 号 影评)](https://movie.douban.com/review/7820965/)
+    -   [DV 至死 (科洛弗档案 影评)](https://movie.douban.com/review/1364497/)
 
-[Free Gulim Fonts](http://www.free-fonts.com/gulim)
+[Free Gulim Fonts](http://www.free-fonts.com/gulim) -<
 
 :   gulim, font, gulim font, font gulim.
 
-建模主要分为建模、编程、论文三个部分，但是要完全分开的你会发现人力资源闲置，所
-以推荐每位队员主攻其中两项左右。所以建议千万千万不要三个数学学院的同学凑一
-队！！！（如果三个啥子都会的数学大神凑一起也...没有...关系）。
-
-Vim
-
--   在新 tab 打开文件：`Control-w gf`{.vim}。
--   在新 window 打开文件：`Control-w f`{.vim}。
-
-[年轻就该多尝试，教你 20 小时 Get 一项新技能 - 简书](http://www.jianshu.com/p/8e8c250ae5b0)
+[年轻就该多尝试，教你 20 小时 Get 一项新技能 - 简书](http://www.jianshu.com/p/8e8c250ae5b0) -<
 
 :   步骤四：当你完成了第一幅作品后，其实你就已经入门了，并且克服了恐惧。
 
 [如何以“正确的姿势”阅读开源软件代码 - 简书](http://www.jianshu.com/p/8e96d21052fd)
 
-我无意神化史蒂夫·乔布斯，但他老人家说的话实在是太到位了：
-
->   和聪明人在一起工作，最大的好处就是不用考虑他们的自尊。
-
-`:h object-select`{.vim}
+`:h object-select`{.vim} -<
 
 :   ```vim
     "dl"    delete character (alias: "x")       |dl|
@@ -919,7 +813,7 @@ Vim
 
     rot13: `g?`
 
-[pandoc/Highlighting.hs at 676b800993fffcc0e2ba44c88cfb6d552a37a136 · jgm/pandoc](https://github.com/jgm/pandoc/blob/676b800993fffcc0e2ba44c88cfb6d552a37a136/src/Text/Pandoc/Highlighting.hs)
+[pandoc/Highlighting.hs at 676b800993fffcc0e2ba44c88cfb6d552a37a136 · jgm/pandoc](https://github.com/jgm/pandoc/blob/676b800993fffcc0e2ba44c88cfb6d552a37a136/src/Text/Pandoc/Highlighting.hs) -<
 
 :   ```haskell
     langsList :: [(String, String)]
@@ -996,7 +890,7 @@ Vim
 
 [Everything you need to know about Vim - 推酷](http://www.tuicool.com/articles/Zr2maur)
 
-[vi - How do I use vim registers? - Stack Overflow](http://stackoverflow.com/questions/1497958/how-do-i-use-vim-registers)
+[vi - How do I use vim registers? - Stack Overflow](http://stackoverflow.com/questions/1497958/how-do-i-use-vim-registers) -<
 
 :   ~~In windows. In X (Linux, possibly also OS X). 这个居然用 in，我一直用 on 来着……~~
 
@@ -1005,7 +899,7 @@ Vim
     Released in 1989, it has been distributed widely as the shell for the GNU
     operating system and as a default shell on Linux and OS X.
 
-[VIM: how to execute the contents of a buffer? - Stack Overflow](http://stackoverflow.com/questions/5326430/vim-how-to-execute-the-contents-of-a-buffer)
+[VIM: how to execute the contents of a buffer? - Stack Overflow](http://stackoverflow.com/questions/5326430/vim-how-to-execute-the-contents-of-a-buffer) -<
 
 :   ```
     Use:
@@ -1022,18 +916,18 @@ Vim
     :so[urce] %
     ```
 
-[俄罗斯黑客在国际黑客圈中地位如何？ - 网络安全 - 知乎](http://www.zhihu.com/question/24765834)
+[俄罗斯黑客在国际黑客圈中地位如何？ - 网络安全 - 知乎](http://www.zhihu.com/question/24765834) -<
 
 :   毛子数学好，喜欢宅，最可怕的是他们就算趴在一坨屎上，还是照样该干嘛干嘛，心
     理素质应该是最高的。
 
     refs and see also
 
-      - [Top Ten Russian Stereotypes Which Are True](http://gorussia.about.com/od/Russian_history_and_culture/tp/Top-10-Russian-Stereotypes-Which-Are-True.htm)
+    -   [Top Ten Russian Stereotypes Which Are True](http://gorussia.about.com/od/Russian_history_and_culture/tp/Top-10-Russian-Stereotypes-Which-Are-True.htm)
 
 [如何看待中国数学竞赛落败引网民狂欢？ - 清华大学 - 知乎](http://www.zhihu.com/question/34356024)
 
-[为什么俄罗斯人在通常被认为考验智力的领域大有作为？ - 数学竞赛 - 知乎](http://www.zhihu.com/question/24315673)
+[为什么俄罗斯人在通常被认为考验智力的领域大有作为？ - 数学竞赛 - 知乎](http://www.zhihu.com/question/24315673){.heart} -<
 
 :   说一个俄国数学教授的故事。 我和一个同学争论一个 PDE 问题，他在旁边听。然后他
     突然对我说：“你们中国人都太 peaceful 了，我在你这个年纪，早就揍他了。你说了这
@@ -1104,29 +998,25 @@ Vim
     |   不顾大家冷嘲热讽坚持混欧服。
     |   这“些东西放在科研，竞技上，可以解释一些战斗民族的强大原因。
 
----
+    没太大作用。倒不是真没用，只是高数太简单太基础以至于难以体现其作用。
 
-没太大作用。倒不是真没用，只是高数太简单太基础以至于难以体现其作用。
+    但凡做算法、数据分析、仿真、机器学习，哪一个都是在高等数学基础上扩展而来的理论
+    再实现的。也就是说，虽然精通高数没啥用，但是不通高数几乎啥东西都没发开展。
 
-但凡做算法、数据分析、仿真、机器学习，哪一个都是在高等数学基础上扩展而来的理论
-再实现的。也就是说，虽然精通高数没啥用，但是不通高数几乎啥东西都没发开展。
+    然后，我 TM 拒绝了
 
----
+    然后我一直单身到现在………
 
-然后，我 TM 拒绝了
+    曾经身边有很多有天赋的人，但是他们要么自我堕落，要么环境所迫，要么被父母老师所
+    逼选了不喜欢的专业，要么人各有志不想学数学了，总之都已经远离数学很久很久了。每
+    每想到此，我就特别感伤。
 
-然后我一直单身到现在………
+    >   19 世纪德国数学家 Carl Gustav Jacobi，在纯数学某些领域有所贡献。Fourier 建议，
+    >   这么聪明的头脑，研究点儿应用数学比如 heat flow 如何？这引起了 Jacobi 的不满。
+    >   他在给 Legendre 信里，以教训人的口气说，像 Fourier 那样的人，“应该懂得，”研究
+    >   数学的唯一目的，就是为了追求人类心智的荣耀。
 
-曾经身边有很多有天赋的人，但是他们要么自我堕落，要么环境所迫，要么被父母老师所
-逼选了不喜欢的专业，要么人各有志不想学数学了，总之都已经远离数学很久很久了。每
-每想到此，我就特别感伤。
-
->   19 世纪德国数学家 Carl Gustav Jacobi，在纯数学某些领域有所贡献。Fourier 建议，
->   这么聪明的头脑，研究点儿应用数学比如 heat flow 如何？这引起了 Jacobi 的不满。
->   他在给 Legendre 信里，以教训人的口气说，像 Fourier 那样的人，“应该懂得，”研究
->   数学的唯一目的，就是为了追求人类心智的荣耀。
-
-[数学这门学科有多有趣？ - 趣味数学 - 知乎](http://www.zhihu.com/question/37799355)
+[数学这门学科有多有趣？ - 趣味数学 - 知乎](http://www.zhihu.com/question/37799355) -<
 
 :   |   人生大起大落莫过于：
     |   写满一张草稿纸终于算出压轴题的答案
@@ -1172,48 +1062,24 @@ Vim
 
     论文最后是交纸质档，对于内容没有要求，包括内容完整度
 
-[理解PCA和SVD | 切问录](http://www.fuzihao.org/blog/2015/12/04/%E7%90%86%E8%A7%A3PCA%E5%92%8CSVD/)
+[理解 PCA 和 SVD | 切问录](http://www.fuzihao.org/blog/2015/12/04/%E7%90%86%E8%A7%A3PCA%E5%92%8CSVD/){.heart}
 
-[Windows下编译YouCompleteMe流程[和ubuntu 32bit] | I'm tracyone](http://onetracy.com/2015/08/16/build_ycm_in_windows/)
+[Windows 下编译 YouCompleteMe 流程 [和 ubuntu 32bit] | I'm tracyone](http://onetracy.com/2015/08/16/build_ycm_in_windows/)
 
-[第一课：新建一个窗口 | OpenGL Tutorials](http://opengl.zilongshanren.com/content/tut01/zh.html)
+[第一课：新建一个窗口 | OpenGL Tutorials](http://opengl.zilongshanren.com/content/tut01/zh.html) -<
 
 :   CMake, OpenGL, Code
 
-硕鼠
+硕鼠 -<
 
 :   提示：因优酷官方禁止下载，目前已停止了优酷视频解析支持，请理解，您可以优先
     从其他视频网站找资源下载。
-
-Vim 用了五年，Emacs 用了两年多。
-
-最大的感受是用 Vim 之后得了强迫症，什么编辑器都要安装 Vim 模拟器，包括我现在用
-的 Emacs 也安装了 Evil。为什么？因为学习 Vim，我学会了一门无鼠标高效编辑文字的
-语言，在编辑文字的时候可以达到一种 flow 的状态。
-
-而掌握了 Emacs，我获得的是一个崭新的编程世界，一个功能强大的操作系统，以及一个
-强大友好的社区。只有在 Hacking Emacs 的时候我才有“这是属于我自己的编辑器”的感受，
-因为我从没有试过用蹩脚的 Vimscript 写过插件，可能我的观点有失公允。不过，有了
-lisp 谁还想用那玩意儿写代码呢？
-
-最终建议就是你去找这个语言领域内最热门的一个开源项目，看这帮业内最杰出的家伙是怎么协作的，照猫画虎绝对不会错。
 
 [裘宗燕 :: Qiu Zongyan](http://www.math.pku.edu.cn/teachers/qiuzy/)
 
 [Obi-Wan Kenobi - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Obi-Wan_Kenobi)
 
-It's enough to make a respectable fellow blush.
-
-argon, 美: [ˈɑrˌɡɑn]英: [ˈɑː(r)ɡɒn], n.氩, greek "lazy".
-
-Scientists spent a lot of time separating the different kinds of air and then
-had to decide what to call them all. Oxygen was called *flammable air* for a
-while, but it didn’t catch on. It just didn’t have the right **scientific
-ring** to it. We all know that scientific words need an obscure classical
-origin to make them sound impressive to those who wouldn’t know an idiopathic
-craniofacial erythema if it hit them in the face.
-
-[Shoe fetishism - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Shoe_fetishism)
+[Shoe fetishism - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Shoe_fetishism) -<
 
 :   Shoe fetishism is the attribution of attractive sexual qualities to shoes
     or other footwear as a matter of sexual preference, or an alternative or
@@ -1276,18 +1142,14 @@ craniofacial erythema if it hit them in the face.
 
     refs and see also
 
-      - [Boot fetishism - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Boot_fetishism)
-      - [Fuck-me shoes - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Fuck-me_boots)
-
-lavatory, `[ˈlævəˌtɔri]`, n.厕所；卫生间；洗手间；盥洗室
-
-Machiavellianism
+    -   [Boot fetishism - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Boot_fetishism)
+    -   [Fuck-me shoes - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Fuck-me_boots)
 
 [Github Hacking - 简书](http://www.jianshu.com/p/d6b54f1d60f1?hmsr=toutiao.io)
 
 [数理统计学的奠基人费希尔](https://www.douban.com/note/523795913/)
 
-[Vinta (陳上進)](https://vinta.ws/)
+[Vinta (陳上進)](https://vinta.ws/) -<
 
 :   |   幽默是一件重要的事
     |   我們必須嚴肅對待
@@ -1313,14 +1175,14 @@ Machiavellianism
     那我必須提醒你一件最重要的事：先去交一個女朋友，再來學寫程式；因為一旦你成
     為軟體工程師之後，就交不到女朋友了。
 
-[乌云 (WooYun) 是怎样的一个网站？ - 网络安全 - 知乎](https://www.zhihu.com/question/19993185)
+[乌云 (WooYun) 是怎样的一个网站？ - 网络安全 - 知乎](https://www.zhihu.com/question/19993185) -<
 
 :   2014 年 2 月 17 日爆出支付宝 / 余额宝任意登录漏洞后，阿里公关迅速出击，拿出现金 500
     万奖励白帽子盖过舆论。在此之后，关于微信支付与支付宝的互相职责安全性差的公
     关稿连绵不绝。以安全为名，背后实为互联网商业之战的封杀与反封杀、黑公关与反
     黑事件，正愈演愈烈，而乌云网在其中扮演了推波助澜的作用。
 
-[css3 - How to set Bullet colors in UL/LI html lists via CSS without using any images or span tags - Stack Overflow](http://stackoverflow.com/questions/5306640/how-to-set-bullet-colors-in-ul-li-html-lists-via-css-without-using-any-images-or)
+[css3 - How to set Bullet colors in UL/LI html lists via CSS without using any images or span tags - Stack Overflow](http://stackoverflow.com/questions/5306640/how-to-set-bullet-colors-in-ul-li-html-lists-via-css-without-using-any-images-or) -<
 
 :   ```css
     ul {
@@ -1354,10 +1216,10 @@ Machiavellianism
 
     refs and see also
 
-      - [Font Awesome Cheatsheet](http://fontawesome.io/cheatsheet/)
-      - [Patternify | A CSS Pattern Generator](http://www.patternify.com/)
+    -   [Font Awesome Cheatsheet](http://fontawesome.io/cheatsheet/)
+    -   [Patternify | A CSS Pattern Generator](http://www.patternify.com/)
 
-[Penrose triangle - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Penrose_triangle)
+[Penrose triangle - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Penrose_triangle) -<
 
 :   The **Penrose triangle**, also known as the **Penrose tribar**, or the
     impossible tribar, is an impossible object. It was first created by the Swedish
@@ -1372,7 +1234,7 @@ Machiavellianism
     ![Impossible triangle sculpture as an optical illusion, East Perth, Western
         Australia](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Perth_Impossible_Triangle.jpg/750px-Perth_Impossible_Triangle.jpg)
 
-[在男女交往中，女方说什么话或做什么事，会让男生瞬间倒胃口，失去或降低与她发展的兴趣？ - 恋爱 - 知乎](http://www.zhihu.com/question/21162085)
+[在男女交往中，女方说什么话或做什么事，会让男生瞬间倒胃口，失去或降低与她发展的兴趣？ - 恋爱 - 知乎](http://www.zhihu.com/question/21162085) -<
 
 :   -   看书？太多字了，好累的。我还是看电视剧吧。
     -   这电影好闷啊，怎么一分钟了都没人说话？不如我们俩说说话呗。
@@ -1418,27 +1280,25 @@ Machiavellianism
 
     他们只是在消费无知盲众群体的智商，就像中世纪天主教的教皇。
 
----
+    结果我一登台，仿佛真的看到她脑袋上掉下了三根竖线。
 
-结果我一登台，仿佛真的看到她脑袋上掉下了三根竖线。
+    Yesterday you said tomorrow. Just do it.
 
-Yesterday you said tomorrow. Just do it.
+    It's a beautiful day, and I can't see it
 
-It's a beautiful day, and I can't see it
+    |   一位骑车去陕北的大哥给我讲的。
+    |   他并不是带着一身昂贵周全的装备，体魄健壮，玩味人生的那一类驴友。
+    |   他只有一条腿，胡子拉碴，没钱没家，郁郁寡欢，车也是几百块普通的轻便车。
+    |
+    |   他独自骑行，一路下来心里孤独苍凉，跋涉到一个村庄时正是黑夜，却又下起了雪。
+    |
+    |   一个穿着厚厚的棉袄，农妇模样的女人，倚靠在一座土屋门前向他招揽生意。她说：
+    |
+    |   >   大哥，热酒热炕热身子啊～
 
-|   一位骑车去陕北的大哥给我讲的。
-|   他并不是带着一身昂贵周全的装备，体魄健壮，玩味人生的那一类驴友。
-|   他只有一条腿，胡子拉碴，没钱没家，郁郁寡欢，车也是几百块普通的轻便车。
-|
-|   他独自骑行，一路下来心里孤独苍凉，跋涉到一个村庄时正是黑夜，却又下起了雪。
-|
-|   一个穿着厚厚的棉袄，农妇模样的女人，倚靠在一座土屋门前向他招揽生意。她说：
-|
-|   >   大哥，热酒热炕热身子啊～
+    有个故事叫叶公好龙。 重口味基本上都是这么回事。
 
-有个故事叫叶公好龙。 重口味基本上都是这么回事。
-
-[Think different. - Original Ad](http://www.thecrazyones.it/spot-en.html#)
+[Think different. - Original Ad](http://www.thecrazyones.it/spot-en.html#){.heart} -<
 
 :   ```tzx-bigquote
     Here's to the crazy ones.
@@ -1467,7 +1327,7 @@ It's a beautiful day, and I can't see it
     they can change the world, are the ones who do.
     ```
 
-    [最棒的征兵广告_土豆_高清视频在线观看](http://www.tudou.com/programs/view/nMwXpcXrOZ0/?FR=LIAN)
+    [最棒的征兵广告_土豆_高清视频在线观看](http://www.tudou.com/programs/view/nMwXpcXrOZ0/?FR=LIAN) -<
 
     :   |   If you are, you breathe.
         |   If you breath, you talk.
@@ -1484,7 +1344,7 @@ It's a beautiful day, and I can't see it
         |   If you know, you want to know more.
         |   If you want to know more, you are alive.
 
-[域名 - 简书](http://www.jianshu.com/p/865614642b0a)
+[域名 - 简书](http://www.jianshu.com/p/865614642b0a) -<
 
 :   帽子说：傻！你们程序员再过几年就是年薪百万，全中国的人民都在创业，没技术没资金
     别的啥也干不了，也就能买个域名请个程序员开网络公司。中国还需要几个程序员？1亿！
@@ -1581,12 +1441,12 @@ It's a beautiful day, and I can't see it
 
     refs and see also
 
-      - [振鼎鸡 - 简书](http://www.jianshu.com/p/e01bda651285)
-      - [童年杂忆 - 简书](http://www.jianshu.com/p/bbaff21025ab)
-      - [一个有故事的地方，一群有故事的人 - 简书](http://www.jianshu.com/p/3356ec1922ce)
-      - [目前你看到过或听过的最喜欢或者认为最好的文案是什么？ - 调查类问题 - 知乎](http://www.zhihu.com/question/19920113)
+    -   [振鼎鸡 - 简书](http://www.jianshu.com/p/e01bda651285)
+    -   [童年杂忆 - 简书](http://www.jianshu.com/p/bbaff21025ab)
+    -   [一个有故事的地方，一群有故事的人 - 简书](http://www.jianshu.com/p/3356ec1922ce)
+    -   [目前你看到过或听过的最喜欢或者认为最好的文案是什么？ - 调查类问题 - 知乎](http://www.zhihu.com/question/19920113)
 
-HTTP - The Definitive Guide
+`HTTP - The Definitive Guide`{.heart} -<
 
 :   -   MIME, URIs, URLs, URNs
 
@@ -1735,8 +1595,8 @@ HTTP - The Definitive Guide
 
         refs and see also
 
-          - <http://www.w3.org/Protocols/HTTP/Performance/>
-          - <http://www.acm.org/sigcomm/ccr/archive/2001/jan01/ccr-200101-mogul.pdf>
+        -   <http://www.w3.org/Protocols/HTTP/Performance/>
+        -   <http://www.acm.org/sigcomm/ccr/archive/2001/jan01/ccr-200101-mogul.pdf>
 
         Web Server Implementations: HTTP, TCP
 
@@ -2308,24 +2168,7 @@ HTTP - The Definitive Guide
     -   DES, Triple-DES, RC2, and RC4
     -   Key Length and Enumeration Attacks
 
-```org
-#+OPTIONS: tex:t          Do the right thing automatically (MathJax)
-#+OPTIONS: tex:nil        Do not process LaTeX fragments at all
-#+OPTIONS: tex:verbatim   Verbatim export, for jsMath or so
-#+STARTUP: latexpreview
-
-x^2 + y^2 = z^2
-x_1, x_2, x_3, ..., x_n
-
-\begin{equation}
-x=\sqrt{b}
-\end{equation}
-
-If $a^2=b$ and \( b=2 \), then the solution must be
-either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
-```
-
-与众不同的心理学
+`与众不同的心理学`{.heart} -<
 
 :   01. 充满活力的心理学 --- 在科学阵营里还干得蛮好
 
@@ -2380,7 +2223,7 @@ either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
     ![1411355427.png](http://gnat-tang-shared-image.qiniudn.com/pic/20140922/1411355427.png)
     ![1411355437.png](http://gnat-tang-shared-image.qiniudn.com/pic/20140922/1411355437.png)
 
-像外行一样思考，像专家一样实践——科研成功之道
+像外行一样思考，像专家一样实践——科研成功之道 -<
 
 :   [内容简介][book-douban]
 
@@ -2528,7 +2371,7 @@ either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
     ![](http://gnat-tang-shared-image.qiniudn.com/pictures/000-2014-07-13-23-58-14.png)
     ![](http://gnat-tang-shared-image.qiniudn.com/pictures/000-2014-07-13-23-59-04.png)
 
-数理统计学简史 --- 陈希孺
+数理统计学简史 --- 陈希孺 -<
 
 :   豆瓣书评：[有助于培养“统计思想”](http://book.douban.com/review/4557864/)
 
@@ -2591,7 +2434,7 @@ either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
 
     卷尾语
 
-如果让我重做一次研究生 --- 王泛森院士
+如果让我重做一次研究生 --- 王泛森院士 -<
 
 :   >   这是王泛森院士写的一篇文章，我觉得对即将读研的同学很有意义，到了研究生阶
     >   段，不能再用本科生的思维方式去学习，更应该**具备学术研究素质，学会创新，学会主
@@ -2657,7 +2500,7 @@ either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
             东西，才算达到的标准，也才符合到我们刚刚讲到那张拉丁文的博士证书上
             面所讲的，**有所贡献与创新**。
 
-    二、一个老师怎么训练研究生
+    二、一个老师怎么训练研究生 -<
 
     :   身为老师你要怎么训练研究生。我认为人文科学和社会科学的训练，哪怕是自然
         科学的训练，到研究生阶段应该更像师徒制，所以来自个人和老师、个人和同侪
@@ -2992,9 +2835,9 @@ either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
             示里面有一个共同关心的焦点，如果没有的话，这个学校就不可能成为好的
             大学。
 
-        [douban]: http://book.douban.com/subject/1795992/
+[douban]: http://book.douban.com/subject/1795992/
 
-暗时间
+暗时间 -<
 
 :   序言 为什么人人都该学点心理学
 
@@ -3118,87 +2961,246 @@ either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
       - [刘未鹏，*暗时间*，电子工业出版社，2011](http://book.douban.com/subject/6709809/)
       - [《奇特的一生》]: http://book.douban.com/subject/1115353/
 
----
+linux environment variables -<
 
--   `printenv PATH`{.bash}, works like `echo $PATH`{.bash}, but seems more professional
+:   -   `printenv PATH`{.bash}, works like `echo $PATH`{.bash}, but seems more professional
 
--   `tr '[:lower:]' '[:upper:]'`{.bash}
+    -   `tr '[:lower:]' '[:upper:]'`{.bash}
 
--   Define Functions
+    -   Define Functions
 
-    ```bash
-    usage ()
-    {
-        cat <<EOF
-    some illustrations
-    here
-    A huge File Descriptino
-    EOF
-    }
+        ```bash
+        usage ()
+        {
+            cat <<EOF
+        some illustrations
+        here
+        A huge File Descriptino
+        EOF
+        }
+        ```
+
+    -   Parse Parameters
+
+        ```bash
+        for arg in $@; do
+            case $arg in
+                -h|--help)
+                    usage
+                    exit 0
+                    ;;
+            esac
+        done
+
+        if [ $# -gt 2 ] ; then
+            echo "ERROR: ..."
+            exit 1
+        fi
+
+        require_tool $@
+        ```
+
+    -   Read
+
+        ```bash
+        read "a?$1 [y/N] "
+        if [[ $a == "N" || $a == "n" || $a = "" ]]; then
+            return 0
+        fi
+        return 1
+        ```
+
+    -   tput cols
+
+    -   You Should  man these
+
+        ```bash
+        man test
+        ```
+
+    -   Skills
+
+        `printf '\033[0;34m%s\033[0m\n' "Upgrading Oh My Zsh"`{.bash} (better looking than inlined color prompt)
+
+    -   Words You should know
+
+        source: `source /etc/profile`{.bash}
+
+        profile
+
+        ack-grep
+
+    -   Words You should Google
+
+Reserved Keywords in Languages
+
+:   1. [C][c-reserved-words]
+    2. [C#][csharp-reserved-words]
+    3. [CSS][css-reserved-words]
+    4. [HTML][html-reserved-words]
+    5. [Java][java-reserved-words]
+    6. [JavaScript][javascript-reserved-words]
+    7. [Python][python-reserved-words]
+    8. [Ruby][ruby-reserved-words]
+
+    ```tzx-bigquote
+                                        OOOOO
+                                       O     O
+                                       O
+                                       O
+                                       O
+                                       O     O
+                                        OOOOO
+    ================================================================================
+    auto                        entry                       static
+    break                       enum                        struct
+    case                        extern                      switch
+    char                        float                       typeof
+    const                       for                         union
+    continue                    goto                        unsigned
+    default                     int                         unused
+    double                      long                        void
+    else                        register                    volatile
+                                return                      while
+                                short
+                                signed
+                                sizeof
+
+
+                                O
+                                O    OO    O    O    OO
+                                O   O  O   O    O   O  O
+                                O  O    O  O    O  O    O
+                          O     O  OOOOOO  O    O  OOOOOO
+                          O     O  O    O   O  O   O    O
+                           OOOOO   O    O    OO    O    O
+    ================================================================================
+    abstract                    goto                            this
+    assert                      if                              throw
+    boolean                     implements                      throws
+    break                       import                          transient
+    byte                        instanceof                      true
+    case                        int                             try
+    catch                       interface                       void
+    class                       long                            volatile
+    const                       native                          while
+    continue                    new
+    default                     null
+    do                          package
+    double                      protected
+    else                        public
+    enum                        return
+    extends                     short
+    false                       static
+    final                       strictfp
+    finally                     super
+    float                       switch
+    for                         synchronized
+
+                    OOOOOO
+                    O     O   O   O   OOOOO  O    O   OOOO   O    O
+                    O     O    O O      O    O    O  O    O  OO   O
+                    OOOOOO      O       O    OOOOOO  O    O  O O  O
+                    O           O       O    O    O  O    O  O  O O
+                    O           O       O    O    O  O    O  O   OO
+                    O           O       O    O    O   OOOO   O    O
+    ================================================================================
+    and                             False                   Nono
+    as                              finally                 not
+    assert                          for                     or
+    break                           from                    pass
+    class                           global                  raise
+    continue                        if                      return
+    def                             import                  True
+    del                             in                      try
+    elif                            is                      while
+    else                            lambda                  with
+    except                          nonlocal                yield
+
+                            OOOOOO
+                            O     O  O    O  OOOOO    O   O
+                            O     O  O    O  O    O    O O
+                            OOOOOO   O    O  OOOOO      O
+                            O   O    O    O  O    O     O
+                            O    O   O    O  O    O     O
+                            O     O   OOOO   OOOOO      O
+    ================================================================================
+    BEGIN                           end                             retry
+    END                             ensure                          return
+    alias                           false                           self
+    and                             for                             super
+    begin                           if                              then
+    break                           in                              true
+    case                            module                          undef
+    class                           next                            unless
+    def                             nil                             when
+    defined?                        not                             while
+    do                              or                              __FILE__
+    else                            redo                            __LINE__
+    elsif                           rescue
+
+                                    OOOOO         O O
+                                   O     O        O O
+                                   O            OOOOOOO
+                                   O              O O
+                                   O            OOOOOOO
+                                   O     O        O O
+                                    OOOOO         O O
+    ================================================================================
+    abstract                        for                         public
+    add                             foreach                     readonly
+    alias                           from                        ref
+    as                              get                         remove
+    ascending                       global                      return
+    async                           goto                        sbyte
+    await                           group                       sealed
+    base                            group                       select
+    bool                            if                          set
+    break                           implicit                    short
+    byte                            in                          sizeof
+    case                            int                         stackalloc
+    catch                           interface                   static
+    char                            internal                    string
+    checked                         into                        struct
+    class                           is                          switch
+    const                           join                        this
+    continue                        let                         throw
+    decimal                         lock                        true
+    default                         long                        try
+    delegate                        namespace                   typeof
+    descending                      new                         ulong
+    do                              null                        unchecked
+    double                          object                      unit
+    dynamic                         operator                    unsafe
+    else                            orderby                     ushort
+    enum                            out                         using
+    event                           out                         value
+    explicit                        override                    var
+    extern                          paitial                     virtual
+    false                           params                      void
+    finally                         partial                     volatile
+    fixed                           private                     where
+    float                           protected                   while
+                                                                yield
+
+          O                          OOOOO
+          O    OO    O    O    OO   O     O   OOOO   OOOOO      O    OOOOO    OOOOO
+          O   O  O   O    O   O  O  O        O    O  O    O     O    O    O     O
+          O  O    O  O    O  O    O  OOOOO   O       O    O     O    O    O     O
+    O     O  OOOOOO  O    O  OOOOOO       O  O       OOOOO      O    OOOOO      O
+    O     O  O    O   O  O   O    O O     O  O    O  O   O      O    O          O
+     OOOOO   O    O    OO    O    O  OOOOO    OOOO   O    O     O    O          O
+    ================================================================================
+    break                           finally                     this
+    case                            for                         throw
+    catch                           functin                     try
+    continue                        if                          typeof
+    debugger                        in                          var
+    default                         instanceof                  void
+    delete                          new                         while
+    do                              return                      with
+    else                            switch
     ```
-
--   Parse Parameters
-
-    ```bash
-    for arg in $@; do
-        case $arg in
-            -h|--help)
-                usage
-                exit 0
-                ;;
-        esac
-    done
-
-    if [ $# -gt 2 ] ; then
-        echo "ERROR: ..."
-        exit 1
-    fi
-
-    require_tool $@
-    ```
-
--   Read
-
-    ```bash
-    read "a?$1 [y/N] "
-    if [[ $a == "N" || $a == "n" || $a = "" ]]; then
-        return 0
-    fi
-    return 1
-    ```
-
--   tput cols
-
--   You Should  man these
-
-    ```bash
-    man test
-    ```
-
--   Skills
-
-    `printf '\033[0;34m%s\033[0m\n' "Upgrading Oh My Zsh"`{.bash} (better looking than inlined color prompt)
-
--   Words You should know
-
-    source: `source /etc/profile`{.bash}
-
-    profile
-
-    ack-grep
-
--   Words You should Google
-
----
-
-1. [C][c-reserved-words]
-2. [C#][csharp-reserved-words]
-3. [CSS][css-reserved-words]
-4. [HTML][html-reserved-words]
-5. [Java][java-reserved-words]
-6. [JavaScript][javascript-reserved-words]
-7. [Python][python-reserved-words]
-8. [Ruby][ruby-reserved-words]
 
 [c-reserved-words]: http://tigcc.ticalc.org/doc/keywords.html
 [csharp-reserved-words]: http://msdn.microsoft.com/en-us/library/x53a06bb.aspx
@@ -3209,207 +3211,40 @@ either $$ a=+\sqrt{2} $$ or \[ a=-\sqrt{2} \].
 [python-reserved-words]: https://docs.python.org/3.0/reference/lexical_analysis.html#id8
 [ruby-reserved-words]: http://www.tutorialspoint.com/ruby/ruby_quick_guide.htm
 
-```tzx-bigquote
-                                    OOOOO
-                                   O     O
-                                   O
-                                   O
-                                   O
-                                   O     O
-                                    OOOOO
-================================================================================
-auto                        entry                       static
-break                       enum                        struct
-case                        extern                      switch
-char                        float                       typeof
-const                       for                         union
-continue                    goto                        unsigned
-default                     int                         unused
-double                      long                        void
-else                        register                    volatile
-                            return                      while
-                            short
-                            signed
-                            sizeof
 
+Metaprogramming: What We Can -<
 
-                            O
-                            O    OO    O    O    OO
-                            O   O  O   O    O   O  O
-                            O  O    O  O    O  O    O
-                      O     O  OOOOOO  O    O  OOOOOO
-                      O     O  O    O   O  O   O    O
-                       OOOOO   O    O    OO    O    O
-================================================================================
-abstract                    goto                            this
-assert                      if                              throw
-boolean                     implements                      throws
-break                       import                          transient
-byte                        instanceof                      true
-case                        int                             try
-catch                       interface                       void
-class                       long                            volatile
-const                       native                          while
-continue                    new
-default                     null
-do                          package
-double                      protected
-else                        public
-enum                        return
-extends                     short
-false                       static
-final                       strictfp
-finally                     super
-float                       switch
-for                         synchronized
+:   -   Write a program to connect to external system
+    -   Stretch and Twist Ruby to meet your need, not just adapt to the language as it is
+    -   All in all, **Metaprogramming is writing code that writes code.**
 
-                OOOOOO
-                O     O   O   O   OOOOO  O    O   OOOO   O    O
-                O     O    O O      O    O    O  O    O  OO   O
-                OOOOOO      O       O    OOOOOO  O    O  O O  O
-                O           O       O    O    O  O    O  O  O O
-                O           O       O    O    O  O    O  O   OO
-                O           O       O    O    O   OOOO   O    O
-================================================================================
-and                             False                   Nono
-as                              finally                 not
-assert                          for                     or
-break                           from                    pass
-class                           global                  raise
-continue                        if                      return
-def                             import                  True
-del                             in                      try
-elif                            is                      while
-else                            lambda                  with
-except                          nonlocal                yield
+    ob, obarray
 
-                        OOOOOO
-                        O     O  O    O  OOOOO    O   O
-                        O     O  O    O  O    O    O O
-                        OOOOOO   O    O  OOOOO      O
-                        O   O    O    O  O    O     O
-                        O    O   O    O  O    O     O
-                        O     O   OOOO   OOOOO      O
-================================================================================
-BEGIN                           end                             retry
-END                             ensure                          return
-alias                           false                           self
-and                             for                             super
-begin                           if                              then
-break                           in                              true
-case                            module                          undef
-class                           next                            unless
-def                             nil                             when
-defined?                        not                             while
-do                              or                              __FILE__
-else                            redo                            __LINE__
-elsif                           rescue
+    Functions
 
-                                OOOOO         O O
-                               O     O        O O
-                               O            OOOOOOO
-                               O              O O
-                               O            OOOOOOO
-                               O     O        O O
-                                OOOOO         O O
-================================================================================
-abstract                        for                         public
-add                             foreach                     readonly
-alias                           from                        ref
-as                              get                         remove
-ascending                       global                      return
-async                           goto                        sbyte
-await                           group                       sealed
-base                            group                       select
-bool                            if                          set
-break                           implicit                    short
-byte                            in                          sizeof
-case                            int                         stackalloc
-catch                           interface                   static
-char                            internal                    string
-checked                         into                        struct
-class                           is                          switch
-const                           join                        this
-continue                        let                         throw
-decimal                         lock                        true
-default                         long                        try
-delegate                        namespace                   typeof
-descending                      new                         ulong
-do                              null                        unchecked
-double                          object                      unit
-dynamic                         operator                    unsafe
-else                            orderby                     ushort
-enum                            out                         using
-event                           out                         value
-explicit                        override                    var
-extern                          paitial                     virtual
-false                           params                      void
-finally                         partial                     volatile
-fixed                           private                     where
-float                           protected                   while
-                                                            yield
+    ```lisp
+    (make-symbol "foo") ==> make one
+    (intern "foo") ==> get one
+    (defcustom ...)
 
-      O                          OOOOO
-      O    OO    O    O    OO   O     O   OOOO   OOOOO      O    OOOOO    OOOOO
-      O   O  O   O    O   O  O  O        O    O  O    O     O    O    O     O
-      O  O    O  O    O  O    O  OOOOO   O       O    O     O    O    O     O
-O     O  OOOOOO  O    O  OOOOOO       O  O       OOOOO      O    OOOOO      O
-O     O  O    O   O  O   O    O O     O  O    O  O   O      O    O          O
- OOOOO   O    O    OO    O    O  OOOOO    OOOO   O    O     O    O          O
-================================================================================
-break                           finally                     this
-case                            for                         throw
-catch                           functin                     try
-continue                        if                          typeof
-debugger                        in                          var
-default                         instanceof                  void
-delete                          new                         while
-do                              return                      with
-else                            switch
-```
+    (defun fun2 (&key ((myoption var))) (print var))
+    (fun2 'myoption "good")
+    ```
 
----
+    Ruby is...
 
-Metaprogramming: What We Can
+    -   A dynamic, open source programming language with a focus on simplicity and
+        productivity. It has an elegant syntax that is natural to read and easy to
+        write.
+    -   Documentation
+        +   [Try Ruby in 15 minutes][try-ruby]: fun, but the web site works slowly. see [here][terrible-try-ruby]
+        +   [Ruby Koans][ruby-koans]
+        +   [Ruby in Twenty Minutes][ruby-in-20-mins]
 
--   Write a program to connect to external system
--   Stretch and Twist Ruby to meet your need, not just adapt to the language as it is
--   All in all, **Metaprogramming is writing code that writes code.**
+    Ruby in 20 Minutes
 
-ob, obarray
-
-Functions
-
-```lisp
-(make-symbol "foo") ==> make one
-(intern "foo") ==> get one
-(defcustom ...)
-
-(defun fun2 (&key ((myoption var))) (print var))
-(fun2 'myoption "good")
-```
-
-Ruby is...
-
--   A dynamic, open source programming language with a focus on simplicity and
-    productivity. It has an elegant syntax that is natural to read and easy to
-    write.
--   Documentation
-    +   [Try Ruby in 15 minutes][try-ruby]: fun, but the web site works slowly. see [here][terrible-try-ruby]
-    +   [Ruby Koans][ruby-koans]
-    +   [Ruby in Twenty Minutes][ruby-in-20-mins]
-
-[what-ruby-is]: https://www.ruby-lang.org/en/
-[try-ruby]: http://tryruby.org/levels/1/challenges/0
-[ruby-koans]: http://rubykoans.com/
-[ruby-in-20-mins]: https://www.ruby-lang.org/en/documentation/quickstart/
-[terrible-try-ruby]: http://gnat-tang-shared-image.qiniudn.com/201404-terrible-try-ruby.png
-
-Ruby in 20 Minutes
-------------------
-
-1.  Run `irb`{.bash} in your shell
-2.  Simple Examples
+    1.  Run `irb`{.bash} in your shell
+    2.  Simple Examples
 
     ```
     "hello world"
@@ -3420,122 +3255,122 @@ Ruby in 20 Minutes
     Math.sqrt(9)
     ```
 
-3.  Modules Group Code by Topic
+    3.  Modules Group Code by Topic
 
-    `Math`: built-in module, contains `sin()`, `cos()`, etc
+        `Math`: built-in module, contains `sin()`, `cos()`, etc
 
-4.  Defs
+    4.  Defs
 
-    first ruby function
+        first ruby function
 
-    ```ruby
-    def h
-        puts "Hello World!"
-    end
-    h
-    h()
-    ```
+        ```ruby
+        def h
+            puts "Hello World!"
+        end
+        h
+        h()
+        ```
 
-    second ruby function
+        second ruby function
 
-    ```ruby
-    def h(name = "GNAT")
-        puts "Hello #{name.capitalize}"
-    end
-    h("gnat")
-    ```
+        ```ruby
+        def h(name = "GNAT")
+            puts "Hello #{name.capitalize}"
+        end
+        h("gnat")
+        ```
 
-5.  Evoling into a greater
+    5.  Evoling into a greater
 
-    ```ruby
-    class Greeter
-      def initialize(name = "World")
-        @name = name
-      end
-      def say_hi
-        puts "Hi #{@name}!"
-      end
-      def say_bye
-        puts "Bye #{@name}, come back soon."
-      end
-    end
-    g = Greeter.new("Gnat")
-    g.say_hi
-    g.say_bye
-    g.instance_methods
-    g.instance_methods(false)
-    g.respond_to?("name") # ==> false
-    g.respond_to?("say_hi") # ==> true
-    g.respond_to?("to_s") # ==> true
-    => true
-    ```
-
-6.  A Better One
-
-    ```ruby
-    #!/usr/bin/env ruby
-
-    class MegaGreeter
-      attr_accessor :names
-
-      # Create the object
-      def initialize(names = "World")
-        @names = names
-      end
-
-      # Say hi to everybody
-      def say_hi
-        if @names.nil?
-          puts "..."
-        elsif @names.respond_to?("each")
-          # @names is a list of some kind, iterate!
-          @names.each do |name|
-            puts "Hello #{name}!"
+        ```ruby
+        class Greeter
+          def initialize(name = "World")
+            @name = name
           end
-        else
-          puts "Hello #{@names}!"
+          def say_hi
+            puts "Hi #{@name}!"
+          end
+          def say_bye
+            puts "Bye #{@name}, come back soon."
+          end
         end
-      end
+        g = Greeter.new("Gnat")
+        g.say_hi
+        g.say_bye
+        g.instance_methods
+        g.instance_methods(false)
+        g.respond_to?("name") # ==> false
+        g.respond_to?("say_hi") # ==> true
+        g.respond_to?("to_s") # ==> true
+        => true
+        ```
 
-      # Say bye to everybody
-      def say_bye
-        if @names.nil?
-          puts "..."
-        elsif @names.respond_to?("join")
-          # Join the list elements with commas
-          puts "Goodbye #{@names.join(", ")}.  Come back soon!"
-        else
-          puts "Goodbye #{@names}.  Come back soon!"
+    6.  A Better One
+
+        ```ruby
+        #!/usr/bin/env ruby
+
+        class MegaGreeter
+          attr_accessor :names
+
+          # Create the object
+          def initialize(names = "World")
+            @names = names
+          end
+
+          # Say hi to everybody
+          def say_hi
+            if @names.nil?
+              puts "..."
+            elsif @names.respond_to?("each")
+              # @names is a list of some kind, iterate!
+              @names.each do |name|
+                puts "Hello #{name}!"
+              end
+            else
+              puts "Hello #{@names}!"
+            end
+          end
+
+          # Say bye to everybody
+          def say_bye
+            if @names.nil?
+              puts "..."
+            elsif @names.respond_to?("join")
+              # Join the list elements with commas
+              puts "Goodbye #{@names.join(", ")}.  Come back soon!"
+            else
+              puts "Goodbye #{@names}.  Come back soon!"
+            end
+          end
+
         end
-      end
-
-    end
 
 
-    if __FILE__ == $0
-      mg = MegaGreeter.new
-      mg.say_hi
-      mg.say_bye
+        if __FILE__ == $0
+          mg = MegaGreeter.new
+          mg.say_hi
+          mg.say_bye
 
-      # Change name to be "Zeke"
-      mg.names = "Zeke"
-      mg.say_hi
-      mg.say_bye
+          # Change name to be "Zeke"
+          mg.names = "Zeke"
+          mg.say_hi
+          mg.say_bye
 
-      # Change the name to an array of names
-      mg.names = ["Albert", "Brenda", "Charles",
-        "Dave", "Engelbert"]
-      mg.say_hi
-      mg.say_bye
+          # Change the name to an array of names
+          mg.names = ["Albert", "Brenda", "Charles",
+            "Dave", "Engelbert"]
+          mg.say_hi
+          mg.say_bye
 
-      # Change to nil
-      mg.names = nil
-      mg.say_hi
-      mg.say_bye
-    end
-    ```
+          # Change to nil
+          mg.names = nil
+          mg.say_hi
+          mg.say_bye
+        end
+        ```
 
-LaTeX
+LaTeX -<
 
 :   -   **The virtues of open source**
     -   Separation of form and content
@@ -3619,21 +3454,20 @@ LaTeX
             This is just another small illustrative example.
             ```
 
-NINETEEN EIGHTY-FOUR: big brother is watching you
+[what-ruby-is]: https://www.ruby-lang.org/en/
+[try-ruby]: http://tryruby.org/levels/1/challenges/0
+[ruby-koans]: http://rubykoans.com/
+[ruby-in-20-mins]: https://www.ruby-lang.org/en/documentation/quickstart/
+[terrible-try-ruby]: http://gnat-tang-shared-image.qiniudn.com/201404-terrible-try-ruby.png
+
+NINETEEN EIGHTY-FOUR: big brother is watching you -<
 
 :   George Orwell
 
     >   This novel is an anti-total cautionary tale about the betrayal of a
     >   revolution by its defenders.
 
-在职场里，收到指令要回复，遇到困难要沟通，项目进展要按节点通报，安排要落实。这
-不是繁文缛节，这是一个公司的基本规范。要尽心尽力，说到做到，有始有终，积极主动，
-你才能成长，公司也才能成长。不要玻璃心，也不要有惰性，更不要骄横，有多少人，
-有才华，有远志，不约束自己，最终也不过暴殄天物。
-
-**用 control 加鼠标选中来选择多个片段。**
-
-[windows - Software for multiple copy/paste? - Stack Overflow](http://stackoverflow.com/questions/521244/software-for-multiple-copy-paste)
+[windows - Software for multiple copy/paste? - Stack Overflow](http://stackoverflow.com/questions/521244/software-for-multiple-copy-paste) -<
 
 :   On visual studio you can do (i think) any number of "select text, ctrl + c" and
     then press ctrl+shift and without releasing them press v to cycle through your
@@ -3641,13 +3475,13 @@ NINETEEN EIGHTY-FOUR: big brother is watching you
 
     You type quicker than I do :)
 
-[哥伦比亚（哥伦比亚共和国）_百度百科](http://baike.baidu.com/link?url=q0aVEEiSrDiC-dR11wR-RWp6EJF6Y93KhS3Awu3xf_HRN8avpiufX-QseqPkbzEKooOu8cm21i-2aJJBSSisGB9ZI3Lna8w2dk9C0NmsNMi)
+[哥伦比亚（哥伦比亚共和国）_百度百科](http://baike.baidu.com/link?url=q0aVEEiSrDiC-dR11wR-RWp6EJF6Y93KhS3Awu3xf_HRN8avpiufX-QseqPkbzEKooOu8cm21i-2aJJBSSisGB9ZI3Lna8w2dk9C0NmsNMi) -<
 
 :   哥伦比亚共和国（西班牙语：República de **Colombia**），国土位于**南美洲西北部**，
     西临太平洋，北临加勒比海，东通委内瑞拉，东南通巴西，南与秘鲁、厄瓜多尔，西北
     与巴拿马为邻。为南美洲国家联盟成员国。
 
-[香椿_百度百科](http://baike.baidu.com/view/64966.htm)
+[香椿_百度百科](http://baike.baidu.com/view/64966.htm) -<
 
 :   ![](http://e.hiphotos.baidu.com/baike/s%3D220/sign=3a2ec6508594a4c20e23e0293ef51bac/b64543a98226cffcf2b198edbb014a90f703ead2.jpg)
 
@@ -3661,7 +3495,7 @@ NINETEEN EIGHTY-FOUR: big brother is watching you
 
 [百度百科_V百科_精子库告急为哪般？](http://baike.baidu.com/vbaike/%E7%B2%BE%E5%AD%90%E5%BA%93%E5%91%8A%E6%80%A5%E4%B8%BA%E5%93%AA%E8%88%AC%EF%BC%9F/8186)
 
-Magit
+Magit -<
 
 :   It's Magit! A Git Porcelain inside Emacs.
 
@@ -3671,9 +3505,9 @@ Magit
 
     refs and see also
 
-      - [Magit! A Git Porcelain inside Emacs](https://magit.vc/)
+    -   [Magit! A Git Porcelain inside Emacs](https://magit.vc/)
 
-[Jiangshi - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Jiangshi)
+[Jiangshi - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Jiangshi) -<
 
 :   A jiangshi, also known as a Chinese "hopping" vampire, ghost, or zombie, is
     a type of reanimated corpse in Chinese legends and folklore. "Jiangshi" is
@@ -3688,13 +3522,13 @@ Magit
     不知道是清朝的人死了会穿官服一样的寿衣，还是当官的才会成僵尸。
     （穷人没棺材早被虫子吃掉了？）
 
-    [I Ching - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/I_Ching)
+    [I Ching - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/I_Ching) -<
 
     :   这特么居然是易经……（yi jing）
 
         ![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/I_Ching_%28Chinese_characters%29.svg/173px-I_Ching_%28Chinese_characters%29.svg.png)
 
-[Rōshi - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/R%C5%8Dshi)
+[Rōshi - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/R%C5%8Dshi) -<
 
 :   Rōshi (老師?) (Japanese: "old teacher"; "old master"; Chinese pinyin: Lǎoshī)
     is an honorific title used for a highly venerated senior teacher in Zen Buddhism.
@@ -3713,9 +3547,9 @@ Magit
 
     refs and see also
 
-      - [Wise old man - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Wise_old_man)
+    -   [Wise old man - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Wise_old_man)
 
-[Dragon Ball - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dragon_Ball)
+[Dragon Ball - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dragon_Ball) -<
 
 :   Dragon Ball (Japanese: ドラゴンボール Hepburn: Doragon Bōru?) is a Japanese
     **manga series** written and illustrated by Akira Toriyama. It was originally
@@ -3763,13 +3597,13 @@ Magit
 
     refs and see also
 
-      - [Dragon Ball Z - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dragon_Ball_Z)
+    -   [Dragon Ball Z - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dragon_Ball_Z)
 
-[平面排版时，运用哪些方法可以突出中文的美感？ - 平面设计 - 知乎](http://www.zhihu.com/question/19577036)
+[平面排版时，运用哪些方法可以突出中文的美感？ - 平面设计 - 知乎](http://www.zhihu.com/question/19577036) -<
 
 :   字要少。字体要好。
 
-[禁则处理是什么意思？ - 排版 - 知乎](http://www.zhihu.com/question/20294511)
+[禁则处理是什么意思？ - 排版 - 知乎](http://www.zhihu.com/question/20294511) -<
 
 :   「禁則」是来自日语的排版术语，主要指的就是禁止一些标点等字符出现在行首或行尾的
     规则，大致相当于汉语常说的「避头尾」。
@@ -3778,13 +3612,13 @@ Magit
     <http://whudoc.qiniudn.com/2016/gvim74-x64.402.exe>。
     可惜的是这个打包的“Edit with Vim”不能生效。详见:
 
-      - [Vim Rules](post-0070-some-vim-rules.html)
-      - [处理 vim 中文行禁则的一个 Patch - 查看主题 • Ubuntu中文论坛](http://forum.ubuntu.com.cn/viewtopic.php?f=68&t=300689)
+    -   [Vim Rules](post-0070-some-vim-rules.html)
+    -   [处理 vim 中文行禁则的一个 Patch - 查看主题 • Ubuntu中文论坛](http://forum.ubuntu.com.cn/viewtopic.php?f=68&t=300689)
 
     简介参见维基百科词条：
 
-      - 禁則処理
-      - [Line breaking rules in East Asian languages](https://en.wikipedia.org/wiki/Line_breaking_rules_in_East_Asian_languages)
+    -   禁則処理
+    -   [Line breaking rules in East Asian languages](https://en.wikipedia.org/wiki/Line_breaking_rules_in_East_Asian_languages)
 
     详细介绍参见 W3C 文档：
 

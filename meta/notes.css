@@ -200,6 +200,9 @@ a.flag:after {
     color: blue;
     content: " ⚑";
 }
+a.bad {
+    text-decoration: line-through;
+}
 
 .markdown-body code.heart:after {
     color: red;

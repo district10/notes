@@ -48,7 +48,7 @@ Google Search -<
     see more and...
     ```
 
-计算机相关词汇 -<
+`计算机相关词汇`{.featured .heart} -<
 
 :   -   CGI（公共网关接口，Common Gateway Interface） — 在 Web 服务器上，用来在脚本
         和／或应用程序之间传输数据，然后将该数据返回给 Web 页面或浏览器。CGI 脚本经
@@ -121,8 +121,6 @@ Vim notes -<
     g!/ACC/d
     ```
 
-删除中文字符: `:%s/\v[^\x00-\xff]+//g`
-
 “Unix 用起来容易，但学习起来难”。 -<
 
 :   Unix/Linux 操作系统的使用作为实践性非常强的一门“技术”，有章可循。每一个命令的命
@@ -132,6 +130,10 @@ Vim notes -<
     Unix 的目的不是为了学习而是为了使用。”为了达到使用 Unix 这一工具的目的，我们需
     要了解其“然”，也就是基本操作：了解如何登陆 Unix、如何使用 Unix 编辑文件、操作目
     录……
+
+    ---
+
+    其实就是说，Unix 就要用。不要“学”太深，因为设计者的设计并不完美（不可能）。
 
 Helpful aliases for common git tasks -<
 
@@ -185,11 +187,6 @@ Helpful aliases for common git tasks -<
     - `ggpush`{.bash} &rarr; `git push origin $(current_branch)`
     - `ggpnp`{.bash} &rarr; `git pull origin $(current_branch) && git push origin $(current_branch)`
     - `glp`{.bash} &rarr; `git log prettily`
-
----
-
--   what the fuck barbecue = WTFBBQ
--   `extract`{.bash} 'x' alias - swiss knife for archive extracting
 
 Python notes -<
 
@@ -846,15 +843,167 @@ Clojure -<
     "false..."
     ```
 
-MISC -<
+    ```lisp
+    (defun smart-open-line ()
+      "Insert an empty line after the current line.
+    Position the cursor at its beginning, according to the current mode."
+      (interactive)
+      (move-end-of-line nil)
+      (newline-and-indent))
 
-:   ![](http://math.ecnu.edu.cn/~latex/images/Bezier_2.gif)
-    ![](http://math.ecnu.edu.cn/~latex/images/Bezier_3.gif)
-    ![](http://math.ecnu.edu.cn/~latex/images/Bezier_4.gif)
+    (global-set-key [(shift return)] 'smart-open-line)
+    ```
 
-    `sudo apt-get install cowsay`{.bash}
+    ```lisp
+    (defun prelude-open-with (arg)
+      "Open visited file in default external program.
 
-    `easy_install statsmodels`{.bash}
+    With a prefix ARG always prompt for command to use."
+      (interactive "P")
+      (when buffer-file-name
+        (shell-command (concat
+                        (cond
+                         ((and (not arg) (eq system-type 'darwin)) "open")
+                         ((and (not arg) (member system-type '(gnu gnu/linux gnu/kfreebsd))) "xdg-open")
+                         (t (read-shell-command "Open current file with: ")))
+                        " "
+                        (shell-quote-argument buffer-file-name)))))
+    ```
+
+    ```lisp
+    (defun copy-file-name-to-clipboard ()
+      "Copy the current buffer file name to the clipboard."
+      (interactive)
+      (let ((filename (if (equal major-mode 'dired-mode)
+                          default-directory
+                        (buffer-file-name))))
+        (when filename
+          (kill-new filename)
+          (message "Copied buffer file name '%s' to the clipboard." filename))))
+    ```
+
+    ```lisp
+    (defun indent-buffer ()
+      "Indent the currently visited buffer."
+      (interactive)
+      (indent-region (point-min) (point-max)))
+
+    (defun indent-region-or-buffer ()
+      "Indent a region if selected, otherwise the whole buffer."
+      (interactive)
+      (save-excursion
+        (if (region-active-p)
+            (progn
+              (indent-region (region-beginning) (region-end))
+              (message "Indented selected region."))
+          (progn
+            (indent-buffer)
+            (message "Indented buffer.")))))
+    ```
+
+    ```lisp
+    (defun google ()
+      "Google the selected region if any, display a query prompt otherwise."
+      (interactive)
+      (browse-url
+       (concat
+        "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
+        (url-hexify-string (if mark-active
+             (buffer-substring (region-beginning) (region-end))
+           (read-string "Google: "))))))
+    ```
+
+    ```lisp
+    (defun indent-defun ()
+      "Indent the current defun."
+      (interactive)
+      (save-excursion
+        (mark-defun)
+        (indent-region (region-beginning) (region-end))))
+    ```
+
+    ```lisp
+    (electric-indent-mode +1)
+    ```
+
+    ```lisp
+    (global-set-key (kbd "C-c o") 'open-with)
+    (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+    (global-set-key (kbd "RET") 'newline-and-indent)
+    (global-set-key (kbd "C-c g") 'google)
+    (global-set-key (kbd "C-M-z") 'indent-defun)
+    (global-set-key (kbd "C-c t") 'visit-term-buffer)
+    (global-set-key [(control shift up)]  'move-line-up)
+    (global-set-key [(control shift down)]  'move-line-down)
+    ```
+
+    ```lisp
+    (defun visit-term-buffer ()
+      "Create or visit a terminal buffer."
+      (interactive)
+      (if (not (get-buffer "*ansi-term*"))
+          (progn
+            (split-window-sensibly (selected-window))
+            (other-window 1)
+            (ansi-term (getenv "SHELL")))
+        (switch-to-buffer-other-window "*ansi-term*")))
+    ```
+
+    ```lisp
+    (defun move-line-up ()
+      "Move up the current line."
+      (interactive)
+      (transpose-lines 1)
+      (forward-line -2)
+      (indent-according-to-mode))
+
+    (defun move-line-down ()
+      "Move down the current line."
+      (interactive)
+      (forward-line 1)
+      (transpose-lines 1)
+      (forward-line -1)
+      (indent-according-to-mode))
+    ```
+
+    ```lisp
+    (require 'paren)
+    (setq show-paren-style 'parenthesis)
+    (show-paren-mode +1)
+    ```
+
+    ```lisp
+    (global-set-key (kbd "C-+") 'text-scale-increase)
+    (global-set-key (kbd "C--") 'text-scale-decrease)
+    (global-set-key (kbd "C-c k") 'kill-other-buffers)
+    (global-set-key (kbd "C-x O") (lambda ()
+                                    (interactive)
+                                    (other-window -1)))
+    ```
+
+    ```lisp
+    (defun kill-other-buffers ()
+      "Kill all buffers but the current one.
+    Don't mess with special buffers."
+      (interactive)
+      (dolist (buffer (buffer-list))
+        (unless (or (eql buffer (current-buffer)) (not (buffer-file-name buffer)))
+          (kill-buffer buffer))))
+    ```
+
+    ```lisp
+    (require 'dash)
+
+    (defun prelude-kill-other-buffers ()
+      "Kill all buffers but the current one.
+    Doesn't mess with special buffers."
+      (interactive)
+      (-each
+       (->> (buffer-list)
+         (-filter #'buffer-file-name)
+         (--remove (eql (current-buffer) it)))
+       #'kill-buffer))
+    ```
 
 JavaScript -<
 
@@ -1066,12 +1215,12 @@ MISC -<
 
     在 Qt 的 `bin` 目录下自己建一个 `qt.conf`
 
-```
-[Paths]
-Prefix=C:/dev/qt-4.8.6
-```
+    ```
+    [Paths]
+    Prefix=C:/dev/qt-4.8.6
+    ```
 
-OpenGL & OpenSceneGraph -<
+`OpenGL & OpenSceneGraph`{.featured .heart} -<
 
 :   ```cpp
     void glFrustum( GLdouble left,
@@ -1332,200 +1481,37 @@ OpenGL & OpenSceneGraph -<
       - [osg 路径 动画 效果 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/8248157)
       - [osg 漫游器 代码框架 - Emacs 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhuyingqingfen/article/details/8249501)
 
-```lisp
-(defun smart-open-line ()
-  "Insert an empty line after the current line.
-Position the cursor at its beginning, according to the current mode."
-  (interactive)
-  (move-end-of-line nil)
-  (newline-and-indent))
+Prelude 作者的 Emacs Posts -<
 
-(global-set-key [(shift return)] 'smart-open-line)
-```
+:   [Repeat last command - Emacs Redux](http://emacsredux.com/blog/2013/03/26/repeat-last-command/)
 
-```lisp
-(defun prelude-open-with (arg)
-  "Open visited file in default external program.
+    [Copy filename to the clipboard - Emacs Redux](http://emacsredux.com/blog/2013/03/27/copy-filename-to-the-clipboard/)
 
-With a prefix ARG always prompt for command to use."
-  (interactive "P")
-  (when buffer-file-name
-    (shell-command (concat
-                    (cond
-                     ((and (not arg) (eq system-type 'darwin)) "open")
-                     ((and (not arg) (member system-type '(gnu gnu/linux gnu/kfreebsd))) "xdg-open")
-                     (t (read-shell-command "Open current file with: ")))
-                    " "
-                    (shell-quote-argument buffer-file-name)))))
-```
+    [Open file in external program - Emacs Redux](http://emacsredux.com/blog/2013/03/27/open-file-in-external-program/)
 
-```lisp
-(defun copy-file-name-to-clipboard ()
-  "Copy the current buffer file name to the clipboard."
-  (interactive)
-  (let ((filename (if (equal major-mode 'dired-mode)
-                      default-directory
-                    (buffer-file-name))))
-    (when filename
-      (kill-new filename)
-      (message "Copied buffer file name '%s' to the clipboard." filename))))
-```
+    [Indent region or buffer - Emacs Redux](http://emacsredux.com/blog/2013/03/27/indent-region-or-buffer/)
 
-```lisp
-(defun indent-buffer ()
-  "Indent the currently visited buffer."
-  (interactive)
-  (indent-region (point-min) (point-max)))
+    [Indent defun - Emacs Redux](http://emacsredux.com/blog/2013/03/28/indent-defun/)
 
-(defun indent-region-or-buffer ()
-  "Indent a region if selected, otherwise the whole buffer."
-  (interactive)
-  (save-excursion
-    (if (region-active-p)
-        (progn
-          (indent-region (region-beginning) (region-end))
-          (message "Indented selected region."))
-      (progn
-        (indent-buffer)
-        (message "Indented buffer.")))))
-```
+    [Google - Emacs Redux](http://emacsredux.com/blog/2013/03/28/google/)
 
-```lisp
-(defun google ()
-  "Google the selected region if any, display a query prompt otherwise."
-  (interactive)
-  (browse-url
-   (concat
-    "http://www.google.com/search?ie=utf-8&oe=utf-8&q="
-    (url-hexify-string (if mark-active
-         (buffer-substring (region-beginning) (region-end))
-       (read-string "Google: "))))))
-```
+    [Network utilities - Emacs Redux](http://emacsredux.com/blog/2013/03/28/network-utilities/)
 
-```lisp
-(defun indent-defun ()
-  "Indent the current defun."
-  (interactive)
-  (save-excursion
-    (mark-defun)
-    (indent-region (region-beginning) (region-end))))
-```
+    [Automatic(electric) indentation - Emacs Redux](http://emacsredux.com/blog/2013/03/29/automatic-electric-indentation/)
 
-```lisp
-(electric-indent-mode +1)
-```
+    [Automatic(electric) character pairing - Emacs Redux](http://emacsredux.com/blog/2013/03/29/automatic-electric-character-pairing/)
 
-```lisp
-(global-set-key (kbd "C-c o") 'open-with)
-(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
-(global-set-key (kbd "RET") 'newline-and-indent)
-(global-set-key (kbd "C-c g") 'google)
-(global-set-key (kbd "C-M-z") 'indent-defun)
-(global-set-key (kbd "C-c t") 'visit-term-buffer)
-(global-set-key [(control shift up)]  'move-line-up)
-(global-set-key [(control shift down)]  'move-line-down)
-```
+    [Terminal at your fingertips - Emacs Redux](http://emacsredux.com/blog/2013/03/29/terminal-at-your-fingertips/)
 
-```lisp
-(defun visit-term-buffer ()
-  "Create or visit a terminal buffer."
-  (interactive)
-  (if (not (get-buffer "*ansi-term*"))
-      (progn
-        (split-window-sensibly (selected-window))
-        (other-window 1)
-        (ansi-term (getenv "SHELL")))
-    (switch-to-buffer-other-window "*ansi-term*")))
-```
+    [Kill other buffers - Emacs Redux](http://emacsredux.com/blog/2013/03/30/kill-other-buffers/)
 
-```lisp
-(defun move-line-up ()
-  "Move up the current line."
-  (interactive)
-  (transpose-lines 1)
-  (forward-line -2)
-  (indent-according-to-mode))
+    [Go back to previous window - Emacs Redux](http://emacsredux.com/blog/2013/03/30/go-back-to-previous-window/)
 
-(defun move-line-down ()
-  "Move down the current line."
-  (interactive)
-  (forward-line 1)
-  (transpose-lines 1)
-  (forward-line -1)
-  (indent-according-to-mode))
-```
+    [Playing with Font Sizes - Emacs Redux](http://emacsredux.com/blog/2013/04/01/playing-with-font-sizes/)
 
-```lisp
-(require 'paren)
-(setq show-paren-style 'parenthesis)
-(show-paren-mode +1)
-```
+    [Highlight matching parentheses - Emacs Redux](http://emacsredux.com/blog/2013/04/01/highlight-matching-parentheses/)
 
-```lisp
-(global-set-key (kbd "C-+") 'text-scale-increase)
-(global-set-key (kbd "C--") 'text-scale-decrease)
-(global-set-key (kbd "C-c k") 'kill-other-buffers)
-(global-set-key (kbd "C-x O") (lambda ()
-                                (interactive)
-                                (other-window -1)))
-```
-
-```lisp
-(defun kill-other-buffers ()
-  "Kill all buffers but the current one.
-Don't mess with special buffers."
-  (interactive)
-  (dolist (buffer (buffer-list))
-    (unless (or (eql buffer (current-buffer)) (not (buffer-file-name buffer)))
-      (kill-buffer buffer))))
-```
-
-```lisp
-(require 'dash)
-
-(defun prelude-kill-other-buffers ()
-  "Kill all buffers but the current one.
-Doesn't mess with special buffers."
-  (interactive)
-  (-each
-   (->> (buffer-list)
-     (-filter #'buffer-file-name)
-     (--remove (eql (current-buffer) it)))
-   #'kill-buffer))
-```
-
-[Repeat last command - Emacs Redux](http://emacsredux.com/blog/2013/03/26/repeat-last-command/)
-
-[Copy filename to the clipboard - Emacs Redux](http://emacsredux.com/blog/2013/03/27/copy-filename-to-the-clipboard/)
-
-[Open file in external program - Emacs Redux](http://emacsredux.com/blog/2013/03/27/open-file-in-external-program/)
-
-[Indent region or buffer - Emacs Redux](http://emacsredux.com/blog/2013/03/27/indent-region-or-buffer/)
-
-[Indent defun - Emacs Redux](http://emacsredux.com/blog/2013/03/28/indent-defun/)
-
-[Google - Emacs Redux](http://emacsredux.com/blog/2013/03/28/google/)
-
-[Network utilities - Emacs Redux](http://emacsredux.com/blog/2013/03/28/network-utilities/)
-
-[Automatic(electric) indentation - Emacs Redux](http://emacsredux.com/blog/2013/03/29/automatic-electric-indentation/)
-
-[Automatic(electric) character pairing - Emacs Redux](http://emacsredux.com/blog/2013/03/29/automatic-electric-character-pairing/)
-
-[Terminal at your fingertips - Emacs Redux](http://emacsredux.com/blog/2013/03/29/terminal-at-your-fingertips/)
-
-[Kill other buffers - Emacs Redux](http://emacsredux.com/blog/2013/03/30/kill-other-buffers/)
-
-[Go back to previous window - Emacs Redux](http://emacsredux.com/blog/2013/03/30/go-back-to-previous-window/)
-
-[Playing with Font Sizes - Emacs Redux](http://emacsredux.com/blog/2013/04/01/playing-with-font-sizes/)
-
-[Highlight matching parentheses - Emacs Redux](http://emacsredux.com/blog/2013/04/01/highlight-matching-parentheses/)
-
-[Highlight current line - Emacs Redux](http://emacsredux.com/blog/2013/04/02/highlight-current-line/)
-
-`sudo update-alternatives –config x-terminal-emulator`{.bash}
-`scrot # caputre screenshot`{.bash}
+    [Highlight current line - Emacs Redux](http://emacsredux.com/blog/2013/04/02/highlight-current-line/)
 
 i3 window manager -<
 
@@ -1539,114 +1525,100 @@ i3 window manager -<
     shift r:            restart i3 inplace
     ```
 
-You could use **more expressive version of substitution** you employed when
-assigning OBJECTS: `OBJECTS=$(SOURCES:%.cpp=obj/%.o)`{.makefile}
+`Dynamic cast`{.featured .heart} -<
 
-or use a **standard text transformation** function:
-`OBJECTS=$(addprefix obj/,$(SOURCES:.cpp=.o))`{.makefile}
+:   ~~~ {#line14551 .c}
+    // static_cast_Operator.cpp
+    // compile with: /LD
+    class B {};
 
-<div class="tzx-tabs">
-* [refs](#line14550)
-* [codes](#line14551)
+    class D : public B {};
 
-<div id="line14550">
-* [dynamic_cast Operator](https://msdn.microsoft.com/en-us/library/cby9kycs.aspx)
-* [Casting](https://msdn.microsoft.com/en-us/library/x9wzb5es.aspx)
-</div>
+    void f(B* pb, D* pd) {
+       D* pd2 = static_cast<D*>(pb);   // Not safe, D can have fields
+                                       // and methods that are not in B.
 
-~~~ {#line14551 .c}
-// static_cast_Operator.cpp
-// compile with: /LD
-class B {};
+       B* pb2 = static_cast<B*>(pd);   // Safe conversion, D always
+                                       // contains all of B.
+    }
 
-class D : public B {};
+    // static_cast_Operator_2.cpp
+    // compile with: /LD /GR
+    class B {
+    public:
+       virtual void Test(){}
+    };
+    class D : public B {};
 
-void f(B* pb, D* pd) {
-   D* pd2 = static_cast<D*>(pb);   // Not safe, D can have fields
-                                   // and methods that are not in B.
+    void f(B* pb) {
+       D* pd1 = dynamic_cast<D*>(pb);
+       D* pd2 = static_cast<D*>(pb);
+    }
 
-   B* pb2 = static_cast<B*>(pd);   // Safe conversion, D always
-                                   // contains all of B.
-}
+    // static_cast_Operator_3.cpp
+    // compile with: /LD /GR
+    typedef unsigned char BYTE;
 
-// static_cast_Operator_2.cpp
-// compile with: /LD /GR
-class B {
-public:
-   virtual void Test(){}
-};
-class D : public B {};
+    void f() {
+       char ch;
+       int i = 65;
+       float f = 2.5;
+       double dbl;
 
-void f(B* pb) {
-   D* pd1 = dynamic_cast<D*>(pb);
-   D* pd2 = static_cast<D*>(pb);
-}
+       ch = static_cast<char>(i);   // int to char
+       dbl = static_cast<double>(f);   // float to double
+       i = static_cast<BYTE>(ch);
+    }
 
-// static_cast_Operator_3.cpp
-// compile with: /LD /GR
-typedef unsigned char BYTE;
+    // dynamic_cast_1.cpp
+    // compile with: /c
+    class B { };
+    class C : public B { };
+    class D : public C { };
 
-void f() {
-   char ch;
-   int i = 65;
-   float f = 2.5;
-   double dbl;
+    void f(D* pd) {
+       C* pc = dynamic_cast<C*>(pd);   // ok: C is a direct base class
+                                       // pc points to C subobject of pd
+       B* pb = dynamic_cast<B*>(pd);   // ok: B is an indirect base class
+                                       // pb points to B subobject of pd
+    }
 
-   ch = static_cast<char>(i);   // int to char
-   dbl = static_cast<double>(f);   // float to double
-   i = static_cast<BYTE>(ch);
-}
+    // dynamic_cast_2.cpp
+    // compile with: /c /GR
+    class A {virtual void f();};
+    class B {virtual void f();};
 
-// dynamic_cast_1.cpp
-// compile with: /c
-class B { };
-class C : public B { };
-class D : public C { };
+    void f() {
+       A* pa = new A;
+       B* pb = new B;
+       void* pv = dynamic_cast<void*>(pa);
+       // pv now points to an object of type A
 
-void f(D* pd) {
-   C* pc = dynamic_cast<C*>(pd);   // ok: C is a direct base class
-                                   // pc points to C subobject of pd
-   B* pb = dynamic_cast<B*>(pd);   // ok: B is an indirect base class
-                                   // pb points to B subobject of pd
-}
+       pv = dynamic_cast<void*>(pb);
+       // pv now points to an object of type B
+    }
 
-// dynamic_cast_2.cpp
-// compile with: /c /GR
-class A {virtual void f();};
-class B {virtual void f();};
+    // dynamic_cast_3.cpp
+    // compile with: /c /GR
+    class B {virtual void f();};
+    class D : public B {virtual void f();};
 
-void f() {
-   A* pa = new A;
-   B* pb = new B;
-   void* pv = dynamic_cast<void*>(pa);
-   // pv now points to an object of type A
+    void f() {
+       B* pb = new D;   // unclear but ok
+       B* pb2 = new B;
 
-   pv = dynamic_cast<void*>(pb);
-   // pv now points to an object of type B
-}
+       D* pd = dynamic_cast<D*>(pb);   // ok: pb actually points to a D
+       D* pd2 = dynamic_cast<D*>(pb2);   // pb2 points to a B not a D
+    }
+    ~~~
 
-// dynamic_cast_3.cpp
-// compile with: /c /GR
-class B {virtual void f();};
-class D : public B {virtual void f();};
+    a **`type qualifier`** is not allowed on a static member function.
 
-void f() {
-   B* pb = new D;   // unclear but ok
-   B* pb2 = new B;
-
-   D* pd = dynamic_cast<D*>(pb);   // ok: pb actually points to a D
-   D* pd2 = dynamic_cast<D*>(pb2);   // pb2 points to a B not a D
-}
-~~~
-</div>
-
-a **`type qualifier`** is not allowed on a static member function.
-
-* The emoji repository has a `CNAME` file with the domain `emoji.muan.co`. It
-  is owned by muan, whose User Pages repository has a `CNAME` file with the
-  domain `muan.co`.
-* The Project Pages site at `muan.github.io/emoji` redirects to `muan.co/emoji`
-  and is also available at `emoji.muan.co`.
+    * The emoji repository has a `CNAME` file with the domain `emoji.muan.co`. It
+      is owned by muan, whose User Pages repository has a `CNAME` file with the
+      domain `muan.co`.
+    * The Project Pages site at `muan.github.io/emoji` redirects to `muan.co/emoji`
+      and is also available at `emoji.muan.co`.
 
 我的两个域名都在 [DNSPod 控制台](https://www.dnspod.cn/console/dns) 管理。QQ 登录即可。 -<
 
@@ -1664,105 +1636,77 @@ a **`type qualifier`** is not allowed on a static member function.
     www                 CNAME                   district10.github.io.
     -----------         ----------------------  ---------------------
 
+btSystem 源码文件目录 -<
 
-```
-文件夹 PATH 列表
-卷序列号为 00000200 BC08:BFBA
-D:.
-├─data
-│  └─textures
-├─demo
-│  ├─3rdParty
-│  │  └─QtPropertyBrowser
-│  │      ├─canvas_typed
-│  │      ├─canvas_variant
-│  │      ├─decoration
-│  │      ├─demo
-│  │      │  └─images
-│  │      ├─extension
-│  │      ├─object_controller
-│  │      └─simple
-│  ├─btExplorerDemo
-│  ├─btLoggerDemo
-│  ├─btMainWindowDemo
-│  ├─btTextureEditorDemo
-│  ├─IODemo
-│  ├─JsonReaderDemo
-│  ├─ModelStructureDemo
-│  ├─OSGDemo
-│  ├─QtPropertyBrowserVariantDemo
-│  ├─RapidJSONDemo
-│  ├─SignCutterDemo
-│  ├─SignTransformerDemo
-│  ├─TextureEditorDemo
-│  ├─TextureNotationDemo
-│  └─TheBrowserDemo
-├─docs
-├─images
-├─includes
-│  ├─OSGDemo
-│  └─rapidjson
-│      ├─error
-│      ├─internal
-│      └─msinttypes
-├─lib
-│  ├─debug
-│  └─release
-├─notes
-│  └─images
-│      ├─deprecated
-│      ├─icon
-│      └─material
-├─src
-│  ├─3rdParty
-│  ├─btGUI
-│  ├─Global
-│  ├─Handlers
-│  ├─IO
-│  ├─ModelStructure
-│  ├─Parts
-│  ├─QtPropertyBrowser
-│  │  └─images
-│  ├─SignCutter
-│  ├─SignLogger
-│  ├─SignTransformer
-│  ├─TextureEditor
-│  ├─TextureNotation
-│  ├─TheBrowser
-│  └─Utils
-└─tryouts
-    └─StackedBoxes
-        └─images
-```
-
-> 'The enjoyment of one's tools is an essential ingredient of successful work.'
-> -- Donald E. Knuth
-
-Better Emacs shortcut for Neo users:
-
-* delete last word: ESC Backspace
-* get back to last word: ESC b
-
-| Movement | Shortcut |
-| :---: | :---: |
-| next word | X-s(ESC) d |
-| previous word | X-s(ESC) X-d(Backspace) |
-| go to previous word | X-s(ESC) b |
-
-Just in case this sounds annoying, the major advantage is that you can always
-get back a previous state. In most editors, undoing several changes and then
-accidentally typing a character would leave you 'stranded' with no way to redo
-what you had undone. Emacs makes this trivial. – phils
-
-`/ə/` 和 `/ʌ/` 这两个发音，在语言学上有区别，在发音中没区别，再说一遍，麻痹没区
-别！！！！！！！！！！！！！
-
-朙（míng）月拼音
-
-- [gat json](http://whudoc.qiniudn.com/gat.json)
-- [tag json](http://whudoc.qiniudn.com/tag.json)
-
-you flinched! (畏惧)
+:   ```
+    文件夹 PATH 列表
+    卷序列号为 00000200 BC08:BFBA
+    D:.
+    ├─data
+    │  └─textures
+    ├─demo
+    │  ├─3rdParty
+    │  │  └─QtPropertyBrowser
+    │  │      ├─canvas_typed
+    │  │      ├─canvas_variant
+    │  │      ├─decoration
+    │  │      ├─demo
+    │  │      │  └─images
+    │  │      ├─extension
+    │  │      ├─object_controller
+    │  │      └─simple
+    │  ├─btExplorerDemo
+    │  ├─btLoggerDemo
+    │  ├─btMainWindowDemo
+    │  ├─btTextureEditorDemo
+    │  ├─IODemo
+    │  ├─JsonReaderDemo
+    │  ├─ModelStructureDemo
+    │  ├─OSGDemo
+    │  ├─QtPropertyBrowserVariantDemo
+    │  ├─RapidJSONDemo
+    │  ├─SignCutterDemo
+    │  ├─SignTransformerDemo
+    │  ├─TextureEditorDemo
+    │  ├─TextureNotationDemo
+    │  └─TheBrowserDemo
+    ├─docs
+    ├─images
+    ├─includes
+    │  ├─OSGDemo
+    │  └─rapidjson
+    │      ├─error
+    │      ├─internal
+    │      └─msinttypes
+    ├─lib
+    │  ├─debug
+    │  └─release
+    ├─notes
+    │  └─images
+    │      ├─deprecated
+    │      ├─icon
+    │      └─material
+    ├─src
+    │  ├─3rdParty
+    │  ├─btGUI
+    │  ├─Global
+    │  ├─Handlers
+    │  ├─IO
+    │  ├─ModelStructure
+    │  ├─Parts
+    │  ├─QtPropertyBrowser
+    │  │  └─images
+    │  ├─SignCutter
+    │  ├─SignLogger
+    │  ├─SignTransformer
+    │  ├─TextureEditor
+    │  ├─TextureNotation
+    │  ├─TheBrowser
+    │  └─Utils
+    └─tryouts
+        └─StackedBoxes
+            └─images
+    ```
 
 [豆瓣](http://www.douban.com/)
 
@@ -1774,43 +1718,45 @@ you flinched! (畏惧)
 
 [复杂网络 - 维基百科，自由的百科全书](http://wiki.yooooo.us/d2lraS8lRTUlQTQlOEQlRTYlOUQlODIlRTclQkQlOTElRTclQkIlOUM=)
 
-[学术海报 | LaTeX工作室](http://www.latexstudio.net/archives/category/tex-slides/latex-poster)
+一些 LaTeX 模板 -<
 
-[一个清新典雅的beamer主题样式 | LaTeX工作室](http://www.latexstudio.net/archives/4948)
+:   [学术海报 | LaTeX工作室](http://www.latexstudio.net/archives/category/tex-slides/latex-poster)
 
-[用LaTeX重现1875年的广告样式 | LaTeX工作室](http://www.latexstudio.net/archives/4935)
+    [一个清新典雅的beamer主题样式 | LaTeX工作室](http://www.latexstudio.net/archives/4948)
 
-[伯尔尼高等专业学院的beamer主题样式 | LaTeX工作室](http://www.latexstudio.net/archives/4931)
+    [用LaTeX重现1875年的广告样式 | LaTeX工作室](http://www.latexstudio.net/archives/4935)
 
-[一个清爽的beamer主题样式 | LaTeX工作室](http://www.latexstudio.net/archives/4894)
+    [伯尔尼高等专业学院的beamer主题样式 | LaTeX工作室](http://www.latexstudio.net/archives/4931)
 
-[一个所见即所得的科学公式编辑软件–GNU TeXmacs | LaTeX工作室](http://www.latexstudio.net/archives/4876)
+    [一个清爽的beamer主题样式 | LaTeX工作室](http://www.latexstudio.net/archives/4894)
 
-[黄正华老师的课件beamer分享 | LaTeX工作室](http://www.latexstudio.net/archives/4853)
+    [一个所见即所得的科学公式编辑软件–GNU TeXmacs | LaTeX工作室](http://www.latexstudio.net/archives/4876)
 
-[LaTeX技巧826:TeXLive的安装与使用-黄正华 | LaTeX工作室](http://www.latexstudio.net/archives/4816)
+    [黄正华老师的课件beamer分享 | LaTeX工作室](http://www.latexstudio.net/archives/4853)
 
-[实现TeX的算法：回首编程技术的过去三十年 | LaTeX工作室](http://www.latexstudio.net/archives/4759)
+    [LaTeX技巧826:TeXLive的安装与使用-黄正华 | LaTeX工作室](http://www.latexstudio.net/archives/4816)
 
-[LaTeX排版The AWK Programming Language中译本 | LaTeX工作室](http://www.latexstudio.net/archives/4736)
+    [实现TeX的算法：回首编程技术的过去三十年 | LaTeX工作室](http://www.latexstudio.net/archives/4759)
 
-[一个电子书LaTeX模板分享 | LaTeX工作室](http://www.latexstudio.net/archives/4665)
+    [LaTeX排版The AWK Programming Language中译本 | LaTeX工作室](http://www.latexstudio.net/archives/4736)
 
-[LaTeX排版精致的数学笔记 | LaTeX工作室](http://www.latexstudio.net/archives/4625)
+    [一个电子书LaTeX模板分享 | LaTeX工作室](http://www.latexstudio.net/archives/4665)
 
-[中国科学技术大学研究生官网为LaTeX模板正名 | LaTeX工作室](http://www.latexstudio.net/archives/4542)
+    [LaTeX排版精致的数学笔记 | LaTeX工作室](http://www.latexstudio.net/archives/4625)
 
-[中国科学技术大学学位与研究生教育 - 学位授予——文档下载](http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz.html)
+    [中国科学技术大学研究生官网为LaTeX模板正名 | LaTeX工作室](http://www.latexstudio.net/archives/4542)
 
-[一个用户的LaTeX笔记 | LaTeX工作室](http://www.latexstudio.net/archives/4429)
+    [中国科学技术大学学位与研究生教育 - 学位授予——文档下载](http://gradschool.ustc.edu.cn/ylb/material/xw/wdxz.html)
 
-[Tikz绘制Android的短信息聊天界面 | LaTeX工作室](http://www.latexstudio.net/archives/4384)
+    [一个用户的LaTeX笔记 | LaTeX工作室](http://www.latexstudio.net/archives/4429)
 
-[2015 GNOME年会beamer主题模板 | LaTeX工作室](http://www.latexstudio.net/archives/4347)
+    [Tikz绘制Android的短信息聊天界面 | LaTeX工作室](http://www.latexstudio.net/archives/4384)
 
-[莲枝专栏–来作笔记吧。 | LaTeX工作室](http://www.latexstudio.net/archives/4898)
+    [2015 GNOME年会beamer主题模板 | LaTeX工作室](http://www.latexstudio.net/archives/4347)
 
-[乌普萨拉大学的科技海报主题模板 | LaTeX工作室](http://www.latexstudio.net/archives/3012)
+    [莲枝专栏–来作笔记吧。 | LaTeX工作室](http://www.latexstudio.net/archives/4898)
+
+    [乌普萨拉大学的科技海报主题模板 | LaTeX工作室](http://www.latexstudio.net/archives/3012)
 
 真爱其实叫牺牲 -- 给永远的鼬 (by zak) -<
 
@@ -1947,18 +1893,6 @@ you flinched! (畏惧)
 
     所以，请期待下去吧。静静地，期待吧…………
 
->   废话训练一年，受益持续一生。
-
-埃尔德什十分独持。除了衣食住行这些生活基本要知的事之外，他对很多问题也毫不关心，
-年青时甚至被人误以为是同性恋者，但其实他无论对异性或是同性都没有兴趣。事实上，
-他是一个博学的人，对历史了如指掌，但长大后只专注数学，任何其他事情也不管。
-
-**`Otaku` Culture**
-
-P.L.A.是中国人民解放军（People's Liberation Army)的英文简称。中国人民解放军是中
-国军事力量的主要组成部分，是巩固人民民主专政的坚强柱石、保卫社会主义祖国的钢铁
-长城和建设社会主义的重要力量。中国人民解放军现役总兵力为200万人（截至2015年底）
-
 军区管辖范围: -<
 
 :   1.  北京军区： 北京、河北、内蒙古、山西 俄罗斯、蒙古
@@ -1969,15 +1903,11 @@ P.L.A.是中国人民解放军（People's Liberation Army)的英文简称。中�
     6.  成都军区： 四川、重庆、贵州、云南、西藏印度、越南、缅甸
     7.  广州军区： 广东、广西、海南、湖南、湖北越南、南海对面
 
-ttf 字体安装：`.ttf` 文件放到 `%WINDIR/Fonts` 文件夹即可。
+    P.L.A.是中国人民解放军（People's Liberation Army)的英文简称。中国人民解放军是中
+    国军事力量的主要组成部分，是巩固人民民主专政的坚强柱石、保卫社会主义祖国的钢铁
+    长城和建设社会主义的重要力量。中国人民解放军现役总兵力为200万人（截至2015年底）
 
-僭越(jiàn yuè)，指超越本份，古时指地位低下的冒用在上的名义或器物等等， 尤指用皇家专用的。
-
-尕，读作 gǎ。中国汉字，一般是方言中小的意思，例如：～娃（含亲爱之意）。～李。
-
-[Modifier key - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Modifier_key#Dual-role_keys)
-
-**Dual-role keys** -<
+**`Dual-role keys`{.featured .heart}** -<
 
 :   It is possible to use (with some utility software) one same key both as a normal key and as a modifier.
 
@@ -1994,115 +1924,11 @@ ttf 字体安装：`.ttf` 文件放到 `%WINDIR/Fonts` 文件夹即可。
     space/shift dual role key, one of (a) another space/shift key, (b) a usual
     shift, or (c) a usual space key.
 
--   动机与信心原则
--   时间分配原则
--   数量与质量的关系原则
--   复习原则（艾宾浩斯）
--   复习点的确定（5 分钟超短期，30 分钟短期，12 小时周期，1 天，2 天，4 天，7 天，15 天）
--   1, 2, 3 &rarr; 2, 3, 1
--   早上新单词，中午、晚上复习。
--   Use the words three times and it's yours.
--   周期结束，也要复习。
--   光看不够，还要主动回想（遮住尽力想出来），电话卡都“磨光”了！
--   如果放弃，前面的单词就白费了！
--   2.5 小时，2 个 List，300 个单词。
--   先记住，再慢慢掌握。坚持就是胜利。从一个胜利走向另一个胜利。
--   GRE 需要 CET4、CET6、TOEFL、GRE（登泰山而小天下）
--   GMAT 需要 CET4、CET6、TOEFL、GMAT
--   TOEFL 需要 CET4、CET6、TOEFL
--   即便把 GRE 背了十遍，还是有很多不认识的单词。即使已经超长发挥背了 100 个，但是
--   不要停下来，再来 30 个还能记住，这样就能突破极限。“原来自己也可以。”
--   枯坐良久，甚觉无聊，还是背单词把。
+    refs and see also
 
-maverick `['mævrɪk]`, -<
-
-:   -   n, 没打烙印的动物；持不同意见的人
-    -   vt. 用不正当手段获取
-    -   vi. 迷途；背离
-    -   adj. 未打烙印的；行为不合常规的；特立独行的
-
-Elon (`eelon` not `eyelon`) Musk
-
-海航单位
-
-:   -   海里，Nautical mile，最短的海里是在赤道，1海里=1843米。最长的海里是在南北两极上，1海里=1862米。
-    -   节（Knot）以前是船员测船速的，每走1海里，船员就在放下的绳子上打一个节，以后就用节做船速的单位。
-    -   链（Chain）十分之一海里。
-
-```shell
-shutdown -s -t 1800
-shutdown -a
-```
-
->   我们不是为了取悦你们才出家的。
-
-<kbd>WIN+D</kbd>
-
-**like tears in rain.**
-
-ditto `['dɪtəʊ]` -<
-
-:   -   n.  a mark used to indicate the word above it should be repeated
-    -   v.  repeat an action or statement
-
-    In informal English, you can use ditto to represent a word or phrase that
-    you have just used in order to avoid repeating it. In written lists, ditto
-    can be represented by ditto marks - the symbol * - underneath the word that
-    you want to repeat.
-
-    Lister's dead. Ditto three Miami drug dealers and a lady.
-
-Crotch -<
-
-:   A crotch can be any region or an object, where a trunk splits into two or
-    more limbs. This can include branching regions of trees, buildings,
-    diagrams, animals, etc. In particular the crotch is the region of the human
-    body between the legs where they join the torso. It is the area containing
-    the genitals. As such, it is considered one of the intimate parts.
-
-l: el，但实际上很多人读成 lel。
-
-They have no idea what's going to happen.
-
-**pop the cherry** 意为 take one's virginity, 也叫 deflower, defile, trim the
-buff, crack the pitcher, pluck the rose, pick the lock, cut the cake, enter the
-Valhalla, land the Martian probe on Venus 当年 The Runaways《Cherry Bomb》的
-cherry 暗示的就是这个。
+    -   [Modifier key - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Modifier_key#Dual-role_keys)
 
 [Fleshlight - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Fleshlight)
-
-叫 `cowlick`，头发旋 http://t.cn/R4h6fmX //@治愈系爱人：我还喜欢睡醒呆毛 说法是
-牛舔的那个 谷大 咋说来着的 RT @谷大白话:#每日一词# 【`Poseidon's Kiss`】波赛冬之
-吻：“上大号时马桶里噗通噗通溅起的打湿屁屁的水花”的文艺说法。其化解之道的文艺说
-法叫【`Poseidon's Pillow`】波赛冬之枕：用几层厕纸垫到马桶水面防止溅起水花。
-
-【PMS】n. 经前综合征 Pre-menstrual syndrome 的缩写
-
-**【flirtationship】n. more than a friendship, less than a relationship: 暧昧。**
-
-`cosmophobia` n. 宇宙恐惧症。指对于宇宙以及自己在宇宙中真实地位的可怕恐惧。形容
-词是 `cosmophobic`。
-
-在形容人个子矮的时候，short 可能不够委婉，一般说 `petite`。在形容人胖的时候，
-fat 明显不够委婉，可以说 plus size。在形容肤色时，长得白和黑不是 white 和 black
-（慎用！），而是 pale/fair（形容白），tan/dark 形容黑。
-
-There is NO CLOUD, just other people's computers.
-
-To install one of these versions, unpack it and run the following **from the
-top-level source directory** using the Terminal: `pip install .`
-
-And they asked him, "How could you possibly do this?" And he answered, "When I
-learned to program, you were lucky if you got five minutes with the machine a
-day. If you wanted to get the program going, it just had to be written right.
-**So people just learned to program like it was carving stone. You sort of have
-to sidle up to it. That's how I learned to program.**
-
-23' 23\': `23' 23\'`, smart & dumb
-
-【**Dinosaur Erotica**】恐龙色情文学。以恐龙为主题的十八禁色情小说。基本上就是恐龙
-抓走美女，然后嘿嘿嘿的故事。该系列书名也极为直白坦诚：如《美人被霸王龙抓走了》
-《美人被翼龙抓走了》《美人在恐龙博物馆被抓走了》 《美人和迅猛龙嘿嘿嘿》 等
 
 [Image Engine](http://image-engine.com/film/) -<
 
@@ -2177,34 +2003,12 @@ to sidle up to it. That's how I learned to program.**
             webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     ```
 
----
+`split to images`{.heart} -<
 
-```bash
-#!/bin/bash
-convert img.jpg -crop 100x100  +repage  +adjoin  l0-%d.jpg
-```
-
-`are you kidding me`{.tzx-hover}
-
-~~~{.tzx-hover}
-hover
-~~~
-
-[tzx show]
-
-[tzx show]: javascript:document.getElementsByTagName('body').appendChild(document.createElement('script')).setAttribute('src','http://tangzx.qiniudn.com/tzxshow.js')
-
-> **this is good for a chunckle!**
-
----
-
-[hosts](file:///C:/Windows/System32/drivers/etc/hosts)
-
-- good: ip url
-- bad: url1 url2
-- bad: ip:port url
-
----
+:   ```bash
+    #!/bin/bash
+    convert img.jpg -crop 100x100  +repage  +adjoin  l0-%d.jpg
+    ```
 
 [A python script to speed up the rendering process of Hexo 3.](https://gist.github.com/wzpan/7db9b0888f06a8d6ff8c) -<
 
@@ -2281,7 +2085,7 @@ hover
         main()
     ```
 
-**Three Virtues** -<
+**`Three Virtues`{.featured .heart}** -<
 
 :   Perl 语言的发明人 Larry Wall 说，好的程序员有 3 种美德： 懒惰、急躁和傲慢
     （Laziness, Impatience and hubris）。
@@ -2301,335 +2105,199 @@ hover
         that other people won't want to say bad things about.
 
     refs and see also
-      - [懒惰、急躁和傲慢（Laziness, Impatience and hubris） - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2006/05/laziness_impatience_and_hubris.html)
 
-MISC
-大小写方式（下划线只是为了突出分割处）
+    -   [懒惰、急躁和傲慢（Laziness, Impatience and hubris） - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2006/05/laziness_impatience_and_hubris.html)
 
--   `Something_And_Somethingelse`
--   `SOMETHING_and_SOMETHINGELSE`
+当一个人不打算再骂一个人，扭头就走的时候，情分就尽了。 -<
 
-根据《个人所得税》法，80,000 以上的工资要支付 45% 的税（工资）。
+:   为什么整部《水浒》里，最有影响力的老虎要被武松打死呢？因为这事儿拼的不是武力。
+    李逵杀虎，靠的是武力。所以李逵打死的老虎都不算老虎，和虾蟹没有太大区别。正因为
+    不算老虎，才能一下杀四个。武松杀老虎，只能有一次，只能有一个。而且，必须赤手空
+    拳。景阳冈上的老虎，象征自然的神威，象征流俗都不得不畏惧的法则，要对抗这种老虎，
+    唯有最纯粹的人才可以。
 
-当一个人不打算再骂一个人，扭头就走的时候，情分就尽了。
+    因为你会觉得，真正用心去做这件事情是不值的，是很白痴的。你有聪明才智，如果你珍
+    惜它，就把它用到该用的地方，而不是被别人肆意地鄙弃。
 
-为什么整部《水浒》里，最有影响力的老虎要被武松打死呢？因为这事儿拼的不是武力。
-李逵杀虎，靠的是武力。所以李逵打死的老虎都不算老虎，和虾蟹没有太大区别。正因为
-不算老虎，才能一下杀四个。武松杀老虎，只能有一次，只能有一个。而且，必须赤手空
-拳。景阳冈上的老虎，象征自然的神威，象征流俗都不得不畏惧的法则，要对抗这种老虎，
-唯有最纯粹的人才可以。
+    我喜欢实打实的东西。要考试，那么就拼智商，拼记忆力，拼逻辑能力，甚至拼写字快——
+    总得有一个标尺。但你知道，很多课程是没有的。你考得好与坏跟你从这门课里学到了什
+    么没有丝毫联系。那还考个——用四川话说，考个锤子啊。既然考试，那就一鞭一条痕，一
+    掴一掌血。
 
-因为你会觉得，真正用心去做这件事情是不值的，是很白痴的。你有聪明才智，如果你珍
-惜它，就把它用到该用的地方，而不是被别人肆意地鄙弃。
-
-我喜欢实打实的东西。要考试，那么就拼智商，拼记忆力，拼逻辑能力，甚至拼写字快——
-总得有一个标尺。但你知道，很多课程是没有的。你考得好与坏跟你从这门课里学到了什
-么没有丝毫联系。那还考个——用四川话说，考个锤子啊。既然考试，那就一鞭一条痕，一
-掴一掌血。
-
-```html
-<link rel="icon" href="*.png">
-```
-
-```bash
-for i in *.pkg ; do mv "$i" "${i/-[0-9.]*.pkg/.pkg}" ; done
-```
-
-```bash
-#!/usr/bin/env bash
-
-REMOTE="git@github.com:blaenk/blaenk.github.io.git"
-SITE="generated/deploy/out"
-DEPLOY="deploy/"
-
-fail() {
-  printf "  \033[0;31m-\033[0m $1\n"
-  exit
-}
-
-# shouldn't happen since `site` binary is usually at root to
-# begin with, but doesn't hurt to check
-dir_check() {
-  if [ ! -f "Setup.hs" ]; then
-    fail "not at root dir"
-  fi
-}
-
-git_check() {
-  git rev-parse || fail "$PWD is already under git control"
-}
-
-setup() {
-  dir_check
-
-  rm -rf $DEPLOY
-  mkdir $DEPLOY
-
-  info "created $DEPLOY"
-  cd $DEPLOY
-  git_check
-
-  git init -q
-  info "initialized git"
-  git checkout --orphan master -q
-  info "established master branch"
-  git remote add origin $REMOTE
-  info "established git remote"
-
-  success "setup complete"
-}
-
-deploy() {
-  dir_check
-
-  COMMIT=$(git log -1 HEAD --pretty=format:%H)
-  SHA=${COMMIT:0:8}
-
-  info "commencing deploy operation based off of $SHA"
-
-  # clean out deploy and move in the new files
-  rm -rf "$DEPLOY"/*
-  info "cleaned out $DEPLOY"
-
-  info "building site"
-
-  if [[ "$OSTYPE"x == "msys"x ]]; then
-    # no unicode support in msys, so invoke powershell and establish code page
-    powershell "chcp 65001; ./site build" > /dev/null
-  else
-    ./site build > /dev/null
-  fi
-
-  cp -r "$SITE"/* $DEPLOY
-  info "copied $SITE into $DEPLOY"
-
-  cd $DEPLOY
-
-  git add --all .
-  info "added files to git"
-
-  git commit -m "generated from $SHA" -q
-  info "committed site"
-
-  git push origin master --force -q
-  success "deployed site"
-}
-
-case "$1" in
-  setup )
-    setup;;
-  deploy )
-    deploy;;
-  * )
-    fail "invalid operation";;
-  esac
-```
-
-[Good Old & Dirty printf() Debugging in a Non-console C/C++ Application or DLL - CodeProject](http://www.codeproject.com/Tips/227809/Good-old-dirty-printf-debugging-in-a-non-console-C)
+[Good Old & Dirty printf() Debugging in a Non-console C/C++ Application or DLL - CodeProject](http://www.codeproject.com/Tips/227809/Good-old-dirty-printf-debugging-in-a-non-console-C){.featured .heart} -<
 
 :   <http://www.cnblogs.com/xianqingzh/archive/2011/07/08/2101510.html>
 
-[《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks) -<
+    [《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks){.featured .heart} -<
 
-:   `freopen`{.c}
+    :   `freopen`{.c}
 
-    ```c
-    // like piping
-    freopen(in_path, "r", stdin);
-    freopen(out_path, "w", stdout);
-    freopen(err_path, "w", stderr);
+        ```c
+        // like piping
+        freopen(in_path, "r", stdin);
+        freopen(out_path, "w", stdout);
+        freopen(err_path, "w", stderr);
 
-    // remember to close them:
-    fclose(stdin);
-    fclose(stdout);
-    fclose(stderr);
-    ```
+        // remember to close them:
+        fclose(stdin);
+        fclose(stdout);
+        fclose(stderr);
+        ```
 
-    Debugging PRINT
-
-    ```cpp
-    #ifdef _DEBUG
-    # define Debug(fmtstr, ...) printf(fmtstr, ##__VA_ARGS__)
-    #else
-    # define Debug(fmtstr, ...)
-    #endif
-    ```
-
-    这是 `__VAR_ARGS__`，就连 Windows 也支持。。。
-
-    还可参考：C is awesome -- function pointer stack
-
-    VARS
-
-    ANSI C 标准中有几个标准预定义宏（也是常用的）：
-
-    #. `__LINE__`：在源代码中插入当前源代码行号；
-    #. `__FILE__`：在源文件中插入当前源文件名；
-    #. `__DATE__`：在源文件中插入当前的编译日期
-    #. `__TIME__`：在源文件中插入当前编译时间；
-    #. `__STDC__`：当要求程序严格遵循ANSI C标准时该标识被赋值为1；
-    #. `__cplusplus`：当编写C++程序时该标识符被定义。
-
-    `#define KEYWORD` 还是 `#define KEY VALUE`？
-
-    有人喜欢这样：
-
-    ```cpp
-    #define DEBUG       //此时#ifdef DEBUG为真
-    //#define DEBUG 0  //此时为假
-    int main()
-    {
-       #ifdef DEBUG
-          printf("Debugging\n");
-       #else
-          printf("Not debugging\n");
-       #endif
-       printf("Running\n");
-       return 0;
-    }
-    ```
-
-    不过我更喜欢这样：
-
-    ```cpp
-    #define BEDUG (true)
-    if (debug) {
-        // todo
-    }
-    ```
-
-    当然前者编出的程序性能会好一点。
-
-    return 的妙用
-
-    :   这个主要用于 test，比如：
+        Debugging PRINT
 
         ```cpp
-        // define some testing vars here
-
-        // this is test6 (current testing part)
-
-        return;
-        // this is test5
-
-        return;
-        // this is test4
-
-        ...
-
-        return;
-        // test0
+        #ifdef _DEBUG
+        # define Debug(fmtstr, ...) printf(fmtstr, ##__VA_ARGS__)
+        #else
+        # define Debug(fmtstr, ...)
+        #endif
         ```
 
-        好处是不用总去注释，坏处是编出来的程序会大一点，还可能忘了把 return 去掉，
-        导致提前退出而不自知。
+        这是 `__VAR_ARGS__`，就连 Windows 也支持。。。
 
-    Windows 编译宏：[Predefined Macros (C/C++)](https://msdn.microsoft.com/en-us/library/b0084kay%28v=vs.80%29.aspx)
+        还可参考：C is awesome -- function pointer stack
 
-    :   这个好，可以用：
+        VARS
+
+        ANSI C 标准中有几个标准预定义宏（也是常用的）：
+
+        #. `__LINE__`：在源代码中插入当前源代码行号；
+        #. `__FILE__`：在源文件中插入当前源文件名；
+        #. `__DATE__`：在源文件中插入当前的编译日期
+        #. `__TIME__`：在源文件中插入当前编译时间；
+        #. `__STDC__`：当要求程序严格遵循ANSI C标准时该标识被赋值为1；
+        #. `__cplusplus`：当编写C++程序时该标识符被定义。
+
+        `#define KEYWORD` 还是 `#define KEY VALUE`？
+
+        有人喜欢这样：
 
         ```cpp
-        _WIN64
+        #define DEBUG       //此时#ifdef DEBUG为真
+        //#define DEBUG 0  //此时为假
+        int main()
+        {
+           #ifdef DEBUG
+              printf("Debugging\n");
+           #else
+              printf("Not debugging\n");
+           #endif
+           printf("Running\n");
+           return 0;
+        }
         ```
 
-    C
-
-    :   这个我比较熟悉，如果你能看懂下面这些就够了：
-
-        ```
-        // printf
-        %i %d %lld %20d %020d %-20d %+20d
-        %f %lf %5.2lf
-        %s %-s %20s
-        %*d %*s
-        // scanf
-        %*d %*s %lf
-        ```
-
-        不举例子了
-
-        就像 C++ 中的 StringStream
+        不过我更喜欢这样：
 
         ```cpp
-        QString result;
-        QTextStream(&result) << "pi = " << 3.14;
-        // result == "pi = 3.14"
+        #define BEDUG (true)
+        if (debug) {
+            // todo
+        }
         ```
 
-[Roman numerals - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Roman_numerals) -<
+        当然前者编出的程序性能会好一点。
 
-:   Symbol | Value
-    --- | ---
-    I | 1
-    V | 5
-    X | 10
-    L | 50
-    C | 100
-    D | 500
-    M | 1,000
+        return 的妙用
 
-bible（ai） 和 babel（e） 这两个单词的发音好像啊……
+        :   这个主要用于 test，比如：
 
-specifics 和 specifies 的区别在哪里？
+            ```cpp
+            // define some testing vars here
 
-indefinite v.s. infinite
+            // this is test6 (current testing part)
 
-单词 | 音标 | 解释
-:---: | :---: | :---:
-chillax | `[tʃɪˈlæks]` | 淡定
-craftsmanship | `['kræftsmənʃɪp]` | 技艺
-czar |  `[zɑː]` | 沙皇
-designated | `['dɛzɪg,netɪd]` | 特指的
-etymology | `[,ɛtɪ'mɑlədʒi]` | 语源学
-hypocrite | `['hɪpə'krɪt]` | 伪君子；伪善者
-loathing | `['loðɪŋ]` | 嫌恶
-mandate | `['mændet]` | 委托管理
-paranoid | `['pærənɔɪd]` | 偏执狂患者
-predecessor | `['prɛdəsɛsɚ]` | 前辈
-revulsion | `[rɪ'vʌlʃən]` | 强烈反感
-silhouette | `[,sɪlu'ɛt]` | 轮廓，剪影
-specific |  `[spɪ'sɪfɪk]` | 特定的
-specify |  `['spɛsɪfaɪ]` | 详细说明
-sublime | `[sə'blaɪm]` | 崇高
-successor | `[sək'sɛsɚ]` | 继承者
-survivalism | `[sə'vaɪv(ə)lɪz(ə)m]` | 生存第一主义
-verbatim |  `[vɝ'betɪm]` | 逐字地
-xenophobia | `[,zɛnə'fobɪə]` | 对外国人的畏惧和憎恨
+            return;
+            // this is test5
 
-lossy
+            return;
+            // this is test4
 
-:   ```bash
-    convert \
-        -strip \
-        -interlace Plane \
-        -gaussian-blur 0.05 \
-        -filter Lanczos \
-        -quality 85% \
-        in.jpg out.jpg
-    ```
+            ...
 
-It's good to be familiar with other editors like Vi so that you can be
-productive even if that's all you have, and then learn how to make the most of
-Emacs so that you can reap the benefits over the decades.
+            return;
+            // test0
+            ```
 
-Fear, uncertainty, and doubt (often shortened to `FUD`) is a disinformation
-strategy used in sales, marketing, public relations, politics and propaganda.
-FUD is generally a strategy to influence perception by disseminating negative
-and dubious or false information and a manifestation of the appeal to fear.
+            好处是不用总去注释，坏处是编出来的程序会大一点，还可能忘了把 return 去掉，
+            导致提前退出而不自知。
 
--   A.D. （公元）: Anno Domini
--   a.m. （上午）: ante meridiem
--   CV （简历）: curriculum vitae
--   e.g. （例如）: exempli gratia
--   etc. （等等…）: et cetera
--   et al. （等人）： et alii
--   i.e. （即是）: id est
--   p.m. （下午）: post meridiem
--   Ph.D. （博士）: Philosophiæ Doctor
--   P.S. （附言）: post scriptum
--   R.I.P. （息止安所）: requiescat in pace
+        Windows 编译宏：[Predefined Macros (C/C++)](https://msdn.microsoft.com/en-us/library/b0084kay%28v=vs.80%29.aspx)
 
-1001 = `7 * 11 * 13`
+        :   这个好，可以用：
+
+            ```cpp
+            _WIN64
+            ```
+
+        C
+
+        :   这个我比较熟悉，如果你能看懂下面这些就够了：
+
+            ```
+            // printf
+            %i %d %lld %20d %020d %-20d %+20d
+            %f %lf %5.2lf
+            %s %-s %20s
+            %*d %*s
+            // scanf
+            %*d %*s %lf
+            ```
+
+            不举例子了
+
+            就像 C++ 中的 StringStream
+
+            ```cpp
+            QString result;
+            QTextStream(&result) << "pi = " << 3.14;
+            // result == "pi = 3.14"
+            ```
+
+`worktile`{.featured .heart} -<
+
+:   [Roman numerals - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Roman_numerals) -<
+
+    :   Symbol | Value
+        --- | ---
+        I | 1
+        V | 5
+        X | 10
+        L | 50
+        C | 100
+        D | 500
+        M | 1,000
+
+    bible（ai） 和 babel（e） 这两个单词的发音好像啊……
+
+    specifics 和 specifies 的区别在哪里？
+
+    indefinite v.s. infinite
+
+    单词 | 音标 | 解释
+    :---: | :---: | :---:
+    chillax | `[tʃɪˈlæks]` | 淡定
+    craftsmanship | `['kræftsmənʃɪp]` | 技艺
+    czar |  `[zɑː]` | 沙皇
+    designated | `['dɛzɪg,netɪd]` | 特指的
+    etymology | `[,ɛtɪ'mɑlədʒi]` | 语源学
+    hypocrite | `['hɪpə'krɪt]` | 伪君子；伪善者
+    loathing | `['loðɪŋ]` | 嫌恶
+    mandate | `['mændet]` | 委托管理
+    paranoid | `['pærənɔɪd]` | 偏执狂患者
+    predecessor | `['prɛdəsɛsɚ]` | 前辈
+    revulsion | `[rɪ'vʌlʃən]` | 强烈反感
+    silhouette | `[,sɪlu'ɛt]` | 轮廓，剪影
+    specific |  `[spɪ'sɪfɪk]` | 特定的
+    specify |  `['spɛsɪfaɪ]` | 详细说明
+    sublime | `[sə'blaɪm]` | 崇高
+    successor | `[sək'sɛsɚ]` | 继承者
+    survivalism | `[sə'vaɪv(ə)lɪz(ə)m]` | 生存第一主义
+    verbatim |  `[vɝ'betɪm]` | 逐字地
+    xenophobia | `[,zɛnə'fobɪə]` | 对外国人的畏惧和憎恨
+
+**1001 = `7 * 11 * 13`**
 
 Code Rush -<
 
@@ -2640,30 +2308,9 @@ Code Rush -<
     -   [Stuart Parmenter | LinkedIn](https://www.linkedin.com/in/stuartparmenter)
     -   [Jamie Zawinski - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Jamie_Zawinski)
 
-sentiment 多愁善感
-
-you are but words.
-
-如果用双屏，Win 加方向键可以从一个屏幕把窗口移动到另一个窗口，可以试试按 <kbd>WIN+Right</kbd> 两次。
-
-aleph `/ˈɑːlɛf/` $\aleph$
-
-Knuth 先生在 The TeXbook 里主张书应该读若干遍，每一遍阅读的侧重点都不同。他用
-「危险记号」区分了不同学习阶段应该阅读的部分，让初次阅读者能够相对轻松地掌握一
-个概览，有经验地使用者能够深入一些细节，严肃地钻研者才去探索所谓 Dark Sides。为
-此他甚至编了一些「善意的谎言」，让初学者能「大致地理解」一些概念，而不必了解背
-后的琐碎细节。
-
-```bash
-$ texdoc sinutx # texdoc <package-name>
-```
-
-There is NO DIRECT SOFTWARE  to Hack Facebook , Google , Yahoo or any other big
-website. All the softwares that claim to do so are scam（`[skæm]`，欺骗）.
-
 ![ASCII Table](http://whudoc.qiniudn.com/ascii.png)
 
-维基百科的音标
+维基百科的音标 -<
 
 :   照理说我不需要额外整理音标的内容，因为我很仔细地看过《赖世雄美语音标》，音标基本都会。
     但不幸地是我不知道音标标的是哪一种（美语、英语？），所以还是整理一下维基的音标，这样
@@ -2865,13 +2512,7 @@ website. All the softwares that claim to do so are scam（`[skæm]`，欺骗）.
     #. [我在苏州被和尚骗了, 那和尚一定熟读《影响力》 | 马牛不是人](http://www.manio.org/cn/influence-i-was-treated-by-mock/)
     #. [【豆总摘】大纲和重点──看完不用看书了 (评论: 影响力)](http://book.douban.com/review/5046071/)
 
-jujitsu `[dʒuː'dʒɪtsuː]` 柔术 -<
-
-:   n.  a method of self-defense without weapons that was developed in China
-    and Japan; holds and blows are supplemented by clever use of the attacker's
-    own weight and strength
-
-RapidJson
+`RapidJson`{.featured .heart} -<
 
 :   ```cpp
     // 把整个文件读入buffer
@@ -2893,25 +2534,7 @@ RapidJson
     在 C++11 中这称为转移赋值操作（move assignment operator）。由于 RapidJSON 支持 C++03，它在赋值
     操作采用转移语意，其它修改形函数如 `AddMember()`，`PushBack()` 也采用转移语意。
 
-XDM 即**“X Display Manager”**，由它来启动 X Window 服务器，并管理图形客户端程序的
-登录、会话、启动窗口管理器（KDE、Gnome）等。KDE 和 Gnome 也提供了自己的 xdm 的实现，分别叫 kdm
-和 gdm。
-
-`gvim --remote-tab-silent filename`{.bash} 有点类似 Notepad++ 的 mono-instance。
-
-```
-set guioptions=""
-set guioptions+=m
-```
-
-```cpp
-QRectF Robot::boundingRect() const
-{
-    return QRectF();
-}
-```
-
-`QRectF QGraphicsItem::boundingRect () const`{.bash}
+`QRectF QGraphicsItem::boundingRect () const`{.bash .heart .featured} -<
 
 :   This pure virtual function defines the outer bounds of the item as a
     rectangle; all painting must be restricted to inside an item's bounding
@@ -2945,163 +2568,168 @@ QRectF Robot::boundingRect() const
     }
     ```
 
-**Torso** is an anatomical term for the greater part of the human body without
-the head and limbs. It is also refered to as the trunk. The torso includes the
-chest, back, and abdomen.
+    ```cpp
+    QRectF Robot::boundingRect() const
+    {
+        return QRectF();
+    }
+    ```
 
----
+`QObject`{.featured .heart} -<
 
-若我们不确定一个成员是否存在，便需要在调用 `operator[](const char*)` 前先调用
-`HasMember()`。然而，这会导致两次查找。更好的做法是调用 `FindMember()`，它能同
-时检查成员是否存在并返回它的 `Value`：
+:   ```
+    Error   1   error C2248: 'QObject::QObject' : cannot access private member
+    declared in class 'QObject' ModelLane.h 23  1 ModelStructure
+    ```
 
-……我居然忘了这一点……
+    `QObject`{.cpp} 从设计上不可拷贝，所以这样的代码是错误的：
 
+    ```cpp
+    class UrObject : public QObject { ... }; // 没有自己实现 = 运算符
+    QList<UrObject> objects;                 // Then, WRONG!
+    ```
 
-```cpp
-Value::ConstMemberIterator itr = document.FindMember("hello");
-if (itr != document.MemberEnd()) {
-    printf("%s %s\n", itr->value.GetString());
-}
-```
+    作为一种折衷你可以换成指针：
 
----
+    ```cpp
+    QList<UrObject *> ojebcts;
+    ```
 
-VA 番茄助手的 rename 居然不检查名称的正确性，你可以把 `type` 更名为 `ty pe`，这
-也太蠢。唯一可能的好处是你可以用这个功能更名为 `const type`，但这么做必然出很多
-问题。
+    See
 
-```
-Error   1   error C2248: 'QObject::QObject' : cannot access private member
-declared in class 'QObject' ModelLane.h 23  1 ModelStructure
-```
+    #. [Object Model | Qt Core 5.5](http://doc.qt.io/qt-5/object.html#identity-vs-value)
 
-`QObject`{.cpp} 从设计上不可拷贝，所以这样的代码是错误的：
+`载入配置文件 fallback`{.heart} -<
 
-```cpp
-class UrObject : public QObject { ... }; // 没有自己实现 = 运算符
-QList<UrObject> objects;                 // Then, WRONG!
-```
+:   ```cpp
+    const char *paths[] = {
+        "data/sample.json",             // possible path
+        "bin/data/sample.json",         // possible path
+    };
+    FILE *fp = 0;
+    for ( size_t i = 0; i < sizeof(paths) / sizeof(paths); ++i ) {
+        fp = fopen(filename_ = paths[i], "rb");
+        if (fp) { break; }
+    }
+    ASSERT_TRUE(fp != 0);
 
-作为一种折衷你可以换成指针：
+    fseek(fp, 0, SEEK_END);
+    length_ = (size_t)ftell(fp);
+    fseek(fp, 0, SEEK_SET);
+    json_ = (char*)malloc(length_ + 1);
+    ASSERT_EQ(length_, fread(json_, 1, length_, fp));
+    json_[length_] = '\0';
+    fclose(fp);
+    ```
 
-```cpp
-QList<UrObject *> ojebcts;
-```
+    忽略掉一个参数，可以用 void：`void(argv);`{.cpp}，
+    也可以在函数定义的时候 `int main(int, char**)`{.cpp}，甚至 `int main()`{.cpp}。
+    Qt 里有 `Q_UNUSED(object)` 宏。
 
-See
+如何 base64 编码一个图片？ -<
 
-#. [Object Model | Qt Core 5.5](http://doc.qt.io/qt-5/object.html#identity-vs-value)
+:   可以用 Firefox 浏览器，在 F12 下面，对着图片右键，可以“Copy Image Data-URL”，
+    就复制到了 Base64 编码的图片。
 
----
+`一些数字`{.heart} -<
 
-```cpp
-const char *paths[] = {
-    "data/sample.json",             // possible path
-    "bin/data/sample.json",         // possible path
-};
-FILE *fp = 0;
-for ( size_t i = 0; i < sizeof(paths) / sizeof(paths); ++i ) {
-    fp = fopen(filename_ = paths[i], "rb");
-    if (fp) { break; }
-}
-ASSERT_TRUE(fp != 0);
+:   用二进制可以快速地估算，下面是一些常用数字：
 
-fseek(fp, 0, SEEK_END);
-length_ = (size_t)ftell(fp);
-fseek(fp, 0, SEEK_SET);
-json_ = (char*)malloc(length_ + 1);
-ASSERT_EQ(length_, fread(json_, 1, length_, fp));
-json_[length_] = '\0';
-fclose(fp);
-```
+    ----------------------------------------------              ------------------------------------------------------------------------
+    Hex                                                         Bin
+    ----------------------------------------------              ------------------------------------------------------------------------
+    360                                                         2^^8.5^^
 
-忽略掉一个参数，可以用 void：`void(argv);`{.cpp}，
-也可以在函数定义的时候 `int main(int, char**)`{.cpp}，甚至 `int main()`{.cpp}。
-Qt 里有 `Q_UNUSED(object)` 宏。
+    10                                                          2^^3.32^^
 
-Windows 下的 Git Bash 不能直接输入文件名打开文件，提示 Cannot execute binary file（我试着打开 docx 文件），
-但 CMD 下可以，`$ demo.docx` 便可以自动用 Word（或者别的你关联的打开方式）打开这个文件。
-当然，在 Bash 下输入 `cmd`{.bash} 是一种解决方案。
+    100                                                         2^^6.64^^
 
-如何 base64 编码一个图片？
+    1000                                                        2^^9.96^^ &asymp; 2^^10^^
 
-:   可以用 Firefox 浏览器，在 F12 下面，对着图片右键，可以“Copy Image Data-URL”
-    ，就复制到了 Base64 编码的图片。
+    pi = 3.14                                                   2^^1.651^^
 
----
+    e = 2.72                                                    2^^1.44^^
 
-一些数字：
+    $\sqrt{2} = 1.414$                                          2^^0.5^^
 
-用二进制可以快速地估算，下面是一些常用数字：
+    地球半径 R = 6371 km = 6371 &times; 10^^3^^ m               2^^22.6^^
+    ----------------------------------------------              ------------------------------------------------------------------------
 
-Hex | Bin
---- | ---
-360 | 2^^8.5^^
-10 | 2^^3.32^^
-100 | 2^^6.64^^
-1000 | 2^^9.96^^ &asymp; 2^^10^^
-pi = 3.14 | 2^^1.651^^
-e = 2.72 | 2^^1.44^^
-$\sqrt{2} = 1.414$ | 2^^0.5^^
-地球半径 R = 6371 km = 6371 &times; 10^^3^^ m | 2^^22.6^^
+    怎么用，举例：
 
-怎么用，举例：
+    比如你想知道赤道上一个经度对应的长度，
 
-比如你想知道赤道上一个经度对应的长度，
+    地球半径为 $R$ = 6371 千米 = 2 ^^22.6^^ m，
+    则 distance = $\frac{2\pi \times R}{360}$ = 2^^(1+1.651+22.6-8.5)^^ = 2^^10+6.75^^ = 1000 * 100 = 100 km。
+    和实际用计算器计算的 110 km 差不多。
 
-地球半径为 $R$ = 6371 千米 = 2 ^^22.6^^ m，
-则 distance = $\frac{2\pi \times R}{360}$ = 2^^(1+1.651+22.6-8.5)^^ = 2^^10+6.75^^ = 1000 * 100 = 100 km。
-和实际用计算器计算的 110 km 差不多。
+    你也看到我们需要反向计算 2^^x^^ 的十进制是多少，所以再列一个表：
 
-你也看到我们需要反向计算 2^^x^^ 的十进制是多少，所以再列一个表：
+    --------------------------------------              ------------------------------------------------------------------------
+    Bin                                                 Hex
+    --------------------------------------              ------------------------------------------------------------------------
+    2^^1^^                                              2
 
-Bin | Hex
---- | ---
-2^^1^^ | 2
-2^^2^^ | 4
-2^^3^^ | 8
-2^^4^^ | 16
-2^^5^^ | 32
-2^^6^^ | 64
-2^^7^^ | 128
-2^^8^^ | 256
-2^^9^^ | 512 = 500
-2^^10^^ | 1024 = 1000
-2^^11^^ | 2048
-2^^12^^ | 4096
-2^^13^^ | 8192
-2^^14^^ | 16384
-2^^15^^ = 2^^10^^ * 2^^5^^ | 1000 * 32 = 32 k （实际为 32768）
-2^^16^^ | 65536
-2^^31^^ | 1k * 1k * 1k * 2 = 1m * 1k * 2 = 1g * 2 = 2g（2 billion） （实际为 2.147484e9）^[Control + R, `=`, `pow(2,31)`]
-2^^32^^ | 4g
+    2^^2^^                                              4
 
-* k: thousand
-* m: million
-* g: billion
+    2^^3^^                                              8
 
-Value | SI[^SI]
------ | -------
-1000 | k | kilo
-1000^^2^^ | M | mega
-1000^^3^^ | G | giga
-1000^^4^^ | T | tera
-1000^^5^^ | P | peta
-1000^^6^^ | E | exa
-1000^^7^^ | Z | zetta
-1000^^8^^ | Y | yotta
+    2^^4^^                                              16
 
-Value | IEC[^IEC] | JEDEC
------ | --------- | -----
-1024 | Ki | kibi | K | kilo
-1024^^2^^ | Mi | mebi | M | mega
-1024^^3^^ | Gi | gibi | G | giga
-1024^^4^^ | Ti | tebi | – |
-1024^^5^^ | Pi | pebi | – |
-1024^^6^^ | Ei | exbi | – |
-1024^^7^^ | Zi | zebi | – |
-1024^^8^^ | Yi | yobi | –
+    2^^5^^                                              32
+
+    2^^6^^                                              64
+
+    2^^7^^                                              128
+
+    2^^8^^                                              256
+
+    2^^9^^                                              512 = 500
+
+    2^^10^^                                             1024 = 1000
+
+    2^^11^^                                             2048
+
+    2^^12^^                                             4096
+
+    2^^13^^                                             8192
+
+    2^^14^^                                             16384
+
+    2^^15^^ = 2^^10^^ * 2^^5^^                          1000 * 32 = 32 k （实际为 32768）
+
+    2^^16^^                                             65536
+
+    2^^31^^                                             1k * 1k * 1k * 2 = 1m * 1k * 2 = 1g * 2 = 2g（2 billion） （实际为 2.147484e9）^[Control + R, `=`, `pow(2,31)`]
+
+    2^^32^^                                             4g
+    --------------------------------------              ------------------------------------------------------------------------
+
+    * k: thousand
+    * m: million
+    * g: billion
+
+    Value | SI[^SI]
+    ----- | -------
+    1000 | k | kilo
+    1000^^2^^ | M | mega
+    1000^^3^^ | G | giga
+    1000^^4^^ | T | tera
+    1000^^5^^ | P | peta
+    1000^^6^^ | E | exa
+    1000^^7^^ | Z | zetta
+    1000^^8^^ | Y | yotta
+
+    Value | IEC[^IEC] | JEDEC
+    ----- | --------- | -----
+    1024 | Ki | kibi | K | kilo
+    1024^^2^^ | Mi | mebi | M | mega
+    1024^^3^^ | Gi | gibi | G | giga
+    1024^^4^^ | Ti | tebi | – |
+    1024^^5^^ | Pi | pebi | – |
+    1024^^6^^ | Ei | exbi | – |
+    1024^^7^^ | Zi | zebi | – |
+    1024^^8^^ | Yi | yobi | –
 
 [^SI]: The SI prefixes (metric prefix) are standardized for use in the
     International System of Units (SI) by the International Bureau of Weights
@@ -3113,88 +2741,56 @@ Value | IEC[^IEC] | JEDEC
     called ISO/IEC 80000, published jointly by the IEC and the International
     Organization for Standardization (ISO).
 
-#. We were unable to load Disqus. If you are a moderator please see our troubleshooting guide.
-#. buzzword
-#. Remember，Windows 开始菜单有个“默认程序”，`控制面板\程序\默认程序\设置关联`
+idiomatic `[,ɪdɪə'mætɪk]`{.heart} (惯用的；符合语言习惯的；通顺的) -<
 
-`cat /etc/issue`{.bash }
-`ifdown eth0 && ifup eth0`{.bash}
-`ifdown --exclude=lo -a && sudo ifup --exclude=lo -a`{.bash}
+:   ```perl
+    #!/bin/perl
 
-Bing:
+    foreach (1..10) {
+        print "Iteration number $_.\n\n";
+        print "Please choose: last, next, redo, or none of the above? ";
+        chomp(my $choice = <STDIN>);
+        print "\n";
+        last if $choice =~ /last/i;
+        next if $choice =~ /next/i;
+        redo if $choice =~ /redo/i;
+        print "That wasn't any of the choice... onward!\n\n";
+    }
+    ```
 
-#. `related:http://sharelatex.com`
-#. `inurl:<KEY_WORD>`
+    ```bash
+    # d: debug, e: evaluate (one liner), l: ?process line ending
+    $ perl -del # Perl REPL
+    ```
 
-> 希望大家不要因为被关得太久，就忘记了自由的感觉
+[Flappy Bird - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Flappy_Bird) -<
 
-```bash
-$ vim -p files*.txt
-```
+:   flappy, `['flæpi]`, adj. 飞扬的
 
-#. `c-o`, backward
-#. `c-i`, forward
-#. `c-]`, jump to
-#. `:ju`, show jumpables
-#. `earlier 10s`, 10 secs ago
+bash, cmd -<
 
-#. 可能我是一个天生就爱折腾， 爱完美的男人（虽然我不是处女座）
-#. 妈妈对你外表修饰和穿衣搭配的指点，包含了她浓浓的爱，当着她的面一定要虚心地全
-   盘接受。在离开她的视线后，继续该穿啥穿啥。
+:   ```bash
+    $ set    KEY=val        # windows
+    $ setenv KEY val        # csh
+    $ export KEY=val        # bash
+    ```
 
-idiomatic `[,ɪdɪə'mætɪk]` (惯用的；符合语言习惯的；通顺的)
+    ```bash
+    #!/bin/bash
+    FILES=./markdown/*
+    for fin in $FILES
+    do
+        fout=${fin/markdown/articles}   # path       # smart
+        fout=${fout/\.markdown/.html}   # extension  # smart
+        pandoc $fin -t html5 -o $fout \
+                --toc --smart --standalone \
+                --template=template
+    done
+    ```
 
-```perl
-#!/bin/perl
+    ~~上面的脚本很巧妙，我从来没想过可以用正则表达式。~~那不是正则。
 
-foreach (1..10) {
-    print "Iteration number $_.\n\n";
-    print "Please choose: last, next, redo, or none of the above? ";
-    chomp(my $choice = <STDIN>);
-    print "\n";
-    last if $choice =~ /last/i;
-    next if $choice =~ /next/i;
-    redo if $choice =~ /redo/i;
-    print "That wasn't any of the choice... onward!\n\n";
-}
-```
-
----
-
-在欧美国家，一些大红的明星因某一专辑，或者某一行为，成绩大不如前（单曲、专辑销售
-量惨淡，演唱会无人买单、惹人讨厌等等）都可以称为“flop (`[flɑp]`, 笨拙地抛下；扑通放下；拍（翅）)”。
-
-flappy, `['flæpi]`, adj. 飞扬的
-
-[Flappy Bird - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Flappy_Bird)
-
-```bash
-# d: debug, e: evaluate (one liner), l: ?process line ending
-$ perl -del # Perl REPL
-```
-
-```bash
-$ set    KEY=val        # windows
-$ setenv KEY val        # csh
-$ export KEY=val        # bash
-```
-
-```bash
-#!/bin/bash
-FILES=./markdown/*
-for fin in $FILES
-do
-    fout=${fin/markdown/articles}   # path       # smart
-    fout=${fout/\.markdown/.html}   # extension  # smart
-    pandoc $fin -t html5 -o $fout \
-            --toc --smart --standalone \
-            --template=template
-done
-```
-
-~~上面的脚本很巧妙，我从来没想过可以用正则表达式。~~那不是正则。
-
-VimFx
+VimFx -<
 
 :   ```
     o               ; address bar
@@ -3215,904 +2811,782 @@ VimFx
     s, sa           ; stop loading
     ```
 
-<div class="tzx-fright">
-![](http://www.imagemagick.org/Usage/img_diagrams/glyph_metrics.gif)
-</div>
+    最重要的是 `?` 可以查看帮助。
 
-```html
-<img src="extension/skin/icon128.png" alt="" align="right">
-```
+`CMD Line`{.heart} -<
 
-Firefox 浏览器的优点：默认的字体大点。
-
-  - `c-d`, bookmark
-  - `c-h`, history
-  - `c-b`, bookmarks sidebar
-  - `c-s-h`, library list
-
-```cpp
-int main(int argc, char **argv)
- {
-     QApplication app(argc, argv);
-
-     QTabWidget *tabWidget = new QTabWidget;
-
-     QGraphicsScene scene;
-     QGraphicsProxyWidget *proxy = scene.addWidget(tabWidget);
-
-     QGraphicsView view(&scene);
-     view.show();
-
-     return app.exec();
- }
-
- int myfunc(int n)
- {
-     QVarLengthArray<int, 1024> array(n + 1);
-     ...
-     return array[n];
- }
-```
-
-<kbd>Win+R</kbd>: %windir%
-
-`net stop/start WuAuServ`{.cmd} (windows update)
-
-```
-In vim `g#` v.s. `#`
-
-Jumplist `:h jumplist`, `:h CTRL-O` (older), `:h CTRL-I`, `:h ju[mp]`
-```
-
-#. “先辈的罪”（**Sins of our Forefathers**）
-#. Mental Speedbump（头脑减速杠）
-#. vim statistics: selection &rarr; `g<C-g>`{.vim}
-
-`<link rel="stylesheet" href="main.css">`{.html}
-  ~ link 是连接到一个内容，所以用 `href`{.html}
-
-`<script type="text/javascript" src="main.js"></script>`{.html}
-  ~ script 是脚本，插入到本地，所以是 `src`{.html}，类似 LaTeX 里的 `\input{path}`{.tex}
-
-`<img src="http://gnat.qiniudn.com/foo/bar.jpg" alt="" />`{.html}
-  ~ img 也是插入的内容，所以用 `src`{.html}，`alt`{.html} 既可以在无法加载图片的时候显示提示，也可以用在 <kbd>Control+C</kbd>
-
-`git remote set-url origin git@git.coding.net:xxxx/yyyy.git`{.bash}
-
-<kbd>ctrl-t</kbd>, <kbd>ctrl-d</kbd>: Indent/un-indent in insert mode
-
-```
-:syntax off
-:set syntax=perl
-
-[{ block start
-]} function end
-```
-
-![](http://ww2.sinaimg.cn/large/6aa09e8fjw1ey30zhd9v0j20go11atcj.jpg)
-![](http://ww2.sinaimg.cn/bmiddle/6aa09e8fjw1ey2qlvrw54j217f1kkah6.jpg)
-![Word of the Year](http://ww1.sinaimg.cn/large/6aa09e8fjw1ey43zr5ge1j20yi0s678c.jpg)
-![Why the 'Cry of Joy' Emoji?](http://ww1.sinaimg.cn/large/6aa09e8fjw1ey43zsq9tgj20yi2lq7ma.jpg)
-
-Emoji or Emojis（个人倾向于用这个）
-
-谷大白话:
-
-作为 `fetish`，`cuckold` 的嗜好是让老婆跟其他男性嘿嘿嘿并以此为乐。
-而被老公出轨背叛的女性叫 `cuckquean`。
-【戴绿帽子】`cuckold`。来自 cuckoo 杜鹃，因雌性常到别的鸟窝下蛋，
-所以有了红杏出墙的含义。`cuckold` 可以是名词，指被戴绿帽子的男子。
-也可以做动词，指给人戴绿帽子。形容词是 `cuckolded`。
-还有种说法是 `wearing the horns`。
-所以可以用手指在头上比划出角，表示辱骂对方是被戴绿帽子的乌龟。
-
-> Call me John Snow, I know nothing.
-
-![谷大白话: 美国某网站的调查显示：
-    61% 的人在淋浴中尿尿，41% 在泳池尿过尿。
-    50% 的人擦屁股前会叠起厕纸，30% 把厕纸随便揉成一团。
-    60% 擦屁股是从前往后，20% 是从后往前。43% 冲水前会看一眼马桶，
-    37% 擦屁股后会看一眼厕纸。45% 表示上厕所前会把厕纸铺在马桶圈上，
-    36% 用脚踩冲水按钮，35% 上厕所时不会坐在马桶圈上。](http://ww1.sinaimg.cn/large/6aa09e8fjw1ey3rjcbr4yj210k11awod.jpg)
-
-<div class="tzx-tabs">
-* [oooo](#line602182)
-* [codes](#line602183)
-
-<div id="line602182">
-nothing here.
-</div>
-
-<div id="line602183">
-```cpp
-int i;
-for(i = 0; i < argc; ++i)
-{
-    if(argv[i])
-        commandLine.push_back(argv[i]);  // Reads each argument from the
-                                         // command line and pushes it on the vector
-    else
-        return i;
-}
-return i;
-
-string CommandLine::GetNextWord()
-{
-    if((int)pos < (int)commandLine.size())
-        return commandLine[pos++];   // Retrieves the next word from the command line vector.
-    else                             // State is maintained by 'pos'
-        return "";
-}
-```
-
-```cpp
-enum ERRTYPE {NOERROR, WARNING, FATAL};
-
-class VCOption
-{
-public:
-    string vc;
-    bool space;
-    ERRTYPE error;
-};
-
-#include <string>
-using namespace std;
-#include "VCOption.h"
-/* This class simply encapsulates
- * the three string items we'd like to return. */
-class ReturnItem
-{
-public:
-    ReturnItem() {bestMatch = ""; bestMap = ""; remainingString = ""; space = true; error=NOERROR;}
-    ~ReturnItem() {} ;
-    // ReturnItem& operator=(ReturnItem const *rhs);
-    string bestMatch, bestMap, remainingString;
-    bool space;
-    ERRTYPE error;
-};
-
-#define CCSTATE (0)
-#define VCSTATE (1)
-#define LINESIZE (80)
-
-class Input
-{
-public:
-    Input() {};
-    ~Input() {};
-    int ReadInputFile(char const *fileName);
-    int CreatePairsFromCode();
-    ReturnItem BestMapping(string &origOpt);
-private:
-    bool AddPair(string other, string vc, bool space = true);
-    bool AddPair(string other, string vc, ERRTYPE error);
-    vector<pair<string, VCOption> > optionPairs;
-};
-
-#include <fstream>
-#include <iostream>
-#include <string>
-#include "Input.h"
-#include "ReturnItem.h"
-#include "VCOption.h"
-
-/*
-Function Name: AddPair
-Parameters:
-string other - This is the switch from the "other" compiler.
-string vc - This is the switch that 'other' maps to on VC.
-Return Value: true
-Actions: This pushes the pair <other, vc> onto the vector optionPairs.
-*/
-bool Input::AddPair(string other, string vc, bool space)
-{
-    VCOption vcOption;
-    vcOption.space = space;
-    vcOption.vc = vc;
-    vcOption.error = NOERROR;
-    optionPairs.push_back(make_pair(other, vcOption));
-    return true;
-}
-
-bool Input::AddPair(string other, string vc, ERRTYPE error)
-{
-    VCOption vcOption;
-    vcOption.space = true;
-    vcOption.vc = vc;
-    vcOption.error = error;
-    optionPairs.push_back(make_pair(other, vcOption));
-    return true;
-}
-
-/*
-Function Name: ReadInputFile
-Parameters:
-char const *fileName - The name of the input file we will be reading from.
-Return Value:
--1 if there is an error (unspecified what the error is)
-1 if the function executes successfully
-Actions: The Input::optionPairs vector is filled with the pairings as specified by the input
-file named fileName.
-*/
-int Input::ReadInputFile(char const *fileName)
-{
-
-    if(fileName == NULL)
-        return -1;
-    string ccOption, vcOption;
-    string option;
-    char temp[LINESIZE];
-    ifstream inputFile(fileName);
-    if(!inputFile)
+:   ```cpp
+    int i;
+    for(i = 0; i < argc; ++i)
     {
-        cerr << "No file named : " << fileName << endl;
-        return -1;
+        if(argv[i])
+            commandLine.push_back(argv[i]);  // Reads each argument from the
+                                             // command line and pushes it on the vector
+        else
+            return i;
     }
-    bool spaceState = false;
-    int state = CCSTATE;
-    while(inputFile >> option)
-    {
-        switch(state)
-        {
-        case CCSTATE:
-            if(option == "@@@")
-            {
-                inputFile.getline(temp, LINESIZE);
-                break;
-            }
-            if(option == "~~~")
-            {
-                return 1;
-            }
-            if(option == "***")
-            {
-                spaceState = false;
-                state = VCSTATE;
-            }
-            else
-            {
-                if(spaceState)
-                {
-                    ccOption += " ";
-                }
-                spaceState = true;
-                ccOption += option;
-            }
-            break;
-        case VCSTATE:
-            if(option == "!!!")
-            {
-                spaceState = false;
-                state = CCSTATE;
-                AddPair(ccOption, vcOption);
-                ccOption = "";
-                vcOption = "";
-            }
-            else if(option == "###")
-            {
-                spaceState = false;
-                state = CCSTATE;
-                AddPair(ccOption, vcOption, false);
-                ccOption = "";
-                vcOption = "";
-            }
-            else if(option == "EEE")
-            {
-                spaceState = false;
-                state = CCSTATE;
-                AddPair(ccOption, vcOption, FATAL);
-                ccOption = "";
-                vcOption = "";
-            }
-            else if(option == "^^^")
-            {
-                spaceState = false;
-                state = CCSTATE;
-                AddPair(ccOption, vcOption, WARNING);
-                ccOption = "";
-                vcOption = "";
-            }
-            else
-            {
-                if(spaceState)
-                {
-                    vcOption += " ";
-                }
-                spaceState = true;
-                vcOption += option;
-            }
-            break;
-        default:
-            cerr << "Invalid State" << endl;
-            return -1;
-        }
-    }
-    return 1;
-}
+    return i;
 
-// This code here just loads the optionPairs from the code.  It acts like ReadInputFile.
-// This is only called if you define CCMEMORY
-int Input::CreatePairsFromCode()
-{
-    AddPair("-Wall", "/Wall");
-    AddPair("-O2", "/O2");
-    AddPair("-c", "/c");
-    AddPair("-S", "/s");
-    AddPair("-E", "/EP");
-   /*
-    $ ./ccWrapper.exe test -E
-    cl test /EP
-    ...
+    string CommandLine::GetNextWord()
+    {
+        if((int)pos < (int)commandLine.size())
+            return commandLine[pos++];   // Retrieves the next word from the command line vector.
+        else                             // State is maintained by 'pos'
+            return "";
+    }
+    ```
+
+    ```cpp
+    enum ERRTYPE {NOERROR, WARNING, FATAL};
+
+    class VCOption
+    {
+    public:
+        string vc;
+        bool space;
+        ERRTYPE error;
+    };
+
+    #include <string>
+    using namespace std;
+    #include "VCOption.h"
+    /* This class simply encapsulates
+     * the three string items we'd like to return. */
+    class ReturnItem
+    {
+    public:
+        ReturnItem() {bestMatch = ""; bestMap = ""; remainingString = ""; space = true; error=NOERROR;}
+        ~ReturnItem() {} ;
+        // ReturnItem& operator=(ReturnItem const *rhs);
+        string bestMatch, bestMap, remainingString;
+        bool space;
+        ERRTYPE error;
+    };
+
+    #define CCSTATE (0)
+    #define VCSTATE (1)
+    #define LINESIZE (80)
+
+    class Input
+    {
+    public:
+        Input() {};
+        ~Input() {};
+        int ReadInputFile(char const *fileName);
+        int CreatePairsFromCode();
+        ReturnItem BestMapping(string &origOpt);
+    private:
+        bool AddPair(string other, string vc, bool space = true);
+        bool AddPair(string other, string vc, ERRTYPE error);
+        vector<pair<string, VCOption> > optionPairs;
+    };
+
+    #include <fstream>
+    #include <iostream>
+    #include <string>
+    #include "Input.h"
+    #include "ReturnItem.h"
+    #include "VCOption.h"
+
+    /*
+    Function Name: AddPair
+    Parameters:
+    string other - This is the switch from the "other" compiler.
+    string vc - This is the switch that 'other' maps to on VC.
+    Return Value: true
+    Actions: This pushes the pair <other, vc> onto the vector optionPairs.
     */
-
-    AddPair("-o", "/Fe", false);
-    AddPair("--help", "/?");
-    AddPair("-ansi", "/Za");
-    AddPair("-funsigned-char", "/J");
-    AddPair("-pedantic", "/Za");
-    AddPair("-pedantic-errors", "/Za");
-    AddPair("-w", "/W0");
-    AddPair("-ggdb", "/Zi");
-    AddPair("-gstabs", "/Zi");
-    AddPair("-gstabs+", "/Zi");
-    AddPair("-gcoff", "/Zi");
-    AddPair("-gxcoff", "/Zi");
-    AddPair("-O0", "/Od");
-    AddPair("-O1", "/O2");
-    AddPair("-O2", "/O2");
-    AddPair("-O3", "/Ox");
-    AddPair("-Os", "/O1");
-    AddPair("-float-store", "/Op");
-    AddPair("-fno-default-inline", "/Ob0");
-    AddPair("-fomit-frame-pointer", "/Oy");
-    AddPair("-fno-inline", "/Ob0");
-    AddPair("-finline-functions", "/Ob2");
-    AddPair("-include", "/FI");
-    AddPair("-nostdinc", "/X" );
-    AddPair("-undef", "/u" );
-    AddPair("-C", "/C" );
-    AddPair("-P", "/P" );
-    AddPair("-D", "/D");
-    AddPair("-U", "/U");
-    AddPair("-nodefaultlibs", "/link /NODEFAULTLIB");
-    AddPair("-nostdlib",  "/link /NODEFAULTLIB");
-    AddPair("-I", "/I");
-    AddPair("-L", "/link /LIBPATH:");
-    AddPair("-fpack-struct", "/Zp1");
-    AddPair("-fstack-check", "/GS");
-    return 1;
-}
-
-/*
-Function Name: BestMapping
-Parameters:
-string &origOpt - The switch to be mapped from.
-Return Value: ReturnItem
-This ReturnItem class contains the .bestMatch string which is the best matching switch.
-The .bestMap string is the VC switch that .bestMatch maps too.
-The .remainingString is what is left of the origOpt string after you remove the .bestMatch string.
-Actions: This method finds the switch that best matches origOpt.
-If there is more than one switch that matches origOpt then the longest match is selected.
-*/
-ReturnItem Input::BestMapping(string &origOpt)
-{
-    ReturnItem bestItem;
-    string currentStr;
-    string::size_type idx;
-    vector<pair<string, VCOption> >::iterator iterOpt, endOpt;
-    endOpt = optionPairs.end();
-    bestItem.remainingString = origOpt;
-    for(iterOpt = optionPairs.begin(); iterOpt != endOpt; ++iterOpt)
+    bool Input::AddPair(string other, string vc, bool space)
     {
-        currentStr = iterOpt->first;
-        idx = origOpt.find(currentStr, 0);
-        if(idx == 0)
-        {
-            if(currentStr.size() > bestItem.bestMatch.size())
-            {
-                bestItem.bestMatch = currentStr;
-                bestItem.bestMap = iterOpt->second.vc;
-                bestItem.remainingString = origOpt.substr(currentStr.size());
-                bestItem.space = iterOpt->second.space;
-                bestItem.error = iterOpt->second.error;
-            }
-        }
+        VCOption vcOption;
+        vcOption.space = space;
+        vcOption.vc = vc;
+        vcOption.error = NOERROR;
+        optionPairs.push_back(make_pair(other, vcOption));
+        return true;
     }
 
-    return bestItem;
-}
-```
-
-```cpp
-@@@ Sun Flag Mappings
-@@@ Simple mappings
--xO1 *** /O2 !!!
--xO2 *** /O2 !!!
--xO3 *** /Ox !!!
--xO4 *** /Ox !!!
--xO5 *** /Ox !!!
--xO *** /O2 !!!
--O1 *** /O2 !!!
--O2 *** /O2 !!!
--O3 *** /Ox !!!
--O4 *** /Ox !!!
--O5 *** /Ox !!!
--D *** /D ###
--I *** /I !!!
--c *** /c !!!
--mt *** /MT !!!
--P *** /P !!!
--P *** /P !!!
-
-@@@ More involved Mappings
--xspace *** /O1 !!!
--386 *** /G3 !!!
--486 *** /G4 !!!
--cg *** see -xcg
-+d *** /Ob0 !!!
--g *** /Zi !!!
--E *** /EP !!!
--g0 *** /Zi !!!
--H *** /showIncludes !!!
--xhelp=flags *** /? !!!
--xsbfast *** /FR ###
--xsb *** /FR ###
--fns ***  !!!
--fns=yes ***  !!!
--fns=no *** /Op !!!
--fsimple=0 *** /Op !!!
--fsimple=1 *** /Op !!!
--fsimple=2 ***  !!!
--fstore *** /Op !!!
--G *** /LD !!!
--o  *** /Fe ###
--L *** /link /LIBPATH: !!!
-+w *** /W4 !!!
-+w2 *** /Wall !!!
--w *** /W1 !!!
--z *** /link !!!
--xwe *** /WX !!!
--fast *** /Ox !!!
-
-@@@ gcc Flag Mappings
-@@@ Simple Mappings
--Wall *** /Wall !!!
--O2  *** /O2 !!!
--c *** /c !!!
--S *** /s !!!
--O0 *** /Od !!!
--O1 *** /O2 !!!
--O2 *** /O2 !!!
--O3 *** /Ox !!!
--Os *** /O1 !!!
--C *** /C !!!
--P *** /P !!!
--D *** /D ###
--U *** /U ###
--I *** /I !!!
-
-@@@ More involved Mappings
--E *** /EP !!!
--o *** /Fe ###
---help *** /? !!!
--ansi *** /Za !!!
--funsigned-char *** /J !!!
--pedantic *** /Za !!!
--pedantic-errors *** /Za !!!
--w *** /W0 !!!
--ggdb *** /Zi !!!
--gstabs *** /Zi !!!
--gstabs+ *** /Zi !!!
--gcoff *** /Zi !!!
--gxcoff *** /Zi !!!
--float-store *** /Op !!!
--fno-default-inline *** /Ob0 !!!
--fomit-frame-pointer *** /Oy !!!
--fno-inline *** /Ob0 !!!
--finline-functions *** /Ob2 !!!
--include *** /FI !!!
--nostdinc *** /X !!!
--undef *** /u !!!
--nodefaultlibs *** /link /NODEFAULTLIB !!!
--nostdlib *** /link /NODEFAULTLIB !!!
--L *** /link /LIBPATH: !!!
--fpack-struct *** /Zp1 !!!
--fstack-check *** /GS !!!
--Wno-unknown-pragmas ***  !!!
--Wno-format ***  !!!
-
-@@@ Fatal Errors
--fvolatile *** EEE
--fvolatile-global *** EEE
--fvolatile-static *** EEE
-
-@@@ Warnings
--Xlinker *** ^^^
--aux-info *** ^^^
--fno-asm *** ^^^
--fno-builtin *** ^^^
--fhosted *** ^^^
--ffreestanding *** ^^^
--trigraphs *** ^^^
-
-~~~ All Done!
-Nothing down here is processed.  Can be used for additional comments.
-No mappings that I know of
--a
--xa
-
--v
---target-help
--x
--std
--traditional
--traditional-cpp
--fcond-mismatch
--fsigned-char
--fwritable-strings  --- sorta like /Gf
--fshort-wchar
--fno-access-control
--fcheck-new
--fconserve-space
--fno-const-strings
--finline-limit=
--ftrapv
--foptimize-sibling-calls
--fkeep-inline-functions
--fkeep-static-consts
--fno-function-cse
--fstrict-aliasing
--idirafter
--imacros
--iprefix
--iwithprefix
--M
--MM
--MD
--MMD
--MF
--MG
--MP
--MQ
--MT
--H
--A
--l
--dM
--dD
--dN
--dI
--fpreprocessed
--s
--statuc
--shared
--symbolic
--shared-libgcc
--static-libgcc
-
--u
--I-
--fshort-double
--funwind-tables
--fshared-data
--fno-ident
--pipe
--pass-exit-codes
-```
-
-```cpp
-#include <string>
-#include <iostream>
-#include <string.h>
-#include <process.h>
-#include "Input.h"
-#include "CommandLine.h"
-#include "ReturnItem.h"
-
-using namespace std;
-
-
-int main(int argc, char *argv[])
-{
-    if(argc < 2)
-        return -1;
-
-    string theOutput = "cl ";
-    string currentArg;
-    ReturnItem mapping;
-    Input theInput;
-    CommandLine theCommandLine;
-
-#ifndef CCMEMORY  // if we compile to read from memory or to read from a file
-    if(theInput.ReadInputFile("ccFile.cfg") == -1)  // the file name is fixed
-        return -1;
-#else
-    theInput.CreatePairsFromCode();
-#endif
-    // here we read in the command line
-    theCommandLine.ReadCommandLine(argc - 1, &argv);
-    // iterate over each word in the command line
-    while("" != (currentArg = theCommandLine.GetNextWord()))
+    bool Input::AddPair(string other, string vc, ERRTYPE error)
     {
-        // find the best mapping for each word
-        mapping = theInput.BestMapping(currentArg);
-        // create the output string
-        if(mapping.error == FATAL)
+        VCOption vcOption;
+        vcOption.space = true;
+        vcOption.vc = vc;
+        vcOption.error = error;
+        optionPairs.push_back(make_pair(other, vcOption));
+        return true;
+    }
+
+    /*
+    Function Name: ReadInputFile
+    Parameters:
+    char const *fileName - The name of the input file we will be reading from.
+    Return Value:
+    -1 if there is an error (unspecified what the error is)
+    1 if the function executes successfully
+    Actions: The Input::optionPairs vector is filled with the pairings as specified by the input
+    file named fileName.
+    */
+    int Input::ReadInputFile(char const *fileName)
+    {
+
+        if(fileName == NULL)
+            return -1;
+        string ccOption, vcOption;
+        string option;
+        char temp[LINESIZE];
+        ifstream inputFile(fileName);
+        if(!inputFile)
         {
-            cerr << "Error with flag " << mapping.bestMap << " -- ABORTING\n";
+            cerr << "No file named : " << fileName << endl;
             return -1;
         }
-        if(mapping.error == WARNING)
+        bool spaceState = false;
+        int state = CCSTATE;
+        while(inputFile >> option)
         {
-            cerr << "Warning: Flag may not be properly supported: " << mapping.bestMap << endl;
+            switch(state)
+            {
+            case CCSTATE:
+                if(option == "@@@")
+                {
+                    inputFile.getline(temp, LINESIZE);
+                    break;
+                }
+                if(option == "~~~")
+                {
+                    return 1;
+                }
+                if(option == "***")
+                {
+                    spaceState = false;
+                    state = VCSTATE;
+                }
+                else
+                {
+                    if(spaceState)
+                    {
+                        ccOption += " ";
+                    }
+                    spaceState = true;
+                    ccOption += option;
+                }
+                break;
+            case VCSTATE:
+                if(option == "!!!")
+                {
+                    spaceState = false;
+                    state = CCSTATE;
+                    AddPair(ccOption, vcOption);
+                    ccOption = "";
+                    vcOption = "";
+                }
+                else if(option == "###")
+                {
+                    spaceState = false;
+                    state = CCSTATE;
+                    AddPair(ccOption, vcOption, false);
+                    ccOption = "";
+                    vcOption = "";
+                }
+                else if(option == "EEE")
+                {
+                    spaceState = false;
+                    state = CCSTATE;
+                    AddPair(ccOption, vcOption, FATAL);
+                    ccOption = "";
+                    vcOption = "";
+                }
+                else if(option == "^^^")
+                {
+                    spaceState = false;
+                    state = CCSTATE;
+                    AddPair(ccOption, vcOption, WARNING);
+                    ccOption = "";
+                    vcOption = "";
+                }
+                else
+                {
+                    if(spaceState)
+                    {
+                        vcOption += " ";
+                    }
+                    spaceState = true;
+                    vcOption += option;
+                }
+                break;
+            default:
+                cerr << "Invalid State" << endl;
+                return -1;
+            }
         }
-        theOutput += mapping.bestMap + mapping.remainingString;
-        if(mapping.space)
-            theOutput += " ";
-
+        return 1;
     }
-    cout << theOutput << endl;
-    // execute the generated output string.  'cl.exe' will need to be in the users path
-    system(theOutput.c_str());
-    return 0;
-}
-```
-</div>
-</div>
 
-#. <kbd>Control+f/b</kbd>, move one screen down/up.
-#. The Viola/Jones Face Detector
+    // This code here just loads the optionPairs from the code.  It acts like ReadInputFile.
+    // This is only called if you define CCMEMORY
+    int Input::CreatePairsFromCode()
+    {
+        AddPair("-Wall", "/Wall");
+        AddPair("-O2", "/O2");
+        AddPair("-c", "/c");
+        AddPair("-S", "/s");
+        AddPair("-E", "/EP");
+       /*
+        $ ./ccWrapper.exe test -E
+        cl test /EP
+        ...
+        */
 
-A seminal approach to real-time object detection Key ideas
+        AddPair("-o", "/Fe", false);
+        AddPair("--help", "/?");
+        AddPair("-ansi", "/Za");
+        AddPair("-funsigned-char", "/J");
+        AddPair("-pedantic", "/Za");
+        AddPair("-pedantic-errors", "/Za");
+        AddPair("-w", "/W0");
+        AddPair("-ggdb", "/Zi");
+        AddPair("-gstabs", "/Zi");
+        AddPair("-gstabs+", "/Zi");
+        AddPair("-gcoff", "/Zi");
+        AddPair("-gxcoff", "/Zi");
+        AddPair("-O0", "/Od");
+        AddPair("-O1", "/O2");
+        AddPair("-O2", "/O2");
+        AddPair("-O3", "/Ox");
+        AddPair("-Os", "/O1");
+        AddPair("-float-store", "/Op");
+        AddPair("-fno-default-inline", "/Ob0");
+        AddPair("-fomit-frame-pointer", "/Oy");
+        AddPair("-fno-inline", "/Ob0");
+        AddPair("-finline-functions", "/Ob2");
+        AddPair("-include", "/FI");
+        AddPair("-nostdinc", "/X" );
+        AddPair("-undef", "/u" );
+        AddPair("-C", "/C" );
+        AddPair("-P", "/P" );
+        AddPair("-D", "/D");
+        AddPair("-U", "/U");
+        AddPair("-nodefaultlibs", "/link /NODEFAULTLIB");
+        AddPair("-nostdlib",  "/link /NODEFAULTLIB");
+        AddPair("-I", "/I");
+        AddPair("-L", "/link /LIBPATH:");
+        AddPair("-fpack-struct", "/Zp1");
+        AddPair("-fstack-check", "/GS");
+        return 1;
+    }
 
-* Integral images for fast feature evaluation
-* Boosting for feature selection
-* Attentional cascade for fast rejection of non-face windows
+    /*
+    Function Name: BestMapping
+    Parameters:
+    string &origOpt - The switch to be mapped from.
+    Return Value: ReturnItem
+    This ReturnItem class contains the .bestMatch string which is the best matching switch.
+    The .bestMap string is the VC switch that .bestMatch maps too.
+    The .remainingString is what is left of the origOpt string after you remove the .bestMatch string.
+    Actions: This method finds the switch that best matches origOpt.
+    If there is more than one switch that matches origOpt then the longest match is selected.
+    */
+    ReturnItem Input::BestMapping(string &origOpt)
+    {
+        ReturnItem bestItem;
+        string currentStr;
+        string::size_type idx;
+        vector<pair<string, VCOption> >::iterator iterOpt, endOpt;
+        endOpt = optionPairs.end();
+        bestItem.remainingString = origOpt;
+        for(iterOpt = optionPairs.begin(); iterOpt != endOpt; ++iterOpt)
+        {
+            currentStr = iterOpt->first;
+            idx = origOpt.find(currentStr, 0);
+            if(idx == 0)
+            {
+                if(currentStr.size() > bestItem.bestMatch.size())
+                {
+                    bestItem.bestMatch = currentStr;
+                    bestItem.bestMap = iterOpt->second.vc;
+                    bestItem.remainingString = origOpt.substr(currentStr.size());
+                    bestItem.space = iterOpt->second.space;
+                    bestItem.error = iterOpt->second.error;
+                }
+            }
+        }
 
-#. P. Viola and M. Jones. Rapid object detection using a boosted cascade of simple features.  CVPR 2001.
-#. P. Viola and M. Jones. Robust real-time face detection. IJCV 57(2), 2004.
+        return bestItem;
+    }
+    ```
 
-1. Feature Computation
-The “Integral” image representation
-2. Feature Selection
-The AdaBoost training algorithm
-3. Real-timeliness
-A cascade of classifiers
+    ```cpp
+    @@@ Sun Flag Mappings
+    @@@ Simple mappings
+    -xO1 *** /O2 !!!
+    -xO2 *** /O2 !!!
+    -xO3 *** /Ox !!!
+    -xO4 *** /Ox !!!
+    -xO5 *** /Ox !!!
+    -xO *** /O2 !!!
+    -O1 *** /O2 !!!
+    -O2 *** /O2 !!!
+    -O3 *** /Ox !!!
+    -O4 *** /Ox !!!
+    -O5 *** /Ox !!!
+    -D *** /D ###
+    -I *** /I !!!
+    -c *** /c !!!
+    -mt *** /MT !!!
+    -P *** /P !!!
+    -P *** /P !!!
 
-All faces share some similar properties
-– The eyes region is darker than the
-upper-cheeks.
-– The nose bridge region is brighter than
-the eyes.
-– That is useful domain knowledge
-• Need for encoding of Domain Knowledge:
-– Location - Size:  eyes & nose bridge
-region
-– Value:  darker / brighter
+    @@@ More involved Mappings
+    -xspace *** /O1 !!!
+    -386 *** /G3 !!!
+    -486 *** /G4 !!!
+    -cg *** see -xcg
+    +d *** /Ob0 !!!
+    -g *** /Zi !!!
+    -E *** /EP !!!
+    -g0 *** /Zi !!!
+    -H *** /showIncludes !!!
+    -xhelp=flags *** /? !!!
+    -xsbfast *** /FR ###
+    -xsb *** /FR ###
+    -fns ***  !!!
+    -fns=yes ***  !!!
+    -fns=no *** /Op !!!
+    -fsimple=0 *** /Op !!!
+    -fsimple=1 *** /Op !!!
+    -fsimple=2 ***  !!!
+    -fstore *** /Op !!!
+    -G *** /LD !!!
+    -o  *** /Fe ###
+    -L *** /link /LIBPATH: !!!
+    +w *** /W4 !!!
+    +w2 *** /Wall !!!
+    -w *** /W1 !!!
+    -z *** /link !!!
+    -xwe *** /WX !!!
+    -fast *** /Ox !!!
 
-Integral Image Representation (check back-up slide)
+    @@@ gcc Flag Mappings
+    @@@ Simple Mappings
+    -Wall *** /Wall !!!
+    -O2  *** /O2 !!!
+    -c *** /c !!!
+    -S *** /s !!!
+    -O0 *** /Od !!!
+    -O1 *** /O2 !!!
+    -O2 *** /O2 !!!
+    -O3 *** /Ox !!!
+    -Os *** /O1 !!!
+    -C *** /C !!!
+    -P *** /P !!!
+    -D *** /D ###
+    -U *** /U ###
+    -I *** /I !!!
 
-Using the integral image
-representation we can compute the
-value of any rectangular sum (part of
-features) in  constant time
-– For example the integral sum inside
-rectangle D can be computed as:
-ii(d) + ii(a) – ii(b) – ii(c)
+    @@@ More involved Mappings
+    -E *** /EP !!!
+    -o *** /Fe ###
+    --help *** /? !!!
+    -ansi *** /Za !!!
+    -funsigned-char *** /J !!!
+    -pedantic *** /Za !!!
+    -pedantic-errors *** /Za !!!
+    -w *** /W0 !!!
+    -ggdb *** /Zi !!!
+    -gstabs *** /Zi !!!
+    -gstabs+ *** /Zi !!!
+    -gcoff *** /Zi !!!
+    -gxcoff *** /Zi !!!
+    -float-store *** /Op !!!
+    -fno-default-inline *** /Ob0 !!!
+    -fomit-frame-pointer *** /Oy !!!
+    -fno-inline *** /Ob0 !!!
+    -finline-functions *** /Ob2 !!!
+    -include *** /FI !!!
+    -nostdinc *** /X !!!
+    -undef *** /u !!!
+    -nodefaultlibs *** /link /NODEFAULTLIB !!!
+    -nostdlib *** /link /NODEFAULTLIB !!!
+    -L *** /link /LIBPATH: !!!
+    -fpack-struct *** /Zp1 !!!
+    -fstack-check *** /GS !!!
+    -Wno-unknown-pragmas ***  !!!
+    -Wno-format ***  !!!
 
-Feature Computation: features must be
-computed as quickly as possible
-2. Feature Selection: select the most
-discriminating features
-3. Real-timeliness: must focus on potentially
-positive image areas (that contain faces)
+    @@@ Fatal Errors
+    -fvolatile *** EEE
+    -fvolatile-global *** EEE
+    -fvolatile-static *** EEE
 
----
+    @@@ Warnings
+    -Xlinker *** ^^^
+    -aux-info *** ^^^
+    -fno-asm *** ^^^
+    -fno-builtin *** ^^^
+    -fhosted *** ^^^
+    -ffreestanding *** ^^^
+    -trigraphs *** ^^^
 
-AdaBoost
+    ~~~ All Done!
+    Nothing down here is processed.  Can be used for additional comments.
+    No mappings that I know of
+    -a
+    -xa
 
-:   #. stands for “Adaptive” boost
-    #. Constructs a “strong” classifier as a
-    #. linear combination of weighted simple
-    #. “weak” classifiers
+    -v
+    --target-help
+    -x
+    -std
+    -traditional
+    -traditional-cpp
+    -fcond-mismatch
+    -fsigned-char
+    -fwritable-strings  --- sorta like /Gf
+    -fshort-wchar
+    -fno-access-control
+    -fcheck-new
+    -fconserve-space
+    -fno-const-strings
+    -finline-limit=
+    -ftrapv
+    -foptimize-sibling-calls
+    -fkeep-inline-functions
+    -fkeep-static-consts
+    -fno-function-cse
+    -fstrict-aliasing
+    -idirafter
+    -imacros
+    -iprefix
+    -iwithprefix
+    -M
+    -MM
+    -MD
+    -MMD
+    -MF
+    -MG
+    -MP
+    -MQ
+    -MT
+    -H
+    -A
+    -l
+    -dM
+    -dD
+    -dN
+    -dI
+    -fpreprocessed
+    -s
+    -statuc
+    -shared
+    -symbolic
+    -shared-libgcc
+    -static-libgcc
 
----
+    -u
+    -I-
+    -fshort-double
+    -funwind-tables
+    -fshared-data
+    -fno-ident
+    -pipe
+    -pass-exit-codes
+    ```
+
+    ```cpp
+    #include <string>
+    #include <iostream>
+    #include <string.h>
+    #include <process.h>
+    #include "Input.h"
+    #include "CommandLine.h"
+    #include "ReturnItem.h"
+
+    using namespace std;
+
+
+    int main(int argc, char *argv[])
+    {
+        if(argc < 2)
+            return -1;
+
+        string theOutput = "cl ";
+        string currentArg;
+        ReturnItem mapping;
+        Input theInput;
+        CommandLine theCommandLine;
+
+    #ifndef CCMEMORY  // if we compile to read from memory or to read from a file
+        if(theInput.ReadInputFile("ccFile.cfg") == -1)  // the file name is fixed
+            return -1;
+    #else
+        theInput.CreatePairsFromCode();
+    #endif
+        // here we read in the command line
+        theCommandLine.ReadCommandLine(argc - 1, &argv);
+        // iterate over each word in the command line
+        while("" != (currentArg = theCommandLine.GetNextWord()))
+        {
+            // find the best mapping for each word
+            mapping = theInput.BestMapping(currentArg);
+            // create the output string
+            if(mapping.error == FATAL)
+            {
+                cerr << "Error with flag " << mapping.bestMap << " -- ABORTING\n";
+                return -1;
+            }
+            if(mapping.error == WARNING)
+            {
+                cerr << "Warning: Flag may not be properly supported: " << mapping.bestMap << endl;
+            }
+            theOutput += mapping.bestMap + mapping.remainingString;
+            if(mapping.space)
+                theOutput += " ";
+
+        }
+        cout << theOutput << endl;
+        // execute the generated output string.  'cl.exe' will need to be in the users path
+        system(theOutput.c_str());
+        return 0;
+    }
+    ```
+
+人脸检测 -<
+
+:   #. The Viola/Jones Face Detector
+
+    A seminal approach to real-time object detection Key ideas
+
+    * Integral images for fast feature evaluation
+    * Boosting for feature selection
+    * Attentional cascade for fast rejection of non-face windows
+
+    #. P. Viola and M. Jones. Rapid object detection using a boosted cascade of simple features.  CVPR 2001.
+    #. P. Viola and M. Jones. Robust real-time face detection. IJCV 57(2), 2004.
+
+    1. Feature Computation
+    The “Integral” image representation
+    2. Feature Selection
+    The AdaBoost training algorithm
+    3. Real-timeliness
+    A cascade of classifiers
+
+    All faces share some similar properties
+    – The eyes region is darker than the
+    upper-cheeks.
+    – The nose bridge region is brighter than
+    the eyes.
+    – That is useful domain knowledge
+    • Need for encoding of Domain Knowledge:
+    – Location - Size:  eyes & nose bridge
+    region
+    – Value:  darker / brighter
+
+    Integral Image Representation (check back-up slide)
+
+    Using the integral image
+    representation we can compute the
+    value of any rectangular sum (part of
+    features) in  constant time
+    – For example the integral sum inside
+    rectangle D can be computed as:
+    ii(d) + ii(a) – ii(b) – ii(c)
+
+    Feature Computation: features must be
+    computed as quickly as possible
+    2. Feature Selection: select the most
+    discriminating features
+    3. Real-timeliness: must focus on potentially
+    positive image areas (that contain faces)
+
+    ---
+
+    AdaBoost
+
+    :   #. stands for “Adaptive” boost
+        #. Constructs a “strong” classifier as a
+        #. linear combination of weighted simple
+        #. “weak” classifiers
 
 ![parental advisory](http://img.xiami.net/images/album/img82/28482/4126011392865064_2.jpg)
 
-this man... is ... I don't know what to say...
+StackOverflow 上的一个逗逼用户== -<
 
-  - [User Ciro Santilli 六四事件 法轮功 包卓轩 - Stack Overflow](http://stackoverflow.com/users/895245/ciro-santilli-%e5%85%ad%e5%9b%9b%e4%ba%8b%e4%bb%b6-%e6%b3%95%e8%bd%ae%e5%8a%9f-%e5%8c%85%e5%8d%93%e8%bd%a9)
-  - [User Yu Hao - Stack Overflow](http://stackoverflow.com/users/1009479/yu-hao)
+:   this man... is ... I don't know what to say...
 
----
+    -   [User Ciro Santilli 六四事件 法轮功 包卓轩 - Stack Overflow](http://stackoverflow.com/users/895245/ciro-santilli-%e5%85%ad%e5%9b%9b%e4%ba%8b%e4%bb%b6-%e6%b3%95%e8%bd%ae%e5%8a%9f-%e5%8c%85%e5%8d%93%e8%bd%a9)
+    -   [User Yu Hao - Stack Overflow](http://stackoverflow.com/users/1009479/yu-hao)
 
-`OBJ =      $(SRC:.c=.o)`{.makefile}
+utf-8 characters -<
 
-palette `['pælət]`
+:   -     &#x2610; (hex: `&#x2610;` / dec: `&#9744`;): ballot box (empty, that's how it's supposed to be)
+    -     &#x2611; (hex: `&#x2611;` / dec: `&#9745`;): ballot box with check
+    -     &#x2612; (hex: `&#x2612;` / dec: `&#9746`;): ballot box with x
+    -     &#x2713; (hex: `&#x2713;` / dec: `&#10003`;): check mark, equivalent to `&checkmark;` and `&check;` in most browsers
+    -     &#x2714; (hex: `&#x2714;` / dec: `&#10004`;): heavy check mark
+    -     &#x2717; (hex: `&#x2717;` / dec: `&#10007`;): ballot x
+    -     &#x2718; (hex: `&#x2718;` / dec: `&#10008`;): heavy ballot x
 
-back off from '`\0`'
+    居然自带颜色……难道浏览器可以对某一个特定字符设定颜色？
 
-`gilarus`，快乐的基因, `nomados`，流浪的基因
+    refs and see also
 
-utf-8 chars
+    -   [Unicode Character 0x2713 - "✓" from Unicode Map](http://www.unicodemap.org/details/0x2713/index.html)
+    -   [Tick symbol in HTML/XHTML - Stack Overflow](http://stackoverflow.com/questions/658044/tick-symbol-in-html-xhtml)
 
-  - &#x2610; (hex: `&#x2610;` / dec: `&#9744`;): ballot box (empty, that's how it's supposed to be)
-  - &#x2611; (hex: `&#x2611;` / dec: `&#9745`;): ballot box with check
-  - &#x2612; (hex: `&#x2612;` / dec: `&#9746`;): ballot box with x
-  - &#x2713; (hex: `&#x2713;` / dec: `&#10003`;): check mark, equivalent to `&checkmark;` and `&check;` in most browsers
-  - &#x2714; (hex: `&#x2714;` / dec: `&#10004`;): heavy check mark
-  - &#x2717; (hex: `&#x2717;` / dec: `&#10007`;): ballot x
-  - &#x2718; (hex: `&#x2718;` / dec: `&#10008`;): heavy ballot x
+Bézier Curve -<
 
-Checking out web fonts for tick symbols? Here's a ready to use s
+:   Try online: [The Bézier Game](http://bezier.method.ac/)
 
-refs and see also
+    ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/B%C3%A9zier_3_big.gif/240px-B%C3%A9zier_3_big.gif)
+    ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/B%C3%A9zier_4_big.gif/240px-B%C3%A9zier_4_big.gif)
 
-  - [Unicode Character 0x2713 - "✓" from Unicode Map](http://www.unicodemap.org/details/0x2713/index.html)
-  - [Tick symbol in HTML/XHTML - Stack Overflow](http://stackoverflow.com/questions/658044/tick-symbol-in-html-xhtml)
+    refs and see also
 
----
+    -   [Bézier curve - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/B%C3%A9zier_curve)
+    -   [Bézier Curve -- from Wolfram MathWorld](http://mathworld.wolfram.com/BezierCurve.html)
 
-Bézier Curve
+关于字体（Fonts） -<
 
-Try online: [The Bézier Game](http://bezier.method.ac/)
+:   Computer Font
 
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/B%C3%A9zier_3_big.gif/240px-B%C3%A9zier_3_big.gif)
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/B%C3%A9zier_4_big.gif/240px-B%C3%A9zier_4_big.gif)
+    :   A computer font (or font) is an electronic data file containing **a set of
+        glyphs, characters, or symbols** such as dingbats^[sometimes more formally
+        known as a printer's ornament or printer's character, is an ornament,
+        character, or spacer used in typesetting, often employed for the creation
+        of box frames.]. Although the term font first
+        referred to a set of metal type sorts in one style and size, since the 1990s it
+        is generally used to refer to a scalable set of digital shapes that may be
+        printed at many different sizes.
 
-refs and see also
+        There are three basic kinds of computer font file data formats:
 
-  - [Bézier curve - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/B%C3%A9zier_curve)
-  - [Bézier Curve -- from Wolfram MathWorld](http://mathworld.wolfram.com/BezierCurve.html)
+        #. **Bitmap fonts** consist of a matrix of dots or pixels representing the image of
+           each glyph in each face and size.
+        #. **Outline fonts** (also called vector fonts) use
+           Bézier curves, drawing instructions and mathematical formulae to describe each
+           glyph, which make the character outlines scalable to any size.
+        #. **Stroke fonts** use a series of specified lines and additional
+           information to define the profile, or size and shape of the line in a
+           specific face, which together describe the appearance of the glyph.
 
----
+    Outline fonts
 
-Fonts
+    :   Outline fonts or **vector fonts** are collections of vector images,
+        consisting of lines and curves defining the **boundary of glyphs**. Early vector
+        fonts were used by vector monitors and vector plotters using their own internal
+        fonts, usually with thin single strokes instead of thick outlined glyphs. The
+        advent of desktop publishing brought the need for a universal standard to
+        integrate the graphical user interface of the first Macintosh and laser
+        printers. The term to describe the integration technology was WYSIWYG (What You
+        See Is What You Get). **The universal standard was (and still is) Adobe
+        PostScript.** Examples are **PostScript Type 1** and **Type 3 fonts**, **TrueType** and
+        **OpenType**.
 
-Computer Font
+    **PostScript fonts** are outline font specifications developed by Adobe Systems for
+    professional digital typesetting, which uses PostScript file format to encode
+    font information.
 
-:   A computer font (or font) is an electronic data file containing **a set of
-    glyphs, characters, or symbols** such as dingbats^[sometimes more formally
-    known as a printer's ornament or printer's character, is an ornament,
-    character, or spacer used in typesetting, often employed for the creation
-    of box frames.]. Although the term font first
-    referred to a set of metal type sorts in one style and size, since the 1990s it
-    is generally used to refer to a scalable set of digital shapes that may be
-    printed at many different sizes.
+    Type 1
 
-    There are three basic kinds of computer font file data formats:
+    :   Type 1 (also known as PostScript, PostScript Type 1, PS1, T1 or Adobe Type
+        1) is the font format for single-byte digital fonts for use with Adobe Type
+        Manager software and with PostScript printers. It can support font hinting.  It
+        was originally a proprietary specification, but Adobe released the
+        specification to third-party font manufacturers provided that all Type 1 fonts
+        adhere to it.
 
-    #. **Bitmap fonts** consist of a matrix of dots or pixels representing the image of
-       each glyph in each face and size.
-    #. **Outline fonts** (also called vector fonts) use
-       Bézier curves, drawing instructions and mathematical formulae to describe each
-       glyph, which make the character outlines scalable to any size.
-    #. **Stroke fonts** use a series of specified lines and additional
-       information to define the profile, or size and shape of the line in a
-       specific face, which together describe the appearance of the glyph.
+        Type 1 fonts are natively supported in Mac OS X, and in Windows
+        XP and later via the GDI API. (They are not supported in the Windows GDI+, WPF
+        or DirectWrite APIs.)
 
-Outline fonts
+    Type 2, 3, 4, 5, 9, 10, 11, 14, 32, 42
 
-:   Outline fonts or **vector fonts** are collections of vector images,
-    consisting of lines and curves defining the **boundary of glyphs**. Early vector
-    fonts were used by vector monitors and vector plotters using their own internal
-    fonts, usually with thin single strokes instead of thick outlined glyphs. The
-    advent of desktop publishing brought the need for a universal standard to
-    integrate the graphical user interface of the first Macintosh and laser
-    printers. The term to describe the integration technology was WYSIWYG (What You
-    See Is What You Get). **The universal standard was (and still is) Adobe
-    PostScript.** Examples are **PostScript Type 1** and **Type 3 fonts**, **TrueType** and
-    **OpenType**.
+    **TrueType** is an outline font standard developed by Apple and Microsoft in the
+    late 1980s as a competitor to Adobe's Type 1 fonts used in PostScript. It has
+    become the most common format for fonts on both the Mac OS and Microsoft
+    Windows operating systems.
 
-**PostScript fonts** are outline font specifications developed by Adobe Systems for
-professional digital typesetting, which uses PostScript file format to encode
-font information.
+    The primary strength of TrueType was originally that it offered font developers
+    a high degree of control over precisely how their fonts are displayed, right
+    down to particular pixels, at various font sizes. With widely varying rendering
+    technologies in use today, pixel-level control is no longer certain in a
+    TrueType font.
 
-Type 1
+    **OpenType** is a format for scalable computer fonts. It was built on its
+    predecessor TrueType, retaining TrueType's basic structure and adding many
+    intricate（复杂的） data structures for prescribing typographic behavior.
+    **OpenType is a registered trademark of Microsoft Corporation.**
 
-:   Type 1 (also known as PostScript, PostScript Type 1, PS1, T1 or Adobe Type
-    1) is the font format for single-byte digital fonts for use with Adobe Type
-    Manager software and with PostScript printers. It can support font hinting.  It
-    was originally a proprietary specification, but Adobe released the
-    specification to third-party font manufacturers provided that all Type 1 fonts
-    adhere to it.
+    refs and see also
 
-    Type 1 fonts are natively supported in Mac OS X, and in Windows
-    XP and later via the GDI API. (They are not supported in the Windows GDI+, WPF
-    or DirectWrite APIs.)
+    -   [Computer font - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Computer_font#OUTLINE)
+    -   [PostScript fonts - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/PostScript_fonts)
+    -   [OpenType - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/OpenType)
+    -   [Web Open Font Format - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Web_Open_Font_Format)
+    -   [TrueType - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/TrueType)
 
-Type 2, 3, 4, 5, 9, 10, 11, 14, 32, 42
+`设置 Git 的 Upstream`{.featured .heart} -<
 
-**TrueType** is an outline font standard developed by Apple and Microsoft in the
-late 1980s as a competitor to Adobe's Type 1 fonts used in PostScript. It has
-become the most common format for fonts on both the Mac OS and Microsoft
-Windows operating systems.
+:   ```bash
+    # 看看当前的 upstream
+    $ git remote -v
+    origin  git@github.com:district10/blog.git (fetch)
+    origin  git@github.com:district10/blog.git (push)
 
-The primary strength of TrueType was originally that it offered font developers
-a high degree of control over precisely how their fonts are displayed, right
-down to particular pixels, at various font sizes. With widely varying rendering
-technologies in use today, pixel-level control is no longer certain in a
-TrueType font.
+    # 添加一个
+    $ git remote add coding https://git.coding.net/dvorak4tzx/blog.git
 
-**OpenType** is a format for scalable computer fonts. It was built on its
-predecessor TrueType, retaining TrueType's basic structure and adding many
-intricate（复杂的） data structures for prescribing typographic behavior.
-**OpenType is a registered trademark of Microsoft Corporation.**
+    # 看看是否加入成功
+    $ git remote -v
+    coding  https://git.coding.net/dvorak4tzx/blog.git (fetch)
+    coding  https://git.coding.net/dvorak4tzx/blog.git (push)
+    origin  git@github.com:district10/blog.git (fetch)
+    origin  git@github.com:district10/blog.git (push)
 
-refs and see also
+    # 把代码传上去
+    $ git push coding master
 
-  - [Computer font - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Computer_font#OUTLINE)
-  - [PostScript fonts - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/PostScript_fonts)
-  - [OpenType - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/OpenType)
-  - [Web Open Font Format - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Web_Open_Font_Format)
-  - [TrueType - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/TrueType)
+    # 重命名一个 upstream
+    git remote rename coding backup
 
----
+    # 换个 url
+    $ git remote set-url backup git@github.com:USERNAME/OTHERREPOSITORY.git
 
-设置 Git 的 Upstream
+    # 删除 upstream
+    $ git remote rm backup
 
-```bash
-# 看看当前的 upstream
-$ git remote -v
-origin  git@github.com:district10/blog.git (fetch)
-origin  git@github.com:district10/blog.git (push)
+    # 补充点备忘（`user.name` 和 `user.email` 就不说了）
+    $ git config --global core.editor vim
+    $ git remote add origin url.git
+    $ git push origin master
+    ```
 
-# 添加一个
-$ git remote add coding https://git.coding.net/dvorak4tzx/blog.git
+    refs and see also
 
-# 看看是否加入成功
-$ git remote -v
-coding  https://git.coding.net/dvorak4tzx/blog.git (fetch)
-coding  https://git.coding.net/dvorak4tzx/blog.git (push)
-origin  git@github.com:district10/blog.git (fetch)
-origin  git@github.com:district10/blog.git (push)
+    -   [github - Git push existing repo to a new and different remote repo server? - Stack Overflow](http://stackoverflow.com/questions/5181845/git-push-existing-repo-to-a-new-and-different-remote-repo-server)
+    -   [Changing a remote's URL - User Documentation](https://help.github.com/articles/changing-a-remote-s-url/)
+    -   [git命令之git remote的用法 - wangjia55的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/wangjia55/article/details/8802490)
 
-# 把代码传上去
-$ git push coding master
+QQ 表情 -<
 
-# 重命名一个 upstream
-git remote rename coding backup
+:   不算好看。但也凑合。
 
-# 换个 url
-$ git remote set-url backup git@github.com:USERNAME/OTHERREPOSITORY.git
-
-# 删除 upstream
-$ git remote rm backup
-
-# 补充点备忘（`user.name` 和 `user.email` 就不说了）
-$ git config --global core.editor vim
-$ git remote add origin url.git
-$ git push origin master
-```
-
-refs and see also
-
-  - [github - Git push existing repo to a new and different remote repo server? - Stack Overflow](http://stackoverflow.com/questions/5181845/git-push-existing-repo-to-a-new-and-different-remote-repo-server)
-  - [Changing a remote's URL - User Documentation](https://help.github.com/articles/changing-a-remote-s-url/)
-  - [git命令之git remote的用法 - wangjia55的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/wangjia55/article/details/8802490)
-
----
-
-以前存的 Emojis
-
-|            |      01     |      02     |      03     |      04     |      05     |      06     |      07     |      08     |      09     |      10     |
-| :---------:| :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: |
-|     A      | ![][qq-001] | ![][qq-002] | ![][qq-003] | ![][qq-004] | ![][qq-005] | ![][qq-006] | ![][qq-007] | ![][qq-008] | ![][qq-009] | ![][qq-010] |
-|     B      | ![][qq-011] | ![][qq-012] | ![][qq-013] | ![][qq-014] | ![][qq-015] | ![][qq-016] | ![][qq-017] | ![][qq-018] | ![][qq-019] | ![][qq-020] |
-|     C      | ![][qq-021] | ![][qq-022] | ![][qq-023] | ![][qq-024] | ![][qq-025] | ![][qq-026] | ![][qq-027] | ![][qq-028] | ![][qq-029] | ![][qq-030] |
-|     D      | ![][qq-031] | ![][qq-032] | ![][qq-033] | ![][qq-034] | ![][qq-035] | ![][qq-036] | ![][qq-037] | ![][qq-038] | ![][qq-039] | ![][qq-040] |
-|     E      | ![][qq-041] | ![][qq-042] | ![][qq-043] | ![][qq-044] | ![][qq-045] | ![][qq-046] | ![][qq-047] | ![][qq-048] | ![][qq-049] | ![][qq-050] |
-|     F      | ![][qq-051] | ![][qq-052] | ![][qq-053] | ![][qq-054] | ![][qq-055] | ![][qq-056] | ![][qq-057] | ![][qq-058] | ![][qq-059] | ![][qq-060] |
-|     G      | ![][qq-061] | ![][qq-062] | ![][qq-063] | ![][qq-064] | ![][qq-065] | ![][qq-066] | ![][qq-067] | ![][qq-068] | ![][qq-069] | ![][qq-070] |
-|     H      | ![][qq-071] | ![][qq-072] | ![][qq-073] | ![][qq-074] | ![][qq-075] | ![][qq-076] | ![][qq-077] | ![][qq-078] | ![][qq-079] | ![][qq-080] |
-|     I      | ![][qq-081] | ![][qq-082] | ![][qq-083] | ![][qq-084] | ![][qq-085] | ![][qq-086] | ![][qq-087] | ![][qq-088] | ![][qq-089] | ![][qq-090] |
-|     J      | ![][qq-091] | ![][qq-092] | ![][qq-093] | ![][qq-094] | ![][qq-095] | ![][qq-096] | ![][qq-097] | ![][qq-098] | ![][qq-099] | ![][qq-100] |
-|     K      | ![][qq-101] | ![][qq-102] | ![][qq-103] | ![][qq-104] | ![][qq-105] | ![][qq-106] | ![][qq-107] | ![][qq-108] | ![][qq-109] | ![][qq-110] |
-|     L      | ![][qq-111] | ![][qq-112] | ![][qq-113] | ![][qq-114] | ![][qq-115] | ![][qq-116] | ![][qq-117] | ![][qq-118] | ![][qq-119] | ![][qq-120] |
-|     M      | ![][qq-121] | ![][qq-122] | ![][qq-123] | ![][qq-124] | ![][qq-125] | ![][qq-126] | ![][qq-127] | ![][qq-128] | ![][qq-129] | ![][qq-130] |
-|     N      | ![][qq-131] | ![][qq-132] | ![]    | ![]    | ![]    | ![]    | ![]    |
+    |            |      01     |      02     |      03     |      04     |      05     |      06     |      07     |      08     |      09     |      10     |
+    | :---------:| :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: | :---------: |
+    |     A      | ![][qq-001] | ![][qq-002] | ![][qq-003] | ![][qq-004] | ![][qq-005] | ![][qq-006] | ![][qq-007] | ![][qq-008] | ![][qq-009] | ![][qq-010] |
+    |     B      | ![][qq-011] | ![][qq-012] | ![][qq-013] | ![][qq-014] | ![][qq-015] | ![][qq-016] | ![][qq-017] | ![][qq-018] | ![][qq-019] | ![][qq-020] |
+    |     C      | ![][qq-021] | ![][qq-022] | ![][qq-023] | ![][qq-024] | ![][qq-025] | ![][qq-026] | ![][qq-027] | ![][qq-028] | ![][qq-029] | ![][qq-030] |
+    |     D      | ![][qq-031] | ![][qq-032] | ![][qq-033] | ![][qq-034] | ![][qq-035] | ![][qq-036] | ![][qq-037] | ![][qq-038] | ![][qq-039] | ![][qq-040] |
+    |     E      | ![][qq-041] | ![][qq-042] | ![][qq-043] | ![][qq-044] | ![][qq-045] | ![][qq-046] | ![][qq-047] | ![][qq-048] | ![][qq-049] | ![][qq-050] |
+    |     F      | ![][qq-051] | ![][qq-052] | ![][qq-053] | ![][qq-054] | ![][qq-055] | ![][qq-056] | ![][qq-057] | ![][qq-058] | ![][qq-059] | ![][qq-060] |
+    |     G      | ![][qq-061] | ![][qq-062] | ![][qq-063] | ![][qq-064] | ![][qq-065] | ![][qq-066] | ![][qq-067] | ![][qq-068] | ![][qq-069] | ![][qq-070] |
+    |     H      | ![][qq-071] | ![][qq-072] | ![][qq-073] | ![][qq-074] | ![][qq-075] | ![][qq-076] | ![][qq-077] | ![][qq-078] | ![][qq-079] | ![][qq-080] |
+    |     I      | ![][qq-081] | ![][qq-082] | ![][qq-083] | ![][qq-084] | ![][qq-085] | ![][qq-086] | ![][qq-087] | ![][qq-088] | ![][qq-089] | ![][qq-090] |
+    |     J      | ![][qq-091] | ![][qq-092] | ![][qq-093] | ![][qq-094] | ![][qq-095] | ![][qq-096] | ![][qq-097] | ![][qq-098] | ![][qq-099] | ![][qq-100] |
+    |     K      | ![][qq-101] | ![][qq-102] | ![][qq-103] | ![][qq-104] | ![][qq-105] | ![][qq-106] | ![][qq-107] | ![][qq-108] | ![][qq-109] | ![][qq-110] |
+    |     L      | ![][qq-111] | ![][qq-112] | ![][qq-113] | ![][qq-114] | ![][qq-115] | ![][qq-116] | ![][qq-117] | ![][qq-118] | ![][qq-119] | ![][qq-120] |
+    |     M      | ![][qq-121] | ![][qq-122] | ![][qq-123] | ![][qq-124] | ![][qq-125] | ![][qq-126] | ![][qq-127] | ![][qq-128] | ![][qq-129] | ![][qq-130] |
+    |     N      | ![][qq-131] | ![][qq-132] | ![greenhappy] | ![redangry] | ![whitequestion] | ![yellowplain] | ![gnatfavicon] |
 
 [qq-001]: http://gnat-tang-shared-image.qiniudn.com/emoji/1.gif
 [qq-002]: http://gnat-tang-shared-image.qiniudn.com/emoji/2.gif
@@ -4246,26 +3720,13 @@ refs and see also
 [qq-130]: http://gnat-tang-shared-image.qiniudn.com/emoji/130.gif
 [qq-131]: http://gnat-tang-shared-image.qiniudn.com/emoji/131.gif
 [qq-132]: http://gnat-tang-shared-image.qiniudn.com/emoji/132.gif
-: http://gnat-tang-shared-image.qiniudn.com/emoj/green-happy.png
-: http://gnat-tang-shared-image.qiniudn.com/emoj/red-angry.png
-: http://gnat-tang-shared-image.qiniudn.com/emoj/white-question.png
-: http://gnat-tang-shared-image.qiniudn.com/emoj/yellow-plain.png
-: http://gnat-tang-shared-image.qiniudn.com/pic/gnat-favicon.ico
+[greenhappy]: http://gnat-tang-shared-image.qiniudn.com/emoj/green-happy.png
+[redangry]: http://gnat-tang-shared-image.qiniudn.com/emoj/red-angry.png
+[whitequestion]: http://gnat-tang-shared-image.qiniudn.com/emoj/white-question.png
+[yellowplain]: http://gnat-tang-shared-image.qiniudn.com/emoj/yellow-plain.png
+[gnatfavicon]: http://gnat-tang-shared-image.qiniudn.com/pic/gnat-favicon.ico
 
----
-
-Craigslist
-
-被 GFW 墙了。其实不怎么样，天朝这样的网站多了去。（不过还是要吐槽这蛋疼的 GFW。）
-
-refs and see also
-
-  - [Craigslist - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Craigslist)
-  - [Craigslist_百度百科](http://baike.baidu.com/view/703783.htm)
-
----
-
-[replay a vim macro until end of buffer - Stack Overflow](http://stackoverflow.com/questions/1291962/replay-a-vim-macro-until-end-of-buffer)
+[replay a vim macro until end of buffer - Stack Overflow](http://stackoverflow.com/questions/1291962/replay-a-vim-macro-until-end-of-buffer) -<
 
 :   Vim Macro
 
@@ -4273,199 +3734,190 @@ refs and see also
 
     但我不知道在 Vim 里怎么 apply 一个 macro 到文件末尾（在 Notepad++ 里很容易）。
 
-    查到的是：`VG:normal @x` 或者 `:%normal @x`，总之就是在一定范围内，用 `normal @x`。
+    查到的是：`VG:normal @x` 或者 `:%normal @x`，总之就是在一定范围内，用 `:normal @x`。
 
----
+NetBIOS Names -<
 
-NetBIOS Names
+:   我不知道我看这个干嘛……
 
-Character | ASCII Code  |  Hex Code
---------- | ----------- | -----------
-A             | EB   |  45 42
-B             | EC   |  45 43
-C             | ED   |  45 44
-D             | EE   |  45 45
-E             | EF   |  45 46
-F             | EG   |  45 47
-G             | EH   |  45 48
-...           | ...  |  ...
+    Character | ASCII Code  |  Hex Code
+    --------- | ----------- | -----------
+    A         | EB          |  45 42
+    B         | EC          |  45 43
+    C         | ED          |  45 44
+    D         | EE          |  45 45
+    E         | EF          |  45 46
+    F         | EG          |  45 47
+    G         | EH          |  45 48
+    ...       | ...         |  ...
 
-NOTE: The above mapping list can be useful while reading network traces because information is sent on the wire in the above encoded format.
+    NOTE: The above mapping list can be useful while reading network traces
+    because information is sent on the wire in the above encoded format.
 
-（世上还有这么神奇的表示法。）
+    （世上还有这么神奇的表示法。）
 
-refs and see also
+    refs and see also
 
-  - [Microsoft Support](https://support.microsoft.com/en-us/kb/194203)
+      - [Microsoft Support](https://support.microsoft.com/en-us/kb/194203)
 
----
+HTML Entity -<
 
-HTML Entity
+:   在 [Learning HTML](http://tangzx.qiniudn.com/post-0022-learning-html.html#html-entities) 里有部分笔记。
+    但感觉不够，有时候我都开始用 LaTeX 来标记，但那也太蠢了……
 
-在 [Learning HTML](post-0022-learning-html.html#html-entities) 里有部分笔记。
-但感觉不够，有时候我都开始用 LaTeX 来标记，但那也太蠢了……
+    ℃，℉，★，☆，☺，☻，☼
 
-℃，℉，★，☆，☺，☻，☼
+    -   &quot; `&quot;`{.html}
+    -   &amp; `&amp;`{.html}
+    -   &nbsp; `&nbsp;`{.html}
+    -   &yen; `&yen;`{.html}
+    -   &brvbar; `&brvbar;`{.html} broken vertical bar
+    -   &sect; `&sect;`{.html}
+    -   &laquo; `&laquo;`{.html} left double angle quotes
+    -   &raquo; `&raquo;`{.html}
+    -   &deg; `&deg;`{.html}
+    -   &plusmn; `&plusmn;`{.html} plus minus
+    -   &micro; `&micro;`{.html}
+    -   &para; `&para;`{.html}
+    -   &iquest; `&iquest;`{.html}
+    -   &frac14; `&frac14;`{.html}
+    -   &frac12; `&frac12;`{.html}
+    -   &frac34; `&frac34;`{.html}
+    -   &times; `&times;`{.html}
+    -   &divide; `&divide;`{.html}
+    -   &aelig; `&aelig;`{.html} latin small letter ae
+    -   &bull; `&bull;`{.html} bullet
+    -   &hellip; `&hellip;`{.html} horizontal ellipsis
+    -   &prime; `&prime;`{.html}
+    -   &Prime; `&Prime;`{.html}
+    -   &frasl; `&frasl;`{.html} fraction slash
+    -   &larr; `&larr;`{.html}
+    -   &rarr; `&rarr;`{.html}
+    -   &uarr; `&uarr;`{.html}
+    -   &darr; `&darr;`{.html}
+    -   &harr; `&harr;`{.html}
+    -   &lArr; `&lArr;`{.html}
+    -   &rArr; `&rArr;`{.html}
+    -   &uArr; `&hearts;`{.html}
+    -   &dArr; `&dArr;`{.html}
+    -   &hArr; `&hArr;`{.html}
+    -   &crarr; `&crarr;`{.html} downwards arrow wiht corner leftwards (carriage return)
+    -   &not; `&not;`{.html}
+    -   &forall; `&forall;`{.html}
+    -   &exist; `&exist;`{.html}
+    -   &part; `&part;`{.html}
+    -   &nabla; `&nabla;`{.html} `['næblə]`, 劈形算符；微分算符
+    -   &isin; `&isin;`{.html}
+    -   &notin; `&notin;`{.html}
+    -   &ni; `&ni;`{.html}
+    -   &prod; `&prod;`{.html}
+    -   &sum; `&sum;`{.html}
+    -   &minus; `&minus;`{.html}
+    -   &lowast; `&lowast;`{.html} asterisk
+    -   &radic; `&radic;`{.html} square root
+    -   &prop; `&prop;`{.html}
+    -   &infin; `&infin;`{.html}
+    -   &ang; `&ang;`{.html}
+    -   &and; `&and;`{.html}
+    -   &or; `&or;`{.html}
+    -   &cap; `&cap;`{.html}
+    -   &cup; `&cup;`{.html}
+    -   &int; `&int;`{.html} integral
+    -   &there4; `&there4;`{.html} therefore
+    -   &cong; `&cong;`{.html} approximately equal to
+    -   &asymp; `&asymp;`{.html} almost equal to
+    -   &ne; `&ne;`{.html}
+    -   &equiv; `&equiv;`{.html}
+    -   &lt; `&lt;`{.html}
+    -   &gt; `&gt;`{.html}
+    -   &le; `&le;`{.html}
+    -   &ge; `&ge;`{.html}
+    -   &sub; `&sub;`{.html} subset
+    -   &sup; `&sup;`{.html} superset
+    -   &sube; `&sube;`{.html}
+    -   &supe; `&supe;`{.html}
+    -   &nsub; `&nsub;`{.html}
+    -   &oplus; `&oplus;`{.html} circled plus
+    -   &otimes; `&otimes;`{.html} circled times
+    -   &perp; `&perp;`{.html} up tack
+    -   &sdot; `&sdot;`{.html}
+    -   &lceil; `&lceil;`{.html}
+    -   &rceil; `&rceil;`{.html}
+    -   &lfloor; `&lfloor;`{.html}
+    -   &rfloor; `&rfloor;`{.html}
+    -   &lang; `&lang;`{.html}
+    -   &rang; `&rang;`{.html}
+    -   &loz; `&loz;`{.html} lozenge, `['lɑzɪndʒ]`, 菱形
+    -   &hearts; `&hearts;`{.html}
 
-* &quot; `&quot;`{.html}
-* &amp; `&amp;`{.html}
-* &nbsp; `&nbsp;`{.html}
-* &yen; `&yen;`{.html}
-* &brvbar; `&brvbar;`{.html} broken vertical bar
-* &sect; `&sect;`{.html}
-* &laquo; `&laquo;`{.html} left double angle quotes
-* &raquo; `&raquo;`{.html}
-* &deg; `&deg;`{.html}
-* &plusmn; `&plusmn;`{.html} plus minus
-* &micro; `&micro;`{.html}
-* &para; `&para;`{.html}
-* &iquest; `&iquest;`{.html}
-* &frac14; `&frac14;`{.html}
-* &frac12; `&frac12;`{.html}
-* &frac34; `&frac34;`{.html}
-* &times; `&times;`{.html}
-* &divide; `&divide;`{.html}
-* &aelig; `&aelig;`{.html} latin small letter ae
-* &bull; `&bull;`{.html} bullet
-* &hellip; `&hellip;`{.html} horizontal ellipsis
-* &prime; `&prime;`{.html}
-* &Prime; `&Prime;`{.html}
-* &frasl; `&frasl;`{.html} fraction slash
-* &larr; `&larr;`{.html}
-* &rarr; `&rarr;`{.html}
-* &uarr; `&uarr;`{.html}
-* &darr; `&darr;`{.html}
-* &harr; `&harr;`{.html}
-* &lArr; `&lArr;`{.html}
-* &rArr; `&rArr;`{.html}
-* &uArr; `&hearts;`{.html}
-* &dArr; `&dArr;`{.html}
-* &hArr; `&hArr;`{.html}
-* &crarr; `&crarr;`{.html} downwards arrow wiht corner leftwards (carriage return)
-* &not; `&not;`{.html}
-* &forall; `&forall;`{.html}
-* &exist; `&exist;`{.html}
-* &part; `&part;`{.html}
-* &nabla; `&nabla;`{.html} `['næblə]`, 劈形算符；微分算符
-* &isin; `&isin;`{.html}
-* &notin; `&notin;`{.html}
-* &ni; `&ni;`{.html}
-* &prod; `&prod;`{.html}
-* &sum; `&sum;`{.html}
-* &minus; `&minus;`{.html}
-* &lowast; `&lowast;`{.html} asterisk
-* &radic; `&radic;`{.html} square root
-* &prop; `&prop;`{.html}
-* &infin; `&infin;`{.html}
-* &ang; `&ang;`{.html}
-* &and; `&and;`{.html}
-* &or; `&or;`{.html}
-* &cap; `&cap;`{.html}
-* &cup; `&cup;`{.html}
-* &int; `&int;`{.html} integral
-* &there4; `&there4;`{.html} therefore
-* &cong; `&cong;`{.html} approximately equal to
-* &asymp; `&asymp;`{.html} almost equal to
-* &ne; `&ne;`{.html}
-* &equiv; `&equiv;`{.html}
-* &lt; `&lt;`{.html}
-* &gt; `&gt;`{.html}
-* &le; `&le;`{.html}
-* &ge; `&ge;`{.html}
-* &sub; `&sub;`{.html} subset
-* &sup; `&sup;`{.html} superset
-* &sube; `&sube;`{.html}
-* &supe; `&supe;`{.html}
-* &nsub; `&nsub;`{.html}
-* &oplus; `&oplus;`{.html} circled plus
-* &otimes; `&otimes;`{.html} circled times
-* &perp; `&perp;`{.html} up tack
-* &sdot; `&sdot;`{.html}
-* &lceil; `&lceil;`{.html}
-* &rceil; `&rceil;`{.html}
-* &lfloor; `&lfloor;`{.html}
-* &rfloor; `&rfloor;`{.html}
-* &lang; `&lang;`{.html}
-* &rang; `&rang;`{.html}
-* &loz; `&loz;`{.html} lozenge, `['lɑzɪndʒ]`, 菱形
-* &hearts; `&hearts;`{.html}
+    ![WWII "ruptured duck" Honorable Discharge Emblem
+        lozenge](https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Ruptured_Duck_patch.JPG/220px-Ruptured_Duck_patch.JPG)
 
-<div class="tzx-fright">
-![WWII "ruptured duck" Honorable Discharge Emblem
-    lozenge](https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Ruptured_Duck_patch.JPG/220px-Ruptured_Duck_patch.JPG)
-</div>
+    refs and see also
 
-refs and see also
+    -   [HTML Codes - Table of ascii characters and symbols](http://www.ascii.cl/htmlcodes.htm)
+    -   [Entity Reference](http://arpc65.arm.ac.uk/~hmm/Entity_Reference.html)
+    -   [List of XML and HTML character entity references - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references)
+    -   [List of emoticons - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/List_of_emoticons)
+    -   [Arrow symbol - Sets - Unicode® character table](http://unicode-table.com/en/sets/arrows-symbols/)
 
-  - [HTML Codes - Table of ascii characters and symbols](http://www.ascii.cl/htmlcodes.htm)
-  - [Entity Reference](http://arpc65.arm.ac.uk/~hmm/Entity_Reference.html)
-  - [List of XML and HTML character entity references - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references)
-  - [List of emoticons - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/List_of_emoticons)
-  - [Arrow symbol - Sets - Unicode® character table](http://unicode-table.com/en/sets/arrows-symbols/)
-
----
-
-Assignment Expression
+`Assignment Expression`{.heart} -<
 
 :   **An assignment expression has the value of the left operand after the
     assignment.**
 
     出自 C99 standard, section 6.5.16
 
-有赋值表达式的情况下
+    有赋值表达式的情况下
 
-:   ```python
-    if result=func1(...):
-        print func2(result)
-    ```
+    :   ```python
+        if result=func1(...):
+            print func2(result)
+        ```
 
-无赋值表达式的情况下
+    无赋值表达式的情况下
 
-:   ```python
-    result=func1(...)
-    if result:
-        print func2(result)
-    ```
+    :   ```python
+        result=func1(...)
+        if result:
+            print func2(result)
+        ```
 
-然后你就知道什么叫赋值表达式了。
+    然后你就知道什么叫赋值表达式了。
 
-Python: `import this`{.python} => The Zen of Python, by Tim Peters
+    Python: `import this`{.python} => The Zen of Python, by Tim Peters
 
-:   ```
-    Beautiful is better than ugly.
-    **Explicit is better than implicit.**
-    Simple is better than complex.
-    Complex is better than complicated.
-    Flat is better than nested.
-    Sparse is better than dense.
-    Readability counts.
-    Special cases aren't special enough to break the rules.
-    Although practicality beats purity.
-    Errors should never pass silently.
-    Unless explicitly silenced.
-    In the face of ambiguity, refuse the temptation to guess.
-    There should be one-- and preferably only one --obvious way to do it.
-    Although that way may not be obvious at first unless you're Dutch.
-    Now is better than never.
-    Although never is often better than right now.
-    If the implementation is hard to explain, it's a bad idea.
-    If the implementation is easy to explain, it may be a good idea.
-    Namespaces are one honking great idea -- let's do more of those!
-    ```
+    :   ```
+        Beautiful is better than ugly.
+        **Explicit is better than implicit.**
+        Simple is better than complex.
+        Complex is better than complicated.
+        Flat is better than nested.
+        Sparse is better than dense.
+        Readability counts.
+        Special cases aren't special enough to break the rules.
+        Although practicality beats purity.
+        Errors should never pass silently.
+        Unless explicitly silenced.
+        In the face of ambiguity, refuse the temptation to guess.
+        There should be one-- and preferably only one --obvious way to do it.
+        Although that way may not be obvious at first unless you're Dutch.
+        Now is better than never.
+        Although never is often better than right now.
+        If the implementation is hard to explain, it's a bad idea.
+        If the implementation is easy to explain, it may be a good idea.
+        Namespaces are one honking great idea -- let's do more of those!
+        ```
 
-refs and see also
+    refs and see also
 
-  - [为什么我不喜欢赋值表达式 - SegmentFault](http://segmentfault.com/a/1190000000402506)
-  - [c - What does an assignment return? - Stack Overflow](http://stackoverflow.com/questions/9514569/what-does-an-assignment-return)
-  - [C99 - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/C99#References)
-  - [Memory part 5: What programmers can do [LWN.net]](https://lwn.net/Articles/255364/)
-  - [Yoda 表示法错在哪里](http://www.yinwang.org/blog-cn/2013/04/14/yoda-notation/)
+    -   [为什么我不喜欢赋值表达式 - SegmentFault](http://segmentfault.com/a/1190000000402506)
+    -   [c - What does an assignment return? - Stack Overflow](http://stackoverflow.com/questions/9514569/what-does-an-assignment-return)
+    -   [C99 - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/C99#References)
+    -   [Memory part 5: What programmers can do [LWN.net]](https://lwn.net/Articles/255364/)
+    -   [Yoda 表示法错在哪里](http://www.yinwang.org/blog-cn/2013/04/14/yoda-notation/)
 
----
-
-有些是以前读过的，但觉得应再读一遍。
-
-[Citation signal - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Citation_signal)
+[Citation signal - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Citation_signal){.featured .heart} -<
 
 :   A Legal **citation signal** or **introductory signal** is a set of brief abbreviated phrases or
     words used to clarify the authority or significance of a legal citation as it relates to a proposition.
@@ -4508,7 +3960,7 @@ refs and see also
     #. [The Elements of Style (豆瓣)](http://book.douban.com/subject/1433835/)
     #. [Style (豆瓣)](http://book.douban.com/subject/4107521/)
 
-[Pitfalls of C](http://www.math.pku.edu.cn/teachers/qiuzy/c/reading/pitfall.htm)
+[Pitfalls of C](http://www.math.pku.edu.cn/teachers/qiuzy/c/reading/pitfall.htm){.featured .heart} -<
 
 :   这书居然在网上直接放着（其实考研复试那段时间我看完了，有时间再看一下，note some）
 
@@ -4528,49 +3980,68 @@ refs and see also
 
     and we can now replace fp by (void(*)())0:
 
-    (*(void(*)())0)();
+    `(*(void(*)())0)();`
 
     The semicolon on the end turns the expression into a statement.
-and we can now replace fp by (void(*)())0:
+    and we can now replace `fp` by `(void(*)())0`:
 
+    ```cpp
     if (flags & FLAG != 0) ...  //  if (flags & (FLAG != 0)) ...
     r = h<<4 + l;               //  r = h << (4 + l);
+    ```
 
- One way to avoid these problems is to parenthesize everything, but expressions with too many parentheses are hard to understand, so it is probably useful to try to remember the precedence levels in C. Unfortunately, there are fifteen of them, so this is not always easy to do. It can be made easier, though, by classifying them into groups.
+    One way to avoid these problems is to parenthesize everything, but
+    expressions with too many parentheses are hard to understand, so it is
+    probably useful to try to remember the precedence levels in C.
+    Unfortunately, there are fifteen of them, so this is not always easy to do.
+    It can be made easier, though, by classifying them into groups.
 
-The operators that bind the most tightly are the ones that aren't really operators: subscripting, function calls, and structure selection. These all associate to the left.
+    The operators that bind the most tightly are the ones that aren't really
+    operators: subscripting, function calls, and structure selection. These all
+    associate to the left.
 
-Next come the unary operators. These have the highest precedence of any of the true operators. Because function calls bind more tightly than unary operators, you must write (*p)() to call a function pointed to by p; *p() implies that p is a function that returns a pointer. Casts are unary operators and have the same precedence as any other unary operator. Unary operators are right-associative, so *p++ is interpreted as *(p++) and not as (*p)++.
+    Next come the unary operators. These have the highest precedence of any of
+    the true operators. Because function calls bind more tightly than unary
+    operators, you must write `(*p)()` to call a function pointed to by `p`; `*p()`
+    implies that `p` is a function that returns a pointer. Casts are unary
+    operators and have the same precedence as any other unary operator. Unary
+    operators are right-associative, so `*p++` is interpreted as `*(p++)` and not
+    as `(*p)++`.
 
-Next come the true binary operators. The arithmetic operators have the highest precedence, then the shift operators, the relational operators, the logical operators, the assignment operators, and finally the conditional operator. The two most important things to keep in mind are:
-1. Every logical operator has lower precedence than every relational operator.
-2. The shift operators bind more tightly than the relational operators but less tightly than the arithmetic operators.
+    Next come the true binary operators. The arithmetic operators have the
+    highest precedence, then the shift operators, the relational operators, the
+    logical operators, the assignment operators, and finally the conditional
+    operator. The two most important things to keep in mind are:
 
-Within the various operator classes, there are few surprises. Multiplication, division, and remainder have the same precedence, addition and subtraction have the same precedence, and the two shift operators have the same precedence.
+    1.  Every logical operator has lower precedence than every relational operator.
+    2.  The shift operators bind more tightly than the relational operators but less tightly than the arithmetic operators.
 
+    Within the various operator classes, there are few surprises.
+    Multiplication, division, and remainder have the same precedence, addition
+    and subtraction have the same precedence, and the two shift operators have
+    the same precedence.
 
-[裘宗燕主页 :: Main Page of Qiu Zongyan](http://www.math.pku.edu.cn/teachers/qiuzy/)
+[裘宗燕主页 :: Main Page of Qiu Zongyan](http://www.math.pku.edu.cn/teachers/qiuzy/){.featured .heart} -<
 
 :   从 C Traps and Pitfalls 看到这里。这老师很著名。
 
     里面有一些课程：
 
-    #. 2015年春季课程：计算概论（基于Python的课程）
-    #. 2014年秋季课程：数据结构（基于Python的课程）
-    #. 2014年春季课程：计算概论（基于Python的课程）
-    #. 2014年春季课程：程序设计技术与方法（面向数学学院和信息学院三年级本科生）
-       采用MIT的著名教科书Structure and Interpretation of Computer Programs。
-    #. 2012年秋季课程：程序设计技术与方法
-    #. 2012年春季课程：程序设计语言原理（研究生课程）
-    #. 2011年秋季课程：程序设计技术与方法
-    #. 2010年秋季课程：程序设计技术与方法
-    #. 2010年秋季课程：算法与数据结构---基于Maple的课程
-    #. 2010年春季课程：形式化方法 --- 基于 B 方法的软件开发（研究生课）
-    #. 2010年春季课程：低年级讨论班（软件）
-    #. 2009年秋季课程：程序设计技术与方法
+    -   2015 年春季课程：计算概论（基于 Python 的课程）
+    -   2014 年秋季课程：数据结构（基于 Python 的课程）
+    -   2014 年春季课程：计算概论（基于 Python 的课程）
+    -   2014 年春季课程：程序设计技术与方法（面向数学学院和信息学院三年级本科生）
+        采用 MIT 的著名教科书 Structure and Interpretation of Computer Programs。
+    -   2012 年秋季课程：程序设计技术与方法
+    -   2012 年春季课程：程序设计语言原理（研究生课程）
+    -   2011 年秋季课程：程序设计技术与方法
+    -   2010 年秋季课程：程序设计技术与方法
+    -   2010 年秋季课程：算法与数据结构 --- 基于 Maple 的课程
+    -   2010 年春季课程：形式化方法 --- 基于 B 方法的软件开发（研究生课）
+    -   2010 年春季课程：低年级讨论班（软件）
+    -   2009 年秋季课程：程序设计技术与方法
 
-
-[Requirements for Chinese Text Layout 中文排版需求](http://www.w3.org/TR/clreq/)
+[Requirements for Chinese Text Layout 中文排版需求](http://www.w3.org/TR/clreq/){.featured} -<
 
 :   [w3c/clreq](https://github.com/w3c/clreq)
 
@@ -4587,27 +4058,88 @@ Within the various operator classes, there are few surprises. Multiplication, di
     但西文出現在行頭或行尾時，則毋須加入空白。（最好中英文就之间加个空格，see [中文排版指北]）
     或可使用西文詞間空格（U+0020 SPACE [ ]，其寬度隨不同字體有所變化）。
 
-[Caliphate - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Caliph)
+[Caliphate - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Caliph) -<
 
 :   哈里发，`key-lif, kal-if`
 
----
+    "Je suis Charlie" (French pronunciation: `​[ʒə sɥi ʃaʁli]`, French for "**I am Charlie**") is
+    a slogan and a logo created by French art director Joachim Roncin and adopted
+    by supporters of freedom of speech and freedom of the press after the 7 January 2015 massacre
+    in which twelve people were killed at the offices of the French satirical weekly newspaper Charlie Hebdo.
 
-"Je suis Charlie" (French pronunciation: `​[ʒə sɥi ʃaʁli]`, French for "**I am Charlie**") is
-a slogan and a logo created by French art director Joachim Roncin and adopted
-by supporters of freedom of speech and freedom of the press after the 7 January 2015 massacre
-in which twelve people were killed at the offices of the French satirical weekly newspaper Charlie Hebdo.
+    ![The front cover of edition of 14 January 2015, with a cartoon in the same style
+      as 3 November 2011 cover, uses the phrase "Je suis Charlie"](https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/Charlie_Hebdo_Tout_est_pardonn%C3%A9.jpg/220px-Charlie_Hebdo_Tout_est_pardonn%C3%A9.jpg)
 
-![The front cover of edition of 14 January 2015, with a cartoon in the same style
-  as 3 November 2011 cover, uses the phrase "Je suis Charlie"](https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/Charlie_Hebdo_Tout_est_pardonn%C3%A9.jpg/220px-Charlie_Hebdo_Tout_est_pardonn%C3%A9.jpg)
+    French terror attacks: Victim obituaries^[obituaries `oh-bich-oo-er-ee` n. 讣告；讣闻（obituary的复数形式）]
 
-refs and see also
+    Twelve people died when a bloody attack was launched on the office of France's
+    satirical magazine Charlie Hebdo. The following day a policewoman was murdered
+    by Amedy Coulibaly, who held up a Jewish supermarket the next day, killing four
+    people. Here are brief profiles of all 17 victims.
 
-#. [Je suis Charlie - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Je_suis_Charlie)
+    ![19 Sep 2012 issue: An Orthodox Jew pushes an old Muslim in a wheelchair, both
+        shouting “You mustn’t make fun!”](http://ichef-1.bbci.co.uk/news/624/media/images/80116000/jpg/_80116101_charliemuslimandjew464.jpg)
 
----
+    死的很多 cartoonist 和 editor，以及一两个 economist，
 
-Markded
+    警察里有 Ahmed Merabet，是个 muslim，"He was a Muslim - a fact picked up by
+    bloggers seeking to defend the community against "terrorist" slurs."
+
+    Witnesses have been describing the dramatic events in France, where two sieges
+    came to a violent end.
+
+    Hostage's mother:
+
+    >   "My daughter, she's in the supermarket. She's with her Jewish boyfriend. They went shopping.
+    >   he called me 10 minutes ago. She said mum - there's dead people."
+
+    Golda, shopper
+
+    >   "There is a big Jewish community in the area - this area is actually in the
+    >   middle of three Jewish communities.  "Do I feel threatened? Yes. For the
+    >   Jewish community, once again we are being attacked."
+
+    ![Video footage showed two gunmen firing assault weapons at police in the
+        street outside the office](http://ichef.bbci.co.uk/news/624/media/images/80124000/jpg/_80124628_025311653-1.jpg)
+
+    ![France has been left reeling from the brutal attack](http://ichef.bbci.co.uk/news/624/media/images/80124000/jpg/_80124630_025308133-1.jpg)
+
+    'Rivers of blood'
+
+    :   One witness told AFP the attack was reminiscent of a scene from a movie:
+        "I saw them leaving and shooting. They were wearing masks.
+        These guys were serious.... At first I thought it was special forces
+        chasing drug traffickers or something."
+
+    ![Vigil（~~戒严~~祈福） held in Sète, France](http://ichef.bbci.co.uk/live-experience/cps/704/mcs/media/images/80126000/jpg/_80126207_joeytranchinasetevigil.jpg)
+
+    ![Police officers stand guard outside a flat in Reims as investigators search inside.](http://ichef.bbci.co.uk/live-experience/cps/704/mcs/media/images/80126000/jpg/_80126297_025315148-1.jpg)
+
+    ![Rallies condemning the attack are taking place across the world, including this one in Quebec, Canada.](http://ichef.bbci.co.uk/live-experience/cps/704/mcs/media/images/80126000/jpg/_80126293_025314033-1.jpg)
+
+    ![Cartoon by Alex Green](http://ichef.bbci.co.uk/live-experience/cps/512/mcs/media/images/80126000/png/_80126203_alexgreencartoon.png)
+
+    ![Barbaric](http://ichef.bbci.co.uk/live-experience/cps/512/mcs/media/images/80125000/png/_80125156_mirror.png)
+
+    ![Victims lay on the pavement in a Paris restaurant Nov. 13, 2015.](http://gnat.qiniudn.com/paris-in-terror/paris-in-terror.png)
+
+    法国人唱着国歌撤离球场。
+
+    Ernest Hemingway (*For Whom the Bell Tolls*):
+
+    >   不要问丧钟为谁鸣，丧钟为你而鸣。
+
+    refs and see also
+
+    -   [French terror attacks: Victim obituaries - BBC News](http://www.bbc.com/news/world-europe-30724678)
+    -   [France sieges end: Witness accounts - BBC News](http://www.bbc.com/news/world-europe-30755914)
+    -   [As it happened: Charlie Hebdo attack - BBC News](http://www.bbc.com/news/live/world-europe-30710777)
+    -   [Charlie Hebdo: Gun attack on French magazine kills 12 - BBC News](http://www.bbc.com/news/world-europe-30710883)
+    -   [Paris attacks: Suspects' profiles - BBC News](http://www.bbc.com/news/world-europe-30722038)
+    -   [Paris attacks: Dozens killed in series of terror attacks across French capital - CBS News](http://www.cbsnews.com/news/paris-explosion-stadium-shootout-restaurant/)
+    -   [Je suis Charlie - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Je_suis_Charlie)
+
+我的 Markded 模板 -<
 
 :   <http://whudoc.qiniudn.com/2016/v/0.2/marked.html>
 
@@ -4642,7 +4174,7 @@ Markded
         </html>
         ```
 
-Strapdown
+我的 Strapdown 模板 -<
 
 :   <http://whudoc.qiniudn.com/2016/v/0.2/united.html>
 
@@ -4684,146 +4216,36 @@ Strapdown
 
     更多例子见：<http://whudoc.qiniudn.com/2016/v/0.2/index.html>
 
-      - [bootstrap.html](http://whudoc.qiniudn.com/2016/v/0.2/bootstrap.html)
-      - [journal.html](http://whudoc.qiniudn.com/2016/v/0.2/journal.html)
-      - **[readable.html](http://whudoc.qiniudn.com/2016/v/0.2/readable.html)**
-      - [simplex.html](http://whudoc.qiniudn.com/2016/v/0.2/simplex.html)
-      - **[spacelab.html](http://whudoc.qiniudn.com/2016/v/0.2/spacelab.html)**
-      - [united.html](http://whudoc.qiniudn.com/2016/v/0.2/united.html)
+    -   [bootstrap.html](http://whudoc.qiniudn.com/2016/v/0.2/bootstrap.html)
+    -   [journal.html](http://whudoc.qiniudn.com/2016/v/0.2/journal.html)
+    -   [readable.html](http://whudoc.qiniudn.com/2016/v/0.2/readable.html){.featured}
+    -   [simplex.html](http://whudoc.qiniudn.com/2016/v/0.2/simplex.html)
+    -   [spacelab.html](http://whudoc.qiniudn.com/2016/v/0.2/spacelab.html){.featured}
+    -   [united.html](http://whudoc.qiniudn.com/2016/v/0.2/united.html)
 
-     refs and see also
+    refs and see also
 
-    #. [chjj/marked](https://github.com/chjj/marked)
-    #. [Strapdown.js - Instant and elegant Markdown documents](http://strapdownjs.com/)
+    -   [chjj/marked](https://github.com/chjj/marked)
+    -   [Strapdown.js - Instant and elegant Markdown documents](http://strapdownjs.com/)
 
----
+Ballot Box -<
 
-那什么 [Emoji cheat sheet for GitHub, Basecamp and other services](http://www.emoji-cheat-sheet.com/)，
-不比这个好：[Emoji searcher](http://emoji.muan.co/)
+:   Unicode Block (Miscellaneous Symbols)
 
-![Emoji 的各种玩法……](https://cloud.githubusercontent.com/assets/1369170/8635052/e333474e-27c7-11e5-8af8-5b0bc2281095.gif)
+    :   `U+2600` ~ `U+26FF`, #characters = 256
 
-:sweat_smile:
+        BALLOT BOX WITH CHECK
+          ~ &#x2611; `&#x2611;`{.html}
 
-refs and see also
+        BALLOT BOX
+          ~ &#x2610; `&#x2610;`{.html}
 
-  - [notwaldorf/emoji-translate](https://github.com/notwaldorf/emoji-translate)
+    ballot 英 `['bælət]` 美 `['bælət]` n. 投票；投票用纸；投票总数 vi. 投票；抽签决定
 
----
+    refs and see also
 
-Ballot Box
-
-Unicode Block (Miscellaneous Symbols)
-
-:   `U+2600` ~ `U+26FF`, #characters = 256
-
-    BALLOT BOX WITH CHECK
-      ~ &#x2611; `&#x2611;`{.html}
-
-    BALLOT BOX
-      ~ &#x2610; `&#x2610;`{.html}
-
-ballot 英 `['bælət]` 美 `['bælət]` n. 投票；投票用纸；投票总数 vi. 投票；抽签决定
-
-refs and see also
-
-  - [Unicode Character 'BALLOT BOX' (U+2610)](http://www.fileformat.info/info/unicode/char/2610/index.htm)
-  - [Unicode Character 'BALLOT BOX WITH CHECK' (U+2611)](http://www.fileformat.info/info/unicode/char/2611/index.htm)
-
----
-
-French terror attacks: Victim obituaries^[obituaries `oh-bich-oo-er-ee` n. 讣告；讣闻（obituary的复数形式）]
-
-Twelve people died when a bloody attack was launched on the office of France's
-satirical magazine Charlie Hebdo. The following day a policewoman was murdered
-by Amedy Coulibaly, who held up a Jewish supermarket the next day, killing four
-people. Here are brief profiles of all 17 victims.
-
-![19 Sep 2012 issue: An Orthodox Jew pushes an old Muslim in a wheelchair, both
-    shouting “You mustn’t make fun!”](http://ichef-1.bbci.co.uk/news/624/media/images/80116000/jpg/_80116101_charliemuslimandjew464.jpg)
-
-死的很多 cartoonist 和 editor，以及一两个 economist，
-
-警察里有 Ahmed Merabet，是个 muslim，"He was a Muslim - a fact picked up by
-bloggers seeking to defend the community against "terrorist" slurs."
-
-Witnesses have been describing the dramatic events in France, where two sieges
-came to a violent end.
-
-Hostage's mother:
-
-> "My daughter, she's in the supermarket. She's with her Jewish boyfriend. They went shopping.
-> he called me 10 minutes ago. She said mum - there's dead people."
-
-Golda, shopper
-
-> "There is a big Jewish community in the area - this area is actually in the
-> middle of three Jewish communities.  "Do I feel threatened? Yes. For the
-> Jewish community, once again we are being attacked."
-
-![Video footage showed two gunmen firing assault weapons at police in the
-    street outside the office](http://ichef.bbci.co.uk/news/624/media/images/80124000/jpg/_80124628_025311653-1.jpg)
-
-![France has been left reeling from the brutal attack](http://ichef.bbci.co.uk/news/624/media/images/80124000/jpg/_80124630_025308133-1.jpg)
-
-'Rivers of blood'
-
-:   One witness told AFP the attack was reminiscent of a scene from a movie:
-    "I saw them leaving and shooting. They were wearing masks.
-    These guys were serious.... At first I thought it was special forces
-    chasing drug traffickers or something."
-
-![Vigil（~~戒严~~祈福） held in Sète, France](http://ichef.bbci.co.uk/live-experience/cps/704/mcs/media/images/80126000/jpg/_80126207_joeytranchinasetevigil.jpg)
-
-![Police officers stand guard outside a flat in Reims as investigators search inside.](http://ichef.bbci.co.uk/live-experience/cps/704/mcs/media/images/80126000/jpg/_80126297_025315148-1.jpg)
-
-![Rallies condemning the attack are taking place across the world, including this one in Quebec, Canada.](http://ichef.bbci.co.uk/live-experience/cps/704/mcs/media/images/80126000/jpg/_80126293_025314033-1.jpg)
-
-![Cartoon by Alex Green](http://ichef.bbci.co.uk/live-experience/cps/512/mcs/media/images/80126000/png/_80126203_alexgreencartoon.png)
-
-![Barbaric](http://ichef.bbci.co.uk/live-experience/cps/512/mcs/media/images/80125000/png/_80125156_mirror.png)
-
-![Victims lay on the pavement in a Paris restaurant Nov. 13, 2015.](http://gnat.qiniudn.com/paris-in-terror/paris-in-terror.png)
-
-法国人唱着国歌撤离球场。
-
-Ernest Hemingway (*For Whom the Bell Tolls*):
-
-> 不要问丧钟为谁鸣，丧钟为你而鸣。
-
-refs and see also
-
-  - [French terror attacks: Victim obituaries - BBC News](http://www.bbc.com/news/world-europe-30724678)
-  - [France sieges end: Witness accounts - BBC News](http://www.bbc.com/news/world-europe-30755914)
-  - [As it happened: Charlie Hebdo attack - BBC News](http://www.bbc.com/news/live/world-europe-30710777)
-  - [Charlie Hebdo: Gun attack on French magazine kills 12 - BBC News](http://www.bbc.com/news/world-europe-30710883)
-  - [Paris attacks: Suspects' profiles - BBC News](http://www.bbc.com/news/world-europe-30722038)
-  - [Paris attacks: Dozens killed in series of terror attacks across French capital - CBS News](http://www.cbsnews.com/news/paris-explosion-stadium-shootout-restaurant/)
-
----
-
-<kbd>Control</kbd> + <kbd>Alt</kbd> + <kbd>Up</kbd>/<kbd>Down</kbd>/<kbd>Left</kbd>/<kbd>Right</kbd>
-
-不知道的话，突然碰到可能会有点不知所措。
-
----
-
-为了把爬虫放进来[^qiniu-robots-default]，参考 [The Web Robots Pages](http://www.robotstxt.org/robotstxt.html) 写了一个 robots.txt，里面只有两行：
-
-```
-User-agent: *
-Disallow:
-```
-
-加了后去百度的 [Robots_站长工具_robots文件检测及生成](http://zhanzhang.baidu.com/robots) 看看生效没。
-
-提交链接，spider：
-
-  - [Google](https://www.google.com/webmasters/tools/submit-url?continue=/addurl)
-  - [百度](http://zhanzhang.baidu.com/linksubmit/url)
-  - [360 搜索](http://info.so.360.cn/site_submit.html)
-
-[^qiniu-robots-default]: 七牛默认在每个 bucket 加了一个 robots 文件，禁止所有爬虫的爬取。
+    -   [Unicode Character 'BALLOT BOX' (U+2610)](http://www.fileformat.info/info/unicode/char/2610/index.htm)
+    -   [Unicode Character 'BALLOT BOX WITH CHECK' (U+2611)](http://www.fileformat.info/info/unicode/char/2611/index.htm)
 
 [An Algorithmic Approach to Network Location Problems. I: The p-Centers : SIAM Journal on Applied Mathematics: Vol. 37, No. 3 (Society for Industrial and Applied Mathematics)](http://epubs.siam.org/doi/abs/10.1137/0137040)
 
@@ -4837,41 +4259,41 @@ Disallow:
 
 [gpp | Random Determinism](https://randomdeterminism.wordpress.com/tag/gpp/)
 
-[Extension to pandoc's markdown similar to Gitbook, using a "Web template system" · Issue #2676 · jgm/pandoc](https://github.com/jgm/pandoc/issues/2676)
+[Extension to pandoc's markdown similar to Gitbook, using a "Web template system" · Issue #2676 · jgm/pandoc](https://github.com/jgm/pandoc/issues/2676) -<
 
 :   jgm 大神说这个文件替换自己处理就好，加到 pandoc 里的话需要处理太多麻烦事。
 
-[Viewing Your Model in Google Earth | SketchUp Knowledge Base](http://help.sketchup.com/en/article/3000149)
+Google Earth -<
 
-[Viewing Your Model in Google Earth | SketchUp Knowledge Base](http://help.sketchup.com/en/article/3000149)
+:   [Viewing Your Model in Google Earth | SketchUp Knowledge Base](http://help.sketchup.com/en/article/3000149)
 
-[Search · osg google earth](https://github.com/search?utf8=%E2%9C%93&q=osg+google+earth&type=Repositories&ref=searchresults)
+    [Viewing Your Model in Google Earth | SketchUp Knowledge Base](http://help.sketchup.com/en/article/3000149)
 
-[djw8605 (Derek Weitzel)](https://github.com/djw8605)
+    [Search · osg google earth](https://github.com/search?utf8=%E2%9C%93&q=osg+google+earth&type=Repositories&ref=searchresults)
 
-[Intro to Importing Data into Google Earth](http://serc.carleton.edu/eyesinthesky2/week10/intro_importing_data.html)
+    [djw8605 (Derek Weitzel)](https://github.com/djw8605)
 
-[Downloading, Installing, and Authorizing SketchUp 2016 | SketchUp Knowledge Base](http://help.sketchup.com/en/setting-up)
+    [Intro to Importing Data into Google Earth](http://serc.carleton.edu/eyesinthesky2/week10/intro_importing_data.html)
 
-[| SketchUp](http://www.sketchup.com/download/all)
+    [Downloading, Installing, and Authorizing SketchUp 2016 | SketchUp Knowledge Base](http://help.sketchup.com/en/setting-up)
 
-[Blender to Google Earth Workshop](http://download.blender.org/documentation/bc2006/TempleOfKukulcan.pdf)
+    [| SketchUp](http://www.sketchup.com/download/all)
 
-[OpenSceneGraph Max Exporter download | SourceForge.net](https://sourceforge.net/projects/osgmaxexp/?source=typ_redirect)
+    [Blender to Google Earth Workshop](http://download.blender.org/documentation/bc2006/TempleOfKukulcan.pdf)
 
-[Spatial References — osgEarth 2.4 documentation](http://docs.osgearth.org/en/latest/user/spatialreference.html?highlight=kml)
+    [OpenSceneGraph Max Exporter download | SourceForge.net](https://sourceforge.net/projects/osgmaxexp/?source=typ_redirect)
 
-[Terrain Tools & Software - Commercial](http://vterrain.org/Packages/Com/)
+    [Spatial References — osgEarth 2.4 documentation](http://docs.osgearth.org/en/latest/user/spatialreference.html?highlight=kml)
 
-[blender model to .osg .ive - 必应](http://www.bing.com/search?q=blender+model+to+.osg+.ive&go=Submit&qs=n&form=QBLH&pq=blender+model+to+.osg+.ive&sc=0-0&sp=-1&sk=&cvid=BEFE6863348F4CA1A1BAE7B52162F681)
+    [Terrain Tools & Software - Commercial](http://vterrain.org/Packages/Com/)
 
-[How to use Blender with OSG/VTP](http://vterrain.org/Doc/Blender/)
+    [blender model to .osg .ive - 必应](http://www.bing.com/search?q=blender+model+to+.osg+.ive&go=Submit&qs=n&form=QBLH&pq=blender+model+to+.osg+.ive&sc=0-0&sp=-1&sk=&cvid=BEFE6863348F4CA1A1BAE7B52162F681)
 
-[Builds - district10/blog - Travis CI](https://travis-ci.org/district10/blog/builds)
+    [How to use Blender with OSG/VTP](http://vterrain.org/Doc/Blender/)
 
 [qboxrsctl 命令行辅助工具 | 七牛云存储](http://docs.qiniu.com/tools/v6/qboxrsctl.html)
 
-[Free OpenSceneGraph Binary Downloads | AlphaPixel](http://openscenegraph.alphapixel.com/osg/downloads/free-openscenegraph-binary-downloads)
+[Free OpenSceneGraph Binary Downloads | AlphaPixel](http://openscenegraph.alphapixel.com/osg/downloads/free-openscenegraph-binary-downloads) -<
 
 :   osg binary.
 
@@ -4883,11 +4305,11 @@ Disallow:
 
 [miloyip/itoa-benchmark: C++ integer-to-string conversion benchmark](https://github.com/miloyip/itoa-benchmark)
 
-[JoakimSoderberg/catcierge: Image recognition (to keep cat prey out) and RFID chip reader system for automated DIY cat door.](https://github.com/JoakimSoderberg/catcierge)
+[JoakimSoderberg/catcierge: Image recognition (to keep cat prey out) and RFID chip reader system for automated DIY cat door.](https://github.com/JoakimSoderberg/catcierge) -<
 
 :   完整的展示了 travis 之类的使用，多平台的编译、测试，等等。
 
-[git - Download a single folder or directory from a GitHub repo - Stack Overflow](http://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo)
+[git - Download a single folder or directory from a GitHub repo - Stack Overflow](http://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo) -<
 
 :   This is a pretty old question, but I figured this out today and I thought I'd
     leave this here for anyone else who has the same problem.
@@ -4913,23 +4335,25 @@ Disallow:
 
 [Preface | Data Structure and Algorithm notes](http://algorithm.yuanbin.me/zh-hans/index.html#)
 
-[500 Lines or Less](http://aosabook.org/en/500L/)
+[500 Lines or Less](http://aosabook.org/en/500L/){.featured .heart} -<
 
-[aosabook/500lines: 500 Lines or Less](https://github.com/aosabook/500lines)
+:   [aosabook/500lines: 500 Lines or Less](https://github.com/aosabook/500lines){.featured .heart}
 
-[The Architecture of Open Source Applications](http://www.aosabook.org/en/index.html)
+    [The Architecture of Open Source Applications](http://www.aosabook.org/en/index.html)
 
-[Coding 演示平台](http://docs.coding.io/)
+[Coding 演示平台](http://docs.coding.io/) -<
 
 :   从某种程度上说，coding.net 比 github.com 厚道得多。
 
+    我收回上面那句话。
+
 [细说 CSS margin - Coding 博客](https://blog.coding.net/blog/css-margin)
 
-[Jekyll迁移到Hexo建立个人博客 | Lippi-浮生志](http://www.ezlippi.com/blog/2016/02/jekyll-to-hexo.html)
+[Jekyll 迁移到 Hexo 建立个人博客 | Lippi- 浮生志](http://www.ezlippi.com/blog/2016/02/jekyll-to-hexo.html) -<
 
-:   > 个人博客以前由jekyll搭建，主要问题是目录、Rss、sitemap无法自动生成，根据DRY的
-    > 原则在网上找了下答案，最终发现了用Hexo来搭建博客的方法，配置完之后一劳永逸，
-    > 目录、Rss和sitemap都是自动生成，解决了我之前的困惑。
+:   >   个人博客以前由 jekyll 搭建，主要问题是目录、Rss、sitemap 无法自动生成，根据 DRY 的
+    >   原则在网上找了下答案，最终发现了用 Hexo 来搭建博客的方法，配置完之后一劳永逸，
+    >   目录、Rss 和 sitemap 都是自动生成，解决了我之前的困惑。
 
     TODO: 去看它的 rss 怎么生成的。
 
@@ -4937,11 +4361,11 @@ Disallow:
 
 [top10-Py-idioms-wish-learned-earlier | #是也乎# | ZoomQuiet.io](http://blog.zoomquiet.io/top10-Py-idioms-wish-learned-earlier.html)
 
-[Cpp-Primer/ch01 at master · Mooophy/Cpp-Primer](https://github.com/Mooophy/Cpp-Primer/tree/master/ch01)
+[Cpp-Primer/ch01 at master · Mooophy/Cpp-Primer](https://github.com/Mooophy/Cpp-Primer/tree/master/ch01){.heart}
 
 [Facebook](https://github.com/facebook)
 
-[CppCoreGuidelines/CppCoreGuidelines.md at master · isocpp/CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
+[CppCoreGuidelines/CppCoreGuidelines.md at master · isocpp/CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md){.heart}
 
 [Crosswalk - build world class hybrid apps](https://crosswalk-project.org/)
 
@@ -4957,17 +4381,15 @@ Disallow:
 
 [Mooophy (Yue Wang)](https://github.com/Mooophy)
 
-[Cpp-Primer/ch01 at master · Mooophy/Cpp-Primer](https://github.com/Mooophy/Cpp-Primer/tree/master/ch01)
-
 [FlatBuffers: Benchmarks](http://google.github.io/flatbuffers/flatbuffers_benchmarks.html)
 
 [ocornut/imgui: Bloat-free Immediate Mode Graphical User interface for C++ with minimal dependencies](https://github.com/ocornut/imgui)
 
-[zealdocs/zeal: Offline documentation browser inspired by Dash](https://github.com/zealdocs/zeal)
+[zealdocs/zeal: Offline documentation browser inspired by Dash](https://github.com/zealdocs/zeal) -<
 
 :   Document tool: dash, zeal
 
-[字符串匹配的KMP算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html)
+[字符串匹配的KMP算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html){.heart} -<
 
 :   ![](http://image.beekka.com/blog/201305/bg2013050109.png)
 
@@ -4983,18 +4405,18 @@ Disallow:
     两个"AB"，那么它的"部分匹配值"就是2（"AB"的长度）。搜索词移动的时候，第一个
     "AB"向后移动4位（字符串长度-部分匹配值），就可以来到第二个"AB"的位置。
 
-    [字符串匹配的Boyer-Moore算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)
+    [字符串匹配的 Boyer-Moore 算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)
 
-[SICP终于看完了，有一些经验想分享出来 - 学习资料 - CoCode](http://cocode.cc/t/sicp/3397)
+[SICP终于看完了，有一些经验想分享出来 - 学习资料 - CoCode](http://cocode.cc/t/sicp/3397){.heart}
 
-[c++ - Linking different libraries for Debug and Release builds in Cmake on windows? - Stack Overflow](http://stackoverflow.com/questions/2209929/linking-different-libraries-for-debug-and-release-builds-in-cmake-on-windows)
+[c++ - Linking different libraries for Debug and Release builds in Cmake on windows? - Stack Overflow](http://stackoverflow.com/questions/2209929/linking-different-libraries-for-debug-and-release-builds-in-cmake-on-windows) -<
 
-:   You should not test CMAKE_BUILD_TYPE in the CMake file, it is ignored by
+:   You should not test `CMAKE_BUILD_TYPE` in the CMake file, it is ignored by
     multi configuration generators (like VS). If you run cmake with
     `CMAKE_BUILD_TYPE=Debug` but Release in VS the code in
     `if(CMAKE_BUILD_TYPE MATCHES Release)` is simply ineffective.
 
-[OSG+VS2010+win7环境搭建 - 缑城浪子 - 博客园](http://www.cnblogs.com/eaglezhao/archive/2011/07/12/eaglezhao.html)
+[OSG+VS2010+win7 环境搭建 - 缑城浪子 - 博客园](http://www.cnblogs.com/eaglezhao/archive/2011/07/12/eaglezhao.html)
 
 [The Perltidy Home Page](http://perltidy.sourceforge.net/)
 
@@ -5010,15 +4432,15 @@ Disallow:
 
 [Reference Counted Objects in OSG and Producer](http://www.andesengineering.com/OSG_ProducerArticles/RefPointers/RefPointers.html)
 
-[qt+osg+vs2008中(msvcr90.dll) 处最可能的异常: 0xC0000005的问题解决 - xhcumt的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/xhcumt/article/details/4779040)
+[qt+osg+vs2008中(msvcr90.dll) 处最可能的异常: 0xC0000005的问题解决 - xhcumt的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/xhcumt/article/details/4779040) -<
 
 :   同样在官方论坛上找到答案:是Project属性配置引起的,
 
-      - `Project Properties`->
-      - `Configuration Properties`->
-      - `C/C++->Code Generation`->
-      - `Runtime Library`,
-      - 把 `Multi-threaded Debug DLL (/MDd)` 改为 `Multi-threaded DLL (/MD)`,
+    -   `Project Properties`->
+    -   `Configuration Properties`->
+    -   `C/C++->Code Generation`->
+    -   `Runtime Library`,
+    -   把 `Multi-threaded Debug DLL (/MDd)` 改为 `Multi-threaded DLL (/MD)`,
         而`/MDd` 是 Debug 的默认选项. 不过文中提到的有关”_DEBUG”改为”NDEBUG”倒
         不必.
 
@@ -5028,16 +4450,17 @@ Disallow:
 
 [Learn how to use Microsoft Windows 7 | Easier faster computing](http://vlaurie.com/windows-7-tips/)
 
-[How to Copy and Paste in the Windows Command Prompt | Gizmo's Freeware](http://www.techsupportalert.com/content/how-copy-and-paste-windows-command-prompt.htm)
+[How to Copy and Paste in the Windows Command Prompt | Gizmo's Freeware](http://www.techsupportalert.com/content/how-copy-and-paste-windows-command-prompt.htm) -<
 
-:   - CMD, click the icon, in config, turn on quick edit mode.
-    - CMD, Alt-Space, E(dit), P(aste)
+:   -   CMD, click the icon, in config, turn on quick edit mode.
+    -   CMD, Alt-Space, E(dit), P(aste)
 
     A few links for peoples frequently using the command prompt or a shell:
 
-    * ConEmu http://code.google.com/p/conemu-maximus5/
+    * ConEmu http://code.google.com/p/conemu-maximus5/ 推荐
 
-    A console emulator with tabs, it works fine with everything listed below. (It allows line/block selection for copying.)
+    A console emulator with tabs, it works fine with everything listed below.
+    (It allows line/block selection for copying.)
 
     * CygWin http://cygwin.com/
 
@@ -5069,15 +4492,15 @@ Disallow:
 
 [Clojure 驱动的 Web 开发](http://www.ibm.com/developerworks/cn/java/j-io-ClojureWeb/)
 
-[moment/momentjs.com: The website for momentjs](https://github.com/moment/momentjs.com)
+[moment/momentjs.com: The website for momentjs](https://github.com/moment/momentjs.com){.featured} -<
 
 :   效果很好。
 
     refs and see also
 
-      - [Moment.js 中文网](http://momentjs.cn/)
+    -   [Moment.js 中文网](http://momentjs.cn/)
 
-[vim - How do I open the directory of the current open file? - Super User](http://superuser.com/questions/31677/how-do-i-open-the-directory-of-the-current-open-file)
+[vim - How do I open the directory of the current open file? - Super User](http://superuser.com/questions/31677/how-do-i-open-the-directory-of-the-current-open-file) -<
 
 :   `:Sex .`{.vim}
 
@@ -5085,7 +4508,9 @@ Disallow:
 
     其实用 `:E` 就可以啊……
 
-[How to switch to the directory listing from file view in vim? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/52179/how-to-switch-to-the-directory-listing-from-file-view-in-vim)
+    refs and see also
+
+    -   [How to switch to the directory listing from file view in vim? - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/52179/how-to-switch-to-the-directory-listing-from-file-view-in-vim)
 
 [Things I Wish I Learned In Engineering School](http://blog.kowalczyk.info/articles/engineering-school.html)
 
@@ -5096,19 +4521,20 @@ Disallow:
     an abstract board game for two players, in which the aim is to surround
     more territory than the opponent.
 
-    The game originated in ancient China more than 2,500 years ago, and is one of
-    the oldest board games played today. It was considered one of the four
-    essential arts of a cultured Chinese scholar in antiquity. The earliest written
-    reference to the game is generally recognized as the historical annal Zuo Zhuan
+    The game originated in ancient China more than 2,500 years ago, and is one
+    of the oldest board games played today. It was considered one of the four
+    essential arts of a cultured Chinese scholar in antiquity. The earliest
+    written reference to the game is generally recognized as the historical
+    annal Zuo Zhuan.
 
-    There is much strategy involved in the game, and the number of possible games
-    is vast (10761 compared, for example, to the estimated 10120 possible in
-    chess), displaying its complexity despite relatively simple rules.
+    There is much strategy involved in the game, and the number of possible
+    games is vast (10761 compared, for example, to the estimated 10120 possible
+    in chess), displaying its complexity despite relatively simple rules.
 
     refs and see also
 
-      - [Go (game) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Go_(game))
-      - [The Chinese Rules of Go](https://www.cs.cmu.edu/~wjh/go/rules/Chinese.html)
+    -   [Go (game) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Go_(game))
+    -   [The Chinese Rules of Go](https://www.cs.cmu.edu/~wjh/go/rules/Chinese.html)
 
 [javascript - Copy to clipboard without Flash - Stack Overflow](http://stackoverflow.com/questions/6355300/copy-to-clipboard-without-flash)
 
@@ -5120,71 +4546,71 @@ Disallow:
 
 :   refs and see also
 
-      - [你最推荐的 Chrome 扩展有哪些？ - 知乎](http://www.zhihu.com/question/19594682)
-      - [Unix 传奇 (上篇) | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/2322.html)
-      - [Unix 传奇 (下篇) | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/2324.html)
-      - [黑客的价值观 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/2439.html)
-      - [计算机编程简史图 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/2724.html)
-      - [李开复每天早上 4 点就起床，是怎么办到的？开复老师如何能很好地安排好自己的时间？ - 知乎](http://www.zhihu.com/question/19563168/answer/12257911)
-      - [财经郎眼 20140603 喜忧参半的 4G 时代 - 视频在线观看 - 财经郎眼 - 财经 - 爱奇艺](http://www.iqiyi.com/v_19rrhzlnyw.html)
-      - [聊聊我在 Google 无人车研究组的那些事 | 36 氪](http://www.36kr.com/p/212843.html)
-      - [如何应对一群 13 - 18 岁的街头小混混的挑衅？ - 知乎](http://www.zhihu.com/question/23585788)
-      - [讲一讲汉尼拔·莱克特博士。 (汉尼拔 影评)](http://movie.douban.com/review/1038150/)
-      - [Why Is Rho Used for Density? | eHow](http://www.ehow.com/how-does_5407539_rho-used-density_.html)
-      - [求知成瘾，却无作品 | 简书](http://www.jianshu.com/p/Daxrnq)
-      - [如何成功地早起 | 简书](http://www.jianshu.com/p/Ns6asx)
-      - [三分钟学会希腊语 | 简书](http://www.jianshu.com/p/c9a88c6c3d88)
-      - [哥们儿，你的所有病都是一种病 | 简书](http://www.jianshu.com/p/302d25da305e)
-      - [嘿，那个上了三天班就辞职的年轻人，我想和你谈谈！ | 简书](http://www.jianshu.com/p/6ff3d4113be6)
-      - [万苦皆因怂 | 简书](http://www.jianshu.com/p/e7120cb963a0)
-      - [如何坚持每天写一千字 | 简书](http://www.jianshu.com/p/53eea6022d58)
-      - [你以为你在合群，其实你只在浪费青春 | 简书](http://www.jianshu.com/p/23dd4a2a8105)
-      - [Javascript 的前后端统一是个"笑话"吗? | 简书](http://www.jianshu.com/p/5f6637bf15fd)
-      - [在你被人认识之前 | 简书](http://www.jianshu.com/p/0a9851d0e98a)
-      - [别把你最好的东西给我 | 简书](http://www.jianshu.com/p/479171e3b209)
-      - [诚信逆向淘汰的社会 | 简书](http://www.jianshu.com/p/ae0a82de6875)
-      - [一份关于如何改变人生的指南 | 简书](http://www.jianshu.com/p/XzZ6LW)
-      - [记一次嫖娼 | 简书](http://www.jianshu.com/p/6f66f03510a1)
-      - [那些年，坐我们前排的土豪和学霸 | 简书](http://www.jianshu.com/p/JqGqYq)
-      - [从那道并不变态的家庭作业说起，兼答邓飞 | 简书](http://www.jianshu.com/p/babea9cc6284)
-      - [欲望少女养成记 | 简书](http://www.jianshu.com/p/1657f91a8b47)
-      - [你不是书读得少，你是经典读得少 | 简书](http://www.jianshu.com/p/53d918a3fe52)
-      - [你会因文字而爱上一个人吗 | 简书](http://www.jianshu.com/p/aaf7d0e127ab)
-      - [不着调的海小姐 | 简书](http://www.jianshu.com/p/3a3a744f98ad)
-      - [两条写作建议 | 简书](http://www.jianshu.com/p/f9796a5a31b3)
-      - [别跟这个世界讲道理 | 简书](http://www.jianshu.com/p/jCCPzz)
-      - [中国式道德审判 | 简书](http://www.jianshu.com/p/351b2776e9c8)
-      - [信息时代如何使用你的大脑？ | 简书](http://www.jianshu.com/p/9211b74a3662)
-      - [安静的力量 | 简书](http://www.jianshu.com/p/ab844f4c0d46)
-      - [那些年，我麻烦过的人 | 简书](http://www.jianshu.com/p/d73853f88721)
-      - [一个人看电影 | 简书](http://www.jianshu.com/p/87ab211011a4)
-      - [如果让我再读一次本科 | 简书](http://www.jianshu.com/p/1afb865ef4bd)
-      - [“文艺青年”与“装逼犯” | 简书](http://www.jianshu.com/p/06fe9c7cd38e)
-      - [为什么我们无法深入交谈 | 简书](http://www.jianshu.com/p/37f7b7c88729)
-      - [我的儿子不可能平庸 - 简书](http://www.jianshu.com/p/c8a1e1482ec4?utm_campaign=newsletter&utm_medium=note-236554&utm_source=weekly-16)
+    -   [你最推荐的 Chrome 扩展有哪些？ - 知乎](http://www.zhihu.com/question/19594682)
+    -   [Unix 传奇 (上篇) | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/2322.html)
+    -   [Unix 传奇 (下篇) | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/2324.html)
+    -   [黑客的价值观 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/2439.html)
+    -   [计算机编程简史图 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/2724.html)
+    -   [李开复每天早上 4 点就起床，是怎么办到的？开复老师如何能很好地安排好自己的时间？ - 知乎](http://www.zhihu.com/question/19563168/answer/12257911)
+    -   [财经郎眼 20140603 喜忧参半的 4G 时代 - 视频在线观看 - 财经郎眼 - 财经 - 爱奇艺](http://www.iqiyi.com/v_19rrhzlnyw.html)
+    -   [聊聊我在 Google 无人车研究组的那些事 | 36 氪](http://www.36kr.com/p/212843.html)
+    -   [如何应对一群 13 - 18 岁的街头小混混的挑衅？ - 知乎](http://www.zhihu.com/question/23585788)
+    -   [讲一讲汉尼拔·莱克特博士。 (汉尼拔 影评)](http://movie.douban.com/review/1038150/)
+    -   [Why Is Rho Used for Density? | eHow](http://www.ehow.com/how-does_5407539_rho-used-density_.html)
+    -   [求知成瘾，却无作品 | 简书](http://www.jianshu.com/p/Daxrnq)
+    -   [如何成功地早起 | 简书](http://www.jianshu.com/p/Ns6asx)
+    -   [三分钟学会希腊语 | 简书](http://www.jianshu.com/p/c9a88c6c3d88)
+    -   [哥们儿，你的所有病都是一种病 | 简书](http://www.jianshu.com/p/302d25da305e)
+    -   [嘿，那个上了三天班就辞职的年轻人，我想和你谈谈！ | 简书](http://www.jianshu.com/p/6ff3d4113be6)
+    -   [万苦皆因怂 | 简书](http://www.jianshu.com/p/e7120cb963a0)
+    -   [如何坚持每天写一千字 | 简书](http://www.jianshu.com/p/53eea6022d58)
+    -   [你以为你在合群，其实你只在浪费青春 | 简书](http://www.jianshu.com/p/23dd4a2a8105)
+    -   [Javascript 的前后端统一是个"笑话"吗? | 简书](http://www.jianshu.com/p/5f6637bf15fd)
+    -   [在你被人认识之前 | 简书](http://www.jianshu.com/p/0a9851d0e98a)
+    -   [别把你最好的东西给我 | 简书](http://www.jianshu.com/p/479171e3b209)
+    -   [诚信逆向淘汰的社会 | 简书](http://www.jianshu.com/p/ae0a82de6875)
+    -   [一份关于如何改变人生的指南 | 简书](http://www.jianshu.com/p/XzZ6LW)
+    -   [记一次嫖娼 | 简书](http://www.jianshu.com/p/6f66f03510a1)
+    -   [那些年，坐我们前排的土豪和学霸 | 简书](http://www.jianshu.com/p/JqGqYq)
+    -   [从那道并不变态的家庭作业说起，兼答邓飞 | 简书](http://www.jianshu.com/p/babea9cc6284)
+    -   [欲望少女养成记 | 简书](http://www.jianshu.com/p/1657f91a8b47)
+    -   [你不是书读得少，你是经典读得少 | 简书](http://www.jianshu.com/p/53d918a3fe52)
+    -   [你会因文字而爱上一个人吗 | 简书](http://www.jianshu.com/p/aaf7d0e127ab)
+    -   [不着调的海小姐 | 简书](http://www.jianshu.com/p/3a3a744f98ad)
+    -   [两条写作建议 | 简书](http://www.jianshu.com/p/f9796a5a31b3)
+    -   [别跟这个世界讲道理 | 简书](http://www.jianshu.com/p/jCCPzz)
+    -   [中国式道德审判 | 简书](http://www.jianshu.com/p/351b2776e9c8)
+    -   [信息时代如何使用你的大脑？ | 简书](http://www.jianshu.com/p/9211b74a3662)
+    -   [安静的力量 | 简书](http://www.jianshu.com/p/ab844f4c0d46)
+    -   [那些年，我麻烦过的人 | 简书](http://www.jianshu.com/p/d73853f88721)
+    -   [一个人看电影 | 简书](http://www.jianshu.com/p/87ab211011a4)
+    -   [如果让我再读一次本科 | 简书](http://www.jianshu.com/p/1afb865ef4bd)
+    -   [“文艺青年”与“装逼犯” | 简书](http://www.jianshu.com/p/06fe9c7cd38e)
+    -   [为什么我们无法深入交谈 | 简书](http://www.jianshu.com/p/37f7b7c88729)
+    -   [我的儿子不可能平庸 - 简书](http://www.jianshu.com/p/c8a1e1482ec4?utm_campaign=newsletter&utm_medium=note-236554&utm_source=weekly-16)
 
 [Help:Displaying a formula - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Help:Displaying_a_formula) -<
 
 :   refs and see also
 
-      - [List of mathematical symbols - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/List_of_mathematical_symbols)
-      - [Mathematical operators and symbols in Unicode - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode)
-      - [Help:Displaying a formula - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Help:Displaying_a_formula)
-      - [Full stop - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Full_stop)
-      - [Quotation Marks: Where Do the Periods and Commas Go--And Why?](http://grammartips.homestead.com/inside.html)
-      - [Quotation mark - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Quotation_mark)
-      - [Sentence spacing - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Sentence_spacing)
-      - [Decimal mark - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Decimal_mark)
-      - [Ampersand - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Ampersand)
-      - [Appropriate use of the ampersand | Typophile](http://typophile.com/node/12426)
-      - [International System of Units - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/International_System_of_Units)
-      - [Citation | Wikipedia](http://en.wikipedia.org/wiki/Citation)
-      - [Citation Standards | Citation Working Group](http://dublincore.org/groups/citation/citstds.html)
-      - [CSL - Citation Style Language](http://citationstyles.org/downloads/primer.html)
-      - [CSL - Styles | GitHub](https://github.com/citation-style-language/styles)
-      - [Pandoc Package - CiteProc](http://hackage.haskell.org/package/pandoc-citeproc)
+    -   [List of mathematical symbols - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/List_of_mathematical_symbols)
+    -   [Mathematical operators and symbols in Unicode - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Mathematical_operators_and_symbols_in_Unicode)
+    -   [Help:Displaying a formula - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Help:Displaying_a_formula)
+    -   [Full stop - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Full_stop)
+    -   [Quotation Marks: Where Do the Periods and Commas Go--And Why?](http://grammartips.homestead.com/inside.html)
+    -   [Quotation mark - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Quotation_mark)
+    -   [Sentence spacing - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Sentence_spacing)
+    -   [Decimal mark - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Decimal_mark)
+    -   [Ampersand - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/Ampersand)
+    -   [Appropriate use of the ampersand | Typophile](http://typophile.com/node/12426)
+    -   [International System of Units - Wikipedia, the free encyclopedia](http://en.wikipedia.org/wiki/International_System_of_Units)
+    -   [Citation | Wikipedia](http://en.wikipedia.org/wiki/Citation)
+    -   [Citation Standards | Citation Working Group](http://dublincore.org/groups/citation/citstds.html)
+    -   [CSL - Citation Style Language](http://citationstyles.org/downloads/primer.html)
+    -   [CSL - Styles | GitHub](https://github.com/citation-style-language/styles)
+    -   [Pandoc Package - CiteProc](http://hackage.haskell.org/package/pandoc-citeproc)
 
-[DARPA 开始研发新一代的垂直起降飞机](http://cn.engadget.com/2016/03/04/darpa-unveils-its-next-vtol-aircraft-concept/?ncid=rss_truncated)
+[DARPA 开始研发新一代的垂直起降飞机](http://cn.engadget.com/2016/03/04/darpa-unveils-its-next-vtol-aircraft-concept/?ncid=rss_truncated) -<
 
 :   天网的背景音乐……
 
@@ -5194,7 +4620,7 @@ Disallow:
 
 [Roguelike - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Roguelike)
 
-[Metal Slug - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Metal_Slug)
+[Metal Slug - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Metal_Slug){.heart} -<
 
 :   ![](https://en.wikipedia.org/wiki/Metal_Slug#/media/File:Metal_Slug_%28cover%29.jpg)
 
@@ -5209,13 +4635,13 @@ Disallow:
     Network, iOS, Android and Neo Geo X, and to the Wii, PlayStation
     Portable and PlayStation 2 (as part of the Metal Slug Anthology).
 
-[Action game - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Action_game)
+    [Action game - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Action_game)
 
-[Shoot 'em up - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Shoot_%27em_up#Run_and_gun)
+    [Shoot 'em up - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Shoot_%27em_up#Run_and_gun)
 
-[NetHackWiki, the NetHack wiki](https://nethackwiki.com/wiki/Main_Page)
+    [NetHackWiki, the NetHack wiki](https://nethackwiki.com/wiki/Main_Page)
 
-[Metal Slug X (Neo Geo) - The Cutting Room Floor](https://tcrf.net/Metal_Slug_X_(Neo_Geo)#Debug_Mode)
+    [Metal Slug X (Neo Geo) - The Cutting Room Floor](https://tcrf.net/Metal_Slug_X_(Neo_Geo)#Debug_Mode)
 
 [IBM Research | | Ponder this](https://www.research.ibm.com/haifa/ponderthis/index.shtml)
 
@@ -5223,7 +4649,7 @@ Disallow:
 
 [alt.org - Public NetHack Server](https://alt.org/nethack/)
 
-[twitter/typeahead.js: typeahead.js is a fast and fully-featured autocomplete library](https://github.com/twitter/typeahead.js)
+[twitter/typeahead.js: typeahead.js is a fast and fully-featured autocomplete library](https://github.com/twitter/typeahead.js) -<
 
 :   TODO: 替换掉 autocomplete
 
@@ -5241,21 +4667,21 @@ Disallow:
 
 [perlreftut - perldoc.perl.org](http://perldoc.perl.org/perlreftut.html)
 
-[你所读的计算机科学方向，有哪些不错的讲义（Notes）？ - 书籍推荐 - 知乎](http://www.zhihu.com/question/38300204)
+[你所读的计算机科学方向，有哪些不错的讲义（Notes）？ - 书籍推荐 - 知乎](http://www.zhihu.com/question/38300204){.heart}
 
 [6.858 / Fall 2014 / Schedule](http://css.csail.mit.edu/6.858/2014/schedule.html)
 
 [CSCI-UA.0202: Operating Systems (Undergrad)](http://www.cs.nyu.edu/~mwalfish/classes/15sp/index.html)
 
-[cirosantilli/cpp-cheat](https://github.com/cirosantilli/cpp-cheat)
+[cirosantilli/cpp-cheat](https://github.com/cirosantilli/cpp-cheat){.heart}
 
-[cirosantilli/linux-cheat](https://github.com/cirosantilli/linux-cheat)
+[cirosantilli/linux-cheat](https://github.com/cirosantilli/linux-cheat){.heart}
 
 [java - Why is processing a sorted array faster than an unsorted array? - Stack Overflow](http://stackoverflow.com/questions/11227809/why-is-processing-a-sorted-array-faster-than-an-unsorted-array)
 
 [VIM: index](http://man.lupaworld.com/content/manage/vi/doc/)
 
-[shell - How to run a series of vim commands from command prompt - Stack Overflow](http://stackoverflow.com/questions/23235112/how-to-run-a-series-of-vim-commands-from-command-prompt)
+[shell - How to run a series of vim commands from command prompt - Stack Overflow](http://stackoverflow.com/questions/23235112/how-to-run-a-series-of-vim-commands-from-command-prompt) -<
 
 :   ```bash
     for %a in (A,B,C,D) do vim -c ":g/^\s*$/d" -c "<another command>" %a.txt
@@ -5263,7 +4689,7 @@ Disallow:
 
     `:help bufdo`
 
-[Vim Regular Expressions 101](http://www.vimregex.com/)
+[Vim Regular Expressions 101](http://www.vimregex.com/) -<
 
 :   ```
     \h, head of word character (a,b,c...z,A,B,C...Z and _)
@@ -5311,8 +4737,6 @@ Disallow:
     -   4.5 Grouping and Backreferences
     -   4.6 Alternations
 
-
-
 [Search patterns - Vim Tips Wiki - Wikia](http://vim.wikia.com/wiki/Search_patterns)
 
 [Org Mode - Organize Your Life In Plain Text!](http://doc.norang.ca/org-mode.html)
@@ -5333,20 +4757,20 @@ Disallow:
 
 [Futures for C++11 at Facebook](https://code.facebook.com/posts/1661982097368498)
 
-[我的算法学习之路 - Lucida](http://zh.lucida.me/blog/on-learning-algorithms/)
+[我的算法学习之路 - Lucida](http://zh.lucida.me/blog/on-learning-algorithms/){.featured .heart}
 
-[ASCIIFlow Infinity](http://whudoc.qiniudn.com/asciiflow/index.html)
+[ASCIIFlow Infinity](http://whudoc.qiniudn.com/asciiflow/index.html) -<
 
 :   我把 AsciiFlow 挪过来了，可以在
 
-    * <http://whudoc.qiniudn.com/asciiart.html>
-    * <http://whudoc.qiniudn.com/asciiflow>
+    -   <http://whudoc.qiniudn.com/asciiart.html>
+    -   <http://whudoc.qiniudn.com/asciiflow>
 
     使用。或者下载离线 <http://whudoc.qiniudn.com/asciiflow.7z>
 
     TODO: 给它加一套键盘快捷键。
 
-[比尔华纳博士《我们因何而恐惧： 一个一千四百年的秘密》-纪录片视频-爱奇艺](http://www.iqiyi.com/w_19rrylp8kl.html)
+[比尔华纳博士《我们因何而恐惧： 一个一千四百年的秘密》-纪录片视频-爱奇艺](http://www.iqiyi.com/w_19rrylp8kl.html) -<
 
 :   说 islam，如此地政治不正确哈哈哈。
 
@@ -5360,9 +4784,9 @@ Disallow:
 
 [【分享】来自于考拉小巫的各种给力文章大集合](http://www.douban.com/group/topic/15299075/)
 
-[洗脑三部曲（一） (评论: 暗时间)](http://book.douban.com/review/5012104/)
+[洗脑三部曲（一） (评论: 暗时间)](http://book.douban.com/review/5012104/){.heart}
 
-[Digital rights management - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Digital_rights_management)
+[Digital rights management - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Digital_rights_management) -<
 
 :   Digital rights management (DRM) schemes are various access control
     technologies that are used to restrict usage of proprietary hardware
@@ -5373,20 +4797,9 @@ Disallow:
 
 [Search patterns - Vim Tips Wiki - Wikia](http://vim.wikia.com/wiki/Search_patterns)
 
-[CSS: em, px, pt, cm, in…](https://www.w3.org/Style/Examples/007/units)
+[CSS: em, px, pt, cm, in…](https://www.w3.org/Style/Examples/007/units){.heart}
 
-[北美求职记_QAMichaelPeng_新浪博客](http://blog.sina.com.cn/s/blog_6740daa70101771h.html)
-
-[为什么 Microsoft 不与“FLAG”并称呢？](http://www.zhihu.com/question/31979481)
-
-:   再回到微软的问题：我之前很早的时候，拿了一个上海的微软（STC，在闵行的紫
-    竹园区）的 offer，当时薪水13.1w，股票125股；后来打听了一下Seattle的微软
-    Package，股票多点，也没翻10倍，所以基本上对FLAG来说就是杯水车薪。而且现
-    在一般大牛的技术人员或者牛逼毕业生，都是只看股票不看薪水的；薪水就是个
-    零花钱，买买车付付房租还行，根本没法发财。所以一般只看裸薪是多少（而没
-    有股票意识）的人，都是没见过世面，也没体会过资本市场的造富速度的人。
-
-[git status - list last modified date - Stack Overflow](http://stackoverflow.com/questions/14141344/git-status-list-last-modified-date)
+[git status - list last modified date - Stack Overflow](http://stackoverflow.com/questions/14141344/git-status-list-last-modified-date) -<
 
 :   ```bash
     git status -s | \

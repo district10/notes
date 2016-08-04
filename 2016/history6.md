@@ -8,19 +8,21 @@ title: 历史笔记 6
 
 ---
 
-[CSS "position: fixed;" on iPad/iPhone? - Stack Overflow](http://stackoverflow.com/questions/4889601/css-position-fixed-on-ipad-iphone)
+[CSS "position: fixed;" on iPad/iPhone? - Stack Overflow](http://stackoverflow.com/questions/4889601/css-position-fixed-on-ipad-iphone) -<
 
 :   A lot of mobile browsers **deliberately do not support `position:fixed;`{.css}** on the
     grounds that **fixed elements could get in the way on a small screen**.
 
     我说自己的 pad 上怎么不能 fix 回到主页的按钮，原来他们是有意为之。
 
+    （不过，实际上。本站左上角的按钮就 hover 成功了。）
+
     refs and see also
 
-      - [The fifth position value - QuirksBlog](http://www.quirksmode.org/blog/archives/2010/12/the_fifth_posit.html)
-      - [Issues with position fixed & scrolling on iOS](https://remysharp.com/2012/05/24/issues-with-position-fixed-scrolling-on-ios)
+    -   [The fifth position value - QuirksBlog](http://www.quirksmode.org/blog/archives/2010/12/the_fifth_posit.html)
+    -   [Issues with position fixed & scrolling on iOS](https://remysharp.com/2012/05/24/issues-with-position-fixed-scrolling-on-ios)
 
-[Skywind Inside » 关于路径搜索算法的实用性优化](http://www.skywind.me/blog/archives/60)
+[Skywind Inside » 关于路径搜索算法的实用性优化](http://www.skywind.me/blog/archives/60){.heart} -<
 
 :   程序员也有三六九等：
 
@@ -57,7 +59,7 @@ title: 历史笔记 6
 
     为什么要说……“杀”……
 
-[Skywind Inside » 美术资源超级压缩方法](http://www.skywind.me/blog/archives/1176)
+[Skywind Inside » 美术资源超级压缩方法](http://www.skywind.me/blog/archives/1176) -<
 
 :   压缩比从强到弱依次是：WDP > WEBP > JPEG2000 > JPEG。因此换用 WDP 格式能缩小不少资源。
 
@@ -66,7 +68,7 @@ title: 历史笔记 6
     换用 LZMA2 能够高于 zlib 差不多 25% 的压缩率（LZMA1 只有 18% 左右）。现在 Linux 内核压
     缩文件已经从 bz2 改为 LZMA2 的 xz 格式了。
 
-[Skywind Inside » 【原创】快速除以255的方法](http://www.skywind.me/blog/archives/988)
+[Skywind Inside » 【原创】快速除以255的方法](http://www.skywind.me/blog/archives/988){.heart} -<
 
 :   经过若干次试验修改，研究出下面这个快速 /255 的宏，可以在 X 属于 [0，65536] 的范围内误差为零：
 
@@ -243,11 +245,11 @@ title: 历史笔记 6
     msvc: cl -O2 -nologo mini3d.c
     ```
 
-[Coordinate Systems (Direct3D 9) (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/bb204853(v=vs.85).aspx)
+[Coordinate Systems (Direct3D 9) (Windows)](https://msdn.microsoft.com/en-us/library/windows/desktop/bb204853(v=vs.85).aspx) -<
 
 :   ![](https://i-msdn.sec.s-msft.com/dynimg/IC412518.png)
 
-    Direct3D uses a **left-handed coordinate system**. If you are porting an
+    **Direct3D uses a left-handed coordinate system**. If you are porting an
     application that is based on a right-handed coordinate system, you must make
     two changes to the data passed to Direct3D.
 
@@ -258,28 +260,50 @@ title: 历史笔记 6
         this, flip the sign of the _31, _32, _33, and _34 member of the D3DMATRIX
         structure that you use for your view matrix.
 
-后来跟他讨论为何不用 C++，他说其实没有什么特别的，就是习惯和爱好而已，后又补充：
+`轮子哥`{.heart} -<
 
->   **如果不用多态 (polymorphism) 的话，其实不管怎么写，不管用那种语言写，都算不上真正的 OO。**
+:   后来跟他讨论为何不用 C++，他说其实没有什么特别的，就是习惯和爱好而已，后又
+    补充：
 
-忽然觉得很有道理……
+    >   **如果不用多态 (polymorphism) 的话，其实不管怎么写，不管用那种语言写，
+    >   都算不上真正的 OO。**
 
-有兴趣你可以读读《Unix 编程艺术》，OOP 的思维模式，是大一统的；C 的思维模式，是
-分离的。前者方便但容易造成高耦合，后者灵活但开发开发太累。用 C 开发，应该刻意强
-调 “简单” 和 “可拆分”。一个个象搭积木一样的把基础系统搭建出来，哪个模块出问题，
-局部替换即可。
+    忽然觉得很有道理……
 
-自底向上的开发模式，并不是从不站在大局考虑问题，而是从某个子系统具体实现开始，
-从局部迭代，逐步反思全局设计，刻意保持低偶合，一个模块一个模块的来，再逐步尝试
-组合。
+    有兴趣你可以读读《Unix 编程艺术》，OOP 的思维模式，是大一统的；C 的思维模式，是
+    分离的。前者方便但容易造成高耦合，后者灵活但开发开发太累。用 C 开发，应该刻意强
+    调 “简单” 和 “可拆分”。一个个象搭积木一样的把基础系统搭建出来，哪个模块出问题，
+    局部替换即可。
 
-自底向上强调先有实践，再总结理论，理论反过来指导实践，又从实践中迭代修正理论。
-这和人类认识世界的顺序是一样的，先捕猎筑巢，反思自然是怎么回事，又发现可以生火，
-又思考自然到底怎么回事情。
+    自底向上的开发模式，并不是从不站在大局考虑问题，而是从某个子系统具体实现开始，
+    从局部迭代，逐步反思全局设计，刻意保持低偶合，一个模块一个模块的来，再逐步尝试
+    组合。
+
+    自底向上强调先有实践，再总结理论，理论反过来指导实践，又从实践中迭代修正理论。
+    这和人类认识世界的顺序是一样的，先捕猎筑巢，反思自然是怎么回事，又发现可以生火，
+    又思考自然到底怎么回事情。
+
+    **人类为什么要互相伤害？**
+
+    到了工作，基本就是
+
+    -   本来冲着去弄 Visual Studio 的，而且学生时期还不喜欢 SQL，结果工作的时候
+        由于经济危机的关系给我弄到 SQL 去了，工作的内容包含了学习专业的数据库知
+        识和拖控件。
+    -   但是我做了几年还是觉得不喜欢 SQL，就跳槽到了 MSRA，结果 MSRA 拼命让我搞
+        数据库的东西。也不想想本来我就是不喜欢弄这个才走的……
+    -   后来我想好吧，反正编译器没得搞了，那我还是拖控件吧。于是我就告诉 Office
+        的人说，你看我做 GacUI 多屌不屌！Office 的人说，屌！于是把我招了进来，
+        专门负责组里面不是 GUI 的那部分。
+    -   过了半年老板开始安排工作了，我想了个办法表达了一下我还是喜欢弄别的东西。
+        于
+        是终于干起了老本行——给 Office 的程序员开发内部的编译器了。
+
+    **总算最后还是做了喜欢的工作。**
 
 [Skywind Inside » ATOM 同 Vim/Emacs/Sublime 的深度比较](http://www.skywind.me/blog/archives/1652)
 
-[韦易笑 答过的问题 - 知乎](http://www.zhihu.com/people/skywind3000/answers?order_by=vote_num)
+[韦易笑 答过的问题 - 知乎](http://www.zhihu.com/people/skywind3000/answers?order_by=vote_num) -<
 
 :   1.  实现简单的 HTTP 服务器（支持 GET/POST/CGI），然后用浏览器访问，里面有个 CGI 留言板。
     2.  实现一个简版 REDIS，或者给 Redis 加 10 条命令，或者把后面存储引擎换成 unqlite，再开源
@@ -291,7 +315,7 @@ title: 历史笔记 6
 
     很多人觉得程序主要是思考，你思路对了，打字只是小事，经常听到说某某高手打字
     是二指禅。以前我也这么认为，但是专门抽时间练习了以后，发现真正打字流畅的人，
-    打字的cpu 占用很低，不会因为打错字而影响思考，更不会因为要低下头去看数字符
+    打字的 cpu 占用很低，不会因为打错字而影响思考，更不会因为要低下头去看数字符
     号打断你的思路。
 
     先单纯练习从 A 打到 Z，最开始是 15 秒，慢慢熟练到 10 秒，最后到 5 秒。又从
@@ -379,7 +403,7 @@ title: 历史笔记 6
 
     **事情从来就没有高下，有高下的是人。**
 
-[javascript - How to make a DIV always float on the screen in top right corner? - Stack Overflow](http://stackoverflow.com/questions/4236151/how-to-make-a-div-always-float-on-the-screen-in-top-right-corner)
+[javascript - How to make a DIV always float on the screen in top right corner? - Stack Overflow](http://stackoverflow.com/questions/4236151/how-to-make-a-div-always-float-on-the-screen-in-top-right-corner) -<
 
 :   ```css
     .box {
@@ -394,9 +418,9 @@ title: 历史笔记 6
 
     refs and see also
 
-      - [CSS absolute and fixed positioning - W3C Wiki](https://www.w3.org/wiki/CSS_absolute_and_fixed_positioning)
+    -   [CSS absolute and fixed positioning - W3C Wiki](https://www.w3.org/wiki/CSS_absolute_and_fixed_positioning)
 
-[Joseph Stalin - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Joseph_Stalin)
+[Joseph Stalin - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Joseph_Stalin) -<
 
 :   Joseph Vissarionovich Stalin (`/ˈstɑːlɪn/`; birth surname: Jughashvili; 18
     December 1878 – 5 March 1953) was the **leader of the Soviet Union** from the
@@ -422,7 +446,7 @@ title: 历史笔记 6
     still a subject of debate, but it is widely agreed to be in the order of
     millions.
 
-[John F. Kennedy - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/John_F._Kennedy)
+[John F. Kennedy - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/John_F._Kennedy) -<
 
 :   **John Fitzgerald "Jack" Kennedy** (May 29, 1917 – November 22, 1963), commonly
     referred to by his initials **JFK**, was an American politician who served as
@@ -440,11 +464,11 @@ title: 历史笔记 6
 
     ![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/JFK_White_House_portrait_looking_up_lighting_corrected.jpg/330px-JFK_White_House_portrait_looking_up_lighting_corrected.jpg)
 
-[依云 的留言簿](http://lilydjwg.is-programmer.com/guestbook)
+[依云 的留言簿](http://lilydjwg.is-programmer.com/guestbook) -<
 
 :   It's a girl...
 
-[unix - How to open a new file in vim in a new window - Stack Overflow](http://stackoverflow.com/questions/10760310/how-to-open-a-new-file-in-vim-in-a-new-window)
+[unix - How to open a new file in vim in a new window - Stack Overflow](http://stackoverflow.com/questions/10760310/how-to-open-a-new-file-in-vim-in-a-new-window) -<
 
 :   `gvim --remote-tab-silent`{.bash}
 
@@ -466,7 +490,7 @@ title: 历史笔记 6
     alias gall="git add -A; git commit -m \"done\"; git push;"
     ```
 
-[使用心理学中的冥想技术，打通英语语音的基础关](https://www.douban.com/note/517755867/)
+[使用心理学中的冥想技术，打通英语语音的基础关](https://www.douban.com/note/517755867/) -<
 
 :   最近看到一个哈佛的研究，说是让一组人实际练习钢琴，另一组用想象练习，两组人
     在手指的指标上都有了很大提高。实际上，做为体验，研究这种心理预演方法多年的
@@ -487,7 +511,7 @@ title: 历史笔记 6
     这种练习，是直接练习你的大脑，而这种状态，非常接近于一种“冥想”状态，影子跟
     读由于要读出声，对脑内的过程造成了干扰，导致注意力不够集中。
 
-[《黑镜》中的屏蔽恐怖在哪？（文/王路）](https://www.douban.com/note/473598288/)
+[《黑镜》中的屏蔽恐怖在哪？（文/王路）](https://www.douban.com/note/473598288/) -<
 
 :   唯一的可能，就是一旦 B 拿起牙刷准备刷牙的时候，刚刚想起 A，思路就断了，自动跳回想
     到 A 之前的事情上。给他的大脑植入一块芯片，一旦联想到和 A 相关的一切，注意力自动跳
@@ -505,17 +529,7 @@ title: 历史笔记 6
 
 [Emacs 绑定键盘的技巧。](http://docs.huihoo.com/homepage/shredderyin/wiki/KeyBinding.html)
 
-|   舍友。
-|   非常在意用电情况，会用任何方式去省电。
-|   有一次问他是为什么，他的回答让我们都泪流满面：
-|   让这个宇宙的熵，增加的慢一些。
-
->   舍友。
->   非常在意用电情况，会用任何方式去省电。
->   有一次问他是为什么，他的回答让我们都泪流满面：
->   让这个宇宙的熵，增加的慢一些。
-
-[归档 | 始终](http://liam0205.me/archives/)
+[归档 | 始终](http://liam0205.me/archives/){.heart} -<
 
 :   ```bash
     cat <filename> | sort | uniq -d             # 只显示重复的行，每行只显示一次
@@ -539,8 +553,9 @@ title: 历史笔记 6
 
     |   *We invited the strippers, jfk, and stalin.（这也差不多要死……的节奏）*
 
-    所谓牛津逗号（Oxford Comma），当然和牛津大学有点关系。牛津逗号，指的是用英文枚
-    举一些示例的时候，紧跟在并列连词（通常是 and 和 or）之前的那个逗号。举个栗子：
+    所谓牛津逗号（Oxford Comma），当然和牛津大学有点关系。牛津逗号，指的是用英
+    文枚举一些示例的时候，紧跟在并列连词（通常是 and 和 or）之前的那个逗号。举
+    个栗子：
 
     |   *Mary likes apple, banana, and strawberry.*
 
@@ -549,7 +564,7 @@ title: 历史笔记 6
     出版社也有这么一个要求，所以这种逗号也可以称为哈佛逗号（Harvard Comma）。当
     然，你也可以根据它所处的环境，把它叫做 **Serial Comma**。
 
-    [Serial comma - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Serial_comma)
+    [Serial comma - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Serial_comma) -<
 
     :   In English language punctuation, a serial comma or series comma (also
         called Oxford comma and Harvard comma) is a comma placed immediately
@@ -577,10 +592,10 @@ title: 历史笔记 6
         a phrase ambiguous only if the reader accepts the interpretation my
         mother, who is both Ayn Rand and God.
 
-    LaTeX 圈子流行着一句话：使用模板就不要管格式。简单来说，目前的模板已经适配
-    了美赛官方对论文格式的全部要求，不需要用户再做任何修改。在美赛有限的参赛时
-    间内，纠结诸如「给目录中的 `\section` 添加引导符」之类的审美上的需求，纯粹是
-    自作自受且自讨苦吃。
+    LaTeX 圈子流行着一句话：**使用模板就不要管格式**。简单来说，目前的模板已经
+    适配了美赛官方对论文格式的全部要求，不需要用户再做任何修改。在美赛有限的参
+    赛时间内，纠结诸如「给目录中的 `\section` 添加引导符」之类的审美上的需求，
+    纯粹是自作自受且自讨苦吃。
 
     ```
      20 = 0001 0100(补)
@@ -593,18 +608,13 @@ title: 历史笔记 6
 
     refs and see also
 
-      - [取得一个整型变量二进制表示的最后一个「1」 | 始终](http://liam0205.me/2015/10/02/how-to-get-the-last-1-bit-of-an-integer/)
+    -   [取得一个整型变量二进制表示的最后一个「1」 | 始终](http://liam0205.me/2015/10/02/how-to-get-the-last-1-bit-of-an-integer/)
 
-[有什么知识，你知道后你的世界马上就不一样了？ - 生活 - 知乎](http://www.zhihu.com/question/38632401)
+[有什么知识，你知道后你的世界马上就不一样了？ - 生活 - 知乎](http://www.zhihu.com/question/38632401) -<
 
 :   ![](http://whudoc.qiniudn.com/2016/215b4168ea6f23ddf5603a649eb7a76c_r.png)
 
-```vim
-copy line -> copy
-: control-r 0
-```
-
-[邓爱姣_百度百科](http://baike.baidu.com/view/1125043.htm)
+[邓爱姣_百度百科](http://baike.baidu.com/view/1125043.htm) -<
 
 :   邓爱姣，女，1974 年 9 月出生。1995 年毕业于武汉大学数学系统计与概率专业，获
     理学学士学位，同时免试保送为本专业的硕博连读的研究生，2000 年 6 月毕业于武
@@ -615,48 +625,32 @@ copy line -> copy
     方法》、《回归分析》等课程和研究生的《随机分形》。在攻读学位和留校工作期间，
     一直从事随机过程和随机分形相关课题的研究。
 
-Big O notation is a mathematical notation that describes the limiting behavior
-of a function when the argument tends towards a particular value or infinity.
-It is a member of a family of notations invented by Edmund Landau and Paul
-Bachmann, collectively called Bachmann-Landau notation or **asymptotic (渐进) notation**.
+[图灵社区, 阅读, 陈皓, 我的精神家园](http://www.ituring.com.cn/article/details/9174) -<
 
-[图灵社区, 阅读, 陈皓, 我的精神家园](http://www.ituring.com.cn/article/details/9174)
+:   我还记得，有一天，有一个和网络相关的技术问题，同事们搞了三四个通宵，也没弄
+    明白，后来想起我好像在看这方面的书，他们就让我去看看、试试，结果我只用了 20
+    分钟就搞定了。基础真的很重要，这受益于我看了《TCP/IP 详解》这套书。
 
-:   我还记得，有一天，有一个和网络相关的技术问题，同事们搞了三四个通宵，也没弄明白，
-    后来想起我好像在看这方面的书，他们就让我去看看、试试，结果我只用了 20 分钟就
-    搞定了。基础真的很重要，这受益于我看了《TCP/IP 详解》这套书。
-
-做大众是很容易的，做自己是最难的。
-
-最初 Cyberpunk 指的是一类特定的角色：拥有丰富的计算机知识但是缺乏社会常识和伦理
-道德的年轻黑客。从字面上理解，它代表技术和极端的个人主义，所以通常引申为“机器所
-造的无政府状态”或“藉机器来对抗机器的造反运动”。Cyberpunk 所描述的技术手段非常的
-激进，借由生物遗传技术来达到生物之间的器官移植，甚至包括人的胚胎，技术创造的机
-器可以“比人更像人” （More human than human--《银翼杀手》）。 看过电影《黑客帝国》
-的人很好理解这种用来控制和支配大多数“常人”的技术。很多通过电子、机械和生物科
-学的系统科技用来“替代”人体器官的功能，最终采用这些技术的机器零件将取代人的自然
-组织，将人变成会说话的电脑。
-
-[【智能便携打字机】 – 北大新媒体](http://www.looooker.com/archives/24235)
+[【智能便携打字机】 – 北大新媒体](http://www.looooker.com/archives/24235) -<
 
 :   智能。
 
     features:
 
-      - E Ink screen with frontlight
-      - Full-size mechanical keyboard feature Cherry MX keyswitches
-      - Internal capacity for over one million pages
-      - Document cloud sync through WiFi
-      - International language support
-      - Rugged construction with aluminum body and stowable handle
+    -   E Ink screen with frontlight
+    -   Full-size mechanical keyboard feature Cherry MX keyswitches
+    -   Internal capacity for over one million pages
+    -   Document cloud sync through WiFi
+    -   International language support
+    -   Rugged construction with aluminum body and stowable handle
 
     refs and see also
 
-      - [求推荐一个便捷输入设备 - V2EX](http://v2ex.com/t/280303#reply15)
+    -   [求推荐一个便捷输入设备 - V2EX](http://v2ex.com/t/280303#reply15)
 
 [include dir, li-dvorak4tzx](http://dvorak4tzx.lofter.com/post/1d4021c8_b0ec95c)
 
-[王自如与罗永浩辩论时应当说什么才能反杀老罗？ - 锤子手机 - 知乎](http://www.zhihu.com/question/25015684)
+[王自如与罗永浩辩论时应当说什么才能反杀老罗？ - 锤子手机 - 知乎](http://www.zhihu.com/question/25015684) -<
 
 :   老罗用了道具 PPT，王自如需要的道具是：一个白板和一支油性笔。
 
@@ -707,8 +701,8 @@ Bachmann, collectively called Bachmann-Landau notation or **asymptotic (渐进) 
 
     ---
 
-    还有就是老罗的逻辑非常清晰，我看的时候有点恍如多年前做 GRE 阅读和写 GRE Argu 的
-    感觉。证据 ->发现 ->结论三段的攻击，环环入扣。
+    还有就是老罗的逻辑非常清晰，我看的时候有点恍如多年前做 GRE 阅读和写 GRE
+    Argu 的感觉。证据 ->发现 ->结论三段的攻击，环环入扣。
 
     "Wang claims that T1 can't pass the falling test. Then he argues that T1 is
     fragile and concludes that it is not an acceptable phone for consumers."
@@ -736,12 +730,9 @@ Bachmann, collectively called Bachmann-Landau notation or **asymptotic (渐进) 
 
     refs and see also
 
-      - [罗永浩在和王自如对质时的逻辑是否有问题？ - 辩论 - 知乎](http://www.zhihu.com/question/25011349)
+    -   [罗永浩在和王自如对质时的逻辑是否有问题？ - 辩论 - 知乎](http://www.zhihu.com/question/25011349)
 
-所以，我支持董明珠代言格力。我每一次看到广告上的格力，都不禁会想到，董明珠女士
-是在以一种外人很难理解的方式，去为必将到来的战斗做着准备。
-
-[世界最轻宝座易主：松下 Let's Note 系列 RZ4C 笔记本 仅重 745g_资讯中心_什么值得买](http://news.smzdm.com/p/8465/)
+[世界最轻宝座易主：松下 Let's Note 系列 RZ4C 笔记本 仅重 745g_资讯中心_什么值得买](http://news.smzdm.com/p/8465/){.heart} -<
 
 :   应该说英特尔 **14nm Core M** 一出，商务本似乎迎来第二春，联想 Yoga、ThinkPad Helix、
     HP Elitebook 等各路轻薄本屡屡现身。不过既然说到便携，日系品牌才一直都是代表，
@@ -762,10 +753,10 @@ Bachmann, collectively called Bachmann-Landau notation or **asymptotic (渐进) 
 
     refs and see also
 
-      - [松下 Let's Note 秋冬产品线更新，迷你型 RZ 系列重出江湖](http://cn.engadget.com/2014/10/02/panasonic-lets-note-rz4-autumn-winter/)
-      - [Panasonic Let's note AX3（豆瓣）](https://dongxi.douban.com/show/1830665/)
+    -   [松下 Let's Note 秋冬产品线更新，迷你型 RZ 系列重出江湖](http://cn.engadget.com/2014/10/02/panasonic-lets-note-rz4-autumn-winter/)
+    -   [Panasonic Let's note AX3（豆瓣）](https://dongxi.douban.com/show/1830665/)
 
-[vim - Paste in insert mode? - Stack Overflow](http://stackoverflow.com/questions/2861627/paste-in-insert-mode)
+[vim - Paste in insert mode? - Stack Overflow](http://stackoverflow.com/questions/2861627/paste-in-insert-mode) -<
 
 :   ```vim
     :echo @% " current filename
@@ -782,7 +773,7 @@ Bachmann, collectively called Bachmann-Landau notation or **asymptotic (渐进) 
 
     `xclip -out -sel clipboard`{.bash}
 
-[masters - Advisor tries to reproduce my results to ensure my honesty. Is it the norm? - Academia Stack Exchange](http://academia.stackexchange.com/questions/68732/advisor-tries-to-reproduce-my-results-to-ensure-my-honesty-is-it-the-norm)
+[masters - Advisor tries to reproduce my results to ensure my honesty. Is it the norm? - Academia Stack Exchange](http://academia.stackexchange.com/questions/68732/advisor-tries-to-reproduce-my-results-to-ensure-my-honesty-is-it-the-norm) -<
 
 :   **It is not that you will be overpaid as a grad student. It is that you were
     extremely underpaid as an undergrad tutor.**
@@ -790,10 +781,11 @@ Bachmann, collectively called Bachmann-Landau notation or **asymptotic (渐进) 
     Thank you!!! I really appreciate your feedback!
 
     As many have pointed out in the comments (Nate Eldredge, Dan Romik, Per
-    Alexandersson, etc.), the point is not to catch you cheating (as if you were
-    intentionally trying to manipulate your results), but rather to verify your
-    process of obtaining such results. We all should be so lucky as to have an
-    adviser take the time out of his/her schedule to verify our processes.
+    Alexandersson, etc.), the point is not to catch you cheating (as if you
+    were intentionally trying to manipulate your results), but rather to verify
+    your process of obtaining such results. We all should be so lucky as to
+    have an adviser take the time out of his/her schedule to verify our
+    processes.
 
     I would also like to add that -- and this assumes your thesis could/will lead
     to an academic publication at a journal or conference -- that your adviser's
@@ -819,7 +811,7 @@ Bachmann, collectively called Bachmann-Landau notation or **asymptotic (渐进) 
     The advisor's reputation is always on the line when signing a thesis. It
     doesn't matter whether there is also a journal article. – David Ketcheson
 
-[Should I share my horrible software? - Academia Stack Exchange](http://academia.stackexchange.com/questions/37370/should-i-share-my-horrible-software)
+[Should I share my horrible software? - Academia Stack Exchange](http://academia.stackexchange.com/questions/37370/should-i-share-my-horrible-software){.heart} -<
 
 :   My **flippant** (`['flɪpənt]`, 嘴碎的；没礼貌的) answer: Can you name one
     person who got tenure because of their well-written code, or their careful
@@ -852,9 +844,9 @@ Bachmann, collectively called Bachmann-Landau notation or **asymptotic (渐进) 
 
     refs and see also
 
-      - [Should I share my horrible software? - Academia Stack Exchange](http://academia.stackexchange.com/questions/37370/should-i-share-my-horrible-software)
+    -   [Should I share my horrible software? - Academia Stack Exchange](http://academia.stackexchange.com/questions/37370/should-i-share-my-horrible-software)
 
-[conference - How to ask dumb questions - Academia Stack Exchange](http://academia.stackexchange.com/questions/51631/how-to-ask-dumb-questions)
+[conference - How to ask dumb questions - Academia Stack Exchange](http://academia.stackexchange.com/questions/51631/how-to-ask-dumb-questions) -<
 
 :   Having reviewed over 2000 first posts on this site, I must say this is one
     of the best questions I ever reviewed. I can imagine many graduate students
@@ -886,7 +878,7 @@ Bachmann, collectively called Bachmann-Landau notation or **asymptotic (渐进) 
     is an academic environment, questions should be encouraged. Those academics
     who don't encourage bright young students are the problem, not you.
 
-[research - How should I deal with discouragement as a graduate student? - Academia Stack Exchange](http://academia.stackexchange.com/questions/2219/how-should-i-deal-with-discouragement-as-a-graduate-student)
+[research - How should I deal with discouragement as a graduate student? - Academia Stack Exchange](http://academia.stackexchange.com/questions/2219/how-should-i-deal-with-discouragement-as-a-graduate-student) -<
 
 :   The fact is research is hard. It appears to consist primarily of staring at
     a problem for days and days and days without getting anywhere. Sometimes,
@@ -957,38 +949,38 @@ Bachmann, collectively called Bachmann-Landau notation or **asymptotic (渐进) 
     see **a mental health counselor/psychologist**. **They are trained to help you in
     these scenarios.**
 
----
+`C++ 中文`{.heart} -<
 
-```cpp
-#include <iostream>
-#include <string>
-#include <iomanip>
+:   ```cpp
+    #include <iostream>
+    #include <string>
+    #include <iomanip>
 
-int main ( int argc, char **argv )
-{
-    std::string str;
-    if (argc >= 2)   { str = argv; }
-    if (str.empty()) { str = "English & 中文"; }
+    int main ( int argc, char **argv )
+    {
+        std::string str;
+        if (argc >= 2)   { str = argv; }
+        if (str.empty()) { str = "English & 中文"; }
 
-    std::wstring wStr(str.begin(), str.end());
-    std::wstring::iterator i = wStr.begin();
-    for (; i != wStr.end(); ++i) {
-        // actually numbers, you can add one
-        std::cout << "\t" << std::hex << 1+(*i);
+        std::wstring wStr(str.begin(), str.end());
+        std::wstring::iterator i = wStr.begin();
+        for (; i != wStr.end(); ++i) {
+            // actually numbers, you can add one
+            std::cout << "\t" << std::hex << 1+(*i);
+        }
+        std::cout << std::endl;
     }
-    std::cout << std::endl;
-}
-```
+    ```
 
-```bash
-$ ./WideString.exe
-        46      6f      68      6d      6a      74      69      21      27      21      ffd7    ffd1    ffcf    ffc5
+    ```bash
+    $ ./WideString.exe
+            46      6f      68      6d      6a      74      69      21      27      21      ffd7    ffd1    ffcf    ffc5
 
-$ ./WideString.exe "hay 嗨"
-        69      62      7a      21      ffe1    ffcc
-```
+    $ ./WideString.exe "hay 嗨"
+            69      62      7a      21      ffe1    ffcc
+    ```
 
-[【在线影展】乡土往事，岁月如歌_图片频道_新闻中心_腾讯网](http://news.qq.com/original/zaixianyingzhan/soilsong.html)
+[【在线影展】乡土往事，岁月如歌_图片频道_新闻中心_腾讯网](http://news.qq.com/original/zaixianyingzhan/soilsong.html) -<
 
 :   ![](http://img1.gtimg.com/ninja/1/2016/05/ninja146362891359003.jpg)
 
@@ -1002,9 +994,9 @@ $ ./WideString.exe "hay 嗨"
 
     refs and see also
 
-      - [【鹅眼】上海最贵土地上的“钉子户”_图片频道_新闻中心_腾讯网](http://news.qq.com/original/eyan/guangfuli.html)
+    -   [【鹅眼】上海最贵土地上的“钉子户”_图片频道_新闻中心_腾讯网](http://news.qq.com/original/eyan/guangfuli.html)
 
-[c++ - How to detect c++11 support of a compiler with cmake - Stack Overflow](http://stackoverflow.com/questions/10984442/how-to-detect-c11-support-of-a-compiler-with-cmake/20165220#20165220)
+[c++ - How to detect c++11 support of a compiler with cmake - Stack Overflow](http://stackoverflow.com/questions/10984442/how-to-detect-c11-support-of-a-compiler-with-cmake/20165220#20165220) -<
 
 :   **cmake cxx compile features**, **cmake cxx known features**
     **target compile features**
@@ -1018,7 +1010,7 @@ $ ./WideString.exe "hay 嗨"
     endforeach()
     ```
 
-    Visual Studio 14 2015 Win64
+    Visual Studio 14 2015 Win64 -<
 
     :   ```tzx-bigquote
         Your C++ compiler supports these C++ features:
@@ -1074,7 +1066,7 @@ $ ./WideString.exe "hay 嗨"
         cxx_variadic_templates
         ```
 
-    Visual Studio 10 2010 Win64
+    Visual Studio 10 2010 Win64 -<
 
     :   ```tzx-bigquote
         cxx_auto_type
@@ -1116,17 +1108,11 @@ $ ./WideString.exe "hay 嗨"
 
     refs and see also
 
-      - [target_compile_features — CMake 3.1.3 Documentation](https://cmake.org/cmake/help/v3.1/command/target_compile_features.html)
+    -   [target_compile_features — CMake 3.1.3 Documentation](https://cmake.org/cmake/help/v3.1/command/target_compile_features.html)
 
-[[DPI Scaling Fix] Bold, Blurry or Hard to Read Font Problem in Windows 8.1 / 10 - AskVG](http://www.askvg.com/fix-bold-blurry-or-hard-to-read-font-problem-in-windows-8-1/)
+[[DPI Scaling Fix] Bold, Blurry or Hard to Read Font Problem in Windows 8.1 / 10 - AskVG](http://www.askvg.com/fix-bold-blurry-or-hard-to-read-font-problem-in-windows-8-1/) -<
 
 :   ![](https://i-technet.sec.s-msft.com/dynimg/IC695128.jpg)
-
-```vim
-gH          Start Select mode, linewise.  This is like "V",
-            but starts Select mode instead of Visual mode.
-            Mnemonic (`[nɪ'mɑnɪk ]`, 助记的): "get Highlighted".
-```
 
 [karan/Projects-Solutions: Links to others' solutions to Projects (https://github.com/karan/Projects/)](https://github.com/karan/Projects-Solutions)
 
@@ -1136,29 +1122,13 @@ gH          Start Select mode, linewise.  This is like "V",
 
 [Milo Yip - 博客园](http://www.cnblogs.com/miloyip/)
 
-**人类为什么要互相伤害？**
-
-到了工作，基本就是
-
--   本来冲着去弄 Visual Studio 的，而且学生时期还不喜欢 SQL，结果工作的时候由于经
-    济危机的关系给我弄到 SQL 去了，工作的内容包含了学习专业的数据库知识和拖控件。
--   但是我做了几年还是觉得不喜欢 SQL，就跳槽到了 MSRA，结果 MSRA 拼命让我搞数据库的
-    东西。也不想想本来我就是不喜欢弄这个才走的……
--   后来我想好吧，反正编译器没得搞了，那我还是拖控件吧。于是我就告诉 Office 的人
-    说，你看我做 GacUI 多屌不屌！Office 的人说，屌！于是把我招了进来，专门负责组里
-    面不是 GUI 的那部分。
--   过了半年老板开始安排工作了，我想了个办法表达了一下我还是喜欢弄别的东西。于
-    是终于干起了老本行——给 Office 的程序员开发内部的编译器了。
-
-**总算最后还是做了喜欢的工作。**
-
-[Qt 静态编译 – My SCARLET](http://scarletpan.github.io/static/)
+[Qt 静态编译 – My SCARLET](http://scarletpan.github.io/static/) -<
 
 :   refs and see also
 
-      - [Qt for Windows：Qt 5.6.0 MinGW 静态编译版本制作 - Jason’s home - 博客频道 - CSDN.NET](http://blog.csdn.net/wsj18808050/article/details/50909381)
+    -   [Qt for Windows：Qt 5.6.0 MinGW 静态编译版本制作 - Jason’s home - 博客频道 - CSDN.NET](http://blog.csdn.net/wsj18808050/article/details/50909381)
 
-[district10/bcp: Boost.org bcp module, and a CMakeLists.txt for lazy people.](https://github.com/district10/bcp)
+[district10/bcp: Boost.org bcp module, and a CMakeLists.txt for lazy people.](https://github.com/district10/bcp) -<
 
 :   -   <http://whudoc.qiniudn.com/2016/bcp_standalone.exe> (561 KB)
     -   <http://whudoc.qiniudn.com/2016/bcp_standalone_linux> (917 KB)
@@ -1170,17 +1140,13 @@ gH          Start Select mode, linewise.  This is like "V",
     You can newer (maybe newer) copy of bcp at
     <https://github.com/district10/bcp/tree/standalone#0-get-bcp-binary--boost-source-file>
 
+    TODO: 编译 x86 的 windows 版本。
+
     refs and see also
 
-      - [bcp，只为boost库瘦身 - iqfifty的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/iqfifty/article/details/8997909)
+    -   [bcp，只为boost库瘦身 - iqfifty的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/iqfifty/article/details/8997909)
 
-另外有人可能误解了我工作的方式，以为我是一个理想主义者。跟我工作过的人都知道，
-**我其实是个非常实际的人，我不做不可能有用处的事情**。我把用户的需要放在首要的
-位置，而不是一意孤行去做自己觉得“优美”或者“酷”的产品。在过去我遇到过一些真正的
-理想主义者，他们用非常炫丽难懂的做法，来实现用户不需要的功能，让用户糊涂困扰。
-所以我不希望再跟理想主义者一起工作 :P
-
-[Telegram 传奇：一个关于俄罗斯富豪、黑客、极权和阴谋的创业故事 - 钛媒体官方网站](http://www.tmtpost.com/1443098.html)
+[Telegram 传奇：一个关于俄罗斯富豪、黑客、极权和阴谋的创业故事 - 钛媒体官方网站](http://www.tmtpost.com/1443098.html){.featured .heart} -<
 
 :   被警察监听，Pavel Durov 决心做一个为隐私和安全而生的通讯工具
 
@@ -1205,7 +1171,7 @@ gH          Start Select mode, linewise.  This is like "V",
     有 40 多 M。**有兴趣琢磨代码的同学可以去 Github 上慢慢研究他们开源的代码，肯
     定会大有收获。**
 
-[Advanced Code Search](https://github.com/search/advanced?q=%E9%BB%91%E5%AE%A2&repository=blog&user_id=district10&utf8=%E2%9C%93)
+[Advanced Code Search](https://github.com/search/advanced?q=%E9%BB%91%E5%AE%A2&repository=blog&user_id=district10&utf8=%E2%9C%93) -<
 
 :   github code search
 
@@ -1213,10 +1179,7 @@ gH          Start Select mode, linewise.  This is like "V",
 
 [Immediate Mode Model/View/Controller](http://www.johno.se/book/imgui.html)
 
-C++03 compiler with boost library or C++11 compiler(gcc 4.8+, clang 3.4+,
-MSVC2015) without boost.
-
-[lua_binding_benchmark/.travis.yml at master · satoren/lua_binding_benchmark](https://github.com/satoren/lua_binding_benchmark/blob/master/.travis.yml)
+[lua_binding_benchmark/.travis.yml at master · satoren/lua_binding_benchmark](https://github.com/satoren/lua_binding_benchmark/blob/master/.travis.yml) -<
 
 :   ```yaml
     sudo: false
@@ -1253,23 +1216,26 @@ MSVC2015) without boost.
        ./deploy.sh
     ```
 
-[Download Microsoft Visual Studio Community 2015 from Official Microsoft Download Center](https://www.microsoft.com/en-us/download/confirmation.aspx?id=48146)
+[Download Microsoft Visual Studio Community 2015 from Official Microsoft Download Center](https://www.microsoft.com/en-us/download/confirmation.aspx?id=48146) -<
 
 :   VS2015
 
-[lua-users wiki: Lua Style Guide](http://lua-users.org/wiki/LuaStyleGuide)
+[lua-users wiki: Lua Style Guide](http://lua-users.org/wiki/LuaStyleGuide) -<
 
-Selene `[si'li:nə]` n. 月之女神（希腊神话中的一个形象）
+:   C++03 compiler with boost library or C++11 compiler(gcc 4.8+, clang 3.4+,
+    MSVC2015) without boost.
 
-Sol makes use of C++11/14 features. GCC 4.9 and Clang 3.4 (with `std=c++1z` and
-appropriate standard library) or higher should be able to compile without
-problems. However, the officially supported and CI-tested compilers are:
+    Selene `[si'li:nə]` n. 月之女神（希腊神话中的一个形象）
 
-  - GCC 4.9.0+
-  - Clang 3.5+
-  - Visual Studio 2015 Community (Visual C++ 14.0)+
+    Sol makes use of C++11/14 features. GCC 4.9 and Clang 3.4 (with `std=c++1z` and
+    appropriate standard library) or higher should be able to compile without
+    problems. However, the officially supported and CI-tested compilers are:
 
-define vars at compiling
+    -   GCC 4.9.0+
+    -   Clang 3.5+
+    -   Visual Studio 2015 Community (Visual C++ 14.0)+
+
+`define vars at compiling`{.heart} -<
 
 :   main.cpp
 
@@ -1324,16 +1290,16 @@ define vars at compiling
         #define CMAKE_SOURCE_DIR "D:/txt/data"
         ```
 
-[ToyBox開發日誌: In-depth: Functional programming in C++ - 在C++上面使用函數式編程](http://toyauthor.blogspot.jp/2015/10/in-depth-functional-programming-in-c-c.html)
+[ToyBox開發日誌: In-depth: Functional programming in C++ - 在C++上面使用函數式編程](http://toyauthor.blogspot.jp/2015/10/in-depth-functional-programming-in-c-c.html) -<
 
 :   我認為 FP 確實有它存在的價值，但是光憑這點就去呼籲大家放棄 C++ 然後改用
     Lisp、Haskell 這些語言是不負責任的發言。
 
     refs and see also
 
-      - [Gamasutra - In-depth: Functional programming in C++](http://www.gamasutra.com/view/news/169296/Indepth_Functional_programming_in_C.php)
+    -   [Gamasutra - In-depth: Functional programming in C++](http://www.gamasutra.com/view/news/169296/Indepth_Functional_programming_in_C.php)
 
-[Ubuntu Pastebin](http://paste.ubuntu.com/16385769/)
+[Ubuntu Pastebin](http://paste.ubuntu.com/16385769/) -<
 
 :   gist-alike
 
@@ -1341,22 +1307,11 @@ define vars at compiling
 
 [Marching Cubes - Augusdi的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/Augusdi/article/details/6621720)
 
---
-
-```bash
-$ chmod 700 ~/.ssh/id_rsa
-```
-
-```bash
-$ export LD_LIBRARY_PATH=/usr/local/lib
-$ man ldconfig
-```
-
-[ShareX/ShareX: ShareX is a free and open source program that lets you capture or record any area of your screen and share it with a single press of a key. It also allows uploading images, text or other types of files to over 80 supported destinations you can choose from.](https://github.com/ShareX/ShareX)
+[ShareX/ShareX: ShareX is a free and open source program that lets you capture or record any area of your screen and share it with a single press of a key. It also allows uploading images, text or other types of files to over 80 supported destinations you can choose from.](https://github.com/ShareX/ShareX) -<
 
 :   !!! Good! :smile:
 
-[新手如何在 gdb 中存活 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/p/survive-in-gdb.html)
+[新手如何在 gdb 中存活 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/p/survive-in-gdb.html){.heart} -<
 
 :   `man 7 signal`
 
@@ -1422,10 +1377,10 @@ $ man ldconfig
 
     refs and see also
 
-      - [Unix signal - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Unix_signal)
-      - [用 GDB 调试程序（一） - 陈皓专栏　【空谷幽兰，心如皓月】 - 博客频道 - CSDN.NET](http://blog.csdn.net/haoel/article/details/2879)
+    -   [Unix signal - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Unix_signal)
+    -   [用 GDB 调试程序（一） - 陈皓专栏　【空谷幽兰，心如皓月】 - 博客频道 - CSDN.NET](http://blog.csdn.net/haoel/article/details/2879)
 
-[C 语言中为什么不能用 char 类型来存储 getchar() 的返回值 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/archive/2012/12/23/2819111.html)
+[C 语言中为什么不能用 char 类型来存储 getchar() 的返回值 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/archive/2012/12/23/2819111.html){.heart} -<
 
 :   `int getchar ( void );`
 
@@ -1469,14 +1424,11 @@ $ man ldconfig
 
     refs and see also
 
-      - [[翻译]禅与文件和文件夹组织的艺术 上 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/archive/2013/01/15/zen-and-the-art-of-file-and-folder-organization-part1.html)
+    -   [[翻译]禅与文件和文件夹组织的艺术 上 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/archive/2013/01/15/zen-and-the-art-of-file-and-folder-organization-part1.html)
 
-**tinger with**, 笨手笨脚地做事
+[Permanently change keyboard layout on Ubuntu Server 11.10](http://krisreeves.com/things-that-should-be-easy/permanently-change-keyboard-layout-on-ubuntu-server-11-10/) -<
 
-[Permanently change keyboard layout on Ubuntu Server 11.10](http://krisreeves.com/things-that-should-be-easy/permanently-change-keyboard-layout-on-ubuntu-server-11-10/)
-
-:
-    `dpkg-reconfigure console-setup`{.bash}
+:   `dpkg-reconfigure console-setup`{.bash}
 
     You need to edit `/etc/default/keyboard`. After that, run
     `sudo dpkg-reconfigure console-setup`{.bash} to commit your settings.
@@ -1497,14 +1449,10 @@ $ man ldconfig
     I will include here for your convenience. (Shortcuts: model layout variant
     option)
 
-vim
+[Remap keyboard on the Linux console - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/177024/remap-keyboard-on-the-linux-console) -<
 
--   H: high, 2H
--   L: low, 3L
-
-[Remap keyboard on the Linux console - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/177024/remap-keyboard-on-the-linux-console)
-
-:   Linux uses two independent keyboard mappings. One for the graphical mode X and one for the console.
+:   Linux uses two independent keyboard mappings. One for the graphical mode X
+    and one for the console.
 
     You usually change the first one with setxkbmap (or xmodmap) and the second
     one with loadkeys. All those tool have a fine manpage.
@@ -1512,8 +1460,9 @@ vim
     For loadkeys you can find the existing keymaps under /usr/share/kbd/keymaps.
     The description of those files is available in man 5 keymaps.
 
-    The  program  loadkeys reads the file or files specified by filename....  Its main purpose is to load the
-    kernel keymap for the console.  You can specify console device by the -C (or --console ) option.
+    The  program  loadkeys reads the file or files specified by filename....
+    Its main purpose is to load the kernel keymap for the console.  You can
+    specify console device by the `-C` (or `--console` ) option.
 
     ```
     $ locate dvorak
@@ -1524,7 +1473,7 @@ vim
     /usr/share/vim/vim74/macros/dvorak
     ```
 
-[Parsing expression grammar - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Parsing_expression_grammar)
+[Parsing expression grammar - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Parsing_expression_grammar) -<
 
 :   In computer science, a parsing expression grammar, or PEG, is a type of
     analytic formal grammar, i.e. it describes a formal language in terms of a
@@ -1536,31 +1485,29 @@ vim
     PEG, while it is ambiguous in CFG. This is closer to how string recognition
     tends to be done in practice, e.g. by a recursive descent parser.
 
----
+`locate`{.bash .heart} -<
 
-```bash
-$ locate qmake
-/usr/bin/qmake
-/usr/bin/qmake-qt4
-/usr/lib/x86_64-linux-gnu/qt4/bin/qmake
-/usr/share/doc/qt4-qmake
-/usr/share/doc/qt4-qmake/LGPL_EXCEPTION.txt
-/usr/share/doc/qt4-qmake/changelog.Debian.gz
-/usr/share/doc/qt4-qmake/copyright
-/usr/share/man/man1/qmake-qt4.1.gz
-/usr/share/perl5/Debian/Debhelper/Buildsystem/qmake.pm
-/usr/share/perl5/Debian/Debhelper/Buildsystem/qmake_qt4.pm
-/usr/share/qt4/bin/qmake
-/usr/share/qt4/mkspecs/aix-g++/qmake.conf
-/usr/share/qt4/mkspecs/aix-g++-64/qmake.conf
-/usr/share/qt4/mkspecs/aix-xlc/qmake.conf
-/usr/share/qt4/mkspecs/aix-xlc-64/qmake.conf
-/usr/share/qt4/mkspecs/blackberry-armv7le-qcc/qmake.conf
-```
+:   ```bash
+    $ locate qmake
+    /usr/bin/qmake
+    /usr/bin/qmake-qt4
+    /usr/lib/x86_64-linux-gnu/qt4/bin/qmake
+    /usr/share/doc/qt4-qmake
+    /usr/share/doc/qt4-qmake/LGPL_EXCEPTION.txt
+    /usr/share/doc/qt4-qmake/changelog.Debian.gz
+    /usr/share/doc/qt4-qmake/copyright
+    /usr/share/man/man1/qmake-qt4.1.gz
+    /usr/share/perl5/Debian/Debhelper/Buildsystem/qmake.pm
+    /usr/share/perl5/Debian/Debhelper/Buildsystem/qmake_qt4.pm
+    /usr/share/qt4/bin/qmake
+    /usr/share/qt4/mkspecs/aix-g++/qmake.conf
+    /usr/share/qt4/mkspecs/aix-g++-64/qmake.conf
+    /usr/share/qt4/mkspecs/aix-xlc/qmake.conf
+    /usr/share/qt4/mkspecs/aix-xlc-64/qmake.conf
+    /usr/share/qt4/mkspecs/blackberry-armv7le-qcc/qmake.conf
+    ```
 
----
-
-[Modern CMake with Qt and Boost - 推酷](http://www.tuicool.com/articles/bMRJVb)
+[Modern CMake with Qt and Boost - 推酷](http://www.tuicool.com/articles/bMRJVb) -<
 
 :   ```cmake
     find_package( Qt5Widgets 5.2 REQUIRED )
@@ -1649,7 +1596,7 @@ $ locate qmake
     target_link_libraries( ${PROJECT_NAME} Qt5::Widgets )
     ```
 
-[ant - Why is no one using make for Java? - Stack Overflow](http://stackoverflow.com/questions/2209827/why-is-no-one-using-make-for-java)
+[ant - Why is no one using make for Java? - Stack Overflow](http://stackoverflow.com/questions/2209827/why-is-no-one-using-make-for-java) -<
 
 :   The difference between:
 
@@ -1673,19 +1620,13 @@ $ locate qmake
     Make also **isn't very good at determining what files are out of date, at a
     collection level**.
 
-[Restore previous session - Configure when Firefox shows your most recent tabs and windows | Firefox Help](https://support.mozilla.org/en-US/kb/restore-previous-session)
+[Restore previous session - Configure when Firefox shows your most recent tabs and windows | Firefox Help](https://support.mozilla.org/en-US/kb/restore-previous-session) -<
 
 :   history -> restore previous session
 
     ![restore previsous session](https://support.cdn.mozilla.net/media/uploads/gallery/images/2014-03-21-07-23-00-df468d.png)
 
-bash: search commands, `c-r`, `c-s`
-
-你不可能获得一个客观的评判的。因为真正『同时』精通 emacs / vi 两者的人极少，这
-极少的人恰好大都是 唐望所说的得证大道、超级大牛、云淡风轻型的人，
-**根本就不会参合这样的争论**。
-
-[Anti-lock braking system - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Anti-lock_braking_system)
+[Anti-lock braking system - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Anti-lock_braking_system) -<
 
 :   An **anti-lock braking system** or **anti-skid braking system  (ABS)** is an
     automobile safety system that allows the wheels on a motor vehicle to
@@ -1708,7 +1649,7 @@ bash: search commands, `c-r`, `c-s`
 
 [智能单元 - 知乎专栏](https://zhuanlan.zhihu.com/intelligentunit)
 
-[grab all descendents · district10/CuteWatchDog@c496e03](https://github.com/district10/CuteWatchDog/commit/c496e03bfaebea37d9b16a99df9ac15922a91676#diff-34ab4d129103a08bf0033d323034e0c9R78)
+[grab all descendents · district10/CuteWatchDog@c496e03](https://github.com/district10/CuteWatchDog/commit/c496e03bfaebea37d9b16a99df9ac15922a91676#diff-34ab4d129103a08bf0033d323034e0c9R78){.heart} -<
 
 :   用栈实现目录的输出。
 
@@ -1733,51 +1674,24 @@ bash: search commands, `c-r`, `c-s`
 
     refs and see also
 
-      - [yhlleo/FindFilesWithinFolder: Find and generate a file list of the folder.](https://github.com/yhlleo/FindFilesWithinFolder)
+    -   [yhlleo/FindFilesWithinFolder: Find and generate a file list of the folder.](https://github.com/yhlleo/FindFilesWithinFolder)
 
-**Formal request to take over development**
-
-[highlight-treeview](http://asciidocfx.github.io/highlight-treeview.js/)
+[highlight-treeview](http://asciidocfx.github.io/highlight-treeview.js/) -<
 
 :   -   win: `tree /F /A`
     -   linux: `tree`
 
     refs and see also
 
-      - [asciidocfx/AsciidocFX: Asciidoc Editor and Toolchain written with JavaFX 8 (Build PDF, Epub, Mobi and HTML books, documents and slides)](https://github.com/asciidocfx/AsciidocFX)
-
-```makefile
-FLATS:=$(foreach src, $(SRCMD), $(subst /,., $(src)))
-
-XMLS=$(glob xml/*.xml)
-
-ALLSAMPLES = $(basename $(wildcard *-sample.md))
-ALLPDF = $(addsuffix .pdf,$(ALLSAMPLES))
-```
+    -   [asciidocfx/AsciidocFX: Asciidoc Editor and Toolchain written with JavaFX 8 (Build PDF, Epub, Mobi and HTML books, documents and slides)](https://github.com/asciidocfx/AsciidocFX)
 
 [Pro Git - GitBook](https://www.gitbook.com/book/gitbookio/progit/details){title="title works (tooltip.)"}
 
 [progit/progit: Pro Git Book Content, 1st Edition - See 2nd edition at progit2](https://github.com/progit/progit)
 
-`find -name '*.md'`{.bash}
-
 [强大的CMake - 推酷](http://www.tuicool.com/articles/MVBFZ3)
 
 [CMake使用总结 - MWB日常笔记](http://blog.atime.me/note/cmake.html)
-
-```bash
-# linux
-echo $?
-
-# win
-echo %ErrorLevel%
-```
-
-maple, `['mepl]` n. 枫树；淡棕色
-
-![](http://ww3.sinaimg.cn/large/48f46418gw1f3kuxwqkxgg20i20auqh0.gif)
-
-![](http://ww1.sinaimg.cn/large/48f46418gw1f3kuxxfwafg20dw08ck5r.gif)
 
 [Shamir's Secret Sharing - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Shamir%27s_Secret_Sharing)
 
@@ -1787,15 +1701,15 @@ maple, `['mepl]` n. 枫树；淡棕色
 
 [networking - Network usage top/htop on Linux - Stack Overflow](http://stackoverflow.com/questions/368002/network-usage-top-htop-on-linux)
 
-[亚马逊为什么要投资福昕软件？投资额是多少？ - 亚马逊 (Amazon.com) - 知乎](http://www.zhihu.com/question/19958342)
+[亚马逊为什么要投资福昕软件？投资额是多少？ - 亚马逊 (Amazon.com) - 知乎](http://www.zhihu.com/question/19958342) -<
 
-:   “事隔一年半，软件升了级，我还得去谈（合同），再交 5 万美元押金——到时候很可能
-    就不只是 5 万美元的事了。”熊雨前觉得无理，又给 Adobe 发邮件：福昕还是很小的公司
-    ，没这么多钱，有没有可能降低押金？这次回复倒挺快：可以，但要提高单价。福昕
-    就这样被逼上梁山。当时，国内软件开发企业大都在过苦日子，在主场寻求不到什么
-    便利。在国外，通用软件虽有市场，但没有品牌，没有核心技术，福昕只能做些边角
-    料的活儿，公司财务几度捉襟见肘。在接下来一年多时间，熊雨前把营销、财务全部
-    交给员工，自己做起甩手掌柜，自主研发 PDF 核心技术，每天就一件事——写代码。
+:   “事隔一年半，软件升了级，我还得去谈（合同），再交 5 万美元押金——到时候很可
+    能就不只是 5 万美元的事了。”熊雨前觉得无理，又给 Adobe 发邮件：福昕还是很小
+    的公司，没这么多钱，有没有可能降低押金？这次回复倒挺快：可以，但要提高单价。
+    福昕就这样被逼上梁山。当时，国内软件开发企业大都在过苦日子，在主场寻求不到
+    什么便利。在国外，通用软件虽有市场，但没有品牌，没有核心技术，福昕只能做些
+    边角料的活儿，公司财务几度捉襟见肘。在接下来一年多时间，熊雨前把营销、财务
+    全部交给员工，自己做起甩手掌柜，自主研发 PDF 核心技术，每天就一件事——写代码。
 
     真正令熊雨前意识到他的软件“可以直接转化为钱”的，是微软这位大客户的不约而至。
     2008 年底，全球金融危机正酣，微软揣着云计算中心 PDF 索引工具的合同，同时敲
@@ -1811,14 +1725,14 @@ maple, `['mepl]` n. 枫树；淡棕色
 
     refs and see also
 
-      - [PDF to JPG - Convert your PDFs to Images online for free](https://smallpdf.com/pdf-to-jpg)
-      - [Foxit Software | Fast, Affordable, and Secure PDF Solutions](https://www.foxitsoftware.com/)
-      - [福昕软件 - 全球领先的PDF文档核心技术与应用服务](http://www.foxitsoftware.cn/)
-      - [福昕栅格化程序 .NET 平台软件开发工具包 - 福昕软件](http://www.foxitsoftware.cn/products/sdk/rasterizer/)
-      - [福昕软件 - 企业新闻 - 福昕软件收购澳洲 PDF 厂商 Debenu](http://www.foxitsoftware.cn/company/press_details.php?&url=html/notice/2016/foxit_press_id=284.html)
-      - [福昕网页浏览器 PDF 软件开发工具包 - 福昕软件](http://www.foxitsoftware.cn/products/sdk/web-pdf-sdk/)
+    -   [PDF to JPG - Convert your PDFs to Images online for free](https://smallpdf.com/pdf-to-jpg)
+    -   [Foxit Software | Fast, Affordable, and Secure PDF Solutions](https://www.foxitsoftware.com/)
+    -   [福昕软件 - 全球领先的PDF文档核心技术与应用服务](http://www.foxitsoftware.cn/)
+    -   [福昕栅格化程序 .NET 平台软件开发工具包 - 福昕软件](http://www.foxitsoftware.cn/products/sdk/rasterizer/)
+    -   [福昕软件 - 企业新闻 - 福昕软件收购澳洲 PDF 厂商 Debenu](http://www.foxitsoftware.cn/company/press_details.php?&url=html/notice/2016/foxit_press_id=284.html)
+    -   [福昕网页浏览器 PDF 软件开发工具包 - 福昕软件](http://www.foxitsoftware.cn/products/sdk/web-pdf-sdk/)
 
-[Mount Rushmore - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Mount_Rushmore)
+[Mount Rushmore - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Mount_Rushmore) -<
 
 :   Mount Rushmore National Memorial is a sculpture carved into the granite
     face of Mount Rushmore, a granite batholith formation in the Black Hills in
@@ -1837,19 +1751,19 @@ maple, `['mepl]` n. 枫树；淡棕色
 
     ![Mount Rushmore is near Keystone, South Dakota.](https://upload.wikimedia.org/wikipedia/commons/8/89/LocMap_Mount_Rushmore.png)
 
-[睡眠非常浅的人，该怎样改善睡眠质量？ - 健康 - 知乎](http://www.zhihu.com/question/19575624)
+[睡眠非常浅的人，该怎样改善睡眠质量？ - 健康 - 知乎](http://www.zhihu.com/question/19575624) -<
 
 :   表示自己睡眠质量太好……我只是知道我为什么睡眠质量这么好。除了自己总是在适当
     的时间起床外（非 REM 期）。
 
     refs and see also
 
-      - [如何高效地睡眠？ - 生活 - 知乎](http://www.zhihu.com/question/19551007)
-      - [上班族如何完美解决「早起毁一天」的问题？（多图）](http://daily.zhihu.com/story/4498237)
+    -   [如何高效地睡眠？ - 生活 - 知乎](http://www.zhihu.com/question/19551007)
+    -   [上班族如何完美解决「早起毁一天」的问题？（多图）](http://daily.zhihu.com/story/4498237)
 
 [一个死在百度和部队医院之手的年轻人](http://mp.weixin.qq.com/s?__biz=MzI5NDEzMjc0OQ==&mid=3045317271&idx=1&sn=9cca5718716cb641a9a081cba60c0cc3&scene=23&srcid=0501aPeNW1CjDrsYYn0GU3Ct#rd)
 
-[王路：弟子混得不好想改行，孔子怎么挽留？](https://www.douban.com/note/554510957/)
+[王路：弟子混得不好想改行，孔子怎么挽留？](https://www.douban.com/note/554510957/) -<
 
 :   业余棋手直接看专业九段下的棋，是一头雾水的，他完全不知道为什么这样下，反而
     觉得业余选手杀来杀去比较痛快。《飞狐外传》里讲到两个绝世高手比武，旁边围观
@@ -1872,9 +1786,9 @@ maple, `['mepl]` n. 枫树；淡棕色
     抉择。**这就不是命令，而是启发了。**
 
     樊迟此刻，是遭遇到人生路径的选择问题了。我见过很多小孩，初中没读完，成绩不
-    行，跟家长说，“我想学电脑”。真的想学电脑吗？数学满分 100 考 6 分还想学电脑
-    ？说想学电脑，其实是想玩电脑，学习态度不行，又**讳（hui）言**这点，就绕个弯
-    ，表示自己有别的兴趣和爱好。樊迟就是这个情况。
+    行，跟家长说，“我想学电脑”。真的想学电脑吗？数学满分 100 考 6 分还想学电脑？
+    说想学电脑，其实是想玩电脑，学习态度不行，又**讳（hui）言**这点，就绕个弯，
+    表示自己有别的兴趣和爱好。樊迟就是这个情况。
 
     以孔子之睿智，对樊迟之鲁钝，依然不肯说出那种虚伪的鼓励。固然那些话会让樊迟
     很舒服，但不说，才是对樊迟的尊重。
@@ -1885,7 +1799,7 @@ maple, `['mepl]` n. 枫树；淡棕色
     父母从心底认为读书比种地好，还这么劝子女，其实是从心底放弃了他。但孔子怎能
     如此放弃樊迟呢。
 
-[Personal information management - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Personal_information_management)
+[Personal information management - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Personal_information_management) -<
 
 :   Personal information management (PIM) is the activities people perform in
     order to acquire, organize, maintain, retrieve and use personal information
@@ -1897,16 +1811,14 @@ maple, `['mepl]` n. 枫树；淡棕色
 
     There are six ways in which information can be personal:
 
-      - Owned by "me"
-      - About "me"
-      - Directed toward "me"
-      - Sent/Posted by "me"
-      - Experienced by "me"
-      - Relevant to "me"
+    -   Owned by "me"
+    -   About "me"
+    -   Directed toward "me"
+    -   Sent/Posted by "me"
+    -   Experienced by "me"
+    -   Relevant to "me"
 
-ricochet, `[,rɪkə'ʃet]`, n. 跳弹；跳飞
-
-[Uniq - Removing duplicate lines - Vim Tips Wiki - Wikia](http://vim.wikia.com/wiki/Uniq_-_Removing_duplicate_lines)
+[Uniq - Removing duplicate lines - Vim Tips Wiki - Wikia](http://vim.wikia.com/wiki/Uniq_-_Removing_duplicate_lines) -<
 
 :   how to remove duplicate lines??
 
@@ -1914,16 +1826,16 @@ ricochet, `[,rɪkə'ʃet]`, n. 跳弹；跳飞
 
     方便地，还是把 `uniq.exe` 放到 PATH 吧。
 
-[丽莉·克亚芙 (豆瓣)](https://movie.douban.com/celebrity/1237039/)
+[丽莉·克亚芙 (豆瓣)](https://movie.douban.com/celebrity/1237039/) -<
 
 :   refs and see also
 
-      - [丽莉·克亚芙 R-dvorak4tzx](http://dvorak4tzx.lofter.com/post/1d4021c8_ad82963)
-      - [Riley Keough on IMDb: Movies, TV, Celebs, and more... - Photo Gallery - IMDb](http://www.imdb.com/name/nm2142336/mediaindex?ref_=nm_mv_close)
+    -   [丽莉·克亚芙 R-dvorak4tzx](http://dvorak4tzx.lofter.com/post/1d4021c8_ad82963)
+    -   [Riley Keough on IMDb: Movies, TV, Celebs, and more... - Photo Gallery - IMDb](http://www.imdb.com/name/nm2142336/mediaindex?ref_=nm_mv_close)
 
 [关于异形的前世今生上抱下破 (普罗米修斯 影评)](https://movie.douban.com/review/5460211/)
 
-[Ex (relationship) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Ex_(relationship))
+[Ex (relationship) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Ex_(relationship)) -<
 
 :   In social relationships, an ex (plural is exes) is someone with whom a
     person was once associated, in a relationship, marriage, or once talked to.
@@ -1933,14 +1845,16 @@ ricochet, `[,rɪkə'ʃet]`, n. 跳弹；跳飞
     sexual or romantic partner, especially a former spouse. This often has a
     derogatory tinge, especially if it refers to unrequited feelings.
 
-![Statistician William Sealy Gosset, known as "Student"](https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/William_Sealy_Gosset.jpg/255px-William_Sealy_Gosset.jpg)
 
-Biologist and statistician Ronald Fisher
+Biologist and statistician Ronald Fisher -<
 
-:   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Biologist_and_statistician_Ronald_Fisher.jpg/300px-Biologist_and_statistician_Ronald_Fisher.jpg){width=45%}
-    ![](https://upload.wikimedia.org/wikipedia/commons/a/aa/Youngronaldfisher2.JPG){width=45%}
+:   ![Statistician William Sealy Gosset, known as "Student"](https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/William_Sealy_Gosset.jpg/255px-William_Sealy_Gosset.jpg)
 
-[Impostor syndrome - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Impostor_syndrome)
+    ![](https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Biologist_and_statistician_Ronald_Fisher.jpg/300px-Biologist_and_statistician_Ronald_Fisher.jpg)
+
+    ![](https://upload.wikimedia.org/wikipedia/commons/a/aa/Youngronaldfisher2.JPG)
+
+[Impostor syndrome - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Impostor_syndrome) -<
 
 :   Impostor (`[ɪm'pɑstər]`) syndrome (also spelled imposter syndrome, also
     known as impostor phenomenon or **fraud syndrome**) is a term coined in
@@ -1967,9 +1881,9 @@ Biologist and statistician Ronald Fisher
 
     refs and see also
 
-      - [Impostor Syndro-dvorak4tzx](http://dvorak4tzx.lofter.com/post/1d4021c8_86aa9c9)
+    -   [Impostor Syndro-dvorak4tzx](http://dvorak4tzx.lofter.com/post/1d4021c8_86aa9c9)
 
-[linux - What does "rc" mean in dot files - Stack Overflow](http://stackoverflow.com/questions/11030552/what-does-rc-mean-in-dot-files)
+[linux - What does "rc" mean in dot files - Stack Overflow](http://stackoverflow.com/questions/11030552/what-does-rc-mean-in-dot-files) -<
 
 :   The ‘rc’ suffix goes back to Unix's grandparent, CTSS.  It had
     **a command-script feature called "runcom"**. Early Unixes used ‘rc’ for the name
@@ -1977,13 +1891,13 @@ Biologist and statistician Ronald Fisher
 
     refs and see also
 
-      - [linux - What does the 'rc' in `.bashrc`, etc. mean? - Super User](http://superuser.com/questions/173165/what-does-the-rc-in-bashrc-etc-mean)
+    -   [linux - What does the 'rc' in `.bashrc`, etc. mean? - Super User](http://superuser.com/questions/173165/what-does-the-rc-in-bashrc-etc-mean)
 
-[Control point (mathematics) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Control_point_(mathematics))
+[Control point (mathematics) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Control_point_(mathematics)) -<
 
 :   GCP, Ground Control Point
 
-[Pan and scan - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Pan_and_scan)
+[Pan and scan - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Pan_and_scan) -<
 
 :   ![A 2.35:1 image panned and scanned to 1.33:1. Nearly half of the original image has been cropped.](https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Image_cropping_133x1.jpg/360px-Image_cropping_133x1.jpg)
 
@@ -2001,40 +1915,11 @@ Biologist and statistician Ronald Fisher
     scan". The method was most common in the days of VHS, before widescreen
     home media such as DVD and Blu-ray.  Retract
 
-```bash
-dpkg-reconfigure keyboard-configuration
-cat /etc/default/keyboard
-```
-
-HOWTO install infinality font-settings for Debian
+HOWTO install infinality font-settings for Debian -<
 
 :   <http://forums.debian.net/viewtopic.php?f=16&t=88545>
 
-S.M.A.R.T. (Self-Monitoring, Analysis and Reporting Technology; often written
-as SMART) is a monitoring system for computer hard disk drives to detect and
-report on various indicators of reliability, in the hope of
-anticipating (期待；使提前发生) failures.
-
-When a failure is anticipated by S.M.A.R.T., the user may choose to replace the
-drive to avoid unexpected outage and data loss. The manufacturer may be able to
-use the S.M.A.R.T. data to discover where faults lie and prevent them from
-recurring in future drive designs.
-
-Wake-on-LAN (WOL) is an Ethernet computer networking standard that allows a
-computer to be turned on or awakened by a network message.
-
-编译时缺少 h 文件的自动处理
-  ~ `sudo auto-apt run ./configure`{.bash}
-
-查看安装软件时下载包的临时存放目录
-  ~ `ls /var/cache/apt/archives`{.bash}
-
-在网页中，多用 px 指定文字大小，理由便是防止版式错乱。所以，大多数网页文字大小，
-并不随系统 DPI 而变。
-
-虽然世上没有完美的东西，但这并不影响我们追求完美
-
-Rootless Root
+Rootless Root -<
 
 :   Master Foo nodded and replied: “When you are hungry, eat; when you are
     thirsty, drink; when you are tired, sleep.”
@@ -2056,114 +1941,81 @@ Rootless Root
     reliable systems is to put all your eggs in one basket, after making sure
     that you've built a really good basket.
 
-|   Premature optimization is the root of all evil!
-|
-|   -- Donald Knuth
-|
-|   It always takes longer than you expect, even when you take into account
-|   Hofstadter’s Law.
-|
-|   -- Hofstadter’s Law
-|
-|   Debugging is twice as hard as writing the code in the first place. Therefore,
-|   if you write the code as cleverly as possible, you are, by definition, not
-|   smart enough to debug it.
-|
-|   -- Brian Kernighan
-|
-|   PHP is a minor evil perpetrated and created by incompetent amateurs, whereas
-|   Perl is a great and insidious evil, perpetrated by skilled but perverted
-|   professionals.
-|
-|   -- Jon Ribbens
-|
-|   Always code as if the guy who ends up maintaining your code will be a violent
-|   psychopath who knows where you live.
-|
-|   -- Rick Osborne
-|
-|   Saying that Java is good because it works on all platforms is like saying anal
-|   sex is good because it works on all genders
-|
-|   -- Unknown
-|
-|   An algorithm must be seen to be believe!
+    |   Premature optimization is the root of all evil!
+    |
+    |   -- Donald Knuth
+    |
+    |   It always takes longer than you expect, even when you take into account
+    |   Hofstadter’s Law.
+    |
+    |   -- Hofstadter’s Law
+    |
+    |   Debugging is twice as hard as writing the code in the first place. Therefore,
+    |   if you write the code as cleverly as possible, you are, by definition, not
+    |   smart enough to debug it.
+    |
+    |   -- Brian Kernighan
+    |
+    |   PHP is a minor evil perpetrated and created by incompetent amateurs, whereas
+    |   Perl is a great and insidious evil, perpetrated by skilled but perverted
+    |   professionals.
+    |
+    |   -- Jon Ribbens
+    |
+    |   Always code as if the guy who ends up maintaining your code will be a violent
+    |   psychopath who knows where you live.
+    |
+    |   -- Rick Osborne
+    |
+    |   Saying that Java is good because it works on all platforms is like saying anal
+    |   sex is good because it works on all genders
+    |
+    |   -- Unknown
+    |
+    |   An algorithm must be seen to be believe!
 
-"No Silver Bullet — Essence and Accidents of Software Engineering" is a widely
-discussed paper on software engineering written by Fred Brooks in 1986.
-Brooks argues that "there is no single development, in either technology or
-management technique, which by itself promises even one order of magnitude
-tenfold improvement within a decade in productivity, in reliability, in
-simplicity." He also states that "we cannot expect ever to see two-fold gains
-every two years" in software development, like there is in hardware development
-(Moore's law).
+    "No Silver Bullet — Essence and Accidents of Software Engineering" is a widely
+    discussed paper on software engineering written by Fred Brooks in 1986.
+    Brooks argues that "there is no single development, in either technology or
+    management technique, which by itself promises even one order of magnitude
+    tenfold improvement within a decade in productivity, in reliability, in
+    simplicity." He also states that "we cannot expect ever to see two-fold gains
+    every two years" in software development, like there is in hardware development
+    (Moore's law).
 
-Stupid: I'm having problems with my motherboard. Can anybody help?
+    Stupid: I'm having problems with my motherboard. Can anybody help?
 
-J. Random Hacker's response to this is likely to be “Right. Do you need burping and diapering, too?”,
-followed by a punch of the delete key.
+    J. Random Hacker's response to this is likely to be “Right. Do you need burping and diapering, too?”,
+    followed by a punch of the delete key.
 
-Smart: I tried X, Y, and Z on the S2464 motherboard. When that didn't work, I tried A, B, and C.
-Note the curious symptom when I tried C. Obviously the florbish is grommicking, but the results
-aren't what one might expect. What are the usual causes of grommicking on Athlon MP
-motherboards? Anybody got ideas for more tests I can run to pin down the problem?
+    Smart: I tried X, Y, and Z on the S2464 motherboard. When that didn't work, I tried A, B, and C.
+    Note the curious symptom when I tried C. Obviously the florbish is grommicking, but the results
+    aren't what one might expect. What are the usual causes of grommicking on Athlon MP
+    motherboards? Anybody got ideas for more tests I can run to pin down the problem?
 
-This person, on the other hand, **seems worthy of an answer**. He/she has
-**exhibited problem-solving intelligence** rather than **passively waiting for an answer**
-to drop from on high.
+    This person, on the other hand, **seems worthy of an answer**. He/she has
+    **exhibited problem-solving intelligence** rather than **passively waiting for an answer**
+    to drop from on high.
 
-In the last question, notice the subtle but important difference between
-demanding “Give me an answer” and “Please help me figure out what additional
-diagnostics I can run to achieve enlightenment.
+    In the last question, notice the subtle but important difference between
+    demanding “Give me an answer” and “Please help me figure out what additional
+    diagnostics I can run to achieve enlightenment.
 
-Minimal test case
+`Minimal test case`{.heart} -<
 
 :   provide a minimal bug-demonstrating test case
 
     refs and see also
 
-      - [I've just been asked to write a minimal example, what is that? - TeX - LaTeX Meta Stack Exchange](http://meta.tex.stackexchange.com/questions/228/ive-just-been-asked-to-write-a-minimal-example-what-is-that)
+    -   [I've just been asked to write a minimal example, what is that? - TeX - LaTeX Meta Stack Exchange](http://meta.tex.stackexchange.com/questions/228/ive-just-been-asked-to-write-a-minimal-example-what-is-that)
 
-Infinite monkey theorem
+Infinite monkey theorem -<
 
 :   The infinite monkey theorem states that a monkey hitting keys at random on
     a typewriter keyboard for an infinite amount of time will almost surely
     type a given text, such as the complete works of William Shakespeare.
 
-Only wimps use tape backup: _real_ men just upload their important stuff on
-ftp, and let the rest of the world mirror it.
-
-**Those that can, do. Those that can’t, complain.**
-
-Fool, go on with Debian!!!
-
-科大少院首届学员之一，留校任教的王永对过去充满怀念又不失自嘲。“那时候大家聊天吹
-牛，讲到最后一定会有人提醒，‘我们不能再聊了，要去学习了，否则以后给我们写传记的
-人该怎么写这段被浪费的时间？！’那时候，我们就狂妄到认定将来一定会有人给我们写传
-记。”
-
-| A ship in port is safe, but that is not what ships are built for.
-|
-| -- Grace Hopper
-
-赛格威 (Segway ) 思维车 是一种电力驱动、具有自我平衡能力的个人用运输载具，是都
-市用交通工具的一种。由美国发明家狄恩·卡门（Dean Kamen）与他的DEKA研发公司（DEKA
-Research and Development Corp.）团队发明设计，并创立赛格威责任有限公司（Segway
-LLC.），自2001年12月起将赛格威商业化量产销售。
-
-```cpp
-C++: int RNG::uniform(int a, int b)
-C++: float RNG::uniform(float a, float b)
-C++: double RNG::uniform(double a, double b)
-C++: double RNG::gaussian(double sigma)
-C++: void RNG::fill(InputOutputArray mat, int distType, InputArray a, InputArray b, bool saturateRange=false )
-C++: void randu(InputOutputArray dst, InputArray low, InputArray high)
-C++: void randn(InputOutputArray dst, InputArray mean, InputArray stddev)
-C++: void randShuffle(InputOutputArray dst, double iterFactor=1., RNG* rng=0 )
-C++: void reduce(InputArray src, OutputArray dst, int dim, int rtype, int dtype=-1 )
-```
-
-OpenCV:
+OpenCV notes -<
 
 :   ```cpp
     CommandLineParser parser(argc, argv, keys);
@@ -2179,52 +2031,7 @@ OpenCV:
     split(img_yuv, planes);               // split the image into separate color planes
     ```
 
-Note: If you are running x64 version of Ubuntu Linux, then you need ia32 shared
-libraries for use on amd64 and ia64 systems to be installed. You can install
-them with the following command: `sudo apt-get install ia32-libs`{.bash}
-
-```bash
-pstree -t
-```
-
-The actual type of `size_t` is **platform-dependent**; a common mistake is to assume
-`size_t` is the same as unsigned int, which can lead to programming errors,
-particularly as 64-bit architectures become more prevalent.
-
-Range imaging is the name for a collection of techniques which are used to produce a 2D image
-showing the distance to points in a scene from a specific point, normally associated with some
-type of sensor device.
-
-The resulting image, the range image, has pixel values which correspond to the
-distance, e.g., brighter values mean shorter distance, or vice versa. If the
-sensor which is used to produce the range image is properly calibrated, the
-pixel values can be given directly in physical units such as meters.
-
-LaTeX (`/ˈleɪtɛk/` LAY-tek or `/ˈlɑːtɛk/` LAH-tek) is a document preparation
-system and document markup language.  TeX (`/ˈtɛx/` tekh as in Greek, but often
-pronounced `/ˈtɛk/` tek in English) is a typesetting system designed and mostly
-written by Donald Knuth and released in 1978. Within the typesetting system,
-its name is formatted as TeX.
-
-标识符命名要清晰明了，可以使用完整的单词和易于理解的缩写。短的单词可以通过去元
-音形成缩写，较长的单词可以取单词的头几个字母形成缩写。看别人的代码看多了就可以
-总结出一些缩写惯例，例如 count 写成 cnt，block 写成 blk，length 写成 len，
-window 写成 win，message 写成msg，number 写成 nr，temporary 可以写成 temp，也可
-以进一步写成 tmp，最有意思的是internationalization 写成 i18n，词根 trans 经常缩
-写成 x，例如 transmit 写成 xmt。我就不多举例了，请读者在看代码时自己注意总结和
-积累。
-
-<http://learn.akae.cn/media/ch09s03.html>
-
-The ditto mark (″) is a typographic symbol indicating that the word(s) or
-figure(s) above it are to be repeated. For example:
-
-| Black pens, box of twenty ..... £2.10
-| Blue ″ ″ ″ ″ ..... £2.35
-
-这符号滥用的一个点在于，比如中文“李木木”，写成“李木幺”。
-
-yelp — browse system documentation
+yelp — browse system documentation -<
 
 :   The GNOME Help Browser includes detailed documentation for the majority of
     applications, utilities and other components, such as the panel or the
@@ -2234,19 +2041,21 @@ yelp — browse system documentation
     top-level help system page, listing all GNOME docu‐ments conveniently
     organized by topic.
 
-```bash
-$ whatis intro
-intro (4) - Introduction to special files
-intro (2) - Introduction to system calls
-intro (8) - Introduction to administration and privileged commands
-intro (5) - Introduction to file formats
-intro (3) - Introduction to library functions
-intro (6) - Introduction to games
-intro (7) - Introduction to overview, conventions, and miscellany ...
-intro (1) - Introduction to user commands
-```
+`whatis`{.bash .heart} -<
 
-PPA -- Personal Package Archive
+:   ```bash
+    $ whatis intro
+    intro (4) - Introduction to special files
+    intro (2) - Introduction to system calls
+    intro (8) - Introduction to administration and privileged commands
+    intro (5) - Introduction to file formats
+    intro (3) - Introduction to library functions
+    intro (6) - Introduction to games
+    intro (7) - Introduction to overview, conventions, and miscellany ...
+    intro (1) - Introduction to user commands
+    ```
+
+PPA -- Personal Package Archive -<
 
 :   <http://www.makeuseof.com/tag/ubuntu-ppa-technology-explained/>
 
@@ -2265,7 +2074,7 @@ PPA -- Personal Package Archive
     sudo apt-get install hotot
     ```
 
-[c++ - How to get rid of `deprecated conversion from string constant to ‘char*’` warnings in GCC? - Stack Overflow](http://stackoverflow.com/questions/59670/how-to-get-rid-of-deprecated-conversion-from-string-constant-to-char-warnin)
+[c++ - How to get rid of `deprecated conversion from string constant to ‘char*’` warnings in GCC? - Stack Overflow](http://stackoverflow.com/questions/59670/how-to-get-rid-of-deprecated-conversion-from-string-constant-to-char-warnin){.heart} -<
 
 :   warning：deprecated conversion from string constant to 'char *'
 
@@ -2274,132 +2083,152 @@ PPA -- Personal Package Archive
     -   signature: `char *` -> `const char *`
     -   `-Wno-write-strings`
 
-What are POD types in C++?
+`Colorworks`{.heart} -<
 
-:   POD stands for **Plain Old Data** - that is, a struct...
+:   `What are POD types in C++?`{.heart} -<
 
-    A Plain Old Data Structure in C++ is an aggregate class that contains only
-    PODS as members, has no user-defined destructor, no user-defined copy
-    assignment operator, and no nonstatic members of pointer-to-member type.
+    :   POD stands for **Plain Old Data** - that is, a struct...
 
-    In computer science and object-oriented programming, a passive data
-    structure (PDS, not to be confused with IBM's partitioned data sets; also
-    termed a plain old data structure, or plain old data (POD)), is a term for
-    a record, to contrast with objects. It is a data structure that is
-    represented only as passive collections of field values (instance
-    variables), without using object-oriented features.
+        A Plain Old Data Structure in C++ is an aggregate class that contains only
+        PODS as members, has no user-defined destructor, no user-defined copy
+        assignment operator, and no nonstatic members of pointer-to-member type.
 
-    refs and see also
+        In computer science and object-oriented programming, a passive data
+        structure (PDS, not to be confused with IBM's partitioned data sets; also
+        termed a plain old data structure, or plain old data (POD)), is a term for
+        a record, to contrast with objects. It is a data structure that is
+        represented only as passive collections of field values (instance
+        variables), without using object-oriented features.
 
-      - [c++ faq - What are POD types in C++? - Stack Overflow](http://stackoverflow.com/questions/146452/what-are-pod-types-in-c)
-      - [Passive data structure - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Plain_Old_Data_Structures)
+        refs and see also
 
-Double ended queue
+        -   [c++ faq - What are POD types in C++? - Stack Overflow](http://stackoverflow.com/questions/146452/what-are-pod-types-in-c)
+        -   [Passive data structure - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Plain_Old_Data_Structures)
 
-:   deque (usually pronounced like "deck") is an irregular acronym of
-    double-ended queue. Double-ended queues are sequence containers with
-    dynamic sizes that can be expanded or contracted ended queues are sequence
-    containers with dynamic sizes that can be expanded or contracted on both
-    ends (either its front or its back).
+    Double ended queue -<
 
-"**Without Loss Of Generality**" is a term used in proofs to indicate that an
-assumption is being made that does not introduce new restrictions to the
-problem.  If you've got a predicate which is symmetric in a and b, you can
-assume **WLOG** in the proof that a < b.
+    :   deque (usually pronounced like "deck") is an irregular acronym of
+        double-ended queue. Double-ended queues are sequence containers with
+        dynamic sizes that can be expanded or contracted ended queues are sequence
+        containers with dynamic sizes that can be expanded or contracted on both
+        ends (either its front or its back).
 
-inscribed
+    apt-file -<
 
-:   draw (a figure) within another so that their boundaries touch but do not
-    intersect.
+    -   Install `apt-file` and run `apt-file update`（和 `locate file.h` 有什么异同？）
+    -   Then use `apt-file search sphinx-build` to search for packages contanining a file named `sphinx-build`
 
-apt-file
+    Time-of-flight camera -<
 
--   Install `apt-file` and run `apt-file update`（和 `locate file.h` 有什么异同？）
--   Then use `apt-file search sphinx-build` to search for packages contanining a file named `sphinx-build`
+    :   A time-of-flight camera (ToF camera) is a range imaging camera system that
+        resolves distance based on the known speed of light, measuring the
+        time-of-flight of a light signal between the camera and the subject for
+        each point of the image.
 
-Time-of-flight camera
+        The time-of-flight camera is a class of scannerless LIDAR, in which the
+        entire scene is captured with each laser or light pulse, as opposed to
+        point-by-point with a laser beam such as in scanning LIDAR systems.
 
-:   A time-of-flight camera (ToF camera) is a range imaging camera system that
-    resolves distance based on the known speed of light, measuring the
-    time-of-flight of a light signal between the camera and the subject for
-    each point of the image.
+    `.S`{.heart} file(assembly file) -<
 
-    The time-of-flight camera is a class of scannerless LIDAR, in which the
-    entire scene is captured with each laser or light pulse, as opposed to
-    point-by-point with a laser beam such as in scanning LIDAR systems.
+    :   `S` files are code written in assembly, they are extremely low-level form of
+        programming. They contain assembly instructions to the processor in
+        sequential order and are typically compiled based on the selected
+        architecture for compiling the kernel.
 
-`sudo chown -R username /home/usrname/./config/QtProject/`
+    Virtual to Physical Documentation and Sample Configurations -<
 
-`.S` file(assembly file)
+    :   <http://www.vmware.com/support/v2p/>
 
-:   S files are code written in assembly, they are extremely low-level form of
-    programming. They contain assembly instructions to the processor in
-    sequential order and are typically compiled based on the selected
-    architecture for compiling the kernel.
+    Understanding the Network Terms SSID, BSSID, and ESSID -<
 
-Virtual to Physical Documentation and Sample Configurations
+    :   <http://www.juniper.net/techpubs/en_US/junos-space-apps12.3/network-director/topics/concept/wireless-ssid-bssid-essid.html>
 
-:   <http://www.vmware.com/support/v2p/>
+    两个 linux 共享同一个 `/home` 分区 -<
 
-Inverse Distance Weighted (IDW) is a method of interpolation that estimates
-cell values by averaging the values of sample data points in the neighborhood
-of each processing cell. The closer a point is to the center of the cell being
-estimated, the more influence, or weight, it has in the averaging process.
+    :   <http://os.chinaunix.net/a2007/1210/1046/000001046724.shtml>
 
-Understanding the Network Terms SSID, BSSID, and ESSID
+    Polytope -<
 
-:   <http://www.juniper.net/techpubs/en_US/junos-space-apps12.3/network-director/topics/concept/wireless-ssid-bssid-essid.html>
+    :   A convex polytope may be defined as the Convex Hull of a finite set of
+        points (which are always bounded), or as the intersection of a finite set
+        of half-spaces.
 
-两个 linux 共享同一个 /home 分区
+    Triskaidekaphobia `[trɪskaɪdekə'fəʊbɪə]` -<
 
-:   <http://os.chinaunix.net/a2007/1210/1046/000001046724.shtml>
+    :   fear of bad luck number 13.
 
-Polytope
+        欧美很多大厦都以 12A 层取代第 13 层。房间号码、地址号码，甚至连飞机座位也是以
+        12A 取代 13。在法国巴黎，若请客吃饭时共有 13 人, 为了避煞，会请一职业客人来凑足
+        14 人。
 
-:   A convex polytope may be defined as the Convex Hull of a finite set of
-    points (which are always bounded), or as the intersection of a finite set
-    of half-spaces.
+        Dozen
+          ~ 12
 
-Triskaidekaphobia `[trɪskaɪdekə'fəʊbɪə]`
+        Gross
+          ~ 144
 
-:   fear of bad luck number 13.
+    **A harmonic of a wave** is a component frequency of the signal that is an
+    integer multiple of the fundamental frequency, i.e. if the fundamental
+    frequency is f, the harmonics have frequencies 2f, 3f, 4f, . . . etc. The
+    harmonics have the property that they are all periodic at the fundamental
+    frequency, therefore the sum of harmonics is also periodic at that frequency.
+    Harmonic frequencies are equally spaced by the width of the fundamental
+    frequency and can be found by repeatedly adding that frequency. For example, if
+    the fundamental frequency (first harmonic) is 25 Hz, the frequencies of the
+    next harmonics are: 50 Hz (2nd harmonic), 75 Hz (3rd harmonic), 100 Hz (4th
+    harmonic) etc.
 
-    欧美很多大厦都以 12A 层取代第 13 层。房间号码、地址号码，甚至连飞机座位也是以
-    12A 取代 13。在法国巴黎，若请客吃饭时共有 13 人, 为了避煞，会请一职业客人来凑足
-    14 人。
+    **Oscillation** is the repetitive variation, typically in time, of some measure
+    about a central value (often a point of equilibrium) or between two or more
+    different states.  Familiar examples include a swinging pendulum and AC power.
+    The term vibration is sometimes used more narrowly to mean a mechanical
+    oscillation but is sometimes used as a synonym of "oscillation". Oscillations
+    occur not only in physical systems but also in biological systems, from human
+    society to the brain.
 
-    Dozen
-      ~ 12
+    refusenik, `[rɪ'fjuznɪk]`, n. （俄）被拒绝移民者（等于 refusednik）
 
-    Gross
-      ~ 144
+    :   Refusenik (Russian: отказник, otkaznik, from "отказ", otkaz "refusal") was
+        an unofficial term for individuals, typically but not exclusively Soviet
+        Jews, who were denied permission to emigrate abroad by the authorities of
+        the former Soviet Union and other countries of the Eastern bloc. The
+        term refusenik is derived from the "refusal" handed down to a prospective
+        emigrant from the Soviet authorities.  Over time, "refusenik" has entered
+        colloquial English for person who refuses to do something, especially by
+        way of protest.
 
-**A harmonic of a wave** is a component frequency of the signal that is an
-integer multiple of the fundamental frequency, i.e. if the fundamental
-frequency is f, the harmonics have frequencies 2f, 3f, 4f, . . . etc. The
-harmonics have the property that they are all periodic at the fundamental
-frequency, therefore the sum of harmonics is also periodic at that frequency.
-Harmonic frequencies are equally spaced by the width of the fundamental
-frequency and can be found by repeatedly adding that frequency. For example, if
-the fundamental frequency (first harmonic) is 25 Hz, the frequencies of the
-next harmonics are: 50 Hz (2nd harmonic), 75 Hz (3rd harmonic), 100 Hz (4th
-harmonic) etc.
+    |   charlie: I've seen that term used on alt.foobar often.
+    |   lisa: Send it to Erik for the File.
+    |   lisa: Oops...`s/Erik/Eric/`.
 
-**Oscillation** is the repetitive variation, typically in time, of some measure
-about a central value (often a point of equilibrium) or between two or more
-different states.  Familiar examples include a swinging pendulum and AC power.
-The term vibration is sometimes used more narrowly to mean a mechanical
-oscillation but is sometimes used as a synonym of "oscillation". Oscillations
-occur not only in physical systems but also in biological systems, from human
-society to the brain.
+    gls, SMS language/txtspk for "**Gay Little Smirk**".  Used in SMS language
+    (texting language) to express an individual's true reaction to a humorous text
+    message.  This abbreviation is a more accurate alternative to writing "lol".
+    Clearly, he/she is not laughing out loud in a literal sense, but is instead
+    staring at his/her mobile phone while brandishing a gay little smirk. :smirk:
 
-兴趣从何而来？
+    |   (In a texting conversation)
+    |   AJ: Dude, she is seriously smokin' hot. I would be her on-demand asshole licker.
+    |       Let me explain to you what that entails. I would lick her asshole on-demand.
+    |   Karthik: gls
+
+    pointy-haired
+
+    -   **An esp. stupid person** who may or may not be your boss. Often associated
+        with managers and stupid bosses, **the phrase was coined in the daily comic
+        strip "Dilbert" by Scott Adams**, in which Dilbert's boss (Pointy-Haired Boss
+        happened to be his name) had a pointy, devil-horn-like haircut and was
+        especially stupid and **over-promoted**.
+    -   Our new mission statement is "We envision to authoritatively foster quality
+        intellectual capital while maintaining the highest standards." Whoever made
+        that up must have been pointy-haired.
+
+`兴趣从何而来？`{.heart} -<
 
 :   <http://bbs.sciencenet.cn/home.php?mod=space&uid=2068&do=blog&id=452096>
 
-**能在三天之内昨晚的事情，绝不用一个学期去做**
-
-沙文主义（英语：chauvinism）
+沙文主义（英语：chauvinism） -<
 
 :   原指极端的、不合理的、过分的爱国主义（因此也是一种民族主义）。如今的含义也囊括
     其他领域，主要指盲目热爱自己所处的团体，并经常对其他团体怀有恶意与仇恨，是
@@ -2411,30 +2240,7 @@ society to the brain.
     肯付出相对应的代价；在扩张自身权利的时候，眼睛永远只看到别人有的，和自己没
     有的。
 
-refusenik, `[rɪ'fjuznɪk]`, n. （俄）被拒绝移民者（等于 refusednik）
-
-:   Refusenik (Russian: отказник, otkaznik, from "отказ", otkaz "refusal") was
-    an unofficial term for individuals, typically but not exclusively Soviet
-    Jews, who were denied permission to emigrate abroad by the authorities of
-    the former Soviet Union and other countries of the Eastern bloc. The
-    term refusenik is derived from the "refusal" handed down to a prospective
-    emigrant from the Soviet authorities.  Over time, "refusenik" has entered
-    colloquial English for person who refuses to do something, especially by
-    way of protest.
-
-runny, `/ˈrʌni/`, adjective
-
-  - more liquid than is usual or expected. "the soufflé was hard on top and
-    quite runny underneath" synonyms: liquefied, liquid, fluid, melted, molten,
-    flowing; More antonyms: solid, viscous
-  - (of a person's nose) producing or discharging mucus.
-
-testimonial, `[ˌtɛstəˈmoniəl]`
-
-  - n. 证明书;纪念品;奖品;纪念品
-  - adj. 证明的;表扬的;褒奖的
-
-airplane rule
+`airplane rule`{.heart} -<
 
 :   “Complexity increases the possibility of failure; a twin-engine airplane
     has twice as many engine problems as a single-engine airplane.” By analogy,
@@ -2445,7 +2251,7 @@ airplane rule
     is to put all your eggs in one basket, after making sure that you've built
     a really good basket.
 
-Extra-Sensory-Perception.
+Extra-Sensory-Perception. -<
 
 :   Often referred to as "The sixth Sense". Often used in conversation when one
     makes a lucky guess as to what someone is about to say.
@@ -2457,42 +2263,7 @@ Extra-Sensory-Perception.
 
     ESP 还可以是 Especially Silly People……
 
-YHWH represents the Hebrew letters "Yud-Heh-Vav-Heh." It was the name God gave
-for Himself when Moshe inquired of Him. In most modern translations it is
-usually written "LORD" (in capital letters) or "HaShem" (in the Hebrew Tanach,
-it means "The Name"). It has been improperly translated "Jehovah," based on a
-German bastardization of YHWH and "Adonai." The word "Jehovah" does not appear
-in the Hebrew language and is simply incorrect. YHWH is probably pronounced
-"Yahweh," and means "I Am That I Am." The implication is that God is completely
-self-sufficient.  Blessed are you, YHWH, our God, King of the Universe ...
-
-|   charlie: I've seen that term used on alt.foobar often.
-|   lisa: Send it to Erik for the File.
-|   lisa: Oops...`s/Erik/Eric/`.
-
-gls, SMS language/txtspk for "**Gay Little Smirk**".  Used in SMS language
-(texting language) to express an individual's true reaction to a humorous text
-message.  This abbreviation is a more accurate alternative to writing "lol".
-Clearly, he/she is not laughing out loud in a literal sense, but is instead
-staring at his/her mobile phone while brandishing a gay little smirk. :smirk:
-
-|   (In a texting conversation)
-|   AJ: Dude, she is seriously smokin' hot. I would be her on-demand asshole licker.
-|       Let me explain to you what that entails. I would lick her asshole on-demand.
-|   Karthik: gls
-
-pointy-haired
-
-  - **An esp. stupid person** who may or may not be your boss. Often associated
-    with managers and stupid bosses, **the phrase was coined in the daily comic
-    strip "Dilbert" by Scott Adams**, in which Dilbert's boss (Pointy-Haired Boss
-    happened to be his name) had a pointy, devil-horn-like haircut and was
-    especially stupid and **over-promoted**.
-  - Our new mission statement is "We envision to authoritatively foster quality
-    intellectual capital while maintaining the highest standards." Whoever made
-    that up must have been pointy-haired.
-
-我有一个妈妈，她经常做一些奇怪的事。
+我有一个妈妈，她经常做一些奇怪的事。 -<
 
 :   我是一身高 170+，体重 120+ 的女性，于是你就知道我的体态了。
 
@@ -2504,10 +2275,10 @@ pointy-haired
 
     ![](https://img1.doubanio.com/view/note/large/public/p7928519.jpg)
 
-[在下坂本，有何贵干？（佐野菜见创作的日本漫画）_百度百科](http://baike.baidu.com/view/10918346.htm)
+[在下坂本，有何贵干？（佐野菜见创作的日本漫画）_百度百科](http://baike.baidu.com/view/10918346.htm) -<
 
-:   2015 年 3 月份，在日本媒体调查的“希望动画化的漫画作品排行榜”中，《在下坂本
-    ，有何贵干？》得票率超过总投票的 25%，名列第 1 位。
+:   2015 年 3 月份，在日本媒体调查的“希望动画化的漫画作品排行榜”中，
+    《在下坂本，有何贵干？》得票率超过总投票的 25%，名列第 1 位。
 
     《在下坂本，有何贵干？》是一部风格非常另类的校园漫画，讲述思维方式和行为动
     作都异于常人的男子高中生坂本的故事，各种恶搞画面和令人猜不透结局的剧情发展
@@ -2517,85 +2288,67 @@ pointy-haired
     如同《在下坂本，有何贵干？》那样将装逼发挥到极致。尽管作品充斥着满满的装逼
     风格，但其实剧情方面非常正能量，因此也吸引了很多动漫迷关注。  （腾讯动漫评）
 
-最简单一句话，社交网络的本质是炫耀。
+字体渲染 -<
 
-炫耀你的幸福，炫耀你的不幸（来展示你的幸福，比如误机），炫耀你的思想，炫耀你认
-同或反对的思想（使自己看起来很有品位）。
+:   各个操作系统的字体渲染都不一样 ，从效果上说，苹果机一直完虐 Linux 和 Windows ，
+    而且是开箱即用。Linux 的字体渲染首选 Infinity，效果那是极好，不截图了。
+    Windows上，微软自己有 ClearType，当年我也是玩过的人，说实话，没感觉用了和没
+    用有什么区别，除此之外，只能通过第三方的软件来改善字体，其中最好莫过
+    MacType，美极，极美，十分美。之前我也是弄过，但最近匆忙，装机后也没折腾，似
+    乎没必要。今天弄好了，一下就感觉之前的字体就像砣屎，怎么能是“没必要”呢！
 
-我觉得，人沉迷于社交网络，主要还是孤独。太深太深的孤独。
+    有图有真相。
 
-字体这东西不废多少事，就能让体验上几个等级。除非你是偏爱像素字体的变态，你一定
-会惊讶于合理渲染的字体竟然能那么美。
+    Before:
 
-其实人们对于位置的选择 (不只是上厕所)，都应该是有一定统计规律的。比如去闹市或超
-市，入口处的摊位或柜台相对中间来说交易量会小一点，因为停留在入口意味着挡住了后
-面的人流，会对自己造成一定的心理压力，而我们不喜欢被 push 的感觉，宁愿去中间尽情
-挑选。另一个原因是人的思维是随着情景慢慢转变的，当你匆匆进入商场的时候，大脑中
-的情景还没完全适应，步伐还没有慢下来，也许这时候你已经错过了门口的货架了。你看
-到了，你也知道它在那，但你还没来得及思考就走开了。
+    ![](http://gnat-tang-shared-image.qiniudn.com/before1.png)
 
-我之前回答过一个 "狗大便时为什么先要嗅嗅地面转几圈" 的问题, 说是狗狗感觉周围环
-境不够安全, 不能保护她的隐私所致; 其实这是一种智慧生物的天性, 私密的事情下意识
-的就会想找到最能让自己安心的环境。
+    After:
 
-各个操作系统的字体渲染都不一样 ，从效果上说，苹果机一直完虐 Linux 和 Windows ，
-而且是开箱即用。Linux 的字体渲染首选 Infinity，效果那是极好，不截图了。Windows
-上，微软自己有 ClearType，当年我也是玩过的人，说实话，没感觉用了和没用有什么区
-别，除此之外，只能通过第三方的软件来改善字体，其中最好莫过 MacType，美极，极美
-，十分美。之前我也是弄过，但最近匆忙，装机后也没折腾，似乎没必要。今天弄好了，
-一下就感觉之前的字体就像砣屎，怎么能是“没必要”呢！
+    ![](http://gnat-tang-shared-image.qiniudn.com/after.png)
 
-有图有真相。
+    渲染文字：
 
-Before:
+    ![](http://gnat-tang-shared-image.qiniudn.com/another_example.png)
 
-![](http://gnat-tang-shared-image.qiniudn.com/before1.png)
+[有情人，一切尽在眼神中][love-in-your-eye] -<
 
-After:
-
-![](http://gnat-tang-shared-image.qiniudn.com/after.png)
-
-渲染文字：
-
-![](http://gnat-tang-shared-image.qiniudn.com/another_example.png)
-
-[有情人，一切尽在眼神中][love-in-your-eye]
-
-1. 人具有解读眼神的天赋，从婴儿时期就显露出来
-2. 眼神泄露了心灵的焦点
-3. 微笑的眼神，最具吸引力
-4. 眼神不同于其他面部表情和肢体语言，仅仅是一个直视的眼神就可以激活一个脑区：大脑腹侧纹状体（ventral striatum），这是一个预测奖励和惩罚的脑区
-5. 眼神是一种天然的语言
-6. 直视的目光更被信赖
-7. 直视的目光显示出更强的竞争力
-8. 喜欢一个人时，男人会变得话多，凝视少；女人会话少，凝视多
+:   1.  人具有解读眼神的天赋，从婴儿时期就显露出来
+    2.  眼神泄露了心灵的焦点
+    3.  微笑的眼神，最具吸引力
+    4.  眼神不同于其他面部表情和肢体语言，仅仅是一个直视的眼神就可以激活一个脑
+        区：大脑腹侧纹状体（ventral striatum），这是一个预测奖励和惩罚的脑区
+    5.  眼神是一种天然的语言
+    6.  直视的目光更被信赖
+    7.  直视的目光显示出更强的竞争力
+    8.  喜欢一个人时，男人会变得话多，凝视少；女人会话少，凝视多
 
 [love-in-your-eye]: http://sex.guokr.com/post/1049163/
 
-CRX
+CRX -<
 
-* [Ad Block：屏蔽广告](http://gnat.qiniudn.com/archive/crx/Ad-Block.crx)
-* [Block Site：屏蔽网站](http://gnat.qiniudn.com/archive/crx/Block-Site.crx)
-* [Copy as Markdown：生成页面的 Markdown 链接](http://gnat.qiniudn.com/archive/crx/Copy-as-Markdown.crx)
-* [Edit with Emacs：调用 Emacs 编辑文字](http://gnat.qiniudn.com/archive/crx/Edit-with-Emacs.crx)
-* [Extension Downloader：下载插件 CRX 文件](http://gnat.qiniudn.com/archive/crx/Extension-Downloader.crx)
-* [All Cheat Sheets：Cheet Sheet 大全](http://gnat.qiniudn.com/archive/crx/All-Cheat-Sheets_v1.1.crx)
-* [Tampermonkey：油猴](http://gnat.qiniudn.com/archive/crx/Tampermonkey_v3.6.3737.80.crx)
-* [Vimium：给 Chrome 提供 Vim 版快捷键](http://gnat.qiniudn.com/archive/crx/Vimium_v1.44.crx)
-* [CollaMark：？](http://gnat.qiniudn.com/archive/crx/CollaMark.crx)
-* [Coursera-Alfred：Coursera 必备](http://gnat.qiniudn.com/archive/crx/Coursera-Alfred.crx)
-* [DouBean：豆藤](http://gnat.qiniudn.com/archive/crx/DouBean.crx)
-* [Markdown-Here：用 Markdown 写邮件](http://gnat.qiniudn.com/archive/crx/Markdown-Here.crx)
-* [Stay-Focused：Stay Focused](http://gnat.qiniudn.com/archive/crx/Stay-Focused.crx)
-* [Webpage-Screenshot：页面截屏](http://gnat.qiniudn.com/archive/crx/Webpage-Screenshot.crx)
-* [Youdao-Translate：有道翻译](http://gnat.qiniudn.com/archive/crx/Youdao-Translate.crx)
-* [YoudaoDict：有道词典](http://gnat.qiniudn.com/archive/crx/YoudaoDict.crx)
-* [Zh-space-En：在中英文之间加空格](http://gnat.qiniudn.com/archive/crx/Zh-space-En.crx)
-* [Eye Dropper](http://gnat.qiniudn.com/archive/crx/Eye-Dropper.crx)
-* [IE Tab](http://gnat.qiniudn.com/archive/crx/IE-Tab.crx)
-* [Web Developer](http://gnat.qiniudn.com/archive/crx/WebDeveloper.crx)
+:   -   [Ad Block：屏蔽广告](http://gnat.qiniudn.com/archive/crx/Ad-Block.crx)
+    -   [Block Site：屏蔽网站](http://gnat.qiniudn.com/archive/crx/Block-Site.crx)
+    -   [Copy as Markdown：生成页面的 Markdown 链接](http://gnat.qiniudn.com/archive/crx/Copy-as-Markdown.crx)
+    -   [Edit with Emacs：调用 Emacs 编辑文字](http://gnat.qiniudn.com/archive/crx/Edit-with-Emacs.crx)
+    -   [Extension Downloader：下载插件 CRX 文件](http://gnat.qiniudn.com/archive/crx/Extension-Downloader.crx)
+    -   [All Cheat Sheets：Cheet Sheet 大全](http://gnat.qiniudn.com/archive/crx/All-Cheat-Sheets_v1.1.crx)
+    -   [Tampermonkey：油猴](http://gnat.qiniudn.com/archive/crx/Tampermonkey_v3.6.3737.80.crx)
+    -   [Vimium：给 Chrome 提供 Vim 版快捷键](http://gnat.qiniudn.com/archive/crx/Vimium_v1.44.crx)
+    -   [CollaMark：？](http://gnat.qiniudn.com/archive/crx/CollaMark.crx)
+    -   [Coursera-Alfred：Coursera 必备](http://gnat.qiniudn.com/archive/crx/Coursera-Alfred.crx)
+    -   [DouBean：豆藤](http://gnat.qiniudn.com/archive/crx/DouBean.crx)
+    -   [Markdown-Here：用 Markdown 写邮件](http://gnat.qiniudn.com/archive/crx/Markdown-Here.crx)
+    -   [Stay-Focused：Stay Focused](http://gnat.qiniudn.com/archive/crx/Stay-Focused.crx)
+    -   [Webpage-Screenshot：页面截屏](http://gnat.qiniudn.com/archive/crx/Webpage-Screenshot.crx)
+    -   [Youdao-Translate：有道翻译](http://gnat.qiniudn.com/archive/crx/Youdao-Translate.crx)
+    -   [YoudaoDict：有道词典](http://gnat.qiniudn.com/archive/crx/YoudaoDict.crx)
+    -   [Zh-space-En：在中英文之间加空格](http://gnat.qiniudn.com/archive/crx/Zh-space-En.crx)
+    -   [Eye Dropper](http://gnat.qiniudn.com/archive/crx/Eye-Dropper.crx)
+    -   [IE Tab](http://gnat.qiniudn.com/archive/crx/IE-Tab.crx)
+    -   [Web Developer](http://gnat.qiniudn.com/archive/crx/WebDeveloper.crx)
 
-一个妹子一首歌
+一个妹子一首歌 -<
 
 :   这个妹子：
 
@@ -2605,7 +2358,7 @@ CRX
 
     [Geek in the Pink!](http://www.xiami.com/play?ids=/song/playlist/id/2079006/object_name/default/object_id/0#loaded)
 
-OpenSceneGraph
+`OpenSceneGraph`{.heart} -<
 
 :   ```bash
     $ cd ~/dev/OpenSceneGraph-3.4.0
@@ -2650,37 +2403,23 @@ OpenSceneGraph
     OSG_FILE_PATH=%OSG_ROOT%\data;%OSG_ROOT%\data\Images
     ```
 
-解决 Qt 的 moc 处理 boost 代码的问题
+解决 Qt 的 moc 处理 boost 代码的问题 -<
 
-:   > This is a major change and will never be backported to Qt4.
-    > Until you port your code to Qt5, you can use this work around of
-    > wrapping any problematic include within `#ifndef Q_MOC_RUN`:
+:   >   This is a major change and will never be backported to Qt4.
+    >   Until you port your code to Qt5, you can use this work around of
+    >   wrapping any problematic include within `#ifndef Q_MOC_RUN`:
     >
-    > ```cpp
-    > #ifndef Q_MOC_RUN
-    > #include <boost/python.hpp> # boost headers go here
-    > #endif
-    > ```
+    >   ```cpp
+    >   #ifndef Q_MOC_RUN
+    >   #include <boost/python.hpp> # boost headers go here
+    >   #endif
+    >   ```
 
     refs and see also
 
-      - [OSG+VS2010+win7环境搭建 - 缑城浪子 - 博客园](http://www.cnblogs.com/eaglezhao/archive/2011/07/12/eaglezhao.html)
+    -   [OSG+VS2010+win7环境搭建 - 缑城浪子 - 博客园](http://www.cnblogs.com/eaglezhao/archive/2011/07/12/eaglezhao.html)
 
-要不是忙，我一定分享一篇经验贴：如何用 CASIO 991-es plus 分分钟搞定极限、定积分
-、求导、解方程（组）、矩阵求逆、求零点。或者如何用破烂的 82es 刷机到 991。屡试
-不爽，可惜没有 82es。
-
-|   @韩三元小猪头: 编辑你饿不饿 @简书
-|   @简书: 如果我告诉你今天回家路上买了4个蛋糕，忍不住一口全吃了，
-|          现在撑死了躺在床上一动也不想动你会不会打我 :scream:
-
-|   我突然想到一件事。你谈过恋爱么，大宽？我问。
-|   大宽傻在座位上。
-|   没。他说，然后理直气壮地反问我，你谈过？
-|   我说我也没。
-|   **然后我们俩抱头痛哭。**
-
-RAINBOCTOCAT
+RAINBOCTOCAT -<
 
 :   单词是我胡诌的。
 
@@ -2692,9 +2431,7 @@ RAINBOCTOCAT
 
     ![180x180](http://gnat.qiniudn.com/rainboctocat.png?imageView2/1/w/180/h/180)
 
----
-
-unzip
+`unzip`{.heart} -<
 
 :   **c**, compress; **x**, extract, **f**, file
 
@@ -2738,94 +2475,85 @@ unzip
 
     refs and see also
 
-      - [bash - How to extract tar.xz files in Linux? - Stack Overflow](http://stackoverflow.com/questions/12298368/how-to-extract-tar-xz-files-in-linux)
-      - [How to create and extract zip, tar, tar.gz and tar.bz2 files in Linux - Simple Help](http://www.simplehelp.net/2008/12/15/how-to-create-and-extract-zip-tar-targz-and-tarbz2-files-in-linux/)
-      - [oh-my-zsh/extract.plugin.zsh at master · robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/extract/extract.plugin.zsh)
+    -   [bash - How to extract tar.xz files in Linux? - Stack Overflow](http://stackoverflow.com/questions/12298368/how-to-extract-tar-xz-files-in-linux)
+    -   [How to create and extract zip, tar, tar.gz and tar.bz2 files in Linux - Simple Help](http://www.simplehelp.net/2008/12/15/how-to-create-and-extract-zip-tar-targz-and-tarbz2-files-in-linux/)
+    -   [oh-my-zsh/extract.plugin.zsh at master · robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/extract/extract.plugin.zsh)
 
----
-
-赖氏听力训练诀窍
-
-|   泛听：随意听，不追单词解释
-|   精听：反复听，逐句听写。特别注意连音（Linkage）
-
-[Mysterious New Line](http://stackoverflow.com/questions/71417/why-is-r-a-newline-for-vim)
+[Mysterious New Line](http://stackoverflow.com/questions/71417/why-is-r-a-newline-for-vim) -<
 
 :   ```vimrc
     :%s/%/\r/g
     :%s/\n/%/g
     ```
 
-vim
+    vim
 
-:   ```vim
-    :w !sudo tee %
+    :   ```vim
+        :w !sudo tee %
 
-    :earlier 15m
-    :later
+        :earlier 15m
+        :later
 
-    :r!date
-    :.!date
+        :r!date
+        :.!date
 
-    :%!xxd
-    :%!xxd -r
+        :%!xxd
+        :%!xxd -r
 
-    U
-    viwU
-    va{U
-    ```
+        U
+        viwU
+        va{U
+        ```
 
-    gv (last visual selection) -> gi (last edit)
+        gv (last visual selection) -> gi (last edit)
 
-    Control-arrow
+        Control-arrow
 
-    ```vim
-    `.              ; :h `.
-    '.
-    g;
-    g,
-    mx
-    `x
-    'x
-    ```
+        ```vim
+        `.              ; :h `.
+        '.
+        g;
+        g,
+        mx
+        `x
+        'x
+        ```
 
-    ```vim
-    >i{
-    >iB
-    >a{
+        ```vim
+        >i{
+        >iB
+        >a{
 
-    ==
-    4==
-    =%
-    =2a{
-    gg=G
+        ==
+        4==
+        =%
+        =2a{
+        gg=G
 
-    ma
-    >'a
-    ='a
+        ma
+        >'a
+        ='a
 
-    v
-    3>
-    ```
+        v
+        3>
+        ```
 
-    refs and see also
+        refs and see also
 
-    * http://stackoverflow.com/questions/726894/what-are-the-dark-corners-of-vim-your-mom-never-told-you-about
-    * http://stackoverflow.com/questions/235839/indent-multiple-lines-quickly-in-vi
+        -   <http://stackoverflow.com/questions/726894/what-are-the-dark-corners-of-vim-your-mom-never-told-you-about>
+        -   <http://stackoverflow.com/questions/235839/indent-multiple-lines-quickly-in-vi>
 
-Of course, on the system I administrate, **vi** is symlinked to **ed**.
-**Emacs** has been replaced by a shell script which
+    Of course, on the system I administrate, **vi** is symlinked to **ed**.
+    **Emacs** has been replaced by a shell script which
 
- - 1) Generates a syslog message at level LOG_EMERG;
- - 2) reduces the user's disk quota by 100K; and
- - 3) RUNS ED!!!!!!
+    -   1) Generates a syslog message at level LOG_EMERG;
+    -   2) reduces the user's disk quota by 100K; and
+    -   3) RUNS ED!!!!!!
 
----
+GoogleTech Talk by Carsten Dominik (2008): Emacs -<
 
-GoogleTech Talk by Carsten Dominik (2008): Emacs
-
-:  - [Emacs Chat: Carsten Dominik (author of org-mode)][emacs-chat]
-   - GoogleTech Talk by Carsten Dominik (2008), [优酷][carsten-dominik-org-chat]
+:   -   [Emacs Chat: Carsten Dominik (author of org-mode)][emacs-chat]
+    -   GoogleTech Talk by Carsten Dominik (2008), [优酷][carsten-dominik-org-chat]
 
     ![][01-intro]
     ![][02-working-with-text-files?]
@@ -2879,7 +2607,7 @@ GoogleTech Talk by Carsten Dominik (2008): Emacs
 
 <http://gnat.qiniudn.com/ag.exe>
 
-[GNU readline](https://en.wikipedia.org/wiki/Readline)
+[GNU readline](https://en.wikipedia.org/wiki/Readline) -<
 
 :   GNU Readline is a software library that provides line-editing and history
     capabilities for interactive programs with a command-line interface, such
@@ -2975,7 +2703,7 @@ GoogleTech Talk by Carsten Dominik (2008): Emacs
     }
     ```
 
-Young Sailor II
+Young Sailor II -<
 
 :   [![*The Young Sailor II*](http://images.metmuseum.org/CRDImages/ma/web-large/DP261547.jpg)](http://www.metmuseum.org/collection/the-collection-online/search/489994)
 
@@ -2994,33 +2722,50 @@ Young Sailor II
 
 [^ys]: [Henri Matisse | Young Sailor II | The Metropolitan Museum of Art](http://www.metmuseum.org/collection/the-collection-online/search/489994)
 
-获取源码的方式: e.g. `apt-get source coreutils`
+一些 Linux 相关知识 -<
 
--   [Unix shell][unix-shell]
--   [Linux Newbie Guide: Shortcuts And Commands][linux-newbie]
+:   获取源码的方式: e.g. `apt-get source coreutils` -<
 
-[unix-shell]: https://en.wikipedia.org/wiki/Unix_shell
-[linux-newbie]: http://www.unixguide.net/linux/linuxshortcuts.shtml
+    -   [Unix shell][unix-shell]
+    -   [Linux Newbie Guide: Shortcuts And Commands][linux-newbie]
 
-(这里不区别 Linux，GNU/Linux，和 Unix。简单粗暴地称为 Linux。)
+    (这里不区别 Linux，GNU/Linux，和 Unix。简单粗暴地称为 Linux。)
 
-Linux Shell 用来和系统交互。基于命令行 ([CLI][cli]), 是我们使用 Linux Utilities
-的平台。
+    Linux Shell 用来和系统交互。基于命令行 ([CLI][cli]), 是我们使用 Linux Utilities
+    的平台。
 
-**你最好知道的知识有: **
+    **你最好知道的知识有: **
 
-- [File System][filesystem]: 也就是格式化磁盘的格式, 如:
-    - Windows 的 NTFS
-    - U 盘的 Fat16
-    - 类 Unix 系统的 ext4
-- [File Descriptor][fd]: 文件描述符, `stdin`, `stdout`, `stderr` 等。
-- [Pipeline][pipe]: 管道，流化地处理输入输出。`echo How Are You | xclip -selection c`
-- [Readline][readline]: Shell 用到的交互方式。常用的快捷命令有:
-    - `c-r` 搜索历史命令
-    - `c-w` 删除一个单词
-    - 按 Tab 键自动补全
-- [Man Page][man]: man (manual) 帮助文档。居家生活必备。类似的有 [info][info]
-- 目录: `..` 或者 `../` 上级目录; `.` 或者 `./`当前目录;
+    -   [File System][filesystem]: 也就是格式化磁盘的格式, 如:
+        -   Windows 的 NTFS
+        -   U 盘的 Fat16
+        -   类 Unix 系统的 ext4
+    -   [File Descriptor][fd]: 文件描述符, `stdin`, `stdout`, `stderr` 等。
+    -   [Pipeline][pipe]: 管道，流化地处理输入输出。`echo How Are You | xclip -selection c`
+    -   [Readline][readline]: Shell 用到的交互方式。常用的快捷命令有:
+        -   `c-r` 搜索历史命令
+        -   `c-w` 删除一个单词
+        -   按 Tab 键自动补全
+    -   [Man Page][man]: man (manual) 帮助文档。居家生活必备。类似的有 [info][info]
+    -   目录: `..` 或者 `../` 上级目录; `.` 或者 `./`当前目录;
+
+    一些常用简单命令：
+
+    ```bash
+    ls, dir, vdir
+    echo "hello world"
+    cd ..
+    pwd
+    date | xclip -selection c
+    ```
+
+    ```bash
+    pip install --upgrade pip
+    pip install -U numpy scipy scikit-learn
+    ```
+
+    我说 `man -k printf` 和 `apropos printf` 怎么都是一样的结果。试了好几个关键词，
+    然后 `man man` 才发现 **`man -k keyword`** 和 **`apropos -r keyword`** 是一样的。
 
 [cli]: https://en.wikipedia.org/wiki/Command-line_interface
 [filesystem]: https://en.wikipedia.org/wiki/Filesystem
@@ -3029,25 +2774,10 @@ Linux Shell 用来和系统交互。基于命令行 ([CLI][cli]), 是我们使�
 [readline]: https://en.wikipedia.org/wiki/GNU_Readline
 [man]: https://en.wikipedia.org/wiki/Man_page
 [info]: https://en.wikipedia.org/wiki/Info_(Unix)
+[unix-shell]: https://en.wikipedia.org/wiki/Unix_shell
+[linux-newbie]: http://www.unixguide.net/linux/linuxshortcuts.shtml
 
-一些常用简单命令：
-
-```bash
-ls, dir, vdir
-echo "hello world"
-cd ..
-pwd
-date | xclip -selection c
-```
-
-“单向度”实际有两种意思，一是在横向上只有一个方向；一是在纵向上只有一个深度。即
-扁平化、无反抗等。单向度的人就是认同现实，没有批判精神，不反思的人。而造成这种
-单向度的人的社会，即单向度的社会，只倡导一种发展方向，维护现有体制，
-**有着巨大的惰性**。
-
-陈寅恪所谓"独立之精神，自由之思想"，倒显得**矫情而应酬**。
-
-恐同症 (homophobia)
+恐同症 (homophobia) -<
 
 :   恐同症又称“[同性恋恐惧症](http://baike.baidu.com/view/573602.htm)”（英文
     homophobia 和 homophobic）是指对同性恋行为以及同性恋者的非理智性的恐惧和憎恨。对
@@ -3070,23 +2800,13 @@ date | xclip -selection c
 
     refs and see also
 
-      - [恐同症_百度百科](http://baike.baidu.com/link?url=fpF_kg0XkogQ3GVBL9vzH7cUvgmCHjp-TiV14gGwLsJz1gjqvCbDZnyVDK9vrB2gXao2mGqZDVLaIMFG1P5ZMa)
-      - [Homophobia - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Homophobia)
-      - [没有人天生是同性恋](http://www.douban.com/note/442922272/)
-
-```bash
-pip install --upgrade pip
-pip install -U numpy scipy scikit-learn
-```
-
-我说 `man -k printf` 和 `apropos printf` 怎么都是一样的结果。试了好几个关键词，
-然后 `man man` 才发现 **`man -k keyword`** 和 **`apropos -r keyword`** 是一样的。
-
-<http://gnat.qiniudn.com/misc/pano/Panorama.7z>
+    -   [恐同症_百度百科](http://baike.baidu.com/link?url=fpF_kg0XkogQ3GVBL9vzH7cUvgmCHjp-TiV14gGwLsJz1gjqvCbDZnyVDK9vrB2gXao2mGqZDVLaIMFG1P5ZMa)
+    -   [Homophobia - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Homophobia)
+    -   [没有人天生是同性恋](http://www.douban.com/note/442922272/)
 
 乙状结肠（**sigmoid colon**），这个中文翻译……醉了……但是确实挺准确……
 
-[为什么内地女星演 OL，都逃不过尴尬症？](http://mp.weixin.qq.com/s?__biz=MzA5Mzc3NTUwNw==&mid=2653747608&idx=1&sn=23c3815eb395de160a234bf1812098b1&scene=0#wechat_redirect)
+[为什么内地女星演 OL，都逃不过尴尬症？](http://mp.weixin.qq.com/s?__biz=MzA5Mzc3NTUwNw==&mid=2653747608&idx=1&sn=23c3815eb395de160a234bf1812098b1&scene=0#wechat_redirect) -<
 
 :   OL: Office Lady
 
@@ -3119,14 +2839,14 @@ pip install -U numpy scipy scikit-learn
     天海佑希这样的女王，律师警察医生都演得，把女式西服穿得气象万千，而我相信她
     看上去就是有智商的样子。
 
-[倪湛舸的广播](https://www.douban.com/people/10686358/status/1834580640/)
+[倪湛舸的广播](https://www.douban.com/people/10686358/status/1834580640/){.heart} -<
 
 :   其实文科教育，尤其在本科阶段，培养的是做人做事的规范。书该怎么读，问题该怎
     么讨论，文章该怎么写，其实都是有规矩的，规矩管的就是如何做自己、如何待他人
     、如何在集体劳动中做个人贡献，天朝的许多乱象，根源和对策似乎都在于缺乏最基
     础的人文教育，抄袭这种事定期就要闹一闹，还真不是孤立现象。
 
-[阿男的广播](https://www.douban.com/people/weinanli/status/1834205107/)
+[阿男的广播](https://www.douban.com/people/weinanli/status/1834205107/) -<
 
 :   这些年越发明白一个道理：做一件事，努力并不是最重要，最重要是往正确的方向做
     积累。这些年看到了太多人和事，很努力地往错误的方向上狂奔而去。＃还不如原地休息＃
@@ -3135,42 +2855,13 @@ pip install -U numpy scipy scikit-learn
 
 [普林斯顿助理教授的 Loser 简历, 和爱因斯坦没有得到的博士学位](http://mp.weixin.qq.com/s?src=3&timestamp=1461979824&ver=1&signature=4v3T2FME4bKLP-ihJvc1BT3-DaC9SIIoHtaEtOUFXFgqHocMgg-8-AtUFMOSxN0LxpmWwBM576dN3ZIKDISn0WAPDd1leEvfNHg1h8EHfYpNxJEXJkhRrWXaUI1qDsfDd8JVSna3CC0sYcXcsdz5hUjRK2UCW*ZHFI1RfHduNSQ=)
 
-```bash
-# download source code, unzip it, install it
-python setup.py install
-# or
-pip install <module>
-```
-
-`%HOST%`
+`%HOST%`{.heart} -<
 
 :   `C:\Windows\System32\drivers\etc\host`
-
-pharmacy `['fɑrməsi]` n. 药房；配药学，药剂学；制药业；一批备用药品
-
-online pharmacy
 
 [ssh ubuntu@119.29.191.128](http://119.29.191.128:8000/)
 
 [深度学习caffe的代码怎么读？ - 机器学习 - 知乎](http://www.zhihu.com/question/27982282)
-
--   appwiz.cpl：程序和功能（程序卸载）
--   charmap：启动字符映射表
--   自动关机命令 Shutdown -s -t 600：表示 600 秒后自动关机（有没有人像我一样使用番茄工作法？其实很多时候很难控制自己，这是一个很好的方法）
--   shutdown -a ：可取消定时关机
-
-control, (cmd, or Win + R)
-
-以德报怨，何以报德？
-
-嘿，老伙计。昨天有个可怜的小家伙问我怎么说出翻译腔。我敢打赌，他一定没有上过学，
-我向圣母玛利亚保证。他提出的这个问题真的是太糟糕了，就像隔壁苏珊婶婶做的苹果派
-一样。
-
--   当你没有世俗成功力量时，你对长辈强行打脸打不起来，且会给你自己的家庭带来不必要的麻烦
--   当你获得了世俗成功后，也不要顶撞反驳长辈，记住闷声发大财，这对你有好处
-
-我只是觉得国内不提供筷子的西餐厅很傻逼
 
 [Fisher–Yates shuffle - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle)
 
@@ -3178,33 +2869,13 @@ control, (cmd, or Win + R)
 
 [使用 BitTorrent Sync 同步分享文件_百度经验](http://jingyan.baidu.com/article/a17d52853cc29f8098c8f29b.html)
 
-张三上传的《TOKYO HOT N0124》和李四上传的《TH n124》是同一个文件，只不过文件名
-不一样，难道我就不能识别出他们是一个文件，然后只将其分别给不同的用户保存成不同
-的文件名不久行啦？确实可行，但这要利用一些识别文件相同性的算法，例如 MD5 值等。
-只要两个文件的 MD5 值一样，文件大小一样，我就认为它们是相同的文件，只需要保存一
-份文件并给不同的用户记作不同的文件名就好了。
-
-有一天你发现，因为每一个文件都需要计算 MD5 值，导致 CPU 负荷很大，而且本来一样
-的文件非要浪费带宽上传回来才可以检测一致性，能改进一下吗？
-
-聪明的工程师写了个小软件/小插件，美其名曰“上传控件”，将计算 MD5 值的工作利用这
-个软件交给了上传用户的电脑来完成，一旦计算出用户要上传的数据和服务器上已经存储
-的某个数据是一样的，就干脆不用上传了，直接在用户那里标记上这个文件已经按照 XX
-文件名上传成功了。这个过程几乎是瞬间搞定了，并给其起了个高富帅的名字“秒传”！
-
-（浏览器应该不可以秒传把？是不是可以先获取文件大小，然后计算这个大文件前 10 MB
-的 Hash，看没有匹配）
-
 [Comparison of reference management software - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Comparison_of_reference_management_software)
-
-总之，大的原则是：如果你意识到以后要在“阅读文献的道路上一去不复返”，莫不如一开
-始就对自己需要涉猎的文献进行顶层设计，不要等硬盘里乱成一锅粥了再开始：
 
 [写学术论文时需要引用大量论文，但最后需要花费大量时间匹配引用，有什么好方法或经验？ - 论文写作 - 知乎](http://www.zhihu.com/question/20533954)
 
 [Zotero 文献管理小组](https://www.douban.com/group/zotero/)
 
-[javascript - Convert jquery element to html element - Stack Overflow](http://stackoverflow.com/questions/7114780/convert-jquery-element-to-html-element)
+[javascript - Convert jquery element to html element - Stack Overflow](http://stackoverflow.com/questions/7114780/convert-jquery-element-to-html-element) -<
 
 :   Try `myJQueryElement.get(0)` or `myJQueryElement`. (get() is most useful
     when you need negative indices, for example, as described in the documentation
@@ -3223,7 +2894,7 @@ control, (cmd, or Win + R)
     to discuss the future of the Anglican Church with me, I'm dying to use
     "antidisestablishmentarianistically".
 
-如何花最少的钱购买正版 Windows 和 Office？
+`如何花最少的钱购买正版 Windows 和 Office？`{.heart} -<
 
 :   - Step 1. 通过面试成为微软员工
     - Step 2. 上班
@@ -3231,26 +2902,21 @@ control, (cmd, or Win + R)
 
     不但有免费 Win+Office，还有工资拿
 
-[[新闻] Chez Scheme 开源了 - 编程语言与高级语言虚拟机杂谈（仮） - 知乎专栏](https://zhuanlan.zhihu.com/p/20808925)
+[[新闻] Chez Scheme 开源了 - 编程语言与高级语言虚拟机杂谈（仮） - 知乎专栏](https://zhuanlan.zhihu.com/p/20808925) -<
 
-:   我大三开始学 Scheme 和啃 SICP 是从 Petite Chez Scheme 7.4 开始的。能一睹完整版
-    Chez Scheme 的芳容真是太爽了
+:   我大三开始学 Scheme 和啃 SICP 是从 Petite Chez Scheme 7.4 开始的。能一睹完
+    整版 Chez Scheme 的芳容真是太爽了
 
     现在的小朋友要学习这方面，从入门级到高度优化的产品级项目都有众多开源项目可
     参考，多方便啊。我都恨不得想迟个十来年出生了，正好能在学校里赶上这浪潮 >_<
 
     refs and see also
 
-      - [cisco/ChezScheme: Chez Scheme](https://github.com/cisco/ChezScheme)
+    -   [cisco/ChezScheme: Chez Scheme](https://github.com/cisco/ChezScheme)
 
 [学习编程语言与编译优化的一个书单 - 编程语言与高级语言虚拟机杂谈（仮） - 知乎专栏](https://zhuanlan.zhihu.com/p/20130808?refer=hllvm)
 
-要是因为男方有案底了，看不上了，直接说明白，哪怕你今天提分手，明天就去找个新欢，
-我都觉得没什么不道德，但是你一边不和男友说清楚，一边又在外面乱搞，这不算不道
-德算什么？
-
-<div class="tzx-drawer" shy>
-别 TM**拿圣人的标准要求被人，用贱人的标准要求自己**。
+别 TM**拿圣人的标准要求被人，用贱人的标准要求自己**。 -<
 
 :   老师们对他们的态度，是重在管制，只希望他们不要惹是生非，而绝对不会去鼓励他
     们好好学习，没用。
@@ -3262,9 +2928,8 @@ control, (cmd, or Win + R)
     这种精神状态，不去惹是生非才怪。
 
     现在理解家长为什么拼命让孩子上好学校，不仅是为了成绩，还**为了远离人渣**。
-</div>
 
-[春节回家你打算怎么和亲友介绍、解释自己的专业都是干什么的？ - 夏洋的回答 - 知乎](https://www.zhihu.com/question/39917930/answer/86817635)
+[春节回家你打算怎么和亲友介绍、解释自己的专业都是干什么的？ - 夏洋的回答 - 知乎](https://www.zhihu.com/question/39917930/answer/86817635) -<
 
 :   不大熟的朋友亲戚聚会什么的，我一般都说我在一个广告公司里做一些基础的杂活，
     管管仓库啊调度啊之类的，体力活。**然后就没人问了，各种清静。**
@@ -3295,15 +2960,15 @@ control, (cmd, or Win + R)
     我的想法是：一般来说，面试题本身并不会特别复杂，那么如果你能从上到下地在纸
     上写出代码（或者伪代码），说明你：
 
-    - 能在脑子里很快构建出清晰的结构。能够很快地走过从“全局的框架”到“各处的细节”
-      这样一个自顶而下的过程，这不仅是语言熟练度的问题，更多能体现出一种“**解决
-      问题的思考方式**”；
-    - 你的脑容量足够大。毕竟在一个面试题级别的题目里，很多细节是“牵一发而动全身”
-      的（比如写一个递归，那么状态设计在一开始就要想好）。那么如果你能从上到下
-      一遍写好，保持比较干净清爽的卷面，往往你在写第一个字的时候其实已经在脑子
-      里把最后一个字都已经“写”了一遍，说明你的大脑能够装下一定复杂度的问题。反
-      过来，如果习惯了“想到哪写到哪”的风格，依赖于“出错误了再去调试下”，这样的
-      工作模式可能会带来比较高的 bug 率。
+    -   能在脑子里很快构建出清晰的结构。能够很快地走过从“全局的框架”到“各处的细节”
+        这样一个自顶而下的过程，这不仅是语言熟练度的问题，更多能体现出一种“**解决
+        问题的思考方式**”；
+    -   你的脑容量足够大。毕竟在一个面试题级别的题目里，很多细节是“牵一发而动全身”
+        的（比如写一个递归，那么状态设计在一开始就要想好）。那么如果你能从上到下
+        一遍写好，保持比较干净清爽的卷面，往往你在写第一个字的时候其实已经在脑子
+        里把最后一个字都已经“写”了一遍，说明你的大脑能够装下一定复杂度的问题。反
+        过来，如果习惯了“想到哪写到哪”的风格，依赖于“出错误了再去调试下”，这样的
+        工作模式可能会带来比较高的 bug 率。
 
     在 Google 快两年，我也有过很忙的时候（极其偶尔）。有一阵子忙的时候，休息时一
     群同事（含上司，tech lead 等）聊天，他们就提到了这样一个结论：**一直在“执行”的
@@ -3333,7 +2998,7 @@ control, (cmd, or Win + R)
 
     所以，**不是年纪大了都转行，而是水平差的都淘汰了。**
 
-    [神仙姐姐美嘉的广播](https://www.douban.com/people/vip_fiona/status/1833166448/)
+    [神仙姐姐美嘉的广播](https://www.douban.com/people/vip_fiona/status/1833166448/) -<
 
     :   公司发展到一定阶段，能力强的员工容易离职，因为他们对公司内愚蠢的行为的容忍
         度不高，他们也容易找到好工作；能力差的员工倾向于留着不走，他们也不太好找工
@@ -3350,8 +3015,7 @@ control, (cmd, or Win + R)
       ~ 微软唯一一个图形比我强的女性。
 
     原 Halo 引擎架构师。Bungie 从微软分出去之后她留在微软的 343 工作室，继续做 Halo 系
-    列，期间发明了动态 radiosity 算法，并删掉了我在 Halo3 里用的优化 lightmap 的系统
-    。
+    列，期间发明了动态 radiosity 算法，并删掉了我在 Halo3 里用的优化 lightmap 的系统。
 
     后来因为受不了 xbox one sdk beta 的脑残行为，离开微软去了 sony 搞 ps4。
 
@@ -3370,15 +3034,14 @@ control, (cmd, or Win + R)
 
     refs and see also
 
-      - [夏洋 答过的问题 - 知乎](https://www.zhihu.com/people/xia-yang-7/answers?order_by=vote_num)
-      - [为什么「道理都懂，然执行力差」的现象如此普遍？ - 曾旻的回答 - 知乎](https://www.zhihu.com/question/30161095/answer/47601545)
+    -   [夏洋 答过的问题 - 知乎](https://www.zhihu.com/people/xia-yang-7/answers?order_by=vote_num)
+    -   [为什么「道理都懂，然执行力差」的现象如此普遍？ - 曾旻的回答 - 知乎](https://www.zhihu.com/question/30161095/answer/47601545)
 
 [Contrast Preserving Decolorization](http://www.cse.cuhk.edu.hk/leojia/projects/color2gray/index.html)
 
 [Decolorization — OpenCV 3.0.0-dev documentation](http://docs.opencv.org/3.0-beta/modules/photo/doc/decolor.html)
 
-<div class="tzx-drawer" shy>
-[单身路上偷的懒，迟早用孤独去偿还](https://www.douban.com/note/550264000/)
+[单身路上偷的懒，迟早用孤独去偿还](https://www.douban.com/note/550264000/) -<
 
 :   可是孩子谁带？保姆的工资比你挣得高。做什么？几年没和社会接触过，你连 ppt 都要
     从头培训。比起老公嘲笑你，你**更怕的是，其实心里知道他们说的是对的**。
@@ -3401,20 +3064,19 @@ control, (cmd, or Win + R)
     然累，可是，累得好爽。
 
     在三十岁以后，工作带来的美好体验远超爱情。
-</div>
 
 [dragondjf/QMarkdowner: Editor for Markdown based on PyQt4 with Metro](https://github.com/dragondjf/QMarkdowner)
 
 [district10/CuteMarkEd: Qt Markdown Editor](https://github.com/district10/CuteMarkEd)
 
-[求图形学基本算法好书推荐? - 知乎](https://www.zhihu.com/question/27525631)
+[求图形学基本算法好书推荐? - 知乎](https://www.zhihu.com/question/27525631){.heart} -<
 
 :   [Scratchapixel](http://www.scratchapixel.com/)
 
     我看到这个网站后，感动得要哭！这一个网站就够了！！好好珍惜吧！
 
-    想学 opengl, 就用这个网站 [OpenGL Step by Step - OpenGL
-    Development](http://ogldev.atspace.co.uk/)。非常赞！老外好无私！
+    想学 opengl, 就用这个网站 [OpenGL Step by Step - OpenGL Development](http://ogldev.atspace.co.uk/)。
+    非常赞！老外好无私！
 
     想学 DX，就看‘Practical Rendering and Computation with Direct3D 11’。 这本书
     把 pipeline 讲得非常清晰。这是我见过最好的一本 DX 的书。 （小八卦，real-time
@@ -3426,13 +3088,13 @@ control, (cmd, or Win + R)
 
     refs and see also
 
-      - [系统的学习计算机图形学，有哪些不同阶段的书籍的推荐？ - Milo Yip 的回答 - 知乎](https://www.zhihu.com/question/26720808/answer/33885578)
+    -   [系统的学习计算机图形学，有哪些不同阶段的书籍的推荐？ - Milo Yip 的回答 - 知乎](https://www.zhihu.com/question/26720808/answer/33885578)
 
 [wpf - How does Cocoa compare to Microsoft, Qt? - Stack Overflow](http://stackoverflow.com/questions/2442340/how-does-cocoa-compare-to-microsoft-qt)
 
-[白板编程浅谈——Why, What, How - Lucida](http://lucida.me/blog/whiteboard-coding-demystified/)
+[白板编程浅谈——Why, What, How - Lucida](http://lucida.me/blog/whiteboard-coding-demystified/){.heart}
 
-[灵魂机器 答过的问题 - 知乎](https://www.zhihu.com/people/soulmachine/answers?order_by=vote_num)
+[灵魂机器 答过的问题 - 知乎](https://www.zhihu.com/people/soulmachine/answers?order_by=vote_num){.heart} -<
 
 :   所以，你自己在提这个问题之前，其实已经知道了答案，就不妨明说吧，你在二本学
     校，进 google 的可能性有，但是概率非常非常非常低，比其他学校的学生概率要低得
@@ -3562,51 +3224,43 @@ control, (cmd, or Win + R)
     维能力，同时你还真的对轮子感兴趣。事后我可能会去搜索一下看看你说的理论是否
     正确，但至少我会学到点新东西。
 
----
+当然啦。。**看 C++ 要看 leveldb, 看 C 要看 redis** -<
 
-我告诉你一个识别 C++ 代码质量的诀窍：找几个 class，如果其 dtor 有 delete 或释放
-资源的操作，看看作者是否同时正确禁用了 copy ctor 和 assignment operator（或者正
-确实现了它们，如果 class 确实应该是 copyable 的话），这反映了作者设计 C++ class
-的基本功：正确管理内存和其他资源，以及他有没有认真读过 Effective C++。
+:   我告诉你一个识别 C++ 代码质量的诀窍：找几个 class，如果其 dtor 有 delete 或释放
+    资源的操作，看看作者是否同时正确禁用了 copy ctor 和 assignment operator（或者正
+    确实现了它们，如果 class 确实应该是 copyable 的话），这反映了作者设计 C++ class
+    的基本功：正确管理内存和其他资源，以及他有没有认真读过 Effective C++。
 
-当然啦。。**看 C++ 要看 leveldb, 看 C 要看 redis**
+    其实，一个人要成牛人，最重要的不是看过多少书，而是有没有一个自己的世界观，并且
+    从这个世界观出发，**知道什么要做，什么能做，什么要坚持，什么要追求，什么是命中注
+    定，什么是此生无缘，然后才能选 A 不选 B，有决断心和行动力**。为此，得要体会过了别人
+    选择的艰难，明白所要追求事业的难度，然后自己的选择才有意义。这些可以通过读书，
+    也可以通过别的方式。
 
-[yedf/handy: 简洁易用的 C++11 网络库 / 支持单机千万并发连接 / a simple C++11 network server framework](https://github.com/yedf/handy)
+    在这个行业当实习生，待遇恰恰是最不重要的，你的起点高度跟你几年后能达到的水准没
+    有任何必然关系。而且，你到岗后的努力也比你一开始的选择更加重要。
+
+[yedf/handy: 简洁易用的 C++11 网络库 / 支持单机千万并发连接 / a simple C++11 network server framework](https://github.com/yedf/handy) -<
 
 :   非常简洁的一个网络库，10 行代码能够编写一个完整的 echo 服务器，采用最新的 c++11
     语法，总共才 2 千行左右的代码
 
     学习中的建议：
 
-      - libevent、asio 等成熟的广泛应用的库，其中有大量的代码是为了跨平台，适合
+    -   libevent、asio 等成熟的广泛应用的库，其中有大量的代码是为了跨平台，适合
         熟练的开发者阅读，不适合初学者。
-      - redis，memcache 等开源项目，适合进阶的开发者开发一个实际的应用，而 handy
-        有更多的例子，可以帮助开发者一步一步掌握网络编程的技巧。
+    -   redis，memcache 等开源项目，适合进阶的开发者开发一个实际的应用，而
+        handy有更多的例子，可以帮助开发者一步一步掌握网络编程的技巧。
 
 [现在的大学生没有经过任何的论文写作训练，应该如何写论文？ - 知乎](https://www.zhihu.com/question/22011864)
 
 [计算机领域有哪些短小精悍的轮子？(仅用于教学)？ - 知乎](https://www.zhihu.com/question/38737972)
 
-rudimentary `[,rudɪ'mɛntri]` adj. 基本的；初步的；退化的；残遗的；未发展的
-
-```vim
-ab fatd     <i class="icon-thumbs-down"></i>
-ab fatu     <i class="icon-thumbs-up"></i>
-```
-
-Vim 中，选中上面，把内容存到某一个寄存器（比如 `"ay`），然后执行寄存器中的内容：`:@a`。
-
-其实，一个人要成牛人，最重要的不是看过多少书，而是有没有一个自己的世界观，并且
-从这个世界观出发，**知道什么要做，什么能做，什么要坚持，什么要追求，什么是命中注
-定，什么是此生无缘，然后才能选 A 不选 B，有决断心和行动力**。为此，得要体会过了别人
-选择的艰难，明白所要追求事业的难度，然后自己的选择才有意义。这些可以通过读书，
-也可以通过别的方式。
-
 [【云+校园计划】 1元=免费域名+专享服务器-腾讯云官方论坛](http://bbs.qcloud.com/thread-9953-1-1.html)
 
 面总部肯定全英语，除非是遇到中国人
 
-[酒店挂什么书法不俗气？ - 王路的粽子铺 - 知乎专栏](http://zhuanlan.zhihu.com/p/20798133)
+[酒店挂什么书法不俗气？ - 王路的粽子铺 - 知乎专栏](http://zhuanlan.zhihu.com/p/20798133) -<
 
 :   酒店的厕所，也喜欢附庸风雅，男厕所叫“观瀑亭”，女厕所叫“听雨轩”。第一个想出
     这名字的人，脑子还算活络。但这个味道并不好。《红楼梦》大观园里有座亭子要挂
@@ -3630,7 +3284,7 @@ Vim 中，选中上面，把内容存到某一个寄存器（比如 `"ay`），�
 
 [没有他，你或许永远不会听到那段「灯，等灯等灯」](http://daily.zhihu.com/story/8041676?utm_campaign=in_app_share&utm_medium=iOS&utm_source=pocket)
 
-[我是一个只有 3 分钟热度的人](http://daily.zhihu.com/story/8051957)
+[我是一个只有 3 分钟热度的人](http://daily.zhihu.com/story/8051957) -<
 
 :   你可能高估了兴趣爱好的价值。你所看到的那些每天早起背诵英语的人、每天坚持跑
     步的人、在寒夜中蹲点拍摄星空的人，他们能够坚持，不是因为他们有这样的兴趣爱
@@ -3648,7 +3302,7 @@ Vim 中，选中上面，把内容存到某一个寄存器（比如 `"ay`），�
     这种枯燥的训练，不是简单的时间的堆砌，还要我们去反思、总结，亲近我们所做的
     事，了解它背后的机理。
 
-[程序人生](http://mp.weixin.qq.com/s?__biz=MjM5ODUxMjQ0MA==&mid=403964940&idx=1&sn=653984cf28c9e78c05d137427ea0c5d2&scene=2&srcid=0324fL7W3CdgbicHhMKCHtLD#wechat_redirect)
+[程序人生](http://mp.weixin.qq.com/s?__biz=MjM5ODUxMjQ0MA==&mid=403964940&idx=1&sn=653984cf28c9e78c05d137427ea0c5d2&scene=2&srcid=0324fL7W3CdgbicHhMKCHtLD#wechat_redirect) -<
 
 :   当我学了一点电脑知识后，就发现电脑将是我人生的最爱。读书时，我不是特别会搞
     关系的人，同学关系说不上差，也好不到那里去。
@@ -3678,14 +3332,11 @@ Vim 中，选中上面，把内容存到某一个寄存器（比如 `"ay`），�
 
 [Lionel Liu | Optimized C++](http://lionelliu.com/2016/optimized-c++.html)
 
-在这个行业当实习生，待遇恰恰是最不重要的，你的起点高度跟你几年后能达到的水准没
-有任何必然关系。而且，你到岗后的努力也比你一开始的选择更加重要。
-
 ![](http://www.doxdesk.com/img/updates/20091116-so-large.gif)
 
 [C++11 support in compilers - KlayGE](http://www.klayge.org/wiki/index.php/C++11_support_in_compilers)
 
-[Using abbreviations - Vim Tips Wiki - Wikia](http://vim.wikia.com/wiki/Using_abbreviations)
+[Using abbreviations - Vim Tips Wiki - Wikia](http://vim.wikia.com/wiki/Using_abbreviations) -<
 
 :   `:ab rasa refs and see also`
 
@@ -3701,7 +3352,7 @@ Vim 中，选中上面，把内容存到某一个寄存器（比如 `"ay`），�
 
 [hluk/CopyQ: Clipboard manager with advanced features](https://github.com/hluk/CopyQ)
 
-[云风的 BLOG: Lua 不是 C++](http://blog.codingnow.com/2008/08/lua_is_not_c_plus_plus.html)
+[云风的 BLOG: Lua 不是 C++](http://blog.codingnow.com/2008/08/lua_is_not_c_plus_plus.html) -<
 
 :   表面上看起来，这个粘合层是设计的是很精妙的，它隐藏了 lua 虚拟机的细节。C++
     程序员在写代码的时候，并不需要实际上也的确是，不知道 lua 的存在。而 lua 程
@@ -3726,9 +3377,9 @@ Vim 中，选中上面，把内容存到某一个寄存器（比如 `"ay`），�
 
     refs and see also
 
-      - [云风的 BLOG: 对面向对象的一些思考](http://blog.codingnow.com/2008/06/object_oriented.html)
+    -   [云风的 BLOG: 对面向对象的一些思考](http://blog.codingnow.com/2008/06/object_oriented.html)
 
-[城市裡的赤狐（深入淺出跟你們聊聊狐狸的感情生活） - 文章](http://www.weibo.com/p/1001603967081782590306)
+[城市裡的赤狐（深入淺出跟你們聊聊狐狸的感情生活） - 文章](http://www.weibo.com/p/1001603967081782590306) -<
 
 :   男人喜歡把好女人教壞，而總是試圖拯救壞女人。改變都是為了佔有（直男並沒有什
     麼好東西）
@@ -3737,7 +3388,7 @@ Vim 中，选中上面，把内容存到某一个寄存器（比如 `"ay`），�
     但是這種關係非常不穩定，因為大家都是千年的狐狸還玩什麼純愛，彼此姐妹撕逼，
     夫妻撕逼，姐妹磨逼，天打雷劈，之後還是會變成一對一的互動。
 
-[一句话都不需要说 (空房间 影评)](https://movie.douban.com/review/1088158/)
+[一句话都不需要说 (空房间 影评)](https://movie.douban.com/review/1088158/) -<
 
 :   韩国电影一贯展现出对国家势力的厌恶，以及个人对体制的抵抗。
 
@@ -3753,59 +3404,7 @@ Vim 中，选中上面，把内容存到某一个寄存器（比如 `"ay`），�
 
 [遇上同样的事，你会怎么做？ (伊甸湖 影评)](https://movie.douban.com/review/1603794/?start=400#comments)
 
-有天偶然翻到母亲的日记
-
-是十几年前，我小时候家里经济紧张。
-
-母亲这么写到：
-
->   今天是 11 月 28 日，他（我父亲）的生日，我想买一份他喜欢的礼物送给他，一张有生日
->   祝福的卡片，可是我却没有钱。我想做几个他喜欢吃的菜，可是孩子没人管。这一天就这样
->   过去了，我心里感到非常过意不去，只望明年我们一家三口同祝他生日快乐
-
-眼泪一下就掉了。
-
-家住城东的张先生结束了一天辛苦的工作之后在汉堡王排队买吃的，身后站了一对母子。
-儿子不停的爆粗口大吵大闹嚷嚷着要买苹果派。张先生很有礼貌的让那个妈妈哄哄她儿子
-，结果麻麻说，“关你屁事”。
-
-于是。。。
-
-张先生就把店里所有的苹果派全部买走了。。。
-
-嗯哼，有钱就是好啊_(:з」∠)_
-
-有一次和女朋友出去吃东西，吃饱之后在商城里逛一逛，路过一家服装店，看到一件女装
-很漂亮，走近前摸一下料子，营业员看我们两个一副学生模样，冷冷的对我们说了句：“这
-件衣服打完折 998。”
-
-当时我钱包里大概有千把块钱，看营业员一副买不起别碰的表情，我是多想掏空钱包买上一件。
-
-女朋友没说什么，笑一笑客套两句就拉着我走了。
-
-真庆幸有这样的女朋友。
-
-调查结果如下：
-
--   绝大多数母语成年人士的词汇量为 20,000–35,000 words
--   8 岁的母语人士平均词汇量为 10,000 words
--   4 岁的母语人士平均词汇量为 5,000 words
--   母语人士的词汇量大小主要是 4 到 15 岁之间的阅读量决定
-
-令人比较丧气的结果如下：
-
--   绝大多数外语人士的词汇量仅为 4,500 words
--   在英语国家居住的（？非）母语人士词汇量平均仅为 10,000 words
-
-不论是国内还是国外的考试要求词汇量，真的是太低了，四六级只有五六千，专四专八也
-就才一万三，托福雅思考试被誉为外语水平最高等级测试，词汇量要求不过一万，老外压
-根没想过中国人外语能学的多好。
-
-而词汇量一万，只不过是母语国家 8 岁小孩的词汇水平，将会在听说读写中遇到极大的障碍！
-
-![](https://img3.doubanio.com/view/note/large/public/p33273771.jpg)
-
-[耽美（文学词汇）_百度百科](http://baike.baidu.com/link?url=rcotfZBXUU1p0KUJo-EjcDkjrLQbM9m4GCr8xb4puSrCaycNy_6gcSCvM9XMnfPrAfhIwjZZz4xUw2_Cwi5Q6xXJ5roicxbyaiITJm18O7O)
+[耽美（文学词汇）_百度百科](http://baike.baidu.com/link?url=rcotfZBXUU1p0KUJo-EjcDkjrLQbM9m4GCr8xb4puSrCaycNy_6gcSCvM9XMnfPrAfhIwjZZz4xUw2_Cwi5Q6xXJ5roicxbyaiITJm18O7O) -<
 
 :   耽美（和制英语：Boys' Love），这个词最早是出现在日本近代文学中，为反对自然主义
     文学而呈现的另一种文学写作风格：耽美派。耽美派的最初本意是“反对暴露人性的丑恶面
@@ -3821,7 +3420,7 @@ Vim 中，选中上面，把内容存到某一个寄存器（比如 `"ay`），�
     视等作品甚至现实里已知的人物、设定衍生出来的文章及其他如图片影音游戏等等，或“自
     主”的创作。
 
-[如何找电子书和有声书资源](https://www.douban.com/note/550583018/)
+[如何找电子书和有声书资源](https://www.douban.com/note/550583018/) -<
 
 :   -   http://readfree.me/ （我还买了 vip。这个网站可以上传书，所以我也经常去贡献一下。我知道还有其他类似的网站，但是我好像对这个情有独钟，哈哈）
     -   http://audioc.at/ （资源不是很多，但是书都选得不错）
@@ -3837,58 +3436,7 @@ Vim 中，选中上面，把内容存到某一个寄存器（比如 `"ay`），�
 
     另外 piratebay 资源超级丰富，只是我在学校不太敢用。
 
-tenure `['tɛnjɚ]` n. 任期；占有, vt. 授予…终身职位
-
-![](https://img3.doubanio.com/view/status/median/public/ee4caf11a621030.jpg) ![](https://img1.doubanio.com/view/status/median/public/d770114036f4be8.jpg)
-
-刚买海鲜粉，我说老板我要一份 zhì子的，边上一女生说老板我要一份花 há，老板说蛏子和花蛤是吧……汉语可能迟早要死在我们这一代人手上了
-
-![](https://img3.doubanio.com/view/status/raw/public/10f17c89c74b664.jpg)
-
-想把以前的自己拖出来打一顿
-
-实在是忍无可忍了。今天我也搞个大新闻，把你们这些无良媒体批判一番。
-
-这篇新闻稿通篇看下来，就是十六个字：“**偷换概念，哗众取宠，欲盖弥彰，含沙射影**”。
-
-四是含沙射影。这是用心最歹毒的一条。文中多次故意创造对立立场，先是把“能力”与“名
-校”对立，再是把“证书”和“文凭”对立。恶意创造矛盾，不少网友和答主的思路成功被其带
-偏。用尽偷换概念哗众取宠欲盖弥彰等手法，第二部分还更是直截了当的说“他不是高分低
-能的人”，那么换言之，媒体口中和他对立的“凭着 985 一纸文凭”的人是什么人呢？我呵呵
-呵呵呵呵呵呵呵。至于最后提到的什么“天机”，我更是连呵呵都不想呵呵了。
-
-综上，这是一篇毫无新闻节操的新闻稿。天朝的新闻搞到今天这个地步，诚然有着不自由、
-管制等等外部原因，但某些无良媒体本身也必然难辞其咎。说你们乃义务，你们还真别不
-服。
-
-除非你特别优秀，真的是社会实践能力强能办事会来事的人才。
-
-没有六级就不说了，好像驾照都没有。。
-喂喂，，现代社会，驾照可是必备的啊，总不能以后跑业务公司还得给你配个司机吧？
-
-现代社会驾照基本已经成了标配，大家不要觉得反正现在买不起车就不学了。日后在单位
-上班，跑个业务，或者自己做事情，会开车，你做事就会更方便自己安排，而不用去靠别
-人。
-
-我相信比我证更多更有价值的大有人在，人家也不会什么东西都往简历里塞的。其实写个
-有驾照留个 git 账号或者项目都比**不痛不痒的获奖证书**有用多了。写一堆没用的证进简
-历别人只能觉得呵呵这孩子看来也没什么能拿出手的东西了这些玩意都堆简历上了……
-
 [在 ACM-ICPC 中获得很好成绩的人，现在都在干什么？ - 程序猴子的回答 - 知乎](https://www.zhihu.com/question/26828533/answer/34212232)
-
-```tzx-bigquote
-~   !   @   #   $   %   ^   &   *  |<| |>| |?| ||| BSPACE
-`  |/| |7| |5| |3| |1| |9| |0| |2| |4| |6| |8| |\|  <---
-
-TAB   "  |(| |)|  P   Y   F   G   C   R   L  |{| |}| |+|
-      '   ,   .   p   y   f   g   c   r   l  |[| |]| |=|
-
-CAPS   A   O   E   U   I   D   H   T   N   S   _    ENTER
-       a   o   e   u   i   d   h   t   n   s   -
-
-SHIFT    :   Q   J   K   X   B   M   W   V   Z      SHIFT
-         ;   q   j   k   x   b   m   w   v   z
-```
 
 [Layout – The Miniguru – Always on the Home Row](http://www.guru-board.com/english/layout_en)
 
@@ -3898,7 +3446,7 @@ SHIFT    :   Q   J   K   X   B   M   W   V   Z      SHIFT
 
 [Dolly zoom - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dolly_zoom)
 
-[面试了个 985 的计算机应届生，还比不过个专科生，读 985 的计算机专业有什么用？ - 高天的回答 - 知乎](https://www.zhihu.com/question/41923868/answer/92880107)
+[面试了个 985 的计算机应届生，还比不过个专科生，读 985 的计算机专业有什么用？ - 高天的回答 - 知乎](https://www.zhihu.com/question/41923868/answer/92880107) -<
 
 :   在公司招聘的时候，花钱买的不光是一个人的**即战力**，还有一个人的**潜力**。
 
@@ -3917,10 +3465,10 @@ SHIFT    :   Q   J   K   X   B   M   W   V   Z      SHIFT
     性价比高的贡献。
 
     比较可怕的是另一种公司，他们自认为是一个有潜力，有发展，有进步的公司，但是
-    却用以上两种公司的眼光去审视他们的面试者。明明应该考基本功的时候考技术分支
-    ，该考算法概念的时候考函数实现，该考功能设计的时候考语言特性，该考应聘者未
-    来上限的时候考现在的下限。结果招来了一群战斗力强，潜力低的人，还嫌弃人家学
-    东西慢。
+    却用以上两种公司的眼光去审视他们的面试者。明明应该考基本功的时候考技术分支，
+    该考算法概念的时候考函数实现，该考功能设计的时候考语言特性，该考应聘者未来
+    上限的时候考现在的下限。结果招来了一群战斗力强，潜力低的人，还嫌弃人家学东
+    西慢。
 
     因此作为一个面试者，清晰地了解自己面试的目的，并根据目的调节面试方法是很重
     要的。当你问一个问题的时候，应该想到，这个问题如果让他学，他多久能学会，这
@@ -4004,9 +3552,9 @@ SHIFT    :   Q   J   K   X   B   M   W   V   Z      SHIFT
     悠悠来上班，上累了高高兴兴回家，不知道国内有多少公司可以。
 
     当然最重要的是，我觉得我真的在做一些东西，是技术上的而不是实现上的。是一个
-    别人很少做的，业内领先的，对于客户有帮助的产品；而不是某些人一拍脑袋想出的
-    ，只靠 idea 没有技术支撑的，拼凑的产品。我自己特别在乎这个，**我真的不想成为一
-    个实现某些人莫名其妙想法的工具**。
+    别人很少做的，业内领先的，对于客户有帮助的产品；而不是某些人一拍脑袋想出的，
+    只靠 idea 没有技术支撑的，拼凑的产品。我自己特别在乎这个，**我真的不想成为
+    一个实现某些人莫名其妙想法的工具**。
 
     你说我有没有想回国的时候？天天都想。
 
@@ -4052,8 +3600,8 @@ SHIFT    :   Q   J   K   X   B   M   W   V   Z      SHIFT
 
     为什么现代“城府深”的女人被骂心机的多？原因前面说了，她们城府并不深啊！只是
     **喜欢面前装无辜，背后捅刀子而已**。**这是个选择，而不是能力。**而且现代所
-    谓“城府深”的女人，大多最终目的就是争个男朋友，或者备胎，或者“白富美”的称号
-    ，就这个浅显的目的，也未免太让人看不上眼了。
+    谓“城府深”的女人，大多最终目的就是争个男朋友，或者备胎，或者“白富美”的称号，
+    就这个浅显的目的，也未免太让人看不上眼了。
 
     最后，这绝不是一篇黑现代女人只会抢男人，大事都是男人去做的答案。只是想说明
     现在很多被说“有城府”的女人，真心谈不上“有城府”，**最多算是个“脸皮厚”**。
@@ -4100,31 +3648,31 @@ SHIFT    :   Q   J   K   X   B   M   W   V   Z      SHIFT
 
     **狂妄自大，尖酸刻薄，聪明绝顶**
 
+    -   阶段一：不知道自己不知道 (Unconscious incompetence)
+    -   阶段二：知道自己不知道（Conscious incompetence）
+    -   阶段三：知道自己知道（Conscious competence）
+    -   阶段四：不知道自己知道（Unconscious competence）
+
     refs and see also
 
-      - [高天 答过的问题 - 知乎](https://www.zhihu.com/people/gao-tian-50/answers?order_by=vote_num)
+    -   [高天 答过的问题 - 知乎](https://www.zhihu.com/people/gao-tian-50/answers?order_by=vote_num)
 
--   阶段一：不知道自己不知道 (Unconscious incompetence)
--   阶段二：知道自己不知道（Conscious incompetence）
--   阶段三：知道自己知道（Conscious competence）
--   阶段四：不知道自己知道（Unconscious competence）
+Vim -<
 
-```tzx-bigquote
-                            *[quotex]*
-["x]        An optional register designation where text can be stored.
-        See |registers|.  The x is a single character between 'a' and
-        'z' or 'A' and 'Z' or '"', and in some cases (with the put
-        command) between '0' and '9', '%', '#', or others.  The
-        uppercase and lowercase letter designate the same register,
-        but the lowercase letter is used to overwrite the previous
-        register contents, while the uppercase letter is used to
-        append to the previous register contents.  Without the ""x" or
-        with """" the stored text is put into the unnamed register.
-```
+-   ```tzx-bigquote
+                                *[quotex]*
+    ["x]        An optional register designation where text can be stored.
+            See |registers|.  The x is a single character between 'a' and
+            'z' or 'A' and 'Z' or '"', and in some cases (with the put
+            command) between '0' and '9', '%', '#', or others.  The
+            uppercase and lowercase letter designate the same register,
+            but the lowercase letter is used to overwrite the previous
+            register contents, while the uppercase letter is used to
+            append to the previous register contents.  Without the ""x" or
+            with """" the stored text is put into the unnamed register.
+    ```
 
-Vim
-
--   `c_ctrl-r`, `i_ctrl-r`
+    `c_ctrl-r`, `i_ctrl-r`
 
     +   c: cmdline-mode
 
@@ -4205,7 +3753,7 @@ Vim
     with a space.
     ```
 
-[对不起，我只尊重值得尊重的老人 - 简书](http://www.jianshu.com/p/b48e9eeebbe5)
+[对不起，我只尊重值得尊重的老人 - 简书](http://www.jianshu.com/p/b48e9eeebbe5) -<
 
 :   “不是老人变坏了，而是坏人变老了”
 
@@ -4242,30 +3790,14 @@ Vim
 
     refs and see also
 
-      - [你所拒绝的往往就是机会 - 简书](http://www.jianshu.com/p/e1481093e27f)
-      - [你是否专业，一出手别人就知道了 - 简书](http://www.jianshu.com/p/d6ac0031c48f)
-      - [在职场上你要懂点人情世故呀 - 简书](http://www.jianshu.com/p/d7d5d2c1d294#)
-      - [春的后面不是秋，何必为“单身”发愁 - 简书](http://www.jianshu.com/p/f3ddcf4ecfe9)
-      - [说起来，还是家教问题 - 简书](http://www.jianshu.com/p/37ccfc49eb0a)
-      - [面试时如何做“自我介绍” - 简书](http://www.jianshu.com/p/33ee641b108a)
+    -   [你所拒绝的往往就是机会 - 简书](http://www.jianshu.com/p/e1481093e27f)
+    -   [你是否专业，一出手别人就知道了 - 简书](http://www.jianshu.com/p/d6ac0031c48f)
+    -   [在职场上你要懂点人情世故呀 - 简书](http://www.jianshu.com/p/d7d5d2c1d294#)
+    -   [春的后面不是秋，何必为“单身”发愁 - 简书](http://www.jianshu.com/p/f3ddcf4ecfe9)
+    -   [说起来，还是家教问题 - 简书](http://www.jianshu.com/p/37ccfc49eb0a)
+    -   [面试时如何做“自我介绍” - 简书](http://www.jianshu.com/p/33ee641b108a)
 
-李敖当年追胡茵梦穷追不舍。说“胡因梦的美是一种在大庭广众里面，在几百人几千人之中，
-你一眼就能看到她，并且为之目夺的美。”俩人婚后仅四个月就迅速地离婚，李敖对外宣称
-原因说是“看到胡因梦这样一位大美女**不仅每天也要吃喝拉撒，而且会在马桶上做出狰狞
-的表情……**”大失所望。
-
-我也喜欢这种老公 。跟他吵架，他摔门就走，我趴窗台问他什么时候回来，他说我**再回来
-就是你孙子**，哥再也不回来了。过了两个小时后他拎着烧烤和果汁在门外喊：奶奶我回来
-啦！
-
-**因为爱着你的爱，所以才妥协。**
-
-“不爱就顽固，爱就妥协。”
-
-kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友的话说，好像大叔去声色场所
-消费看到了自己的女儿。
-
-[Shared libraries with GCC on Linux - Cprogramming.com](http://www.cprogramming.com/tutorial/shared-libraries-linux-gcc.html)
+[Shared libraries with GCC on Linux - Cprogramming.com](http://www.cprogramming.com/tutorial/shared-libraries-linux-gcc.html){.heart} -<
 
 :   链接的时候用 `-L`, `-I` 还不够，运行的时候要 export `$LD_LIBRARY_PATH`，特别麻烦，
 
@@ -4355,7 +3887,7 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
         with shared libraries–as well as the positives and negatives of
         different approaches.
 
-「拎起来三斤半，放下去，还是三斤半。」
+「拎起来三斤半，放下去，还是三斤半。」 -<
 
 :   -   [网易云音乐的歌单推荐算法是怎样的？ - 知乎](https://www.zhihu.com/question/26743347)
     -   [什么才算是真正的编程能力？ - 知乎](https://www.zhihu.com/question/31034164)
@@ -4367,11 +3899,11 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
     -   [SimonS 答过的问题 - 知乎](https://www.zhihu.com/people/simonshao/answers?order_by=vote_num)
     -   [和圆一样的三角形 | 科学人 | 果壳网 科技有意思](http://www.guokr.com/article/93390/)
 
-[一拍一拍摄服务流程](https://ypy.douban.com/docs/about_service)
+[一拍一拍摄服务流程](https://ypy.douban.com/docs/about_service) -<
 
 :   网页做得很精美，每个部分都用图片作为背景。
 
-[【MOOC 学院专访】清华邓俊辉：用 MOOC 告诉你，数据结构可以很优美 | MOOC 学院](http://mooc.guokr.com/post/610516/)
+[【MOOC 学院专访】清华邓俊辉：用 MOOC 告诉你，数据结构可以很优美 | MOOC 学院](http://mooc.guokr.com/post/610516/) -<
 
 :   这门课禁止了 STL 的使用，让学生自己动手实现这些功能。打个比喻吧，汽车系的学
     生不同驾校的学生。驾校的学生拿到驾照就达到目标了，汽车工程系则要深入学习汽车的
@@ -4397,37 +3929,18 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
 
     refs and see also
 
-      - [邓俊辉 - Junhui Deng](http://dsa.cs.tsinghua.edu.cn/~deng/index.htm)
-      - [DSACPP](http://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/index.htm)
-
+    -   [邓俊辉 - Junhui Deng](http://dsa.cs.tsinghua.edu.cn/~deng/index.htm)
+    -   [DSACPP](http://dsa.cs.tsinghua.edu.cn/~deng/ds/dsacpp/index.htm)
 
 [Unity & Cocos2D-x之间的战火硝烟](http://subject.manew.com/unity-cocos/index.html)
 
-对于寻找这家书店的执念，还得从女巫说起。女巫在还不是女巫的时候，就特别喜欢看书，
-我和她是自幼儿园就相识的发小，**男孩子性格的我教她挖土爬树，安静的她带我去新华
-书店席地而坐看不花钱的书**，一看就是半天，每每都是我第一个深感无聊想走。晃眼上
-大学后，女巫掉进了塔罗牌的魔界里，一方面为学习这种魔法而高兴不已，另一个方面又
-为穷追身边法力高强的大神亦不及其二分之一而苦恼不堪，在她生命中的某一天的某个时
-刻，她决定到世界各地的书店寻找塔罗牌的秘籍和宝典。
-
 [ASCII Chart - cppreference.com](http://en.cppreference.com/w/cpp/language/ascii)
 
-曾有一调查显示正在学习经济（很热门）的学生里头，超过九成的学生表示学习经济是为
-了赚钱，剩下不倒一成的则表示是兴趣使然。若干年后的追踪调查显示当初那不足一成的
-学生真就在这块领域有所成就，而那超过九成里头的大多数人**依旧默默无闻**。（记不太清
-楚，好像是在美国的一个调查，大致意思如此）
-
-说的和网页设计无关的话，折叠请随意，只是想说任何一个行业做深了都会有前途，一开
-始就考虑功利性问题是题主的心态不大对，为何不先问问自己是否喜欢网页设计呢，如果
-喜欢那还犹豫什么。
-
-茅塞顿开。。。本来想来留个评论的发现被拉黑了，换马甲来赞一下！
-
-什么样的人会被夸性格好？
+什么样的人会被夸性格好？ -<
 
 :   给别人面子，能接受别人装逼，而且以上皆不出于自己的无能。
 
-为什么吃饭吃得很干净会被嘲笑？
+为什么吃饭吃得很干净会被嘲笑？ -<
 
 :   哈哈哈哈。
 
@@ -4444,19 +3957,15 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
 
     因为我就是那个洗碗的( ･᷄ὢ･᷅ )
 
-故事的真假姑且不论，在经济学上，一旦人们做了某种选择，就好比走上了一条不归之路
-，惯性的力量会使这一选择不断自我强化，并让你轻易走不出去，
-我们一般称之为**“路径依赖”**。
+[IBM2016 校园招聘](http://search.ibmcampus.com/sc/show_job_detail.php?jobid=76686290) -<
 
-[IBM2016 校园招聘](http://search.ibmcampus.com/sc/show_job_detail.php?jobid=76686290)
-
-:   某人<span class="tzx-hide">(小璇璇)</span>想去试试这个。
+:   小璇璇说想去试试这个。
 
 [【GeoScience Café】樊珈珮：获得 special offer 的秘诀](http://www.lmars.whu.edu.cn/detail.jsp?id=y0iih62yl7)
 
 [Geocafe](http://www.lmars.whu.edu.cn/list.jsp?id=y0hxafezty)
 
-[下一个十年，能读完吗？ (评论: TCP/IP Illustrated)](https://book.douban.com/review/5555969/)
+[下一个十年，能读完吗？ (评论: TCP/IP Illustrated)](https://book.douban.com/review/5555969/) -<
 
 :   如果 Richard Steven 没有英年早逝，想必 Internet 的世界一定会因为他变得更美好一点点。
 
@@ -4470,7 +3979,7 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
     题，为什么人需要另一个人与之心灵相契？人们“孤独”地出生，“孤独”地死去，却要
     穷其一生去抗拒孤独。一个人存在于世的意义是否就是要在对方的心里证明自己“存在”过？
 
-[星座和血型究竟有多么科学 | 王子亭的博客](https://jysperm.me/2012/06/518/)
+[星座和血型究竟有多么科学 | 王子亭的博客](https://jysperm.me/2012/06/518/) -<
 
 :   >   处女座是很难做人的，其实他们骨子里是相当孤傲，很喜欢安静，不喜欢多说话，
     >   可是又不得不想让周围的人因为他们的存在而感到快乐和幸福！所以，稍微稳当点
@@ -4481,7 +3990,7 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
 
     我们处女座才不会相信星座呢…
 
-[就你知道得多！你咋不上天呢？！ (死侍 影评)](https://movie.douban.com/review/7781499/)
+[就你知道得多！你咋不上天呢？！ (死侍 影评)](https://movie.douban.com/review/7781499/) -<
 
 :   我的好基友孙师傅在看了这部电影之后获得的人生经验是，**当满场的鬼佬都笑得像傻
     逼似的，自己不笑反而显得更像傻逼了**。看了这部电影我才更深刻地体会到自己英语
@@ -4509,18 +4018,9 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
 
     refs and see also
 
-      - [Deadpool 电影——我喜欢/ 不喜欢的地方 (死侍 影评)](https://movie.douban.com/review/7771494/)
+    -   [Deadpool 电影——我喜欢/ 不喜欢的地方 (死侍 影评)](https://movie.douban.com/review/7771494/)
 
-成长的过程中总会被不曾期待的人帮助。六年前来应聘 redhat 的工作，因为一些原因，面
-试了整整一年，面了四个职位，和 20 多位各个社区的人们对谈了总计几十个小时，最后是
-北京这边的 hr 总监帮我解决了所有问题并顺利入职。至今很感谢这位大姐，她叫郑艳，早
-已离开红帽。
-
--   完成所有面试至少比停在 hr 面试 要靠谱...
--   之前有个阿里内推了也是面了 9 面跪了
--   据说漂亮女生会让多面几次，让各位兄弟都看看 (不是直男癌)
-
-[千年女优【论一个影迷的自我修养】](https://www.douban.com/note/412268823/)
+[千年女优【论一个影迷的自我修养】](https://www.douban.com/note/412268823/){.heart} -<
 
 :   ![千代子的原型为传奇女优原节子这一点几乎不存争议。](https://img3.doubanio.com/view/note/large/public/p19639430.jpg)
 
@@ -4574,13 +4074,9 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
 
     refs and see also
 
-      - [你不懂此片，不懂青春，也不懂日本女人 (千年女优 影评)](https://movie.douban.com/review/4458206/)
+    -   [你不懂此片，不懂青春，也不懂日本女人 (千年女优 影评)](https://movie.douban.com/review/4458206/)
 
-最近听三国演义，发现男人们争霸天下，虽英雄各有所长。但有几科公共课，不管有没有
-真本事，都是人人必修的，一是要会吹牛 x，一是要会装 x，还有一个是对喷，所以听着听
-着，有时常常会产生一种正在刷微博的错觉。
-
-![](http://ww1.sinaimg.cn/mw690/005CNqf4jw1f2zfe2mcytg3046046abb.gif)
+![](http://ww1.sinaimg.cn/mw690/005CNqf4jw1f2zfe2mcytg3046046abb.gif) -<
 
 -   Q: 现在的很多保健品保健器材把不少中老年人吃的死死的，而绝大多数年轻人压根不信
     这一套，那么等过四五十年，这一代年轻人老了以后，会有什么新的骗术产生？
@@ -4596,7 +4092,7 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
 
 [Egypt closes 27,000 places of worship - Al-Monitor: the Pulse of the Middle East](http://www.al-monitor.com/pulse/originals/2015/03/egypt-endowments-decision-close-worship-places.html#)
 
-["你的最大问题，就是写得太少，想得太多“【... 来自程序员邹欣 - 微博](http://weibo.com/1912273717/DrbOmqq74?from=page_1005051912273717_profile&wvr=6&mod=weibotime&type=comment)
+["你的最大问题，就是写得太少，想得太多“【... 来自程序员邹欣 - 微博](http://weibo.com/1912273717/DrbOmqq74?from=page_1005051912273717_profile&wvr=6&mod=weibotime&type=comment){.heart} -<
 
 :   不想去实践的人，永远都有借口不实践。他会怪社会、父母、学校等等。二十年前我
     们学汇编语言，一周只有一个小时“上机”时间。那时候谁也没有计算机。我是先在笔
@@ -4634,12 +4130,12 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
 
     refs and see also
 
-      - ["你的最大问题，就是写得太少，想得太多“【... 来自程序员邹欣 - 微博](http://weibo.com/1912273717/DrbOmqq74?from=page_1005051912273717_profile&wvr=6&mod=weibotime&type=comment)
-      - [You Should Plan On Switching Jobs Every Three Years For The Rest Of Your Life | Fast Company | Business + Innovation](http://www.fastcompany.com/3055035/the-future-of-work/you-should-plan-on-switching-jobs-every-three-years-for-the-rest-of-your-?utm_source=wanqu.co&utm_campaign=Wanqu+Daily&utm_medium=social)
+    -   ["你的最大问题，就是写得太少，想得太多“【... 来自程序员邹欣 - 微博](http://weibo.com/1912273717/DrbOmqq74?from=page_1005051912273717_profile&wvr=6&mod=weibotime&type=comment)
+    -   [You Should Plan On Switching Jobs Every Three Years For The Rest Of Your Life | Fast Company | Business + Innovation](http://www.fastcompany.com/3055035/the-future-of-work/you-should-plan-on-switching-jobs-every-three-years-for-the-rest-of-your-?utm_source=wanqu.co&utm_campaign=Wanqu+Daily&utm_medium=social)
 
 [Sieve of Eratosthenes - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes)
 
-[图灵社区 : 阅读 : LinkedIn高级分析师王益：大数据时代的理想主义和现实主义（图灵访谈）](http://www.ituring.com.cn/article/75445)
+[图灵社区 : 阅读 : LinkedIn高级分析师王益：大数据时代的理想主义和现实主义（图灵访谈）](http://www.ituring.com.cn/article/75445){.heart} -<
 
 :   **其实体会过编程的乐趣的人，不容易沉迷于游戏** ——因为前者是人设计规则，让机
     器照着做；后者是人跟着机器的规则动，有点儿像围栏里的牛一样——当然是前者更有
@@ -4691,13 +4187,13 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
 
     refs and see also
 
-      - [王益：分布式机器学习的故事 - 文章 - 伯乐在线](http://blog.jobbole.com/57027/)
-      - [LinkedIn 高级分析师王益：大数据时代的理想主义和现实主义 - 图灵访谈 - SegmentFault](https://segmentfault.com/a/1190000002416822)
-      - [wangkuiyi/lasso: LASSO is a parallel regression model learning system](https://github.com/wangkuiyi/lasso)
+    -   [王益：分布式机器学习的故事 - 文章 - 伯乐在线](http://blog.jobbole.com/57027/)
+    -   [LinkedIn 高级分析师王益：大数据时代的理想主义和现实主义 - 图灵访谈 - SegmentFault](https://segmentfault.com/a/1190000002416822)
+    -   [wangkuiyi/lasso: LASSO is a parallel regression model learning system](https://github.com/wangkuiyi/lasso)
 
 [如何保持正确的坐姿？ - 知乎](https://www.zhihu.com/question/23238816)
 
-[HTML 代码片段 - 简书](http://www.jianshu.com/p/2f4910883192)
+[HTML 代码片段 - 简书](http://www.jianshu.com/p/2f4910883192) -<
 
 :   ```html
     <!--[ifIE6]>
@@ -4730,16 +4226,9 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
 
 [fletcher/MultiMarkdown: Expanded perl version of John Gruber's original Markdown --- No longer under active development since MMD 3](https://github.com/fletcher/MultiMarkdown)
 
-<div class="tzx-hide">
-985 > 211
-</div>
+[为什么面试总喜欢考算法题？ - V2EX](https://www.v2ex.com/t/214579#reply28){.heart}
 
-学习能力最重要，对于未知的领域能否自我完成任务。
-技术视野可以一定程度反应学习能力。
-
-[为什么面试总喜欢考算法题？ - V2EX](https://www.v2ex.com/t/214579#reply28)
-
-[如何评价崔永元在复旦大学与复旦生科院卢大儒教授就转基因问题的激烈争辩？ - 知乎](https://www.zhihu.com/question/29072461)
+[如何评价崔永元在复旦大学与复旦生科院卢大儒教授就转基因问题的激烈争辩？ - 知乎](https://www.zhihu.com/question/29072461) -<
 
 :   张江狗实名支持
 
@@ -4755,7 +4244,8 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
     趁你不注意，他还突然考你一两个精心预备的细节，若你一不小心应对失误，那就更
     加被动啦。
 
-    结合崔永元那句“我们新闻共同体认为你们科学共同体才是最不靠谱的”和现场的反应说两句。
+    结合崔永元那句“我们新闻共同体认为你们科学共同体才是最不靠谱的”和现场的反应
+    说两句。
 
     中国的科学虽然起步晚，基础差，且受到社会动乱等因素的影响。但如今取得的成就，
     尤其是在所讨论的生物学和转基因领域，已经是毋庸置疑的世界领先，乃至顶尖水平。
@@ -4786,9 +4276,9 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
 
     总有那么点经不起推敲，并且是明眼人一看就明的那种。
 
-    马克斯·普朗克于1918年荣获诺贝尔物理学奖，之后他在全德国作巡回报告。不管被邀
-    请到哪里，他都会就新的量子力学演讲一番。他的司机渐渐对他的报告烂熟于心。“普
-    朗克教授，老作同样的报告，你一定觉得无聊。我建议，在慕尼黑由我代你作报告，
+    马克斯·普朗克于 1918 年荣获诺贝尔物理学奖，之后他在全德国作巡回报告。不管被
+    邀请到哪里，他都会就新的量子力学演讲一番。他的司机渐渐对他的报告烂熟于心。
+    “普朗克教授，老作同样的报告，你一定觉得无聊。我建议，在慕尼黑由我代你作报告，
     你坐最前排，戴上我的司机帽。让咱俩换换花样。”普朗克兴致盎然，欣然同意。于是
     司机为一群专家级听众作了一番有关量子力学的长篇报告。之后，一位物理学教授举
     手提问。司机回答说：“我压根儿没想到，在慕尼黑这样先进的城市里还会有人提出这
@@ -4866,59 +4356,10 @@ kindle 给我推送了一本书的广告。我瞬间觉得，呃……用朋友�
 
     refs and see also
 
-      - [崔永元 复旦大学转基因讲演问答环节完整版（51分钟+）—在线播放—优酷网，视频高清在线观看](http://v.youku.com/v_show/id_XOTIxNTI4MjY0.html)
-      - [如何看待崔永元表示“转录了七个基因”是在反讽方舟子？ - 生意库](http://www.kb2b.net/zhihu/29090369.html)
+    -   [崔永元 复旦大学转基因讲演问答环节完整版（51分钟+）—在线播放—优酷网，视频高清在线观看](http://v.youku.com/v_show/id_XOTIxNTI4MjY0.html)
+    -   [如何看待崔永元表示“转录了七个基因”是在反讽方舟子？ - 生意库](http://www.kb2b.net/zhihu/29090369.html)
 
----
-
-少壮不努力，老大抢小米
-
-觉得上海学生应该是真的。去美国答辩都不慌。北京到有一个个例一个老师伪装学生去答
-辩。而且上海的中学每周选修课都是要做创新实验的。小组合作。此外每周还有讲座和机
-器人社团。你做不出来不代表别人不行，此外，老师水平也很重要。
-
-再举个例子 CUPT 大学生做的题目直接来自 IYPT (国际青年物理学家竞赛简称IYPT（
-international youth physical tournament）)，高中生。
-
-最后我觉得创新不是那么高大上。一步一步嘛，提倡微创新比较好。有些事情你也懂，有
-没有做过？有没有发现误差分析呢？
-
-华二有个学生看爷爷喝中药要煮，在想为什么要煮呢？很多人觉得很傻吧。最后她在地黄
-里面提取了一种治疗胰岛素的物质。
-
-**现在的记者，总想弄个大新闻。。。**其实不过是自己 too young too simple，
-sometimes naive。
-
-想当年我参加一个叫做中小学电脑制作比赛的东西，全国一二等奖有保送。当年一二等奖
-的全部都是一些家长代写的各种神奇的系统。我实现了一篇实时渲染地形 LOD 的 paper
-只有三等奖。后来还看到一个人自己实现了一个物理引擎也只有三等奖。
-
-虽然我当年没有获得保送，但这丝毫没有影响我最后深入学习自己感兴趣的知识，进入
-MSRA 和大牛工作以及申请满意的 PhD 项目。反倒是从未听说当年保送的那些人有哪个今天为
-人所知。
-
-这种事情，就让他们一群傻逼去闹吧，看淡了就行。坚持自己的兴趣，获不获奖真的不重
-要。学到知识是自己的。**傻逼终究还是傻逼。**
-
-题主问这个问题，让我回想起在本科尤其是大一大二的时候对 SIGGRAPH 无比崇拜的思想感
-情。那时候觉得最大的人生理想莫过于发一篇 SIGGRAPH 然后去会议上给 Presentation 了。
-如今，真的当科研成为自己的主要工作的时候，就完全没有了当年那种神圣的感觉了。尤
-其是当你看到很多乱七八糟的论文居然也能发表在所谓的顶会的时候，那种神圣的幻觉就
-瞬间崩塌了。做出了站得住脚的东西，发表也是理所应当的。当你有了一个好的想法并且
-尽力去做好一篇文章的时候，其实已经不太在意能不能发表在某个具体的会议上了。
-**好的东西不管发表在哪里都是好的东西，不好的东西就算发了顶会也不过是招人耻笑而已。**
-
-只有在这一背景下创建的、实力和影响力在当时都很靠前的高等“四大工学院”，即中国最
-早建立的四所著名的重点工学院：
-
-  - 南京工学院（现东南大学）
-  - 华南工学院（现华南理工大学）
-  - 华中工学院（现华中科技大学）
-  - 大连工学院（现大连理工大学）。
-
-才是纯血真皇家四大。
-
-[关于编程的胡扯 - 陈梓瀚(vczh) - 博客园](http://www.cnblogs.com/geniusvczh/archive/2012/06/22/2558407.html)
+[关于编程的胡扯 - 陈梓瀚(vczh) - 博客园](http://www.cnblogs.com/geniusvczh/archive/2012/06/22/2558407.html) -<
 
 :   在这之前，刚好 MSR 的 Daan Leijen 因为来北京参加 programming language 相关
     的 conference，就来我们这里参观了一下。后来我看他做过 GUI，做过 parser
@@ -4964,9 +4405,9 @@ MSRA 和大牛工作以及申请满意的 PhD 项目。反倒是从未听说当�
 
     refs and see also
 
-      - [进入 2012 -- 回顾我走过的编程之路 - 陈梓瀚 (vczh) - 博客园](http://www.cnblogs.com/geniusvczh/archive/2011/12/16/2290808.html)
+    -   [进入 2012 -- 回顾我走过的编程之路 - 陈梓瀚 (vczh) - 博客园](http://www.cnblogs.com/geniusvczh/archive/2011/12/16/2290808.html)
 
-[有多少程序员后悔英语没学好？或者庆幸学好了? - 知乎](https://www.zhihu.com/question/27867216)
+[有多少程序员后悔英语没学好？或者庆幸学好了? - 知乎](https://www.zhihu.com/question/27867216) -<
 
 :   英语想要投入日常生活中使用还是比较难的，不过幸好有声称“我 6 级差点就到 600”的
     老婆，我实在听不懂就让她弄，啊哈哈哈。
@@ -4974,43 +4415,3 @@ MSRA 和大牛工作以及申请满意的 PhD 项目。反倒是从未听说当�
 [CoCo - A Python Virtual Machine](http://knuth.luther.edu/~leekent/CoCo/)
 
 [Microsoft/ChakraCore: ChakraCore is the core part of the Chakra Javascript engine that powers Microsoft Edge](https://github.com/Microsoft/ChakraCore)
-
-中国的大学课程是说得太多做的太少，简而言之就是不重视 project，像编译器 os 这种重量
-级课程，国外都是给你提供一些 framework 的代码然后让你慢慢从 0 开始搞一个成品出来。
-对于 cs 学生来说动手非常非常重要。
-
-编译器里面涉及到的算法非常多而且复杂，像龙书这种教材的理论证明很多，直接上手难
-度比较大而且比较乏味。这个时候不妨参考“多少天自制 XX 语言”这种书或者文章，先撸一
-遍，然后你会明白到涉及到的算法和问题是怎么一回事。像我在大三的时候就开始翻龙书
-，但是**之后几年一直卡在前几章各种不懂**，每次想尝试去突破总觉得理解不了然后就
-不了了之，隔一段时间后再重复这个循环。后来自己直接撸了个玩具编译器，再去翻龙书
-发现没有像以前那样晦涩难懂。话说回来，龙书绝对不是入门的书，哪怕 compiler
-engineering 都比龙书易懂，虽然我认为 complier engineering 同样不适合入门。
-
-**轮子造多了对个人的能力提升很大，就算你只写过玩具，搞大型项目的时候上手就快很多了。**
-
-微软不就是去年招人放了点水么，再怎么放水招的人的平均水平肯定还是会比 bat 要好一
-些，用不用得着这样来黑。
-
-对于这个问题，未设定变量太多，发个这样的问题万一媒体报道出了偏差题主可是要负责
-任的。个人的自主学习能力、部门的区别、过往经验、兴趣，还有老板和 mentor 的水平，
-这些都能影响一个人的发展。
-
-话说回来，微软作为老牌 IT 企业，技术积累和工程实力肯定是顶尖的，像 windows 和
-office这种代码规模的系统，换 bat 来做那光是给人上门维护花费都够垮几次了。技术不
-光是写网页做 app，而个人的发展也不仅仅是写代码的能力，bat 甚至是 google 和
-facebook 里面很多开发测试流程都是从微软学过来的。去微软至少可以了解到这家伟大的
-公司几十年来开发流程和技术的演变，这不是挺好的么
-
-为什么网上各种教程都是教人写 tokenize 和 parser，说明这部分太容易学了。
-
-不吹不黑，一个数据结构及格的程序员，即使完全不懂编译原理，看一下 nfa 和递归下降的
-原理再写一个简单的 tokenize 和 parser 解析一个简单的语言两天应该能搞定。不过要是吃
-透编译器前端的那么多知识，比如 nfa->dfa 到最小 dfa，LL/LR/SLR/LALR，能做到手写标准
-的正则引擎，山寨 yacc 的水平的话，不潜下心来钻研个一年半载估计是没戏。能做到这个
-水平，全国任何公司的 offer 肯定都是任意挑选的。反正我比较笨学了好多年都还没吃透
-
-编译器前端的到目前为止确实像是到头了，像 lex、yacc、antlr 这么多工具你看看手册就
-能写个 parser 出来。而编译器后端的代码生成、数据流分析、寄存器分配这些怎么就没见
-多少人谈论？还不是因为这部分跟前端相比难得多，高手都直接发论文了，普通人接触过
-这些东西就会发现自己知识的浅薄不敢乱吹牛了。

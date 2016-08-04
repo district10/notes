@@ -206,15 +206,15 @@ title: 历史笔记 4
       - [欣喜堂 | 活字字体基础讲座: 不要再用「代称」了 ─和字字体历史](http://www.typeisbeautiful.com/kinkido-2/)
       - [欣喜堂 | 活字字体基础讲座: 宋朝体与明朝体的流变─汉字字体历史](http://www.typeisbeautiful.com/kinkido-3/)
 
-[Type is Beautiful » 维吾尔字体百年掠影——从喀什噶尔到乌鲁木齐 （Uyghurche font tarixi — Qeshqerdin Ürümchigiche）](http://www.typeisbeautiful.com/2016/02/9927/)
+[Type is Beautiful » 维吾尔字体百年掠影——从喀什噶尔到乌鲁木齐 （Uyghurche font tarixi — Qeshqerdin Ürümchigiche）](http://www.typeisbeautiful.com/2016/02/9927/) -<
 
-:   1959 年维吾尔族设计了以拉丁字母为基础的新文字方案，于 1964 年开始推行。但是经
-    过几年的实践证明，推行维吾尔新文字的条件尚不成熟，为此 1982 年新疆维吾尔自治
-    区第五届人大常委会第十七次会议通过了《全面使用维吾尔、哈萨克老文字的报告》
-    ，于是迄今为止，维吾尔族人民仍在使用以阿拉伯字母为基础的维吾尔老文字。不过
-    ，由于长期文化交流，现在不少维吾尔人能使用多种语言文字，特别是城市里的的维
-    吾尔族知识分子大多会说汉语和使用汉文,很多维吾尔族学习英语，日语，俄语。新疆
-    北部阿尔泰，塔城，原伊犁等地区的维吾尔族一般会说哈萨克语。
+:   1959 年维吾尔族设计了以拉丁字母为基础的新文字方案，于 1964 年开始推行。但是
+    经过几年的实践证明，推行维吾尔新文字的条件尚不成熟，为此 1982 年新疆维吾尔
+    自治区第五届人大常委会第十七次会议通过了《全面使用维吾尔、哈萨克老文字的报
+    告》，于是迄今为止，维吾尔族人民仍在使用以阿拉伯字母为基础的维吾尔老文字。
+    不过，由于长期文化交流，现在不少维吾尔人能使用多种语言文字，特别是城市里的
+    的维吾尔族知识分子大多会说汉语和使用汉文,很多维吾尔族学习英语，日语，俄语。
+    新疆北部阿尔泰，塔城，原伊犁等地区的维吾尔族一般会说哈萨克语。
 
     ![新维吾尔文字，摄于玉素甫·哈斯·哈吉甫陵墓](http://www.typeisbeautiful.com/wp-content/uploads/2016/01/uyghur_5.jpg)
 
@@ -225,14 +225,14 @@ title: 历史笔记 4
     的态度一直延续至今。
 
     **与 1950 年代的字体相比，1982 年的字体少了之前的人文灵动，显得工整。**更重
-    要的是，传统维吾尔文书法的痕迹明显减少了，字体中甚至出现了一些非传统的特征。在
-    以往的几千年，西面的波斯文化就像是中亚的灯塔，源源不断地供给着阿拉伯文字的
-    营养；而这百年，来自北方俄罗斯和东方中国内地这两种截然不同的文化又在这里扮
-    演者越来越重要的角色，在对新事物的影响中，波斯文化退居二线，从而导致了新字
-    体与传统出现了断裂。比如对笔画的过度简化，对部件的误用，以及整体审美的偏移
-    。这几点也是今天维吾尔字体与世界上其它阿拉伯字体的显著不同。这些不同点可能
-    是当年为了制作铅字方便而来，也可能是一个偶然的错误，由于没有人察觉就约定俗
-    成，成了新的标准。
+    要的是，传统维吾尔文书法的痕迹明显减少了，字体中甚至出现了一些非传统的特征。
+    在以往的几千年，西面的波斯文化就像是中亚的灯塔，源源不断地供给着阿拉伯文字
+    的营养；而这百年，来自北方俄罗斯和东方中国内地这两种截然不同的文化又在这里
+    扮演者越来越重要的角色，在对新事物的影响中，波斯文化退居二线，从而导致了新
+    字体与传统出现了断裂。比如对笔画的过度简化，对部件的误用，以及整体审美的偏
+    移。这几点也是今天维吾尔字体与世界上其它阿拉伯字体的显著不同。这些不同点可
+    能是当年为了制作铅字方便而来，也可能是一个偶然的错误，由于没有人察觉就约定
+    俗成，成了新的标准。
 
     ![几款不同时代的维吾尔字体比较](http://www.typeisbeautiful.com/wp-content/uploads/2016/01/uyghur_8.jpg)
 
@@ -256,23 +256,17 @@ title: 历史笔记 4
 
     refs and see also
 
-      - [Type is Beautiful » 维吾尔字体百年掠影——从喀什噶尔到乌鲁木齐 （Uyghurche font tarixi — Qeshqerdin Ürümchigiche）](http://www.typeisbeautiful.com/2016/02/9927/)
-
----
-
-`make -p`{.makefile} see implicit rules, peek?
+    -   [Type is Beautiful » 维吾尔字体百年掠影——从喀什噶尔到乌鲁木齐 （Uyghurche font tarixi — Qeshqerdin Ürümchigiche）](http://www.typeisbeautiful.com/2016/02/9927/)
 
 [bower install 提示 github connection timeout 解决办法 | halfcrazy 在疯言疯语](http://halfcrazy.me/2014/12/09/bower-install%E8%B6%85%E6%97%B6/) -<
 
-:   网上的说法是由于 bower 默认采用 `git://` 协议，而当 `git://` 协议被屏蔽时就会出
-    现这个错误，此时只需将默认 `git://` 协议换成 `https://` 就行了。在 shell 中执行
-    如下指令
+:   网上的说法是由于 bower 默认采用 `git://` 协议，而当 `git://` 协议被屏蔽时就
+    会出现这个错误，此时只需将默认 `git://` 协议换成 `https://` 就行了。在
+    shell 中执行如下指令
 
     ```bash
     $ git config --global url."https://".insteadOf git://
     ```
-
-cherry, coco, candy, **sounds like stripper name.**
 
 [zornlemma/bilibili_RE_block_list: bilibili_block_list/哔哩哔哩弹幕屏蔽正则表达式列表](https://github.com/zornlemma/bilibili_RE_block_list) -<
 
@@ -304,41 +298,17 @@ cherry, coco, candy, **sounds like stripper name.**
     非洲农业|危害大|克拉|种庄稼|氮磷钾|不流失|不蒸发|谁说对了
     ```
 
----
+D3.js fundamentals -<
 
-http://emeeks.github.io/d3ia/
+:   D3 is about selecting and binding
 
-D3.js fundamentals
+    -   `d3.selectAll("circle.a").style("fill", "red").attr("cx", 100);`{.javascript}
+    -   `d3.selectAll("div.market").data([1,5,11,3])`{.javascript}
 
-D3 is about selecting and binding
-
-- `d3.selectAll("circle.a").style("fill", "red").attr("cx", 100);`{.javascript}
-- `d3.selectAll("div.market").data([1,5,11,3])`{.javascript}
-
-```html
-<!DOCTYPE html><meta charset="utf-8">
-<script charset="utf-8" src="d3.js"></script>
-```
-
-`.style("background", "lightblue")`
-
----
-
--   scapegoat, 替罪羔羊。
--   model minority, 模范少数族裔
--   **supporting actress**, 女配角（女二号）
--   best picture
--   best director
--   tuxedo, 燕尾服
--   bowtie
--   money management
--   manage money, finacies
--   wealth, **loaded**...
--   **living from paycheck to paycheck, 月光族**
--   swiping the credit card
--   take out a loan
--   **get a morgage**
--   refinancing (抵押) your house, **ballsy (`['bɔlzi]`, 有胆量的；有决心的；有种的)**
+    ```html
+    <!DOCTYPE html><meta charset="utf-8">
+    <script charset="utf-8" src="d3.js"></script>
+    ```
 
 [Tuxedo - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Tuxedo) -<
 
@@ -361,7 +331,7 @@ D3 is about selecting and binding
     Etiquette (`['ɛtɪkɛt]`, 礼节，礼仪；规矩): The tuxedo is a form of evening
     wear and as such is intended to be worn only in the evening.
 
-[Inplace Editing](http://www.perlmonks.org/?node=Inplace%20Editing) -<
+[Inplace Editing](http://www.perlmonks.org/?node=Inplace%20Editing){.heart} -<
 
 :   `perl -p -i -n -e 's/this/that/g' *.txt`{.bash},
     BTW when I use `-pine` for the switches it doesn't work, anyone know why?
@@ -391,7 +361,7 @@ Dumb Makefile -<
         git add -A; git commit -m "`date` - `uname`"; git push;
     ```
 
-Simple HTTP Server -<
+`Simple HTTP Server`{.heart} -<
 
 :   ```bash
     python -m SimpleHTTPServer 8888          # python 2
@@ -405,8 +375,8 @@ Simple HTTP Server -<
 
     downloads:
 
-      - [Java: jetty-runner](http://central.maven.org/maven2/org/eclipse/jetty/jetty-runner/9.3.0.M0/jetty-runner-9.3.0.M0.jar)
-      - [Windows: mongoose-free-5.5.exe (免安装，win binary)](http://whudoc.qiniudn.com/2016/mongoose-free-5.5.exe)
+    -   [Java: jetty-runner](http://central.maven.org/maven2/org/eclipse/jetty/jetty-runner/9.3.0.M0/jetty-runner-9.3.0.M0.jar)
+    -   [Windows: mongoose-free-5.5.exe (免安装，win binary)](http://whudoc.qiniudn.com/2016/mongoose-free-5.5.exe)
 
 [CSS selector for "foo that contains bar"? - Stack Overflow](http://stackoverflow.com/questions/2000582/css-selector-for-foo-that-contains-bar) -<
 
@@ -1638,7 +1608,7 @@ d3 misc -<
 
 ---
 
-[malloc 与 free？ - 知乎](https://www.zhihu.com/question/41567197#answer-32596782) -<
+[malloc 与 free？ - 知乎](https://www.zhihu.com/question/41567197#answer-32596782){.featured .heart} -<
 
 :   我先问你个问题：指针中是没有所在内存块大小的信息的，那么 free 怎么才能知道
     要释放的内存块有多大呢？于是，对于大多数内存分配器，malloc 申请的实际内存比
@@ -1719,13 +1689,11 @@ d3 misc -<
     夏的儿子死了，他差一点哭瞎了眼睛。曾参前去批评他，子夏听后，如梦初醒，觉得
     自己离群索居很久就造成这样，于是节哀顺变，与同学玩成一片。
 
-Calibre 不知道为什么书都没了，需要点击 `Calibre Library` 然后 `恢复数据库` 进行恢复。
-
 [Showdown.js, markdown editor](http://showdownjs.github.io/demo/#/Welcome%20to%20Dvorak4tzx's%20Blog%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D)
 
 [Les Misérables Co-occurrence](https://bost.ocks.org/mike/miserables/)
 
-[如何成为一名数据科学家？](https://www.zhihu.com/question/21592677#answer-31441560) -<
+[如何成为一名数据科学家？](https://www.zhihu.com/question/21592677#answer-31441560){.heart} -<
 
 :   how to become a quant?
 
@@ -1771,7 +1739,7 @@ Calibre 不知道为什么书都没了，需要点击 `Calibre Library` 然后 `
     做 Project 就是一个把自己所学进行总结归纳升华的阶段，一定要有自己的想法，是的，
     自己的想法非常重要，要勤思考，不懂的东西勤问 google。
 
-misc -<
+**`与其看什么 Linux 入门书，不如好好看 5 遍 CSAPP`{.heart}** -<
 
 :   我的 blocks：
 
@@ -1783,7 +1751,6 @@ misc -<
 
     -   This is my personal website. I work for Microsoft, but I don't speak for them.
     -   I always used to eat whatever I felt like, whenever I felt like. (想吃就吃？)
-    -   **与其看什么 Linux 入门书，不如好好看 5 遍 CSAPP**
 
 [About Blocks - bl.ocks.org](http://bl.ocks.org/-/about) -<
 
@@ -1870,8 +1837,6 @@ CSS Selectors -<
 
       - [neuxxm的五笔教程](https://www.douban.com/note/218182753/)
 
-![](https://pic3.zhimg.com/7ee5eaaed0d45158cf025675e017536e_r.jpg)
-
 [What Makes Software Good? — Medium](https://medium.com/@mbostock/what-makes-software-good-943557f8a488) -<
 
 :   I don’t want you to learn D3 for the sake of D3. I want you to learn how to
@@ -1912,12 +1877,7 @@ CSS Selectors -<
     }
     ```
 
-Thank you for reading!
-
--   我对有才华的人特别没办法。
--   因为这些优点都是可以表演出来的。
-
-[知乎周刊・完全不像处女座（总第 045 期） - 知乎用户 | 豆瓣阅读](https://read.douban.com/ebook/5054304/) -<
+[知乎周刊・完全不像处女座（总第 045 期） - 知乎用户 | 豆瓣阅读](https://read.douban.com/ebook/5054304/){.heart} -<
 
 :   所谓巴纳姆效应，就是说那些模棱两可，放到谁身上都准确的话。19 人
 
@@ -1944,11 +1904,12 @@ Thank you for reading!
 
     我们都是理科生，但不妨碍我们每天聊这种伪科学话题傻呵呵地开心。
 
-纵然不是胡编，但基本也和“今天阴间多云，部分地区会有阳光，时有阵风阵雨”一样，总是能准的。
+    纵然不是胡编，但基本也和“今天阴间多云，部分地区会有阳光，时有阵风阵雨”一样，
+    总是能准的。
 
 [哲学家--王浩_刘湘_博联社](http://home.blshe.com/blog.php?uid=15395&id=30002) -<
 
-:   跟某同学 (小璇璇) 聊天的时候说到了王浩。为了确保没说错，过后我又查了一下。
+:   跟小璇璇聊天的时候说到了王浩。为了确保没说错，过后我又查了一下。
     话说我是在《上学记》里知道的这个人。
 
     王浩是中国有史以来唯一对哲学做过深刻贡献的学者。尽管在数学、计算机、逻辑都
@@ -1989,10 +1950,10 @@ Thank you for reading!
 
     refs and see also
 
-      - [王浩 (数学家) - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-cn/%E7%8E%8B%E6%B5%A9_(%E6%95%B0%E5%AD%A6%E5%AE%B6))
-      - [上学记 (豆瓣)](http://book.douban.com/subject/1859140/)
-      - [Wang tile - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Wang_tile)
-      - [纪念王浩先生](https://www.douban.com/group/topic/5005555/)
+    -   [王浩 (数学家) - 维基百科，自由的百科全书](https://zh.wikipedia.org/zh-cn/%E7%8E%8B%E6%B5%A9_(%E6%95%B0%E5%AD%A6%E5%AE%B6))
+    -   [上学记 (豆瓣)](http://book.douban.com/subject/1859140/)
+    -   [Wang tile - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Wang_tile)
+    -   [纪念王浩先生](https://www.douban.com/group/topic/5005555/)
 
 [dashed/pandoc-seed-project: Seed git repo for pandoc based projects. Just clone and pandoc.](https://github.com/dashed/pandoc-seed-project)
 
@@ -2005,7 +1966,7 @@ Thank you for reading!
 
     真是太简洁了~ 如果换成是“用粉笔把你的名字写在黑板上”，那就完全没有味道了。
 
-[把 ANSI 編碼轉化爲 UTF-8 - 简书](http://www.jianshu.com/p/22c2f5af5a21) -<
+[把 ANSI 編碼轉化爲 UTF-8 - 简书](http://www.jianshu.com/p/22c2f5af5a21){.heart} -<
 
 :   encoding, utf8
 
@@ -2445,42 +2406,6 @@ MISC -<
     });
     ```
 
-[zenorocha/clipboard.js: Modern copy to clipboard. No Flash. Just 2kb](https://github.com/zenorocha/clipboard.js/) -<
-
-:   <!-- Target -->
-    <input id="foo" value="https://github.com/zenorocha/clipboard.js.git">
-
-    <!-- Trigger -->
-    <button class="btn" data-clipboard-target="#foo">
-    Copy to clipboard
-    </button>
-
-    <!-- Target -->
-    <textarea id="bar">Mussum ipsum cacilds...</textarea>
-    <button class="btn" data-clipboard-action="cut" data-clipboard-target="#bar">
-    Cut to clipboard
-    </button>
-
-    <button class="btn" data-clipboard-text="Just because you can doesn't mean you should — clipboard.js">
-    Copy to clipboard
-    </button>
-
-    <button class="btn" data-clipboard-text="http://tangzx.qiniudn.com">点我复制本站网址</button>
-
-    ```javascript
-    new Clipboard('.btn', {
-        target: function(trigger) {
-            return trigger.nextElementSibling;
-        }
-    });
-
-    new Clipboard('.btn', {
-        text: function(trigger) {
-            return trigger.getAttribute('aria-label');
-        }
-    });
-    ```
-
 [chunksnbits/jquery-quickfit: A quick and dirty approach to fitting text into its surrounding container.](https://github.com/chunksnbits/jquery-quickfit)
 
 [Controlling Crawling and Indexing  |  Webmasters  |  Google Developers](https://developers.google.com/webmasters/control-crawl-index/)
@@ -2565,56 +2490,59 @@ MISC -<
       - [When to use target="_blank" | CSS-Tricks](https://css-tricks.com/use-target_blank/)
       - [attr - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/attr)
 
-本来想看一下 CMake 生成的 Makefile 学习一下 Makefile 的使用。结果……完全一头雾水。
-然后去看了一下 CMake 用来测试编译器的 C 和 C++ 代码，好牛逼！这里选两段秀秀：
+CMake Bonus -<
 
-int2dec, int2hex -<
+:   本来想看一下 CMake 生成的 Makefile 学习一下 Makefile 的使用。结果……完全一头
+    雾水。然后去看了一下 CMake 用来测试编译器的 C 和 C++ 代码，好牛逼！这里选两
+    段秀秀：
 
-:   ```cpp
-    /* Convert integer to decimal digit literals.  */
-    #define DEC(n)                   \
-      ('0' + (((n) / 10000000)%10)), \
-      ('0' + (((n) / 1000000)%10)),  \
-      ('0' + (((n) / 100000)%10)),   \
-      ('0' + (((n) / 10000)%10)),    \
-      ('0' + (((n) / 1000)%10)),     \
-      ('0' + (((n) / 100)%10)),      \
-      ('0' + (((n) / 10)%10)),       \
-      ('0' +  ((n) % 10))
+    int2dec, int2hex -<
 
-    /* Convert integer to hex digit literals.  */
-    #define HEX(n)             \
-      ('0' + ((n)>>28 & 0xF)), \
-      ('0' + ((n)>>24 & 0xF)), \
-      ('0' + ((n)>>20 & 0xF)), \
-      ('0' + ((n)>>16 & 0xF)), \
-      ('0' + ((n)>>12 & 0xF)), \
-      ('0' + ((n)>>8  & 0xF)), \
-      ('0' + ((n)>>4  & 0xF)), \
-      ('0' + ((n)     & 0xF))
-    ```
+    :   ```cpp
+        /* Convert integer to decimal digit literals.  */
+        #define DEC(n)                   \
+          ('0' + (((n) / 10000000)%10)), \
+          ('0' + (((n) / 1000000)%10)),  \
+          ('0' + (((n) / 100000)%10)),   \
+          ('0' + (((n) / 10000)%10)),    \
+          ('0' + (((n) / 1000)%10)),     \
+          ('0' + (((n) / 100)%10)),      \
+          ('0' + (((n) / 10)%10)),       \
+          ('0' +  ((n) % 10))
 
-[snippets.html#cmakeccompilerid](snippets.html#cmakeccompilerid) -<
+        /* Convert integer to hex digit literals.  */
+        #define HEX(n)             \
+          ('0' + ((n)>>28 & 0xF)), \
+          ('0' + ((n)>>24 & 0xF)), \
+          ('0' + ((n)>>20 & 0xF)), \
+          ('0' + ((n)>>16 & 0xF)), \
+          ('0' + ((n)>>12 & 0xF)), \
+          ('0' + ((n)>>8  & 0xF)), \
+          ('0' + ((n)>>4  & 0xF)), \
+          ('0' + ((n)     & 0xF))
+        ```
 
-:   ```c
-    #ifdef __cplusplus
-    # error "A C++ compiler has been selected for C."
-    #endif
+    [snippets.html#cmakeccompilerid](snippets.html#cmakeccompilerid) -<
 
-    #if defined(__18CXX)
-    # define ID_VOID_MAIN
-    #endif
+    :   ```c
+        #ifdef __cplusplus
+        # error "A C++ compiler has been selected for C."
+        #endif
 
-    #ifdef ID_VOID_MAIN
-    void main() {}
-    #else
-    int main(int argc, char* argv[])
-    {
-      (void)argv;
-      return 0;
-    }
-    #endif
-    ```
+        #if defined(__18CXX)
+        # define ID_VOID_MAIN
+        #endif
+
+        #ifdef ID_VOID_MAIN
+        void main() {}
+        #else
+        int main(int argc, char* argv[])
+        {
+          (void)argv;
+          return 0;
+        }
+        #endif
+        ```
 
 [An Ode to My Work Laptop · That Mike Flynn](http://thatmikeflynn.com/2016/01/21/ode-to-my-work-laptop/) -<
 
@@ -3145,206 +3073,204 @@ Image lazy load -<
     },{"uniq":1}]},{},);
     ```
 
-<https://github.com/substack/browserify-handbook#exports>
-
-```javascript
-// num
-module.exports = 555
-
-// list
-var numbers = [];
-for (var i = 0; i < 100; i++) numbers.push(i);
-module.exports = numbers;
-
-// module.exports vs exports: both an empty object
-exports.beep = function (n) { return n * 1000 } | module.exports.beep = function (n) { return n * 1000 }
-exports.boop = 555                              | module.exports.boop = 555
-
-# but
-// this doesn't work
-exports = function (n) { return n * 1000 }
-// instead
-module.exports = function (n) { return n * 1000 }
-```
-
-If you're still confused, try to understand how modules work in the background:
-
-```javascript
-var module = {
-  exports: {}
-};
-
-// 下面的括号必须，eval a function
-// If you require a module, it's basically wrapped in a function
-(function(module, exports) {
-  exports = function (n) { return n * 1000 };
-}(module, module.exports))
-
-console.log(module.exports); // it's still an empty object :(
-```
-
-`foo.foo` is a bit superfluous (`[sʊ'pɝflʊəs]`, 多余的, 不必要的).
-use this clean version of exports:
-
-```javascript
-// foo.js
-module.exports = function (n) { return n * 111 }
-// main.js
-var foo = require('./foo.js');
-console.log(foo(5));
-```
-
-Bonus: if you put your script tag right before the `</body>`, you can use
-all of the dom elements on the page without waiting for a dom onready
-event.
-
-原来如此！！！
-
-- how browserify works
-- how node_modules works
-    + 如果相对路径，那就用相对路径，否则
-    + 先搜当前 js 文件所在目录下的 `node_modules` 目录
-    + 再搜上一层
-    + 再搜家目录
-
-node also has a mechanism for searching an array of paths, but this
-mechanism is deprecated and you should be using `node_modules/` unless you
-have a very good reason not to.
-
-why concatenate
-
-  - loads much faster
-  - 但不能不容易找到 bug 来源，original files
-
-AMD
-
-```javascript
-define(['jquery'] , function ($) {
-    return function () {};
-});
-```
-
-原理：<https://github.com/jrburke/requirejs/blob/master/require.js#L17>
-
-exorcist (`['ɛksɔrsɪst]` n. 驱魔的人；召魂者)
-
-  ~ The downside of inlining all the source files into the inline source map is
-    that the bundle is twice as large. This is fine for debugging locally
-    but not practical for shipping source maps to production. However, you
-    can use exorcist to pull the inline source map out into a separate
-    bundle.map.js file:
-    `browserify main.js --debug | exorcist bundle.js.map > bundle.js`{.bash}
-
-auto-recompile & other tools
-
-  - [watchify](https://npmjs.org/package/watchify)
-  - beefy (smaller)
-  - wzrd (much smaller)
-  - [browserify & gulp, a guide for getting started](http://viget.com/extend/gulp-browserify-starter-faq)
-
-builtins
-
-  - In order to make more npm modules originally written for node work in
-    the browser, browserify provides many browser-specific implementations
-    of node core libraries:
-
-      + assert
-      + buffer
-      + console
-      + constants
-      + crypto
-      + domain
-      + events
-      + http
-      + https
-      + os
-      + path
-      + punycode
-      + querystring
-      + stream
-      + string_decoder
-      + timers
-      + tty
-      + url
-      + util
-      + vm
-      + zlib
-
- - Buffer
- - process
- - `global` (alias for the `window` object)
-    + `__filename`
-    + `__dirname`
-
-`browserify main.js | node`{.bash}
-
-transforms
-
-  - coffeeify (`npm install cofeeify`): `browserify -t coffeeify main.coffee > bundle.js`
-
-Here are some useful heuristics for **finding good modules** on npm that work in the browser:
-
-  - I can install it with npm
-  - code snippet on the readme using require() - from a quick glance I
-    should see how to integrate the library into what I'm presently working
-    on has a very clear, narrow idea about scope and purpose
-  - knows when to delegate to other libraries - doesn't try to do too many
-    things itself
-  - written or maintained by authors whose opinions about software scope,
-    modularity, and interfaces I generally agree with (often a faster
-    shortcut than reading the code/docs very closely)
-  - inspecting which modules depend on the library I'm evaluating - this is
-    baked into the package page for modules published to npm
-  - Other metrics like number of stars on github, project activity, or a
-    slick (华而不实的) landing page, are not as reliable.
-
-Packages that are grab-bags of features waste a ton of time policing
-boundaries about which new features belong and don't belong. There is no
-clear natural boundary of the problem domain in this kind of package about
-what the scope is, it's all somebody's smug opinion.
-
-Node, npm, and browserify are not that. They are avowedly ala-carte,
-participatory, and would rather celebrate disagreement and the dizzying
-proliferation of new ideas and approaches than try to clamp down in the
-name of conformity, standards, or "best practices".
-
-testing in node and the browser
-
-  ~ Testing modular code is very easy! One of the biggest benefits of
-    modularity is that your interfaces become much easier to instantiate in
-    isolation and so it's easy to make automated tests.
-
-Tape
-
-:   Tape was specifically designed from the start to work well in both node
-    and browserify. Suppose we have an index.js with an async interface:
+    <https://github.com/substack/browserify-handbook#exports>
 
     ```javascript
-    module.exports = function (x, cb) {
-        setTimeout(function () {
-            cb(x * 100);
-        }, 1000);
-    };
+    // num
+    module.exports = 555
+
+    // list
+    var numbers = [];
+    for (var i = 0; i < 100; i++) numbers.push(i);
+    module.exports = numbers;
+
+    // module.exports vs exports: both an empty object
+    exports.beep = function (n) { return n * 1000 } | module.exports.beep = function (n) { return n * 1000 }
+    exports.boop = 555                              | module.exports.boop = 555
+
+    # but
+    // this doesn't work
+    exports = function (n) { return n * 1000 }
+    // instead
+    module.exports = function (n) { return n * 1000 }
     ```
 
+    If you're still confused, try to understand how modules work in the background:
+
     ```javascript
-    var test = require('tape');
-    var hundreder = require('../');
+    var module = {
+      exports: {}
+    };
 
-    test('beep', function (t) {
-        t.plan(1);
+    // 下面的括号必须，eval a function
+    // If you require a module, it's basically wrapped in a function
+    (function(module, exports) {
+      exports = function (n) { return n * 1000 };
+    }(module, module.exports))
 
-        hundreder(5, function (n) {
-            t.equal(n, 500, '5*100 === 500');
-        });
+    console.log(module.exports); // it's still an empty object :(
+    ```
+
+    `foo.foo` is a bit superfluous (`[sʊ'pɝflʊəs]`, 多余的, 不必要的).
+    use this clean version of exports:
+
+    ```javascript
+    // foo.js
+    module.exports = function (n) { return n * 111 }
+    // main.js
+    var foo = require('./foo.js');
+    console.log(foo(5));
+    ```
+
+    Bonus: if you put your script tag right before the `</body>`, you can use
+    all of the dom elements on the page without waiting for a dom onready
+    event.
+
+    原来如此！！！
+
+    - how `browserify` works
+    - how `node_modules` works
+        + 如果相对路径，那就用相对路径，否则
+        + 先搜当前 js 文件所在目录下的 `node_modules` 目录
+        + 再搜上一层
+        + 再搜家目录
+
+    node also has a mechanism for searching an array of paths, but this
+    mechanism is deprecated and you should be using `node_modules/` unless you
+    have a very good reason not to.
+
+    why concatenate
+
+    -   loads much faster
+    -   但不能不容易找到 bug 来源，original files
+
+    AMD
+
+    ```javascript
+    define(['jquery'] , function ($) {
+        return function () {};
     });
     ```
 
-MISC -<
+    原理：<https://github.com/jrburke/requirejs/blob/master/require.js#L17>
 
-:   Excuse the ads! We need some help to keep our site up.
+    exorcist (`['ɛksɔrsɪst]` n. 驱魔的人；召魂者)
 
-    ```javascript
+      ~ The downside of inlining all the source files into the inline source map is
+        that the bundle is twice as large. This is fine for debugging locally
+        but not practical for shipping source maps to production. However, you
+        can use exorcist to pull the inline source map out into a separate
+        bundle.map.js file:
+        `browserify main.js --debug | exorcist bundle.js.map > bundle.js`{.bash}
+
+    auto-recompile & other tools
+
+      - [watchify](https://npmjs.org/package/watchify)
+      - beefy (smaller)
+      - wzrd (much smaller)
+      - [browserify & gulp, a guide for getting started](http://viget.com/extend/gulp-browserify-starter-faq)
+
+    builtins
+
+      - In order to make more npm modules originally written for node work in
+        the browser, browserify provides many browser-specific implementations
+        of node core libraries:
+
+          + assert
+          + buffer
+          + console
+          + constants
+          + crypto
+          + domain
+          + events
+          + http
+          + https
+          + os
+          + path
+          + punycode
+          + querystring
+          + stream
+          + string_decoder
+          + timers
+          + tty
+          + url
+          + util
+          + vm
+          + zlib
+
+     - Buffer
+     - process
+     - `global` (alias for the `window` object)
+        + `__filename`
+        + `__dirname`
+
+    `browserify main.js | node`{.bash}
+
+    transforms
+
+      - coffeeify (`npm install cofeeify`): `browserify -t coffeeify main.coffee > bundle.js`
+
+    Here are some useful heuristics for **finding good modules** on npm that work in the browser:
+
+      - I can install it with npm
+      - code snippet on the readme using require() - from a quick glance I
+        should see how to integrate the library into what I'm presently working
+        on has a very clear, narrow idea about scope and purpose
+      - knows when to delegate to other libraries - doesn't try to do too many
+        things itself
+      - written or maintained by authors whose opinions about software scope,
+        modularity, and interfaces I generally agree with (often a faster
+        shortcut than reading the code/docs very closely)
+      - inspecting which modules depend on the library I'm evaluating - this is
+        baked into the package page for modules published to npm
+      - Other metrics like number of stars on github, project activity, or a
+        slick (华而不实的) landing page, are not as reliable.
+
+    Packages that are grab-bags of features waste a ton of time policing
+    boundaries about which new features belong and don't belong. There is no
+    clear natural boundary of the problem domain in this kind of package about
+    what the scope is, it's all somebody's smug opinion.
+
+    Node, npm, and browserify are not that. They are avowedly ala-carte,
+    participatory, and would rather celebrate disagreement and the dizzying
+    proliferation of new ideas and approaches than try to clamp down in the
+    name of conformity, standards, or "best practices".
+
+    testing in node and the browser
+
+      ~ Testing modular code is very easy! One of the biggest benefits of
+        modularity is that your interfaces become much easier to instantiate in
+        isolation and so it's easy to make automated tests.
+
+    Tape
+
+    :   Tape was specifically designed from the start to work well in both node
+        and browserify. Suppose we have an index.js with an async interface:
+
+        ```javascript
+        module.exports = function (x, cb) {
+            setTimeout(function () {
+                cb(x * 100);
+            }, 1000);
+        };
+        ```
+
+        ```javascript
+        var test = require('tape');
+        var hundreder = require('../');
+
+        test('beep', function (t) {
+            t.plan(1);
+
+            hundreder(5, function (n) {
+                t.equal(n, 500, '5*100 === 500');
+            });
+        });
+        ```
+
+materialize.css -<
+
+:   ```javascript
     // good
     var numbers = [];
     for (var i = 0; i < 100; i++) numbers.push(i);
@@ -3370,10 +3296,6 @@ MISC -<
       |
       |--index.html
     ```
-
-    **夺取话语权只有一条路径，就是超出别人的预期；**
-
-    `--file-scope`
 
 [Pandoc - Scripting with pandoc](http://pandoc.org/scripting.html) -<
 
@@ -3401,10 +3323,6 @@ MISC -<
     can compile it, using ghc --make behead, then run the resulting executable
     behead.
 
-MISC -<
-
-:   `// var jq = jQuery.noConflict();`{.javascript}
-
     ```javascript
     $( "li" ).each(function( index ) {
       console.log( index + ": " + $( this ).text() );
@@ -3420,7 +3338,7 @@ MISC -<
     });
     ```
 
-[Attribute selectors - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) -<
+[Attribute selectors - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors){.heart} -<
 
 :   ```css
     #id_value { style properties }
@@ -3454,10 +3372,10 @@ MISC -<
 
     `background-color:`{.css} <span style="background-color: DodgerBlue;">DogerBlue</span>;
 
-     refs and see also
+    refs and see also
 
-      - [ID selectors - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors)
-      - [Attribute selectors - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
+    -   [ID selectors - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/ID_selectors)
+    -   [Attribute selectors - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors)
 
 [quotes - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/quotes) -<
 
@@ -3487,11 +3405,10 @@ MISC -<
 
     I didn't think that it was releveant to the question, and I still don't.
 
-I'm agnostic. (不可知论者)
-
 [javascript - 'innerText' works in IE, but not in Firefox - Stack Overflow](http://stackoverflow.com/questions/1359469/innertext-works-in-ie-but-not-in-firefox) -<
 
-:   我以为是浏览器显示的问题，今天一看自己的源码，原来是 Chrome 的 JS 运行出来是有的，Firefox 没有。
+:   我以为是浏览器显示的问题，今天一看自己的源码，原来是 Chrome 的 JS 运行出来
+    是有的，Firefox 没有。
 
     `elem.textContent || elem.innerText`，前者是 IE 原有，不是标准，后者才是。不过貌似火狐也要提供支持了。
 
@@ -3499,16 +3416,12 @@ I'm agnostic. (不可知论者)
 
     refs and see alos
 
-      - [W3C DOM Compatibility - HTML](http://quirksmode.org/dom/html/#t07)
-      - [Javascript with Firefox innerText issue - Stack Overflow](http://stackoverflow.com/questions/7461598/javascript-with-firefox-innertext-issue)
-      - [javascript - Why is .innerText not working in Firefox? - Stack Overflow](http://stackoverflow.com/questions/22990812/why-is-innertext-not-working-in-firefox)
-      - [Plain Text vs innerText vs textContent by Mike Wilcox » Club✩AJAX](http://clubajax.org/plain-text-vs-innertext-vs-textcontent/)
+    -   [W3C DOM Compatibility - HTML](http://quirksmode.org/dom/html/#t07)
+    -   [Javascript with Firefox innerText issue - Stack Overflow](http://stackoverflow.com/questions/7461598/javascript-with-firefox-innertext-issue)
+    -   [javascript - Why is .innerText not working in Firefox? - Stack Overflow](http://stackoverflow.com/questions/22990812/why-is-innertext-not-working-in-firefox)
+    -   [Plain Text vs innerText vs textContent by Mike Wilcox » Club✩AJAX](http://clubajax.org/plain-text-vs-innertext-vs-textcontent/)
 
-Don't get me wrong, except the government, China is my favorite country in the world ;-)
-
-In early development.
-
-[Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide/) -<
+[Markdown Style Guide](http://www.cirosantilli.com/markdown-style-guide/){.heart} -<
 
 :   Use `.md`.
 
@@ -3679,7 +3592,7 @@ In early development.
       ~ "performs a bit of randomized decimal and hex entity-encoding to help
         obscure your address from **address-harvesting spambots**".
 
-[git replacing LF with CRLF - Stack Overflow](http://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf/20653073#20653073) -<
+[git replacing LF with CRLF - Stack Overflow](http://stackoverflow.com/questions/1967370/git-replacing-lf-with-crlf/20653073#20653073){.heart} -<
 
 :   Unix-style, `lf`, win-style, `crlf`: `git config core.autocrlf true`{.bash}
 
@@ -3729,7 +3642,7 @@ In early development.
 
 [`make gh CMTMSG='我看这可以。okay? really?'`{.bash}](https://github.com/district10/blog/commit/0bbb5ce82c9044947d10d211892396f7d6a8ba92)
 
-[gnu make - Makefile variable assignment - Stack Overflow](http://stackoverflow.com/questions/448910/makefile-variable-assignment) -<
+[gnu make - Makefile variable assignment - Stack Overflow](http://stackoverflow.com/questions/448910/makefile-variable-assignment){.heart} -<
 
 :   Lazy Set: `VARIABLE = value`
       ~ Normal setting of a variable - values within it are recursively
@@ -3777,20 +3690,11 @@ In early development.
         all: foo.o lib/bar.o
         ```
 
-     refs and see also
+    refs and see also
 
-      - [GNU make](http://www.gnu.org/software/make/manual/make.html#Setting)
+    -   [GNU make](http://www.gnu.org/software/make/manual/make.html#Setting)
 
-[learnping-cmake](http://www.elpauer.org/stuff/learning_cmake.pdf) -<
-
-:   好像看过好多遍……
-
-[Starter Examples — Cmake Support for KUSP Software v0.9.1 documentation](http://www.ittc.ku.edu/kurt/kusp_docs/cmake/simple_cmake_example.html) -<
-
-:   -   `target_link_libraries( project m )`{.cmake}
-    -   `gcc -lm`{.bash}
-
-[GNU make - Using Implicit Rules](http://www.chemie.fu-berlin.de/chemnet/use/info/make/make_10.html){.featured} -<
+[GNU make - Using Implicit Rules](http://www.chemie.fu-berlin.de/chemnet/use/info/make/make_10.html){.featured .heart} -<
 
 :   -   Using Implicit Rules
         +   e.g. `.c` -> `.o`, more:
@@ -3900,6 +3804,16 @@ In early development.
 
     <#>(@makefile @target @deps)
 
+[learnping-cmake](http://www.elpauer.org/stuff/learning_cmake.pdf) -<
+
+:   好像看过好多遍……
+
+    [Starter Examples — Cmake Support for KUSP Software v0.9.1 documentation](http://www.ittc.ku.edu/kurt/kusp_docs/cmake/simple_cmake_example.html) -<
+
+    :   -   `target_link_libraries( project m )`{.cmake}
+        -   `gcc -lm`{.bash}
+
+
 [Digest::MD5 - Perl interface to the MD5 Algorithm - metacpan.org](https://metacpan.org/pod/Digest::MD5)
 
 GitHub Urls -<
@@ -3908,10 +3822,6 @@ GitHub Urls -<
     -   `git@github.com:user/repo.wiki.git`
     -   `https://github.com/user/repo`
     -   `https://github.com/user/repo/wiki`
-
-`ag`{.bash} 会默认 ignore 掉 `.gitignore` 的内容。
-
-<#>(@git @ag @ignore)
 
 [Web crawler using perl - Stack Overflow](http://stackoverflow.com/questions/15696375/web-crawler-using-perl) -<
 
@@ -3981,10 +3891,10 @@ GitHub Urls -<
     -   Keywords and Post Titles in the Permalink or Link Structure
     -   Post Titles in the TITLE Tag
 
-    refs & see also
+    refs and see also
 
-      - [How to Make Your WordPress Blog Search-Engine-Friendly (thesitewizard.com)](http://www.thesitewizard.com/sitepromotion/search-engine-friendly-wordpress-blog.shtml)
-      - [How to Create a Search Engine Friendly Website (thesitewizard.com)](http://www.thesitewizard.com/sitepromotion/search-engine-friendly.shtml)
+    -   [How to Make Your WordPress Blog Search-Engine-Friendly (thesitewizard.com)](http://www.thesitewizard.com/sitepromotion/search-engine-friendly-wordpress-blog.shtml)
+    -   [How to Create a Search Engine Friendly Website (thesitewizard.com)](http://www.thesitewizard.com/sitepromotion/search-engine-friendly.shtml)
 
 [list-style-type - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type) -<
 
@@ -3997,7 +3907,7 @@ GitHub Urls -<
     ul > li > ul > li > ul > li > ul >li > ul > li > ul > li  { list-style-type: circle; }
     ```
 
-[Patellar reflex - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Patellar_reflex) -<
+[Patellar reflex - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Patellar_reflex){.heart} -<
 
 :   ![Schematic representation of patellar tendon reflex (knee jerk)
         pathway](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Patellar_tendon_reflex_arc.png/330px-Patellar_tendon_reflex_arc.png){align=right}
@@ -4008,10 +3918,6 @@ GitHub Urls -<
 
     The patellar reflex or knee-jerk is a deep tendon reflex and is a myotatic
     reflex.
-
-[mszep/pandoc_resume: The Markdown Resume](https://github.com/mszep/pandoc_resume)
-
-[aaronwolen/pandoc-letter: A simple letter template for Pandoc](https://github.com/aaronwolen/pandoc-letter)
 
 [pandoc-templates/md2pdf at master · claes/pandoc-templates](https://github.com/claes/pandoc-templates/blob/master/md2pdf) -<
 
@@ -4107,6 +4013,10 @@ GitHub Urls -<
         -o resume.tex resume.md;
     ```
 
+    [mszep/pandoc_resume: The Markdown Resume](https://github.com/mszep/pandoc_resume)
+
+    [aaronwolen/pandoc-letter: A simple letter template for Pandoc](https://github.com/aaronwolen/pandoc-letter)
+
 dddt -<
 
 :   demo.md
@@ -4150,12 +4060,6 @@ dddt -<
         </dd>
         </dl>
         ```
-    <#>(@dd @dt @html)
-
--   GitHub Search: `https://github.com/search?utf8=%E2%9C%93&q=.vimrc`
--   However, despite many trials and extensive googling, I still can't figure out
-    how to tell pandoc to use the provided template (provided as `.cls` file) to
-    render the document correctly.
 
 [Simple Pandoc latex.template with comments](https://gist.github.com/bosmacs/1052004) -<
 
@@ -4514,33 +4418,13 @@ dddt -<
     \end{document}
     ```
 
--   That little nugget (`['nʌɡɪt]`, 天然金块，矿块；珍闻，珍品) of information just saved my day.
--   [Hacking Travis](http://whudoc.qiniudn.com/travis/)
--   [osg 学习之十六：osgconv 工具 (android 支持的纹理格式) - xuhaiyan8825 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/xuhaiyan8825/article/details/7999767)
--   `osgconv` 是一种非常有用的的工具来读取标准的 3D 格式，如 OpenFlight, 3DS, Alias
-    Wavefront (OBJ) etc，并且可以将它们转换为一种 OSG 所支持的格式，如 OSG 中的 ASCII
-    格式的 `.osg`，二进制格式的 `.ive`。在程序运行的默认情况下，优化导入的场景图，将形
-    成的这样结果：场景图读取的数据量将会更少且速度会更快。尤其值得指出的是，`.ive`
-    格式的的文件，快速装载数据的能力使它非常适合数据页和大型的数据库。
+`How I Blog`{.heart} -<
 
-    ```bash
-    osgconv cow.obj cow.ive
-    osgconv --compressed cow.obj cow.ive
-    ```
+-   I better write this down or I'll never remember it
+-   I read something
+-   I had a spontaneous epiphany (is there any other kind?)
 
--   `wget in_link -O out_filename`{.bash}
--   浏览器里得 Vim，用 `C-[` 替代 `ESC`。
-
-How I Blog -<
-
-  - I better write this down or I'll never remember it
-  - I read something
-  - I had a spontaneous epiphany (is there any other kind?)
-
-epiphany `[ɪ'pɪfəni]`
-  ~ 对事物真谛的顿悟；主显节（每年一月六日纪念耶稣显灵的节日）；显现（特指神的显现）
-
-[`appveyor.yml`{.tzx-filename}](https://github.com/district10/rapidjson/blob/master/appveyor.yml) -<
+[`appveyor.yml`{.tzx-filename}](https://github.com/district10/rapidjson/blob/master/appveyor.yml){.featured} -<
 
 :   ```yml
     version: 1.0.2.{build}
@@ -4573,7 +4457,9 @@ epiphany `[ɪ'pɪfəni]`
     - cd Build\VS && if %CONFIGURATION%==Debug (ctest --verbose -E perftest --build-config %CONFIGURATION%) else (ctest --verbose --build-config %CONFIGURATION%)
     ```
 
-    ```yml
+travis snippets -<
+
+:   ```yml
     # for gcc with C++11 support
     - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
     - sudo apt-get -qq update
