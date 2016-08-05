@@ -854,3 +854,162 @@ Targets
 -   [华为校招](http://career.huawei.com/reccampportal/#campus2/pages/bulletin/recentNews.html)
 
 [最新校招动态以及内推信息_讨论区_牛客网](http://m.nowcoder.com/discuss/6481)
+
+---
+
+[九章算法班 - 硅谷顶尖 IT 企业一线工程师直播教学](http://www.jiuzhang.com/course/1/) -<
+
+:   -   无算法基础，或算法基础薄弱，不系统
+    -   希望求职 Facebook, Google, Linkedin, Airbnb, Uber 等硅谷知名企业
+    -   面试经验少或无面试经验，不知道与面试官如何正确的沟通和展现自己
+    -   网上练习题目那么多，不知道该从哪些题开始准备
+    -   获取最新面试动向
+    -   认识一起找工作的其他小伙伴
+
+    2016/7/31 上午9:30:00 1. Introducing Algorithm Interview && Coding Style【免费试听】 -<
+
+    :   -   通过 strStr 这一道常见面试题讲解面试中的常见误区
+        -   从面试官的角度分析面试的考察点
+        -   从 Subset 中了解算法面试中模板的重要性
+        -   面试常见问题答疑
+
+    2016/8/6 上午9:30:00 2. 二分搜索 Binary Search -<
+
+    :   学习 Binary Search 的通用模板，不再死循环
+        讲解 Search in Rotated Sorted Array 等 5-7 道高频二分搜索题
+
+    2016/8/7 上午9:30:00 3. 二叉树问题与分治算法 Binary Tree & Divide Conquer -<
+
+    :   -   二叉树的深度优先遍历 Binary Tree DFS Traversal
+            -   先序 / 中序 / 后序 Preorder / inorder / postorder
+            -   分治 Divide & Conquer
+            -   DFS 模板 Introduce DFS Template
+        -   二叉树的宽度优先遍历 Binary Tree BFS Traversal
+            -   BFS 模板 Introduce BFS template
+        -   二叉搜索树 Binary Search Tree
+
+    2016/8/13 上午9:30:00 4. 动态规划 Dynamic Programming I -<
+
+    :  -   动态规划算法的适用条件
+        -   动态规划算法的四个解题要素
+        -   动规的两种实现方式：记忆化搜索 vs 循环递推
+        -   面试中动态规划的常见类型
+        -   坐标型动态规划
+
+    2016/8/14 上午9:30:00 5. 动态规划 Dynamic Programming II -<
+
+    :   -   单序列动态规划（下） Sequnece DP
+        -   双序列动态规划 Two Sequences DP
+
+    2016/8/20 上午9:30:00 6. 链表 Linked List -<
+
+    :   -   介绍 Dummy Node 在链表问题中的运用 Introduce Dummy Node in Linked List
+        -   你必须知道的几点 Linked List 的常用技巧 Basic skills in Linked List you
+            should know
+        -   两根指针算法 Two pointers
+        -   常见问题讲解 Frequent Questions
+
+    2016/8/21 上午9:30:00 7. 数组与数 Array & Numbers -<
+
+    :   -   旋转排序数组相关问题与三步翻转法的运用 Rotated Sorted Array & 3-step Reversion
+        -   两个排序数组的中位数 Median of Two Sorted Array
+        -   子数组相关问题 SubArray
+        -   两根指针与 x-sum 问题 Two Pointers & x-sum
+        -   分割数组相关问题 Partition Array
+
+    2016/8/27 上午9:30:00 8. 数据结构 Data Structure -<
+
+    :   -   线性数据结构
+            -   队列的原理、实现和运用 Queue
+            -   栈的原理、实现和运用 Heap
+            -   哈希表的原理、实现和运用 HashMap
+        -   树形数据结构
+            -   堆的原理、实现和运用 Heap
+
+    2016/8/28 上午9:30:00 9. 图与搜索 Graph & Search -<
+
+    :   -   图上的宽度优先搜索 Graph BFS
+        -   拓扑排序 Topological Sorting
+        -   组合类深度优先搜索 Combination Related DFS
+        -   排列类深度优先搜索 Permutation Related DFS
+
+[九章算法强化班 - 硅谷顶尖IT企业一线工程师直播教学](http://www.jiuzhang.com/course/5/)
+
+:   2016/8/21 上午7:00:00 FLAG算法面试难度提高？如何准备？【免费试听】
+
+    :   -   各类 IT 企业的面试算法难度及风格
+        -   如何解决中等难度以上的算法题
+        -   如何解决 follow  up 问题
+        -   Two sum
+            -   1. Two sum follow up I
+            -   2. Two sum follow up II - Triangle count
+        -   Kth largest element
+            -   1. 第 k 大元素的三层递进面试考察.
+            -   2. 如何通过一道题区分 3 类面试者
+            -   3. 剖析面试官面试的思路
+
+    2016/8/28 上午7:00:00 数据结构 Data Structure (上)
+
+    :   -   并查集
+            -   1. 并查集的基本原理
+            -   2.并查集的相关运用
+        -   并查集的拓展（带路径压缩）
+        -   并查集的运用
+        -   Trie 树
+            -   1. Trie 树的相关运用
+        -   扫描线算法
+            -   1. 扫描线的常规题目
+            -   2. 扫描线和其他数据结构结合的拓展
+
+    2016/8/29 上午7:00:00 数据结构 Data Structure (下)
+
+    :   -   Heap的深入理解和运用
+        -   Heap重要拓展：
+            -   1. 带删除的堆hash-heap
+            -   2. Trapping rain water
+            -   3. Building Outline
+        -   Median 问题拓展
+        -   Sliding Windows问题总结
+        -   双端队列Deque
+
+    2016/9/4 上午7:00:00 两个指针 Two Pointers
+
+    :   -   对撞型指针
+            -   1. Two sum 类
+            -   2. Partition 类
+        -   前向型指针
+            -   1. 窗口类
+            -   2. 快慢类
+        -   两个数组上的指针
+
+    2016/9/5 上午7:00:00 动态规划 Dynamic Programming (上)
+
+    :   -   记忆化搜索（区间动态规划、博弈类动态规划）
+        -   背包类动态规划
+        -   区间类动态规划
+
+    2016/9/11 上午7:00:00 动态规划 Dynamic Programming (下)
+
+    :   -   记忆化搜索拓展
+            -   1. 区间动态规划
+            -   2. 博弈类动态规划
+        -   背包类动态规划
+            -   1. BackPack I/II
+            -   2. K sum
+            -   3. Minimum Adjustment Cost
+
+    2016/9/12 上午7:00:00 如何解决 follow up 问题
+
+    :   -   Peak Element I/II
+        -   第 K 大
+            -   1. 第 K 大
+            -   2. 有序矩阵的第 K 大
+            -   3. 两个数组乘积的第 K 大
+            -   4. n 个数组第 K 大
+            -   5. n 个数组多机第 K 大 (K 比较小)
+            -   6. n 个数组多机第 K 大 (K 比较大)
+        -   Subarray sum
+            -   1. Subarray sum
+            -   2. Submatrix sum
+            -   3. Subarray Sum Closest
+            -   4. Subarray sum II

@@ -336,3 +336,5 @@ title: Working Notes
     -   [ffmpeg基本用法(转) - wainiwann - 博客园](http://www.cnblogs.com/wainiwann/p/4031129.html)
 
 <http://gnat.qiniudn.com/misc/pano/Panorama.7z>
+
+[广埠屯杀人案真相调查：一个电脑城的孤独守望者为什么会变成绝望者？](http://mp.weixin.qq.com/s?__biz=MzAwNDA5NDIwNA==&mid=2650149457&idx=1&sn=59d3c72c19749567153e289421a3fe24&scene=23&srcid=0804I12ZsEVleKiErUxQAzuk#rd)
