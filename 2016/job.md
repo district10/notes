@@ -933,9 +933,9 @@ Targets
         -   组合类深度优先搜索 Combination Related DFS
         -   排列类深度优先搜索 Permutation Related DFS
 
-[九章算法强化班 - 硅谷顶尖IT企业一线工程师直播教学](http://www.jiuzhang.com/course/5/)
+[九章算法强化班 - 硅谷顶尖IT企业一线工程师直播教学](http://www.jiuzhang.com/course/5/) -<
 
-:   2016/8/21 上午7:00:00 FLAG算法面试难度提高？如何准备？【免费试听】
+:   2016/8/21 上午7:00:00 FLAG算法面试难度提高？如何准备？【免费试听】 -<
 
     :   -   各类 IT 企业的面试算法难度及风格
         -   如何解决中等难度以上的算法题
@@ -948,7 +948,7 @@ Targets
             -   2. 如何通过一道题区分 3 类面试者
             -   3. 剖析面试官面试的思路
 
-    2016/8/28 上午7:00:00 数据结构 Data Structure (上)
+    2016/8/28 上午7:00:00 数据结构 Data Structure (上) -<
 
     :   -   并查集
             -   1. 并查集的基本原理
@@ -961,7 +961,7 @@ Targets
             -   1. 扫描线的常规题目
             -   2. 扫描线和其他数据结构结合的拓展
 
-    2016/8/29 上午7:00:00 数据结构 Data Structure (下)
+    2016/8/29 上午7:00:00 数据结构 Data Structure (下) -<
 
     :   -   Heap的深入理解和运用
         -   Heap重要拓展：
@@ -972,7 +972,7 @@ Targets
         -   Sliding Windows问题总结
         -   双端队列Deque
 
-    2016/9/4 上午7:00:00 两个指针 Two Pointers
+    2016/9/4 上午7:00:00 两个指针 Two Pointers -<
 
     :   -   对撞型指针
             -   1. Two sum 类
@@ -982,13 +982,13 @@ Targets
             -   2. 快慢类
         -   两个数组上的指针
 
-    2016/9/5 上午7:00:00 动态规划 Dynamic Programming (上)
+    2016/9/5 上午7:00:00 动态规划 Dynamic Programming (上) -<
 
     :   -   记忆化搜索（区间动态规划、博弈类动态规划）
         -   背包类动态规划
         -   区间类动态规划
 
-    2016/9/11 上午7:00:00 动态规划 Dynamic Programming (下)
+    2016/9/11 上午7:00:00 动态规划 Dynamic Programming (下) -<
 
     :   -   记忆化搜索拓展
             -   1. 区间动态规划
@@ -998,7 +998,7 @@ Targets
             -   2. K sum
             -   3. Minimum Adjustment Cost
 
-    2016/9/12 上午7:00:00 如何解决 follow up 问题
+    2016/9/12 上午7:00:00 如何解决 follow up 问题 -<
 
     :   -   Peak Element I/II
         -   第 K 大
@@ -1013,3 +1013,42 @@ Targets
             -   2. Submatrix sum
             -   3. Subarray Sum Closest
             -   4. Subarray sum II
+
+[VisuAlgo - visualising data structures and algorithms through animation](http://visualgo.net/) -<
+
+:   nice site.
+
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-17-58-bubble.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-19-47-select.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-22-49-insert.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-24-32-merge.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-25-47-quick.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-26-57-rquick.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-28-54-count.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-34-41-radix.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-45-26-create-binary-heap-Onlgn.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-46-26-create-binary-heap-On.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-52-11-heap-sort.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-58-31-pred.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-59-12-next.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_11-04-07.gif)
+    ![](http://whudoc.qiniudn.com/2016/2016-08-06_11-05-11-avl-balanced.gif)
+    ![](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-07-06.png)
+    ![](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-07-22.png)
+    ![](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-08-17.png)
+    ![](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-08-42.png)
+
+MISC -<
+
+:   [(●—●) | 我的微软现场面试经历_笔试面经_牛客网](http://www.nowcoder.com/discuss/5556) -<
+
+    :   我问，据我了解，微软面试很喜欢问算法。是因为微软很重视这一块吗？他回答说，
+        微软希望招一些聪明的人。。他们更希望跟一些智商比较高的人一起工作，这样合作
+        比较顺利。。然后说当然，勤能补拙。。。 反正听起来不是很舒服。尤其在只有两个
+        人的小屋里。
+
+    [(●—●) | 牛客网内推Micro Strategy微策略SET面试经验_笔试面经_牛客网](http://www.nowcoder.com/discuss/5222)
+
+    [(●—●) | 蘑菇街2017届校招内推“摸金”行动正式启动了..._招聘信息_牛客网](http://www.nowcoder.com/discuss/6939?type=0&order=0&pos=5&page=0)
+
+    [(●—●) | 搜索结果(微软内推)_牛客网](http://www.nowcoder.com/search?type=question&query=%E5%BE%AE%E8%BD%AF%E5%86%85%E6%8E%A8)
