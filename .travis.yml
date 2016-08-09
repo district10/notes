@@ -11,6 +11,7 @@ install:
   - sudo dpkg -i pandoc*.deb
 script:
   - cd ~/build/district10/notes;
+  - git clone https://github.com/district10/leetcode.git
   - make include all sitemap
   - cat meta/conf.json.in | sed -e "s/QiNiuAK/$QiNiuAK/" | sed -e "s/QiNiuSK/$QiNiuSK/" > conf.json
   - qrsync conf.json

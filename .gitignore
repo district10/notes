@@ -7,3 +7,4 @@ tmp/*
 conf.json
 /sitemap.md
 .ipynb_checkpoints/
+leetcode/*

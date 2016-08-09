@@ -340,3 +340,28 @@ title: Working Notes
 [广埠屯杀人案真相调查：一个电脑城的孤独守望者为什么会变成绝望者？](http://mp.weixin.qq.com/s?__biz=MzAwNDA5NDIwNA==&mid=2650149457&idx=1&sn=59d3c72c19749567153e289421a3fe24&scene=23&srcid=0804I12ZsEVleKiErUxQAzuk#rd)
 
 [罗雪娟：“泳池中的水不太干净，但我是干净地站起来的！” - 七七影音书 - 诗生活网](http://www.poemlife.com/thread-537459-1-1.html)
+
+词汇的贫瘠，品位的庸俗，都不是最可怕的。最可怕的是居心的无耻和恶毒。有些女主播，
+长得很好，一开口就恶毒不堪：“进来就走的会变短，不关注的也变短。”我观察了一分
+钟，来来回回就是“变短”、“变长”，谁送礼物，就阿谀谁，谁不关注，就诅咒谁。
+
+这是很恐怖的事：只靠一分钟说二十遍“谢谢关注”、“谢谢宝宝”，就可以成为职业，月入
+数万，这是狠狠扇了辛苦劳作的人一巴掌，让人人都想不劳而获。这种风气蔓延开，社会
+就会越来越糟糕。
+
+埋头苦干的人灰心之后，会普遍泛起一种观念：傻子太多，想混口饭吃，只有去当骗子。
+于是一窝蜂转型当骗子。然后发现，连骗子都吃不饱了，骗子也变成了傻子。
+
+晒脸直播的危害，远远比你能想到的强烈。当好逸恶劳、哗众取宠成为竞相标榜的东西，
+我们所处的环境会越来越糟糕，贫富会两极分化，人变得越来越蠢。真正有价值的内容，
+不再有人关注，因为缺乏受众，也会慢慢生产不起，廉价愚昧的东西会更加泛滥。
+
+-   [四元數與旋轉](http://openhome.cc/Gossip/ComputerGraphics/QuaternionsRotate.htm)
+-   [齊次座標](http://openhome.cc/Gossip/ComputerGraphics/HomogeneousCoordinate.htm)
+-   [三維直角座標之繞軸旋轉](http://openhome.cc/Gossip/ComputerGraphics/Rotate3Dimension.htm)
+
+iterator是標準函式庫定義類別（Class），它是一個指標，指向iterator物件的真正位址，對它進行++的動作，表示移動至 iterator的下一個元素，對它使用*運算子（Dereferences operator），表示提取出iterator目前位址的值，如果iterator走訪至結束位置的iterator的位址，表示元素走訪完畢。
+
+[Password-Generator](http://devnotes.org/note/Password-Generator.html)
+
+[如何管理并设计你的口令 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/2428.html)
