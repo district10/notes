@@ -1,6 +1,6 @@
 .PHONY: all clean include
 
-SRC:=$(wildcard index.md 2014/*.md 2015/*.md 2016/*.md caffe-notes/*.md lang/*.md misc/*.md)
+SRC:=$(wildcard index.md 2014/*.md 2015/*.md 2016/*.md caffe-notes/*.md lang/*.md misc/*.md leetcode/*.md)
 DST:=$(addprefix publish/, $(SRC:%.md=%.html))
 CSS:=publish/github-markdown.css \
      publish/highlight.css \
