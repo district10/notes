@@ -1162,9 +1162,13 @@ MISC -<
 
     考虑到几乎所有的公司都有编程题目，也就是在纸上写代码，这里推荐几本相关书籍：
 
-    -   1 **Elements of programming style** 2nd，写出良好风格的代码。纸上代码一般不长，但短短几行代码往往可以看出这个人的水准，风格很差的代码往往会被pass掉。
-    -   2 **Algorithm design manual** 2nd，作为非ACM出身的码农，这本书比算导实用很多，课后题也很实在，对回溯，动态规划这些编程技巧讲的非常清楚。
-    -   3 **C interfaces and implementation**，无论是面试还是笔试，一般都会用C写程序，这本书包含大量的工业级C代码，绝佳的参考和模仿素材。
+    -   1 **Elements of programming style** 2nd，写出良好风格的代码。纸上代码一
+        般不长，但短短几行代码往往可以看出这个人的水准，风格很差的代码往往会被
+        pass掉。
+    -   2 **Algorithm design manual** 2nd，作为非ACM出身的码农，这本书比算导实
+        用很多，课后题也很实在，对回溯，动态规划这些编程技巧讲的非常清楚。
+    -   3 **C interfaces and implementation**，无论是面试还是笔试，一般都会用C
+        写程序，这本书包含大量的工业级C代码，绝佳的参考和模仿素材。
 
     最后推荐下Elements of programming和Structure and interpretation of computer
     programs，这两本书难度很高，需要大量的时间阅读，不适合临场阅读准备，但读过后，

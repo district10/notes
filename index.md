@@ -1,8 +1,8 @@
 ---
-title: TZX's Notes
+title: TANG ZhiXiong's Notes/Wiki
 ...
 
-# TZX's Notes
+# TANG ZhiXiong's Notes/Wiki
 
 ## 独立笔记
 

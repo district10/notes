@@ -7,9 +7,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
-    <link rel="stylesheet" href="$if(NOTBASE)$../$endif$github-markdown.css" type="text/css" />
-    <link rel="stylesheet" href="$if(NOTBASE)$../$endif$highlight.css" type="text/css" />
-    <link rel="stylesheet" href="$if(NOTBASE)$../$endif$notes.css" type="text/css" />
+    <link rel="stylesheet" href="$rootdir$github-markdown.css" type="text/css" />
+    <link rel="stylesheet" href="$rootdir$highlight.css" type="text/css" />
+    <link rel="stylesheet" href="$rootdir$notes.css" type="text/css" />
 $if(math)$
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 $endif$
@@ -24,15 +24,15 @@ $endif$
 <a href="https://github.com/district10/notes">
     <img
         style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;"
-        src="$if(NOTBASE)$../$endif$fork-me-on-github.png" alt="Fork me on GitHub"></a>
+        src="$rootdir$fork-me-on-github.png" alt="Fork me on GitHub"></a>
 <div id="navigator"><a id="gotoindex" href="$if(ISINDEX)$../$endif$index.html" title="【回到笔记索引 | Back to Index】">☣</a>
 </div>
 <span id="help">按下 "h" 获取页面帮助。</span>
 $body$
-<script src="$if(NOTBASE)$../$endif$lazyload.min.js"></script>
-<script src="$if(NOTBASE)$../$endif$jquery-3.0.0.min.js"></script>
-<script src="$if(NOTBASE)$../$endif$jquery.idTabs.min.js"></script>
-<script src="$if(NOTBASE)$../$endif$egg.min.js"></script>
-<script src="$if(NOTBASE)$../$endif$notes.js"></script>
+<script src="$rootdir$lazyload.min.js"></script>
+<script src="$rootdir$jquery-3.0.0.min.js"></script>
+<script src="$rootdir$jquery.idTabs.min.js"></script>
+<script src="$rootdir$egg.min.js"></script>
+<script src="$rootdir$notes.js"></script>
 </body>
 </html>

@@ -365,3 +365,29 @@ iterator是標準函式庫定義類別（Class），它是一個指標，指向i
 [Password-Generator](http://devnotes.org/note/Password-Generator.html)
 
 [如何管理并设计你的口令 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/2428.html)
+
+```bash
+➜  a2 mkdir -p a/a{1,2}/ b/b{1,2} c/c{1,2}
+➜  a2 for i in a/a{1,2}/{i,ii,iii}; do echo $i > $i.md; done
+➜  a2 tree a
+a
+├── a1
+│   ├── iii.md
+│   ├── ii.md
+│   └── i.md
+└── a2
+    ├── iii.md
+    ├── ii.md
+    └── i.md
+
+2 directories, 6 files
+➜  a2 cat a/a1/iii.md
+a/a1/iii
+```
+
+4 GB or 4 Gb？
+
+vim tip:
+
+-   `/`, `control R`, `%`
+-   `:let @+=@%`
