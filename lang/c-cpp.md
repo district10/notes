@@ -2440,6 +2440,193 @@ C++ 简介 | Intro
 
         -   [c++ - Operator overloading - Stack Overflow](http://stackoverflow.com/questions/4421706/operator-overloading)
 
+-   如何理解 C 语言关键字 restrict？ -<
+
+    :   [Pointer aliasing - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Pointer_aliasing)
+
+        :   In computer programming, aliasing refers to the situation where the
+            **same memory location can be accessed using different names**.
+
+            In C99, the `restrict` keyword was added, which specifies that a
+            pointer argument does not alias any other pointer argument.
+
+        ```cpp
+        int foo(int *a, int *b)
+        {
+            *a = 5;
+            *b = 6;
+            return *a + *b; // 不一定是 11！
+        }
+        ```
+
+        如果 a 和 b 都指向同一数据，`*b = 6` 会导致 `*a = 6`，返回 12。所以编译器在
+        做 `*a + *b` 的时候，需要重新读取 `*a` 指向的数据
+
+        如果我们确保两个指针不指向同一数据，就可以用 restrict 修饰指针类型：
+
+        ```cpp
+        int rfoo(int *restrict a, int *restrict b)
+        {
+            *a = 5;
+            *b = 6;
+            return *a + *b;
+        }
+        ```
+
+        但如果用了 restrict 去修饰两个指针，而它们在作用域内又指向同一地址，那
+        么是未定义行为。
+
+        总括而言，**restrict 是为了告诉编译器额外信息（两个指针不指向同一数据），
+        从而生成更优化的机器码**。注意，编译器是无法自行在编译期检测两个指针是否
+        alias。如使用 restrict，程序员也要遵守契约才能得出正确的代码（指针不能
+        指向相同数据）。
+
+        编译器就可以根据这个信息，做出优化。
+
+        refs and see also
+
+        -   [如何理解 C 语言关键字 restrict？ - 知乎](https://www.zhihu.com/question/41653775)
+        -   [restrict type qualifier - cppreference.com](http://en.cppreference.com/w/c/language/restrict)
+
+-   弱类型、强类型、动态类型、静态类型语言的区别是什么？ -<
+
+    :   先定义一些基础概念
+
+        Program Errors
+
+        -   trapped errors。导致程序终止执行，如除 0，Java 中数组越界访问
+        -   untrapped errors。 出错后继续执行，但可能出现任意行为。如 C 里的缓冲区溢出、Jump 到错误地址
+
+        Forbidden Behaviours
+
+        -   语言设计时，可以定义一组forbidden behaviors. 它必须包括所有untrapped
+            errors, 但可能包含trapped errors.
+
+        Well behaved、ill behaved
+
+        -   well behaved: 如果程序执行不可能出现forbidden behaviors, 则为well behaved。
+        -   ill behaved: 否则为ill behaved...
+
+        有了上面的概念，再讨论强、弱类型，静态、动态类型
+
+        强、弱类型
+
+        -   强类型strongly typed: 如果一种语言的所有程序都是well behaved——即不可能出现forbidden behaviors，则该语言为strongly typed。
+        -   弱类型weakly typed: 否则为weakly typed。比如C语言的缓冲区溢出，属于trapped errors，即属于forbidden behaviors..故C是弱类型
+
+        前面的人也说了，弱类型语言，类型检查更不严格，如偏向于容忍隐式类型转换。譬如说C
+        语言的int可以变成double。 这样的结果是：容易产生forbidden behaviours，所以是弱
+        类型的
+
+        动态、静态类型
+
+        -   静态类型 statically: 如果在编译时拒绝ill behaved程序，则是statically typed;
+        -   动态类型dynamiclly: 如果在运行时拒绝ill behaviors, 则是dynamiclly typed。
+
+        误区
+
+        -   大家觉得C语言要写int a, int b之类的，Python不用写(可以直接写a, b)，所以C是
+            静态，Python是动态。这么理解是不够准确的。譬如Ocaml是静态类型的，但是也可以
+            不用明确地写出来。。Ocaml是静态隐式类型
+
+        静态类型可以分为两种：
+
+        -   如果类型是语言语法的一部分，在是explicitly typed显式类型；
+        -   如果类型通过编译时推导，是implicity typed隐式类型, 比如ML和Haskell
+
+        下面是些例子
+
+        -   无类型： 汇编
+        -   弱类型、静态类型 ： C/C++
+        -   弱类型、动态类型检查： Perl/PHP
+        -   强类型、静态类型检查 ：Java/C#
+        -   强类型、动态类型检查 ：Python, Scheme
+        -   静态显式类型 ：Java/C
+        -   静态隐式类型 ：Ocaml, Haskell
+
+        by vczh
+
+        :   -   强类型：偏向于不容忍隐式类型转换。譬如说haskell的int就不能变成double
+            -   弱类型：偏向于容忍隐式类型转换。譬如说C语言的int可以变成double
+            -   静态类型：编译的时候就知道每一个变量的类型，因为类型错误而不能做的事情是语法错误。
+            -   动态类型：编译的时候不知道每一个变量的类型，因为类型错误而不能做的事情是运行时错误。譬如说你不能对一个数字a写a[10]当数组用。
+
+        refs and see also
+
+        -   [弱类型、强类型、动态类型、静态类型语言的区别是什么？ - 知乎](https://www.zhihu.com/question/19918532)
+
+-   几个真正的快问快答 -<
+
+    :   -   How can I provide input for my class `Fred`?
+
+            :   By adding a friend `std::istream& operator>> (std::istream& i, Fred& fred);`
+
+        -   Should I end my output lines with `std::endl` or `\n`?
+
+            :   The former has the additional side-effect of flushing the output buffer.
+                Therefore, the latter will probably work faster.
+
+                两者打印出来的换行符是一样的，系统相关的。
+
+        -   How does that funky `while (std::cin >> foo)` syntax work?
+
+            :   `istream` has overloaded `operator void*`. The compiler calls
+                this operator in **boolean contexts** (when it expects a
+                condition, for example), because `void*` can be converted to a
+                boolean. The operator returns `NULL` when there's nothing left to
+                read, or when a format error occurred previously.
+
+                There's nothing "funky" about it. It is ugly and boring. It's
+                also scary because many people think this is what programming
+                is all about - using complicated syntax to do simple things
+                without even getting them right (how do you tell end-of-file
+                conditions from format errors?).
+
+                Why is it operator `void*`, and not operator `bool`? Apparently
+                because the compiler implicitly converts booleans to numbers in
+                "numeric contexts" (such as `file1+file2`), and we don't want
+                that to compile, do we?
+
+                But wait, there's more! There's an actual book out there,
+                called **"Imperfect C++"**, arguing that operator `void*` is not the
+                way to go, either. Because this way, `delete file` would compile.
+                Surely we don't want it to, do we? I mean, the fact that the
+                statement is completely moronic（`[mɔ'rɔnik, mə-]` adj. 低能的；迟钝的）
+                shouldn't matter. Morones have a right to get an equal
+                opportunity in the exciting world of C++ programming; let's
+                catch of all their errors at compile time. Evil people spread
+                rumors about the problem being undecidable, but we should keep trying.
+
+        -   Why should I use `<iostream>` instead of the traditional `<cstdio>`?
+
+            :   There are four reasons:
+
+                -   **Increase type safety**: with iostream, the compiler knows the
+                    types of the things you print. stdio only figures them out at
+                    run time from the format string.
+                -   **Reduce the number of errors**: with stdio, the types of objects
+                    you pass must be consistent with the format string; iostream
+                    removes this redundancy - there is no format string, so you
+                    can't make these errors.
+                -   **Printing objects of user-defined types**: with iostream, you can
+                    overload the operators << and >> to support new types, and the
+                    old code won't break. stdio won't let you extend the format
+                    string syntax, and there seems to be no way to support this
+                    kind of thing in a way avoiding conflicts between different
+                    extensions.
+                -   **Printing to streams of user-defined types**: you can implement
+                    your own stream classes by deriving from the base classes
+                    provided by iostream. FILE* can not be extended because "it's
+                    not a real class".
+
+                其实前两点根本没有说服力。后两点呢……虽然 printf 不能自定义类型
+                （新的诸如"%d"之类的标签），但是你可以自己写一个函数，把类型打
+                印到 string 或者 console。然后再用 `std::cout` 输出。
+
+        refs and see also
+
+        -   [C++ FQA Lite: Input/output via <iostream> and <cstdio>](http://yosefk.com/c++fqa/io.html#fqa-15.14)
+
 -   TODO -<
 
     :   - [c++ - What is object slicing? - Stack Overflow](http://stackoverflow.com/questions/274626/what-is-object-slicing)
@@ -3265,6 +3452,17 @@ C++ 简介 | Intro
         In the original C++ design, Bjarne Stroustrup did not include run-time type
         information, because he thought this mechanism was frequently misused.
 
+        Any function that gets class information explicitly at runtime:
+
+        -   typeid
+        -   dynamic_cast
+
+        Google style 3.26 discourages this, since if you really need it your
+        design is probably flawed.
+
+        Also using typeid on variables means that extra meta data must be kept
+        about those variables.
+
         执行期类型识别（Runtime Type Identification RTTI） -<
 
         :   1.  RTTI 只支持多态类，也就是说没有定义虚函数是的类是不能进行 RTTI的。
@@ -3277,6 +3475,8 @@ C++ 简介 | Intro
             type_info同样可用于 内建类型及所有非多态类。与多态类的差别在于，非多态类的
             type_info对象是静态取得(所 以不能叫“执行期类型识别”)，而多态类的是在执行期
             获得。
+
+-   [Critical section - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Critical_section)
 
 ## 算法数据结构精要
 
@@ -4517,17 +4717,29 @@ C++ 简介 | Intro
 
         12）值语义与数据抽象 -<
 
-        :   sematics??? or semantics
+        :   semantics??? or semantics
 
             -   什么是值语义-<
 
-                :   **值语义 (value sematics)** 指的是对象的拷贝与原对象无关,就像拷贝
+                :   **值语义 (value semantics)** 指的是对象的拷贝与原对象无关,就像拷贝
                     int 一样。C++ 的内置类型 (bool/int/double/char) 都是值语义,标准
                     库里的 complex<> 、pair<>、vector<>、map<>、string 等等类型也都
                     是值语意,**拷贝之后就与原对象脱离关系**。
 
-                    与值语义对应的是“**对象语义/object sematics**”,或者叫做引用语义
-                    (reference sematics),由于“引用”一词在 C++ 里有特殊含义,所以我在
+                    [维基](https://en.m.wikipedia.org/wiki/Value_semantics) 上这么介绍的：
+
+                    >   In computer science, having value semantics (also
+                    >   value-type semantics or copy-by-value semantics) means
+                    >   for an object that only its value counts, not its
+                    >   identity. If the concept is fully applied, value
+                    >   semantics implies immutability of the object.
+                    >
+                    >   The concepts that are used to explain this concept are
+                    >   extensionality, definiteness, substitutivity of
+                    >   identity, unfoldability, and referential transparency.
+
+                    与值语义对应的是“**对象语义/object semantics**”,或者叫做引用语义
+                    (reference semantics),由于“引用”一词在 C++ 里有特殊含义,所以我在
                     本文中使用“对象语义”这个术语。对象语义指的是面向对象意义下的对
                     象,【对象拷贝是禁止的】。例如 muduo 里的 Thread 是对象语义,拷贝
                     Thread 是无意义的,也是被禁止的:因为Thread 代表线程,拷贝一个
@@ -5220,6 +5432,366 @@ C++ 简介 | Intro
                 -   name mangling
                 -   RTTI 和异常处理的实现(以下本文不考虑异常处理)
 
+-   [cpp-cheat/cpp at master · cirosantilli/cpp-cheat](https://github.com/cirosantilli/cpp-cheat/tree/master/cpp){.heart} -<
+
+    :   -   Standards -<
+
+            :   -   C++89
+                -   C++03
+                -   TR1 (Technical report 1), 2005, --> C++11
+                -   TR2, C++1Y
+                -   C++11 (previously known as C++0x)
+                    -   lots of new features: standard passes from 800 to 1300 lines.
+                    -   gcc: `-std=c++0x` -> `-std=c++11`
+                -   C++14
+                    -   Will come after C++11. Known as C++1Y as many have doubts it will come out in 2014.
+
+        -   Compile time magic -<
+
+            :   -   constexpr (C++11 only) -<
+
+                    :   ```cpp
+                        /*
+                            ERROR: the compiler ensures that the function return is constexpr,
+                            so this does not compile.
+                        */
+                        int constexpr constexpr_func_bad(){
+                            return std::time();
+                        }
+                        #include <stdio.h>
+
+                        constexpr long long ConstexprFactorial( long long n ) {
+                            return (n == 1LL) ? 1LL : n * ConstexprFactorial(n - 1);
+                            /*
+                             * error: body of constexpr function
+                             *      ‘constexpr int ConstexprFactorial(int)’
+                             * not a return-statement
+                             *
+                            **/
+
+                            //          if( n == 1LL ) {
+                            //              return 1LL;
+                            //          } else {
+                            //              return n * ConstexprFactorial(n - 1);
+                            //          }
+                        }
+
+                        int main()
+                        {
+                            printf( "factorial(23): %lld.\n", ConstexprFactorial(23) );
+
+                            int n;
+                            while( 1 == scanf( "%d", &n ) ) {
+                                printf( "factorial(%d): %lld.\n", n, ConstexprFactorial(n) );
+                            }
+                        }
+                        ```
+
+                        为什么不能写成很多行（有多个 statements（`;`分隔））？这里有解释：
+                        [c++ - Why is it ill-formed to have multi-line constexpr functions? - Stack Overflow](http://stackoverflow.com/questions/3226211/why-is-it-ill-formed-to-have-multi-line-constexpr-functions)。
+
+                        ```cpp
+                        // okay
+                        constexpr int i = 0;
+
+                        // okay
+                        constexpr int i = 1 + 1;
+                        constexpr int i2 = i;
+
+                        // okay
+                        const int i = 0;
+                        constexpr int i2 = i;
+
+                        // error: for non built-in operators, only constexpr functions can be used.
+                        constexpr int i = not_constexpr_func();
+
+                        // okay
+                        constexpr int i = constexpr_func(1);
+
+                        // error
+                        constexpr int i = constexpr_func(std::time(NULL));
+
+                        // error: cannot have constexpr to complex types, TODO rationale
+                        constexpr std::string s = "abc";
+                        ```
+
+                -   static_assert (C++11 only) -<
+
+                    :   ```cpp
+                        static_assert(0 < 1, "msg");
+
+                        // ERROR: static assertion failed
+                        //static_assert(0 > 1, "msg");
+
+                        std::srand(time(NULL));
+                        // ERROR: needs to be a constexpr
+                        //static_assert(std::rand() >= 0);
+
+                        static_assert(sizeof(unsigned int) * CHAR_BIT == 32);
+                        static_assert(-5 / 2 == -2);
+                        ```
+
+                -   typeid -<
+
+                    :   ```cpp
+                        #include <iostream>
+                        #include <typeinfo>
+
+                        int main()
+                        {
+                            int i = 0;
+                            int &ri = i;
+                            std::cout << "typeid(int).name() = \"" << typeid(int).name() << "\"" << std::endl;
+                            std::cout << "typeid( i ).name() = \"" << typeid( i ).name() << "\"" << std::endl;
+                            std::cout << "typeid( ri).name() = \"" << typeid( ri).name() << "\"" << std::endl;
+                        }
+                        ```
+
+                        output:
+
+                        ```
+                        typeid(int).name() = "i"
+                        typeid( i ).name() = "i"
+                        typeid( ri).name() = "i"
+                        ```
+
+                        ```cpp
+                        // 不能复制
+                        std::type_info t = typeid(int);         // 会出错
+                        std::type_index t = typeid(int);        // 这个可以
+
+                        // 可以用 == 和 != 来比较
+                        int i, i1;
+                        int& ia = i;
+                        class Class {};
+                        Class c;
+                        assert(typeid(i)  == typeid(int) );
+                        assert(typeid(ia) == typeid(int&));
+                        assert(typeid(i)  == typeid(i1)  );
+                        assert(typeid(i)  != typeid(c)   );
+
+                        // 自己提供 < 比较
+                        struct compare {
+                            bool operator ()(const type_info* a, const type_info* b) const {
+                                return a->before(*b);
+                            }
+                        };
+
+                        std::map<const type_info*, std::string, compare> m;
+
+                        void f() {
+                            m[&typeid(int)] = "Hello world";
+                        }
+                        ```
+
+                -   auto, decltype -<
+
+                    :   ```cpp
+                        auto i = 4;
+                        auto &ri = i;
+                        for( auto &i : vec ) { ... }
+                        for( const auto &i : vec ) { ... }
+
+                        int i = 1;
+                        std::vector<decltype(i)> v; // std::vector<int> v
+
+                        float f = 2.0;
+                        decltype(i + f) f2 = 1.5;   // float f2
+                        assert(f2 == 1.5);
+
+                        cout << 1 + 1.5 << "\n"; // "2.5"
+
+                        // Implies reference while auto does not.
+                        {
+                            int i = 0;
+                            int& ir = i;
+                            decltype(ir) ir2 = ir;
+                            ir2 = 1;
+                            assert(i == 1);
+                        }
+                        ```
+
+        -   nullptr -<
+
+            :   ```cpp
+                #include <cstddef>
+                // basically the same
+                std::nullptr_t p;
+                p = NULL;
+                p = 0;
+
+                // Unlike in NULL, the size of nullptr_t is fixed.
+                {
+                    assert(sizeof(std::nullptr_t) == sizeof(void*));
+                }
+                // sizeof(NULL) 等于 sizeof(0)，估计和 int 的长度一样。
+                ```
+
+        -   refs -<
+
+            :   ```cpp
+                const int& getIntConstRef(int& i) {
+                    i++;
+                    return i;
+                }
+
+                class X {
+
+                public:
+                    /// Value cannot be changed.
+                    const int& getPrivateConstRef() const {return this->iPrivate;}
+
+                    // ERROR: const method cannot return noncosnt pointer!
+                    //int* getPrivateAddress() const {return &this->iPrivate;}
+
+                    // this works
+                    const int* getPrivateAddressConst() const {return &this->iPrivate;}
+
+                private:
+                    int iPrivate;
+                };
+
+                void byref(int& i) {i++;}
+                void bypointer(int *i) {(*i)++;}
+                ```
+
+                ```cpp
+                #include <iostream>
+                #include <vector>
+
+
+                void assign( const int * &ip, const int *const &jp) {
+                    ip = jp+1;
+                }
+
+                int main()
+                {
+                    int buf[4] = { 0, 1, 2, 3 };
+
+                    // int *p1 = &buf[1], *p2 = &buf[2];    // 为什么这个不可以？不加 const 居然报错？！
+                    const int *p1 = &buf[1], *p2 = &buf[2];
+
+                    printf( "before assign: %d %d\n", *p1, *p2 );
+                    assign( p1, p2 );
+                    printf( "after  assign: %d %d\n", *p1, *p2 );
+                }
+                /*
+                before assign: 1 2
+                after  assign: 3 2
+                */
+                ```
+
+                refs and see also
+
+                -   [cpp-cheat/reference.cpp at master · cirosantilli/cpp-cheat](https://github.com/cirosantilli/cpp-cheat/blob/master/cpp/reference.cpp)
+
+        -   rvalue ref -<
+
+            :   [cpp-cheat/rvalue_reference.cpp at master · cirosantilli/cpp-cheat](https://github.com/cirosantilli/cpp-cheat/blob/master/cpp/rvalue_reference.cpp)
+
+        -   functions -<
+
+            :   -   函数定义、重载 -<
+
+                    :   ```cpp
+                        // 首先，返回值不能用来区别函数，这点没有再必要讨论
+
+                        // ERROR: no compound literals in C++
+                        void foo (int bar[] = (int[2]){0 ,1});
+
+                        // 实际上，下面三个一样一样的
+                        void funtion( int buf[] );
+                        void funtion( int buf[3] );
+                        void funtion( int *buf );
+
+                        // Okay
+                        std::string overload(float i) { return "f"; }
+                        std::string overload(int i, int j) { return "ii"; }
+                        std::string overload(float i, float j, float k = 0.f) { return "iff"; }
+
+                        // 这三个冲突了
+                        void overload(int i) {}
+                        void overload(const int i){}
+                        void overload(int i, int j=0){cout << "int int=";}
+
+                        // 为什么他们不冲突???
+                        void overloadValAddr(const int i) {}
+                        void overloadValAddr(const int& i) {}
+
+                        // 可以
+                        void defaultArgCase1(int i=0);
+                        void defaultArgCase1(int i  ) { printf("case1: default is %d.\n", i); }
+
+                        // 可以
+                        void defaultArgCase2(int i);
+                        void defaultArgCase2(int i=1) { printf("case2: default is %d.\n", i); }
+
+                        // 不可以
+                        void defaultArgCase3(int i=3);
+                        void defaultArgCase3(int i=4) { printf("case3: default is %d.\n", i); }
+                        ```
+
+                        下面这个也是可以的：
+
+                        ```cpp
+                        #include <iostream>
+                        #include <stdio.h>
+
+                        class X {
+                        public:
+                            void func( int i );
+                        };
+
+                        void X::func( int i = 123 ) { printf("default is: %d.\n", i); }
+
+                        int main()
+                        {
+                            X x;
+                            x.func();
+                        }
+                        ```
+
+                        但如果你把 X 声明再 X.h 实现再 X.cpp，然后 include 进来 X.h，你就不能用 `x.func()` 了，
+                        因为 include 进来的头文件没有 default arg。务必留意这一点。因为我们实践中通常都是这种情况。
+
+                        总结，defalut arguments 在声明和实现的时候“告诉”编译器都可以，但是不能“告诉”两次。
+                        注意从头文件引入的时候，你能看到什么，看不到什么，reason 一下其实这些规则都是合理的。
+
+                        ```cpp
+                        std::string (*fi)(int) = overload;
+                        std::string (*ff)(float) = overload;
+
+                        // Uses the void f(char c); overload
+                        std::for_each(s.begin(), s.end(), static_cast<void (*)(char)>(&f));
+                        // Uses the void f(int i); overload
+                        std::for_each(s.begin(), s.end(), static_cast<void (*)(int)>(&f));
+
+                        // The compiler will figure out which f to use according to
+                        // the function pointer declaration.
+                        void (*fpc)(char) = &f;
+                        std::for_each(s.begin(), s.end(), fpc); // Uses the void f(char c); overload
+                        void (*fpi)(int) = &f;
+                        std::for_each(s.begin(), s.end(), fpi); // Uses the void f(int i); overload
+
+                        transform (numbers.begin(), numbers.end(), lengths.begin(), mem_fun(&string::length));
+                        ```
+
+                        refs and see also
+
+                        -   [mem_fun - C++ Reference](http://www.cplusplus.com/reference/functional/mem_fun/)
+
+                -   operator overload -<
+
+                    :   如此详细，我直接 copy 过来了：
+
+                        ```cpp
+                        @include <-=include/operator_overload.cpp=
+                        ```
+
+                        refs and see also
+
+                        -   [cpp-cheat/operator_overload.cpp at master · cirosantilli/cpp-cheat](https://github.com/cirosantilli/cpp-cheat/blob/master/cpp/operator_overload.cpp)
+
 -   [Generic programming - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Generic_programming)
 
 -   [编程小谈 — RAII与Pimpl | UC技术博客](http://tech.uc.cn/?p=851)
@@ -5245,4 +5817,34 @@ C++ 简介 | Intro
     return result;
     }
     ```
+
+-   snippets
+
+    :   ```cpp
+        std::srand(time(NULL));
+
+        // 哪里有错？
+        #include <iostream>
+        #include <stdio.h>
+
+        struct compare {
+            bool operator()( int *a, int *b ) const {
+                return *a > *b;
+            }
+        };
+
+        int main()
+        {
+            using std::cout;
+            int a, b;
+            while( 2 == scanf("%d %d", &a, &b) ) {
+                if( compare(&a,&b) ) {
+                    cout << "big\n";
+                } else {
+                    cout << "small\n";
+                }
+            }
+        }
+        ```
+
 

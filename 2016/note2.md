@@ -391,3 +391,9 @@ vim tip:
 
 -   `/`, `control R`, `%`
 -   `:let @+=@%`
+
+[Comfortable handling of registers - Vim Tips Wiki - Wikia](http://vim.wikia.com/wiki/Comfortable%5Fhandling%5Fof%5Fregisters)
+
+[vim - Copy from one register to another - Stack Overflow](http://stackoverflow.com/questions/1502218/copy-from-one-register-to-another)
+
+`#pragma GCC diagnostic error "-std=c++11"`

@@ -188,7 +188,8 @@ a.featured {
     border-radius: 3px;
     padding: 0.2em;
 }
-a.heart:after {
+a.heart:after,
+a.hearts:after {
     color: red;
     content: " ❤";
 }
@@ -204,7 +205,8 @@ a.bad {
     text-decoration: line-through;
 }
 
-.markdown-body code.heart:after {
+.markdown-body code.heart:after,
+.markdown-body code.hearts:after {
     color: red;
     content: "\00a0 ❤";
 }
@@ -218,6 +220,7 @@ a.bad {
 }
 
 .markdown-body code.heart,
+.markdown-body code.hearts,
 .markdown-body code.flag,
 .markdown-body code.todo {
     margin: 0.4em;
@@ -419,4 +422,8 @@ pre.diffed {
 
 .markdown-body .del {
     text-decoration:line-through;
+}
+
+li:last-of-type {
+    margin-bottom: 1em;
 }

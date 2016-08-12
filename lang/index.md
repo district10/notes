@@ -6,7 +6,8 @@ title: Languages <-- Math, Programming Languages, Natural Languages
 
 -   Programming Lang
 
-    +   [C & C++](c-cpp.html){title=c-cpp.md}
+    +   [C & C++](c-cpp.html){.heart title=c-cpp.md}
+    +   [Algorithms](algo.html){title=algo.md}
     +   [Qt](qt.html){title=qt.md}
     +   [OpenCV](opencv.html){title=opencv.md}
     +   [Perl](perl.html){title=perl.md}
