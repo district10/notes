@@ -217,7 +217,7 @@ Algorithms
 
     2016/8/6 上午9:30:00 2. 二分搜索 Binary Search -<
 
-    :   -   学习 Binary Search 的通用模板，不再死循环
+    :   -   学习 Binary Search 的通用模板，不再死循环 -<
 
             :   ```cpp
                 int binary_search( int array[], int length, int value )
@@ -246,9 +246,55 @@ Algorithms
                 什么情况下，mid-1 和 mid+1 不越界？length > 1。
                 但还好有 left <= right 的判断，所以越界后，while 进不去。
 
+                感受一下 mid 的位置 -<
+
+                :   ```
+                    中间有奇数个数字
+                    [   0,  1,  2,  3,  4,  ... ]
+                        ^       *       ^
+
+                    [   0,  1,  2,  3,  4,  5,  ... ]
+                            ^       *       ^
+
+                    中间有偶数个数字
+                    [   0,  1,  2,  3,  4,  5,  ... ]
+                        ^       *           ^
+
+                    [   0,  1,  2,  3,  4,  5,  6,  ... ]
+                            ^       *           ^
+
+                    中间啥都没有
+                    [   0,  1,  ... ]
+                        ^   ^
+                        *
+
+                    [   0,  ... ]
+                        ^
+                        ^
+                        *
+                    ```
+
+                    总之因为 (left+right)/2 是向下 round（floor）。
+
+                    需要注意的是 -3/2 = -1.5 = -1，-1/2 = -0.5 = 0；可见是向 0 round 的。
+
+                    ```
+                    如果有负的 index
+                    [      -1,  0,  ... ]
+                            ^   ^
+                                *
+
+                    [  -2, -1,  0,  ... ]
+                        ^   ^
+                            *
+                    ```
+
+                    但其实……怎么 round 是无所谓的。我这里只是让自己感受一下 mid 的
+                    位置。面试的时候可以快速的找到中点（而不是用 index 算）。
+
         -   讲解 Search in Rotated Sorted Array 等 5-7 道高频二分搜索题 -<
 
-            :   -   [Search in Rotated Sorted Array | LeetCode OJ](https://leetcode.com/problems/search-in-rotated-sorted-array/) -<
+            :   -   [33. Search in Rotated Sorted Array | LeetCode OJ](https://leetcode.com/problems/search-in-rotated-sorted-array/) -<
 
                     :   ![](http://whudoc.qiniudn.com/2016/20141025161730953.png)
 
@@ -261,7 +307,21 @@ Algorithms
                             int search(vector<int>& nums, int target) {
                                 return search( nums, 0, nums.size(), target );
                             }
-                            int search( vector<int> &nums, int left, int right, int target ) {
+                            int search( vector<int> &nums, int left, int right, int target, int binarysearch = 0 ) {
+                                if( binarysearch == 1 ) {
+                                    int mid;
+                                    while( left <= right ) {
+                                        mid = (left+right)/2;
+                                        if( target == nums[mid] ) {
+                                            return mid;
+                                        } else if( target < nums[mid] ) {
+                                            right = mid-1;
+                                        } else {
+                                            left = mid+1;
+                                        }
+                                    }
+                                    return -1;
+                                }
                                 if( left > right ) { return -1; }
                                 if( left < 0 ) { left = 0; }
                                 if( right >= nums.size() ) { right = nums.size()-1; }
@@ -272,28 +332,47 @@ Algorithms
                                 if( target == nums[mid] ) { return mid; }
 
                                 if( nums[left] < nums[right] ) {
-                                    // case 1
-                                    if( target < nums[left] || target > nums[right] ) {
-                                        return -1;
-                                    }
+                                    //          case 1
+                                    //
+                                    //              /
+                                    //             /
+                                    //            /
+                                    //           /
+                                    //          /
+                                    //
+                                    if( target < nums[left] || target > nums[right] ) { return -1; }
                                     if( target < nums[mid] ) {
-                                        return search( nums, left, mid-1, target );
+                                        return search( nums, left,  mid-1, target, 1 ); // ordinary binary search
                                     } else {
-                                        return search( nums, mid+1, right, target );
+                                        return search( nums, mid+1, right, target, 1 ); // ordinary binary search
                                     }
-                                } else if( nums[mid] > nums[left] && nums[left] > nums[right] ) {
-                                    // case 2
+                                } else if( nums[left] < nums[mid] /* && nums[left] > nums[right] */ ) {
+                                    //          case 2
+                                    //
+                                    //            /
+                                    //           /
+                                    //          /
+                                    //              /
+                                    //             /
+                                    //
                                     if( nums[left] < target && target < nums[mid] ) {
-                                        return search( nums, left, mid-1, target );
+                                        return search( nums,  left, mid-1, target, 1 ); // ordinary binary search
                                     } else {
                                         return search( nums, mid+1, right, target );
                                     }
-                                } else if( nums[left] > nums[right] && nums[right] > nums[mid] ) {
-                                    // case 3
+                                } else if( nums[right] > nums[mid] /* nums[left] > nums[right] */ ) {
+                                    //          case 3
+                                    //
+                                    //           /
+                                    //          /
+                                    //              /
+                                    //             /
+                                    //            /
+                                    //
                                     if( nums[mid] < target && target < nums[right] ) {
-                                        return search( nums, mid+1, right, target );
+                                        return search( nums, mid+1, right, target, 1 ); // ordinary binary search
                                     } else {
-                                        return search( nums, left, mid-1, target );
+                                        return search( nums,  left, mid-1, target );
                                     }
                                 } else {
                                     //cout << "what...?!\n";
@@ -303,7 +382,7 @@ Algorithms
                         };
                         ```
 
-                -   [Search in Rotated Sorted Array II | LeetCode OJ](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) -<
+                -   [81. Search in Rotated Sorted Array II | LeetCode OJ](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) -<
 
                     :   Follow up for "Search in Rotated Sorted Array":
 
@@ -312,73 +391,168 @@ Algorithms
                         -   Write a function to determine if a given target is in the array.
 
                         ```cpp
-                        // Follow up for "Search in Rotated Sorted Array":
-                        // What if duplicates are allowed?
-                        //
-                        // Would this affect the run-time complexity? How and why?
-                        //
-                        // Write a function to determine if a given target is in the array.
-
-                        // Using the same idea "Search in Rotated Sorted Array"
-                        // but need be very careful about the following cases:
-                        //   [3,3,3,4,5,6,3,3]
-                        //   [3,3,3,3,1,3]
-                        // After split, you don't know which part is rotated and which part is not.
-                        // So, you have to skip the ducplication
-                        //   [3,3,3,4,5,6,3,3]
-                        //          ^       ^
-                        //   [3,3,3,3,1,3]
-                        //            ^ ^
                         class Solution {
                         public:
-                            bool search(int A[], int n, int key) {
-                                if (n<=0) return false;
-
-                                if (n==1){
-                                    return (A[0]==key) ? true : false;
-                                }
-                                int low=0, high=n-1;
-                                while( low<=high ){
-
-                                    if (A[low] < A[high] && ( key < A[low] || key > A[high]) ) {
-                                         return false;
+                            bool search(vector<int>& nums, int target) {
+                                int low = 0;
+                                int high = nums.size()-1;
+                                int mid;
+                                while( low <= high ) {
+                                    if( nums[low] < nums[high] && (target<nums[low]||nums[high]<target) ) {
+                                        return false;
                                     }
-
-                                    //if dupilicates, remove the duplication
-                                    while (low < high && A[low]==A[high]){
-                                        low++;
+                                    // if dupilicates, remove the duplication
+                                    while ( low < high && nums[low] == nums[high] ) {
+                                        ++low;
                                     }
-
-                                    int mid = low + (high-low)/2;
-                                    if ( A[mid] == key ) return true;
-
-                                    //the target in non-rotated array
-                                    if (A[low] < A[mid] && key >= A[low] && key< A[mid]){
-                                        high = mid - 1;
+                                    mid = (low+high)/2;
+                                    if ( nums[mid] == target || nums[low] == target || nums[high] == target ) {
+                                        return true;
+                                    }
+                                    // left, not rotated
+                                    if ( nums[low] < target && target < nums[mid] ) {
+                                        high = mid-1;
                                         continue;
                                     }
-                                    //the target in non-rotated array
-                                    if (A[mid] < A[high] && key > A[mid] && key <= A[high] ){
-                                        low = mid + 1;
+                                    // right, not rotated
+                                    if ( nums[mid] < target && target < nums[high] ) {
+                                        low = mid+1;
                                         continue;
                                     }
-                                    //the target in rotated array
-                                    if (A[low] > A[mid] ){
-                                        high = mid - 1;
-                                        continue;
-                                    }
-                                    //the target in rotated array
-                                    if (A[mid] > A[high] ){
-                                        low = mid + 1;
-                                        continue;
-                                    }
-
-                                    //reach here means nothing found.
-                                    low++;
+                                    // rotated
+                                    if  ( nums[low]  > nums[mid] ){ high = mid-1; continue; }
+                                    if  ( nums[high] < nums[mid] ){ low  = mid+1; continue; }
+                                    ++low;
                                 }
                                 return false;
                             }
                         };
+                        ```
+
+                -   [153. Find Minimum in Rotated Sorted Array | LeetCode OJ](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/) -<
+
+                    :   Suppose a sorted array is rotated at some pivot unknown
+                        to you beforehand.
+
+                        (i.e., `0 1 2 4 5 6 7` might become `4 5 6 7 0 1 2`).
+
+                        Find the minimum element.
+
+                        You may assume no duplicate exists in the array.
+
+                        ```cpp
+                        class Solution {
+                        public:
+                            int findMin(vector<int>& nums) {
+                                return findMin( nums, 0, nums.size()-1 );
+                            }
+                            int findMin( vector<int>& nums, int low, int high ) {
+                                int mid = (low+high)/2;
+                                if( mid == low || mid == high ) { return min( nums[low], nums[high] ); }
+                                if( nums[low] < nums[high] ) {
+                                    return nums[low];
+                                } else {
+                                    if( nums[low] < nums[mid] ) {
+                                        return min( findMin( nums, mid+1, high ), nums[low] );
+                                    } else {
+                                        return min( findMin( nums, low, mid-1 ), nums[mid] );
+                                    }
+                                }
+                            }
+                        };
+                        ```
+
+                -   [154. Find Minimum in Rotated Sorted Array II | LeetCode OJ](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/) -<
+
+                    :   The array may contain duplicates.
+
+                        没有通过 ==
+
+                        ```cpp
+                        class Solution {
+                        public:
+                            int findMin(vector<int>& nums) {
+                                return findMin( nums, 0, nums.size()-1 );
+                            }
+                            int findMin( vector<int>& nums, int low, int high ) {
+                                if( low > high ) { return INT_MAX; }
+                                int mid = (low+high)/2;
+                                if( mid == low || mid == high ) { return min( nums[low], nums[high] ); }
+                                if( nums[low] < nums[high] ) {
+                                    return nums[low];
+                                } else {
+                                    while ( low < high && nums[low] == nums[high] ) {
+                                        ++low;
+                                    }
+                                    mid = (low+high)/2;
+                                    if( mid == low || mid == high ) { return min( nums[low], nums[high] ); }
+                                    if( nums[low] < nums[mid] ) {
+                                        return min( findMin( nums, mid+1, high ), nums[low] );
+                                    } else {
+                                        return min( findMin( nums, low, mid-1 ), nums[mid] );
+                                    }
+                                }
+                            }
+                        };
+                        ```
+
+                -   [108. Convert Sorted Array to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) -<
+
+                    :   ```cpp
+                        /**
+                         * Definition for a binary tree node.
+                         * struct TreeNode {
+                         *     int val;
+                         *     TreeNode *left;
+                         *     TreeNode *right;
+                         *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+                         * };
+                         */
+                        class Solution {
+                        public:
+                            TreeNode* sortedArrayToBST(vector<int>& nums) {
+
+                                if(nums.size()==0){
+                                    return NULL;
+                                }
+                                if(nums.size()==1){
+                                    return new TreeNode(nums[0]);
+                                }
+                                int mid = nums.size()/2;
+
+                                TreeNode *node = new TreeNode(nums[mid]);
+
+                                vector<int>::const_iterator first = nums.begin();;
+                                vector<int>::const_iterator last  = nums.begin()+mid;
+
+                                vector<int> v(first, last);
+                                node->left = sortedArrayToBST(v);
+
+                                if (mid==nums.size()-1){
+                                    node->right = NULL;
+                                } else {
+                                    first = nums.begin()+mid+1;
+                                    last = nums.end();
+                                    vector<int> v(first, last);
+                                    node->right = sortedArrayToBST(v);
+                                }
+                                return node;
+                            }
+                        };
+                        ```
+
+                        [109. Convert Sorted List to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)
+                        和这个类似，我加了一层转换就 pass 了：
+
+                        ```cpp
+                        TreeNode* sortedListToBST(ListNode* head) {
+                            vector<int> nums;
+                            while( head ) {
+                                nums.push_back( head->val );
+                                head = head->next;
+                            }
+                            return sortedArrayToBST( nums );
+                        }
                         ```
 
         -   refs and see also -<
@@ -545,7 +719,7 @@ Algorithms
     ![](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-08-17.png)
     ![](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-08-42.png)
 
-## 3.
+## 2.
 
 常见 C/C++ 函数 -<
 

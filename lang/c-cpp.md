@@ -62,7 +62,7 @@ C++ 简介 | Intro
         for(int i = 0; i < row_num; ++i) {
             ary[i] = new int[col_num];
         }
-        // delete[] ary[0];
+        // delete[] ary;
 
         // cpp
         vector<vector<int> > ary(row_num, vector<int>(col_num, 0));
@@ -351,7 +351,7 @@ C++ 简介 | Intro
 
         const char* convert(char buf[], int value)
         {
-            static char digits[19] =
+            static char digits =
             { '9', '8', '7', '6', '5', '4', '3', '2', '1', '0',
                 '1', '2', '3', '4', '5', '6', '7', '8', '9' };
             static const char *const zero = digits + 9; // zero 指向 '0'
@@ -374,7 +374,7 @@ C++ 简介 | Intro
         }
 
         int main() {
-            char buf[50];
+            char buf;
             int num;
             while( 1 == scanf( "%d", &num ) ) {
                 convert( buf, num );
@@ -437,7 +437,7 @@ C++ 简介 | Intro
         {
             const int max_name = 80;
             char name[max_name];
-            char fmt[10];
+            char fmt;
             sprintf(fmt, ”%%%ds”, max_name - 1);
             scanf(fmt, name);
             printf(”%s\n”, name);
@@ -459,8 +459,8 @@ C++ 简介 | Intro
         {
             int i, j;
             float x, y;
-            char str1[10], str2[4];
-            wchar_t warr[2];
+            char str1, str2;
+            wchar_t warr;
             setlocale(LC_ALL, "en_US.utf8");
 
             char input[] = "25 54.32E-1 Thompson 56789 0123 56ß水";
@@ -479,8 +479,8 @@ C++ 简介 | Intro
 
             printf("Converted %d fields:\ni = %d\nx = %f\nstr1 = %s\n"
                    "j = %d\ny = %f\nstr2 = %s\n"
-                   "warr[0] = U+%x warr[1] = U+%x\n",
-                   ret, i, x, str1, j, y, str2, warr[0], warr[1]);
+                   "warr = U+%x warr = U+%x\n",
+                   ret, i, x, str1, j, y, str2, warr, warr);
 
         #ifdef __STDC_LIB_EXT1__
             int n = sscanf_s(input, "%d%f%s", &i, &x, str1, (rsize_t)sizeof str1);
@@ -497,7 +497,7 @@ C++ 简介 | Intro
         j = 56
         y = 789.000000
         str2 = 56
-        warr[0] = U+df warr[1] = U+6c34
+        warr = U+df warr = U+6c34
         ```
 
         ```cpp
@@ -1089,8 +1089,8 @@ C++ 简介 | Intro
             v.push_back(std::move(str));
             std::cout << "After move, str is \"" << str << "\"\n";
 
-            std::cout << "The contents of the vector are \"" << v[0]
-                                                 << "\", \"" << v[1] << "\"\n";
+            std::cout << "The contents of the vector are \"" << v
+                                                 << "\", \"" << v << "\"\n";
         }
         ```
 
@@ -1489,7 +1489,7 @@ C++ 简介 | Intro
 
         [ludx/The-Lost-Art-of-C-Structure-Packing: The Lost Art of C Structure Packing中文翻译](https://github.com/ludx/The-Lost-Art-of-C-Structure-Packing) -<
 
-        :   字符数组 `pad[3]` 意味着在这个结构体中，有3个字节的空间被浪费掉了。老派术语将其称之为**“废液（slop，`[slɑt]`）”**。
+        :   字符数组 `pad` 意味着在这个结构体中，有3个字节的空间被浪费掉了。老派术语将其称之为**“废液（slop，`[slɑt]`）”**。
             首先，在此例中，N将为0，x的地址紧随p之后，能确保是与指针对齐的，因为指针的对齐要求总比int严格。
 
             倘若你希望这些变量占用的空间更少，那么可以交换x与c的次序。
@@ -1574,11 +1574,11 @@ C++ 简介 | Intro
             ```cpp
             struct foo6 {
                 char c;           /* 1 byte */
-                char pad1[7];     /* 7 bytes */
+                char pad1;     /* 7 bytes */
                 struct foo6_inner {
                     char *p;      /* 8 bytes */
                     short x;      /* 2 bytes */
-                    char pad2[6]; /* 6 bytes */
+                    char pad2; /* 6 bytes */
                 } inner;
             };
             ```
@@ -1618,7 +1618,7 @@ C++ 简介 | Intro
 
             struct foo2 {
                 char c;      /* 1 byte */
-                char pad[7]; /* 7 bytes */
+                char pad; /* 7 bytes */
                 char *p;     /* 8 bytes */
                 long x;      /* 8 bytes */
             };
@@ -1896,10 +1896,10 @@ C++ 简介 | Intro
           if(b)
           {
             //Create 500 bytes on the stack
-            char buffer[500];
+            char buffer;
 
             //Create 500 bytes on the heap
-            pBuffer = new char[500];
+            pBuffer = new char;
 
            }//<-- buffer is deallocated here, pBuffer is not
         }//<--- oops there's a memory leak, I should have called delete[] pBuffer;
@@ -2549,7 +2549,7 @@ C++ 简介 | Intro
         :   -   强类型：偏向于不容忍隐式类型转换。譬如说haskell的int就不能变成double
             -   弱类型：偏向于容忍隐式类型转换。譬如说C语言的int可以变成double
             -   静态类型：编译的时候就知道每一个变量的类型，因为类型错误而不能做的事情是语法错误。
-            -   动态类型：编译的时候不知道每一个变量的类型，因为类型错误而不能做的事情是运行时错误。譬如说你不能对一个数字a写a[10]当数组用。
+            -   动态类型：编译的时候不知道每一个变量的类型，因为类型错误而不能做的事情是运行时错误。譬如说你不能对一个数字a写a当数组用。
 
         refs and see also
 
@@ -3642,7 +3642,7 @@ C++ 简介 | Intro
 
                         这样一来，一个 class X 成员 x 的内存中，有 nonstatic 数据、align 的字节，以及 vptr，
                         这个 vptr 指向一个 virtual table，这个 virtual table 的第一个地
-                        址（`px->_vtbl[0]`）指向 type_info for X，其它指向 X 中的各个 virtual function。
+                        址（`px->_vtbl`）指向 type_info for X，其它指向 X 中的各个 virtual function。
 
             -   三种编程典范 -<
 
@@ -4118,7 +4118,7 @@ C++ 简介 | Intro
                     obj.normalize();
                     ```
 
-                    这里不需要使用 `(*p->vptr[2])()`，因为编译期间就可以处理好，
+                    这里不需要使用 `(*p->vptr)()`，因为编译期间就可以处理好，
                     用 mangled 函数名直接调用即可：`normalize__7Point3dFv( &obj );`。
 
                     对于静态函数，`&Point3d::object_count();` 会得到一个数值，
@@ -4143,7 +4143,7 @@ C++ 简介 | Intro
                     ```cpp
                     // p->function()
                     //将转化为
-                    (*p->vptr[1])(p);
+                    (*p->vptr)(p);
                     ```
 
                     -   其中 vptr 为指向虚函数表的指针，它由编译器产生。
@@ -4283,7 +4283,7 @@ C++ 简介 | Intro
                     1.  我们不知道 ptr 所指的类型，但我们可以拿到该对象的 vtbl；
                     2.  我们不知道哪个 z() 要被调用，但 z() 对应的 slot 都是一个位置（比如 slot4）
 
-                    于是编译器就可以把 `ptr->z()` 转化为 `(*ptr->vptr[4])( ptr )`。
+                    于是编译器就可以把 `ptr->z()` 转化为 `(*ptr->vptr)( ptr )`。
                     这里 vptr 和 4 都是在编译期间就知道的，只有 ptr 的地址和具体调用哪
                     个 z() 是运行期间才知道的。
 
@@ -4312,13 +4312,13 @@ C++ 简介 | Intro
                     偏移量。于是虚函数的调用：
 
                     ```cpp
-                    (*ptr->vptr[1])(ptr);
+                    (*ptr->vptr)(ptr);
                     //将变成：
-                    (*ptr->vptr[1].addr)(ptr+*ptr->vptr[1].offset);
+                    (*ptr->vptr.addr)(ptr+*ptr->vptr.offset);
                     ```
 
-                    其中使用 `ptr->vptr[1].addr` 用以获取正确的虚函数地址，而
-                    `ptr+*ptr->vptr[1].offset` 来获得指向对象完整的起点。这种方法的缺点显
+                    其中使用 `ptr->vptr.addr` 用以获取正确的虚函数地址，而
+                    `ptr+*ptr->vptr.offset` 来获得指向对象完整的起点。这种方法的缺点显
                     而易见，代价过大了一点，所有的情况都被这一种占比较小的情况拖累。
 
                     还有一种叫做thunk的方法，thunk的作用在于:
@@ -4699,7 +4699,7 @@ C++ 简介 | Intro
                         const char* data() const { return buf_; }
                         int length() const { return length_; }
                     private:
-                        char buf_[32];
+                        char buf_;
                         int length_;
                 };
 
@@ -4980,7 +4980,7 @@ C++ 简介 | Intro
                         size_t size;
                         size_t capacity;
                         size_t refcount;
-                        char* data[1]; // variable length
+                        char* data; // variable length
                     };
                     char* start;
                 };
@@ -5014,7 +5014,7 @@ C++ 简介 | Intro
                 {
                   // 这里的顺序须是字典顺序
                   int elements[] = { 1, 2, 3, 4 };
-                  const size_t N = sizeof(elements)/sizeof(elements[0]);
+                  const size_t N = sizeof(elements)/sizeof(elements);
                   std::vector<int> vec(elements, elements + N);
 
                   int count = 0;
@@ -5070,8 +5070,8 @@ C++ 简介 | Intro
                 {
                   int values[] = { 1, 2, 3, 4, 5, 6, 7 };
                   int elements[] = { 1, 1, 1, 0, 0, 0, 0 };
-                  const size_t N = sizeof(elements)/sizeof(elements[0]);
-                  assert(N == sizeof(values)/sizeof(values[0]));
+                  const size_t N = sizeof(elements)/sizeof(elements);
+                  assert(N == sizeof(values)/sizeof(values));
                   std::vector<int> selectors(elements, elements + N);
 
                   int count = 0;
@@ -5666,10 +5666,10 @@ C++ 简介 | Intro
 
                 int main()
                 {
-                    int buf[4] = { 0, 1, 2, 3 };
+                    int buf = { 0, 1, 2, 3 };
 
-                    // int *p1 = &buf[1], *p2 = &buf[2];    // 为什么这个不可以？不加 const 居然报错？！
-                    const int *p1 = &buf[1], *p2 = &buf[2];
+                    // int *p1 = &buf, *p2 = &buf;    // 为什么这个不可以？不加 const 居然报错？！
+                    const int *p1 = &buf, *p2 = &buf;
 
                     printf( "before assign: %d %d\n", *p1, *p2 );
                     assign( p1, p2 );
@@ -5697,11 +5697,11 @@ C++ 简介 | Intro
                         // 首先，返回值不能用来区别函数，这点没有再必要讨论
 
                         // ERROR: no compound literals in C++
-                        void foo (int bar[] = (int[2]){0 ,1});
+                        void foo (int bar[] = (int){0 ,1});
 
                         // 实际上，下面三个一样一样的
                         void funtion( int buf[] );
-                        void funtion( int buf[3] );
+                        void funtion( int buf );
                         void funtion( int *buf );
 
                         // Okay
@@ -5795,8 +5795,144 @@ C++ 简介 | Intro
 -   [Generic programming - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Generic_programming)
 
 -   [编程小谈 — RAII与Pimpl | UC技术博客](http://tech.uc.cn/?p=851)
+
 -   [Opaque pointer - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Opaque_pointer)
 
+    :    `[o'pek]` 不透明。
+
+        Opaque pointers are a way to hide the implementation details of an
+        interface from ordinary clients, so that the implementation may be
+        changed without the need to recompile the modules using it. This
+        benefits the programmer as well since a simple interface can be
+        created, and most details can be hidden in another file. This is
+        important for providing binary code compatibility through different
+        versions of a shared library, for example.
+
+        This technique is described in Design Patterns as the Bridge pattern.
+        It is sometimes referred to as "handle classes", the "Pimpl idiom" (for
+        "pointer to implementation idiom"), "Compiler firewall idiom",
+        "d-pointer" or "Cheshire Cat", especially among the C++ community.
+
+        -   C example -<
+
+            :   -   obj.h -<
+
+                    :   ```cpp
+                        struct obj;
+
+                        /*
+                         * The compiler considers struct obj an incomplete type. Incomplete types
+                         * can be used in declarations.
+                         */
+
+                        size_t obj_size(void);
+
+                        void obj_setid(struct obj *, int);
+
+                        int obj_getid(struct obj *);
+                        ```
+
+                -   obj.cpp -<
+
+                    :   ```cpp
+                        #include "obj.h"
+
+                        struct obj {
+                            int id;
+                        };
+
+                        /*
+                         * The caller will handle allocation.
+                         * Provide the required information only
+                         */
+
+                        size_t obj_size(void) {
+                            return sizeof(struct obj);
+                        }
+
+                        void obj_setid(struct obj *o, int i) {
+                            o->id = i;
+                        }
+
+                        int obj_getid(struct obj *o) {
+                            return o->id;
+                        }
+                        ```
+
+                This example demonstrates a way to achieve the information hiding
+                (encapsulation) aspect of object-oriented programming using the C
+                language. If someone wanted to change the declaration of struct
+                obj, it would be unnecessary to recompile any other modules in the
+                program that use the obj.h header file unless the API was also
+                changed. Note that it may be desirable for the functions to check
+                that the passed pointer is not NULL, but such checks have been
+                omitted above for brevity.
+
+        -   C++ example -<
+
+            :   -   Class.h -<
+
+                    :   ```cpp
+                        class PublicClass {
+                        public:
+                            PublicClass();                              // Constructor
+                            PublicClass(const PublicClass&);            // Copy constructor
+                            PublicClass(PublicClass&&);                 // Move constructor
+                            PublicClass& operator=(const PublicClass&); // Copy assignment operator
+                            ~PublicClass();                             // Destructor
+                            // Other operations...
+
+                        private:
+                            struct CheshireCat;                         // Not defined here
+                            unique_ptr<CheshireCat> d_ptr;              // opaque pointer
+                        };
+                        ```
+
+                -   Class.cpp -<
+
+                    :   ```cpp
+                        //CPP file:
+                        #include "PublicClass.h"
+
+                        struct PublicClass::CheshireCat {
+                            int a;
+                            int b;
+                        };
+
+                        PublicClass::PublicClass()
+                            : d_ptr(new CheshireCat()) {
+                            // do nothing
+                        }
+
+                        PublicClass::PublicClass(const PublicClass& other)
+                            : d_ptr(new CheshireCat(*other.d_ptr)) {
+                            // do nothing
+                        }
+
+                        PublicClass::PublicClass(PublicClass&& other) = default;
+
+                        PublicClass& PublicClass::operator=(const PublicClass &other) {
+                            *d_ptr = *other.d_ptr;
+                            return *this;
+                        }
+
+                        PublicClass::~PublicClass() = default;
+                        ```
+
+                One type of opaque pointer commonly used in C++ class
+                declarations is the d-pointer. The d-pointer is the only
+                private data member of the class and points to an instance of a
+                struct. Named by Arnt Gulbrandsen of Trolltech, this method
+                allows class declarations to omit private data members, except
+                for the d-pointer itself.[6] The result: (a) more of the class
+                implementation is hidden from view; (b) adding new data members
+                to the private struct does not affect binary compatibility; (c)
+                the header file containing the class declaration only needs to
+                #include those other files needed for the class interface,
+                rather than for its implementation. One side benefit is that
+                compilations are faster because the header file changes less
+                often. The d-pointer is heavily used in the Qt and KDE
+                libraries.
 
 - [Here be dragons: advances in problems you didn’t even know you had | teideal glic deisbhéalach](http://www.serpentine.com/blog/2011/06/29/here-be-dragons-advances-in-problems-you-didnt-even-know-you-had/)
 - [function/bind的救赎（上） - 孟岩 - 博客频道 - CSDN.NET](http://blog.csdn.net/myan/article/details/5928531)
