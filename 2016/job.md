@@ -873,3 +873,7 @@ MISC -<
     [(●—●) | 搜索结果(微软内推)_牛客网](http://www.nowcoder.com/search?type=question&query=%E5%BE%AE%E8%BD%AF%E5%86%85%E6%8E%A8)
 
 [跨专业应届生如何才能拿到google等外企的offer？ - 知乎](https://www.zhihu.com/question/21518850)
+
+[如何评价阿里巴巴2016校园招聘名额缩减？ - 知乎](https://www.zhihu.com/question/35231944)
+
+[Google 和 Facebook 还来大陆招人么？是什么时间？和硅谷面试类型一样么？ - 知乎](https://www.zhihu.com/question/30337972){.heart .featured}

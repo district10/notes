@@ -34,3 +34,28 @@ nothing special.
 -   [历史笔记 6](2016/history6.html){title=2016/history6.md}
 -   [历史笔记 7](2016/history7.html){title=2016/history7.md}
 -   [历史笔记 8](2016/history8.html){title=2016/history8.md}
+
+---
+
+## 链接
+
+一些自己记笔记用到的工具：^[Vim 什么的就不说了。没 Vim 这笔记真心排版不了。]
+
+-   画文字版示意图：[ASCIIFlow Infinity](http://whudoc.qiniudn.com/asciiflow/index.html) -<
+
+    :   ```
+        +-------------+ Class Object
+        |             |
+        |             |          +-------->
+        +-------------+          |
+        |             |          |
+        +-------------+          |
+        |             |          |
+        |   ...       |          |
+        |             |          |
+        +-------------+          |
+        |  vptr       +----------+
+        +-------------+
+        ```
+
+        为了访问速度，上面链接给的是我的备份，原站：[ASCIIFlow Infinity](http://asciiflow.com/)。

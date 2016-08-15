@@ -397,3 +397,19 @@ vim tip:
 [vim - Copy from one register to another - Stack Overflow](http://stackoverflow.com/questions/1502218/copy-from-one-register-to-another)
 
 `#pragma GCC diagnostic error "-std=c++11"`
+
+[北京户籍的学生进入清华北大以后和外省的学生有没有水平差异？ - 知乎](https://www.zhihu.com/question/21335841)
+
+我认为一个优秀程序员的思维是缜密细致的，在出问题后，他会详细的先研究问题出在哪
+里，思考缘由，而非闷头瞎使用 printf 大法，然后去撞大运，头痛医头，脚疼医脚，因
+为这样解开了 Bug 其实连自己都心虚。而优秀的程序员即使解开了 Bug，他也会扩展问题，
+并且思考是否其它部分是否也有类似的问题，只是还未体现，而且他也会详细反思获得的
+经验。
+
+[完全用命令行工作 — 一年后的思考](http://blog.youxu.info/2011/01/24/keyboard-only-thoughts-one-year-later/)
+
+[How to move the mouse cursor with the keyboard in Windows.](http://www.computerhope.com/issues/ch000542.htm)
+
+[He "Lonnie" Liu - CSE, UC San Diego](http://liulonnie.net/)
+
+[18-25岁：也许是一生中最困难的时候｜Emerging Adulthood - Know Yourself - 知乎专栏](https://zhuanlan.zhihu.com/p/20493903)

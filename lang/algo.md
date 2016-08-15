@@ -496,7 +496,7 @@ Algorithms
                         };
                         ```
 
-                -   [108. Convert Sorted Array to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/) -<
+                -   [108. Convert Sorted Array to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/){#lc108} -<
 
                     :   ```cpp
                         /**
@@ -522,7 +522,7 @@ Algorithms
 
                                 TreeNode *node = new TreeNode(nums[mid]);
 
-                                vector<int>::const_iterator first = nums.begin();;
+                                vector<int>::const_iterator first = nums.begin();
                                 vector<int>::const_iterator last  = nums.begin()+mid;
 
                                 vector<int> v(first, last);
@@ -540,6 +540,8 @@ Algorithms
                             }
                         };
                         ```
+
+                        还有一个解答，见 [leetcode #108 answer 2](#lc108a2)
 
                         [109. Convert Sorted List to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)
                         和这个类似，我加了一层转换就 pass 了：
@@ -561,21 +563,869 @@ Algorithms
 
     2016/8/7 上午9:30:00 3. 二叉树问题与分治算法 Binary Tree & Divide Conquer -<
 
-    :   -   二叉树的深度优先遍历 Binary Tree DFS Traversal
-            -   先序 / 中序 / 后序 Preorder / inorder / postorder
-            -   分治 Divide & Conquer
-            -   DFS 模板 Introduce DFS Template
-        -   二叉树的宽度优先遍历 Binary Tree BFS Traversal
-            -   BFS 模板 Introduce BFS template
-        -   二叉搜索树 Binary Search Tree
+    :   -   二叉树的深度优先遍历 Binary Tree DFS Traversal -<
+
+            :   -   先序 / 中序 / 后序 Preorder / inorder / postorder -<
+
+                    :   -   二叉树的节点定义 -<
+
+                            :   ```cpp
+                                struct TreeNode {
+                                    int val;
+                                    TreeNode *left;
+                                    TreeNode *right;
+                                    TreeNode( int x ) : val(x), left(nullptr), right(nullptr) { }
+                                }
+                                ```
+
+                                递归版的都很容易：
+
+                                ```cpp
+                                void traversal( TreeNode *root, vector<int> &result ) {
+                                    if( !root ) { return; }
+
+                                    // 如果先序
+                                    result.push_back( root->val );
+                                    traversal( root->left,  result );
+                                    traversal( root->right, result );
+
+                                    // 中序和后序只是调整一下位置
+                                }
+                                ```
+
+                        -   先序遍历 -<
+
+                            :   -   用栈 -<
+
+                                    :   ```cpp
+                                        // Time: O(n), Space: O(n)
+                                        vector<int> preorderTravesal( TreeNode *root ) {
+                                            vector<int> result;
+                                            stack<const TreeNode *> s;
+                                            // 以后 if( root != nullptr ) 一律写成 if( root )。更简洁清晰
+                                            if( root ) { s.push(root); }
+                                            while( !s.empty() ) {
+                                                const TreeNode *p = s.top();
+                                                s.pop();
+                                                result.push_back( p->val );
+
+                                                if( p->right ) { s.push( p->right); }   // 这里不要疏忽了
+                                                if( p->left  ) { s.push( p->left ); }
+                                            }
+                                            return result;
+                                        }
+                                        ```
+
+                                -   Morris 先序遍历 -<
+
+                                    :   参考 [Morris Traversal方法遍历二叉树（非递归，
+                                            不用栈，`O(1)` 空间） - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2013/06/15/MorrisTraversal.html)。
+
+                                        要使用 O(1) 空间进行遍历，最大的难点在于，遍历
+                                        到子节点的时候怎样重新返回到父节点（假设节点中
+                                        没有指向父节点的p 指针），由于不能用栈作为辅助
+                                        空间。为了解决这个问题，Morris 方法用到了线索二
+                                        叉树（threaded binary tree）的概念。在 Morris
+                                        方法中不需要为每个节点额外分配指针指向其前驱
+                                        （predecessor）和后继节点（successor），只需要
+                                        利用叶子节点中的左右空指针指向某种顺序遍历下的
+                                        前驱节点或后继节点就可以了。
+
+                                        ![moris preorder](http://images.cnitblog.com/blog/300640/201306/14221458-aa5f9e92cce743ccacbc735048133058.jpg)
+
+                                        ```cpp
+                                        // Time: O(n), Space: O(1)
+                                        vector<int> preorderTraversal( TreeNode *root ) {
+                                            vector<int> result;
+                                            TreeNode *cur = root; *prev = nullptr;
+
+                                            while( cur ) {
+                                                if( cur->left ) {
+                                                    result.push_back( cur->val );
+                                                    prev    = cur;
+                                                    cur     = cur->right;
+                                                } else {
+                                                    // 查找前驱
+                                                    TreeNode *node = cur->left;
+                                                    while( node->right && node->right != cur ) {
+                                                        node = node->right;
+                                                    }
+                                                    if( !node->right ) {
+                                                        result.push_back( cur->val );
+                                                        node->right = cur;
+                                                        prev        = cur;
+                                                        cur         = cur->left;
+                                                    } else {
+                                                        node->right = nullptr;
+                                                        cur = cur->right;
+                                                    }
+                                                }
+                                            }
+                                            return result;
+                                        }
+                                        ```
+
+                        -   中序（inorder）遍历 :heart: -<
+
+                            :   -   用栈 -<
+
+                                    :   ```cpp
+                                        vector<int> inorderTraveral( TreeNode *root ) {
+                                            vector<int> result;
+                                            stack<const TreeNode *> s;
+                                            const TreeNode *p = root;
+                                            while( !s.empty() || p ) {
+                                                if( p ) {
+                                                    s.push( p );                    // 计划处理 p（当前）
+                                                    p = p->left;                    // 但先处理左节点
+                                                } else {
+                                                    p = s.top();                    // 处理 p（当前），它的左子树已经处理完了~
+                                                    s.pop();
+                                                    result.push_back( p->val );
+                                                    p = p->right;                   // 然后移到右边
+                                                }
+                                            }
+                                            return result;
+                                        }
+                                        ```
+
+                                -   Moris -<
+
+                                    :   ```cpp
+                                        null
+                                        ```
+
+                                        ![红色是为了定位到某个节点，黑色线是为了
+                                            找到前驱节点。](http://images.cnitblog.com/blog/300640/201306/15150628-5285f29bab234750a62e2309394b6e14.jpg)
+                                        ![moris inorder](http://images.cnitblog.com/blog/300640/201306/14214057-7cc645706e7741e3b5ed62b320000354.jpg)
+
+                        -   后序遍历 -<
+
+                            :   -   用栈 -<
+
+                                    :   ```cpp
+                                        //  【思路】
+                                        //
+                                        //            Root    第一件事，从 root 到 leaf (left leaf) 一路 push 入栈，
+                                        //             /      结果是从 root 移到了虚无之中。
+                                        //            /
+                                        //           /
+                                        //         leaf       额，那就 pop 咯。
+                                        //
+                                        //         popped     对于这个 popped 出来的节点，它的 right 存在且没有处理过？
+                                        //            \       1.  那再把它 push！然后把 right 当成 root 继续处理。
+                                        //             \      2.  没有右边，那就是左右都处理完了，于是处理 popped。
+                                        //              ?
+                                        vector<int> postorderTraversal( TreeNode *root ) {
+                                            vector<int> result;
+                                            stack<const TreeNode *> s;
+                                            const TreeNode *p = root, *q = nullptr;
+                                            do {
+                                                while( p ) {
+                                                    s.push( p );
+                                                    p = p->left;
+                                                }
+                                                q = nullptr;
+                                                while( !s.empty() ) {
+                                                    p = s.top();
+                                                    s.pop();
+                                                    if( p->right == q ) {
+                                                        result.push_back( p->val );
+                                                        q = p;
+                                                    } else {
+                                                        s.push( p );                // 计划当前结点
+                                                        p = p->right;               // 但先处理右边
+                                                    }
+                                                }
+                                            } while( !s.empty() );
+                                            return result;
+                                        }
+                                        ```
+
+                                -   Moris -<
+
+                                    :   ```cpp
+                                        null
+                                        ```
+
+                -   分治 Divide & Conquer -<
+
+                    :   -   pow(x, n) -<
+
+                            :   实现 power(x, n) 即 x^n
+
+                                思路：
+
+                                -   n 为奇数，x^n = x * x^{n-1}
+                                -   n 为偶数，x^n = x^{n/2} * x^{n/2}
+
+                                或者 x^n = x^{n/2} * x^{n/2} * x^{n%2}
+
+                                ```cpp
+                                // Time: O(logn), Space: O(1)
+                                double pow( double x, int n ) {
+                                    if( n < 0 ) { return 1.0 / pow( x, -n); }
+                                    if( n == 0 ) { return 1; }
+                                    double v = pow( x, n/2 );
+                                    if( n%2 == 0 ) {
+                                        return v * v;
+                                    } else {
+                                        return v * v * x;
+                                    }
+                                    // 写成 return n%2 ? v*v*x : v*v; 似乎没必要
+                                    // （毕竟这个算法本来不长）
+                                }
+                                ```
+
+                        -   sqrt(x) -<
+
+                            :   ```cpp
+                                int sqrt( int x ) {
+                                    int left = 1, right = x / 2 + 1;
+                                    int mid;
+                                    if( x < 2 ) { return x; } // ?<0->..., 0->0, 1->1
+                                    while( left <= right ) {
+                                        mid = (left+right)/2;
+                                        if( x / mid > mid ) {
+                                            left = mid+1;
+                                        } else if ( x / mid < mid) {
+                                            right = mid-1;
+                                        } else {
+                                            // 9/3 == 3, 10/3 == 3, 15/3 > 3, so sqrt(15) = 4
+                                            break; // return mid;
+                                        }
+                                    }
+                                    return mid;
+                                }
+                                ```
+
+                        -   refs and see also -<
+
+                            :   -   [Divide and conquer algorithms - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithms)
+
+                -   DFS 模板 Introduce DFS Template -<
+
+                    :   DFS (depth-first search) 是深搜。
+
+                        ```cpp
+                        void dfs( type &input, type &path, type &result, int cur or gap ) {
+                            if( 数据非法 ) { return 0; }            // 终止条件
+                            if( cur == input.size() ) {
+                                将 path 放入 result
+                            }
+                            if( 可以剪纸 ) { return; }
+                            for( ... ) {    // 执行所有可能的扩展动作
+                                执行动作，修改 path
+                                dfs( input, step+1 or gap--, result );
+                                恢复 path
+                            }
+                        }
+                        ```
+
+                        [Depth-first search - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Depth-first_search)
+
+                        DFS 和回溯（backtracking）不一样。Backtracking = DFS + 减枝。
+
+                        [Backtracking - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Backtracking)
+
+                        [Pruning (algorithm) - Wikipedia, the free encyclopedia](http://inimino.org/~inimino/tests/js/tree_explorer/wikipedia/Pruning_(algorithm).html)
+
+        -   二叉树的宽度优先遍历 Binary Tree BFS Traversal -<
+
+            :   -   BFS 模板 Introduce BFS template -<
+
+                    :   就是层序遍历（level order traversal）
+
+                        -   递归版本 -<
+
+                            :   ```cpp
+                                // Time: O(n), Space: O(n)
+                                vector<vector<int> > levelOrder( TreeNode *root ) {
+                                    vector<vector<int> > result;
+                                    traverse( root, 1, result );
+                                    return result;
+                                }
+
+                                void traverse( TreeNode *root, size_t level, vector<vector<int> > &result ) {
+                                    if( !root ) { return; }
+                                    if( level > result.size() ) {
+                                        result.push_back( vector<int>() );
+                                        // 似乎也可以用 resize( level );
+                                    }
+                                    result[level-1].push_back( root->val );
+                                    traverse( root->left,   level+1, result );
+                                    traverse( root->right,  level+1, result );
+                                }
+                                ```
+
+                        -   迭代版本 -<
+
+                            :   ```cpp
+                                // Time: O(n), Space: O(1)
+                                vector<vector<int> > levelOrder( TreeNode *root ) {
+                                    vector<vector<int> > result;
+                                    queue<const TreeNode *> current, next;
+                                    if( !root ) {
+                                        return result;
+                                    } else {
+                                        current.push( root );
+                                    }
+
+                                    while( !current.empty() ) {
+                                        vector<int> level;
+                                        while( !current.empty() ) {
+                                            TreeNode *node = current.front();
+                                            current.pop();
+                                            level.push_back( node->val );
+                                            if( node->left  ) { next.push( node->left  ); }
+                                            if( node->right ) { next.push( node->right ); }
+                                        }
+                                        result.push_back( level );
+                                        swap( next, current );
+                                    }
+                                    return result;
+                                }
+                                ```
+
+                -   refs and see also -<
+
+                    :   -   [Breadth-First Traversal of a Tree](https://www.cs.bu.edu/teaching/c/tree/breadth-first/)
+                        -   [Stack-based breadth-first search tree traversal](http://www.ibm.com/developerworks/aix/library/au-aix-stack-tree-traversal/index.html)
+
+        -   二叉搜索树 Binary Search Tree -<
+
+            :   -   What is BST -<
+
+                    :   In computer science, binary search trees (BST), sometimes
+                        called ordered or sorted binary trees, are a particular type of
+                        containers: data structures that store "items" (such as
+                        numbers, names etc.) in memory. They allow fast lookup,
+                        addition and removal of items, and can be used to implement
+                        either dynamic sets of items, or lookup tables that allow
+                        finding an item by its key (e.g., finding the phone number of a
+                        person by name).
+
+                        The major advantage of binary search trees over other data
+                        structures is that **the related sorting algorithms and search
+                        algorithms such as in-order traversal can be very efficient**;
+                        they are also easy to code.
+
+                        Binary search trees are a fundamental data structure used to
+                        construct more abstract data structures such as sets,
+                        multisets, and associative arrays. Some of their disadvantages
+                        are as follows:
+
+                        -   The shape of the binary search tree depends entirely on the
+                            order of insertions and deletions, and can become
+                            **degenerate**. 树的结构跟数据插入删除顺序相关，可能退化。
+                            解决方案是平衡二叉树。
+                        -   When inserting or searching for an element in a binary
+                            search tree, the key of each visited node has to be
+                            compared with the key of the element to be inserted or
+                            found. **不是随机访问。**
+                        -   The keys in the binary search tree may be long and the run
+                            time may increase. 如果 key 的比较很耗时，那就很糟。
+                        -   After a long intermixed sequence of random insertion and
+                            deletion, the expected height of the tree approaches square
+                            root of the number of keys, √n, which grows much faster
+                            than log n. **深度的预期是 sqrt(n) 比 最好的 log(n) 差很多。**
+                            不过这一点好像还是在说 degenerate……
+
+                        删除操作比较麻烦，分三种情况：
+
+                        -   Deleting a node with no children: simply remove the node from the tree.
+                        -   Deleting a node with one child: remove the node and replace it with its child.
+                        -   Deleting a node with two children: call the node to be
+                            deleted N. Do not delete N. Instead, choose either its
+                            in-order successor node or its in-order predecessor node,
+                            R. Copy the value of R to N, then recursively call delete
+                            on R until reaching one of the first two cases. If you
+                            choose in-order successor of a node, as right sub tree is
+                            not NIL (Our present case is node has 2 children), then its
+                            in-order successor is node with least value in its right
+                            sub tree, which will have at a maximum of 1 sub tree, so
+                            deleting it would fall in one of the first 2 cases.
+
+                        ![Deleting a node with two children from a binary
+                            search tree.  First the rightmost node in the left
+                            subtree, the inorder predecessor 6, is identified.
+                            Its value is copied into the node being deleted.
+                            The inorder predecessor can then be easily deleted
+                            because it has at most one child. The same method
+                            works symmetrically using the inorder successor
+                            labelled 9.这其实是在找一个比删掉节点（7）小（当然
+                            是小）但经可能大的能够接替 7 的工作的节点。这个节点
+                            在左边最右。这是如图所示。](https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Binary_search_tree_delete.svg/960px-Binary_search_tree_delete.svg.png)
+
+                        ![Tree rotations are very common internal operations in binary
+                            trees to keep perfect, or near-to-perfect, internal balance in the tree.](https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BinaryTreeRotations.svg/450px-BinaryTreeRotations.svg.png)
+
+                -   [Unique Binary Search Trees | LeetCode OJ](https://leetcode.com/problems/unique-binary-search-trees/) -<
+
+                    :   Given n, how many structurally unique BST's (binary search trees) that store values 1...n?
+
+                        For example,
+                        Given n = 3, there are a total of 5 unique BST's.
+
+                        ```
+                           1         3     3      2      1
+                            \       /     /      / \      \
+                             3     2     1      1   3      2
+                            /     /       \                 \
+                           2     1         2                 3
+                        ```
+
+                        数组为 1, 2, ... 以 i 为根节点的树，左子树由 `[i, i-1]` 构成，右子树为 `[i+1, n]` 构成。
+
+                        ```
+                        f(2) =  f(0) * f(1),    1 为根的情况
+                             +  f(1) * f(0),    2 为根
+
+                        f(3) =  f(0) * f(2),    1 为根
+                             +  f(1) * f(1),    2 为根
+                             +  f(2) * f(0),    3 为根
+                        ```
+
+                        递推公式为 `f(i) = sum{ f(k-1)*f(i-k) } for k = 0..i`，这是一个一维动态规划。
+
+                        ```cpp
+                        int numTrees( int n ) {
+                            vector<int> f( n+1, 0 );
+                            f[0] = f[1] = 1;
+                            for( int i = 2; i <= n; ++i ) {
+                                for( int k = 1; k <= n; ++k ) {
+                                    f[i] += f[k-1] * f[i-k];
+                                }
+                            }
+                            return f[n];
+                        }
+                        ```
+
+                -   [Validate Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/validate-binary-search-tree/) -<
+
+                    :   ```cpp
+                        bool isValidBST( TreeNode *root ) {
+                            // leetcode 的 test case 里有 0xFFFFFFFF 和 0x7FFFFFFF，
+                            // 简单考虑，直接变成 long long 再比较
+                            return isValidBST( root, LLONG_MIN, LLONG_MAX );
+                        }
+
+                        bool isValidBST( TreeNode *root, long long min, long long max ) {
+                            if( !root ) { return true; }
+                            long long val = root->val;
+                            return val > min && val < max &&
+                                   isValidBST( root->left, min, root->val ) &&
+                                   isValidBST( root->right, root->val, max );
+                        }
+                        ```
+
+                -   [Convert Sorted Array to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/){#lc108a2} -<
+
+                    :   Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
+
+                        这道题在本笔记 [leetcode #108](#lc108) 也有。思路是一样的，不过那边更直白。
+
+                        ```cpp
+                        TreeNode * sortedArrayToBST( vector<int> &nums ) {
+                            return sortedArrayToBST( nums.begin(), nums.end() );
+                        }
+                        template<typename RandomAccessIterator>
+                        TreeNode * sortedArrayToBST(
+                            RandomAccessIterator first,
+                            RandomAccessIterator last
+                        ) {
+                            const auto length = distance( first, last );
+                            if( length <= 0 ) { return nullptr; }
+                            auto mid = first + length/2;
+                            TreeNode *root = new TreeNode( *mid );
+                            root->left = sortedArrayToBST( first, mid );
+                            root->right = sortedArrayToBST( mid+1, last );
+                            return root;
+                        }
+                        ```
+
+                        refs and see also
+
+                        -   [Convert Sorted Array to Balanced Binary Search Tree (BST) – LeetCode](http://articles.leetcode.com/convert-sorted-array-into-balanced)
+
+                -   [Convert Sorted List to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/) -<
+
+                    :   这里和上面不同的是，list 不能随机存取。最省力的方法是，先把 list 转成 array……
+
+                        不用这种化归的偷懒策略，有两种思路：
+
+                        -   分治法，自顶向下 O(n^2)，O(logn)
+                        -   自底向上 O(n)，O(logn)
+
+                        refs and see also
+
+                        -   [Convert Sorted List to Balanced Binary Search Tree (BST) – LeetCode](http://articles.leetcode.com/convert-sorted-list-to-balanced-binary/)
+
+                -   refs and see also -<
+
+                    :   -   [Binary Trees](http://cslibrary.stanford.edu/110/BinaryTrees.html)
+                        -   [Binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Binary_search_tree)
 
     2016/8/13 上午9:30:00 4. 动态规划 Dynamic Programming I -<
 
-    :  -   动态规划算法的适用条件
-        -   动态规划算法的四个解题要素
+    :   -   [什么是动态规划？动态规划的意义是什么？ - 知乎](https://www.zhihu.com/question/23995189) -<
+
+            :   动态规划中递推式的求解方法不是动态规划的本质。
+
+                动态规划的本质，是对问题【**状态**】的定义和【**状态转移方程**】的定义。
+
+                引自维基百科
+
+                >   dynamic programming is a method for solving a complex
+                >   problem by breaking it down into a collection of simpler
+                >   subproblems.
+
+                动态规划是通过拆分问题，定义问题状态和状态之间的关系，使得问题
+                能够以递推（或者说分治）的方式去解决。本题下的其他答案，大多都
+                是在说递推的求解方法，但**如何拆分问题，才是动态规划的核心**。
+                而拆分问题，靠的就是状态的定义和状态转移方程的定义。
+
+                动态规划迷思
+
+                :   -   “缓存”，“重叠子问题”，“记忆化”： -<
+
+                        :   这三个名词，都是在阐述递推式求解的技巧。以
+                            Fibonacci 数列为例，计算第 100 项的时候，需要计算第
+                            99 项和 98 项；在计算第 101 项的时候，需要第 100 项
+                            和第 99 项，这时候你还需要重新计算第 99 项吗？不需要，
+                            你只需要在第一次计算的时候把它记下来就可以了。
+
+                            上述的需要再次计算的“第 99 项”，就叫“重叠子问题”。如
+                            果没有计算过，就按照递推式计算，如果计算过，直接使
+                            用，就像“缓存”一样，这种方法，叫做“记忆化”，这是递
+                            推式求解的技巧。这种技巧，通俗的说叫“花费空间来节省
+                            时间”。都不是动态规划的本质，不是动态规划的核心。
+
+                    -   “递归” -<
+
+                        :   递归是递推式求解的方法，连技巧都算不上。
+
+                    -   "无后效性"，“最优子结构” -<
+
+                        :   上述的状态转移方程中，等式右边不会用到下标大于左边 i
+                            或者 k 的值，这是"无后效性"的通俗上的数学定义，符合
+                            这种定义的状态定义，我们可以说它具有“最优子结构”的
+                            性质，在动态规划中我们要做的，就是找到这种“最优子结
+                            构”。
+
+                文艺的说，动态规划是寻找一种对问题的观察角度，让问题能够以递推
+                （或者说分治）的方式去解决。**寻找看问题的角度**，才是动态规划
+                中最耀眼的宝石！
+
+                另一个回答：
+
+                -   一个阶段的最优可以由前一个阶段的最优得到。
+                -   如果一个阶段的最优无法用前一个阶段的最优得到呢？
+
+                刚刚的情况实在太普遍，解决方法实在太暴力，有没有哪些情况可以避免如此的暴力呢？
+
+                契机就在于**后效性**。
+
+                有一类问题，看似需要之前所有的状态，其实不用。不妨也是拿最长上
+                升子序列的例子来说明为什么他不必需要暴力搜索，进而引出动态规划
+                的思路。（这其实是说你要仔细区分状态，那些是无所谓的状态，哪些
+                是本质的必须要留意的状态。这也和上面的正确选择【状态】的定义一个意思。）
+
+                这就可以纵容我们不需要记录之前所有的状态啊！既然我们的选择已经
+                不受之前状态的组合的影响了，那时间复杂度自然也不是指数的了啊！
+                虽然我们不在乎某序列之前都是什么元素，但我们还是需要这个序列的
+                长度的。所以我们只需要记录以某个元素结尾的 LIS 长度就好！因此第
+                i 个阶段的最优解只是由前 i-1 个阶段的最优解得到的，然后就得到了
+                DP 方程：
+
+                `LIS(i) = max{ LIS(j)+1 } for j<i & a[j] < a[i]`
+
+                所以一个问题是该用递推、贪心、搜索还是动态规划，完全是由这个问
+                题本身阶段间状态的转移方式决定的！
+
+                -   每个阶段只有一个状态->递推；
+                -   每个阶段的最优状态都是由上一个阶段的最优状态得到的->贪心；
+                -   每个阶段的最优状态是由之前所有阶段的状态的组合得到的->搜索；
+                -   每个阶段的最优状态可以从之前某个阶段的某个或某些状态直接得到而不管之前这个状态是如何得到的->动态规划。
+
+                >   每个阶段的最优状态可以从之前某个阶段的某个或某些状态直接得到
+
+                这个性质叫做**最优子结构**；
+
+                >   而不管之前这个状态是如何得到的
+
+                这个性质叫做**无后效性**。
+
+        -   [Dynamic programming - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dynamic_programming)
+
+            :   Sometimes, applying memoization to the naive recursive
+                algorithm (namely the one obtained by a direct translation of
+                the problem into recursive form) already results in a dynamic
+                programming algorithm with asymptotically optimal time
+                complexity, but for optimization problems in general the
+                optimal algorithm might require more sophisticated algorithms.
+                Some of these may be recursive (and hence can be memoized) but
+                parametrized differently from the naive algorithm. For other
+                problems the optimal algorithm may not even be a memoized
+                recursive algorithm in any reasonably natural sense. An example
+                of such a problem is the Egg Dropping puzzle described below.
+
+                ![Figure 1. Finding the shortest path in a graph using optimal
+                    substructure; a straight line indicates a single edge; a
+                    wavy line indicates a shortest path between the two
+                    vertices it connects (other nodes on these paths are not
+                    shown); the bold line is the overall shortest path from
+                    start to goal.](https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Shortest_path_optimal_substructure.svg/250px-Shortest_path_optimal_substructure.svg.png)
+
+                ![Fibonacci 序列的子问题示意图：使用有向无环图（DAG, directed acyclic graph）
+                    而非树表示重复子问题的分解。为什么是 DAG 而不是树呢？答案就
+                    是，如果是树的话，会有很多重复计算，下面有相关的解释。 ](https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Fibonacci_dynamic_programming.svg/162px-Fibonacci_dynamic_programming.svg.png)
+
+                为避免重复计算，可将已经得到的子问题的解保存起来，当我们要解决
+                相同的子问题时，重用即可。该方法即所谓的缓存（memoization，而不
+                是存储 memorization，虽然这个词亦适合，姑且这么叫吧，这个单词太
+                难翻译了，简直就是可意会不可言传，其意义是没计算过则计算，计算
+                过则保存）。当我们确信将不会再需要某一解时，可以将其抛弃，以节
+                省空间。在某些情况下，我们甚至可以提前计算出那些将来会用到的子
+                问题的解。
+
+                refs and see also
+
+                -   [动态规划算法 - 游戏人生 - C++博客](http://www.cppblog.com/Fox/archive/2008/05/07/Dynamic_programming.html)
+
+        -   动态规划算法的适用条件 -<
+
+            :   必须满足如下三点：
+
+                -   最优化原理：如果问题的最优解所包含的子问题的解也是最优的，
+                    就称该问题具有最优子结构，即满足最优化原理。
+                -   无后效性：即某阶段状态一旦确定，就不受这个状态以后决策的影
+                    响。也就是说，某状态以后的过程不会影响以前的状态，只与当前
+                    状态有关。
+                -   有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段
+                    决策中可能被多次使用到。（该性质并不是动态规划适用的必要条
+                    件，但是如果没有这条性质，动态规划算法同其他算法相比就不具
+                    备优势）
+
+                refs and see also
+
+                -   [动态规划的适用条件 - 和申的日志 - 网易博客](http://1985wanggang.blog.163.com/blog/static/776383320081052347452/)
+
+        -   动态规划算法的四个解题要素 -<
+
+            :   作为 Sia 粉（Sia Furler），我把它记作 sfia。
+
+                -   状 态 State
+                      ~ 灵感，创造力，存储小规模问题的结果
+                -   方程 Function
+                      ~ 状态之间的联系，怎么通过小的状态，来算大的状态
+                -   初始化 Initialization
+                      ~ 最极限的小状态是什么, 起点
+                -   答案 Answer
+                      ~ 最大的那个状态是什么，终点
+
         -   动规的两种实现方式：记忆化搜索 vs 循环递推
-        -   面试中动态规划的常见类型
+
+        -   面试中动态规划的常见类型 -<
+
+            :   满足下面三个条件之一：
+
+                -   求最大值、最小值
+                -   判断是否可行
+                -   统计方案个数
+
+                则极有可能 是使用动态规划求解
+
+                什么情况下不使用动态规划？
+
+                满足下面三个条件之一：
+
+                -   求出所有**具体**的方案而非方案**个数** http://www.lintcode.com/problem/palindrome-partitioning/
+                -   输入数据是一个**集合**而不**序列**• http://www.lintcode.com/problem/longest-consecutive-sequence/
+                -   暴力的算法已经是多项式级别，2^n → n^2 是 DP 擅长的事
+
+                则极不可能使用动态规划求解
+
         -   坐标型动态规划
+
+        -   leetcode 中几道动态规划题 -<
+
+            :   -   [Triangle | LeetCode OJ](https://leetcode.com/problems/triangle/) -<
+
+                    :   Given a triangle, find the minimum path sum from top to
+                        bottom. Each step you may move to adjacent numbers on the
+                        row below.
+
+                        For example, given the following triangle
+
+                        ```
+                        [
+                             [2],
+                            [3,4],
+                           [6,5,7],
+                          [4,1,8,3]
+                        ]
+                        ```
+
+                        The minimum path sum from top to bottom is 11 (i.e., 2 + 3 + 5 + 1 = 11).
+
+                        Note:
+
+                        Bonus point if you are able to do this using only O(n)
+                        extra space, where n is the total number of rows in the
+                        triangle.
+
+                        ```
+                            类似于图像处理里的【直方图 vs. 累计直方图】，概率论里的【PDF，CDF】：
+
+                              [2],                                    [2]
+                             [3,4],                            [ 5 =(2+3), 6 =(2+4) ]
+                            [6,5,7],                      [ 11 =(5+6),  10 =(5+5 )   13 =(6+7) ]
+                           [4,1,8,3]                  [   15         11        18          16       ]
+                                                                      ^
+                                                                      +----got you
+
+                        从下往上看呢？
+
+                              | j = 0   1   2   3
+                        ------+------------------------------------------------------------------------------
+                        i = 0 |     2               |                   |                   |   11
+                            1 |     3   4           |                   |   9   10          |   9   10
+                            2 |     6   5   7       |   7   6   10      |   7   6   10      |   7   6   10
+                            3 |     4   1   8   3   |   4   1   8   3   |   4   1   8   3   |   4   1   8   3
+                        ```
+
+                        首先，定义状态转移方程：`f(i,j) = min{ f(i+i,j), f(i+1,j+1)} + (i,j)`
+
+                        ```cpp
+                        int minimumTotal( vector<vector<int>> &triangle ) {
+                            for( int i = triangle.size() -2; i >= 0; --i ) {
+                                for( int j = 0; j < i+1; ++j ) {
+                                    vector<vector<int>> &t = triangle;
+                                    t[i][j] += min(t[i+1][j], t[i+1][j+1]);
+                                }
+                            }
+                            return triangle[0][0];
+                        }
+                        ```
+
+                -   [Maximum Subarray | LeetCode OJ](https://leetcode.com/problems/maximum-subarray/) -<
+
+                    :    Find the contiguous subarray within an array
+                        (containing at least one number) which has the largest sum.
+
+                        For example, given the array `[−2,1,−3,4,−1,2,1,−5,4]`,
+                        the contiguous subarray `[4,−1,2,1]` has the largest sum = 6.
+
+                        贯序地看，对于新加入数组的一个元素，我们有两种选择：
+
+                        -   加入原来的 sub array，
+                        -   新生成一个 sub array（原来的 sub array 为负）
+
+                        S[n] 为序列，S[j] 为第 j 个元素（1 based）。
+                        设状态 f[j] 表示以 S[j] 结尾的最大连续子序列和，则状态转移方程如下：
+
+                        -   f[j] = max( f[j-1]+S[j], S[j] ), j = 2..n, f[1] = S[1]
+                        -   target = max{ f[j] }, j = 1..n
+
+                        代码：
+
+                        ```cpp
+                        // Time: O(n), Space: O(1)
+                        int maxSubArray( vector<int> &nums ) {
+                            int result = INT_MIN, f = 0;
+                            for( int i = 0; i < nums.size(); ++i ) {
+                                f = max( f+nums[i], nums[i] );
+                                result = max( f, result );
+                            }
+                            return result;
+                        }
+                        ```
+
+                -   [Minimum Path Sum | LeetCode OJ](https://leetcode.com/problems/minimum-path-sum/) -<
+
+                    :   Given a m x n grid filled with non-negative numbers,
+                        find a path from **top left** to **bottom right** which
+                        minimizes the sum of all numbers along its path.
+
+                        Note: You can only move either down or right at any
+                        point in time.
+
+                        状态转移方程：f[i][j] = min(f[i-1][j], f[i][j-1]) + grid(i,j)
+
+                        -   备忘录法 -<
+
+                            :   ```cpp
+                                class Solution {
+                                public:
+                                    int minPathSum( vector<vector<int>> &grid ) {
+                                        const int m = grid.size();
+                                        const int n = grid[0].size();
+                                        this->f = vector<vector<int>>( m, vector<int>(n, -1) );
+                                        return dfs( grid, m-1, n-1 );
+                                    }
+                                private:
+                                    vector<vector<int>> f; // 缓存
+                                private:
+                                    int dfs( const vector<vector<int>> &grid, int x, int y ) {
+                                        if( x < 0 || y < 0 )    { return INT_MAX; }
+                                        if( x == 0 && y == 0 )  { return grid[0][0]; }
+                                        return min( getOrUpdate(grid, x-1, y), getOrUpdate(grid, x, y-1) ) + grid[x][y];
+                                    }
+                                    int getOrUpdate( const vector<vector<int>> &grid, int x, int y ) {
+                                        if( x < 0 || y < 0 )    { return INT_MAX; }
+                                        if( f[x][y] >= 0 ) {
+                                            return f[x][y];
+                                        } else {
+                                            return f[x][y] = dfs(grid,x,y);
+                                        }
+                                    }
+                                };
+                                ```
+
+                        -   动态规划 -<
+
+                            :   ```cpp
+                                int minPathSum( vector<vector<int>> &grid ) {
+                                    const int m = grid.size();
+                                    const int n = grid[0].size();
+                                    int f[m][n];
+                                    f[0][0] = grid[0][0];
+                                    for( int i = 1; i < m; ++i ) {
+                                        f[i][0] = f[i-1][0] + grid[i][0];
+                                    }
+                                    for( int j = 1; j < n; ++j ) {
+                                        f[0][j] = f[0][j-1] + grid[0][j];
+                                    }
+                                    for( int i = 1; i < m; ++i ) {
+                                        for( int j = 1; j <n; ++j ) {
+                                            f[i][j] = min( f[i-1][j], f[i][j-1] ) + grid[i][j];
+                                        }
+                                    }
+                                    return f[m-1][n-1];
+                                }
+                                ```
+
+                        -   动态规划 + 滚动数组 -<
+
+                            :   ```cpp
+                                int minPathSum( vector<vector<int>> &grid ) {
+                                    const int m = grid.size();
+                                    const int n = grid[0].size();
+
+                                    int f[n];
+                                    fill( f, f+n, INT_MAX );
+                                    f[0] = 0;
+
+                                    for( int i = 0; i < m; ++i ) {
+                                        f[0] += grid[i][0];
+                                        for( int j = 1; j < n; ++j ) {
+                                            f[j] = min( f[j-1], f[j] ) + grid[i][j];
+                                        }
+                                    }
+                                    return f[n-1];
+                                }
+                                ```
 
     2016/8/14 上午9:30:00 5. 动态规划 Dynamic Programming II -<
 
@@ -992,3 +1842,36 @@ Algorithms
             -   [程序员编程艺术：第四章、现场编写类似strstr/strcpy/strpbrk的函数 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6417600)
 
 [程序员面试、算法研究、编程艺术、红黑树、数据挖掘5大系列集锦 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/6543438)
+
+[Bresenham's line algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm)
+
+Milo Yip 的博客 -<
+
+:   -   [《编程之美: 求二叉树中节点的最大距离》的另一个解法 - Milo Yip - 博客园](http://www.cnblogs.com/miloyip/archive/2010/02/25/binary_tree_distance.html)
+
+    -   [《编程之美：分层遍历二叉树》的另外两个实现 - Milo Yip - 博客园](http://www.cnblogs.com/miloyip/archive/2010/05/12/binary_tree_traversal.html)
+
+    -   [面试题：检测点是否在扇形之内 - Milo Yip - 博客园](http://www.cnblogs.com/miloyip/archive/2013/04/19/3029852.html)
+
+    -   [怎样判断平面上一个矩形和一个圆形是否有重叠？ - Milo Yip 的回答 - 知乎](https://www.zhihu.com/question/24251545/answer/27184960) -< -<
+
+        :   ![](https://pic1.zhimg.com/31fcf0a6ba5b5b925d7d82dc5bc8a684_r.jpg)
+
+            ![](https://pic2.zhimg.com/60b09b89d9b4eda3fe9bdb849ec5d5d1_r.jpg)
+
+            最后要比较 u 和 r 的长度，若距离少于 r，则两者相交。可以只求 u 的长度平方是
+            否小于 r 的平方。
+
+[Dijkstra's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+
+-   [Sorting algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
+-   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+-   [Heap · Data Structure and Algorithm notes](http://algorithm.yuanbin.me/zh-hans/basics_data_structure/heap.html)
+
+[五大常用算法：分治、动态规划、贪心、回溯和分支界定 - yapian8的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/yapian8/article/details/28240973)
+
+[soulmachine (Frank Dai)](https://github.com/soulmachine)
+
+授人以鱼，不如授之以渔，何况自己都忘了，建议去看sedgewick的《算法》第四版平衡搜索树和红黑树部分，讲得非常清晰。
+
+-   [Zenefits电面真题 & 解析 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20348386?refer=jiuzhang)

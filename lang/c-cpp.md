@@ -14,9 +14,19 @@ C++ 简介 | Intro
     programming features, while also providing facilities for low-level memory
     manipulation.
 
+    在 31 年前 (1979 年)，一名刚获得博士学位的研究员，为了开发一个软件项目发明
+    了一门新编程语言，该研究员名为 Bjarne Stroustrup，该门语言则命名为——C with
+    classes，四年后改称为 C++。C++ 是一门通用编程语言，支持多种编程范式，包括过
+    程式、面向对象 (object-oriented programming, OP)、泛型 (generic
+    programming, GP)，后来为泛型而设计的模版，被发现及证明是图灵完备的，因此使
+    C++ 亦可支持模版元编程范式 (template metaprogramming, TMP)。C++ 继承了 C 的
+    特色，既为高级语言，又含低级语言功能，可同时作为系统和应用编程语言。
+
+    [Bjarne Stroustrup's Homepage](http://www.stroustrup.com/).
+
     see more... -<
 
-    :   可以重载的操作符：
+    :   不可以重载的操作符：
 
         -----------------------------------------------------
         Operator                                Symbol
@@ -34,6 +44,8 @@ C++ 简介 | Intro
         "typeid" operator                       `typeid`
         -------------------------------         -------------
 
+        more at [Operators in C and C++ - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B).
+
         一定要到 [cppreference.com](http://en.cppreference.com/w/) 多看看，
         上面有函数说明，有 demo 代码，还有 Possible implementation 什么的！
         简直了。
@@ -41,6 +53,7 @@ C++ 简介 | Intro
         refs and see also
 
         -   [C++ - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/C%2B%2B)
+        -   [C++ 强大背后 - Milo Yip - 博客园](http://www.cnblogs.com/miloyip/archive/2010/09/17/behind_cplusplus.html)
 
 ## C/C++ 拾遗 | Pearls
 
@@ -53,6 +66,9 @@ C++ 简介 | Intro
         Type::NestedType   * p;         // declare
         Type::object * p;               // multiplication
         ```
+
+        通常在用 template 的时候可能编译器无法知道到底是何种情况，
+        可以加上 `typename` 即用 `typename Type::NestedType *p`。
 
 -   2d-vector is esier to use -<
 
@@ -76,6 +92,8 @@ C++ 简介 | Intro
         vector<int> nums;
         nums.reserve( 25 );
         ```
+
+        但不要以为 `size()` 也变了。你可以用 `resize( int num )`。
 
         refs and see also
 
@@ -103,6 +121,8 @@ C++ 简介 | Intro
 -   文件读写，用 FILE，fscanf 或者 ifstream，getline -<
 
     :   ```cpp
+        #include <stdio.h>
+
         FILE *fp = fopen(filename, "r");
         while( 2 == fscanf( fp, "%d %s", &index, buf ) ) {
             // ...
@@ -113,17 +133,29 @@ C++ 简介 | Intro
         size_t fwrite( const void *ptr, size_t size, size_t nmemb, FILE *stream );
         ```
 
+        虽然你可能喜欢 `fopen`（就跟我以前一样），但我推荐用 C++ 的 stream，因为
+        它更安全（不是指针，没有泄露危险）。
+
         ```cpp
+        #include <fstream>
+
         std::ifstream file( filename.c_str(), ifstream::in );
-        // std::ifstream file; file.open( filename.c_str(), ifstream::in );
-        //
-        if ( !file.is_open() ) { exit(-1); }
+        // 或者：std::ifstream file; file.open( filename.c_str(), ifstream::in );
+
+        if ( !file ) ) { exit(-1); }
+        // 或者：if ( !file.is_open() ) { exit(-1); }
 
         string line;
         while ( getline(file, line) ) {
             // ...
         }
         ```
+
+        这个 `if( !file )` 是因为 file 重载了 `operator void *`，这句话等同于
+        `if( NULL == (void *)file )`，见 [ios::operator void* - C++ Reference](http://program.upc.edu.cn/CLibrary/iostream/ios/operator_voidpt.html)。
+
+        用 getline 获取内容到 string 后，可以再用 C 语言的 scanf 来读取字段：
+        `sscanf( string.c_str(), format, ...)`。
 
         ```cpp
         ofstream myfile;
@@ -198,7 +230,7 @@ C++ 简介 | Intro
         streampos begin,end;
         ifstream ifs( "example.bin", ios::binary );
         begin = ifs.tellg();
-        ifs.seekg( 0, ios::end );
+        ifs.seekg( 0, ios::end ); // ifs.seekg( 0 ); 回到开头
         end   = ifs.tellg();
         ifs.close();
         cout << "size is: " << (end-begin) << " bytes.\n";
@@ -342,7 +374,7 @@ C++ 简介 | Intro
 
                 -   [strtof, strtod, strtold - cppreference.com](http://en.cppreference.com/w/c/string/byte/strtof)
 
--   itoa -<
+-   itoa （不是标准库函数）-<
 
     :   ```cpp
         #include <iostream>
@@ -410,6 +442,124 @@ C++ 简介 | Intro
         Visual C++ 2008, The sign of the remainder is the same as the sign of
         the dividend.这个说法与商向 0 取整是等价的,算法也能正常工作。
 
+        不过，我觉得陈硕这个程序麻烦了，其实可以加一个简单的判断：
+
+        ```cpp
+        if( value < 0 ) {
+            buf = '-';
+            return convert( buf+1, -value );
+        }
+        ```
+
+-   位运算 #1-<
+
+    :   来自我的 issue：<https://github.com/district10/notes/issues/1>
+
+        ```c
+        #include <stdio.h>
+
+        #define PRINT(x) printf("hex: 0x%08x, dec: %12d, str: \"%s\"\n", x, x, #x)
+
+        int main()
+        {
+            puts( "全 0 & 全 1" );
+            PRINT( 0 );
+            PRINT( -1 );
+
+            puts( "\n全 1 的左右 shift" );
+            PRINT( -1>>1 );
+            PRINT( -1<<1 );
+
+            puts( "\n减法优先级更高" );
+            PRINT( 1<<31-1 );
+            PRINT( 1<<30 );
+
+            puts( "\n怎么得到 int 的最大正数" );
+            PRINT( 1<<31 );
+            PRINT( (1<<31)-1 );
+            PRINT( ((unsigned int)1<<31)-1 );
+            PRINT( ((unsigned int)-1)>>1 );
+            PRINT( -1>>1 );
+            PRINT( 0x7FFFFFFF );
+        }
+        ```
+
+        编译：`gcc test.c -o test`，
+
+        运行：`./test`
+
+        结果：
+
+        ```
+        全 0 & 全 1
+        hex: 0x00000000, dec:            0, str: "0"
+        hex: 0xffffffff, dec:           -1, str: "-1"
+
+        全 1 的左右 shift
+        hex: 0xffffffff, dec:           -1, str: "-1>>1"
+        hex: 0xfffffffe, dec:           -2, str: "-1<<1"
+
+        减法优先级更高
+        hex: 0x40000000, dec:   1073741824, str: "1<<31-1"
+        hex: 0x40000000, dec:   1073741824, str: "1<<30"
+
+        怎么得到 int 的最大正数
+        hex: 0x80000000, dec:  -2147483648, str: "1<<31"
+        hex: 0x7fffffff, dec:   2147483647, str: "(1<<31)-1"
+        hex: 0x7fffffff, dec:   2147483647, str: "((unsigned int)1<<31)-1"
+        hex: 0x7fffffff, dec:   2147483647, str: "((unsigned int)-1)>>1"
+        hex: 0xffffffff, dec:           -1, str: "-1>>1"
+        hex: 0x7fffffff, dec:   2147483647, str: "0x7FFFFFFF"
+        ```
+
+-   不要被别人的 `memset(buf, -1, sizeof(buf))` 迷惑了 #2 -<
+
+    :   来自我的 issue：<https://github.com/district10/notes/issues/2>
+
+        有文件 `test.c`
+
+        ```cpp
+        #include <stdio.h>
+        #include <string.h>
+
+        int main(){
+            int m;
+            printf( "sizeof(m): %lu\n", sizeof(m) );
+
+            memset( m, -1, sizeof(m) );
+            printf( "after memset(m,   -1, sizeof(m)): %20d (0x%08x), %20d (0x%08x)\n", m, m, m, m );
+
+            memset( m,  1, sizeof(m) );
+            printf( "after memset(m,    1, sizeof(m)): %20d (0x%08x), %20d (0x%08x)\n", m, m, m, m );
+
+            memset( m, 0xFF, sizeof(m) );
+            printf( "after memset(m, 0xFF, sizeof(m)): %20d (0x%08x), %20d (0x%08x)\n", m, m, m, m );
+
+            memset( m, 0xA5, sizeof(m) );
+            printf( "after memset(m, 0xA5, sizeof(m)): %20d (0x%08x), %20d (0x%08x)\n", m, m, m, m );
+        }
+        ```
+
+        编译运行
+
+        ```bash
+        $ gcc test.c -o test
+        $ ./test
+        sizeof(m): 8
+        after memset(m,   -1, sizeof(m)):                   -1 (0xffffffff),                   -1 (0xffffffff)
+        after memset(m,    1, sizeof(m)):             16843009 (0x01010101),             16843009 (0x01010101)
+        after memset(m, 0xFF, sizeof(m)):                   -1 (0xffffffff),                   -1 (0xffffffff)
+        after memset(m, 0xA5, sizeof(m)):          -1515870811 (0xa5a5a5a5),          -1515870811 (0xa5a5a5a5)
+        ```
+
+        所以，要小心了。别人用 `memset(buf, -1, sizeof(buf))` 来初始化 buf，你用 -2 可不是 -2 啊！
+
+        这涉及到 two's compliment 编码。
+
+        另一个不符合直觉的是 `int buf = { 0 };` 确实会把所有元素初始化为 0，
+        但是 `int buf = { 3 };` 只回初始化第一个元素为 3，其它都是 0……至少
+        在我的 `gcc` 和 `g++` 上都是如此。
+
 -   scanf, fscanf, sscanf, scanf_s, fscanf_s, sscanf_s -<
 
     :   ```cpp
@@ -429,6 +579,7 @@ C++ 简介 | Intro
         -   `%a`, `%A`, `%e`, `%E`, `%f`, `%F`, `%g`, `%G`, same as strtof
         -   `%p`, pointer
         -   输入和输出用的格式字符串不一样。输入 short 要用 %hd,输出用 %d;输入 double 要用 %lf,输出用 %f。
+        -   `%lu`，`size_t` 的打印
 
         正确而安全的做法如 Bjarne Stroustrup 在《Learning Standard C++ as a New Language》所示:
 
@@ -516,7 +667,7 @@ C++ 简介 | Intro
         -   [printf, fprintf, sprintf, snprintf, printf_s, fprintf_s - cppreference.com](http://en.cppreference.com/w/c/io/fprintf)
         -   [vscanf, vfscanf, vsscanf, vscanf_s, vfscanf_s, vsscanf_s - cppreference.com](http://en.cppreference.com/w/c/io/vfscanf)
 
--   `T::iterator`{.cpp}, `T::const_iterator`{.cpp}, `begin`{.cpp}, `end`{.cpp} -<
+-   T::iterator, T::const_iterator, begin, end, for_each -<
 
     :   -   begin, end, cbegin, cend, rbegin, rend
         -   iterator, const_iterator, reverse_iterator
@@ -552,25 +703,84 @@ C++ 简介 | Intro
         }
         ```
 
-        `std::reverse_iterator<std::string::iterator> r = s.rbegin()`{.cpp} -<
+        ![](http://upload.cppreference.com/mwiki/images/3/39/range-rbegin-rend.svg)
 
-        :   ![](http://upload.cppreference.com/mwiki/images/3/39/range-rbegin-rend.svg)
+        ```cpp
+        #include <iostream>
+        #include <string>
+        #include <iterator>
 
-            ```cpp
-            #include <iostream>
-            #include <string>
-            #include <iterator>
+        int main()
+        {
+            std::string s = "Hello, world";
+            std::reverse_iterator<std::string::iterator> r = s.rbegin();
+            r = 'O'; // replaces 'o' with 'O'
+            r += 7; // iterator now points at 'O'
+            std::string rev(r, s.rend());
+            std::cout << rev << '\n'; // "OlleH"
+        }
+        ```
 
-            int main()
+        ```cpp
+        #include <vector>
+        #include <algorithm>
+        #include <iostream>
+
+        struct Sum
+        {
+            Sum(): sum{0} { }
+            void operator()(int n) { sum += n; }
+            int sum;
+        };
+
+        int main()
+        {
+            std::vector<int> nums{3, 4, 2, 8, 15, 267};
+
+            std::cout << "before:";
+            for (auto const &n : nums)
             {
-                std::string s = "Hello, world";
-                std::reverse_iterator<std::string::iterator> r = s.rbegin();
-                r = 'O'; // replaces 'o' with 'O'
-                r += 7; // iterator now points at 'O'
-                std::string rev(r, s.rend());
-                std::cout << rev << '\n'; // "OlleH"
+                std::cout << ' ' << n;
             }
-            ```
+            std::cout << '\n';
+
+            std::for_each(nums.begin(), nums.end(), [](int &n){ n++; });
+
+            // calls Sum::operator() for each number
+            Sum s = std::for_each(nums.begin(), nums.end(), Sum());
+
+            std::cout << "after: ";
+            for (auto const &n : nums)
+            {
+                std::cout << ' ' << n;
+            }
+            std::cout << '\n';
+            std::cout << "sum: " << s.sum << '\n';
+        }
+        ```
+
+        Output:
+
+        ```
+        before: 3 4 2 8 15 267
+        after:  4 5 3 9 16 268
+        sum: 305
+        ```
+
+        ```cpp
+        for (auto&& [first,second] : mymap) {
+            // use first and second
+        }
+
+        std::vector<int> v = {0, 1, 2, 3, 4, 5};
+        for (const int &i : v) // access by const reference
+        for (auto i : v) // access by value, the type of i is int
+        for (auto&& i : v) // access by reference, the type of i is int&
+        for (int n : {0, 1, 2, 3, 4, 5}) // the initializer may be a braced-init-list
+
+        int a[] = {0, 1, 2, 3, 4, 5};
+        for (int n : a) // the initializer may be an array
+        ```
 
         refs and see also
 
@@ -579,6 +789,8 @@ C++ 简介 | Intro
         -   [std::end - cppreference.com](http://en.cppreference.com/w/cpp/iterator/end)
         -   [std::reverse_iterator - cppreference.com](http://en.cppreference.com/w/cpp/iterator/reverse_iterator)
         -   [std::ostream_iterator - cppreference.com](http://en.cppreference.com/w/cpp/iterator/ostream_iterator)
+        -   [Range-based for loop (since C++11) - cppreference.com](http://en.cppreference.com/w/cpp/language/range-for)
+        -   [std::for_each - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/for_each)
 
 -   `std::min`, `std::max`, `std::minmax` -<
 
@@ -635,20 +847,49 @@ C++ 简介 | Intro
         -   [std::max - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/max)
         -   [std::minmax - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/minmax)
 
--   `std::map`{.cpp} -<
+-   std::map -<
 
     :   `std::map`{.cpp} is a sorted associative container that contains key-value pairs
         with unique keys. Keys are sorted by using the comparison function Compare.
         Search, removal, and insertion operations have logarithmic complexity. Maps
         are usually implemented as red-black trees.
 
+        ```cpp
+        #include <iostream>
+        #include <map>
+
+        int main()
+        {
+            std::map<int,char> example = {{1,'a'},{2,'b'}};
+
+            auto search = example.find(2);
+            if(search != example.end()) {
+                std::cout << "Found (" << search->first << ", " << search->second << ')\n';
+            } else {
+                std::cout << "Not found\n";
+            }
+        }
+        ```
+
+        Output:
+
+        ```
+        Found (2, b)
+        ```
+
         refs and see also
 
         -   [std::map - cppreference.com](http://en.cppreference.com/w/cpp/container/map)
 
--   `std::partial_sum` -<
+-   std::swap -<
 
-    :   ```
+    :   refs and see also
+
+        -   [std::swap - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/swap)
+
+-   std::partial_sum -<
+
+    :   ```cpp
         // Defined in header <numeric>
         *(d_first)   = *first;
         *(d_first+1) = *first + *(first+1);
@@ -669,12 +910,13 @@ C++ 简介 | Intro
             std::partial_sum( std::istream_iterator<double>(str),
                               std::istream_iterator<double>(),
                               std::ostream_iterator<double>(std::cout, " ") );
+                              // 也可以插入到别的 vec 里：std::back_inserter( vec ) );
         }
         ```
 
         Output: `0.1 0.3 0.6 1`
 
--   `std::equal_range` -<
+-   std::equal_range -<
 
     :   Returns a range containing all elements equivalent to value in the range
         `[first, last)`.
@@ -870,6 +1112,17 @@ C++ 简介 | Intro
         }
         ```
 
+        ```cpp
+        struct ToUpper {
+            unsigned char operator()( unsigned char c ) {
+                return 'a' <= c && c <= 'z' ?  c-'a'+'A' : c;
+            }
+        };
+        // ToUpper tu; tu(); // tu() --> ToUpper::operator();
+
+        std::transform(s.begin(), s.end(), s.begin(), ToUpper());
+        ```
+
         refs and see also
 
         -   [std::transform - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/transform)
@@ -1013,6 +1266,50 @@ C++ 简介 | Intro
         refs and see also
 
         -   [std::remove, std::remove_if - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/remove)
+
+-   `std::vector::erase` -<
+
+    :   `std::vector::erase` 和 `std::erase` 意思差不多。
+
+        synopsis
+
+        -   `iterator erase( iterator pos );`
+        -   `iterator erase( const_iterator pos );`
+        -   `iterator erase( iterator first, iterator last );`
+        -   `iterator erase( const_iterator first, const_iterator last );`
+
+        ```cpp
+        #include <vector>
+        #include <iostream>
+
+        int main( )
+        {
+            std::vector<int> c{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+            for (auto &i : c) {
+                std::cout << i << " ";
+            }
+            std::cout << '\n';
+
+            c.erase(c.begin());
+
+            for (auto &i : c) {
+                std::cout << i << " ";
+            }
+            std::cout << '\n';
+
+            c.erase(c.begin()+2, c.begin()+5);
+
+            for (auto &i : c) {
+                std::cout << i << " ";
+            }
+            std::cout << '\n';
+        }
+        ```
+
+        refs and see also
+
+        -   [std::vector::erase - cppreference.com](http://en.cppreference.com/w/cpp/container/vector/erase)
+
 
 -   `std::copy` -<
 
@@ -1255,50 +1552,27 @@ C++ 简介 | Intro
         double    |   DBL_MAX
         long double    |   LDBL_MAX
 
-        refs and see also
-
-        -   [std::numeric_limits::max - cppreference.com](http://en.cppreference.com/w/cpp/types/numeric_limits/max)
-
--   `std::vector::erase` -<
-
-    :   synopsis
-
-        -   `iterator erase( iterator pos );`
-        -   `iterator erase( const_iterator pos );`
-        -   `iterator erase( iterator first, iterator last );`
-        -   `iterator erase( const_iterator first, const_iterator last );`
-
         ```cpp
-        #include <vector>
-        #include <iostream>
+        #include <limits>
+        #include <cstddef>
+        std::numeric_limits<int>::max()
+        std::numeric_limits<std::streamsize>::max()
+        ```
 
-        int main( )
-        {
-            std::vector<int> c{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-            for (auto &i : c) {
-                std::cout << i << " ";
-            }
-            std::cout << '\n';
+        short
 
-            c.erase(c.begin());
-
-            for (auto &i : c) {
-                std::cout << i << " ";
-            }
-            std::cout << '\n';
-
-            c.erase(c.begin()+2, c.begin()+5);
-
-            for (auto &i : c) {
-                std::cout << i << " ";
-            }
-            std::cout << '\n';
-        }
+        ```
+        short:                       32767 or               0x7fff
+        int:                    2147483647 or           0x7fffffff
+        size_t:       18446744073709551615 or   0xffffffffffffffff
+        streamsize:    9223372036854775807 or   0x7fffffffffffffff
+        float:                 3.40282e+38 or   0x1.fffffep+127
+        double:               1.79769e+308 or   0x1.fffffffffffffp+1023
         ```
 
         refs and see also
 
-        -   [std::vector::erase - cppreference.com](http://en.cppreference.com/w/cpp/container/vector/erase)
+        -   [std::numeric_limits::max - cppreference.com](http://en.cppreference.com/w/cpp/types/numeric_limits/max)
 
 -   MISC, unordered_map, find, unordered_multimap -<
 
@@ -1329,7 +1603,7 @@ C++ 简介 | Intro
         }
 
         int trap(int A[], int n) {
-            int *max_left = new int[n]();
+            int *max_left = new int[n]();   // 初始化为 0，用 new int[n] 则不初始化。
             int *max_right = new int[n]();
             for (int i = 1; i < n; i++) {
                 max_left[i] = max(max_left[i - 1], A[i - 1]);
@@ -1381,23 +1655,11 @@ C++ 简介 | Intro
 
 -   "值语义" 与 "对象语义" -<
 
-    :   不同于标准库其他 class 的“值语义/value semantics”,iostream 是“对象语义
-        /object semantics” 42 ,即 iostream 是 non-copyable。这 是 正 确 的,因
-        为 如 果fstream 代表一个打开的文件的话,拷贝一个 fstream 对象意味着什么
-        呢?表示打开了两个文件吗?如果销毁一个 fstream 对象,它会关闭文件句柄,那么
-        另一个fstream 对象副本会因此受影响吗?  iostream 禁止拷贝,利用对象的生命
-        期来明确管理资源(如文件),很自然地就避免了这些问题。这就是 RAII,一种重要
-        且独特的 C++ 编程手法。C++ 同 时 支 持 “数 据 抽 象/data abstraction”
-        和 “面 向 对 象 编 程/object- oriented”,其实主要就是“值语义”与“对象语义
-        ”的区别,这是一个比较大的话题,见12节。
+    :   这个概念很重要，在本笔记下文 chenshuo 部分有介绍。
 
-        值 得 注 意 的 是, `istream::getline()` 成 员 函 数 的 参 数 类 型 是 char*, 因 为
-        `<istream>` 没有包含 `<string>`,而我们常用的 `std::getline()` 函数是个 non-member
-        function,定义在 <string> 里边。
-
-        我们知道,面向对象中的 public 继承需要满足 Liskov 替换原则。(见《Effective
-        C++ 第 3 版》[2, item 32]:确保你的 public 继承模塑出 is-a 关系。《C++ 编程规范》
-        [4, item 37]:public 继承意味可替换性。继承非为复用,乃为被复用。)
+        简单说，一般而言，自己设计的 class 对象可能是 object semantics 的，而一般的 vector 内容都是
+        value semantics 的，前者不能复制（没有意义），后者可以复制，而且复制后两者脱离关系。
+        前者只能用 pointer 和 reference 来“指代”。
 
 ## 快问快答 FAQ
 
@@ -1489,8 +1751,10 @@ C++ 简介 | Intro
 
         [ludx/The-Lost-Art-of-C-Structure-Packing: The Lost Art of C Structure Packing中文翻译](https://github.com/ludx/The-Lost-Art-of-C-Structure-Packing) -<
 
-        :   字符数组 `pad` 意味着在这个结构体中，有3个字节的空间被浪费掉了。老派术语将其称之为**“废液（slop，`[slɑt]`）”**。
-            首先，在此例中，N将为0，x的地址紧随p之后，能确保是与指针对齐的，因为指针的对齐要求总比int严格。
+        :   字符数组 `pad` 意味着在这个结构体中，有 3 个字节的空间被浪费掉了。
+            老派术语将其称之为**“废液（slop，`[slɑt]`）”**。首先，在此例中，N
+            将为 0，x 的地址紧随 p 之后，能确保是与指针对齐的，因为指针的对齐要
+            求总比 int 严格。
 
             倘若你希望这些变量占用的空间更少，那么可以交换x与c的次序。
 
@@ -1504,7 +1768,8 @@ C++ 简介 | Intro
 
             ANSI C 提供了一个 `offsetof()` 宏，可用于读取结构体成员位移。（来自 stddef.h）
 
-            （吐槽，offsetof 可能拿到 bigfield 的地址==，`&` 也不行。好把，地址都是按 byte 来的……）
+            （吐槽，offsetof 可能拿到 bigfield 的地址==，`&` 也不行。好把，地址都是按 byte 来的……这也是为什么
+            `std::vector<bool>` 不是一个正常的容器的原因。）
 
             ```cpp
             #include <stdio.h>
@@ -1568,8 +1833,8 @@ C++ 简介 | Intro
             };
             ```
 
-            内层结构体成员char *p强迫外层结构体与内层结构体指针对齐一致。在64位系统
-            中，实际的内存分布将类似这样：
+            内层结构体成员 `char *p` 强迫外层结构体与内层结构体指针对齐一致。在
+            64 位系统中，实际的内存分布将类似这样：
 
             ```cpp
             struct foo6 {
@@ -1583,23 +1848,23 @@ C++ 简介 | Intro
             };
             ```
 
-            理解了编译器在结构体中间和尾部插入填充的原因与方式后，我们来看看如何榨
-            出这些废液。此即结构体打包的技艺。
+            理解了编译器在结构体中间和尾部插入填充的原因与方式后，我们来看看如
+            何榨出这些废液。此即结构体打包的技艺。
 
-            消除废液最简单的方式，是按对齐值递减重新对结构体成员排序。即让所有指针
-            对齐成员排在最前面，因为在64位系统中它们占用8字节；然后是4字节的int；再
-            然后是2字节的short，最后是字符。
+            消除废液最简单的方式，是按对齐值递减重新对结构体成员排序。即让所有
+            指针对齐成员排在最前面，因为在 64 位系统中它们占用 8 字节；然后是 4
+            字节的 int；再然后是 2 字节的 short，最后是字符。
 
-            笨拙地、机械地重排结构体可能有损可读性。倘若有可能，最好这样重排成员：
-            将语义相关的数据放在一起，形成连贯的组。最理想的情况是，结构体的设计应
-            与程序的设计相通。
+            笨拙地、机械地重排结构体可能有损可读性。倘若有可能，最好这样重排成
+            员：将语义相关的数据放在一起，形成连贯的组。最理想的情况是，结构体
+            的设计应与程序的设计相通。
 
-            最冒险的打包方法是使用union。假如你知道结构体中的某些域永远不会跟另一些
-            域共同使用，可以考虑用union共享它们存储空间。不过请特别小心并用回归测试
-            验证。因为如果分析出现一丁点儿错误，就会引发从程序崩溃到微妙数据损坏（
-            这种情况糟得多）间的各种错误。
+            最冒险的打包方法是使用 union。假如你知道结构体中的某些域永远不会跟
+            另一些域共同使用，可以考虑用 union 共享它们存储空间。不过请特别小心
+            并用回归测试验证。因为如果分析出现一丁点儿错误，就会引发从程序崩溃
+            到微妙数据损坏（这种情况糟得多）间的各种错误。
 
-            clang编译器有个Wpadded选项，可以生成有关对齐和填充的信息。
+            clang 编译器有个 Wpadded 选项，可以生成有关对齐和填充的信息。
 
         rms's code to test memory alignment -<
 
@@ -1905,9 +2170,39 @@ C++ 简介 | Intro
         }//<--- oops there's a memory leak, I should have called delete[] pBuffer;
         ```
 
+        这个呢？`int buf[num]` 是在 heap 还是 stack。
+
+        ```cpp
+        #include <stdio.h>
+        #include <iostream>
+
+        int main()
+        {
+            int num;
+            while( 1 == scanf("%d", &num) ) {
+                if( num < 2 ) { continue; }
+                int buf[num];
+                buf = 1;
+                for( int i = 1; i < num; ++i ) {
+                    buf[i] = buf[i-1] * 2;
+                    printf("%d ", buf[i]);
+                }
+                printf("\n");
+            }
+        }
+        ```
+
+        ![](http://whudoc.qiniudn.com/2016/20160706204948669.png)
+
+        简单的可以理解为：
+
+        -   stack：是自动分配变量，以及函数调用的时候所使用的一些空间。**地址是由高向低减少的。**
+        -   heap：是由 malloc 之类函数分配的空间所在地。**地址是由低向高增长的。**
+
         refs and see also
 
         -   [memory management - What and where are the stack and heap? - Stack Overflow](http://stackoverflow.com/questions/79923/what-and-where-are-the-stack-and-heap#79936)
+        -   [如何判断栈、堆的增长方向？ - changyourmind 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/changyourmind/article/details/51839395)
 
 -   pointer 和 reference 的区别？What are the differences between a pointer variable and a reference variable in C++? -<
 
@@ -2434,11 +2729,104 @@ C++ 简介 | Intro
 
         -   [c++ - When should static_cast, dynamic_cast, const_cast and reinterpret_cast be used? - Stack Overflow](http://stackoverflow.com/questions/332030/when-should-static-cast-dynamic-cast-const-cast-and-reinterpret-cast-be-used)
 
--   Operator overloading -<
+-   Function overloading & Operator overloading -<
 
-    :   refs and see also
+    :   我记得 C++ 重载函数的匹配分四个优先级：
 
+        >   直接匹配 > 类型提升转换(float->double这种) > 隐式转换 > 类类型转换。
+
+        单个实参调用的非 explicit 构造函数，决定一个类类型转换。
+        指针转换为 bool 是隐式转换。
+
+        简化一下：
+
+        ```cpp
+        void foo(const string& name);
+        void foo(bool on); // 会调用这个
+
+        foo("C++");  // 调用哪个？这个不难推断吧？
+        ```
+
+        而 nullptr 的出现背景，其实是很简单的，C++ 哲学上来说就是 C++ 之父一直
+        对 null pointer 没有一个正式的表示感到非常不满，而更工程的来说，就是关
+        于重载这个问题。
+
+        ```cpp
+        void f(void*) { }
+
+        void f(int) { }
+
+        int main()
+        {
+            f(0); // what function will be called?
+        }
+        ```
+
+        而引入了 nullptr，这个问题就得到了真正解决，会很顺利的调到 `void f(void*)`
+        这个版本。
+
+        好了，真的以为 nullptr 就这样了么? 我前面说过了 nullptr 是有类型的，叫
+        做 nullptr_t，这给我们编译器实现带来了诸多要考虑的东西，不幸的话让我们
+        来举点儿奇葩例子吧！
+
+        ```cpp
+        union U
+        {
+            long i;
+            nullptr_t t;
+        };
+
+        int main()
+        {
+            U u;
+            u.i = 3;
+            printf("%ld\n",(long)u.t); // What it is? 0 or 3?
+        }
+        ```
+
+        那么这是应该符合 union 语意还是 nullptr 的语意呢？这在标准中是没有说的，
+        我们也为此争论了非常久。当然在我们编译器的实现还是保持了 nullptr 的语意，
+        结果是 0。
+
+        而 nullptr 有类型后，还能做什么呢？那当然就是可以捕获异常了。
+
+        ```cpp
+        int main()
+        {
+          try
+          {
+            throw nullptr;
+          }
+          catch(nullptr_t)
+          {
+
+          }
+        }
+        ```
+
+        你扔一个 NULL 试试？看他应该用什么收，正是因为没有类型，所以就要用它的
+        本质类型，比如 long 什么的来说。你扔一个 0 试试？那就也不是所谓的空指针
+        类型了，就是要用 int 什么的来收了。
+
+        所以，推崇 nullptr 是有道理的，我们在编译器实现 nullptr 的时候考虑了非
+        常非常多的细节，还有很多你们可能一直用不到的情况，我们都要用来测试，目
+        的就是保障开发者的使用。再次那句话，如果你的编译器支持 nullptr，请一定
+        使用 nullptr！
+
+        最后再扯一点儿，0 在 C++ 是很神奇的东西。比如纯虚函数为什么是用 =0 来设
+        置的，不知道有没有同学去考虑过这个问题没有。如果你深刻理解了 C++ 哲学，
+        这应该就是非常简答的问题了。学语言嘛，一定要学到其哲学，你才能知道其之
+        美，其之威力，尤其是 C++。
+
+        refs and see also
+
+        -   [Function overloading - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Function_overloading)
         -   [c++ - Operator overloading - Stack Overflow](http://stackoverflow.com/questions/4421706/operator-overloading)
+        -   [Overload resolution - cppreference.com](http://en.cppreference.com/w/cpp/language/overload_resolution)
+        -   [function - C++ overload resolution - Stack Overflow](http://stackoverflow.com/questions/72010/c-overload-resolution)
+        -   [重载决议 - cppreference.com](http://zh.cppreference.com/w/cpp/language/overload_resolution)
+        -   [C++ 重载决议overload resolution 与 SFINAE - zhouguoqionghai的博客 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhouguoqionghai/article/details/51703385)
+        -   [C++ 隐式类型转换重载决议的具体优先级是怎样的？ - 知乎](https://www.zhihu.com/question/27932618)
 
 -   如何理解 C 语言关键字 restrict？ -<
 
@@ -2559,18 +2947,19 @@ C++ 简介 | Intro
 
     :   -   How can I provide input for my class `Fred`?
 
-            :   By adding a friend `std::istream& operator>> (std::istream& i, Fred& fred);`
+            :   By adding a friend `friend std::istream& operator>> (std::istream& i, Fred& fred);`，
+                这个实现里，最好用 `i << fred.print()`。
 
         -   Should I end my output lines with `std::endl` or `\n`?
 
             :   The former has the additional side-effect of flushing the output buffer.
                 Therefore, the latter will probably work faster.
 
-                两者打印出来的换行符是一样的，系统相关的。
+                两者打印出来的换行符是一样的，系统相关的。endl 做的事情要多一点。
 
-        -   How does that funky `while (std::cin >> foo)` syntax work?
+        -   How does that funky `while (std::cin >> foo)` syntax work? :hearts:
 
-            :   `istream` has overloaded `operator void*`. The compiler calls
+            :   `istream` has overloaded **`operator void*`**. The compiler calls
                 this operator in **boolean contexts** (when it expects a
                 condition, for example), because `void*` can be converted to a
                 boolean. The operator returns `NULL` when there's nothing left to
@@ -2627,22 +3016,489 @@ C++ 简介 | Intro
 
         -   [C++ FQA Lite: Input/output via <iostream> and <cstdio>](http://yosefk.com/c++fqa/io.html#fqa-15.14)
 
--   TODO -<
+-   oj utils -<
 
-    :   - [c++ - What is object slicing? - Stack Overflow](http://stackoverflow.com/questions/274626/what-is-object-slicing)
-        - [c++ faq - The Definitive C++ Book Guide and List - Stack Overflow](http://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
-        - [c++ - What is The Rule of Three? - Stack Overflow](http://stackoverflow.com/questions/4172722/what-is-the-rule-of-three)
-        - [c++ - What is the copy-and-swap idiom? - Stack Overflow](http://stackoverflow.com/questions/3279543/what-is-the-copy-and-swap-idiom)
-        - [c++ - What are move semantics? - Stack Overflow](http://stackoverflow.com/questions/3106110/what-are-move-semantics)
-        - [c++ - Undefined behavior and sequence points - Stack Overflow](http://stackoverflow.com/questions/4176328/undefined-behavior-and-sequence-points)
-        - [c++ - Do the parentheses after the type name make a difference with new? - Stack Overflow](http://stackoverflow.com/questions/620137/do-the-parentheses-after-the-type-name-make-a-difference-with-new)
-        - [Highest Voted 'c++-faq' Questions - Stack Overflow](http://stackoverflow.com/questions/tagged/c%2b%2b-faq?sort=votes&pageSize=100)
+    :   ```cpp
+        std::string trim( std::string s )
+        {
+            if ( s.empty() ) {
+                return s;
+            }
+
+            s.erase( 0, s.find_first_not_of(" ") );
+            s.erase( s.find_last_not_of(" ") + 1 );
+            return s;
+        }
+
+        void split( std::string s, std::string &delim, std::vector< std::string > &ret )
+        {
+            size_t last = 0;
+            size_t index = s.find_first_of( delim, last );
+            while ( index != std::string::npos ) {
+                ret.push_back( s.substr(last,index-last) );
+                last = index+1;
+                index = s.find_first_of( delim, last );
+            }
+            if ( index-last>0 ) {
+                ret.push_back( s.substr(last,index-last) );
+            }
+        }
+
+        void line2vec( const std::string &s, std::vector< std::string > &ret )
+        {
+            size_t left, right;
+            left = s.find_first_of( std::string("[["), 0 );
+            if ( left == std::string::npos ) {
+                return;
+            }
+
+            left  = s.find_first_of( std::string("["), left+1 );
+            right = s.find_first_of( std::string("]"), left );
+            while ( left != std::string::npos && right != std::string::npos ) {
+                std::string p = s.substr( left+1, right-left-1 );
+                ret.push_back( p );
+                left  = s.find_first_of( std::string("["), right );
+                right = s.find_first_of( std::string("]"), left  );
+            }
+        }
+
+        void str2ints( const std::string &s, std::vector<int> &ret )
+        {
+            int i;
+            if ( 1 != sscanf(s.c_str(), "%d", &i) ) {
+                return;
+            }
+            ret.push_back(i);
+
+            size_t left;
+            left = s.find_first_of( std::string(","), 0 );
+            while( left != std::string::npos ) {
+                if ( 1 == sscanf(s.substr(left).c_str(), "%*c%d", &i) ) {
+                    ret.push_back(i);
+                }
+                left = s.find_first_of(std::string(","), left+1);
+            }
+        }
+        ```
+
+-   [c++ - What is The Rule of Three? - Stack Overflow](http://stackoverflow.com/questions/4172722/what-is-the-rule-of-three) -<
+
+    :   **Introduction**
+
+        C++ treats variables of user-defined types with **value semantics**. This
+        means that objects are implicitly copied in various contexts, and we
+        should understand what "copying an object" actually means.
+
+        Let us consider a simple example:
+
+        ```cpp
+        person a("Bjarne Stroustrup", 60);
+        person b(a);   // What happens here?
+        b = a;         // And here?
+        ```
+
+        **Special member functions**
+
+        -   `person b(a)` -> 【copy constructor】
+        -   `b = a` -> 【copy assignment operator】
+
+        如果没有这两个函数，编译器帮你自动加上。内容是 memberwise copy 过去。
+        有时候就 bug 了，比如你的 name 是一个指针，copy 指针还不够，应该自己分配内存，然后
+        深度复制，所以你定制了自己的 copy constructor 和 copy assignment operator：
+
+        ```cpp
+        person(const person& that)
+        {
+            name = new char[strlen(that.name) + 1];
+            strcpy(name, that.name);
+            age = that.age;
+        }
+
+        person& operator=(const person& that)
+        {
+            if (this != &that)
+            {
+                delete[] name;
+                // This is a dangerous point in the flow of execution!
+                // We have temporarily invalidated the class invariants,
+                // and the next statement might throw an exception,
+                // leaving the object in an invalid state :(
+                name = new char[strlen(that.name) + 1];
+                strcpy(name, that.name);
+                age = that.age;
+            }
+            return *this;
+        }
+        ```
+
+        **Noncopyable resources**
+
+        ```cpp
+        // 那就把它们弄成 private 即可（不需要定义）
+        private:
+            person(const person& that);
+            person& operator=(const person& that);
+
+        // 或者，you can inherit from boost::noncopyable or declare them as deleted (C++0x):
+        person(const person& that) = delete;
+        person& operator=(const person& that) = delete;
+        ```
+
+        这样，便不能拷贝这些拷贝起来没有意义的对象了：
+
+        ```cpp
+        // 这两种错误：copy constructor
+        person p2(p);
+        person p3 = p;
+
+        // 这一种：copy assignment operator
+        person p4;
+        p4 = p;
+        ```
+
+        **The rule of three**
+
+        Sometimes you need to implement a class that manages a resource. (Never
+        manage multiple resources in a single class, this will only lead to
+        pain.) In that case, remember the rule of three:
+
+        -   If you need to explicitly declare either the **destructor**, **copy
+            constructor** or **copy assignment operator** yourself, you
+            probably need to explicitly declare all three of them.
+
+        (Unfortunately, this "rule" is not enforced by the C++ standard or any compiler I am aware of.)
+
+        **Advice**
+
+        Most of the time, you do not need to manage a resource yourself,
+        because an existing class such as `std::string` already does it for you.
+        Just compare the simple code using a `std::string` member to the
+        convoluted and error-prone alternative using a `char*` and you should be
+        convinced. As long as you stay away from raw pointer members, the rule
+        of three is unlikely to concern your own code.
+
+        不作死的话，根本用不着 rule of three。
+
+        Wikipedia 里的例子也不错：
+
+        ```cpp
+        #include <cstring>
+        #include <iostream>
+
+        class Foo
+        {
+        public:
+            /** Default constructor */
+            Foo() :
+                data (new char)
+            {
+                std::strcpy(data, "Hello, World!");
+            }
+
+            /** Copy constructor */
+            Foo (const Foo& other) :
+                data (new char[std::strlen (other.data) + 1])
+            {
+                std::strcpy(data, other.data);
+            }
+
+            /** Move constructor */
+            Foo (Foo&& other) noexcept : /* noexcept needed to enable optimizations in containers */
+                data(other.data)
+            {
+                other.data = nullptr;
+            }
+
+            /** Destructor */
+            ~Foo() noexcept /* explicitly specified destructors should be annotated noexcept as best-practice */
+            {
+                delete[] data;
+            }
+
+            /** Copy assignment operator */
+            Foo& operator= (const Foo& other)
+            {
+                Foo tmp(other);         // re-use copy-constructor
+                *this = std::move(tmp); // re-use move-assignment
+                return *this;
+            }
+
+            /** Move assignment operator */
+            Foo& operator= (Foo&& other) noexcept
+            {
+                delete[] data;
+                data = other.data;
+                other.data = nullptr;
+                return *this;
+            }
+
+        private: // 对 friend 而言，access control 没有意义。
+            friend std::ostream& operator<< (std::ostream& os, const Foo& foo)
+            {
+                os << foo.data;
+                return os;
+            }
+
+            char* data;
+        };
+
+        int main()
+        {
+            const Foo foo;
+            std::cout << foo << std::endl;
+
+            return 0;
+        }
+        ```
+
+        refs and see also
+
+        -   [Rule of three (C++ programming) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Rule_of_three_%28C%2B%2B_programming%29)
+
+-   [c++ - What is the copy-and-swap idiom? - Stack Overflow](http://stackoverflow.com/questions/3279543/what-is-the-copy-and-swap-idiom) -<
+
+    :   **Why do we need the copy-and-swap idiom?**
+
+        rule of three 太麻烦了！The copy-and-swap idiom is the solution, and
+        elegantly assists the assignment operator in achieving two things:
+        avoiding code duplication, and providing a strong exception guarantee.
+
+        The next version of C++, C++11, makes one very important change to how
+        we manage resources: the Rule of Three is now **The Rule of Four** (and
+        a half). Why?  Because not only do we need to be able to copy-construct
+        our resource, we need to move-construct it as well.
+
+-   [c++ - What are move semantics? - Stack Overflow](http://stackoverflow.com/questions/3106110/what-are-move-semantics)
+
+-   [c++ - Do the parentheses after the type name make a difference with new? - Stack Overflow](http://stackoverflow.com/questions/620137/do-the-parentheses-after-the-type-name-make-a-difference-with-new) -<
+
+    :   This is one of the dusty corners of C++ that can drive you crazy. When
+        constructing an object, sometimes you want/need the parens, sometimes
+        you absolutely cannot have them, and sometimes it doesn't matter.
+
+        总之呢，这个地方不好说啊。但可以确定的是 `new int` 是不初始化的，`new int()` 初始化为 0。
+
+        这个从动机/设计意图角度考虑的解释倒是不错：
+
+        `new Thing();` is explicit that you want a constructor called whereas `new
+        Thing;` is taken to imply you don't mind if the constructor isn't called.
+
+        If used on a struct/class with a user-defined constructor, there is no
+        difference. If called on a trivial struct/class (e.g. `struct Thing {
+        int i; };`) then `new Thing;` is like `malloc(sizeof(Thing));` whereas
+        `new Thing();` is like `calloc(sizeof(Thing));` - it gets zero
+        initialized.
+
+        The gotcha (got you，“难到你了”) lies in-between:
+
+        ```cpp struct Thingy { ~Thingy(); // No-longer a trivial class virtual
+        WaxOn(); int i; }; ```
+
+        The behavior of `new Thingy;` vs `new Thingy();` in this case changed
+        between C++98 and C++2003. See Michael Burr's explanation for how and
+        why.
+
+-   [class - Splitting templated C++ classes into .hpp/.cpp files--is it possible? - Stack Overflow](http://stackoverflow.com/questions/1724036/splitting-templated-c-classes-into-hpp-cpp-files-is-it-possible) -<
+
+    :   yeah, possible.
+
+-   [c++ - What is the difference between new/delete and malloc/free? - Stack Overflow](http://stackoverflow.com/questions/240212/what-is-the-difference-between-new-delete-and-malloc-free) -<
+
+    :   **new/delete**
+
+        :   Allocate/release memory
+
+            -   Memory allocated from 'Free Store'??? 这个啥意思？
+            -   Returns a fully **typed** pointer.
+            -   `new` (standard version) **never returns a NULL** (will throw on failure)
+            -   Are called with Type-ID (compiler calculates the size)
+            -   Has a version explicitly to handle arrays.
+            -   Reallocating (to get more space) not handled intuitively (because of copy constructor).
+            -   Whether they call malloc/free is implementation defined.
+            -   Can add a new memory allocator to deal with low memory (set_new_handler)
+            -   operator new/delete can be overridden legally
+            -   **constructor/destructor used to initialize/destroy the object**
+
+        **malloc/free**
+
+        :   Allocates/release memory
+
+            -   Memory allocated from 'Heap'
+            -   Returns a `void*`
+            -   Returns NULL on failure
+            -   Must specify the size required **in bytes**.
+            -   Allocating array requires manual calculation of space.
+            -   Reallocating larger chunk of memory simple (No copy constructor to worry about)
+            -   They will NOT call new/delete
+            -   No way to splice user code into the allocation sequence to help with low memory.
+            -   malloc/free can NOT be overridden legally
+
+         Feature                  | new/delete                     | malloc/free
+        --------------------------+--------------------------------+-------------------------------
+         Memory allocated from    | 'Free Store'                   | 'Heap'
+         Returns                  | Fully typed pointer            | void*
+         On failure               | Throws (never returns NULL)    | Returns NULL
+         Required size            | Calculated by compiler         | Must be specified in bytes
+         Handling arrays          | Has an explicit version        | Requires manual calculations
+         Reallocating             | Not handled intuitively        | Simple (no copy constructor)
+         Call of reverse          | Implementation defined         | No
+         Low memory cases         | Can add a new memory allocator | Not handled by user code
+         Overridable              | Yes                            | No
+         Use of (con-)/destructor | Yes                            | No
+
+        Technically memory allocated by new comes from the 'Free Store' while
+        memory allocated by malloc comes from the 'Heap'. Whether these two
+        areas are the same is an implementation details, which is another
+        reason that malloc and new can not be mixed.
+
+        This question doesn't seem to ask any questions that I don't answer in
+        What are the differences between new and malloc?. But I'll reiterate my
+        previous points as raised here.
+
+        Can malloc/delete be used to allocate memory for objects? Will they call the constructor/destructor?
+
+        :   You cannot use malloc to allocate C++ objects and you cannot use
+            free to deallocate C++ objects as they do not call the constructor
+            or destructor. I can imagine someone making it work in a very
+            hack-y and platform-specific manner, but it would be neither
+            portable nor standards compliant. Nor could I imagine why you'd
+            want to. Just use new and delete.
+
+            Moreover, you cannot manually call the constructor or destructor on
+            an object instance.
+
+        What about realloc?
+
+        :   There is no equivalent to realloc for new and delete. Mostly
+            because this doesn't make sense. If you allocate a Foo object, what
+            exactly would you reallocate? There is only one of them. You can
+            use copy constructors to copy and move things around, but that
+            isn't addressing the same need as realloc.
+
+            就是重新 malloc，它自动帮你 free 原来的，malloc 新的，拷贝。
+
+            C++ 里没有对应物。
+
+        refs and see also
+
+        -   [c++ - What is the difference between new/delete and malloc/free? - Stack Overflow](http://stackoverflow.com/questions/240212/what-is-the-difference-between-new-delete-and-malloc-free)
+        -   [What are the differences between new/delete and malloc/free when allocating memory for objects? - Quora](https://www.quora.com/What-are-the-differences-between-new-delete-and-malloc-free-when-allocating-memory-for-objects)
+        -   [The differences between new(delete) and malloc(free) in c/c++ - daghlny - 博客园](http://www.cnblogs.com/daghlny/p/4874433.html)
+
+-   [algorithm - Amortized complexity in layman's terms? - Stack Overflow](http://stackoverflow.com/questions/15079327/amortized-complexity-in-laymans-terms)             -<
+    :   **Amortized complexity** is the total expense per operation, evaluated over
+        a sequence of operations. The idea is to guarantee the total expense of
+        the entire sequence, while permitting individual operations to be much
+        more expensive than the average.
+
+        One simple example is the behavior of C++ `std::vector<>`. When
+        `push_back()` increases the vector size above its pre-allocated value, it
+        doubles the allocated length. This means that a single call of
+        `push_back()` may take **O(N) time to execute** (as the contents of the array
+        are copied to the new memory allocation). However, because the size of
+        the allocation was doubled, the next N-1 calls to `push_back()` will each
+        take O(1) time to execute. So, the total of N operations will still
+        take O(N) time -- giving `push_back()` an amortized cost of O(1) per
+        operation.
+
+        refs and see also
+
+        -   [Amortized analysis - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Amortized_analysis)
+
+-   虚函数是什么，有什么作用？纯虚函数呢？ -<
+
+    :   虚函数是 C++ 实现【动态 dynamic】【单分派 single-dispatch】【子类型多态 subtype polymorphism】的方式。
+
+        -   动态：在运行时决定的（相对的是静态，即在编译期决定，如函数重载、模板类的非虚函数调用）
+        -   单分派：基于一个类型去选择调用哪个函数（相对于多分派，即由多个类型去选择调用哪个函数）
+        -   子类型多态：以子类型－超类型关系实现多态（相对于用参数形式，如函数重载、模版参数）
+
+        有几个概念需要厘清：
+
+        -   定义一个函数为虚函数，不代表函数为不被实现的函数。
+        -   定义他为虚函数是为了允许用基类的指针来调用子类的这个函数。
+        -   定义一个函数为纯虚函数，才代表函数没有被实现。
+        -   定义纯虚函数是为了实现一个接口，起到一个规范的作用，规范继承这个类的程序员必须实现这个函数。
+
+        ```cpp
+        #include <iostream>
+        using namespace std;
+
+        class A {
+            public:
+                virtual void foo() { cout<<"A::foo() is called"<<endl; }
+        };
+
+        class B : public A {
+            public:
+                B() { cout << "B connstructed.\n"; }
+                virtual void foo() { cout<<"B::foo() is called"<<endl; } // 这个 virtual 可以省略
+        };
+
+        int main(void)
+        {
+            A *a = new B;
+            a->foo();
+
+            B b;
+            A &x = dynamic_cast<A&>(b);
+            x.foo();
+        }
+        ```
+
+        纯虚函数是在基类中声明的虚函数，它在基类中没有定义，但要求任何派生类都
+        要定义自己的实现方法。在基类中实现纯虚函数的方法是在函数原型后加 `=0`
+
+        `virtual void pureVirtualFunction()=0`
+
+        引入原因
+
+        #.  为了方便使用多态特性，我们常常需要在基类中定义虚拟函数。
+    　　#.  在很多情况下，基类本身生成对象是不合情理的。例如，动物作为一个基类
+            可以派生出老虎、孔雀等子类，但动物本身生成对象明显不合常理。
+
+        为了解决上述问题，引入了纯虚函数的概念，将函数定义为纯虚函数（方法：
+        `virtual ReturnType Function()= 0;`），则编译器要求在派生类中必须予以重写
+        以实现多态性。同时含有纯虚拟函数的类称为抽象类，它不能生成对象。这样就
+        很好地解决了上述两个问题。
+
+        **声明了纯虚函数的类是一个抽象类。**所以，用户不能创建类的实例，只能创建它
+        的派生类的实例。
+
+        纯虚函数最显著的特征是：它们必须在继承类中重新声明函数（不要后面的 `=0`，
+        否则该派生类也不能实例化），而且它们在抽象类中往往没有定义。定义纯虚函
+        数的目的在于，使派生类仅仅只是继承函数的接口。
+
+        定义纯虚函数就是为了让基类不可实例化化
+
+        refs and see also
+
+        -   [c++ 虚函数的作用是什么？ - 知乎](https://www.zhihu.com/question/23971699)
+        -   [虚函数和纯虚函数的区别 - Hackbuteer1的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/hackbuteer1/article/details/7558868)
+
+-   TODO，我已经理解或者下文有介绍的，不再贴在这里，faqend
+
+    :   -   [c++ faq - The Definitive C++ Book Guide and List - Stack Overflow](http://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
+        -   [c++ - Undefined behavior and sequence points - Stack Overflow](http://stackoverflow.com/questions/4176328/undefined-behavior-and-sequence-points)
+        -   [Highest Voted 'c++-faq' Questions - Stack Overflow](http://stackoverflow.com/questions/tagged/c%2b%2b-faq?sort=votes&pageSize=100)
         -   [Issues · ReadingLab/Discussion-for-Cpp](https://github.com/ReadingLab/Discussion-for-Cpp/issues)
         -   [pezy/QtLab: Qt Primer](https://github.com/pezy/QtLab)
-        -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
-        -   [Pocket: My List](https://getpocket.com/a/queue/)
-        -   [Sorting algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
-        - [Heap · Data Structure and Algorithm notes](http://algorithm.yuanbin.me/zh-hans/basics_data_structure/heap.html)
+        -   [c++ - What is object slicing? - Stack Overflow](http://stackoverflow.com/questions/274626/what-is-object-slicing)
+
+        作者：陈硕
+
+        -   标准库各容器的基本操作的复杂度。标准库算法的复杂度，例如
+            std::sort() 的平均复杂度、最坏复杂度（答 O(N^2) 和 O(N log N) 都算
+            对），最坏情况什么时候出现。
+        -   标准库各容器（deque 除外）的数据结构（标准党勿喷，主流 STL 实现的数
+            据结构都差不多），以及 vector 的容量增长方式。如果回答得特别好，还
+            可以补充问为什么 vector::push_back() 的复杂度是分摊之后的 O(1)，作
+            为加分。
+        -   出一道使用 lower_bound / upper_bound 能轻松解决的简单算法题；或者实
+            现 set_intersection() 或 set_union() 或 merge()；或者实现 word
+            count，统计每个单词出现的次数（最多十几行代码），如果有时间，输出时
+            再按出现次数排序。
+        -   new 实际上执行了什么操作，可能在什么步骤出现异常
 
 ## 关键概念 | Concepts
 
@@ -2667,6 +3523,16 @@ C++ 简介 | Intro
         languages that set the accessibility of classes, methods, and other members.
         Access modifiers are a specific part of programming language
         syntax used to facilitate the encapsulation of components.
+
+         从历史和设计的角度我来扯扯淡：
+
+        -   最开始，全部是 public 的，太透明，容易被其他人修改！
+        -   然后引入了 private，有些东西就保护起来了。
+        -   后来有了类的继承。怎么留遗产给儿子？public 的话所有人都能用？private 的话是不是暴露太多。
+            所以 public 和 private 还不够。
+        -   于是 protected 出来了，自己 protected 的东西在其他人看来是“private”的。传给儿子，还是 protected。
+            于是一条遗传继承的渠道就有了。
+        -   Protected 的东西在自己的 member function 了可以用，在外面的话……那就跟 private 差不多了。
 
         ```cpp
         #include <iostream>
@@ -3198,7 +4064,9 @@ C++ 简介 | Intro
 
 -   [Resource Acquisition Is Initialization - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Resource_Acquisition_Is_Initialization) -<
 
-    :   Resource Acquisition Is Initialization (RAII) is a programming idiom used
+    :   这种资源管理其实跟“栈”和“作用域”有关。smart pointer 和 mutex（lock_guard） 都这么用。
+
+        Resource Acquisition Is Initialization (RAII) is a programming idiom used
         in several object-oriented languages, most prominently C++, where it
         originated, but also D, Ada, Vala, and Rust. The technique was developed
         for exception-safe resource management in C++ during 1984–89, primarily by
@@ -3236,9 +4104,24 @@ C++ 简介 | Intro
         }
         ```
 
+        ```cpp
+        class LockGuard {
+        public:
+            LockGuard(Lock& lock) : lock_(lock){ lock_.acquire();}
+            ~LockGuard() noexcept {lock_.release();}
+        private:
+            LockGuard(const LockGuard&)=delete;
+            LockGuard& operator=(const LockGuard&)=delete;
+        private:
+            Lock& lock_;
+        };
+        ```
+
 -   [Polymorphism (computer science) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Polymorphism_(computer_science)){.heart} -<
 
-    :   In programming languages and type theory, polymorphism `[,pɑlɪ'mɔrfɪzm]` (from Greek πολύς,
+    :   指针和 reference 的对象自动 down cast 到继承类型，调用对应的操作。
+
+        In programming languages and type theory, polymorphism `[,pɑlɪ'mɔrfɪzm]` (from Greek πολύς,
         polys, "many, much" and μορφή, morphē, "form, shape") is the provision of a
         single interface to entities of different types. A polymorphic type is one
         whose operations can also be applied to values of some other type, or
@@ -3439,6 +4322,8 @@ C++ 简介 | Intro
             known if the base function is to be called or a derived one implemented
             by a class that inherits from the base class.
 
+            TODO.
+
 -   [Run-time type information - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Run-time_type_information) -<
 
     :   In computer programming, **RTTI** (Run-Time Type Information, or Run-Time Type Identification)
@@ -3454,8 +4339,8 @@ C++ 简介 | Intro
 
         Any function that gets class information explicitly at runtime:
 
-        -   typeid
-        -   dynamic_cast
+        -   **typeid**
+        -   **dynamic_cast**
 
         Google style 3.26 discourages this, since if you really need it your
         design is probably flawed.
@@ -3465,18 +4350,274 @@ C++ 简介 | Intro
 
         执行期类型识别（Runtime Type Identification RTTI） -<
 
-        :   1.  RTTI 只支持多态类，也就是说没有定义虚函数是的类是不能进行 RTTI的。
-            2.  对指针进行dynamic_cast失败会返回NULL ,而对引用的话，识别会抛出 bad_cast exception。
-            3.  typeid 可以返回const type_info&，用以获取类型信息。
+        :   1.  RTTI 只支持多态类，也就是说没有定义虚函数是的类是不能进行 RTTI 的。
+            2.  对指针进行 dynamic_cast 失败会返回 NULL , 而对引用的话，识别会抛出 bad_cast exception。
+            3.  typeid 可以返回 const type_info&，用以获取类型信息。
 
-            关于1是因为RTTI的实现是通过vptr来获取存储在虚函数表中的type_info* ，事实上
-            为非多 态类提供RTTI,也没有多大意义。 2的原因在于指针可以被赋值为0，以表示
-            no object，但是 引用不行。关于3，虽然第一点指出RTTI只支持多态类，但typeid和
-            type_info同样可用于 内建类型及所有非多态类。与多态类的差别在于，非多态类的
-            type_info对象是静态取得(所 以不能叫“执行期类型识别”)，而多态类的是在执行期
-            获得。
+            关于 1 是因为 RTTI 的实现是通过 vptr 来获取存储在虚函数表中的
+            type_info* ，事实上为非多 态类提供 RTTI, 也没有多大意义。 2 的原因
+            在于指针可以被赋值为 0，以表示no object，但是 引用不行。关于 3，虽
+            然第一点指出 RTTI 只支持多态类，但 typeid 和type_info 同样可用于 内
+            建类型及所有非多态类。与多态类的差别在于，非多态类的type_info 对象
+            是静态取得 (所 以不能叫“执行期类型识别”)，而多态类的是在执行期获得。
 
--   [Critical section - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Critical_section)
+-   [Critical section - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Critical_section) -<
+
+    :   In concurrent programming, a critical section or critical region is a
+        part of a multi-threaded program that may not be concurrently executed
+        by more than one of the program's processes. In other words, it is
+        **a piece of a program that requires mutual exclusion of access**.
+        Typically, the critical section accesses a shared resource, such as a
+        data structure, a peripheral device, or a network connection, that does
+        not allow multiple concurrent accesses.
+
+        [Lock (computer science) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Lock_(computer_science))
+
+        :   In computer science, a lock or mutex (from mutual exclusion) is a
+            **synchronization mechanism for enforcing limits on access** to a
+            resource in an environment where there are many threads of
+            execution. A lock is designed to enforce a mutual exclusion
+            concurrency control policy.
+
+-   [Opaque pointer - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Opaque_pointer) -<
+
+    :   `[o'pek]` 不透明。
+
+        就是 pimpl 的实现。
+
+        Opaque pointers are a way to **hide the implementation details** of an
+        interface from ordinary clients, so that the implementation may be
+        changed without the need to recompile the modules using it. This
+        benefits the programmer as well since a simple interface can be
+        created, and most details can be hidden in another file. This is
+        important for providing binary code compatibility through different
+        versions of a shared library, for example.
+
+        This technique is described in Design Patterns as the **Bridge pattern**.
+        It is sometimes referred to as **"handle classes"**, the **"Pimpl idiom"** (for
+        "pointer to implementation idiom"), **"Compiler firewall idiom"**,
+        "d-pointer" or "Cheshire Cat", especially among the C++ community.
+
+        -   C example -<
+
+            :   -   obj.h -<
+
+                    :   ```cpp
+                        struct obj;
+
+                        /*
+                         * The compiler considers struct obj an incomplete type. Incomplete types
+                         * can be used in declarations.
+                         */
+
+                        size_t obj_size(void);
+
+                        void obj_setid(struct obj *, int);
+
+                        int obj_getid(struct obj *);
+                        ```
+
+                -   obj.cpp -<
+
+                    :   ```cpp
+                        #include "obj.h"
+
+                        struct obj {
+                            int id;
+                        };
+
+                        /*
+                         * The caller will handle allocation.
+                         * Provide the required information only
+                         */
+
+                        size_t obj_size(void) {
+                            return sizeof(struct obj);
+                        }
+
+                        void obj_setid(struct obj *o, int i) {
+                            o->id = i;
+                        }
+
+                        int obj_getid(struct obj *o) {
+                            return o->id;
+                        }
+                        ```
+
+                This example demonstrates a way to achieve the **information
+                hiding (encapsulation)** aspect of object-oriented programming
+                using the C language. If someone wanted to change the
+                declaration of struct obj, it would be unnecessary to recompile
+                any other modules in the program that use the obj.h header file
+                unless the API was also changed.
+
+        -   C++ example -<
+
+            :   -   PublicClass.h -<
+
+                    :   ```cpp
+                        class PublicClass {
+                        public:
+                            PublicClass();                              // Constructor
+                            PublicClass(const PublicClass&);            // Copy constructor
+                            PublicClass(PublicClass&&);                 // Move constructor
+                            PublicClass& operator=(const PublicClass&); // Copy assignment operator
+                            ~PublicClass();                             // Destructor
+                            // Other operations...
+
+                        private:
+                            struct CheshireCat;                         // Not defined here
+                            // 这里值得注意的是模板里面类型是 CheshireCat 而不是 CheshireCat *，
+                            // 而且 unique_ptr<CheshireCat> 是一种类型，这里不需要 struct CheshireCat 有
+                            // 完整的定义，好像是这样 ==
+                            unique_ptr<CheshireCat> d_ptr;              // opaque pointer
+                        };
+                        ```
+
+                -   PublicClass.cpp -<
+
+                    :   ```cpp
+                        //CPP file:
+                        #include "PublicClass.h"
+
+                        struct PublicClass::CheshireCat {
+                            int a;
+                            int b;
+                        };
+
+                        PublicClass::PublicClass()
+                            : d_ptr(new CheshireCat()) {
+                            // do nothing
+                        }
+
+                        PublicClass::PublicClass(const PublicClass& other)
+                            : d_ptr(new CheshireCat(*other.d_ptr)) {
+                            // do nothing
+                        }
+
+                        PublicClass::PublicClass(PublicClass&& other) = default;
+
+                        PublicClass& PublicClass::operator=(const PublicClass &other) {
+                            *d_ptr = *other.d_ptr;
+                            return *this;
+                        }
+
+                        PublicClass::~PublicClass() = default;
+                        ```
+
+                One type of opaque pointer commonly used in C++ class
+                declarations is the d-pointer. The d-pointer is the only
+                private data member of the class and points to an instance of a
+                struct. Named by Arnt Gulbrandsen of Trolltech, this method
+                allows class declarations to omit private data members, except
+                for the d-pointer itself. The result: (a) more of the class
+                implementation is hidden from view; (b) adding new data members
+                to the private struct does not affect binary compatibility; (c)
+                the header file containing the class declaration only needs to
+                #include those other files needed for the class interface,
+                rather than for its implementation. One side benefit is that
+                compilations are faster because the header file changes less
+                often. The d-pointer is heavily used in the Qt and KDE
+                libraries.
+
+-   [Return value optimization - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Return_value_optimization) -<
+
+    :   In the context of the C++ programming language, the return value
+        optimization (RVO) is a compiler optimization that involves eliminating
+        the temporary object created to hold a function's return value. The RVO
+        is particularly notable for being allowed to change the observable
+        behaviour of the resulting program by the C++ standard.
+
+        如下的代码，有得编译器会输出三个 "A copy was made." 有得甚至可以一个都不输出。
+
+        ```cpp
+        #include <iostream>
+
+        struct C {
+          C() {}
+          C(const C&) { std::cout << "A copy was made.\n"; }
+        };
+
+        C f() {
+          return C();
+        }
+
+        int main() {
+          std::cout << "Hello World!\n";
+          C obj = f();
+          return 0;
+        }
+        ```
+
+        有 ROV 后的样子：
+
+        ```cpp
+        // 我们的数据
+        struct Data {
+          char bytes;
+        };
+
+        // 原来如此
+        Data f() {
+          Data result = {};
+          // generate result
+          return result;
+        }
+
+        int main() {
+          Data d = f();
+        }
+
+        // 转成 C 语言大概如此，拷贝了两次
+        Data * f(Data * _hiddenAddress) {
+          Data result = {};
+          // copy result into hidden object
+          *_hiddenAddress = result;                         //  这里，拷贝
+          return _hiddenAddress;
+        }
+
+        int main() {
+          Data _hidden; // create hidden object
+          Data d = *f(&_hidden); // copy the result into d，又一次拷贝
+        }
+
+        // ROV 优化的意思大概如此
+        void f(Data *p) {
+          // generate result directly in *p
+        }
+
+        int main() {
+          Data d;
+          f(&d);
+        }
+        ```
+
+        有时候 ROV 是不能实现的，因为这个函数的返回时不确定的。
+
+        ```cpp
+        #include <string>
+        std::string f(bool cond = false) {
+            std::string first("first");
+            std::string second("second");
+            // the function may return one of two named objects
+            // depending on its argument. RVO might not be applied
+            return cond ? first : second;
+        }
+
+        int main() {
+            std::string result = f();
+        }
+        ```
+
+        ROV 算是一种 Copy elision 把。
+
+        refs and see also
+
+        -   [Copy elision - cppreference.com](http://en.cppreference.com/w/cpp/language/copy_elision)
+
+-   [RVO V.S. std::move (C/C++ Cafe)](https://www.ibm.com/developerworks/community/blogs/5894415f-be62-4bc0-81c5-3956e82276f3/entry/RVO_V_S_std_move?lang=en) -<
+
+    :   RVO、std::move，COW 的适用条件
 
 ## 算法数据结构精要
 
@@ -3576,17 +4717,74 @@ C++ 简介 | Intro
 
 -   [isocpp/CppCoreGuidelines: The C++ Core Guidelines are a set of tried-and-true guidelines, rules, and best practices about coding in C++](https://github.com/isocpp/CppCoreGuidelines){.heart} -<
 
-    :   read: [CppCoreGuidelines/CppCoreGuidelines.md at master · isocpp/CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
+    :   **C++ Core Guidelines**
 
-        **C++ Core Guidelines**
+        -   A well-designed library expresses intent (what is to be done,
+            rather than just how something is being done) far better than
+            direct use of language features.
+
+        -   flag uses of casts (casts neuter the type system)
+
+        -   P.3: Express intent
+
+            ```cpp
+            for (const auto& x : v) { /* do something with x */ }
+            for_each(v, [](int x) { /* do something with x */ });
+            for_each(parallel.v, [](int x) { /* do something with x */ });   // 顺序无关
+            ```
+
+        -   `f(T*, int)` interfaces vs. `f(span<T>)` interfaces
+
+        -   `static_assert(sizeof(Int) >= 4);    // do: compile-time check   `
+
+        -   P.8: Don’t leak any resources, prefer RAII
+
+        -   no singleton
+
+            ```cpp
+            X& myX()
+            {
+                static X my_x {3};
+                return my_x;
+            }
+            ```
+
+        -   Pass ownership using a “smart pointer”, such as unique_ptr (for exclusive ownership) and shared_ptr (for shared ownership).
+
+        -   I.23: Keep the number of function arguments low
+
+        -   I.25: Prefer abstract classes as interfaces to class hierarchies
+
+            ```cpp
+            class Shape {    // better: Shape is a pure interface
+            public:
+                virtual Point center() const = 0;   // pure virtual function
+                virtual void draw() const = 0;
+                virtual void rotate(int) = 0;
+                // ...
+                // ... no data members ...
+            };
+            ```
+
+        refs and see also
+
+        -   [CppCoreGuidelines/CppCoreGuidelines.md at master ·
+            isocpp/CppCoreGuidelines](https://github.com/isocpp/CppCoreGuidelines/blob/master/CppCoreGuidelines.md)
+        -   [CppCoreGuidelines-zh-CN/CppCoreGuidelines-zh-CN.md at master ·
+            lynnboy/CppCoreGuidelines-zh-CN](https://github.com/lynnboy/CppCoreGuidelines-zh-CN/blob/master/CppCoreGuidelines-zh-CN.md)
 
 -   [awesome-c - NotABug.org: Free code hosting](https://notabug.org/koz.ross/awesome-c)
 
 ## 精品书摘
 
--   《深入探索 C++ 对象模型》 -<
+-   《深入探索 C++ 对象模型》 :hearts: -<
 
-    :   第 1 章 关于对象(Object Lessons)` -<
+    :   vczh
+
+        >   当然可以。你首先去看《Inside C++ Object Model》，然后看看人家是怎么
+        >   实现继承的，从此以后你就代替C++编译器做人肉代码展开就可以了。
+
+        第 1 章 关于对象(Object Lessons)` -<
 
         :   C 语言中数据和操作分开，语言本身没有提供之间的关联性。这种程序方法被称为 Procedural，
             它以一些函数为导向，处理共同的外部数据。
@@ -5436,7 +6634,7 @@ C++ 简介 | Intro
 
     :   -   Standards -<
 
-            :   -   C++89
+            :   -   C++98
                 -   C++03
                 -   TR1 (Technical report 1), 2005, --> C++11
                 -   TR2, C++1Y
@@ -5445,6 +6643,20 @@ C++ 简介 | Intro
                     -   gcc: `-std=c++0x` -> `-std=c++11`
                 -   C++14
                     -   Will come after C++11. Known as C++1Y as many have doubts it will come out in 2014.
+
+                -------------------------------------------------
+                Year    C++ Standard                Informal name
+                -----   ------------------------    -------------
+                1998    ISO/IEC 14882:1998          C++98
+
+                2003    ISO/IEC 14882:2003          C++03
+
+                2011    ISO/IEC 14882:2011          C++11
+
+                2014    ISO/IEC 14882:2014          C++14
+
+                2017    to be determined            C++17
+                -------------------------------------------------
 
         -   Compile time magic -<
 
@@ -5792,150 +7004,23 @@ C++ 简介 | Intro
 
                         -   [cpp-cheat/operator_overload.cpp at master · cirosantilli/cpp-cheat](https://github.com/cirosantilli/cpp-cheat/blob/master/cpp/operator_overload.cpp)
 
+-   Essential C++
+
+
+-   Effective STl, Effective C++, More Effective C++, Exceptional C++, More Exceptional C++, Exceptional C++ Style, C++ 必知必会
+
+    :   -   Effective STl
+        -   Effective C++
+        -   More Effective C++
+        -   Exceptional C++
+        -   More Exceptional C++
+        -   Exceptional C++ Style
+        -   C++ 必知必会
+
 -   [Generic programming - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Generic_programming)
 
--   [编程小谈 — RAII与Pimpl | UC技术博客](http://tech.uc.cn/?p=851)
-
--   [Opaque pointer - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Opaque_pointer)
-
-    :    `[o'pek]` 不透明。
-
-        Opaque pointers are a way to hide the implementation details of an
-        interface from ordinary clients, so that the implementation may be
-        changed without the need to recompile the modules using it. This
-        benefits the programmer as well since a simple interface can be
-        created, and most details can be hidden in another file. This is
-        important for providing binary code compatibility through different
-        versions of a shared library, for example.
-
-        This technique is described in Design Patterns as the Bridge pattern.
-        It is sometimes referred to as "handle classes", the "Pimpl idiom" (for
-        "pointer to implementation idiom"), "Compiler firewall idiom",
-        "d-pointer" or "Cheshire Cat", especially among the C++ community.
-
-        -   C example -<
-
-            :   -   obj.h -<
-
-                    :   ```cpp
-                        struct obj;
-
-                        /*
-                         * The compiler considers struct obj an incomplete type. Incomplete types
-                         * can be used in declarations.
-                         */
-
-                        size_t obj_size(void);
-
-                        void obj_setid(struct obj *, int);
-
-                        int obj_getid(struct obj *);
-                        ```
-
-                -   obj.cpp -<
-
-                    :   ```cpp
-                        #include "obj.h"
-
-                        struct obj {
-                            int id;
-                        };
-
-                        /*
-                         * The caller will handle allocation.
-                         * Provide the required information only
-                         */
-
-                        size_t obj_size(void) {
-                            return sizeof(struct obj);
-                        }
-
-                        void obj_setid(struct obj *o, int i) {
-                            o->id = i;
-                        }
-
-                        int obj_getid(struct obj *o) {
-                            return o->id;
-                        }
-                        ```
-
-                This example demonstrates a way to achieve the information hiding
-                (encapsulation) aspect of object-oriented programming using the C
-                language. If someone wanted to change the declaration of struct
-                obj, it would be unnecessary to recompile any other modules in the
-                program that use the obj.h header file unless the API was also
-                changed. Note that it may be desirable for the functions to check
-                that the passed pointer is not NULL, but such checks have been
-                omitted above for brevity.
-
-        -   C++ example -<
-
-            :   -   Class.h -<
-
-                    :   ```cpp
-                        class PublicClass {
-                        public:
-                            PublicClass();                              // Constructor
-                            PublicClass(const PublicClass&);            // Copy constructor
-                            PublicClass(PublicClass&&);                 // Move constructor
-                            PublicClass& operator=(const PublicClass&); // Copy assignment operator
-                            ~PublicClass();                             // Destructor
-                            // Other operations...
-
-                        private:
-                            struct CheshireCat;                         // Not defined here
-                            unique_ptr<CheshireCat> d_ptr;              // opaque pointer
-                        };
-                        ```
-
-                -   Class.cpp -<
-
-                    :   ```cpp
-                        //CPP file:
-                        #include "PublicClass.h"
-
-                        struct PublicClass::CheshireCat {
-                            int a;
-                            int b;
-                        };
-
-                        PublicClass::PublicClass()
-                            : d_ptr(new CheshireCat()) {
-                            // do nothing
-                        }
-
-                        PublicClass::PublicClass(const PublicClass& other)
-                            : d_ptr(new CheshireCat(*other.d_ptr)) {
-                            // do nothing
-                        }
-
-                        PublicClass::PublicClass(PublicClass&& other) = default;
-
-                        PublicClass& PublicClass::operator=(const PublicClass &other) {
-                            *d_ptr = *other.d_ptr;
-                            return *this;
-                        }
-
-                        PublicClass::~PublicClass() = default;
-                        ```
-
-                One type of opaque pointer commonly used in C++ class
-                declarations is the d-pointer. The d-pointer is the only
-                private data member of the class and points to an instance of a
-                struct. Named by Arnt Gulbrandsen of Trolltech, this method
-                allows class declarations to omit private data members, except
-                for the d-pointer itself.[6] The result: (a) more of the class
-                implementation is hidden from view; (b) adding new data members
-                to the private struct does not affect binary compatibility; (c)
-                the header file containing the class declaration only needs to
-                #include those other files needed for the class interface,
-                rather than for its implementation. One side benefit is that
-                compilations are faster because the header file changes less
-                often. The d-pointer is heavily used in the Qt and KDE
-                libraries.
-
-- [Here be dragons: advances in problems you didn’t even know you had | teideal glic deisbhéalach](http://www.serpentine.com/blog/2011/06/29/here-be-dragons-advances-in-problems-you-didnt-even-know-you-had/)
-- [function/bind的救赎（上） - 孟岩 - 博客频道 - CSDN.NET](http://blog.csdn.net/myan/article/details/5928531)
+-   [Here be dragons: advances in problems you didn’t even know you had | teideal glic deisbhéalach](http://www.serpentine.com/blog/2011/06/29/here-be-dragons-advances-in-problems-you-didnt-even-know-you-had/)
+-   [function/bind的救赎（上） - 孟岩 - 博客频道 - CSDN.NET](http://blog.csdn.net/myan/article/details/5928531)
 
 -   虚基类????
 
@@ -5983,4 +7068,109 @@ C++ 简介 | Intro
         }
         ```
 
+-   Milo Yip 的博客 -<
 
+    :   -   [两条像面试用的编程问题，和我的囧事 - Milo Yip - 博客园](http://www.cnblogs.com/miloyip/archive/2010/03/04/1677902.html)
+
+            :   -   设计一个函数f, 使得它满足：f(f(x))=-x，这里输入参数为32位整型
+                -   设计一个函数g, 满足：g(g(x))=1/x, x是浮点数
+
+
+-   [Const Correctness, C++ FAQ](https://isocpp.org/wiki/faq/const-correctness#constptrptr-conversion)
+
+class 的虚函数表被破坏是不可能的，因为这个 vtable 是放在 rodata 区，是只读的。修改 vtable 会导致 segment fault，这样拿 coredump 一看就知道哪条语句在干坏事。
+class object 里的 vptr 被修改倒是有可能。
+
+Some Useful Code Tips
+
+-   多加 assert，避免未期望的行为逃逸
+-  避免原生的 new 与 delete，使用智能指针
+-   忘记 C 的编码方式，使用 C++
+
+明白异常的开销，若不会发生异常，加上noexcept
+
+为你的类加入move构造函数与move赋值操作符
+
+指针是编译器优化的“万恶之源”，使用restrict考虑帮
+
+助编译器做Pointer Alias优化
+
+[为什么 bs 虚函数表的地址 `(int*)(&bs)` 与虚函数地址 `(int*)*(int*)(&bs)` 不是同一个？ - 知乎](https://www.zhihu.com/question/27459122)
+
+[一道阿里实习生笔试题的疑惑？ - RednaxelaFX 的回答 - 知乎](https://www.zhihu.com/question/29256578/answer/43725188)
+
+[Hackbuteer1的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/hackbuteer1)
+
+-   [AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/) -<
+
+    :   -   [恼人的函数指针（一） - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2011/11/20/2255813.html) -<
+
+            :   ```cpp
+                int (*func(int*, int))(const string&, const string&);
+                ```
+
+                上面的声明，将 func(int*, int) 声明为一个函数，返回值为函数指针，函数类型为
+                int (*)(const string&, const string&)。
+
+        -   [恼人的函数指针（二）：指向类成员的指针 - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2011/12/04/2275589.html)
+
+        -   [关于构造方法的一个有趣的问题：初始化队伍 - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2011/05/22/2053581.html)
+
+            :   编译器在处理初始化队伍时，会根据成员变量的声明次序重新排序。也就是
+                说，虽然构造方法是先对 j 进行初始化，但是，根据 i 和 j 的声明次序，
+                实际上是先对 i 初始化，然后再对 j 进行初始化。
+
+        -   [笔试题之二：函数参数入栈问题 - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2011/05/16/2048062.html)
+
+            :   在 Microsoft C++ 系列的编译器中，通常使用 stdcall 调用规定，并且
+                stdcall 规定参数是从右到左入栈。
+
+        -   [笔试题之三：C++ dynamic_cast问题 - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2011/05/17/2048632.html)
+
+        -   [LeetCode(Q69) Sqrt(x) (编程实现sqrt) - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2013/04/18/3028607.html) -<
+
+            :   **二分搜索**
+
+                对于一个非负数 n，它的平方根不会大于（n/2+1）（谢谢 @linzhi-cs 提醒）。在 [0, n/2+1] 这个范围内可以进行二分搜索，求出 n 的平方根。
+
+                ```cpp
+                int sqrt(int x) {
+                    long long i = 0;
+                    long long j = x / 2 + 1;
+                    while (i <= j)
+                    {
+                        long long mid = (i + j) / 2;
+                        long long sq = mid * mid;
+                        if (sq == x) return mid;
+                        else if (sq < x) i = mid + 1;   // 这里可以用 x / mid == mid 来判断，也避免了 long long 类型
+                        else j = mid - 1;
+                    }
+                    return j;
+                }
+                ```
+
+                **牛顿迭代法**
+
+                ![](http://images.cnitblog.com/blog/300640/201304/18155235-b272cc444a1845d3aede4c72a87f83dc.jpg)
+
+                经过 (xi, f(xi)) 这个点的切线方程为 f(x) = f(xi) + f’(xi)(x - xi)，其中 f'(x) 为 f(x) 的导数，本题中为 2x。令切线方程等于 0，即可求出 x_{i+1}=xi - f(xi) / f'(xi)。
+
+                继续化简，x{i+1}=xi - (xi2 - n) / (2xi) = xi - xi / 2 + n / (2xi) = xi / 2 + n / 2xi = (xi + n/xi) / 2。
+
+                ```cpp
+                int sqrt(int x) {
+                    if (x == 0) return 0;
+                    double last = 0;
+                    double res = 1;
+                    // 感觉这里应该用 fabs(res-last) < 1e-6，
+                    // 但实际测试，没有问题
+                    while (res != last)
+                    {
+                        last = res;
+                        res = (res + x / res) / 2;
+                    }
+                    return int(res);
+                }
+                ```
+
+        -   [LeetCode(Q41) First Missing Positive (乱序数组中寻找第一个未出现的正整数) - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2013/04/21/3034631.html)
