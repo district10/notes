@@ -8,27 +8,6 @@ q   { quotes: "“" "”" "‘" "’"; }
     padding: 45px;
 }
 
-@keyframes waveAnimation {
-  0%   { padding-right: 0em }
-  50%  { padding-right: 2em }
-  100% { padding-right: 0em }
-}
-@-o-keyframes waveAnimation {
-  0%   { padding-right: 0em }
-  50%  { padding-right: 2em }
-  100% { padding-right: 0em }
-}
-@-moz-keyframes waveAnimation {
-  0%   { padding-right: 0em }
-  50%  { padding-right: 2em }
-  100% { padding-right: 0em }
-}
-@-webkit-keyframes waveAnimation {
-  0%   { padding-right: 0em }
-  50%  { padding-right: 2em }
-  100% { padding-right: 0em }
-}
-
 h1,h2,h3,h4 { padding-top: 2em; }
 h1:first-child,
 h2:first-child,
@@ -288,33 +267,18 @@ dt.drawer+dd dt.drawer+dd dt.drawer+dd dt.drawer+dd {
 p.focus,
 dt.focus,
 li.focus {
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px dotted lightgray;
 }
 p.focus.simpledrawerClose,
 dt.focus.drawerClose,
 li.focus.drawerClose {
-    border-right: 1px solid lightgray;
-    border-bottom: 3px double lightgray;
+    border-right: 1px dotted lightgray;
+    border-bottom: 1px dotted lightgray;
 }
 dd.focus,
 ol.focus,
 ul.focus {
-    border-left: 3px double lightgray;
-}
-
-p.focus.simpledrawer:before,
-dt.focus.drawer:before,
-li.focus.drawer:before {
-    color: #ff1244;
-}
-p.focus.simpledrawer.simpledrawerClose:before,
-dt.focus.drawer.drawerClose:before,
-li.focus.drawer.drawerClose:before,
-p.focus.drawer-ng.drawer-ng-close:before {
-    -webkit-animation: waveAnimation 3s infinite;
-    -moz-animation: waveAnimation 3s infinite;
-    -o-animation: waveAnimation 3s infinite;
-    animation: waveAnimation 3s infinite;
+    border-left: 1px dotted lightgray;
 }
 
 .footnotes {
@@ -380,14 +344,24 @@ body.locked #gotoindex {
 .markdown-body dt.drawer.drawerOpen:before,
 .markdown-body li.drawer.drawerOpen:before,
 .markdown-body p.drawer-ng-this.drawer-ng-open:before {
-    content: "\00a0\00a0\00a0 +";
+    // content: "\00a0\00a0\00a0 +";
 }
 .markdown-body p.simpledrawerClose:before,
 .markdown-body dt.drawerClose:before,
 .markdown-body li.drawerClose:before,
 .markdown-body p.drawer-ng-close:before {
-    content: "\00a0\00a0\00a0 -";
+    // content: "\00a0\00a0\00a0 -";
 }
+
+.markdown-body p.simpledrawerClose:after,
+.markdown-body dt.drawerClose:after,
+.markdown-body li.drawerClose:after,
+.markdown-body p.drawer-ng-close:after {
+    content: "\00a0 ...";
+    color: lightgray;
+    font-size: 150%;
+}
+
 .markdown-body *.drawer-ng-siblings.drawer-ng-hide,
 .markdown-body *.hide,
 .markdown-body code.fold,
@@ -410,15 +384,6 @@ body.locked #gotoindex {
                             outline-width:medium; font-weight: bold; }
 .tabNav ul a:hover {        background:#95B1CB; color:#fff }
 .tabNav ul a.selected   {   background:#1B5790; color:#fff; cursor:default; }
-
-/*
-pre.diffed {
-    background-color: white;
-    border: 1px dotted #f8bd0b;
-    font-size: 90%;
-    font-family: Consolas, Inpact, Arial, Hiragino, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, STXihei, Heiti, sans-serif;
-}
-*/
 
 .markdown-body .del {
     text-decoration:line-through;

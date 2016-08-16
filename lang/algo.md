@@ -1875,3 +1875,7 @@ Milo Yip 的博客 -<
 授人以鱼，不如授之以渔，何况自己都忘了，建议去看sedgewick的《算法》第四版平衡搜索树和红黑树部分，讲得非常清晰。
 
 -   [Zenefits电面真题 & 解析 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20348386?refer=jiuzhang)
+
+-   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+
+-   [Sorting algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
