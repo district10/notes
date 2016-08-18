@@ -1,21 +1,4 @@
-         我               的              笔             记
-
-
-#     #                       #     #
-##   ##   #   #               ##    #   ####    #####  ######   ####
-# # # #    # #                # #   #  #    #     #    #       #
-#  #  #     #                 #  #  #  #    #     #    #####    ####
-#     #     #                 #   # #  #    #     #    #            #
-#     #     #                 #    ##  #    #     #    #       #    #
-#     #     #                 #     #   ####      #    ######   ####
-
-在线查看：http://tangzx.qiniudn.com/notes
-
--------------------------------------------------------------------------------
-
-To myself：请不要把本 repo 作为 http://github.com/district10/blog 的 submodule。
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+这是我的 Notes/Wiki。在线查看：http://tangzx.qiniudn.com/notes
 
                                                           +-------------------+
                                                           |                   |
@@ -56,7 +39,7 @@ To myself：请不要把本 repo 作为 http://github.com/district10/blog 的 su
     - 糟糕的无序列表 item 1
     - 糟糕的无序列表 item 2
 
-    更多格式说明见 pandoc 文档：<https://github.com/jgm/pandoc>。
+    更多格式说明见 pandoc 文档：https://github.com/jgm/pandoc
 
 2.  内容折叠
 
@@ -106,7 +89,7 @@ To myself：请不要把本 repo 作为 http://github.com/district10/blog 的 su
     |                                               |
     +-----------------------------------------------+
 
-    如果 2016/democode.cpp（目录从 repo 根目录起）内容如下
+    如果 2016/democode.cpp（目录从 repo 根目录起）内容如下：
 
     +------------------------2016/democode.cpp------+
     |                                               |
@@ -118,7 +101,9 @@ To myself：请不要把本 repo 作为 http://github.com/district10/blog 的 su
     |                                               |
     +-----------------------------------------------+
 
-    +------------------------2016/haizi.txt---------+
+    如果 2016/poem.txt 内容如下：
+
+    +------------------------2016/poem.txt----------+
     |                                               |
     |   Like tears                                  |
     |   in the rain.                                |
