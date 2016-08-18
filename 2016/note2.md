@@ -413,3 +413,14 @@ vim tip:
 [He "Lonnie" Liu - CSE, UC San Diego](http://liulonnie.net/)
 
 [18-25岁：也许是一生中最困难的时候｜Emerging Adulthood - Know Yourself - 知乎专栏](https://zhuanlan.zhihu.com/p/20493903)
+
+[如何看待王宝强与马蓉离婚？ - 夺命帅逼阿凡提的回答 - 知乎](http://www.zhihu.com/question/49581600/answer/116875215)
+
+[像我王宝强这样的男人，帅起来根本挡不住… - 屌私型格 - 知乎专栏](https://zhuanlan.zhihu.com/p/20164622)
+
+[关于读书的流水账 - 捣乱小子 - 博客园](http://www.cnblogs.com/daoluanxiaozi/archive/2012/03/14/2397033.html)
+
+:   有大牛跟我说过，当你发现一本书写的非常不错而且很适合你的时候，那么该是你认
+    真的时候了。因为在以后你几乎没有机会回头看那本书。这一点我非常有感触，所以
+    每一本机经可以说都是生命中的过客，当你与之际遇之时，好好领略领略它的魅力，
+    切勿囫囵吞枣，因为没有什么比时间更重要了。^_^加油，各位。
