@@ -1246,8 +1246,6 @@ Algorithms
 
                 则极不可能使用动态规划求解
 
-        -   坐标型动态规划
-
         -   leetcode 中几道动态规划题 -<
 
             :   -   [Triangle | LeetCode OJ](https://leetcode.com/problems/triangle/) -<
@@ -1295,7 +1293,7 @@ Algorithms
                             3 |     4   1   8   3   |   4   1   8   3   |   4   1   8   3   |   4   1   8   3
                         ```
 
-                        首先，定义状态转移方程：`f(i,j) = min{ f(i+i,j), f(i+1,j+1)} + (i,j)`
+                        首先，定义状态转移方程：`f(i,j) = min{ f(i+i,j), f(i+1,j+1)} + f(i,j) for j = 0..i, i = n-2..0`。
 
                         ```cpp
                         int minimumTotal( vector<vector<int>> &triangle ) {
@@ -1322,11 +1320,11 @@ Algorithms
                         -   加入原来的 sub array，
                         -   新生成一个 sub array（原来的 sub array 为负）
 
-                        S[n] 为序列，S[j] 为第 j 个元素（1 based）。
-                        设状态 f[j] 表示以 S[j] 结尾的最大连续子序列和，则状态转移方程如下：
+                        `S[n]` 为序列，`S[j]` 为第 j 个元素（1 based）。
+                        设状态 `f[j]` 表示以 `S[j]` 结尾的最大连续子序列和，则状态转移方程如下：
 
-                        -   f[j] = max( f[j-1]+S[j], S[j] ), j = 2..n, f[1] = S[1]
-                        -   target = max{ f[j] }, j = 1..n
+                        -   `f[j] = max( f[j-1]+S[j], S[j] ), j = 2..n, f[1] = S[1]`
+                        -   `target = max{ f[j] }, j = 1..n`
 
                         代码：
 
@@ -1351,7 +1349,8 @@ Algorithms
                         Note: You can only move either down or right at any
                         point in time.
 
-                        状态转移方程：f[i][j] = min(f[i-1][j], f[i][j-1]) + grid(i,j)
+                        状态转移方程：
+                        `f[i][j] = min(f[i-1][j], f[i][j-1]) + grid(i,j)`
 
                         -   备忘录法 -<
 
@@ -1429,8 +1428,153 @@ Algorithms
 
     2016/8/14 上午9:30:00 5. 动态规划 Dynamic Programming II -<
 
-    :   -   单序列动态规划（下） Sequnece DP
-        -   双序列动态规划 Two Sequences DP
+    :   -   面试中常见的动态规划类型 -<
+
+            :   -   **坐标型动态规划 15%**
+                    -   state:
+                        -   f[x] 表示我从起点走到坐标x......
+                        -   f[x][y] 表示我从起点走到坐标x,y......
+                    -   function: 研究走到x,y这个点之前的一步
+                    -   initialize: 起点
+                    -   answer: 终点
+                -   **序列型动态规划 30%**
+                    -   state: f[i]表示前i个位置/数字/字符,第i个...
+                    -   function: f[i] = f[j] ... j 是i之前的一个位置
+                    -   initialize: f[0]..
+                    -   answer: f[n]..
+                        -   一般answer是f(n)而不是f(n-1)
+                        -   因为对于n个字符,包含前0个字符(空串),前1个字符......前n个字符。
+                -   **双序列动态规划 30%**
+                -   划分型动态规划 10%
+                -   背包型动态规划 10%
+                -   区间型动态规划 5%
+
+                >   如果不是跟坐标相关的动态规划, 一般有N个数/字符,就开N+1个位
+                >   置的数组, 第0个位置单独留出来作初始化
+
+        [Word Break 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/word-break/) -<
+
+        :   Given a string s and a dictionary of words dict, determine if s can
+            be segmented into a space-separated sequence of one or more
+            dictionary words. For example, given s = "leetcode", dict =
+            ["leet", "code"].  Return true because "leetcode" can be segmented
+            as "leet code".
+
+            ```cpp
+            public class Solution {
+                private int getMaxLength(Set<String> dict) {
+                    int maxLength = 0;
+                    for (String word : dict) {
+                        maxLength = Math.max(maxLength, word.length());
+                    }
+                    return maxLength;
+                }
+
+                public boolean wordBreak(String s, Set<String> dict) {
+                    if (s == null || s.length() == 0) {
+                        return true;
+                    }
+
+                    int maxLength = getMaxLength(dict);
+                    boolean[] canSegment = new boolean[s.length() + 1];
+
+                    canSegment[0] = true;
+                    for (int i = 1; i <= s.length(); i++) {
+                        canSegment[i] = false;
+                        for (int lastWordLength = 1;
+                                 lastWordLength <= maxLength && lastWordLength <= i;
+                                 lastWordLength++) {
+                            if (!canSegment[i - lastWordLength]) {
+                                continue;
+                            }
+                            String word = s.substring(i - lastWordLength, i);
+                            if (dict.contains(word)) {
+                                canSegment[i] = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    return canSegment[s.length()];
+                }
+            }
+            ```
+
+            -   state: f[i]表示“前i”个字符能否被完美切分
+            -   function: f[i] = OR{f[j] && j+1~i is a word}, 其中 j < i
+            -   initialize: f[0] = true
+            -   answer: f[n]
+
+            注意:切分位置的枚举->单词长度枚举 O(NL 2 ), N: 字符串长度, L: 最长的单词的长度
+
+        [Palindrome Partitioning II 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/palindrome-partitioning-ii/)
+
+        -   单序列动态规划（下） Sequnece DP
+
+        -   双序列动态规划 Two Sequences DP -<
+
+            :   -   state: f[i][j]代表了第一个sequence的前i个数字/字符,配上第二个sequence的前j个...
+                -   function: f[i][j] = 研究第i个和第j个的匹配关系
+                -   initialize: f[i][0] 和 f[0][i]
+                -   answer: f[n][m]
+                -   n = s1.length()
+                -   m = s2.length()
+
+        -   problems -<
+
+            :   求Max, [Longest Common Subsequence 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/longest-common-subsequence/) -<
+
+                :   • http://www.lintcode.com/problem/longest-common-substring/
+
+                    state: f[i][j]表示前i个字符配上前j个字符的LCS的长度
+                    • function: f[i][j] = MAX(f[i-1][j], f[i][j-1], f[i-1][j-1] + 1) // A[i - 1] == B[j - 1]
+                    •
+                    = MAX(f[i-1][j], f[i][j-1])
+                    // A[i - 1] != B[j - 1]
+                    • intialize: f[i][0] = 0 f[0][j] = 0
+                    • answer: f[n][m]
+
+                求Min, [Edit Distance 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/edit-distance/)
+
+                求方案总数, [Distinct Subsequences 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/distinct-subsequences/) -<
+
+                :   -   state: f[i][j] 表示 S的前i个字符中选取T的前j个字符,有多少种方案
+                    -   function: f[i][j] = f[i - 1][j] + f[i - 1][j - 1] // S[i-1] == T[j-1] = f[i - 1][j] // S[i-1] != T[j-1]
+                    -   initialize: f[i][0] = 1, f[0][j] = 0 (j > 0)
+                    -   answer: f[n][m] (n = sizeof(S), m = sizeof(T))
+
+                求是否可行, [Interleaving String 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/interleaving-string/)
+
+                什么情况下可能使用/不用动态规划?
+
+                -   最大值最小值/是否可行/方案总数
+                -   求所有方案/集合而不是序列/指数级到多项式
+                -   解决动态规划问题的四点要素
+                -   状态,方程,初始化,答案
+                -   三种面试常见的动态规划类别及状态特点
+                -   坐标,单序列,双序列
+                -   两招独孤九剑
+                -   二维DP需要初始化第0行和第0列
+                -   n个字符的字符串要开n+1个位置的数组
+
+                其他类型的动态规划(算法强化班) -<
+
+                :   背包类:
+
+                    -   http://www.lintcode.com/problem/backpack/
+                    -   http://www.lintcode.com/problem/backpack-ii/
+                    -   http://www.lintcode.com/problem/minimum-adjustment-cost/
+                    -   http://www.lintcode.com/problem/k-sum/
+
+                    区间类:
+
+                    -   http://www.lintcode.com/problem/coins-in-a-line-iii/
+                    -   http://www.lintcode.com/problem/scramble-string/
+
+                    划分类:
+
+                    -   http://www.lintcode.com/problem/best-time-to-buy-and-sell-stock-iv/
+                    -   http://www.lintcode.com/problem/maximum-subarray-iii/
 
     2016/8/20 上午9:30:00 6. 链表 Linked List -<
 
@@ -1545,29 +1689,869 @@ Algorithms
             -   3. Subarray Sum Closest
             -   4. Subarray sum II
 
+aoapc-book -<
+
+:   **第一部分：语言篇**
+
+    -   第 1 章，程序设计入门 -<
+
+        :   -   我们的目标是解决问题，而不是为了写程序而写程序，同时应保持简单
+                （Keep It Simple and Stupid, KISS），而不是自己创造条件去展示编
+                程技巧。
+
+            -   三整数排序
+
+                :   ```cpp
+                    #include <stdio.h>
+
+                    int main() {
+                        int a, b, c, t;
+                        scanf( "%d%d%d", &a, &b, &c );
+                        if( a > b ) { t = a; a = b; b = t; } // a <= b
+                        if( a > c ) { t = a; a = c; c = t; } // a <= c
+                        if( b > c ) { t = b; b = c; c = t; } // a <= b <= c
+                        printf( "%d %d %d\n", a, b, c );
+                        return 0;
+                    }
+                    ```
+
+    -   第 2 章，循环结构程序设计 -<
+
+        :   -   重定向
+
+                ```cpp
+                freopen( "data.in",  "r", stdin  );
+                freopen( "data.out", "w", stdout );
+                ```
+
+            -   编程不是看书看会的，也不是听课听会的，而是练会的。
+
+    -   第 3 章，数组和字符串 -<
+
+        :   -   蛇形填数 -<
+
+                :   ```cpp
+                    #include <stdio.h>
+                    #include <string.h>
+                    #define maxn 20
+                    int a[maxn][maxn];
+
+                    int main() {
+                        int n, x, y, tot = 0;
+                        while( 1 == scanf( "%d", &n ) && n > 0 && n < maxn ) {
+                            memset( a, 0, sizeof(a) );
+                            tot = a[x=0][y=n-1] = 1;
+                            while( tot < n*n ) {
+                                while( x+1 <  n && !a[x+1][y] ) { a[++x][y] = ++tot; }
+                                while( y-1 >= 0 && !a[x][y-1] ) { a[x][--y] = ++tot; }
+                                while( x-1 >= 0 && !a[x-1][y] ) { a[--x][y] = ++tot; }
+                                while( y+1 <  n && !a[x][y+1] ) { a[x][++y] = ++tot; }
+                            }
+                            for( x = 0; x < n; ++x ) {
+                                for( y = 0; y < n; ++y ) {
+                                    printf( "%5d", a[x][y] );
+                                }
+                                printf( "\n" );
+                            }
+                        }
+                        return 0;
+                    }
+                    ```
+
+            -   最好在做一件事之前检查是不是可以做，而不要做完再后悔。
+                因为“毁棋”往往比较麻烦。
+
+            -   `if( strchr( s, c ) == NULL ) { ... }`{.cpp}
+
+            -   `fgetc` 返回 int？因为 EOF（值为 -1）不容易转化成 char。
+
+            -   回文词（Palindromes） -<
+
+                :   输入中没有 "0"。
+
+                    ```cpp
+                    #include <stdio.h>
+                    #include <string.h>
+                    #include <ctype.h>
+                    //                 ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789
+                    const char *rev = "A   3  HIL JM O   2TUVWXY51SE Z  8 ";
+                    const char *msg[] = {   "not a palindrome",
+                                            "a regular palindrome",
+                                            "a mirrored string",
+                                            "a mirrored palindrome" };
+
+                    char r( char ch ) {
+                        if( isupper(ch) ) {
+                            return rev[ch-'A'];
+                        } else if( '0' < ch && ch <= '9' ) {
+                            return rev[ch-'1'+26];
+                        } else {
+                            return 0; // then should not equal
+                        }
+                    }
+
+                    int main() {
+                        char s[30];
+                        while( scanf( "%s", s ) == 1 ) {
+                            int len = strlen(s);
+                            int p = 1, m = 1;
+                            // 不是 len/2，你说为什么呢？
+                            for( int i = 0; i < (len+1)/2; ++i ) {
+                                if(   s[i]  != s[len-1-i] ) { p = 0; }
+                                if( r(s[i]) != s[len-1-i] ) { m = 0; }
+                                if( !p && !m ) { break; }
+                            }
+                            printf( "%s -- is %s.\n\n", s, msg[m*2+p] );
+                        }
+                        return 0;
+                    }
+                    ```
+
+                    编译运行：
+
+                    ```bash
+                    $ gcc palindromes.c -o palindromes -std=c99
+
+                    $ cat input.txt
+                    NOTAPALINDROME
+                    ISAPALINILAPASI
+                    2A3MEAS
+                    ATOYOTA
+
+                    $ cat input.txt | palindromes
+                    NOTAPALINDROME -- is not a palindrome.
+
+                    ISAPALINILAPASI -- is a regular palindrome.
+
+                    2A3MEAS -- is a mirrored string.
+
+                    ATOYOTA -- is a mirrored palindrome.
+                    ```
+
+            -   环状序列（Circular Sequence） -<
+
+                :   ```
+                    +--------->---------+
+                    |  T  C    G       \|/
+                    |              A    |
+                    | C               G |
+                    ^                   |
+                    | G               T |
+                    |     G    A  C     |
+                    +-----<----^--------+
+                                \
+                                 +----- 最小从这里开始
+                    ```
+
+                    ```cpp
+                    #include <stdio.h>
+                    #include <string.h>
+                    #define maxn 105
+
+                    int less( const char *s, int p, int q ) {
+                        int n = strlen(s);
+                        for( int i = 0; i < n; ++i ) {
+                            if( s[(p+i)%n] != s[(q+i)%n] ) {
+                                return s[(p+i)%n] < s[(q+i)%n];
+                            }
+                        }
+                        return 0; // equal
+                    }
+
+                    int main() {
+                        char s[maxn];
+                        while( 1 == scanf( "%s", s ) ) {
+                            int ans = 0;
+                            int n = strlen(s);
+                            for( int i = 1; i < n; ++i ) {
+                                if( less(s, i, ans) ) { ans = i; }
+                            }
+                            printf( "%s --> \"", s );
+                            for( int i = 0; i < n; ++i ) {
+                                putchar( s[(i+ans)%n] );
+                            }
+                            printf( "\"\n" );
+                        }
+                        return 0;
+                    }
+                    ```
+
+    -   第 4 章，函数和递归 -<
+
+        :   -   `typedef struct { ... } type;`
+
+            -   骰子涂色
+
+                :   rbgggr 和 rggbgr 一样。
+
+                    ```
+                                +-------------+
+                               /             /|  +------------5
+                              /      1      / | /
+                             /             /  |/
+                            +------------+/   |
+                    3 ----> |            |    |
+                            |            | 4  /
+                            |     2      |   /
+                            |            |  /
+                            |            | /
+                            +------------+/
+                                  ^
+                                  |
+                                  +-- 6
+                    ```
+
+    -   第 5 章，C++ 与 STL 入门 -<
+
+        :   -   大理石在哪儿？
+            -   木块问题
+            -   Unix ls -<
+
+                :   buggy.
+
+                    ```cpp
+                    #include <iostream>
+                    #include <string>
+                    #include <algorithm>
+                    using namespace std;
+
+                    const int maxcol    = 60;
+                    const int maxn      = 100+5;
+                    string filenames[maxn];
+
+                    void print( const string &s, int len, char extra ) {
+                        cout<< s;
+                        for( int i = 0; i < len-s.length(); ++i ) {
+                            cout << extra;
+                        }
+                    }
+
+                    int main() {
+                        int n;
+                        while( cin >> n ) {
+                            int M = 0;
+                            for( int i = 0; i < n; ++i ) {
+                                cin >> filenames[i];
+                                M = max( M, (int)filenames[i].length() );
+                            }
+                            int cols = (maxcol-M)/(M+2) + 1, rows = (n-1)/cols + 1;
+                            print( "", 60, '-' );
+                            cout << "\n";
+                            sort( filenames, filenames+n );
+                            for( int r = 0; r < rows; ++r ) {
+                                for( int c = 0; c < cols; ++c ) {
+                                    int idx = c * rows + r;
+                                    if( idx < n ) {
+                                        printf( filenames[idx],
+                                                c == cols-1? M : M-2,
+                                                ' ' );
+                                    }
+                                }
+                                cout << "\n";
+                            }
+                        }
+                        return 0;
+                    }
+                ```
+
+    **第二部分：基础篇**
+
+    -   第 6 章，数据结构基础 -<
+
+        :   -   树，Tree -<
+
+                :   输入的是中序和后序遍历
+
+                    ```cpp
+                    #include <iostream>
+                    #include <string>
+                    #include <sstream>
+                    #include <algorithm>
+                    #include <iterator>
+                    #include <assert.h>
+                    #include <stdio.h>
+                    using namespace std;
+
+                    const int maxv = 100 + 10;
+                    int in_order    [   maxv    ];
+                    int post_order  [   maxv    ];
+                    int lch         [   maxv    ];
+                    int rch         [   maxv    ];
+
+                    int n;
+
+                    bool read_list( int *a ) {
+                        string line;
+                        if( !getline( cin, line ) ) { return false; }
+                        stringstream ss( line );
+                        n = 0;
+                        int x;
+                        while( ss >> x ) { a[n++] = x; }
+                        return n > 0;
+                    }
+
+                    //  in_order[L1..R1] 和 post_order[L2..R2] 建成一颗树，返回树根
+                    int build( int L1, int R1, int L2, int R2 ) {
+                        if( L1 > R1 ) { return 0; }
+                        int root = post_order[ R2 ];
+                        int p = L1;
+                        while( in_order[p] != root ) { ++p; }
+                        int cnt = p-L1;
+                        lch[ root ] = build( L1, p-1, L2, L2+cnt-1 );
+                        rch[ root ] = build( p+1, R1, L2+cnt, R2-1 );
+                        return root;
+                    }
+
+                    string print( int root, string pad ) {
+                        if( root == 0 ) { return pad; }
+                        const static string space = "        ";
+                        char buf[20];
+                        sprintf( buf, "%d", root );
+                        string result = pad + space + string(buf);
+                        result += "\n";
+                        result += print( lch[root], pad );
+                        result += print( rch[root], pad+space+space );
+                        return result;
+                    }
+
+                    int best, best_sum;
+
+                    //          u -> root
+                    void dfs( int u, int sum ) {
+                        sum += u;
+                        if( !lch[u] && !rch[u] ) { // leaf
+                            if( sum < best_sum || (sum == best_sum && u < best) ) {
+                                best = u;
+                                best_sum = sum;
+                            }
+                        }
+                        if( lch[u] ) { dfs( lch[u], sum ); }
+                        if( rch[u] ) { dfs( rch[u], sum ); }
+                    }
+
+                    int main() {
+                        while( read_list( in_order ) ) {
+                            read_list( post_order );
+                            build( 0, n-1, 0, n-1 );
+                            best_sum = -1;
+                            dfs( post_order[n-1], 0 );
+                            cout << best << "\n";
+                            cout << print( post_order[n-1], "" );
+                            copy( lch, lch+n, ostream_iterator<int>(cout, " ") );
+                            cout <<"\n";
+                            copy( rch, rch+n, ostream_iterator<int>(cout, " ") );
+                            cout <<"\n";
+                        }
+                        return 0;
+                    }
+                    ```
+
+            -   天平 -<
+
+                :   input:
+
+                    ```
+                    1
+
+                    0 2 0 4
+                    0 3 0 1
+                    1 1 1 1
+                    2 4 4 2
+                    1 6 3 2
+                    ```
+
+                    ```cpp
+                    #include <iostream>
+                    using namespace std;
+
+                    bool solve( int &W ) {
+                        int W1, D1, W2, D2;
+                        bool b1 = true, b2 = true;
+                        cin >> W1 >> D1 >> W2 >> D2;
+                        if( !W1 ) { b1 = solve( W1 ); }
+                        if( !W2 ) { b2 = solve( W2 ); }
+                        W = W1 + W2;
+                        return b1 && b2 && (W1*D1==W2*D2);
+                    }
+
+                    int main() {
+                        int T, W;
+                        cin >> T;
+                        while( T-- ) {
+                            if( solve(W) ) {
+                                cout << "YES\n";
+                            } else {
+                                cout << "No\n";
+                            }
+                            if( T ) { cout << "\n"; }
+                        }
+                        return 0;
+                    }
+                    ```
+
+            -   Abbott 的复仇 -<
+
+                :   ```cpp
+                    // d[r][c][dir] 存储从初始状态到 (r,c,dir) 的最短长度，其父节点保存在
+                    // p[r][c][dir]
+
+                    const char *dirs  = "NEWS"; // north, east, west, south
+                    const char *turns = "FLR";  // forward, left, right
+                    int dir_id(  char c ) { return strchr(dirs, c) - dirs; }
+                    int turn_id( char c ) { return strchr(turns, c) - turns; }
+
+                    //                  N   E   W   S           //          +-----------> y
+                    const int dr[] = { -1,  0,  1,  0 };        //          |
+                    const int dc[] = {  0,  1,  0, -1 };        //          |
+                                                                //          | x
+                                                                //          v
+
+                    Node walk( const Node &u, int turn ) {
+                        int dir = u.dir;                        // turn = 0, forward
+                        if( turn == 1 ) { dir = (dir+3)%4; }    // turn = 1, left, counter clockwise
+                        if( turn == 2 ) { dir = (dir+1)%4; }    // turn = 2, right, clockwise
+                        return Node( u.r + dr[dir], u.c + dc[dir], dir );
+                    }
+
+                    void solve() {
+                        queue<Node> q;
+                        memset( d, -1, sizeof(d) );
+                        Node u( r1, c1, dir );
+                        d[u.r][u.c][u.dir] = 0;
+                        q.push( u );
+                        while( !q.empty() ) {
+                            Node u = q.front(); q.pop();
+                            if( u.r == r2 && r.c == c2 ) { print_ans(u); return; }
+                            for( int i = 0; i < 3; ++i ) {
+                                Node v = walk( u, i );
+                                if( has_edge[u.r][u.c][u.dir][i] &&
+                                    inside(v.r, v.c) &&
+                                    d[v.r][v.c][v.dir] < 0 ) {  // 以前没有处于这个姿态
+                                    // advance
+                                    d[v.r][v.c][v.dir] = d[u.r][u.c][u.dir] + 1;
+                                    p[v.r][v.c][v.dir] = u;
+                                    q.push( v );                // 当前位置总是再 stack 顶端存着
+                                }
+                            }
+                        }
+                        printf( "No Solution Possible.\n" );
+                    }
+
+                    void print_ans( Node u ) {
+                        vector<Node> nodes;
+                        for( ;; ) {
+                            nodes.push_back( u );                   // 一路存起来
+                            if( d[u.r][u.c][u.dir] == 0 ) break;    // origin
+                            u = p[u.r][u.c][u.dir];                 // backtrace
+                        }
+                        nodes.push_back( Node(r0, c0, dir) );       // ???
+
+                        int cnt = 0;
+                        for( int i = nodes.size()-1; i >= 0; --i ) {
+                            if( cnt % 10 == 0 ) { printf( " " ); }
+                            printf( " (%d, %d)", nodes[i].r, nodes[i].c );
+                            if( ++cnt % 10 == 0 ) {
+                                printf( "\n" );
+                            }
+                        }
+                        if( nodes.size() % 10 != 0 ) { printf( "\n" ); }
+                    }
+                    ```
+
+    -   第 7 章，暴力求解法 -<
+
+        :   ```
+
+              y - x    ?dx == dy                                y + x    ? dx == -dy (dx+dy==0)
+                  +----------------------------------> y            +-----------------------------------> y
+                  |  0   1   2   3   4   5   6   7                  |  0   1   2   3   4   5   6   7
+                  | -1   0   1   2   3   4   5   6                  |  1   2   3   4   5   6   7   8
+                  | -2  -1   0   1   2   3   4   5                  |  2   3   4   5   6   7   8   9
+                  | -3  -2  -1   0   1   2   3   4                  |  3   4   5   6   7   8   9  10
+                  | -4  -3  -2  -1   0   1   2   3                  |  4   5   6   7   8   9  10  11
+                  | -5  -4  -3  -2  -1   0   1   2                  |  5   6   7   8   9  10  11  12
+                x | -6  -5  -4  -3  -2  -1   0   1               x  |  6   7   8   9  10  11  12  13
+                  | -7  -6  -5  -4  -3  -2  -1   0                  |  7   8   9  10  11  12  13  14
+                  v                                                 v
+            ```
+
+            ```cpp
+            void search( int cur ) {
+                if( cur == n ) {
+                    ++tot;
+                } else {
+                    for( int i = 0; i < n; ++i ) {
+                        int ok = 1;
+                        C[cur] = i;
+                        for( int j = 0; j < cur; ++j ) {
+                            int dx = cur - j, dy = C[cur] - C[j];
+                            if( C[cur] == C[j] || dx == dy || dy == -dy ) {
+                                ok = 0; break;
+                            }
+                            if( ok ) { search(cur+1); }
+                        }
+                    }
+                }
+            }
+            ```
+
+            ```cpp
+            void search( int cur ) {
+                if( cur == n ) {
+                    ++tot;
+                } else {
+                    for( int i = 0; i < n; ++i ) {
+                        if( !vis[0][i] && !vis[1][cur+i] && !vis[2][cur-i+n] ) {
+                            C[cur] = i;
+                            // col         y-x=0           y+x=0
+                            vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 1;
+                            search( cur+1 );
+                            vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 0;    // 改回来
+                        }
+                    }
+                }
+            }
+            ```
+
+    **第三部分：竞赛篇**
+
+    -   第 8 章，高级算法设计
+    -   第 9 章，动态规划初步
+    -   第 10 章，数学概念与方法
+    -   第 11 章，图论模型与算法
+    -   第 12 章，高级专题
+
+Programming Pearls -<
+
+:   -   part-1 -<
+
+        :   -   column-1 -<
+
+                :   磁盘排序：对于一个提出的问题，不要未经思考就直接给出答案。
+                    要先深入研究问题，搞清楚这个问题的特点，根据这个特点，可能
+                    有更好的解决方案。然后用了 bitmap。
+
+                    ```
+                    // init
+                    for i = [0, n)
+                        bit[i] = 0
+                    // assign
+                    for each i in the input file
+                        bit[i] = 1
+                    for i = [0, n)
+                        if bit[i] == 1
+                            write i on the output file
+                    ```
+
+                    首先你要找到 the right problem。
+
+                    -   the bitmap data structure：a dense set over a finite domain
+                    -   multiple-pass algorithms: 多次读入输入，每次离目标近一点
+                    -   a time-space tradeoff and one that isn't
+                    -   a simple design：不多不少刚刚好，简单的设计 bug 少
+                    -   stages of program design
+
+            -   column-2 -<
+
+                :   #1 找数字 -<
+
+                    :   给定一个包含32位整数的顺序文件(sequential file)，它至多只能包含40亿(4 billion)个这样的
+                        整数，并且整数的次序是随机的(in a random order)。请查找一个此文件中不存在的32
+                        位整数。在有足够内存的情况下(with ample quantities of main memory)，你会如何解决这个问题？如果你
+                        可以使用若干外部临时文件但可用主存却只有上百字节，你会如何解决这个问题？
+
+                        -   Given a sequential file that contain at most 4x109
+                            integers(32-bit) in random order, find a 32-bit
+                            integer that is not in the file.
+                        -   How would you solve it with ample main memory?  --
+                            bitmap (232bits)
+                        -   or using several external "scratch" files but only
+                            a few hundred bytes of main memory? -- binary
+                            search 二分查找
+
+                        首先，只是说找一个。其实 missing 的有很多==（因为 32 bit 的整数有 2^32 (4,294,967,296)个，这里只有 4 billion 个数字，肯定有一些数没有。）
+
+                        4 billion 内的数字都可以用 int 来表示，所以用 bitmap 的话，有 2^32 个 bit 就够了，
+                        也就是 2^{32}/8 bytes = 2^{32-3=29=9+10+10} bytes = 2^9 MBytes = 512 MBytes.
+
+                        类似二分查找。可以根据某一位（操作时，可以从最高位 到
+                        最低位依次处理），把待处理的数据分成两部分。在一部分中，
+                        此位为0，另一部分此位为1。
+
+                        之后，分别统计落在两个部分的数的个数。（此时我们不考虑数据是否重复）
+
+                        -   如果，没有缺失，那么这两部分数的个数应该是相等的。
+                        -   如果，数据有缺失，那么两部分数可能相等，也可能不等
+                            -   两部分相等的情况：两段都缺失，但缺失的个数相等
+                            -   两部分不等的情况：一个缺一个不缺  或  都缺但缺的个数不同
+
+                    #2 n=8, i=3, abcdefgh -> defghabc -<
+
+                    :   ```
+                        reverse( 0, i-1 );          // cbadefgh
+                        reverse( i, n-1 );          // cbahgfed
+                        reverse( 0, n-1 );          // defghabc
+                        ```
+
+                        作者还很巧妙的用翻手来解释这个方案。
+
+                        这个 reverse 可以这个写：
+
+                        ```cpp
+                        // method 1
+                        void reverse( char *str, int start, int end ) {
+                            char tmp;
+                            int mid = (start + end)/2;
+                            for ( int i = start, j = end; i <= mid; ++i, --j ) {
+                                tmp = str[i];
+                                str[i] = str[j];
+                                str[j] = tmp;
+                            }
+                        }
+
+                        // method 2, I prefer this one
+                        void reverse( char *str, int start, int end ) {
+                            char tmp;
+                            while( start < end ) {
+                                tmp         =   str[start];
+                                str[start]  =   str[end];
+                                str[end]    =   tmp;
+                                ++start;
+                                --end;
+                            }
+                        }
+
+                        // 但不管怎样，调用的时候不要把
+                        reverse( str, 0, strlen(str)-1 );
+                        // 写成
+                        reverse( str, 0, strlen(str) );
+                        ```
+
+                    #3 pots, stop, tops -<
+
+                    :   找 signature 是最重要的。
+
+                    原则：
+
+                    -   sorting
+                    -   binary search
+                    -   signatures
+
+                    Problems
+
+                    :   -   翻转句子中单词的顺序，但单词内字符的顺序不变 -<
+
+                            :   句子中单词以空格符隔开。为简单起见，标点符号和普通字母一样处理。
+
+                                方法：先分别对各个单词进行逆转，然后对整个句子进行逆转。
+
+                                I love you. -> I evol .uoy -> you. love I
+
+                                ```cpp
+                                #include <stdio.h>
+                                #include <string.h>
+
+                                void reverse( char *s, int left, int right ) {
+                                    char tmp;
+                                    while( left < right ) {
+                                        tmp       =  s[left];
+                                        s[left]   =  s[right];
+                                        s[right]  =  tmp;
+                                        ++left;
+                                        --right;
+                                    }
+                                }
+
+                                void solve( char *s ) {
+                                    int left = 0, right = 0, len = strlen(s);
+                                    while( left < len && right < len ) {
+                                        while( s[right] && s[right] != ' ' ) {
+                                            ++right;
+                                        }
+                                        if( !s[right] && left < right-1 ) {
+                                            reverse( s, left, right-1 );    // 最后一段
+                                            break;
+                                        }
+                                        reverse( s, left, right-1 );
+                                        left = right + 1;                   // 跳过连续空格
+                                        while( s[left] == ' ' ) {
+                                            ++left;
+                                        }
+                                        right = left + 1;
+                                    }
+                                    reverse( s, 0, len-1 );                 // 这个 len-1 千万不能是 len
+                                }
+
+                                int main() {
+                                    char buf[100];
+                                    sprintf( buf, "%s", "I love Sia Furler." );
+                                    printf( "before: %s\n", buf );
+                                    solve( buf );
+                                    printf( "%s\n", buf );
+                                }
+                                ```
+
+                                `Furler. Sia love I`
+
+                        -   类似手机键盘
+
+                            :   每个数字对应几个字母。按下数字键，就意味着多个
+                                字符组合，有关这些字符组合的姓名和手机号就找到。
+                                问题，如何实现一个以名字的按键编码为参数，并
+                                返回所有可能的匹配名字的函数
+
+                                方法：把名字对应的数字按键形成一个唯一的标识符，
+                                值存入数字键对应的名字 `map<int,map<string> > rec;`
+
+                        -   sequential file 里的 4,300,000,000 个 32-bit integers 中找 one that appears at least twice？
+
+            -   column-3 -<
+
+                :   `if( k == 500 ) c500++; `……如此蛋疼的代码。
+
+                    信件模板。
+
+                    Principles
+
+                    -   Don't write a big program when a little one will do.
+                    -   使用数组重新编写重复代码。
+                    -   封装复杂结构。
+                    -   尽可能使用高级工具。名字-值对，电子表格（二维数组），数据库，特定编程语言的强大的工具。
+                    -   从数据得出程序的结构。(let data structure the program.)
+
+            -   column-4 -<
+
+                :   Knuth 说，46 年 binary search 的论文出来了，62 年，终于有一个 bug free 的实现==。
+
+                    本章作者主要证明了二分搜索程序的正确性。
+
+                    构造程序的正确性上来先要找到**断言**(assertions)，也
+                    就是所谓的【循环不变式】，当然这个在实际程序中，只有靠经验了。找到断言，即可以勾勒
+                    出，输入、程序变量和输出之间的关系，使得程序员可以准确阐述这些关系。拿二分来说，
+                    就是如果元素t在数组中，那么它一定在range中。在之后所有的操作都要遵循该不变式。
+
+                    接下来看程序的结构。
+
+                    -   如果是顺序控制结构(sequential control structures)。则可以通过在语句之间添加断言并分别分析程序执行的每一步。
+                    -   如果是选择控制结构(selection control structures)，则要对每一个分支进行结构的正确性证明。
+                        选择每一个分支，使用断言来证明。例如，如果进入了 `if i > j` 的分支，
+                        那么我们就可以断言 `i > j` 并且使用
+                        这个事实来推倒出下一个断言。
+                    -   最麻烦就是迭代控制结构(iteration control structures)。要证明循环的正确性，就必须为其确立3个性质。
+                        -   初始化(initialization)：循环初次执行的时候不变式为真。
+                        -   保持(preservation)：如果在某次迭代开始的时候以及循环体执行的时候
+                            ，不变式为真，那么循环执行完毕的时候不变式仍然为真
+                            。每次迭代都保持该不变式为真。
+                        -   终止(termination)：循环能够终止，并且可以得到预期的结果，而且我
+                            们必须用其他方法证明循环一定能终止。就像二分每次范
+                            围都在减少，课后习题，豆子每次都在减少一个。
+
+                        对于函数的正确性证明，首先要使用两个断言来陈述目的。
+
+                        -   前置条件：调用该函数之前成立的状态。
+                        -   后置条件的正确性有函数在终止时保证。
+
+                        拿二分来说，前置条件是序列有序（二分），后置条件是找没有找到元素，返回位置。
+
+                        如果在前置条件满足情况下调用函数，那么函数的执行将确立后置条件，这就是契约编程。
+
+                        证明程序的正确性是一门学问，如果违反断言就指明了程序的错误所在。程序状态的断言对理解程序很有帮助。
+
+                    ```cpp
+                    int binary_search( int A[], int n, int target ) {
+                        int low = 0, high = n;
+                        int mid;
+                        while( low <= high ) {
+                            mid = (low+high)/2;
+                            if( A[mid] < target ) {
+                                low = mid+1;
+                            } else if( A[mid] > target ) {
+                                high = mid-1;
+                            } else {
+                                return mid;
+                            }
+                        }
+                        return -1;
+                    }
+                    ```
+
+            -   column-5 -<
+
+                :   主要讲解如何保证编程的正确性。在程序中加入断言（assert(断言内容) //如果错误，则终止程序。否则正常执行）。
+
+                    一些 debug 技巧？assert 什么的使用，自动化测试。
+
+    -   part-2
+        -   column-7
+        -   column-8
+        -   column-9
+    -   part-3
+        -   column-11
+        -   column-12
+        -   column-13
+        -   column-14
+        -   column-15
+
+    -   refs and see also
+
+        :   -   [《编程珠玑》---笔记。浏览此文，一窥此书。 - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/36068789)
+            -   [编程珠玑_第二章_啊哈 算法 - 思考，思考，再思考~ - 博客频道 - CSDN.NET](http://blog.csdn.net/insistgogo/article/details/7749328)
+            -   [编程珠玑第四章 - chloe - 博客频道 - CSDN.NET](http://blog.csdn.net/omashion/article/details/11694141){.heart}
+
 [VisuAlgo - visualising data structures and algorithms through animation](http://visualgo.net/) -<
 
 :   nice site.
 
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-17-58-bubble.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-19-47-select.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-22-49-insert.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-24-32-merge.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-25-47-quick.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-26-57-rquick.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-28-54-count.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-34-41-radix.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-45-26-create-binary-heap-Onlgn.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-46-26-create-binary-heap-On.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-52-11-heap-sort.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-58-31-pred.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-59-12-next.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_11-04-07.gif)
-    ![](http://whudoc.qiniudn.com/2016/2016-08-06_11-05-11-avl-balanced.gif)
-    ![](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-07-06.png)
-    ![](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-07-22.png)
-    ![](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-08-17.png)
-    ![](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-08-42.png)
+    -   冒泡排序 -<
+
+        :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-17-58-bubble.gif)
+
+    -   选择排序 -<
+
+        :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-19-47-select.gif)
+
+    -   插入排序 -<
+
+        :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-22-49-insert.gif)
+
+    -   归并排序 -<
+
+        :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-24-32-merge.gif)
+
+    -   快排 -<
+
+        :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-25-47-quick.gif)
+
+    -   随机快排 -<
+
+        :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-26-57-rquick.gif)
+
+    -   计数排序 -<
+
+        :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-28-54-count.gif)
+
+    -   基数排序 -<
+
+        :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-34-41-radix.gif)
+
+    -   create binary heap -<
+
+        :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-45-26-create-binary-heap-Onlgn.gif)
+
+            ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-46-26-create-binary-heap-On.gif)
+
+    -   heap sort -<
+
+        :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-52-11-heap-sort.gif)
+
+    ![a](http://whudoc.qiniudn.com/2016/2016-08-06_10-58-31-pred.gif)
+    ![b](http://whudoc.qiniudn.com/2016/2016-08-06_10-59-12-next.gif)
+    ![c](http://whudoc.qiniudn.com/2016/2016-08-06_11-04-07.gif)
+    ![d](http://whudoc.qiniudn.com/2016/2016-08-06_11-05-11-avl-balanced.gif)
+    ![e](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-07-06.png)
+    ![f](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-07-22.png)
+    ![g](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-08-17.png)
+    ![h](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-08-42.png)
 
 ## 2.
 
@@ -1875,7 +2859,9 @@ Milo Yip 的博客 -<
 授人以鱼，不如授之以渔，何况自己都忘了，建议去看sedgewick的《算法》第四版平衡搜索树和红黑树部分，讲得非常清晰。
 
 -   [Zenefits电面真题 & 解析 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20348386?refer=jiuzhang)
-
 -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
-
 -   [Sorting algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
+-   [cirosantilli/algorithm-cheat: Algorithm tutorials and simple implementations with unit tests.](https://github.com/cirosantilli/algorithm-cheat)
+-   [4ker/aoapc-book: Automatically exported from code.google.com/p/aoapc-book](https://github.com/4ker/aoapc-book)
+-   [4ker/ppearls: Programming Pearls Prep work](https://github.com/4ker/ppearls)
+-   [4ker/programming_pearls: the codes of "programming pearls(2nd edition)"](https://github.com/4ker/programming_pearls)
