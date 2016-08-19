@@ -2223,9 +2223,11 @@ aoapc-book -<
 
 Programming Pearls -<
 
-:   -   part-1 -<
+:   -   part-1: preliminaries -<
 
-        :   -   column-1 -<
+        :   Basics of programming.
+
+            -   column-1: cracking the oyster -<
 
                 :   磁盘排序：对于一个提出的问题，不要未经思考就直接给出答案。
                     要先深入研究问题，搞清楚这个问题的特点，根据这个特点，可能
@@ -2251,7 +2253,7 @@ Programming Pearls -<
                     -   a simple design：不多不少刚刚好，简单的设计 bug 少
                     -   stages of program design
 
-            -   column-2 -<
+            -   column-2: aha! alogrithms -<
 
                 :   #1 找数字 -<
 
@@ -2405,7 +2407,7 @@ Programming Pearls -<
 
                         -   sequential file 里的 4,300,000,000 个 32-bit integers 中找 one that appears at least twice？
 
-            -   column-3 -<
+            -   column-3: data structures programs -<
 
                 :   `if( k == 500 ) c500++; `……如此蛋疼的代码。
 
@@ -2419,7 +2421,7 @@ Programming Pearls -<
                     -   尽可能使用高级工具。名字-值对，电子表格（二维数组），数据库，特定编程语言的强大的工具。
                     -   从数据得出程序的结构。(let data structure the program.)
 
-            -   column-4 -<
+            -   column-4: writing correct programs -<
 
                 :   Knuth 说，46 年 binary search 的论文出来了，62 年，终于有一个 bug free 的实现==。
 
@@ -2475,28 +2477,125 @@ Programming Pearls -<
                     }
                     ```
 
-            -   column-5 -<
+            -   column-5: a small matter of programming -<
 
                 :   主要讲解如何保证编程的正确性。在程序中加入断言（assert(断言内容) //如果错误，则终止程序。否则正常执行）。
 
                     一些 debug 技巧？assert 什么的使用，自动化测试。
 
-    -   part-2
-        -   column-7
-        -   column-8
-        -   column-9
-    -   part-3
-        -   column-11
-        -   column-12
-        -   column-13
-        -   column-14
-        -   column-15
+    -   part-2: performance -<
 
-    -   refs and see also
+        :   向性能前进！
+
+            -   column-6: perspective on performance -<
+
+                :   如果要提高软件的性能，需要从下面几个方面入手：
+
+                    -   算法与数据结构
+                    -   算法调优
+                    -   数据结构重组
+                    -   与系统无关的代码的调优（float 取代 double）。
+                    -   与系统相关的调优，把经常使用的函数进行加速，比如关键代码使用汇编代替高级语言
+                    -   硬件上使用浮点加速器。
+
+            -   column-7: the back of the envelope -<
+
+                :   密西西比河一天流出多少水？
+
+                    量纲检验：即在检验几何或物理等式时，我们可以先看看其中的单位在乘除过后是否与原式能保持一致。
+
+                    模9法（舍9法）：在加法计算当中，加数的数字总和与和数的数字
+                    总和模9相等。举个例子：3142+2718+1123=6973.  （
+                    3+1+4+2+2+7+1+8+1+1+2+3）%9=7=（6+9+7+3）%9.
+
+                    72 法则
+
+                    :   “假设以年利率r%投资一笔钱y年，如果r×y=72，那么你的投资
+                        差不多会翻倍。”比如年利率6%投资1000美元12年，可以得到
+                        2012美元。很有意思～
+
+                        假设一个程序n=40时需要10秒，并且n增加1，时间就增加12%，
+                        根据72法则，每当n增加6，运行时间就加倍，n每增加60，运行
+                        时间就是原来的1000倍（n增加60，也就是说翻10倍，2的10次
+                        方是1024）
+
+                        tip：π秒 = 1纳世纪秒 = 10^-9 * 100 s = 10^-7 s
+
+                        一年有 pi * 10^7 秒。
+
+                    安全系数
+
+                    :   作者强调安全性，并且举了一个例子。一个建筑工程师对于桥
+                        建筑的破环函数的数学公式不懂（对于桥来说，风力、震动等
+                        破环因子都可以通过复杂的数学公式推导出来），于是他设想
+                        他的桥会遭受到正常破环的6倍。结果是与他同时期建造的桥全
+                        部倒塌，只有他的桥屹立不倒。
+
+                        “我们是和john Roebling(文中的建筑工程师)一样的工程师么？我很怀疑”
+
+                    Little定律
+
+                    :   Denning和Buzen介绍的Little定律“系统中物体的平均数量等于
+                        物体离开系统的平均速率和每个物体在系统中停留的平均时间
+                        的乘积（并且如果物体离开和进入系统的通体出入流是平衡的
+                        ，那么离开速率也就是进入速率。）”书中举了个例子，假如你
+                        要进入一个火爆的夜总会（美国电影中经常见到），“这个地方
+                        可以容纳约60人，每个人在里面逗留的时间大约是3小时，因此
+                        我们进入夜总会的速率大概是每小时20人，现在在队伍中我们
+                        前面还有20人，也就是说我们要等大约1个小时，不如我们回家
+                        去读《编程珠玑》吧。”哈哈
+
+                    在进行粗略估算的时候，要切记爱因斯坦的名言：
+
+                    >   任何事都应尽量简单，但不宜过于简单。
+
+            -   column-8: algorithms design techniques -<
+
+                :   [【编程珠玑】第八章 算法设计技术 - 小田的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/tianshuai1111/article/details/7566244)
+
+            -   column-9: code tuning -<
+
+                :   最后，作者讲到，对于代码调优最重要的原则就是尽量少用它。作
+                    者从效率的角色、度量工具、设计层面、双刃剑几个方面分析了代
+                    码调优的优劣两面性。回归到一点，就是对于一个优秀的程序员，
+                    不论是在程序维护，程序可靠性，还是程序的效率方面，都不能只
+                    顾一头，而是要尽量做一个综合的评估再根据实际需求进行取舍。
+
+                    [【编程珠玑】第九章 代码调优 - 小田的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/tianshuai1111/article/details/7569326)
+
+            -   column-10: squeezing space -<
+
+                :   [【编程珠玑】第十章 节省空间 - 小田的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/tianshuai1111/article/details/7575563)
+
+                    principles
+
+                    -   the cost of space
+                    -   the "hot spot" of space (哪里是耗时最长的？)
+                    -   measuring space
+                    -   tradeoffs
+                    -   work with the environment
+                    -   use the right tool fo the job.
+
+    -   part-3 -<
+
+        :   -   column-11: sorting -<
+
+                :   [编程珠玑第十一章----排序 - dazhong159的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/dazhong159/article/details/7793132)
+
+            -   column-12: a sample problem
+
+            -   column-13: searching
+
+            -   column-14: heaps
+
+            -   column-15: strings of pearls
+
+    -   refs and see also -<
 
         :   -   [《编程珠玑》---笔记。浏览此文，一窥此书。 - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/36068789)
             -   [编程珠玑_第二章_啊哈 算法 - 思考，思考，再思考~ - 博客频道 - CSDN.NET](http://blog.csdn.net/insistgogo/article/details/7749328)
             -   [编程珠玑第四章 - chloe - 博客频道 - CSDN.NET](http://blog.csdn.net/omashion/article/details/11694141){.heart}
+            -   [[编程珠玑]第七章粗略估计](http://www.jimye.com/bian-cheng-zhu-ji-di-qi-zhang-cu-lue-gu-ji/)
 
 [VisuAlgo - visualising data structures and algorithms through animation](http://visualgo.net/) -<
 
@@ -2506,13 +2605,19 @@ Programming Pearls -<
 
         :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-17-58-bubble.gif)
 
+            大泡泡飘上去。
+
     -   选择排序 -<
 
         :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-19-47-select.gif)
 
+            选择一个 pivot 来比。然后更新。
+
     -   插入排序 -<
 
         :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-22-49-insert.gif)
+
+            左边是排好的，不断把右边没有排好的插入进去。注意移位的时候 i 和 j。
 
     -   归并排序 -<
 
@@ -2865,3 +2970,19 @@ Milo Yip 的博客 -<
 -   [4ker/aoapc-book: Automatically exported from code.google.com/p/aoapc-book](https://github.com/4ker/aoapc-book)
 -   [4ker/ppearls: Programming Pearls Prep work](https://github.com/4ker/ppearls)
 -   [4ker/programming_pearls: the codes of "programming pearls(2nd edition)"](https://github.com/4ker/programming_pearls)
+
+[红黑树并没有我们想象的那么难(上) - 捣乱小子](http://daoluan.net/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/25/rbtree-is-not-difficult.html)
+[红黑树并没有我们想象的那么难(下) - 捣乱小子](http://daoluan.net/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/28/rbtree-is-not-difficult-2.html)
+
+[排序（一）归并、快排、优先队列等（图文详解） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237641)
+[排序（二）键索引、桶排序、位示图、败者树等（图文详解--败者树） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237809)
+
+Code Reading -<
+
+:   [4ker/Lua-Source-Internal: Lua source internal](https://github.com/4ker/Lua-Source-Internal)
+
+    [libevent源码深度剖析一 - sparkliang的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957667)
+
+    [libevent源码深度剖析二 - sparkliang的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957744)
+
+    [daoluan/decode-memcached: memcached 源码剖析注释](https://github.com/daoluan/decode-memcached)

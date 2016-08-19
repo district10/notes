@@ -61,4 +61,52 @@ boost.coroutine 写点样例熟悉一遍，有病治病，没病强身。
 
         >   Delta. Macross love I
 
+        外，刚写了这个程序，贴在这里：
+
+        ```cpp
+        // 思想来自 Programming Pearls
+
+        #include <stdio.h>
+        #include <string.h>
+
+        void reverse( char *s, int left, int right ) {
+            char tmp;
+            while( left < right ) {
+                tmp       =  s[left];
+                s[left]   =  s[right];
+                s[right]  =  tmp;
+                ++left;
+                --right;
+            }
+        }
+
+        void solve( char *s ) {
+            int left = 0, right = 0, len = strlen(s);
+            while( left < len && right < len ) {
+                while( s[right] && s[right] != ' ' ) {
+                    ++right;
+                }
+                if( !s[right] && left < right-1 ) {
+                    reverse( s, left, right-1 );    // 最后一段
+                    break;
+                }
+                reverse( s, left, right-1 );
+                left = right + 1;                   // 跳过连续空格
+                while( s[left] == ' ' ) {
+                    ++left;
+                }
+                right = left + 1;
+            }
+            reverse( s, 0, len-1 );                 // 这个 len-1 千万不能是 len
+        }
+
+        int main() {
+            char buf[100];
+            sprintf( buf, "%s", "I love Sia Furler." );
+            printf( "before: %s\n", buf );
+            solve( buf );
+        printf( "%s\n", buf );
+        }
+        ```
+
 -   [堆、栈的地址高低？ 栈的增长方向？ - 知乎](https://www.zhihu.com/question/36103513)
