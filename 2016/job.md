@@ -853,7 +853,35 @@ Targets
 
 -   [华为校招](http://career.huawei.com/reccampportal/#campus2/pages/bulletin/recentNews.html)
 
-[最新校招动态以及内推信息_讨论区_牛客网](http://m.nowcoder.com/discuss/6481)
+-   [[网易游戏] 2017 校园招聘第二批内推(截至 8 月 31 号) - V2EX](http://v2ex.com/t/299390#reply6)
+
+-   [最新校招动态以及内推信息_讨论区_牛客网](http://m.nowcoder.com/discuss/6481)
+
+    :   -   [加入今日头条-招聘](https://job.toutiao.com/job/detail/576)
+        -   百度，360 都在 9 月
+        -   关注微信号：去哪儿网校园招聘
+        -   [华为校招](https://career.huawei.com/reccampportal/#campus3/pages/recruitmentstatus/jobDetail.html?type=2&jobId=17178) -<
+
+            :   职责
+
+                :   在这里，可以学习到全新的 IT 软件设计开发模式，成为一个软件大
+                    牛，你需要以 C/C++ 语言作为主要武器，参与 ICT 产品的设计开发，
+                    包括：（1）根据客户需求进行软件的概要设计和详细设计，学习和
+                    使用设计模式； （2）参与代码开发、单元测试、系统测试，掌握
+                    代码编写技术和测试技术； （3）完成从需求到设计、再到开发和
+                    上线等项目周期中端到端的各个环节。
+
+                要求
+
+                :   1、计算机、软件相关专业本科及以上学历； 2、熟悉 C/C++ 语言，
+                    有独立进行程序设计开发和验证的能力； 3、熟悉数据结构和算法；
+                    4、熟悉 Unix/Linux/Win32 环境下编程和调试，熟悉网络编程和多线
+                    程编程； 5、优选条件 （1）熟悉 TCP/IP 协议，及互联网常见应用
+                    和协议的原理； （2）有 IT 应用软件、互联网软件等相关产品开发
+                    经验； （3）了解网络安全 / 系统安全基础知识， 有相关工具系统
+                    开发和实施经验。
+
+        -   迅雷招聘微信公众号
 
 ---
 
