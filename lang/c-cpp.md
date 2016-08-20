@@ -126,6 +126,20 @@ C++ 简介 | Intro
 
 ## C/C++ 拾遗 | Pearls
 
+-   typedef -<
+
+    :   ```cpp
+        typedef int Point;
+
+        typedef struct {
+            Point x, y;
+        } Point2d;
+
+        typedef Point2d Triangle[3];    // Triangle tri;    // 6 ints inside
+
+        typedef Point2d (*FuncPtr)( Point2d p1, Point2d p2 );
+        ```
+
 -   ambiguity: declaration or multiplication? -<
 
     :   ```cpp
@@ -154,6 +168,20 @@ C++ 简介 | Intro
         vector<vector<int> > ary(row_num, vector<int>(col_num, 0));
         ```
 
+        make sure to clear it's contents when necessary.
+
+        ```cpp
+        vec.clear();    // the performance depends on how's your dtor
+
+        // or
+        vector<T>().swap( x );   // clear x reallocating
+        ```
+
+        refs and see also
+
+        -   http://www.cplusplus.com/reference/vector/vector/clear/
+        -   http://stackoverflow.com/questions/16420357/c-fastest-way-to-clear-or-erase-a-vector
+
 -   使用 reserve 来避免不必要的重新分配 -<
 
     :   ```cpp
@@ -168,6 +196,39 @@ C++ 简介 | Intro
         refs and see also
 
         -   [std::vector::reserve - cppreference.com](http://en.cppreference.com/w/cpp/container/vector/reserve)
+
+-   tolower, toupper, isalpha
+
+    :   defined in `<ctype.h>` or `<cctype>` (`std::tolower`).
+
+        **tolower, touppper**
+
+        ```cpp
+        #include <ctype.h>
+
+        int toupper( int c );
+        int tolower( int c );
+        ```
+
+        converts the letter c to upper/lower case, if possible.
+
+        if not ASCII, or EOF, the behavior is undefined.
+
+        **isalpha, isspace, isdigit, isalnum, isxdigit**
+
+        ```cpp
+        int isalnum(    int c   );
+        int isalpha(    int c   );
+        int isascii(    int c   );
+        int isblank(    int c   );
+        int iscntrl(    int c   );
+        int isdigit(    int c   );
+        int isgraph(    int c   );
+        int isprint(    int c   );
+        int ispunct(    int c   );
+        int isspace(    int c   );
+        int isxdigit(   int c   );
+        ```
 
 -   even *vs* odd，奇偶数判断 -<
 

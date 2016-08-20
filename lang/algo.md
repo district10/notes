@@ -27,7 +27,8 @@ Algorithms
 
     实习实习着就到了研二暑假，接下来就是求职季。
 
-    求职季时我有一种莫名的复仇感——尼玛之前百度实习面试老子被你们黑的漫天飞翔，这回求职老子要把你们一个个黑回来，尼玛。
+    求职季时我有一种莫名的复仇感——尼玛之前百度实习面试老子被你们黑的漫天飞翔，
+    这回求职老子要把你们一个个黑回来，尼玛。
 
     现在回想当时的心理实属傻逼+幼稚，但这种黑暗心理也起了一定的积极作用：我丝毫不敢
     有任何怠慢，以至于在5月份底我就开始准备求职笔试面试，比身边的同学早了两个月不止。
@@ -1696,7 +1697,7 @@ aoapc-book -<
     -   第 1 章，程序设计入门 -<
 
         :   -   我们的目标是解决问题，而不是为了写程序而写程序，同时应保持简单
-                （Keep It Simple and Stupid, KISS），而不是自己创造条件去展示编
+                （**Keep It Simple and Stupid, KISS**），而不是自己创造条件去展示编
                 程技巧。
 
             -   三整数排序
@@ -1724,7 +1725,7 @@ aoapc-book -<
                 freopen( "data.out", "w", stdout );
                 ```
 
-            -   编程不是看书看会的，也不是听课听会的，而是练会的。
+            -   编程不是看书看会的，也不是听课听会的，而是**练**会的。
 
     -   第 3 章，数组和字符串 -<
 
@@ -1903,315 +1904,1075 @@ aoapc-book -<
 
     -   第 5 章，C++ 与 STL 入门 -<
 
-        :   -   大理石在哪儿？
-            -   木块问题
-            -   Unix ls -<
+        :   -   5.1 From C to C++
 
-                :   buggy.
+                :   template, reference, containers, iostream, operators, etc
 
                     ```cpp
-                    #include <iostream>
-                    #include <string>
-                    #include <algorithm>
-                    using namespace std;
-
-                    const int maxcol    = 60;
-                    const int maxn      = 100+5;
-                    string filenames[maxn];
-
-                    void print( const string &s, int len, char extra ) {
-                        cout<< s;
-                        for( int i = 0; i < len-s.length(); ++i ) {
-                            cout << extra;
+                    template<typename T>
+                    T sum( T *begin, T *end ) {
+                        T *p = begin;
+                        T ans = 0;
+                        for( T *p = begin; p != end; ++p ) {
+                            ans = ans + *p;
                         }
+                        return ans;
                     }
+                    ```
 
-                    int main() {
-                        int n;
-                        while( cin >> n ) {
-                            int M = 0;
-                            for( int i = 0; i < n; ++i ) {
-                                cin >> filenames[i];
-                                M = max( M, (int)filenames[i].length() );
-                            }
-                            int cols = (maxcol-M)/(M+2) + 1, rows = (n-1)/cols + 1;
-                            print( "", 60, '-' );
-                            cout << "\n";
-                            sort( filenames, filenames+n );
-                            for( int r = 0; r < rows; ++r ) {
-                                for( int c = 0; c < cols; ++c ) {
-                                    int idx = c * rows + r;
-                                    if( idx < n ) {
-                                        printf( filenames[idx],
-                                                c == cols-1? M : M-2,
-                                                ' ' );
+            -   5.2 STL 101 -<
+
+                :   -   大理石在哪儿？
+
+                        :   ```
+                            input:
+
+                                4   1
+                                2   3   5   1
+                                5
+                                5   2
+                                1   3   3   3   1
+
+                            output:
+
+                                CASE# 1:
+                                5 found at 4
+                                CASE# 2:
+                                2 not found
+                                3 found at 3
+                            ```
+
+                            ```cpp
+                            #include <stdio.h>
+                            #include <algorithm>
+                            using namespace std;
+
+                            const int maxn = 10000;
+
+                            int main() {
+                                int n, q, x a[maxn], kase = 0;
+                                while( scanf( "%d%d", &n, &q ) == 2 && n ) {
+                                    printf( "CASE# %d:\n", ++kase );
+                                    for( int i = 0; i < n; ++i ) { scanf( "%d", &a[i] ); }
+                                    sort( a, a+n );
+                                    while( q-- ) {
+                                        scanf( "%d", &x );
+                                        int p = lower_bound( a, a+n, x ) - a;   // offset
+                                        if( a[p] == x ) {
+                                            printf( "%d found at %d\n", x, p+1 );
+                                        } else {
+                                            printf( "%d not found\n", x );
+                                        }
                                     }
                                 }
-                                cout << "\n";
+                                return 0;
                             }
-                        }
-                        return 0;
-                    }
-                ```
+                            ```
+
+                            run it:
+
+                            ```bash
+                            $ echo "4 1\n2 3 5 1\n5" | ./a.out
+                            CASE# 1:
+                            5 found at 4
+                            ```
+
+                    -   木块问题 -<
+
+                        :   use vector
+
+                    -   Set, Map -<
+
+                        :   elements in **set** already sorted.
+
+                            ```cpp
+                            int main() {
+                                string s, buf;
+                                set<string> dict;
+                                while( cin >> s ) {
+                                    for( int i = 0; i < s.length(); ++i ) {
+                                        if( isalpha(s[i]) ) {
+                                            s[i] = tolower(s[i]);
+                                        } else {
+                                            s[i] = ' ';
+                                        }
+                                    }
+                                    stringstream ss( s );
+                                    while( ss >> buf ) {
+                                        dict.insert( buf );
+                                    }
+                                    for( set<string>::iterator it = dict.begin(); it != dict.end(); ++it ) {
+                                        cout << *it << "\n";    // already sorted
+                                    }
+                                }
+                                return 0;
+                            }
+                            ```
+
+                            **map**
+
+                            ```cpp
+                            string repr( const string &s ) {                        // signature
+                                string ans = s;
+                                for( int i = 0; i < ans.length(); ++i ) {
+                                    ans[i] = tolower(ans[i]);
+                                }
+                                sort( ans.begin(), ans.end() );
+                                return ans;
+                            }
+
+                            int main() {
+                                ...
+                                while( cin >> s ) {
+                                    string r = repr( s );
+                                    if( !cnt.count(r) ) { cnt[r] = 0; } // this is optional
+                                    ++cnt[r];
+                                }
+                                vector<string> ans;
+                                for( int i = 0; i < words.size(); ++i ) {
+                                    if( cnt[repr(words[i])] == 1 ) {
+                                        ans.push_back( words[i] );
+                                    }
+                                }
+                                sort( ans.begin(), ans.end() );
+                                for( int i = 0; i < ans.size(); ++i ) {
+                                    coutt << ans[i] << "\n";
+                                }
+
+                                return 0;
+                            }
+                            ```
+
+                    -   Queue, Priority Queue -<
+
+                        :   **queue**
+
+                            instruction sets.
+
+                            **priority_queue**
+
+                            -   ugly number -<
+
+                                :   ```cpp
+                                    #include <iostream>
+                                    #include <vector>
+                                    #include <queue>
+                                    #include <set>
+
+                                    using namespace std;
+                                    typedef long long LL;
+
+                                    int main() {
+                                        priority_queue<LL, vector<LL>, greater<LL> > pq;
+                                        set<LL> s;
+                                        pq.push( 1LL );
+                                        s.insert( 1LL );
+
+                                        for( int i = 1; ; ++i ) {
+                                            LL x = pq.top(); pq.pop();  // the smallest ugly number
+                                            if( i == 1500 ) {
+                                                cout << "The 1500'th ugly number is " << x << ".\n";
+                                                break;
+                                            }
+                                            for( int j = 0; j < 3; ++j ) {
+                                                const int coeff[3] = {  2,  3,  5   };
+                                                LL x2 = x * coeff[j];
+                                                if( !s.count(x2) ) {
+                                                    s.insert( x2 );
+                                                    pq.push( x2 );
+                                                }
+                                            }
+                                        }
+                                    }
+                                    ```
+
+                                    output:
+
+                                    ```
+                                    The 1500'th ugly number is 859963392.
+                                    ```
+
+                    -   Test STL -<
+
+                        :   tips and guidelines
+
+                            -   RAND_MAX may be only 32767 (2^15-1)
+                            -   use `assert( ... )`, header file is `<assert.h>`
+                            -   vector, set, map are fast.
+
+            -   5.3 Big Integer -<
+
+                :   TODO: browser some other implementation.
+
+                    ```cpp
+                    bool operator >  ( const T &rhs ) const { return   rhs < *this;     }
+                    bool operator <= ( const T &rhs ) const { return !(rhs < *this);    }
+                    bool operator != ( const T &rhs ) const { return !(*this == rhs);   }
+                    ```
+
+            -   5.4 Selected Problems -<
+
+                :   -   Unix ls -<
+
+                        :   ```cpp
+                            #include <iostream>
+                            #include <string>
+                            #include <algorithm>
+                            using namespace std;
+
+                            const int maxcol    = 60;
+                            const int maxn      = 100+5;
+                            string filenames[maxn];
+
+                            void print( const string &s, int len, char extra ) {
+                                cout<< s;
+                                if( len < 0 ) { return; }
+                                for( int i = 0; i < len-s.length(); ++i ) {
+                                    cout << extra;
+                                }
+                            }
+
+                            int main() {
+                                int n;
+                                while( cin >> n ) {
+                                    int M = 0;
+                                    for( int i = 0; i < n; ++i ) {
+                                        cin >> filenames[i];
+                                        M = max( M, (int)filenames[i].length() );
+                                    }
+                                    int cols = (maxcol-M)/(M+2) + 1, rows = (n-1)/cols + 1;
+                                    print( "", 60, '-' );
+                                    cout << "\n";
+                                    sort( filenames, filenames+n );
+                                    for( int r = 0; r < rows; ++r ) {
+                                        for( int c = 0; c < cols; ++c ) {
+                                            int idx = c * rows + r;
+                                            if( idx < n ) {
+                                                print( filenames[idx],
+                                                       c == cols-1? M : M+2,
+                                                       ' ' );
+                                            }
+                                        }
+                                        cout << "\n";
+                                    }
+                                }
+                                return 0;
+                            }
+                        ```
+
+                        run it:
+
+                        ```bash
+                        (echo "`ls|wc -l` `ls`") | path/to/our/own/ls
+                        ------------------------------------------------------------
+                        LICENSE.txt  envs         lib          ssl
+                        bin          etc          pkgs         var
+                        conda-meta   include      share
+                        ```
+
+                    -   database -<
+
+                        :   TODO
+
+                    -   PGA Tour Price Money -<
+
+                        :   TODO
+
+                    -   The Letter Crarrier's Rounds, ACM/ICPC World Finals -<
+
+                        :   TODO
+
+                    -   Urban Elevations, 1992 World Finals -<
+
+                        :   TODO
+
+            -   5.5 Homework Problems -<
 
     **第二部分：基础篇**
 
     -   第 6 章，数据结构基础 -<
 
-        :   -   树，Tree -<
+        :   -   6.1 Revisit Stacks & Queues
 
-                :   输入的是中序和后序遍历
+                :   -   Concurrency Simulator
+                    -   Rails
+                    -   Matrix Chain Multiplication
+                    -   Matrix Chain Multiplication
 
-                    ```cpp
-                    #include <iostream>
-                    #include <string>
-                    #include <sstream>
-                    #include <algorithm>
-                    #include <iterator>
-                    #include <assert.h>
-                    #include <stdio.h>
-                    using namespace std;
+            -   6.2 Linked List
 
-                    const int maxv = 100 + 10;
-                    int in_order    [   maxv    ];
-                    int post_order  [   maxv    ];
-                    int lch         [   maxv    ];
-                    int rch         [   maxv    ];
+            -   6.3 Trees and Binary Trees -<
 
-                    int n;
+                :   -   in_order + post_order -> rebuild tree -<
 
-                    bool read_list( int *a ) {
-                        string line;
-                        if( !getline( cin, line ) ) { return false; }
-                        stringstream ss( line );
-                        n = 0;
-                        int x;
-                        while( ss >> x ) { a[n++] = x; }
-                        return n > 0;
-                    }
+                        :   输入的是中序和后序遍历
 
-                    //  in_order[L1..R1] 和 post_order[L2..R2] 建成一颗树，返回树根
-                    int build( int L1, int R1, int L2, int R2 ) {
-                        if( L1 > R1 ) { return 0; }
-                        int root = post_order[ R2 ];
-                        int p = L1;
-                        while( in_order[p] != root ) { ++p; }
-                        int cnt = p-L1;
-                        lch[ root ] = build( L1, p-1, L2, L2+cnt-1 );
-                        rch[ root ] = build( p+1, R1, L2+cnt, R2-1 );
-                        return root;
-                    }
+                            ```cpp
+                            #include <iostream>
+                            #include <string>
+                            #include <sstream>
+                            #include <algorithm>
+                            #include <iterator>
+                            #include <assert.h>
+                            #include <stdio.h>
+                            using namespace std;
 
-                    string print( int root, string pad ) {
-                        if( root == 0 ) { return pad; }
-                        const static string space = "        ";
-                        char buf[20];
-                        sprintf( buf, "%d", root );
-                        string result = pad + space + string(buf);
-                        result += "\n";
-                        result += print( lch[root], pad );
-                        result += print( rch[root], pad+space+space );
-                        return result;
-                    }
+                            const int maxv = 100 + 10;
+                            int in_order    [   maxv    ];
+                            int post_order  [   maxv    ];
+                            int lch         [   maxv    ];
+                            int rch         [   maxv    ];
 
-                    int best, best_sum;
+                            int n;
 
-                    //          u -> root
-                    void dfs( int u, int sum ) {
-                        sum += u;
-                        if( !lch[u] && !rch[u] ) { // leaf
-                            if( sum < best_sum || (sum == best_sum && u < best) ) {
-                                best = u;
-                                best_sum = sum;
+                            bool read_list( int *a ) {
+                                string line;
+                                if( !getline( cin, line ) ) { return false; }
+                                stringstream ss( line );
+                                n = 0;
+                                int x;
+                                while( ss >> x ) { a[n++] = x; }
+                                return n > 0;
                             }
-                        }
-                        if( lch[u] ) { dfs( lch[u], sum ); }
-                        if( rch[u] ) { dfs( rch[u], sum ); }
-                    }
 
-                    int main() {
-                        while( read_list( in_order ) ) {
-                            read_list( post_order );
-                            build( 0, n-1, 0, n-1 );
-                            best_sum = -1;
-                            dfs( post_order[n-1], 0 );
-                            cout << best << "\n";
-                            cout << print( post_order[n-1], "" );
-                            copy( lch, lch+n, ostream_iterator<int>(cout, " ") );
-                            cout <<"\n";
-                            copy( rch, rch+n, ostream_iterator<int>(cout, " ") );
-                            cout <<"\n";
-                        }
-                        return 0;
-                    }
-                    ```
-
-            -   天平 -<
-
-                :   input:
-
-                    ```
-                    1
-
-                    0 2 0 4
-                    0 3 0 1
-                    1 1 1 1
-                    2 4 4 2
-                    1 6 3 2
-                    ```
-
-                    ```cpp
-                    #include <iostream>
-                    using namespace std;
-
-                    bool solve( int &W ) {
-                        int W1, D1, W2, D2;
-                        bool b1 = true, b2 = true;
-                        cin >> W1 >> D1 >> W2 >> D2;
-                        if( !W1 ) { b1 = solve( W1 ); }
-                        if( !W2 ) { b2 = solve( W2 ); }
-                        W = W1 + W2;
-                        return b1 && b2 && (W1*D1==W2*D2);
-                    }
-
-                    int main() {
-                        int T, W;
-                        cin >> T;
-                        while( T-- ) {
-                            if( solve(W) ) {
-                                cout << "YES\n";
-                            } else {
-                                cout << "No\n";
+                            //  in_order[L1..R1] 和 post_order[L2..R2] 建成一颗树，返回树根
+                            int build( int L1, int R1, int L2, int R2 ) {
+                                if( L1 > R1 ) { return 0; }
+                                int root = post_order[ R2 ];
+                                int p = L1;
+                                while( in_order[p] != root ) { ++p; }
+                                int cnt = p-L1;
+                                lch[ root ] = build( L1, p-1, L2, L2+cnt-1 );
+                                rch[ root ] = build( p+1, R1, L2+cnt, R2-1 );
+                                return root;
                             }
-                            if( T ) { cout << "\n"; }
-                        }
-                        return 0;
-                    }
-                    ```
 
-            -   Abbott 的复仇 -<
+                            string print( int root, string pad ) {
+                                if( root == 0 ) { return pad; }
+                                const static string space = "        ";
+                                char buf[20];
+                                sprintf( buf, "%d", root );
+                                string result = pad + space + string(buf);
+                                result += "\n";
+                                result += print( lch[root], pad );
+                                result += print( rch[root], pad+space+space );
+                                return result;
+                            }
 
-                :   ```cpp
-                    // d[r][c][dir] 存储从初始状态到 (r,c,dir) 的最短长度，其父节点保存在
-                    // p[r][c][dir]
+                            int best, best_sum;
 
-                    const char *dirs  = "NEWS"; // north, east, west, south
-                    const char *turns = "FLR";  // forward, left, right
-                    int dir_id(  char c ) { return strchr(dirs, c) - dirs; }
-                    int turn_id( char c ) { return strchr(turns, c) - turns; }
-
-                    //                  N   E   W   S           //          +-----------> y
-                    const int dr[] = { -1,  0,  1,  0 };        //          |
-                    const int dc[] = {  0,  1,  0, -1 };        //          |
-                                                                //          | x
-                                                                //          v
-
-                    Node walk( const Node &u, int turn ) {
-                        int dir = u.dir;                        // turn = 0, forward
-                        if( turn == 1 ) { dir = (dir+3)%4; }    // turn = 1, left, counter clockwise
-                        if( turn == 2 ) { dir = (dir+1)%4; }    // turn = 2, right, clockwise
-                        return Node( u.r + dr[dir], u.c + dc[dir], dir );
-                    }
-
-                    void solve() {
-                        queue<Node> q;
-                        memset( d, -1, sizeof(d) );
-                        Node u( r1, c1, dir );
-                        d[u.r][u.c][u.dir] = 0;
-                        q.push( u );
-                        while( !q.empty() ) {
-                            Node u = q.front(); q.pop();
-                            if( u.r == r2 && r.c == c2 ) { print_ans(u); return; }
-                            for( int i = 0; i < 3; ++i ) {
-                                Node v = walk( u, i );
-                                if( has_edge[u.r][u.c][u.dir][i] &&
-                                    inside(v.r, v.c) &&
-                                    d[v.r][v.c][v.dir] < 0 ) {  // 以前没有处于这个姿态
-                                    // advance
-                                    d[v.r][v.c][v.dir] = d[u.r][u.c][u.dir] + 1;
-                                    p[v.r][v.c][v.dir] = u;
-                                    q.push( v );                // 当前位置总是再 stack 顶端存着
+                            //          u -> root
+                            void dfs( int u, int sum ) {
+                                sum += u;
+                                if( !lch[u] && !rch[u] ) { // leaf
+                                    if( sum < best_sum || (sum == best_sum && u < best) ) {
+                                        best = u;
+                                        best_sum = sum;
+                                    }
                                 }
+                                if( lch[u] ) { dfs( lch[u], sum ); }
+                                if( rch[u] ) { dfs( rch[u], sum ); }
                             }
-                        }
-                        printf( "No Solution Possible.\n" );
-                    }
 
-                    void print_ans( Node u ) {
-                        vector<Node> nodes;
-                        for( ;; ) {
-                            nodes.push_back( u );                   // 一路存起来
-                            if( d[u.r][u.c][u.dir] == 0 ) break;    // origin
-                            u = p[u.r][u.c][u.dir];                 // backtrace
-                        }
-                        nodes.push_back( Node(r0, c0, dir) );       // ???
-
-                        int cnt = 0;
-                        for( int i = nodes.size()-1; i >= 0; --i ) {
-                            if( cnt % 10 == 0 ) { printf( " " ); }
-                            printf( " (%d, %d)", nodes[i].r, nodes[i].c );
-                            if( ++cnt % 10 == 0 ) {
-                                printf( "\n" );
+                            int main() {
+                                while( read_list( in_order ) ) {
+                                    read_list( post_order );
+                                    build( 0, n-1, 0, n-1 );
+                                    best_sum = -1;
+                                    dfs( post_order[n-1], 0 );
+                                    cout << best << "\n";
+                                    cout << print( post_order[n-1], "" );
+                                    copy( lch, lch+n, ostream_iterator<int>(cout, " ") );
+                                    cout <<"\n";
+                                    copy( rch, rch+n, ostream_iterator<int>(cout, " ") );
+                                    cout <<"\n";
+                                }
+                                return 0;
                             }
-                        }
-                        if( nodes.size() % 10 != 0 ) { printf( "\n" ); }
-                    }
-                    ```
+                            ```
+
+                    -   天平 :hearts: -<
+
+                        :   input:
+
+                            ```
+                            1
+
+                            0 2 0 4
+                            0 3 0 1
+                            1 1 1 1
+                            2 4 4 2
+                            1 6 3 2
+                            ```
+
+                            ```cpp
+                            #include <iostream>
+                            using namespace std;
+
+                            bool solve( int &W ) {
+                                int W1, D1, W2, D2;
+                                bool b1 = true, b2 = true;
+                                cin >> W1 >> D1 >> W2 >> D2;
+                                if( !W1 ) { b1 = solve( W1 ); }
+                                if( !W2 ) { b2 = solve( W2 ); }
+                                W = W1 + W2;
+                                return b1 && b2 && (W1*D1==W2*D2);
+                            }
+
+                            int main() {
+                                int T, W;
+                                cin >> T;
+                                while( T-- ) {
+                                    if( solve(W) ) {
+                                        cout << "YES\n";
+                                    } else {
+                                        cout << "No\n";
+                                    }
+                                    if( T ) { cout << "\n"; }
+                                }
+                                return 0;
+                            }
+                            ```
+
+            -   6.4 Graph -<
+
+                :   -   Abbott 的复仇 :hearts: -<
+
+                        :   ```cpp
+                            // d[r][c][dir] 存储从初始状态到 (r,c,dir) 的最短长度，其父节点保存在
+                            // p[r][c][dir]
+                            // has_edge[r][c][dir][turn], now at (r,c,dir), can `turn`?
+                            //  inside(r, c), inside the map
+
+                            const char *dirs  = "NESW"; // north, east, south, west
+                            const char *turns = "FLR";  // forward, left, right
+                            int dir_id(  char c ) { return strchr(dirs, c) - dirs; }
+                            int turn_id( char c ) { return strchr(turns, c) - turns; }
+
+                            //   clockwise :    N   E   S   W           //          +-----------> y (col-wise)
+                            const int dr[] = { -1,  0,  1,  0 };        //          |
+                            const int dc[] = {  0,  1,  0, -1 };        //          |
+                                                                        //          | x (row-wise)
+                                                                        //          v
+
+                            Node walk( const Node &u, int turn ) {
+                                int dir = u.dir;                        // turn = 0, forward
+                                if( turn == 1 ) { dir = (dir+3)%4; }    // turn = 1, left, counter clockwise
+                                if( turn == 2 ) { dir = (dir+1)%4; }    // turn = 2, right, clockwise
+                                return Node( u.r + dr[dir], u.c + dc[dir], dir );
+                            }
+
+                            void solve() {
+                                queue<Node> q;
+                                memset( d, -1, sizeof(d) );             // reset to -1
+                                Node u( r1, c1, dir );                  // start pos
+                                d[u.r][u.c][u.dir] = 0;                 // init distance
+                                q.push( u );
+                                while( !q.empty() ) {
+                                    Node u = q.front(); q.pop();
+                                    if( u.r == r2 && r.c == c2 ) { print_ans(u); return; }
+                                    for( int i = 0; i < 3; ++i ) {      // enum turns
+                                        Node v = walk( u, i );
+                                        if( has_edge[u.r][u.c][u.dir][i] &&
+                                            inside(v.r, v.c) &&
+                                            d[v.r][v.c][v.dir] < 0 ) {  // 以前没有处于这个姿态
+                                            // advance
+                                            d[v.r][v.c][v.dir] = d[u.r][u.c][u.dir] + 1;
+                                            p[v.r][v.c][v.dir] = u;
+                                            q.push( v );                // 当前位置总是再 stack 顶端存着
+                                        }
+                                    }
+                                }
+                                printf( "No Solution Possible.\n" );
+                            }
+
+                            void print_ans( Node u ) {
+                                vector<Node> nodes;
+                                for( ;; ) {
+                                    nodes.push_back( u );                   // 一路存起来
+                                    if( d[u.r][u.c][u.dir] == 0 ) break;    // origin
+                                    u = p[u.r][u.c][u.dir];                 // backtrace
+                                }
+                                nodes.push_back( Node(r1, c1, dir) );       // origin: r0, c0
+
+                                int cnt = 0;
+                                for( int i = nodes.size()-1; i >= 0; --i ) {
+                                    if( cnt % 10 == 0 ) { printf( " " ); }
+                                    printf( " (%d, %d)", nodes[i].r, nodes[i].c );
+                                    if( ++cnt % 10 == 0 ) {
+                                        printf( "\n" );
+                                    }
+                                }
+                                if( nodes.size() % 10 != 0 ) { printf( "\n" ); }
+                            }
+                            ```
+
+            -   6.5 Selected Problems -<
+
+                :   TODO
 
     -   第 7 章，暴力求解法 -<
 
-        :   ```
+        :   -   7.1 Simple Enumeration -<
 
-              y - x    ?dx == dy                                y + x    ? dx == -dy (dx+dy==0)
-                  +----------------------------------> y            +-----------------------------------> y
-                  |  0   1   2   3   4   5   6   7                  |  0   1   2   3   4   5   6   7
-                  | -1   0   1   2   3   4   5   6                  |  1   2   3   4   5   6   7   8
-                  | -2  -1   0   1   2   3   4   5                  |  2   3   4   5   6   7   8   9
-                  | -3  -2  -1   0   1   2   3   4                  |  3   4   5   6   7   8   9  10
-                  | -4  -3  -2  -1   0   1   2   3                  |  4   5   6   7   8   9  10  11
-                  | -5  -4  -3  -2  -1   0   1   2                  |  5   6   7   8   9  10  11  12
-                x | -6  -5  -4  -3  -2  -1   0   1               x  |  6   7   8   9  10  11  12  13
-                  | -7  -6  -5  -4  -3  -2  -1   0                  |  7   8   9  10  11  12  13  14
-                  v                                                 v
-            ```
+                :   -   abcde/fghij = n, a~j -> 0~9, n = 2..79 -<
 
-            ```cpp
-            void search( int cur ) {
-                if( cur == n ) {
-                    ++tot;
-                } else {
-                    for( int i = 0; i < n; ++i ) {
-                        int ok = 1;
-                        C[cur] = i;
-                        for( int j = 0; j < cur; ++j ) {
-                            int dx = cur - j, dy = C[cur] - C[j];
-                            if( C[cur] == C[j] || dx == dy || dy == -dy ) {
-                                ok = 0; break;
+                        :   fghij * {2, 3, 4, ... } = {xxxxx, ...}, then test 0~9
+
+                            ```cpp
+                            #include <iostream>
+                            #include <vector>
+                            #include <utility> // pair
+                            #include <stdio.h>
+
+                            using namespace std;
+
+                            bool five( int n ) {
+                                int numpad[10] = { 0 };
+                                if( n < 1234 || n > 98765   ) { return false;   }
+                                if( n < 9876                ) { ++numpad[0];    }
+                                while( n ) {
+                                    int m = n % 10;
+                                    ++numpad[m];
+                                    if( numpad[m] >= 2 ) {
+                                        return false;
+                                    }
+                                    n /= 10;
+                                }
+                                return true;
                             }
-                            if( ok ) { search(cur+1); }
-                        }
-                    }
-                }
-            }
-            ```
 
-            ```cpp
-            void search( int cur ) {
-                if( cur == n ) {
-                    ++tot;
-                } else {
-                    for( int i = 0; i < n; ++i ) {
-                        if( !vis[0][i] && !vis[1][cur+i] && !vis[2][cur-i+n] ) {
-                            C[cur] = i;
-                            // col         y-x=0           y+x=0
-                            vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 1;
-                            search( cur+1 );
-                            vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 0;    // 改回来
+                            bool ten( int n1, int n2, int buf[] ) {
+                                int numpad[10] = { 0 };
+                                if( !five(n1) || !five(n2) ) { return false; }
+                                while( n1 ) {
+                                    int m = n1 % 10;
+                                    ++numpad[m];
+                                    if( numpad[m] >= 2 ) {
+                                        return false;
+                                    }
+                                    n1 /= 10;
+                                }
+                                while( n2 ) {
+                                    int m = n2 % 10;
+                                    ++numpad[m];
+                                    if( numpad[m] >= 2 ) {
+                                        return false;
+                                    }
+                                    n2 /= 10;
+                                }
+                                return true;
+                            }
+
+                            int main() {
+
+                                vector<pair<int, int> > result;
+
+                                int fghij = 1234; // 01234, but careful, not octal!
+                                for( int f = fghij; f <= 98765/2; ++f ) {
+                                    if( !five(f) ) { continue; }
+                                    for( int j = 2; j <= 79; ++j ) {
+                                        int a = f * j;
+                                        if( a >= 98765 ) { break; }
+                                        if( !five(a) ) {
+                                            continue;
+                                        } else {
+                                            int buf[10] = { 0 };
+                                            if( ten(f, a, buf) ) {
+                                                printf( "hit %05d/%05d = %d\n", a, f, j );
+                                                result.push_back( pair<int,int>(a, f) );
+                                            }
+                                        }
+                                    }
+                                }
+                                cout << "size: " << result.size() << "\n";
+                            }
+                            ```
+
+                            ```
+                            hit 76508/01234 = 62
+                            hit 08659/01237 = 7
+                            hit 86590/01237 = 70
+                            hit 89064/01237 = 72
+                            hit 65879/01243 = 53
+                            ...
+                            hit 93702/46851 = 2
+                            hit 96270/48135 = 2
+                            hit 96702/48351 = 2
+                            hit 97026/48513 = 2
+                            hit 97032/48516 = 2
+                            hit 97062/48531 = 2
+                            hit 97230/48615 = 2
+                            hit 97302/48651 = 2
+                            size: 763
+                            ```
+
+                    -   max sum
+
+                    -   fractions again?!
+
+                        :   TODO
+
+                    TODO
+
+            -   7.2 Enumeration Arrangements
+
+                :   TODO
+
+            -   7.3 zijishengcheng, subset building
+
+            -   7.4 huishufa, backtrace -<
+
+                :   -   eight queen -<
+
+                        :   ```
+
+                              y - x    ?dx == dy                                y + x    ? dx == -dy (dx+dy==0)
+                                  +----------------------------------> y            +-----------------------------------> y
+                                  |  0   1   2   3   4   5   6   7                  |  0   1   2   3   4   5   6   7
+                                  | -1   0   1   2   3   4   5   6                  |  1   2   3   4   5   6   7   8
+                                  | -2  -1   0   1   2   3   4   5                  |  2   3   4   5   6   7   8   9
+                                  | -3  -2  -1   0   1   2   3   4                  |  3   4   5   6   7   8   9  10
+                                  | -4  -3  -2  -1   0   1   2   3                  |  4   5   6   7   8   9  10  11
+                                  | -5  -4  -3  -2  -1   0   1   2                  |  5   6   7   8   9  10  11  12
+                                x | -6  -5  -4  -3  -2  -1   0   1               x  |  6   7   8   9  10  11  12  13
+                                  | -7  -6  -5  -4  -3  -2  -1   0                  |  7   8   9  10  11  12  13  14
+                                  v                                                 v
+                            ```
+
+                            ```cpp
+                            void search( int cur ) {
+                                if( cur == n ) {
+                                    ++tot;
+                                } else {
+                                    for( int i = 0; i < n; ++i ) {
+                                        int ok = 1;
+                                        C[cur] = i;
+                                        for( int j = 0; j < cur; ++j ) {
+                                            int dx = cur - j, dy = C[cur] - C[j];
+                                            if( C[cur] == C[j] || dx == dy || dy == -dy ) {
+                                                ok = 0; break;
+                                            }
+                                            if( ok ) { search(cur+1); }
+                                        }
+                                    }
+                                }
+                            }
+                            ```
+
+                            ```cpp
+                            void search( int cur ) {
+                                if( cur == n ) {
+                                    ++tot;
+                                } else {
+                                    for( int i = 0; i < n; ++i ) {
+                                        // vis: visited, vis[0] -> col, vis[1] -> major diag, vis[2] -> minor diag
+                                        if( !vis[0][i] && !vis[1][cur+i] && !vis[2][cur-i+n] ) {
+                                            C[cur] = i;
+                                            // col         y-x=0           y+x=0
+                                            vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 1;
+                                            search( cur+1 );
+                                            vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 0;    // 改回来
+                                        }
+                                    }
+                                }
+                            }
+                            ```
+
+                            print the result:
+
+                            ```cpp
+                            ++tot;
+                            // add several lines here
+                            printf( "solve #%d:", tot );
+                            for( int i = 0; i < n; ++i ) {
+                                printf( " %d", C[i] );
+                            }
+                            printf( "\n" );
+                            ```
+
+                            see all the 92 solves. -<
+
+                            :   ```
+                                solve #1: 0 4 7 5 2 6 1 3
+                                solve #2: 0 5 7 2 6 3 1 4
+                                solve #3: 0 6 3 5 7 1 4 2
+                                solve #4: 0 6 4 7 1 3 5 2
+                                solve #5: 1 3 5 7 2 0 6 4
+                                solve #6: 1 4 6 0 2 7 5 3
+                                solve #7: 1 4 6 3 0 7 5 2
+                                solve #8: 1 5 0 6 3 7 2 4
+                                solve #9: 1 5 7 2 0 3 6 4
+                                solve #10: 1 6 2 5 7 4 0 3
+                                solve #11: 1 6 4 7 0 3 5 2
+                                solve #12: 1 7 5 0 2 4 6 3
+                                solve #13: 2 0 6 4 7 1 3 5
+                                solve #14: 2 4 1 7 0 6 3 5
+                                solve #15: 2 4 1 7 5 3 6 0
+                                solve #16: 2 4 6 0 3 1 7 5
+                                solve #17: 2 4 7 3 0 6 1 5
+                                solve #18: 2 5 1 4 7 0 6 3
+                                solve #19: 2 5 1 6 0 3 7 4
+                                solve #20: 2 5 1 6 4 0 7 3
+                                solve #21: 2 5 3 0 7 4 6 1
+                                solve #22: 2 5 3 1 7 4 6 0
+                                solve #23: 2 5 7 0 3 6 4 1
+                                solve #24: 2 5 7 0 4 6 1 3
+                                solve #25: 2 5 7 1 3 0 6 4
+                                solve #26: 2 6 1 7 4 0 3 5
+                                solve #27: 2 6 1 7 5 3 0 4
+                                solve #28: 2 7 3 6 0 5 1 4
+                                solve #29: 3 0 4 7 1 6 2 5
+                                solve #30: 3 0 4 7 5 2 6 1
+                                solve #31: 3 1 4 7 5 0 2 6
+                                solve #32: 3 1 6 2 5 7 0 4
+                                solve #33: 3 1 6 2 5 7 4 0
+                                solve #34: 3 1 6 4 0 7 5 2
+                                solve #35: 3 1 7 4 6 0 2 5
+                                solve #36: 3 1 7 5 0 2 4 6
+                                solve #37: 3 5 0 4 1 7 2 6
+                                solve #38: 3 5 7 1 6 0 2 4
+                                solve #39: 3 5 7 2 0 6 4 1
+                                solve #40: 3 6 0 7 4 1 5 2
+                                solve #41: 3 6 2 7 1 4 0 5
+                                solve #42: 3 6 4 1 5 0 2 7
+                                solve #43: 3 6 4 2 0 5 7 1
+                                solve #44: 3 7 0 2 5 1 6 4
+                                solve #45: 3 7 0 4 6 1 5 2
+                                solve #46: 3 7 4 2 0 6 1 5
+                                solve #47: 4 0 3 5 7 1 6 2
+                                solve #48: 4 0 7 3 1 6 2 5
+                                solve #49: 4 0 7 5 2 6 1 3
+                                solve #50: 4 1 3 5 7 2 0 6
+                                solve #51: 4 1 3 6 2 7 5 0
+                                solve #52: 4 1 5 0 6 3 7 2
+                                solve #53: 4 1 7 0 3 6 2 5
+                                solve #54: 4 2 0 5 7 1 3 6
+                                solve #55: 4 2 0 6 1 7 5 3
+                                solve #56: 4 2 7 3 6 0 5 1
+                                solve #57: 4 6 0 2 7 5 3 1
+                                solve #58: 4 6 0 3 1 7 5 2
+                                solve #59: 4 6 1 3 7 0 2 5
+                                solve #60: 4 6 1 5 2 0 3 7
+                                solve #61: 4 6 1 5 2 0 7 3
+                                solve #62: 4 6 3 0 2 7 5 1
+                                solve #63: 4 7 3 0 2 5 1 6
+                                solve #64: 4 7 3 0 6 1 5 2
+                                solve #65: 5 0 4 1 7 2 6 3
+                                solve #66: 5 1 6 0 2 4 7 3
+                                solve #67: 5 1 6 0 3 7 4 2
+                                solve #68: 5 2 0 6 4 7 1 3
+                                solve #69: 5 2 0 7 3 1 6 4
+                                solve #70: 5 2 0 7 4 1 3 6
+                                solve #71: 5 2 4 6 0 3 1 7
+                                solve #72: 5 2 4 7 0 3 1 6
+                                solve #73: 5 2 6 1 3 7 0 4
+                                solve #74: 5 2 6 1 7 4 0 3
+                                solve #75: 5 2 6 3 0 7 1 4
+                                solve #76: 5 3 0 4 7 1 6 2
+                                solve #77: 5 3 1 7 4 6 0 2
+                                solve #78: 5 3 6 0 2 4 1 7
+                                solve #79: 5 3 6 0 7 1 4 2
+                                solve #80: 5 7 1 3 0 6 4 2
+                                solve #81: 6 0 2 7 5 3 1 4
+                                solve #82: 6 1 3 0 7 4 2 5
+                                solve #83: 6 1 5 2 0 3 7 4
+                                solve #84: 6 2 0 5 7 4 1 3
+                                solve #85: 6 2 7 1 4 0 5 3
+                                solve #86: 6 3 1 4 7 0 2 5
+                                solve #87: 6 3 1 7 5 0 2 4
+                                solve #88: 6 4 2 0 5 7 1 3
+                                solve #89: 7 1 3 0 6 4 2 5
+                                solve #90: 7 1 4 2 0 6 3 5
+                                solve #91: 7 2 0 5 1 4 6 3
+                                solve #92: 7 3 0 2 5 1 6 4
+                                92
+                                ```
+
+                            we can also print out the details:
+
+                            ```cpp
+                            printf( "-- Solve #%03d --\n", tot );
+                            for( int i = 0; i < n; ++i ) {
+                                printf( "+-+-+-+-+-+-+-+-+\n" );
+                                for( int j = 0; j < n; ++j ) {
+                                    printf( "|%c", C[i] == j ? 'X' : ' ' );
+                                }
+                                printf( "|\n" );
+                            }
+                            printf( "-----------------\n\n" );
+                            ```
+
+                            which yields to:
+
+                            ```
+                            -- Solve #092 --
+                            +-+-+-+-+-+-+-+-+
+                            | | | | | | | |X|
+                            +-+-+-+-+-+-+-+-+
+                            | | | |X| | | | |
+                            +-+-+-+-+-+-+-+-+
+                            |X| | | | | | | |
+                            +-+-+-+-+-+-+-+-+
+                            | | |X| | | | | |
+                            +-+-+-+-+-+-+-+-+
+                            | | | | | |X| | |
+                            +-+-+-+-+-+-+-+-+
+                            | |X| | | | | | |
+                            +-+-+-+-+-+-+-+-+
+                            | | | | | | |X| |
+                            +-+-+-+-+-+-+-+-+
+                            | | | | |X| | | |
+                            -----------------
+                            ```
+
+                    -   prime ring -<
+
+                        :   brute force.
+
+                            ```cpp
+                            #include <iostream>
+                            #include <algorithm> // next_permutation
+                            #include <stdio.h>
+                            #include <string.h>
+                            #include <math.h> // sqrt
+
+                            using namespace std;
+
+                            const int maxn = 20;
+                            int isp[maxn*2];
+                            int A  [maxn];
+
+                            bool is_prime( int num ) {
+                                if( num <2 ) { return false; }
+                                int ceil = 1+(int)sqrt( (double)num );
+                                for( int i = 2; i < ceil; ++i ) {
+                                    if( num%i == 0 ) {
+                                        return false;
+                                    }
+                                }
+                                return true;
+                            }
+
+                            int main() {
+                                memset( isp, 0, sizeof(isp) );
+                                for( int i = 0; i < maxn*2; ++i ) {
+                                    isp[i] = is_prime(i);
+                                    // printf( "%d is%s prime.\n", i, isp[i]==1? "" : " not" );
+                                }
+
+                                int n;
+                                while( scanf( "%d", &n ) && n > 0 ) {
+                                    memset( A,   0, sizeof(A  ) );
+                                    for( int i = 0; i < n;   ++i ) { A[i] = i+1; }
+                                    do {
+                                        int ok = 1;
+                                        for( int i = 0; i < n; ++i ) {
+                                            if( !isp[A[i]+A[(i+1)%n]] ) {
+                                                ok = 0;
+                                                break;
+                                            }
+                                        }
+                                        if( ok ) {
+                                            for( int i = 0; i < n; ++i ) {
+                                                printf( "%d ", A[i] );
+                                            }
+                                            printf( "\n" );
+                                        }
+                                    } while( next_permutation(A+1, A+n) );
+                                }
+                            }
+                            ```
+
+                            backtrace (buggy)
+
+                            ```cpp
+                            #include <iostream>
+                            #include <algorithm> // next_permutation
+                            #include <stdio.h>
+                            #include <string.h>
+                            #include <math.h> // sqrt
+
+                            using namespace std;
+
+                            const int maxn = 20;
+                            int isp[maxn*2];
+                            int A  [maxn];
+                            int vis[maxn];
+
+                            bool is_prime( int num ) {
+                                if( num < 2 ) { return false; }
+                                int ceil = 1+(int)sqrt( (double)num );
+                                for( int i = 2; i < ceil; ++i ) {
+                                    if( num%i == 0 ) { return false; }
+                                }
+                                return true;
+                            }
+
+                            void dfs( int cur, int n ) {
+                                if( cur == n ) {
+                                    if( isp[A[0]+A[n+1]] ) {    // margin
+                                        for( int i = 0; i < n; ++i ) {
+                                            printf( "%d ", A[i] );
+                                        }
+                                        printf( "\n" );
+                                    } else {
+                                        printf( "shit\n" );
+                                    }
+                                    return;
+                                } else {
+                                    for( int i = 2; i <= n; ++i ) {
+                                        if( !vis[i] && isp[i+A[cur-1]] ) {
+                                            A[cur] = i;
+                                            vis[i] = 1;
+                                            dfs( cur+1, n );
+                                            vis[i] = 0;
+                                        }
+                                    }
+                                }
+                            }
+
+                            int main() {
+                                memset( isp, 0, sizeof(isp) );
+                                for( int i = 0; i < maxn*2; ++i ) { isp[i] = is_prime(i); }
+                                memset( vis, 0, sizeof(vis) );
+                                for( int i = 0; i < maxn; ++i ) { A[i] = i+1; }
+
+                                int n;
+                                while( scanf( "%d", &n ) && n > 0 ) {
+                                    dfs( 0, n );
+                                }
+                            }
+                            ```
+
+            -   7.5 lujinxunzhao, path finding -<
+
+                :   ```
+                    +---+---+---+        +---+---+---+
+                    | 2 | 6 | 4 |        | 8 | 1 | 5 |
+                    +---+---+---+        +---+---+---+
+                    | 1 | 3 | 7 |        | 7 | 3 | 6 |
+                    +---+---+---+        +---+---+---+
+                    |   | 5 | 8 |        | 4 |   | 2 |
+                    +---+---+---+        +---+---+---+
+
+                    input: (current, goal)
+
+                        2   6   4   1   3   7   0   5   8
+                        8   1   5   7   3   6   4   0   2
+
+                    output: (#steps)
+
+                        31
+                    ```
+
+                    ```cpp
+                    #include <iostream>
+                    #include <algorithm> // next_permutation
+                    #include <stdio.h>
+                    #include <string.h>
+                    #include <math.h> // sqrt
+
+                    using namespace std;
+
+                    typedef int State[9];
+                    const int maxstate = 100000;
+
+                    State st[maxstate], goal;
+                    // int goal[9];
+                    int dist[maxstate];
+
+                    const int dx[] = {  -1,  1,  0,  0  };
+                    const int dy[] = {   0,  0, -1,  1  };
+
+                    int vis[362880], fact[9];
+                    void init_lookup_table() {
+                        fact[0] = 1;
+                        for( int i = 1; i < 9; ++i ) {
+                            fact[i] = fact[i-1] * i;
                         }
                     }
-                }
-            }
-            ```
+
+                    int try_to_insert( int s ) {
+                        int code = 0;
+                        for( int i = 0; i < 9; ++i ) {
+                            int cnt = 0;
+                            for( int j = i+1; j < 9; ++j ) {
+                                if( st[s][j] < st[s][i] ) {
+                                    ++cnt;
+                                }
+                            }
+                            code += fact[8-i] * cnt;
+                        }
+                        if( vis[code] ) {
+                            return 0;
+                        } else {
+                            return vis[code] = 1;
+                        }
+                    }
+
+                    int bfs() {
+                        init_lookup_table();
+                        int front = 1, rear = 2;                // 0 is 'not exist'
+                        while( front < rear ) {
+                            State &s = st[front];
+                            if( memcmp( goal, s, sizeof(s) ) == 0 ) {
+                                return front;                   // gotcha
+                            }
+                            int z;
+                            for( z = 0; z < 9; ++z ) { if( !s[z] ) { break; } }     // get '0'
+                            int x = z/3, y = z%3;
+                            for( int d = 0; d < 4; ++d ) {
+                                int newx = x + dx[d];
+                                int newy = y + dy[d];
+                                int newz = newx * 3 + newy;
+                                if( newx >= 0 && newx < 3 && newy >= 0 && newy < 3 ) {
+                                    State &t = st[rear];
+                                    // seems, both `&t' or `t' will work
+                                    memcpy( t, s, sizeof(s) );  // type of t, s: int[9] is actually a int *
+                                    t[newz] = s[z];
+                                    t[z] = s[newz];
+                                    dist[rear] = dist[front] + 1;
+                                    if( try_to_insert(rear) ) {
+                                        ++rear;
+                                    }
+                                }
+                            }
+                            ++front;
+                        }
+                        return 0;
+                    }
+
+                    int main() {
+                        for( int i = 0; i < 9; ++i ) { scanf( "%d", &st[1][i] ); }
+                        for( int i = 0; i < 9; ++i ) { scanf( "%d", &goal[i] ); }
+                        int ans = bfs();
+                        if( ans > 0 ) {
+                            printf( "%d\n", dist[ans] );
+                        } else {
+                            printf( "-1\n" );
+                        }
+                        return 0;
+                    }
+                    ```
+
+                    input.txt
+
+                    ```
+                    2   6   4   1   3   7   0   5   8
+                    8   1   5   7   3   6   4   0   2
+                    ```
+
+                    run it:
+
+                    ```bash
+                    g++ source.cpp -o source
+                    cat input.txt | ./source
+                    ```
+
+                    Fill Problem.
+
+                    TODO
 
     **第三部分：竞赛篇**
 
@@ -2975,6 +3736,7 @@ Milo Yip 的博客 -<
 [红黑树并没有我们想象的那么难(下) - 捣乱小子](http://daoluan.net/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/28/rbtree-is-not-difficult-2.html)
 
 [排序（一）归并、快排、优先队列等（图文详解） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237641)
+
 [排序（二）键索引、桶排序、位示图、败者树等（图文详解--败者树） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237809)
 
 Code Reading -<
