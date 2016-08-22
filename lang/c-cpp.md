@@ -44,7 +44,8 @@ C++ 简介 | Intro
         "typeid" operator                       `typeid`
         -------------------------------         -------------
 
-        more at [Operators in C and C++ - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B).
+        more at [Operators in C and C++ - Wikipedia, the free
+        encyclopedia](https://en.wikipedia.org/wiki/Operators_in_C_and_C%2B%2B).
 
         一定要到 [cppreference.com](http://en.cppreference.com/w/) 多看看，
         上面有函数说明，有 demo 代码，还有 Possible implementation 什么的！
@@ -197,7 +198,7 @@ C++ 简介 | Intro
 
         -   [std::vector::reserve - cppreference.com](http://en.cppreference.com/w/cpp/container/vector/reserve)
 
--   tolower, toupper, isalpha
+-   tolower, toupper, isalpha -<
 
     :   defined in `<ctype.h>` or `<cctype>` (`std::tolower`).
 
@@ -283,7 +284,8 @@ C++ 简介 | Intro
         ```
 
         这个 `if( !file )` 是因为 file 重载了 `operator void *`，这句话等同于
-        `if( NULL == (void *)file )`，见 [ios::operator void* - C++ Reference](http://program.upc.edu.cn/CLibrary/iostream/ios/operator_voidpt.html)。
+        `if( NULL == (void *)file )`，见 [ios::operator void* - C++
+        Reference](http://program.upc.edu.cn/CLibrary/iostream/ios/operator_voidpt.html)。
 
         用 getline 获取内容到 string 后，可以再用 C 语言的 scanf 来读取字段：
         `sscanf( string.c_str(), format, ...)`。
@@ -568,8 +570,8 @@ C++ 简介 | Intro
         -23432 -> "-23432"
         ```
 
-        C 语言中的整数除法 (/) 和取模 (%) 运算在操作数为负的时候,结果是
-        implementation-defined。也就是说,如果 m、d 都是整数,
+        C 语言中的整数除法 (/) 和取模 (%) 运算在操作数为负的时候，结果是
+        implementation-defined。也就是说，如果 m、d 都是整数。
 
         ```cpp
         int q = m / d;
@@ -582,10 +584,10 @@ C++ 简介 | Intro
         商向 0 取整,代码才能正常工作。
 
         GCC always follows the C99 requirement that the result of division is
-        truncated towards zero. G++ 一直遵循 C99 规范,商向 0 取整,算法能正常工作。
+        truncated towards zero. G++ 一直遵循 C99 规范，商向 0 取整，算法能正常工作。
 
         Visual C++ 2008, The sign of the remainder is the same as the sign of
-        the dividend.这个说法与商向 0 取整是等价的,算法也能正常工作。
+        the dividend. 这个说法与商向 0 取整是等价的，算法也能正常工作。
 
         不过，我觉得陈硕这个程序麻烦了，其实可以加一个简单的判断：
 
@@ -596,7 +598,7 @@ C++ 简介 | Intro
         }
         ```
 
--   位运算 #1-<
+-   位运算 #1 -<
 
     :   来自我的 issue：<https://github.com/district10/notes/issues/1>
 
@@ -3316,7 +3318,7 @@ C++ 简介 | Intro
                     not a real class".
 
                 其实前两点根本没有说服力。后两点呢……虽然 printf 不能自定义类型
-                （新的诸如"%d"之类的标签），但是你可以自己写一个函数，把类型打
+                （新的诸如 "%d" 之类的标签），但是你可以自己写一个函数，把类型打
                 印到 string 或者 console。然后再用 `std::cout` 输出。
 
         refs and see also
@@ -3375,7 +3377,7 @@ C++ 简介 | Intro
             return *this;
         }
 
-        可能 rule of three 里除了上面两个函数，还有 dtor。
+        //  可能 rule of three 里除了上面两个函数，还有 dtor。
         ```
 
         **Noncopyable resources**
@@ -5133,9 +5135,10 @@ C++ 简介 | Intro
                 #include <memory>
                 ```
 
-                auto_ptr可以指向一個以new建立的物件，當auto_ptr的生命週期結束後，所指向
-                的物件之資源也會被釋放，在建立auto_ptr時必須指 定目標物件之型態。
-                操作auto_ptr就像操作沒有使用auto_ptr的指標一樣。
+                auto_ptr 可以指向一個以 new 建立的物件，當 auto_ptr 的生命週期
+                結束後，所指向的物件之資源也會被釋放，在建立 auto_ptr 時必須指
+                定目標物件之型態。操作 auto_ptr 就像操作沒有使用 auto_ptr 的指
+                標一樣。
 
                 ```
                 auto_ptr<int> iPtr (new int(100));
@@ -5146,12 +5149,12 @@ C++ 简介 | Intro
                     cout << "字串為空" << endl;
                 ```
 
-                您也可以建立一個未指向任何物件的auto_ptr，例如：`auto_ptr<int> iPtr;`
+                您也可以建立一個未指向任何物件的 auto_ptr，例如：`auto_ptr<int> iPtr;`
 
-                未指向任何物件的auto_ptr不可以取值，否則會發生不可預期之結果，既然不可取值，如
-                何判斷它是否有指向物件呢？您可以使用get()函式，它會傳 回所指向物件的位址，如果
-                傳回0，表示不指向任何物件，如果不指向任何物件，您可以使用reset()來讓它指向一個
-                物件，例如：
+                未指向任何物件的 auto_ptr 不可以取值，否則會發生不可預期之結果，
+                既然不可取值，如何判斷它是否有指向物件呢？您可以使用 get() 函式，
+                它會傳 回所指向物件的位址，如果傳回 0，表示不指向任何物件，如果
+                不指向任何物件，您可以使用 reset() 來讓它指向一個物件，例如：
 
                 ```
                 if(iPtr.get() == 0) {
@@ -5159,19 +5162,19 @@ C++ 简介 | Intro
                 }
                 ```
 
-                reset()可以接受一個指標或是0表示不指向任何物件，reset()會先delete目前指向的
-                物件，然後重新指向新的物件，您也可以使用 release()釋放auto_ptr管理所指向物
-                件的職責。
+                reset() 可以接受一個指標或是 0 表示不指向任何物件，reset() 會先
+                delete 目前指向的物件，然後重新指向新的物件，您也可以使用
+                release() 釋放 auto_ptr 管理所指向物件的職責。
 
-                auto_ptr可以使用另一個auto_ptr來建立，這會造成所有權的轉移，例如：
+                auto_ptr 可以使用另一個 auto_ptr 來建立，這會造成所有權的轉移，例如：
 
                 ```
                 auto_ptr<SafeArray> ptr1(new SafeArray(19));
                 auto_ptr<SafeArray> ptr2(ptr1);
                 ```
 
-                當使用ptr1來建立ptr2時，ptr1不再對所指向物件的資源釋放負責，職責交給了ptr2
-                ，在使用指定運算時，也有類似的行為，例如：
+                當使用 ptr1 來建立 ptr2 時，ptr1 不再對所指向物件的資源釋放負責，
+                職責交給了 ptr2，在使用指定運算時，也有類似的行為，例如：
 
                 ```
                 auto_ptr<SafeArray> ptr1(new SafeArray(19));
@@ -5179,14 +5182,15 @@ C++ 简介 | Intro
                 ptr2 = ptr1;
                 ```
 
-                ptr2所指向的物件會先被delete，然後ptr1的屬性會複製至ptr2，也就是ptr1所指向
-                的物件，現在由ptr2指向它了，ptr1不再負責 所指向物件的資源釋放。
+                ptr2 所指向的物件會先被 delete，然後 ptr1 的屬性會複製至 ptr2，
+                也就是 ptr1 所指向的物件，現在由 ptr2 指向它了，ptr1 不再負責
+                所指向物件的資源釋放。
 
-                auto_ptr的資源維護動作是以inline的方式來完成，也就是在編譯時會被擴展開
-                來，所以使用auto_ptr並不會犧牲效率。
+                auto_ptr 的資源維護動作是以 inline 的方式來完成，也就是在編譯時
+                會被擴展開來，所以使用 auto_ptr 並不會犧牲效率。
 
-                最後要注意的是，auto_ptr不能用來管理動態配置而來的陣列，如果用它來管理
-                動態配置而來的陣列，結果是不可預期的。
+                最後要注意的是，auto_ptr 不能用來管理動態配置而來的陣列，如果用
+                它來管理動態配置而來的陣列，結果是不可預期的。
 
         `scoped_ptr` -<
 
@@ -5223,9 +5227,9 @@ C++ 简介 | Intro
             Buckle my shoe
             ```
 
-            此外，scoped_ptr是non-copyable的，也就是说你不能去尝试复制一个
-            scoped_ptr的内容到另外一个scoped_ptr中，这也是为了防止错误的多次析
-            构同一个指针所指向的对象。
+            此外，scoped_ptr 是 non-copyable 的，也就是说你不能去尝试复制一个
+            scoped_ptr 的内容到另外一个 scoped_ptr 中，这也是为了防止错误的多次
+            析构同一个指针所指向的对象。
 
         refs and see also
 
@@ -5244,7 +5248,7 @@ C++ 简介 | Intro
 
         候捷说 1、3、4 是最值得一读的。我标记了“:hearts:”。
 
-        第 1 章 关于对象(Object Lessons) :hearts: -<
+        第 1 章 关于对象 (Object Lessons) :hearts: -<
 
         :   C 语言中数据和操作分开，语言本身没有提供之间的关联性。这种程序方法被称为 Procedural，
             它以一些函数为导向，处理共同的外部数据。
@@ -5307,7 +5311,9 @@ C++ 简介 | Intro
                         有几个点再强调一下：
 
                         -   class object 里存的有 non static 成员对象，有 alignment
-                        -   如果有虚函数，存的还有 vptr（可能不止一个，因为可能继承多个有虚函数的类），指向函数表（在 GCC 里放在对象最开始的位置）
+                        -   如果有虚函数，存的还有 vptr（可能不止一个，因为可能
+                            继承多个有虚函数的类），指向函数表（在 GCC 里放在对
+                            象最开始的位置）
                         -   纯虚函数不能实例化
 
             -   三种编程典范 +<
@@ -5320,7 +5326,8 @@ C++ 简介 | Intro
 
                 :   -   所有非静态数据成员的大小。
                     -   由内存对齐（alignment）而填补（padding）的内存大小。
-                    -   为了支持 virtual 有内部产生的额外负担（一个或多个 vptr 指针，每个 4 字节或者 8 字节，以及 vbptr）
+                    -   为了支持 virtual 有内部产生的额外负担（一个或多个 vptr
+                        指针，每个 4 字节或者 8 字节，以及 vbptr）
 
             -   关于面向对象和多态的更多思考 -<
 
@@ -5360,8 +5367,9 @@ C++ 简介 | Intro
                     vptrs，那些 vptrs 的内容不会被 base class object 初始化或改变。
                     （这个布局肯定是编译器确定了的，而且在拷贝构造等时候不能只是 memcpy，还要正确地链接那些 vptr。）
 
-                    初始化或者 assignment 的时候，如 `Derived d; Base b = d;`，derived class object 会被
-                    sliced，然后拷贝塞入更小的空间。多态没有出现。如果是引用或者指针，如 `Base *b = &d;` 或者
+                    初始化或者 assignment 的时候，如 `Derived d; Base b = d;`，
+                    derived class object 会被sliced，然后拷贝塞入更小的空间。多
+                    态没有出现。如果是引用或者指针，如 `Base *b = &d;` 或者
                     `Base &b = d;` 多态则出现了。
 
                     >   **C++ 通过 class 的 pointer 和 references 来支持多态，这种程序
@@ -5442,9 +5450,9 @@ C++ 简介 | Intro
                         :SOS, I'm #5
                         ```
 
-        第 2 章 构造函数语意学(The Semantics of constructors) :hearts: -<
+        第 2 章 构造函数语意学 (The Semantics of constructors) :hearts: -<
 
-        :   深入C++构造函数 -<
+        :   深入 C++ 构造函数 -<
 
             :   -   包含有带默认构造函数的对象成员的类
 
@@ -5800,8 +5808,8 @@ C++ 简介 | Intro
                 ```
 
                 **X3 将包含有一个 Vptr，两个 Vbptr。确切的说这两个 Vbptr 一个属
-                于X3，一个属于 X3 的子对象 X2,X3 通过其 Vbptr 找到子对象 X2，而
-                X2 通过其 Vbptr 找到 X。**
+                于 X3，一个属于 X3 的子对象 X2，X3 通过其 Vbptr 找到子对象 X2，
+                而 X2 通过其 Vbptr 找到 X。**
 
                 其中差别在于 vptr 通过一个虚函数表可以确切地知道要调用的函数，
                 而 Vbptr 通过虚基类表只能够知道其虚基类子对象的偏移量。这两条规
@@ -5814,10 +5822,11 @@ C++ 简介 | Intro
                 成员的实例，所以其地址在编译时就已经被决定。不论如何静态数据成员的存取不会
                 带来任何额外负担。
 
-                非静态数据成员的存取，相当于对象起始地址加上偏移量。效率上与C struct成员的
-                效率等同。因为它的偏移量在编译阶段已经确定。**但有一种情况例外：`pt->x=0.0`。当
-                通过指针或引用来存取——x而x又是虚基类的成员的时候。因为必须要等到执行期才能
-                知道pt指向的确切类型，所以必须通过一个间接导引才能完成。**
+                非静态数据成员的存取，相当于对象起始地址加上偏移量。效率上与 C
+                struct 成员的效率等同。因为它的偏移量在编译阶段已经确定。**但有
+                一种情况例外：`pt->x=0.0`。当通过指针或引用来存取——x 而 x 又是
+                虚基类的成员的时候。因为必须要等到执行期才能知道 pt 指向的确切
+                类型，所以必须通过一个间接导引才能完成。**
 
             在 VC 中数据成员的布局顺序为：
 
@@ -5846,11 +5855,12 @@ C++ 简介 | Intro
             };
             ```
 
-        第 4 章 Function语意学（The Semantics of Function） -<
+        第 4 章 Function 语意学（The Semantics of Function） -<
 
         :   C++ 之成员函数调用 -<
 
-            :   c++ 支持三种类型的成员函数，分别为 static, nostatic, virtual。每一种调用方式都不尽相同。
+            :   c++ 支持三种类型的成员函数，分别为 static, nostatic, virtual。
+                每一种调用方式都不尽相同。
 
                 非静态成员函数（Nonstatic Member Functions） -<
 
@@ -5906,15 +5916,15 @@ C++ 简介 | Intro
                         **vptr 也要进行名字处理，因为一个继承体系可能有多个 vptr。**
                     -   `1` 是虚函数在虚函数表中的索引，通过它关联到虚函数 `function()`.
 
-                    >   在 C++ 中，多态（polymorphism）表示“以一个 public base class“的
+                    >   在 C++ 中，多态（polymorphism）表示“以一个 public base class 的
                     >   指针（或 reference），寻址出一个 derived class object”的意思。
 
-                静态成员函数(Static Member Functions) -<
+                静态成员函数 (Static Member Functions) -<
 
                 :   静态成员函数的一些特性：
 
                     -   不能够直接存取其类中的非静态成员（nostatic members），包括不能调用非静
-                        态 成员函数(Nonstatic Member Functions)。
+                        态成员函数 (Nonstatic Member Functions)。
                     -   不能够声明为 const、voliatile 或 virtual。
                     -   它不需经由对象调用，当然，通过对象调用也被允许。
 
@@ -5965,17 +5975,23 @@ C++ 简介 | Intro
                     -   为每个有虚函数的类插入一个指针（vptr）,这个指针指向该类的虚函数表。
                     -   给每一个虚函数指派一个在表中的索引。
 
-                    用这种模型来实现虚函数得益于在C++中,虚函数的地址在编译期是可知的，而且这一地址
-                    是固定不变的。而且表的大小不会在执行期增大或减小。
+                    用这种模型来实现虚函数得益于在 C++ 中，虚函数的地址在编译期
+                    是可知的，而且这一地址是固定不变的。而且表的大小不会在执行
+                    期增大或减小。
 
-                    一个类的虚函数表中存储有类型信息（存储在索引为0的位置）和所有虚函数地址，这些虚函数地址包括三种：
+                    一个类的虚函数表中存储有类型信息（存储在索引为 0 的位置）和
+                    所有虚函数地址，这些虚函数地址包括三种：
 
-                    -   这个类定义的虚函数，会改写（overriding）一个可能存在的基类的虚函数实体——假如基类也定义有这个虚函数。
-                    -   继承自基类的虚函数实体，——基类定义有，而这个类却没有定义。直接继承之。
-                    -   一个纯虚函数实体。用来在虚函数表中占座，有时候也可以当做执行期异常处理函数。
+                    -   这个类定义的虚函数，会改写（overriding）一个可能存在的
+                        基类的虚函数实体——假如基类也定义有这个虚函数。
+                    -   继承自基类的虚函数实体，——基类定义有，而这个类却没有定
+                        义。直接继承之。
+                    -   一个纯虚函数实体。用来在虚函数表中占座，有时候也可以当
+                        做执行期异常处理函数。
 
-                    每一个虚函数都被指派一个固定的索引值，这个索引值在整个继承体系中保持前后关联，
-                    例如,假如z()在Point虚函数表中的索引值为2，那么在Point3d虚函数表中的索引值也为2
+                    每一个虚函数都被指派一个固定的索引值，这个索引值在整个继承
+                    体系中保持前后关联，例如，假如 z() 在 Point 虚函数表中的索
+                    引值为 2，那么在 Point3d 虚函数表中的索引值也为 2。
 
                     ```cpp
                     // 基类 Point
@@ -6077,25 +6093,27 @@ C++ 简介 | Intro
                     `ptr+*ptr->vptr.offset` 来获得指向对象完整的起点。这种方法的缺点显
                     而易见，代价过大了一点，所有的情况都被这一种占比较小的情况拖累。
 
-                    还有一种叫做thunk的方法，thunk的作用在于:
+                    还有一种叫做 thunk 的方法，thunk 的作用在于:
 
-                    -   以适当的offset值来this调整指针.
+                    -   以适当的 offset 值来 this 调整指针.
                     -   跳到虚函数中去。
 
-                    多继承下的虚函数，影响到虚函数的调用的实际质上为this的调整。而this调整一般为两种：
+                    多继承下的虚函数，影响到虚函数的调用的实际质上为 this 的调整。
+                    而 this 调整一般为两种：
 
-                    -   调整指针指向对应的subobject，一般发生在继承类类型指针向基类类型
+                    -   调整指针指向对应的 subobject，一般发生在继承类类型指针向基类类型
                         指针赋值的情况下。
-                    -   将指向subobject的指针调整回继承类对象的起始点，一般发生在基类指
+                    -   将指向 subobject 的指针调整回继承类对象的起始点，一般发生在基类指
                         针对继承类虚函数进行调用的时候。
 
-                    还有别忘了，vptr也可以看做一个数据成员，要找到虚函数，前提是获取正确的vptr偏移量。
+                    还有别忘了，vptr 也可以看做一个数据成员，要找到虚函数，前提
+                    是获取正确的 vptr 偏移量。
 
                 虚拟继承下的虚函数 -<
 
-                :   Lippman说，如果一个虚基类派生自另一虚基类，而且它们都支持虚函数和非
+                :   Lippman 说，如果一个虚基类派生自另一虚基类，而且它们都支持虚函数和非
                     静态数据成员的时候，编译器对虚基类的支持就像迷宫一样复杂。其实我原
-                    想告诉他，我是怀着一颗勇士之心而来的 :你说呢:？。
+                    想告诉他，我是怀着一颗勇士之心而来的 : 你说呢:？。
 
         第 5 章 构造、解构、拷贝 语意学（Semantics of Construction，Destruction，and Copy） -<
 
@@ -6105,7 +6123,7 @@ C++ 简介 | Intro
 
             构造、复制、析构语意学
 
-            :   。。。
+            :   TODO
 
         第 6 章 执行期语意学（Runtime Semantics）
 
@@ -6113,15 +6131,15 @@ C++ 简介 | Intro
 
         refs and see also
 
-        -   [《深度探索C++对象模型》笔记汇总](http://www.roading.org/develop/cpp/%e3%80%8a%e6%b7%b1%e5%ba%a6%e6%8e%a2%e7%b4%a2c%e5%af%b9%e8%b1%a1%e6%a8%a1%e5%9e%8b%e3%80%8b%e7%ac%94%e8%ae%b0%e6%b1%87%e6%80%bb.html)
-        -   [C++之虚函数(Virtual Member Functions)](http://www.roading.org/develop/cpp/c%E4%B9%8B%E8%99%9A%E5%87%BD%E6%95%B0virtual-member-functions.html)
+        -   [《深度探索 C++ 对象模型》笔记汇总](http://www.roading.org/develop/cpp/%e3%80%8a%e6%b7%b1%e5%ba%a6%e6%8e%a2%e7%b4%a2c%e5%af%b9%e8%b1%a1%e6%a8%a1%e5%9e%8b%e3%80%8b%e7%ac%94%e8%ae%b0%e6%b1%87%e6%80%bb.html)
+        -   [C++ 之虚函数 (Virtual Member Functions)](http://www.roading.org/develop/cpp/c%E4%B9%8B%E8%99%9A%E5%87%BD%E6%95%B0virtual-member-functions.html)
 
 -   CSAPP :hearts: -<
 
-    :   重点推荐第3章“程序的机器级表示”、第5章“优化程序性能”、第6章“存储器层次
-        结构”、第10章“虚拟存储器”。觉得这四章乃是全书之精华，看得人欲罢不能。
+    :   重点推荐第 3 章“程序的机器级表示”、第 5 章“优化程序性能”、第 6 章“存储器层次
+        结构”、第 10 章“虚拟存储器”。觉得这四章乃是全书之精华，看得人欲罢不能。
 
--   [《C语言接口与实现:创建可重用软件的技术》 David R. Hanson, 郭旭【摘要 书评 试读】图书](https://www.amazon.cn/gp/product/B005LAJ9F6/ref=as_li_ss_tl?ie=UTF8&camp=536&creative=3132&creativeASIN=B005LAJ9F6&linkCode=as2&tag=lucida-23)
+-   [《C 语言接口与实现: 创建可重用软件的技术》 David R. Hanson, 郭旭【摘要 书评 试读】图书](https://www.amazon.cn/gp/product/B005LAJ9F6/ref=as_li_ss_tl?ie=UTF8&camp=536&creative=3132&creativeASIN=B005LAJ9F6&linkCode=as2&tag=lucida-23)
 
 -   [Adoo's blog - Introduction to Algorithm -third edition](http://www.roading.org/category/introduction-to-algorithm-third-edition.html)
 
@@ -6134,9 +6152,9 @@ C++ 简介 | Intro
             (formula)、分布(distributions)，等等。另一个是算法的设计思想：贪婪、
             分治、动态规划、线性规划、局部搜索 (local search)，等等。这两条线索
             几乎是相互独立的：同一个离散对象，例如图，稍有不同的问题，例如
-            single-source shortest path和 all-pair shortest path，就可以用到不
-            同的设计思想，如贪婪和动态规划；而完全不同的离散对象上的问题，例如
-            排序和整数乘法，也许就会用到相同的思想，例如分治。
+            single-source shortest path和all-pair shortest path，就可以用到不同
+            的设计思想，如贪婪和动态规划；而完全不同的离散对象上的问题，例如排
+            序和整数乘法，也许就会用到相同的思想，例如分治。
 
 -   《The Algorithm Design Manual》 -<
 
@@ -6159,11 +6177,11 @@ C++ 简介 | Intro
 
             C++?
 
-            -   3. 用于**修饰 class 的数据成员,即所谓“静态成员”**。class varible vs
-                instance variable
-            -   4. 用于**修饰 class 的成员函数,即所谓“静态成员函数”**。这种成员函数
-                只能访问 class variable 和其他静态程序函数,不能访问 instance
-                variable 或 instance method。
+            -   3. 用于**修饰 class 的数据成员,即所谓“静态成员”**。class
+                varible vs instance variable
+            -   4. 用于**修饰 class 的成员函数，即所谓“静态成员函数”**。这种成员
+                函数只能访问 class variable 和其他静态程序函数，不能访问
+                instance variable 或 instance method。
 
             在 C++ 里不必使用文件级的 static 关键字,我们可以用匿名 namespace 达到相同的效果。
 
@@ -6171,24 +6189,25 @@ C++ 简介 | Intro
 
         2）不要重载全局 `::operator new()` -<
 
-        :   如果只考虑分配和释放,内存管理基本要求是“不重不漏”:既不重复 delete,
-            也不漏掉 delete。也就说我们常说的 new/delete 要配对,“配对”不仅是个
-            数相等,还隐含了 new 和 delete 的调用本身要匹配,不要“东家借的东西西
-            家还”
+        :   如果只考虑分配和释放，内存管理基本要求是“不重不漏”:既不重复 delete，
+            也不漏掉 delete。也就说我们常说的 new/delete 要配对，“配对”不仅是个
+            数相等，还隐含了 new 和 delete 的调用本身要匹配，不要“东家借的东西
+            西家还”
 
             -   malloc -> free
             -   new -> delete
             -   new[] -> delete[]
             -   ::operator new() -> ::operator delete()
 
-            这可以归结为最小惊讶原则:如果我在代码里读到 `Node* p = new Node`, 我会
-            认为它在 heap 上分配了内存,如果 Node class 重载了 member `::operator new()`,
-            那么我要事先仔细阅读 node.h 才能发现其实这行代码使用了私有的内存池。为什
-            么不写得明确一点呢?写成 **`Node* p = NodeFactory::createNode()`{.cpp}**,那么我能猜到
-            NodeFactory::createNode() 肯定做了什么与 new Node 不一样的事情,免得将来大
-            吃一惊。
+            这可以归结为最小惊讶原则:如果我在代码里读到 `Node* p = new Node`，
+            我会认为它在 heap 上分配了内存，如果 Node class 重载了 member
+            `::operator new()`，那么我要事先仔细阅读 node.h 才能发现其实这行代
+            码使用了私有的内存池。为什么不写得明确一点呢?写成 **`Node* p =
+            NodeFactory::createNode()`{.cpp}**，那么我能猜到
+            NodeFactory::createNode() 肯定做了什么与 new Node 不一样的事情，免
+            得将来大吃一惊。
 
-            The Zen of Python 说 **explicit is better than implicit**, 我深信不疑。
+            The Zen of Python 说 **explicit is better than implicit**，我深信不疑。
 
         11）iostream 的用途与局限 -<
 
@@ -6231,10 +6250,10 @@ C++ 简介 | Intro
 
         :   -   什么是值语义-<
 
-                :   **值语义 (value semantics)** 指的是对象的拷贝与原对象无关, 就像拷贝
-                    int 一样。C++ 的内置类型 (bool/int/double/char) 都是值语义, 标准
-                    库里的 complex<> 、pair<>、vector<>、map<>、string 等等类型也都
-                    是值语意,**拷贝之后就与原对象脱离关系**。
+                :   **值语义 (value semantics)** 指的是对象的拷贝与原对象无关，
+                    就像拷贝 int 一样。C++ 的内置类型 (bool/int/double/char) 都
+                    是值语义，标准库里的 complex<> 、pair<>、vector<>、map<>、
+                    string 等等类型也都是值语意,**拷贝之后就与原对象脱离关系**。
 
                     [维基](https://en.m.wikipedia.org/wiki/Value_semantics) 上这么介绍的：
 
@@ -6248,52 +6267,53 @@ C++ 简介 | Intro
                     >   extensionality, definiteness, substitutivity of
                     >   identity, unfoldability, and referential transparency.
 
-                    与值语义对应的是“**对象语义 /object semantics**”, 或者叫做引用语义
-                    (reference semantics), 由于“引用”一词在 C++ 里有特殊含义, 所以我在
-                    本文中使用“对象语义”这个术语。对象语义指的是面向对象意义下的对
-                    象,【对象拷贝是禁止的】。例如 muduo 里的 Thread 是对象语义, 拷贝
-                    Thread 是无意义的, 也是被禁止的: 因为 Thread 代表线程, 拷贝一个
-                    Thread 对象并不能让系统增加一个一模一样的线程。
+                    与值语义对应的是“**对象语义 /object semantics**”，或者叫做
+                    引用语义(reference semantics)，由于“引用”一词在 C++ 里有特
+                    殊含义，所以我在本文中使用“对象语义”这个术语。对象语义指的
+                    是面向对象意义下的对象,【对象拷贝是禁止的】。例如 muduo 里
+                    的 Thread 是对象语义，拷贝Thread 是无意义的，也是被禁止的:
+                    因为 Thread 代表线程，拷贝一个Thread 对象并不能让系统增加一
+                    个一模一样的线程。
 
                     一些辨析：
 
                     -   值语义与 immutable 无关。C++ 中的值语义对象也可以是 mutable，比
                         如 complex<>、pair<>、vector<>、map<>、string 都是可以修改的。
 
-                    -   值语义的对象不一定是 POD, 例如 string 就不是 POD, 但它是值语义的。
+                    -   值语义的对象不一定是 POD，例如 string 就不是 POD，但它是值语义的。
 
-                    -   值语义的对象不一定小, 例如 vector<int> 的元素可多可少, 但它始终是
-                        值语义的。当然, 很多值语义的对象都是小的, 例如 complex<>、
+                    -   值语义的对象不一定小，例如 vector<int> 的元素可多可少，但它始终是
+                        值语义的。当然，很多值语义的对象都是小的，例如 complex<>、
                         muduo::Date、muduo:: Timestamp。
 
             -   值语义与生命期 -<
 
-                :   值语义的一个巨大好处是生命期管理很简单, 就跟 int 一样——你不
-                    需要操心 int 的生命期。值语义的对象要么是 **stack object**, 或者
-                    **【直接】作为其他 object 的成员**, 因此我们不用担心它的生命期 (一
-                    个函数使用自己 stack 上的对象, 一个成员函数使用自己的数据成
-                    员对象)。相反,**对象语义的 object 由于不能拷贝, 我们只能通
+                :   值语义的一个巨大好处是生命期管理很简单，就跟 int 一样——你不
+                    需要操心 int 的生命期。值语义的对象要么是 **stack object**，或者
+                    **【直接】作为其他 object 的成员**，因此我们不用担心它的生命期 (一
+                    个函数使用自己 stack 上的对象，一个成员函数使用自己的数据成
+                    员对象)。相反,**对象语义的 object 由于不能拷贝，我们只能通
                     过指针或引用来使用它。**
 
-                    一旦使用指针和引用来操作对象,**那么就要担心所指的对象是否已
-                    被释放**, 这一度是 C++ 程序 bug 的一大来源。此外, 由于 C++
-                    只能通过指针或引用来获得多态性, 那么在 C++ 里从事基于继承和
+                    一旦使用指针和引用来操作对象，**那么就要担心所指的对象是否已
+                    被释放**，这一度是 C++ 程序 bug 的一大来源。此外，由于 C++
+                    只能通过指针或引用来获得多态性，那么在 C++ 里从事基于继承和
                     多态的面向对象编程有其本质的困难——**【对象生命期管理 (资源管理)】**。
 
-                    我们可以借助 smart pointer 把对象语义转换为值语义, 从而轻松
-                    解决对象生命期: 让 Parent 持有 Child 的 smart pointer, 同时
-                    让 Child 持有 Parent 的 smart pointer, 这样始终引用对方的时
-                    候就不用担心出现空悬指针。当然, 其中一个smart pointer 应该
-                    是 weak reference, 否则会出现循环引用,导致内存泄漏。到底哪
-                    一个是 weak reference, 则取决于具体应用场景。
+                    我们可以借助 smart pointer 把对象语义转换为值语义，从而轻松
+                    解决对象生命期: 让 Parent 持有 Child 的 smart pointer，同时
+                    让 Child 持有 Parent 的 smart pointer，这样始终引用对方的时
+                    候就不用担心出现空悬指针。当然，其中一个smart pointer 应该
+                    是 weak reference，否则会出现循环引用,导致内存泄漏。到底哪
+                    一个是 weak reference，则取决于具体应用场景。
 
             -   值语义与标准库 -<
 
-                :   在现代 C++ 中, 一般不需要自己编写 copy constructor 或 copy assignment operator,
-                    因为只要每个数据成员都具有值语义的话, 编译器自动生成的
-                    member-wise copying&assigning 就能正常工作; 如果以
-                    `smart_ptr` 为成员来持有其他对象, 那么就能自动启用或禁用
-                    copying&assigning。
+                :   在现代 C++ 中，一般不需要自己编写 copy constructor 或
+                    copy assignment operator，因为只要每个数据成员都具有值语义的
+                    话，编译器自动生成的 member-wise copying&assigning 就能正常
+                    工作; 如果以`smart_ptr` 为成员来持有其他对象，那么就能自动
+                    启用或禁用 copying&assigning。
 
                     或者你自己写。
 
@@ -6304,8 +6324,8 @@ C++ 简介 | Intro
                     和 pass-by-const-reference 的取舍。**
                     在其他面向对象编程语言中,这都不需要费脑筋。
 
-                    值语义是 C++ 语言的三大约束之一,C++ 的设计初衷是让用户
-                    定义的类型(class) 能像内置类型 (int) 一样工作,具有同等
+                    值语义是 C++ 语言的三大约束之一，C++ 的设计初衷是让用户
+                    定义的类型(class) 能像内置类型 (int) 一样工作，具有同等
                     的地位。为此 C++ 做了以下设计(妥协):
 
                     -   class 的 layout 与 C struct 一样,没有额外的开销。定
@@ -6318,23 +6338,23 @@ C++ 简介 | Intro
                     -   class 可 以 在 stack 上 创 建,也 可 以 在 heap 上
                         创 建。因 为 int 可 以 是 stack variable。
 
-                    -   class 的数组就是一个个 class 对象挨着,没有额外的
+                    -   class 的数组就是一个个 class 对象挨着，没有额外的
                         indirection。因为 int 数组就是这样。
 
                     -   编译器会为 class 默认生成 copy constructor 和
                         assignment operator。其他语言没有 copy constructor
-                        一说,也不允许重载 assignment operator。C++ 的对象默
-                        认是可以拷贝的,这是一个尴尬的特性。
+                        一说，也不允许重载 assignment operator。C++ 的对象默
+                        认是可以拷贝的，这是一个尴尬的特性。
 
-                    -   当 class type 传入函数时,默认是 make a copy (除非参
+                    -   当 class type 传入函数时，默认是 make a copy (除非参
                         数声明为 reference)。
 
                         因为把 int 传入函数时是 make a copy。C++ 的“函数调
                         用”比其他语言复杂之处在于参数传递和返回值传递。C、
-                        Java等语言都是传值,简单地复制几个字节的内存就行了。
-                        但是 C++ 对象是值语义,如果以 pass-by-value 方式把对
-                        象传入函数,会涉及拷贝构造。代码里看到一句简单的函数
-                        调用,实际背后发生的可能是一长串对象构造操作,因此减
+                        Java 等语言都是传值，简单地复制几个字节的内存就行了。
+                        但是 C++ 对象是值语义，如果以 pass-by-value 方式把对
+                        象传入函数，会涉及拷贝构造。代码里看到一句简单的函数
+                        调用，实际背后发生的可能是一长串对象构造操作，因此减
                         少无谓的临时对象是 C++ 代码优化的关键之一。
 
                     -   当函数返回一个 class type 时,只能通过 make a
@@ -6346,7 +6366,7 @@ C++ 简介 | Intro
                         例 如 pair<complex<double>, size_t> 的 layout 就是
                         complex<double> 挨着 size_t。
 
-                    **这些设计带来了性能上的好处,原因是 memory locality。**
+                    **这些设计带来了性能上的好处，原因是 memory locality。**
 
                     测试了一个让我迷惑得地方 -<
 
@@ -6405,32 +6425,32 @@ C++ 简介 | Intro
 
                     三个常见编程範式是：
 
-                    -   (procedural, 程序模型)
-                    -   ADT 模型, data abstraction
+                    -   (procedural，程序模型)
+                    -   ADT 模型，data abstraction
                     -   object-based
-                    -   object-oriented, 面向对象模型
+                    -   object-oriented，面向对象模型
 
                     C++ is a general-purpose programming language with a
                     bias towards systems programming that
 
                     -   is a better C,
-                    -   supports data abstraction, （支持 ADT）
-                    -   supports object-oriented programming（支持封装、继承、多态）, and
+                    -   supports data abstraction，（支持 ADT）
+                    -   supports object-oriented programming（支持封装、继承、多态），and
                     -   supports generic programming.
 
                     那么到底什么是数据抽象?
 
-                    :   简单的说,数据抽象是用来描述 (抽象) 数据结构的。
+                    :   简单的说，数据抽象是用来描述 (抽象) 数据结构的。
 
                         数据抽象就是 ADT。一个 ADT 主要表现为它**支持的一些操作
-                        **,比方说 stack.push、stack.pop,这些操作应该具有明确的
-                        时间和空间复杂度。另外,一个 ADT 可以**隐藏其实现细节**,
-                        比方说 stack 既可以用动态数组实现,又可以用链表实现。
+                        **，比方说 stack.push、stack.pop，这些操作应该具有明确的
+                        时间和空间复杂度。另外，一个 ADT 可以**隐藏其实现细节**,
+                        比方说 stack 既可以用动态数组实现，又可以用链表实现。
 
-                    按照这个定义,数据抽象和基于对象 (object-based) 很像,那
-                    么它们的区别在哪里?语义不同。**ADT 通常是值语义,而
+                    按照这个定义，数据抽象和基于对象 (object-based) 很像，那
+                    么它们的区别在哪里? 语义不同。**ADT 通常是值语义，而
                     object-based 是对象语义。**(这两种语义的定义见前一节《什
-                    么是值语义》12.1)。ADT class 是可以拷贝的,拷贝之后的
+                    么是值语义》12.1)。ADT class 是可以拷贝的，拷贝之后的
                     instance 与原 instance 脱离关系。比方说
 
                     ```cpp
@@ -6444,13 +6464,13 @@ C++ 简介 | Intro
 
                     本文把 data abstraction、object-based、object-oriented 视为
                     三个编程范式。这种细致的分类或许有助于理解区分它们之间的差
-                    别。庸俗地讲, 面向对象 (object-oriented) 有三大特征: 封装、
-                    继承、多态。**而基于对象 (object-based) 则只有封装, 没有继
-                    承和多态, 即只有具体类, 没有抽象接口。**它们两个都是对象语
+                    别。庸俗地讲，面向对象 (object-oriented) 有三大特征: 封装、
+                    继承、多态。**而基于对象 (object-based) 则只有封装，没有继
+                    承和多态，即只有具体类，没有抽象接口。**它们两个都是对象语
                     义。
 
                     面向对象真正核心的思想是消息传递 (messaging)，“封装继承多态”
-                    只是表象。这一点孟岩 63 和王益 64 都有精彩的论述,陈硕不再赘
+                    只是表象。这一点孟岩 63 和王益 64 都有精彩的论述，陈硕不再赘
                     言。
 
                     [杂谈现代高级编程语言 | Yi Wang's Tech Notes](https://cxwangyi.wordpress.com/2011/06/19/%E6%9D%82%E8%B0%88%E7%8E%B0%E4%BB%A3%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/) -<
@@ -6539,14 +6559,14 @@ C++ 简介 | Intro
 
                     -   **支持数据聚合**
 
-                        数 据 聚 合 data aggregation, 或 者 value
-                        aggregates。 即 定 义 C- style struct,把有关数据放到同
+                        数 据 聚 合 data aggregation，或 者 value
+                        aggregates。 即 定 义 C- style struct，把有关数据放到同
                         一个 struct 里。
 
                     -   **全局函数与重载**
 
-                        C 语言可以定义全局函数,但是不能与已有的函数重名,也就没
-                        有重载。Java 没有全局函数,而且 Math class 是封闭的,并不
+                        C 语言可以定义全局函数，但是不能与已有的函数重名，也就没
+                        有重载。Java 没有全局函数，而且 Math class 是封闭的，并不
                         能往其中添加 sin(Complex)。
 
                     -   **成员函数与 private 数据**
@@ -6555,25 +6575,25 @@ C++ 简介 | Intro
 
                         copy control 是拷贝 `stack a; stack b = a;` 和赋值 `stack b; b = a;` 的合称。
 
-                        由于 C++ class 是值语义,copy control 是实现深拷贝的必要
-                        手段。而且 ADT 用到的资源只涉及动态分配的内存,所以深拷
-                        贝是可行的。相反,object-based 编程风格中的 class 往往代
-                        表某样真实的事物(Employee、Account、File 等等),深拷贝无
+                        由于 C++ class 是值语义，copy control 是实现深拷贝的必要
+                        手段。而且 ADT 用到的资源只涉及动态分配的内存，所以深拷
+                        贝是可行的。相反，object-based 编程风格中的 class 往往代
+                        表某样真实的事物 (Employee、Account、File 等等)，深拷贝无
                         意义。
 
-                        C 语言没有 copy control,也没有办法防止拷贝,一切要靠程序
-                        员自己小心在意。FILE* 可以随意拷贝,但是只要关闭其中一个
-                        copy,其他 copies 也都失效了,跟空悬指针一般。整个 C 语言
-                        对待资源(malloc 得到的内存,open() 打开的文件, socket()
-                        打开的连接)都是这样,用整数或指针来代表(即“句柄”)。而整
-                        数和指针类型的“句柄”是可以随意拷贝的,很容易就造成重复释
+                        C 语言没有 copy control，也没有办法防止拷贝，一切要靠程序
+                        员自己小心在意。`FILE *` 可以随意拷贝，但是只要关闭其中一个
+                        copy，其他 copies 也都失效了，跟空悬指针一般。整个 C 语言
+                        对待资源 (malloc 得到的内存，open() 打开的文件，socket()
+                        打开的连接) 都是这样，用整数或指针来代表 (即“句柄”)。而整
+                        数和指针类型的“句柄”是可以随意拷贝的，很容易就造成重复释
                         放、遗漏释放、使用已经释放的资源等等常见错误。这方面
-                        C++ 是一个显著的进步,boost::noncopyable 是boost 里最值
+                        C++ 是一个显著的进步，boost::noncopyable 是 boost 里最值
                         得推广的库。
 
                     -   操作符重载
 
-                        如果要写动态数组,我们希望能像使用内置数组一样使用它,比
+                        如果要写动态数组，我们希望能像使用内置数组一样使用它，比
                         如支持下标操作。C++ 可以重载 operator[] 来做到这一点。
 
                     -   效率无损
@@ -6582,19 +6602,19 @@ C++ 简介 | Intro
 
                     -   模板与泛型
 
-            >   数据抽象是 C++ 的重要抽象手段,适合封装“数据”,它的语义简单,容易
-            >   使用。数据抽象能简化代码书写,减少偶然错误。
+            >   数据抽象是 C++ 的重要抽象手段，适合封装“数据”，它的语义简单，容易
+            >   使用。数据抽象能简化代码书写，减少偶然错误。
 
         13）再探 std::string -<
 
-        :   std::string 有多种实现方式, 归纳起来有三类：
+        :   std::string 有多种实现方式，归纳起来有三类：
 
             -   无特殊处理 (eager copy) +<
 
                 实现上，通常是：
 
-                -   三个指针：start, finish, end_of_storage
-                -   一个指针，两个大小：start, size, capacity
+                -   三个指针：start，finish，end_of_storage
+                -   一个指针，两个大小：start，size，capacity
 
                     如果 size 用 int 表示，那么字符串容量在 2^^32^^-1 bytes =
                     2^^32-10-10-10^^ giga bytes。通常用不着，所以把他换成 short 可以节约空间。
@@ -6617,21 +6637,21 @@ C++ 简介 | Intro
                 };
                 ```
 
-                这种数据结构没啥好说的,在 64-bit 中似乎也没有优化空间。另外 COW
-                的操作复杂度不一定符合直觉,它拷贝字符串是 O(1) 时间,但是拷贝之
-                后的第一次operator[] 有可能是 O(N ) 时间。
+                这种数据结构没啥好说的，在 64-bit 中似乎也没有优化空间。另外 COW
+                的操作复杂度不一定符合直觉，它拷贝字符串是 O(1) 时间，但是拷贝之
+                后的第一次 operator[] 有可能是 O(N) 时间。
 
                 refs and see also
 
                 -   http://coolshell.cn/articles/1443.html
 
-            -   短字符串优化 (SSO),利用 string 对象本身的空间来存储短字符串，vc++ +<
+            -   短字符串优化 (SSO)，利用 string 对象本身的空间来存储短字符串，vc++ +<
 
                 :   这个设计就比较奇葩了。
 
-            C++03/98 标准没有规定 string 中的字符是连续存储的,但是《Generic
-            Programming and the STL》 的 作 者 Matthew Austern 指 出78 :现在所
-            有的 std::string 实现都是连续存储的,因此建议在新标准中明确规定下来。
+            C++03/98 标准没有规定 string 中的字符是连续存储的，但是《Generic
+            Programming and the STL》 的 作 者 Matthew Austern 指 出 78 : 现在所
+            有的 std::string 实现都是连续存储的，因此建议在新标准中明确规定下来。
 
         14）用 STL algorithm 秒杀几道算法面试题 -<
 
@@ -6854,18 +6874,18 @@ C++ 简介 | Intro
                 }
                 ```
 
-                类似的题目: 有 a、b 两个文件, 大小各是 100G 左右, 每行长度不超
-                过 1k, 这两个文件有少量 (几百个) 重复的行, 要求用一台 4G 内存的
-                机器找出这些重复行。解这道题目有两个方向, 一是 hash, 把 a、b 两
-                个文件按行的 hash 取模分成几百个小文件, 每个小文件都在 1G 以内,
-                然后对 a1、b1 求交集 c1, 对 a2、b2 求交集 c2, 这样就能在内存里
+                类似的题目: 有 a、b 两个文件，大小各是 100G 左右，每行长度不超
+                过 1k，这两个文件有少量 (几百个) 重复的行，要求用一台 4G 内存的
+                机器找出这些重复行。解这道题目有两个方向，一是 hash，把 a、b 两
+                个文件按行的 hash 取模分成几百个小文件，每个小文件都在 1G 以内,
+                然后对 a1、b1 求交集 c1，对 a2、b2 求交集 c2，这样就能在内存里
                 解决了。
 
-                第二个思路是外部排序, 但是跟前面完整的外部排序不同, 我们并不需
-                要得到 a’、b’ 两个已排序的文件再求交集, 只需要把 a 分块排序成
-                100 个小文件, 再把 b 分块排序成 100 个小文件, 剩下的工作就是一边
-                读这些小文件, 一边在内存中同时归并出 a’ 和 b’, 一边求出交集。内
-                存中的两个多路归并需要两个 heap, 分别对应 a 和 b 的小文件 s。
+                第二个思路是外部排序，但是跟前面完整的外部排序不同，我们并不需
+                要得到 a’、b’ 两个已排序的文件再求交集，只需要把 a 分块排序成
+                100 个小文件，再把 b 分块排序成 100 个小文件，剩下的工作就是一边
+                读这些小文件，一边在内存中同时归并出 a’ 和 b’，一边求出交集。内
+                存中的两个多路归并需要两个 heap，分别对应 a 和 b 的小文件 s。
 
             用 unique() 去除连续重复空白 -<
 
@@ -6920,9 +6940,9 @@ C++ 简介 | Intro
                 }
                 ```
 
-                复杂度是 O(N ) 时间 O(1) 空间。
+                复杂度是 O(N) 时间 O(1) 空间。
 
-                如果要顺序保持不变，可以用 `stable_partition()`，复杂度是 O(N ) 时间和 O(N ) 空间。
+                如果要顺序保持不变，可以用 `stable_partition()`，复杂度是 O(N) 时间和 O(N) 空间。
 
             用 lower_bound() 查找 IP 地址所属的城市 -<
 
@@ -6937,23 +6957,23 @@ C++ 简介 | Intro
 
             小结 :hearts: -<
 
-            :   另外, 面试题的目的可能就是让你动手实现一些 STL 算法, 例如求两个
+            :   另外，面试题的目的可能就是让你动手实现一些 STL 算法，例如求两个
                 有序集合的交集 (set_intersection)、洗牌 (random_shuffle) 等等
 
                 TODO!!!
 
-                我个人把 STL algorithm 分为三类, 面试时要求手写的往往是第二类算法。
+                我个人把 STL algorithm 分为三类，面试时要求手写的往往是第二类算法。
 
-                -   容易, 即闭着眼睛一想就知道是如何实现的, 自己手写一遍的难度跟
+                -   容易，即闭着眼睛一想就知道是如何实现的，自己手写一遍的难度跟
                     `strlen()` 和 `strcpy()` 差不多。这类算法基本上就是遍历一遍输入
-                    区间, 对每个元素做些判断或操作, 一个 for 循环就解决战斗。一半
-                    左右的 STL algorithm 属于此类, 例如 `for_each()`、`transform()`、
+                    区间，对每个元素做些判断或操作，一个 for 循环就解决战斗。一半
+                    左右的 STL algorithm 属于此类，例如 `for_each()`、`transform()`、
                     `accumulate()` 等等。
-                -   较难, 知道思路, 但是要写出正确的实现要考虑清楚各种**边界条件**。
+                -   较难，知道思路，但是要写出正确的实现要考虑清楚各种**边界条件**。
                     例如 merge()、unique()、remove()、random_shuffle()、
-                    partition()、lower_bound() 等等, 三成左右的 STL algorithm 属于此类。
-                -   难, 要在一个小时内写出正确的健壮的实现基本不现实, 例如 sort()、
-                    nth_element()、next_permutation()、inplace_merge() 等等, 约
+                    partition()、lower_bound() 等等，三成左右的 STL algorithm 属于此类。
+                -   难，要在一个小时内写出正确的健壮的实现基本不现实，例如 sort()、
+                    nth_element()、next_permutation()、inplace_merge() 等等，约
                     有两成 STL algorithm 属于此类。
 
         15）C++ 编译链接模型精要 :hearts: -<
@@ -6980,42 +7000,42 @@ C++ 简介 | Intro
                 foobar
                 ```
 
-            值得一提的是, 为了兼容 C 语言,C++ 付出了很大的代价。例如要**兼容 C
-            语言的隐式类型转换规则 (例如整数类型提升)**, 在让 C++ 的函数重载决
+            值得一提的是，为了兼容 C 语言,C++ 付出了很大的代价。例如要**兼容 C
+            语言的隐式类型转换规则 (例如整数类型提升)**，在让 C++ 的函数重载决
             议 (overload resolution) 规则无比复杂。另外 class 定义式后面那个分号
             也不晓得谋杀了多少初学者的时间。Bjarne Stroustrup 自己也说“**我又不是
-            不懂如何设计出比 C++ 更漂亮的语言。**”(由于 C 语言没函数重载, 也就不存
-            在重载决议, 所以隐式类型转换的危害没有体现在这一方面。)
+            不懂如何设计出比 C++ 更漂亮的语言。**”(由于 C 语言没函数重载，也就不存
+            在重载决议，所以隐式类型转换的危害没有体现在这一方面。)
 
-            **C++ 也继承了单遍编译。**在单遍编译时, 编译器只能根据目前看到的代码做
-            出决策, 读到后面的代码也不会影响前面做出的决定。这特别影响了名字查
+            **C++ 也继承了单遍编译。**在单遍编译时，编译器只能根据目前看到的代码做
+            出决策，读到后面的代码也不会影响前面做出的决定。这特别影响了名字查
             找 (name lookup) 和函数重载决议。C++ 编译器必须在内存中保存函数级的
-            语法树, 才能正确实施返回值优化 (RVO) 134 , 否则遇到 return 语句的时
+            语法树，才能正确实施返回值优化 (RVO) 134 ，否则遇到 return 语句的时
             候编译器无法判断被返回的这个对象是不是那个可以被优化的 named object
             135。其实由于 C++ 新增了不少语言特性,C++ 编译器并不能真正做到像 C
-            那样过眼即忘的单遍编译。但是 C++ 必须兼容 C 的语意, 因此编译器不得
-            不装得好像是单遍编译 (准确说是单遍 parse) 一样, 哪怕它内部是
+            那样过眼即忘的单遍编译。但是 C++ 必须兼容 C 的语意，因此编译器不得
+            不装得好像是单遍编译 (准确说是单遍 parse) 一样，哪怕它内部是
             multiple pass 的 136 。
 
-            这是 C++ 的一种典型缺陷,即一样东西区分声明和定义,代码放到不同的文件
-            中,这就有出现不一致的可能性。
+            这是 C++ 的一种典型缺陷，即一样东西区分声明和定义，代码放到不同的文件
+            中，这就有出现不一致的可能性。
 
-            对于 class Foo,以下几种使用不需要看见其完整定义:
+            对于 class Foo，以下几种使用不需要看见其完整定义:
 
-            -   定义或声明 Foo* 和 Foo&,包括用于函数参数、返回类型、局部变量、
+            -   定义或声明 Foo* 和 Foo&，包括用于函数参数、返回类型、局部变量、
                 类成员变量等等。这是因为 C++ 的内存模型是 flat 的,Foo 的定义无
                 法改变 Foo 的指针或引用的含义。
-            -   声明一个以 Foo 为参数或返回类型的函数,如 Foo bar() 或 void
-                bar(Foo f),但是,如果代码里调用这个函数就需要知道 Foo 的定义,因
-                为编译器要使用 Foo的拷贝构造函数和析构函数,因此至少要看到它们的
-                声明(虽然构造函数没有参数,但是有可能位于 private 区)。
+            -   声明一个以 Foo 为参数或返回类型的函数，如 Foo bar() 或 void
+                bar(Foo f)，但是，如果代码里调用这个函数就需要知道 Foo 的定义，因
+                为编译器要使用 Foo 的拷贝构造函数和析构函数，因此至少要看到它们的
+                声明 (虽然构造函数没有参数，但是有可能位于 private 区)。
 
-            muduo 代码中大量使用前向声明来减少 include,并且避免把内部 class 的
+            muduo 代码中大量使用前向声明来减少 include，并且避免把内部 class 的
             定义暴露给用户代码。
 
-            如何判断一个 C++ 可执行文件是 debug build 还是 release build?换言之
-            ,如何判断一个可执行文件是 -O0 编译还是 -O2 编译?我通常的做法是看
-            class template 的短成员函数有没有被 inline 展开：
+            如何判断一个 C++ 可执行文件是 debug build 还是 release build? 换言
+            之，如何判断一个可执行文件是 -O0 编译还是 -O2 编译? 我通常的做法是
+            看 class template 的短成员函数有没有被 inline 展开：
 
             ```bash
             $ cat vec.cc
@@ -7039,18 +7059,18 @@ C++ 简介 | Intro
             // 没有输出,因为 vector<int>::size() 被 inline 展开了
             ```
 
-            在现在的 C++ 实现中,虚函数的动态调用(动态绑定、运行期决议)是透过虚
-            函数表 (vtable) 进行的,每个多态 class 都应该有一份 vtable。定义或继
-            承了虚函数的对象中会有一个隐含成员:指向 vtable 的指针,即 vptr。在构
-            造和析构对象的时候,编译器生成的代码会修改这个 vptr 成员,这就要用到
-            vtable 的定义(使用其地址)。
+            在现在的 C++ 实现中，虚函数的动态调用 (动态绑定、运行期决议) 是透过虚
+            函数表 (vtable) 进行的，每个多态 class 都应该有一份 vtable。定义或继
+            承了虚函数的对象中会有一个隐含成员: 指向 vtable 的指针，即 vptr。在构
+            造和析构对象的时候，编译器生成的代码会修改这个 vptr 成员，这就要用到
+            vtable 的定义 (使用其地址)。
 
-            总结:由于 C++ 的头文件与源文件分离,并且目标文件里没有足够的元数据供
-            编译器使用,因此必须同时提供库文件和头文件。也就是说要想使用一个已经
-            编译好的 C/C++ 库(无论是静态库还是动态库) ,我们需要两样东西,一是头
-            文件 (.h),二是库文件 (.a 或.so),这就存在了两样东西不匹配的可能。这
+            总结: 由于 C++ 的头文件与源文件分离，并且目标文件里没有足够的元数据供
+            编译器使用，因此必须同时提供库文件和头文件。也就是说要想使用一个已经
+            编译好的 C/C++ 库 (无论是静态库还是动态库) ，我们需要两样东西，一是头
+            文件 (.h)，二是库文件 (.a 或.so)，这就存在了两样东西不匹配的可能。这
             是造就 C++ 简陋脆弱的模块机制的根本原因。C++ 库之间的依赖管理远比其
-            他现代语言复杂,在编写程序库和应用程序时,要熟悉各种机制的优缺点,采用
+            他现代语言复杂，在编写程序库和应用程序时，要熟悉各种机制的优缺点，采用
             开发及维护成本较低的方式来组织和发布库。
 
         16）Zero overhead 原则 -<
@@ -7060,20 +7080,20 @@ C++ 简介 | Intro
 
         Points -<
 
-        :   -   为什么 C++ 要引入 static_cast 之类的转型操作符,原因之一就是像
-                (int*) pBuffer 这样的表达式基本上没办法用 grep 判断出它是个强制
-                类型转换,写不出一个刚好只匹配类型转换的正则表达式。(again,语法
-                是上下文无关的,无法用正则搞定。)
-            -   那么为什么 C 语言从诞生到现在一直没有纠正这个小小的缺陷?比方说
-                把 O_RDONLY, O_WRONLY, O_RDWR 分别定义为 1, 2, 3,这样 O_RDONLY
-                | O_WRONLY == O_RDWR, **符合直觉**。而且这三个值都是宏定义,也不需要
-                修改现有的源代码,只需要改改系统的头文件就行了。
+        :   -   为什么 C++ 要引入 static_cast 之类的转型操作符，原因之一就是像
+                `(int*) pBuffer` 这样的表达式基本上没办法用 grep 判断出它是个强制
+                类型转换，写不出一个刚好只匹配类型转换的正则表达式。(again，语法
+                是上下文无关的，无法用正则搞定。)
+            -   那么为什么 C 语言从诞生到现在一直没有纠正这个小小的缺陷? 比方说
+                把 O_RDONLY，O_WRONLY，O_RDWR 分别定义为 1，2，3，这样
+                `O_RDONLY | O_WRONLY == O_RDWR`，**符合直觉**。而且这三个值都是宏定义，也不需要
+                修改现有的源代码，只需要改改系统的头文件就行了。
 
                 【A: 因为这么做会破坏二进制兼容性。】
 
             -   C++ ABI 的主要内容:
                 -   函数参数传递的方式,比如 x86-64 用寄存器来传函数的前 4 个整数参数
-                -   虚函数的调用方式,通常是 vptr/vtbl 然后用 vtbl[offset] 来调用
+                -   虚函数的调用方式,通常是 vptr/vtbl 然后用 `vtbl[offset]` 来调用
                 -   struct 和 class 的内存布局,通过偏移量来访问数据成员
                 -   name mangling
                 -   RTTI 和异常处理的实现(以下本文不考虑异常处理)
@@ -7147,7 +7167,7 @@ C++ 简介 | Intro
                         }
                         ```
 
-                        为什么不能写成很多行（有多个 statements（`;`分隔））？这里有解释：
+                        为什么不能写成很多行（有多个 statements（`;` 分隔））？这里有解释：
                         [c++ - Why is it ill-formed to have multi-line constexpr functions? - Stack Overflow](http://stackoverflow.com/questions/3226211/why-is-it-ill-formed-to-have-multi-line-constexpr-functions)。
 
                         ```cpp
@@ -7472,24 +7492,7 @@ C++ 简介 | Intro
 -   [Here be dragons: advances in problems you didn’t even know you had | teideal glic deisbhéalach](http://www.serpentine.com/blog/2011/06/29/here-be-dragons-advances-in-problems-you-didnt-even-know-you-had/)
 -   [function/bind的救赎（上） - 孟岩 - 博客频道 - CSDN.NET](http://blog.csdn.net/myan/article/details/5928531)
 
--   虚基类????
-
--   http://en.wikipedia.org/wiki/Return_value_optimization
-
--   如果用 C++ 实现 BigInteger
-
-    ```cpp
-    BigInteger factorial(int n)
-    {
-        BigInteger result(1);
-        for (int i = 1; i <= n; ++i) {
-            result *= i;
-        }
-    return result;
-    }
-    ```
-
--   snippets
+-   snippets -<
 
     :   ```cpp
         std::srand(time(NULL));
@@ -7522,34 +7525,12 @@ C++ 简介 | Intro
 
     :   -   [两条像面试用的编程问题，和我的囧事 - Milo Yip - 博客园](http://www.cnblogs.com/miloyip/archive/2010/03/04/1677902.html)
 
-            :   -   设计一个函数f, 使得它满足：f(f(x))=-x，这里输入参数为32位整型
-                -   设计一个函数g, 满足：g(g(x))=1/x, x是浮点数
-
+            :   -   设计一个函数 f，使得它满足：f(f(x))=-x，这里输入参数为 32 位整型
+                -   设计一个函数 g，满足：g(g(x))=1/x，x 是浮点数
 
 -   [Const Correctness, C++ FAQ](https://isocpp.org/wiki/faq/const-correctness#constptrptr-conversion)
 
-class 的虚函数表被破坏是不可能的，因为这个 vtable 是放在 rodata 区，是只读的。修改 vtable 会导致 segment fault，这样拿 coredump 一看就知道哪条语句在干坏事。
-class object 里的 vptr 被修改倒是有可能。
-
-Some Useful Code Tips
-
--   多加 assert，避免未期望的行为逃逸
--  避免原生的 new 与 delete，使用智能指针
--   忘记 C 的编码方式，使用 C++
-
-明白异常的开销，若不会发生异常，加上noexcept
-
-为你的类加入move构造函数与move赋值操作符
-
-指针是编译器优化的“万恶之源”，使用restrict考虑帮
-
-助编译器做Pointer Alias优化
-
-[为什么 bs 虚函数表的地址 `(int*)(&bs)` 与虚函数地址 `(int*)*(int*)(&bs)` 不是同一个？ - 知乎](https://www.zhihu.com/question/27459122)
-
-[一道阿里实习生笔试题的疑惑？ - RednaxelaFX 的回答 - 知乎](https://www.zhihu.com/question/29256578/answer/43725188)
-
-[Hackbuteer1的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/hackbuteer1)
+-   [Hackbuteer1的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/hackbuteer1)
 
 -   [AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/) -<
 
@@ -7603,7 +7584,9 @@ Some Useful Code Tips
 
                 ![](http://images.cnitblog.com/blog/300640/201304/18155235-b272cc444a1845d3aede4c72a87f83dc.jpg)
 
-                经过 (xi, f(xi)) 这个点的切线方程为 f(x) = f(xi) + f’(xi)(x - xi)，其中 f'(x) 为 f(x) 的导数，本题中为 2x。令切线方程等于 0，即可求出 x_{i+1}=xi - f(xi) / f'(xi)。
+                经过 (xi，f(xi)) 这个点的切线方程为 f(x) = f(xi) + f’(xi)(x - xi)，
+                其中 f'(x) 为 f(x) 的导数，本题中为 2x。令切线方程等于 0，
+                即可求出 x_{i+1}=xi - f(xi) / f'(xi)。
 
                 继续化简，x{i+1}=xi - (xi2 - n) / (2xi) = xi - xi / 2 + n / (2xi) = xi / 2 + n / 2xi = (xi + n/xi) / 2。
 
@@ -7673,25 +7656,27 @@ Some Useful Code Tips
         });
         ```
 
-        除 value 和 this 外，引用传递。计算得到 total 的值。只能抓取闭包中的非静态
-        函数，lambda 和创建它的时候具有相同的存取权限,不管是否 protected/private 成
-        员。
+        除 value 和 this 外，引用传递。计算得到 total 的值。只能抓取闭包中的非
+        静态函数，lambda 和创建它的时候具有相同的存取权限，不管是否
+        protected/private 成员。
 
-        这篇文章是我从[Move semantics and rvalue references in
+        这篇文章是我从 [Move semantics and rvalue references in
         C++11](http://www.cprogramming.com/c++11/rvalue-references-and-move-semantics-in-c++11.html)
-        翻译而来的。值得一提的是，不是全文/原文逐字逐句的翻译，加了一些我个人的理解
-        ，并进行了一定的精简。
+        翻译而来的。值得一提的是，不是全文 / 原文逐字逐句的翻译，加了一些我个人
+        的理解，并进行了一定的精简。
 
-        右值引用会和一个临时对象绑定。比如，在 C++11 之前，如果你有一个临时对象，你
-        可以用`regular`或者`lvalue reference` 去绑定它，但是仅仅是在`const`的情况下
-        ：
+        右值引用会和一个临时对象绑定。比如，在 C++11 之前，如果你有一个临时对象，
+        你可以用`regular`或者`lvalue reference` 去绑定它，但是仅仅是在`const`的
+        情况下：
 
+        ```cpp
         const string & name = get_name(); // ok
         string& name = get_name(); // NOT ok
+        ```
 
         在 C++11 中，右值引用允许你为右值绑定一个可变引用，但是不能是一个左值。换句
-        话说，右值引用可以检测到一个对象是不是临时对象。右值引用使用`&&`语法来声明
-        而不是`&`，可以是常量，也可以是非常量。和左值引用一样，尽管你很少见到一个常
+        话说，右值引用可以检测到一个对象是不是临时对象。右值引用使用 `&&` 语法来声明
+        而不是 `&`，可以是常量，也可以是非常量。和左值引用一样，尽管你很少见到一个常
         量右值引用。
 
         ```
@@ -7779,21 +7764,41 @@ Some Useful Code Tips
 
 -   MISC of MISC -<
 
-    :   问题在于Bear 和Raccoon 的基类构造函数都提供了一个带有显式实参集合的
-        ZooAnimal构造函数。更加糟糕的是，在我们的例子中，这个被用作科目名（name）的
-        实参不但不相同，而且对Panda 类无效。
+    :   问题在于 Bear 和 Raccoon 的基类构造函数都提供了一个带有显式实参集合的
+        ZooAnimal 构造函数。更加糟糕的是，在我们的例子中，这个被用作科目名（name）的
+        实参不但不相同，而且对 Panda 类无效。
 
-        在非虚拟派生中，派生类只能显式初始化其直接基类。例如，在ZooAnimal 的非虚拟
-        派生中，Panda 类不能在Panda 成员初始化表中直接调用ZooAnimal 的构造函数。然
-        而，在虚拟派生中，只有Panda 可以直接调用其ZooAnimal 虚拟基类的构造函数。
+        在非虚拟派生中，派生类只能显式初始化其直接基类。例如，在 ZooAnimal 的非虚拟
+        派生中，Panda 类不能在 Panda 成员初始化表中直接调用 ZooAnimal 的构造函数。然
+        而，在虚拟派生中，只有 Panda 可以直接调用其 ZooAnimal 虚拟基类的构造函数。
 
         虚拟基类的初始化变成了最终派生类的责任，这个最终派生类是由每个特定类对象的
         声明来决定的。
 
-        [关于C++中的虚拟继承的一些总结 - skiing_886的专栏 - 博客频道 -
-        CSDN.NET](http://blog.csdn.net/skiing_886/article/details/7933402)
+        [关于 C++ 中的虚拟继承的一些总结 - skiing_886 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/skiing_886/article/details/7933402)
 
-        [详解C++虚拟继承-iWonderLinux-ChinaUnix博
-        客](http://blog.chinaunix.net/uid-26722078-id-3484674.html)
+        [详解C++虚拟继承-iWonderLinux-ChinaUnix博客](http://blog.chinaunix.net/uid-26722078-id-3484674.html)
 
-memory locality
+        class 的虚函数表被破坏是不可能的，因为这个 vtable 是放在 rodata 区，是
+        只读的。修改 vtable 会导致 segment fault，这样拿 coredump 一看就知道哪
+        条语句在干坏事。
+
+        class object 里的 vptr 被修改倒是有可能。
+
+        Some Useful Code Tips
+
+        -   多加 assert，避免未期望的行为逃逸
+        -  避免原生的 new 与 delete，使用智能指针
+        -   忘记 C 的编码方式，使用 C++
+
+        明白异常的开销，若不会发生异常，加上 noexcept。
+
+        为你的类加入 move 构造函数与 move 赋值操作符
+
+        指针是编译器优化的“万恶之源”，使用 restrict 考虑帮助编译器做 Pointer Alias 优化。
+
+        [为什么 bs 虚函数表的地址 `(int*)(&bs)` 与虚函数地址 `(int*)*(int*)(&bs)` 不是同一个？ - 知乎](https://www.zhihu.com/question/27459122)
+
+        [一道阿里实习生笔试题的疑惑？ - RednaxelaFX 的回答 - 知乎](https://www.zhihu.com/question/29256578/answer/43725188)
+
+        memory locality
