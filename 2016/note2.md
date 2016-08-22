@@ -639,3 +639,17 @@ if a man is always political right:
     将来越来越多的人会发现，他们根本不可能找到工作。智力和体力两方面，机器都比
     人类能干。你要么比机器更能干，要么比机器更便宜，否则你怎么跟机器竞争工作岗
     位呢？
+
+[为什么美国中小学生学的数学比我们简单，美国人却还能做出超级牛的东西？ - 阿尔塔夏的回答 - 知乎](https://www.zhihu.com/question/20953633/answer/50573056)
+
+[为什么中国的游戏开发制作技术那么落后？ - 知乎](https://www.zhihu.com/question/20403852#answer-6783204)
+
+[为什么恐怖片里往往小孩子是让人觉得最恐怖的？ - 知乎](https://www.zhihu.com/question/19909627#answer-1329397)
+
+:   古龙在他的小说里曾经说过，江湖上最不能惹的便是老人、小孩和女人——他们既然敢
+    出来闯荡江湖，必有些过人的绝招。恐怖片里看似柔弱的女人和小孩也是如此：你完
+    全想不到他们会如何杀死你，你也完全不知道如何能逃脱死亡的命运。
+
+[Victor Diors Guo 答过的问题 - 知乎](https://www.zhihu.com/people/victor-diors-guo/answers?order_by=vote_num)
+
+[如何理解和避免「信息不对称」？ - 知乎](https://www.zhihu.com/question/24709876#answer-6863219)
