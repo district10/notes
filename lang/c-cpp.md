@@ -954,7 +954,7 @@ C++ 简介 | Intro
         -   [Range-based for loop (since C++11) - cppreference.com](http://en.cppreference.com/w/cpp/language/range-for)
         -   [std::for_each - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/for_each)
 
--   std::min, std::max, std::minmax -<
+-   std::min, std::max, std::minmax, std::max_element -<
 
     :   ```cpp
         // misc
@@ -1004,10 +1004,37 @@ C++ 简介 | Intro
         */
         ```
 
+        max_element, returns a iterator!
+
+        ```cpp
+        #include <algorithm>        // max_element
+        #include <iostream>
+        #include <vector>
+        #include <cmath>
+
+        static bool abs_compare(int a, int b)
+        {
+            return (std::abs(a) < std::abs(b));
+        }
+
+        int main()
+        {
+            std::vector<int> v{ 3, 1, -14, 1, 5, 9 };
+            std::vector<int>::iterator result;
+
+            result = std::max_element(v.begin(), v.end());
+            std::cout << "max element at: " << std::distance(v.begin(), result) << '\n';
+
+            result = std::max_element(v.begin(), v.end(), abs_compare);
+            std::cout << "max element (absolute) at: " << std::distance(v.begin(), result);
+        }
+        ```
+
         refs and see also
 
         -   [std::max - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/max)
         -   [std::minmax - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/minmax)
+        -   [std::max_element - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/max_element)
 
 -   std::map -<
 
