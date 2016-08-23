@@ -6212,6 +6212,8 @@ C++ 简介 | Intro
     :   重点推荐第 3 章“程序的机器级表示”、第 5 章“优化程序性能”、第 6 章“存储器层次
         结构”、第 10 章“虚拟存储器”。觉得这四章乃是全书之精华，看得人欲罢不能。
 
+        [深入理解计算机系统（Computer Systems: A Programmer's Perspective）阅读体会 - _Luc_ - 博客园](http://www.cnblogs.com/figure9/archive/2010/04/10/1708942.html)
+
 -   [《C 语言接口与实现: 创建可重用软件的技术》 David R. Hanson, 郭旭【摘要 书评 试读】图书](https://www.amazon.cn/gp/product/B005LAJ9F6/ref=as_li_ss_tl?ie=UTF8&camp=536&creative=3132&creativeASIN=B005LAJ9F6&linkCode=as2&tag=lucida-23)
 
 -   [Adoo's blog - Introduction to Algorithm -third edition](http://www.roading.org/category/introduction-to-algorithm-third-edition.html)

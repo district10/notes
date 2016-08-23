@@ -905,3 +905,18 @@ MISC -<
 [如何评价阿里巴巴2016校园招聘名额缩减？ - 知乎](https://www.zhihu.com/question/35231944)
 
 [Google 和 Facebook 还来大陆招人么？是什么时间？和硅谷面试类型一样么？ - 知乎](https://www.zhihu.com/question/30337972){.heart .featured}
+
+[写给准备参加秋招的学弟学妹们~一定要来看哦~ - 671coder的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/liuqiyao_01/article/details/26567237)
+
+[面试体验：Google 篇 - Cat Chen - 博客园](http://www.cnblogs.com/cathsfz/archive/2012/08/08/google-interview-experience.html)
+
+[我的算法学习之路 - Lucida](http://lucida.me/blog/on-learning-algorithms/)
+
+[程序员英语学习指引 - _Luc_ - 博客园](http://www.cnblogs.com/figure9/p/english-for-programmers.html)
+
+[水木社区-校园招聘信息](http://www.newsmth.net/nForum/#!board/Career_Campus)
+
+-   [外企面试的时候英语自我介绍该说点什么？ - 知乎](https://www.zhihu.com/question/19666878)
+-   [怎样出色完成 1 分钟左右的英语自我介绍？ - 知乎](https://www.zhihu.com/question/22394845)
+-   [如何在面试中做好自我介绍？ - 知乎](https://www.zhihu.com/question/20055939)
+-   [面试时怎样自我介绍比较好？ - 知乎](https://www.zhihu.com/question/20602526)
