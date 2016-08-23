@@ -3813,53 +3813,6 @@ RS, WHU -<
 
     **妈的智障！**
 
-[deerchao的个人网站](http://deerchao.net/){.heart} -<
-
-:   ```tzx-bigquote
-    `^\w+` 匹配一行的第一个单词(或整个字符串的第一个单词，具体匹配哪个意思得看选项设置)
-
-    `<a[^>]+>` 匹配用尖括号括起来的以a开头的字符串。
-
-    `(?=exp)` 也叫**零宽度正预测先行断言**，它断言自身出现的位置的后面能匹配表
-    达式exp。比如 `\b\w+(?=ing\b)`，匹配以 ing 结尾的单词的前面部分(除了ing以外
-    的部分)，如查找 `I'm singing while you're dancing.` 时，它会匹配sing和danc。
-
-    (?<=exp)也叫零宽度正回顾后发断言，它断言自身出现的位置的前面能匹配表达式exp。
-    比如(?<=\bre)\w+\b会匹配以re开头的单词的后半部分(除了re以外的部分)，例如在
-    查找reading a book时，它匹配ading。
-
-    地球人，是不是觉得这些术语名称太复杂，太难记了？我也有同感。知道有这么一种
-    东西就行了，它叫什么，随它去吧！人若无名，便可专心练剑；物若无名，便可随意
-    取舍……
-
-    断言用来声明一个应该为真的事实。正则表达式中只有当断言为真时才会继续进行匹
-    配。
-
-    负向零宽断言
-
-    例如：\d{3}(?!\d)匹配三位数字，而且这三位数字的后面不能是数字；\b((?!abc)\w)+\b
-    匹配不包含连续字符串abc的单词。
-
-    为什么第一个匹配是aab（第一到第三个字符）而不是ab（第二到第三个字符）？简单地说
-    ，因为正则表达式有另一条规则，比懒惰／贪婪规则的优先级更高：最先开始的匹配拥有
-    最高的优先权——The match that begins earliest wins。
-    ```
-
-    平衡组/递归匹配
-
-    - url: `[a-zA-z]+://[^\s]*`
-    - qq: `[1-9]\d{4,}`
-    - htlm tag: `<(.*)(.*)>.*<\/\1>|<(.*) \/>`
-    - chinese: `[\u4e00-\u9fa5]`
-    - chinese chars and puncs: `[\u3000-\u301e\ufe10-\ufe19\ufe30-\ufe44\ufe50-\ufe6b\uff01-\uffee]`
-    - chinese id card: `\d{15}(\d\d[0-9xX])?`
-
-    refs and see also
-
-      - [正则表达式语言 - 快速参考](https://msdn.microsoft.com/zh-cn/library/az24scfc.aspx)
-      - [常用正则表达式](http://deerchao.net/tutorials/regex/common.htm)
-      - [2011年中国（大陆）行政区划表](http://deerchao.net/info/region/index.htm)
-
 [恶膜的奶爸的广播](https://www.douban.com/people/Q598176297/status/1821563751/) -<
 
 :   我生成了一分 txt 格式的（xml 导入失败了……）：

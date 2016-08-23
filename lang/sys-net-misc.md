@@ -9,41 +9,411 @@ System & Network & MISC
 
 ## Network
 
-## JiuZhang
-
--   [攻略：如何肉身翻墙到硅谷，享受百万年薪和加州阳光 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20853128?refer=jiuzhang)
-
--   [我为什么放弃 Google Offer ? - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20808820?refer=jiuzhang)
-
-    :   刷题方面，跟着九章课程的节奏来准备算法和数据结构的复习并配合 lintcode 来刷题就好啦。
-
--   [程序员不得不知道的技术面试资料大全 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20346972?refer=jiuzhang)
-
--   [16 个 behavior question 的面试官解析及 tips - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20346977?refer=jiuzhang){.heart}
-
--   [New Grad，如何应对今年的缩招 / 裁员？ - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20346989?refer=jiuzhang)
-
--   [技术简历的七要七不要 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20347597?refer=jiuzhang)
-
--   [系统设计面些啥？Palantir 面官教你如何准备系统设计面试！ - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20347666?refer=jiuzhang)
-
--   [找码工常见问题大合集 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20348354?refer=jiuzhang)
-
--   [北美 IT 企业 intern 薪资大曝光 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20408649?refer=jiuzhang)
-
--   [人家放假你也放假? 找工作误区一定要看！ - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20457307?refer=jiuzhang)
-
--   [2016 最佳 IT 雇主，哪家适合你？(上) - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20461457?refer=jiuzhang)
-
--   [知道 Airbnb/Uber, 却不知道这些公司，你 Out 了! - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20616546?refer=jiuzhang)
-
 ## MISC
 
-看你做什么了。花一天把 fork, exec, mknod, pipe, open, close, read, write,
-socket, bind, listen, accept, connect, epoll_*, signal, pthread_*,
-boost.coroutine 写点样例熟悉一遍，有病治病，没病强身。
+-   JiuZhang -<
 
--   [为什么函数调用要用栈实现？ - 知乎](https://www.zhihu.com/question/34499262)
+    :   -   [攻略：如何肉身翻墙到硅谷，享受百万年薪和加州阳光 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20853128?refer=jiuzhang)
+
+        -   [我为什么放弃 Google Offer ? - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20808820?refer=jiuzhang) -<
+
+            :   刷题方面，跟着九章课程的节奏来准备算法和数据结构的复习并配合 lintcode 来刷题就好啦。
+
+        -   [程序员不得不知道的技术面试资料大全 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20346972?refer=jiuzhang)
+
+        -   [16 个 behavior question 的面试官解析及 tips - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20346977?refer=jiuzhang){.heart}
+
+        -   [New Grad，如何应对今年的缩招 / 裁员？ - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20346989?refer=jiuzhang)
+
+        -   [技术简历的七要七不要 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20347597?refer=jiuzhang)
+
+        -   [系统设计面些啥？Palantir 面官教你如何准备系统设计面试！ - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20347666?refer=jiuzhang)
+
+        -   [找码工常见问题大合集 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20348354?refer=jiuzhang)
+
+        -   [北美 IT 企业 intern 薪资大曝光 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20408649?refer=jiuzhang)
+
+        -   [人家放假你也放假? 找工作误区一定要看！ - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20457307?refer=jiuzhang)
+
+        -   [2016 最佳 IT 雇主，哪家适合你？(上) - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20461457?refer=jiuzhang)
+
+        -   [知道 Airbnb/Uber, 却不知道这些公司，你 Out 了! - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20616546?refer=jiuzhang)
+
+-   有病治病，没病强身 -<
+
+    :   >   看你做什么了。花一天把 `fork`, `exec`, `mknod`, `pipe`, `open`, `close`, `read`, `write`,
+        >   `socket`, `bind`, `listen`, `accept`, `connect`, `epoll *`, `signal`, `pthread *`,
+        >   `boost.coroutine` 写点样例熟悉一遍，有病治病，没病强身。
+
+        fork - create a child process -<
+
+        :   man fork
+
+            ```cpp
+            #include <unistd.h>
+            pid_t fork(void);
+            ```
+
+            `fork()` creates  a new process by duplicating the calling process.
+            The new process, referred to as the child, is an exact duplicate of
+            the calling process, referred to as the parent, except for the following points:
+
+            -   The child has its own unique process ID, and this PID does not
+                match the ID of any existing process group.
+            -   The child's parent process ID is the same as the parent's process ID.
+            -   The child does not inherit its parent's memory locks.
+            -   Process resource utilizations and CPU time counters are reset to zero in the child.
+            -   The child's set of pending signals is initially empty.
+            -   The child does not inherit semaphore adjustments from its parent.
+            -   The child does not inherit record locks from its parent.
+            -   The child does not inherit timers from its parent.
+            -   The child does not inherit outstanding asynchronous I/O
+                operations from its parent, nor does it inherit any
+                asynchronous  I/O contexts from its parent
+
+        execl, execlp, execle, execv, execvp, execvpe - execute a file -<
+
+        :   man exec
+
+            ```cpp
+            #include <unistd.h>
+
+            extern char **environ;
+
+            int execl(const char *path, const char *arg, ...);
+            int execlp(const char *file, const char *arg, ...);
+            int execle(const char *path, const char *arg,
+                      ..., char * const envp[]);
+            int execv(const char *path, char *const argv[]);
+            int execvp(const char *file, char *const argv[]);
+            int execvpe(const char *file, char *const argv[],
+                       char *const envp[]);
+            ```
+
+            The  exec() family of functions replaces the current process image with a new
+            process image.  The functions described in this manual page are front-ends for
+            execve(2).  (See the manual page for execve(2) for further details about the
+            replacement of the current process image.)
+
+            The initial argument for these functions is the name of a file that is to be
+            executed.
+
+            The const char *arg and subsequent ellipses in the execl(), execlp(), and
+            execle() functions can be thought of as arg0,  arg1,  ...,  argn.   Together
+            they describe  a list of one or more pointers to null-terminated strings that
+            represent the argument list available to the executed program.  The first
+            argument, by convention, should point to the filename associated with the file
+            being executed.  The list of arguments must be terminated by a NULL pointer,
+            and, since these are variadic functions, this pointer must be cast (char *)
+            NULL.
+
+            The execv(), execvp(), and execvpe() functions provide an array of pointers to
+            null-terminated strings that represent the argument list available to the new
+            program.  The first argument, by convention, should point to the filename
+            associated with the file being executed.  The array of pointers must be
+            terminated by a NULL pointer.
+
+        mknod - create a special or ordinary file -<
+
+        :   man 2 mknod
+
+            ```cpp
+            #include <sys/types.h>
+            #include <sys/stat.h>
+            #include <fcntl.h>
+            #include <unistd.h>
+
+            int mknod(const char *pathname, mode_t mode, dev_t dev);
+            ```
+
+            The system call mknod() creates a filesystem node (file, device special
+            file or named pipe) named pathname, with attributes specified by mode and
+            dev.
+
+            The  mode  argument  specifies  both the permissions to use and the type of
+            node to be created.  It should be a combination (using bitwise OR) of one
+            of the file types listed below and the permissions for the new node.
+
+            The permissions are modified by the process's umask in the usual way: the
+            permissions of the created node are (mode & ~umask).
+
+            The file type must be one of S_IFREG, S_IFCHR, S_IFBLK, S_IFIFO or S_IFSOCK
+            to specify a regular file (which will be created empty), character special
+            file, block special file, FIFO (named pipe), or UNIX domain socket,
+            respectively.  (Zero file type is equivalent to type S_IFREG.)
+
+            If  the file type is S_IFCHR or S_IFBLK then dev specifies the major and
+            minor numbers of the newly created device special file (makedev(3) may be
+            useful to build the value for dev); otherwise it is ignored.
+
+            If pathname already exists, or is a symbolic link, this call fails with an
+            EEXIST error.
+
+            The newly created node will be owned by the effective user ID of the
+            process.  If the directory containing the node has the set-group-ID bit
+            set, or if  the filesystem  is  mounted with BSD group semantics, the new
+            node will inherit the group ownership from its parent directory; otherwise
+            it will be owned by the effective group ID of the process.
+
+        pipe, pipe2 - create pipe -<
+
+        :   man pipe
+
+            ```cpp
+            #include <unistd.h>
+
+            int pipe(int pipefd[2]);
+
+            #define _GNU_SOURCE             /* See feature_test_macros(7) */
+            #include <fcntl.h>              /* Obtain O_* constant definitions */
+            #include <unistd.h>
+
+            int pipe2(int pipefd[2], int flags);
+            ```
+
+            pipe()  creates a pipe, a unidirectional data channel that can be used for
+            interprocess communication.  The array pipefd is used to return two file
+            descrip‐tors referring to the ends of the pipe.  pipefd[0] refers to the read
+            end of the pipe.  pipefd[1] refers to the write end of the pipe.  Data written
+            to  the write end of the pipe is buffered by the kernel until it is read from
+            the read end of the pipe.  For further details, see pipe(7).
+
+            If flags is 0, then pipe2() is the same as pipe().  The following values can be bitwise ORed in flags to obtain different behavior:
+
+            O_NONBLOCK  Set  the  O_NONBLOCK  file status flag on the two new open file
+            descriptions.  Using this flag saves extra calls to fcntl(2) to achieve the
+            same result.
+
+            O_CLOEXEC   Set the close-on-exec (FD_CLOEXEC) flag on the two new file
+            descriptors.  See the description of the same flag in open(2) for reasons
+            why  this may be useful.
+
+            The  following program creates a pipe, and then fork(2)s to create a child
+            process; the child inherits a duplicate set of file descriptors that refer
+            to the same pipe.  After the fork(2), each process closes the descriptors
+            that it doesn't need for the pipe (see pipe(7)).  The parent then writes
+            the string  con‐tained in the program's command-line argument to the pipe,
+            and the child reads this string a byte at a time from the pipe and echoes
+            it on standard output.
+
+            ```cpp
+            #include <sys/wait.h>
+            #include <stdio.h>
+            #include <stdlib.h>
+            #include <unistd.h>
+            #include <string.h>
+
+            int
+            main(int argc, char *argv[])
+            {
+                int pipefd[2];
+                pid_t cpid;
+                char buf;
+
+                if (argc != 2) {
+                 fprintf(stderr, "Usage: %s <string>\n", argv[0]);
+                 exit(EXIT_FAILURE);
+                }
+
+                if (pipe(pipefd) == -1) {
+                    perror("pipe");
+                    exit(EXIT_FAILURE);
+                }
+
+                cpid = fork();
+                if (cpid == -1) {
+                    perror("fork");
+                    exit(EXIT_FAILURE);
+                }
+
+                cpid = fork();
+                if (cpid == -1) {
+                    perror("fork");
+                    exit(EXIT_FAILURE);
+                }
+
+                if (cpid == 0) {    /* Child reads from pipe */
+                    close(pipefd[1]);          /* Close unused write end */
+
+                    while (read(pipefd[0], &buf, 1) > 0)
+                        write(STDOUT_FILENO, &buf, 1);
+
+                    write(STDOUT_FILENO, "\n", 1);
+                    close(pipefd[0]);
+                    _exit(EXIT_SUCCESS);
+
+                } else {            /* Parent writes argv[1] to pipe */
+                    close(pipefd[0]);          /* Close unused read end */
+                    write(pipefd[1], argv[1], strlen(argv[1]));
+                    close(pipefd[1]);          /* Reader will see EOF */
+                    wait(NULL);                /* Wait for child */
+                    exit(EXIT_SUCCESS);
+                }
+            }
+            ```
+
+        open, creat - open and possibly create a file or device -<
+
+        :   man 2 open
+
+            ```cpp
+            #include <sys/types.h>
+            #include <sys/stat.h>
+            #include <fcntl.h>
+
+            int open(const char *pathname, int flags);
+            int open(const char *pathname, int flags, mode_t mode);
+            int creat(const char *pathname, mode_t mode);
+            ```
+
+            Given a pathname for a file, `open()` returns a **file descriptor**, a small,
+            nonnegative integer for use in subsequent system calls.  The file descriptor
+            returned by a successful call will be the lowest-numbered file descriptor not
+            currently open for the process.
+
+            By default, the new file descriptor is set to remain open across an execve(2)
+            (i.e., the FD_CLOEXEC file descriptor flag described in fcntl(2) is  initially
+            disabled; the O_CLOEXEC flag, described below, can be used to change this
+            default).  The file offset is set to the beginning of the file (see lseek(2)).
+
+            A call to open() creates a new open file description, an entry in the
+            system-wide table of open files.  This entry records the file offset and the
+            file sta‐tus flags (modifiable via the fcntl(2) F_SETFL operation).  A file
+            descriptor is a reference to one of these entries; this reference is unaffected
+            if  path‐name  is  subsequently  removed or modified to refer to a different
+            file.  The new open file description is initially not shared with any other
+            process, but sharing may arise via fork(2).
+
+            The argument flags must include one of the following access modes: `O_RDONLY`,
+            `O_WRONLY`, or `O_RDWR`.  These request opening the file read-only, write-only,
+            or read/write, respectively.
+
+            In  addition, zero or more file creation flags and file status flags can be
+            bitwise-or'd in flags.  The file creation flags are O_CLOEXEC, O_CREAT,
+            O_DIRECTORY, O_EXCL, O_NOCTTY, O_NOFOLLOW, O_TRUNC, and O_TTY_INIT.  The file
+            status flags are all of the remaining flags listed below.   The  distinction  between
+            these  two groups of flags is that the file status flags can be retrieved and
+            (in some cases) modified using fcntl(2).
+
+        close - close a file descriptor -<
+
+        :   man 2 close
+
+            ```cpp
+            #include <unistd.h>
+            int close(int fd);
+            ```
+
+            close()  closes a file descriptor, so that it no longer refers to any file
+            and may be reused.  Any record locks (see fcntl(2)) held on the file it was
+            asso‐ciated with, and owned by the process, are removed (regardless of the
+            file descriptor that was used to obtain the lock).
+
+            If fd is the last file descriptor referring to the underlying open file
+            description (see open(2)), the resources associated with the open  file
+            description are freed; if the descriptor was the last reference to a file
+            which has been removed using unlink(2) the file is deleted.
+
+            Not  checking  the  return value of close() is a common but nevertheless
+            serious programming error.  It is quite possible that errors on a previous
+            write(2) operation are first reported at the final close().  Not checking
+            the return value when closing the file may lead to silent loss of  data.
+            This can  espe‐cially be observed with NFS and with disk quota.
+
+            A  successful close does not guarantee that the data has been successfully
+            saved to disk, as the kernel defers writes.  It is not common for a
+            filesystem to flush the buffers when the stream is closed.  If you need to
+            be sure that the data is physically stored use fsync(2).  (It will depend
+            on the disk hardware at this point.)
+
+            It  is probably unwise to close file descriptors while they may be in use
+            by system calls in other threads in the same process.  Since a file
+            descriptor may be reused, there are some obscure race conditions that may
+            cause unintended side effects.
+
+-   [为什么函数调用要用栈实现？ - 知乎](https://www.zhihu.com/question/34499262) -<
+
+    :   函数调用通常过程是：
+
+        -   1，准备参数(计算参数，传参)
+        -   2，保存返回地址
+        -   3，控制转移至 callee
+        -   4，保存必要的 caller 现场
+
+        以上一些步骤之间的顺序是可变的，但理论上并没有哪个步骤是必须用栈来实现的
+
+        理论上如果有很多寄存器，我们完全可以抛弃栈，然而实际上我们并没有
+        所以从现实的角度来说，栈是一个适合的实现方法
+
+        ---
+
+        “调用栈”（call stack）既可以指具体实现，也可以指一种抽象概念——
+        **由“栈帧”（stack frame）或者叫“活动记录”（activation record）构成的栈**。
+
+        函数调用的局部状态之所以用栈来记录是因为这些数据的**存活时间满足“后入先出”（LIFO）顺序**，
+        而栈的基本操作正好就是支持这种顺序的访问。
+
+        举例说，假如有下面程序：
+
+        ```cpp
+        void a();
+
+        int main() {
+          a();
+          return 0;
+        }
+
+        void c() {      }
+        void b() { c(); }
+        void a() { b(); }
+        ```
+
+        那么整个程序的函数活动时间可以表示为：
+
+        ```
+         main()  a()  b()  c()
+           -                         main()
+           |
+           +>     -                    a()
+           .      |
+           .      +>   -                 b()
+           .      .    |
+           .      .    +>   -              c()
+           .      .    .    |
+           .      .    +   <-              return from c()
+           .      .    |
+           .      +   <-                 return from b()
+           .      |
+           +     <-                    return from a()
+           |
+           -                         return from main()
+        ```
+
+        可以看到，函数的调用有完美的嵌套关系——调用者的生命期总是长于被调用者的生命期，并且后者在前者的之内。
+
+        这样，被调用者的局部信息所占空间的分配总是后于调用者的（后入），而其释
+        放则总是先于调用者的（先出），所以正好可以满足栈的LIFO顺序，选用栈这种
+        数据结构来实现调用栈是一种很自然的选择。
+
+        扩展：顺着SICP的线索学下去可以看到函数调用的顺序虽然跟LIFO顺序一致，但
+        是调用者的栈帧并不一定要保留，在特殊情况下可以不保留调用者栈帧——尾调用
+        （tail call）的情况。关键点在于**调用者是否在一个函数调用之后还有待执行
+        的计算**。**如果没有了（这个函数调用是尾调用），那调用者的局部状态就没
+        有必要保留。**
+
+        ---
+
+        栈在这里可以有俩个理解,
+
+        1.  是数据结构栈, 从这个角度说, 是的, 函数调用基本都是使用栈, 原因就是函数调用的
+            LIFO特性, 你不用栈可以么, 当然可以, 你可以用list, 但用栈实现代价最小. 所以
+            ...这个上面的很多人也回答了.
+        2.  是绝大多数现代操作系统提供的栈(内存布局), 然而如果从这个角度来说, 那并不是
+            所有的函数调用都是使用它, 比如现在有的stackless language. 包括PHP也是自己申请堆
+            内存来实现函数调用层级关系, 但本质上他们只是没有使用操作系统提供的"栈", 而自己
+            在堆上申请内存, 实现数据结构的"栈"来完成函数调用, 这样能避免操作系统提供的栈有
+            大小限制(ulimit -s), 比如我们经常会看到的stack overflow(这里不仅仅是指上千的嵌
+            套调用), 方便实现同时有成百上千个子任务存在的语言.
 
 -   [为什么用od命令查看Java字节码不是大端存储？ - 知乎](https://www.zhihu.com/question/46978823) -<
 
@@ -109,4 +479,1275 @@ boost.coroutine 写点样例熟悉一遍，有病治病，没病强身。
         }
         ```
 
--   [堆、栈的地址高低？ 栈的增长方向？ - 知乎](https://www.zhihu.com/question/36103513)
+-   [堆、栈的地址高低？ 栈的增长方向？ - 知乎](https://www.zhihu.com/question/36103513) -<
+
+    :   进程地址空间的分布取决于操作系统，栈向什么方向增长取决于操作系统与CPU的组合。
+        不要把别的操作系统的实现方式套用到Windows上。
+
+        x86硬件直接支持的栈确实是“向下增长”的：push指令导致sp自减一个slot，pop指令导致sp自增一个slot。其它硬件有其它硬件的情况。
+
+        栈的增长方向与栈帧布局
+
+        :   这个上下文里说的“栈”是函数调用栈，是以“栈帧”（stack frame）为单位的。
+            每一次函数调用会在栈上分配一个新的栈帧，在这次函数调用结束时释放其空间。
+            被调用函数（callee）的栈帧相对调用函数（caller）的栈帧的位置反映了
+            栈的增长方向：如果被调用函数的栈帧比调用函数的在更低的地址，那么栈
+            就是向下增长；反之则是向上增长。
+
+            而在一个栈帧内，局部变量是如何分布到栈帧里的（所谓栈帧布局，stack
+            frame layout），这完全是编译器的自由。至于数组元素与栈的增长方向：C
+            与C++语言规范都规定了数组元素是分布在连续递增的地址上的。
+
+            C与C++语言的数组元素要分配在连续递增的地址上，也不反映栈的增长方向。
+
+        以简化的Linux/x86模型为例
+
+        :   在简化的32位Linux/x86进程地址空间模型里，（主线程的）栈空间确实比堆
+            空间的地址要高——它已经占据了用户态地址空间的最高可分配的区域，并且
+            向下（向低地址）增长。
+
+            ![](http://static.duartes.org/img/blogPosts/linuxFlexibleAddressSpaceLayout.png)
+
+        Tim Chen
+
+        1.  堆没有方向之说，每个堆都是散落的
+        2.  堆和栈之间没有谁地址高之说，看操作系统实现
+        3.  数组取下标偏移总是往上涨的，和在堆还是栈没啥关系
+
+        refs and see also
+
+        -   [Anatomy of a Program in Memory - Gustavo Duarte](http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory/)
+
+-   [字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html){.heart} -<
+
+    :   **ASCII, 0--127**
+
+        ![](http://whudoc.qiniudn.com/ascii.png)
+
+        ```
+        aqaq @ grave
+
+                                 +------------------------------------------+
+                                 |  SP      "               &   '   (   )   |
+                                 |  )   !   @   #   $   %   ^   &   *   (   |
+                                 |  0   1   2   3   4   5   6   7   8   9   |
+                                 +--|---------------------------------------+
+                                    |
+                                    |
+                                    |
+                                    |
+          NULL     DEL      SP     [0]      @       P       `       p           |   0
+                             !      1       A       Q       a       q           |   1
+                             "      2                                           |   2
+                             .      .                                           |   .
+        ------------------------------------------------------------------------+
+            0       1       2       3       4       5       6       7
+        ```
+
+        **Non-ASCII**
+
+        130 在法语编码中代表了 é，在希伯来语编码中却代表了字母 Gimel (ג)，在俄语编码
+        中又会代表另一个符号。但是不管怎样，所有这些编码方式中，0--127 表示的符号是
+        一样的，不一样的只是 128--255 的这一段。
+
+        中文编码的问题需要专文讨论，这篇笔记不涉及。这里只指出，虽然都是用多个字节
+        表示一个符号，但是 GB 类的汉字编码与后文的 Unicode 和 UTF-8 是毫无关系的。
+
+        **Unicode**
+
+        Unicode 当然是一个很大的集合，现在的规模可以容纳 100 多万个符号。每个符号的
+        编码都不一样，比如，U+0639 表示阿拉伯字母 Ain，U+0041 表示英语的大写字母 A，
+        U+4E25 表示汉字"严"。具体的符号对应表，可以查询 unicode.org，或者专门的汉字
+        对应表。
+
+        **UTF-8**
+
+        UTF-8 是 Unicode 的实现方式之一。UTF-8，UTF-16，UTF-32，etc。
+
+        ```
+        Unicode Range       |   UTF-8 Encoding
+        Hex                 |   Binary
+        --------------------+---------------------------------------------
+        0000 0000-0000 007F | 0xxxxxxx
+        0000 0080-0000 07FF | 110xxxxx 10xxxxxx
+        0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
+        0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
+        ```
+
+        `7F  ->  7FF -> FFFF, (1/2/4 F's)`{.featured}
+
+        很简单，**第一个字节**
+
+        0 开头的就是一个 ASCII 字符，0 前面有两个 1（即“110”）则为两个字节
+        的非 ASCII，三个 1，则三个字节的非 ASCII；四个则为四个字节的非 ASCII。
+
+        **第二个字节**
+
+        不是 ASCII，所以不是 0 开头。都以 10 开头。
+
+        不过阮一峰表达得很简洁！：
+
+
+        >   跟据上表，解读 UTF-8 编码非常简单。如果一个字节的第一位是 0，则这个字节
+        >   单独就是一个字符；如果第一位是 1，则连续有多少个 1，就表示当前字符占用
+        >   多少个字节。
+
+        已知"严"的 unicode 是 4E25（100111000100101），根据上表，可以发现 4E25 处在
+        第三行的范围内（0000 0800-0000 FFFF），因此"严"的 UTF-8 编码需要三个字节，
+        即格式是"1110xxxx 10xxxxxx 10xxxxxx"。然后，从"严"的最后一个二进制位开始，
+        依次从后向前填入格式中的 x，多出的位补 0。这样就得到了，"严"的 UTF-8 编码是
+        "11100100 10111000 10100101"，转换成十六进制就是 E4B8A5。
+
+        在 vim 中 `g8` 查看 utf-8 编码，发现“严”是 `e4 b8 a5`，用 `ga` 查看 unicode，
+        还会输出 Dec 值、Hex 值和 Octal 值。
+
+        **Little endian 和 Big endian**
+
+        以汉字"严"为例，Unicode 码是 4E25，需要用两个字节存储，一个字节是 4E，另一
+        个字节是 25。存储的时候，4E 在前，25 在后，就是 Big endian 方式；25 在前，
+        4E 在后，就是 Little endian 方式。
+
+        Unicode 规范中定义，每一个文件的最前面分别加入一个表示编码顺序的字符，这个
+        字符的名字叫做"零宽度非换行空格"（ZERO WIDTH NO-BREAK SPACE），用 FEFF 表示。
+        这正好是两个字节，而且 FF 比 FE 大 1。（增->大端，减->小端）
+
+        Byte Order Mark: BOM
+
+        The UTF-8 representation of the BOM is the byte sequence `0xEF,0xBB,0xBF`.
+
+        UTF-8 without BOM
+
+        :   The Internationally defined Standard ISO/IEC 10646, Universal Character Set
+            (UCS) know as UTF-8 (**Universal Character Set** + **Transformation
+            Format**—8-bit) is a variable-width encoding that can represent every character
+            in the Unicode character set. It was designed for backward
+            compatibility（后向兼容） with ASCII and to avoid the complications（ 并发症）
+            of endianness（字节顺序） and byte order marks in UTF-16 and UTF-32.
+
+            UTF-8 has become the dominant character encoding for the World Wide Web,
+            accounting for more than half of all Web pages. The Internet Mail Consortium
+            (IMC) recommends that all e-mail programs be able to display and create mail
+            using UTF-8. The W3C recommends UTF-8 as default encoding in their main
+            standards (XML and HTML).
+
+            The official IANA code for the UTF-8 character encoding is UTF-8.
+
+            The `UTF-8 BOM` is a sequence of bytes (EF BB BF) that allows the reader to
+            identify the file as an UTF-8 file.
+
+            Normally, the BOM is used to signal the endianness of the encoding, but since
+            endianness is irrelevant to UTF-8, the BOM is **unnecessary**.
+
+            According to the Unicode standard, the BOM for UTF-8 files is not recommended.
+
+            -   `the International Organization for Standardization` (ISO)
+            -   `the International Electrotechnical Commission` (IEC)
+            -   `Byte Order Mark` (BOM)
+            -   `Internet Assigned Numbers Authority` (IANA)  互联网号码分配局
+
+        refs and see also
+
+        -   [阮一峰：utf-8编码已经成为主流](http://www.ruanyifeng.com/blog/2008/05/growth_of_utf-8_on_the_web.html)
+
+-   [Hamming weight - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hamming_weight){.featured .heart} -<
+
+    :   说一个故事，四五年前我为面试出了一条笔试题目，恰巧和本书的题目 2.1 很相似，
+        计算一个无号整数 (我要求 32-bit，书中的是 8-bit) 在二进制中 1 的个数。当时
+        心想这个题目很简单吧，谁知有些应征者在这题上交白卷，更难找到一些能写到更优
+        化答案的人了，并以为自己做出的解法已经是最优。不过，几年后，我才知道原来这
+        个问题是有正式的学名，叫 Hamming Weight，除了有更快的算法外，在 SIMD 4.2 也
+        有指令去计算。当时就为自己的无知感到惭愧。
+
+        The Hamming weight of a string is **the number of symbols** that are different
+        from the zero-symbol of the alphabet used. It is thus equivalent to the
+        **Hamming distance** from the all-zero string of the same length. For the most
+        typical case, a string of bits, this is the number of 1's in the string. In
+        this binary case, it is also called the population count, popcount, or
+        sideways sum. It is the digit sum of the binary representation of a
+        given number and the ℓ₁ norm of a bit vector.
+
+        |   string     | Hamming weight |
+        | :------:     | :------------: |
+        | 11101        |    4           |
+        | 11101000     |    4           |
+        | 00000000     |    0           |
+        | 789012340567 |   10           |
+
+        The **population count of a bitstring** is often needed in cryptography and
+        other applications. The Hamming distance of two words A and B can be
+        calculated as the Hamming weight of **A xor B**.
+
+        The problem of how to implement it efficiently has been widely studied.
+        Some processors have a single command to calculate it (see below), and some
+        have parallel operations on bit vectors. For processors lacking those
+        features, the best solutions known are based on adding counts in a tree
+        pattern. For example, to count the number of 1 bits in the 16-bit binary
+        number a = `0110 1100 1011 1010`, these operations can be done:
+
+        ![](http://whudoc.qiniudn.com/2016/hamming-code.png)
+
+        Here, the operations are as in C, so `X >> Y` means to shift X right by Y
+        bits, `X & Y` means the bitwise AND of X and Y, and `+` is ordinary addition.
+        The best algorithms known for this problem are based on the concept
+        illustrated above and are given here:
+
+        ```cpp
+        //types and constants used in the functions below
+
+        const uint64_t m1  = 0x5555555555555555; //binary: 0101...
+        const uint64_t m2  = 0x3333333333333333; //binary: 00110011..
+        const uint64_t m4  = 0x0f0f0f0f0f0f0f0f; //binary:  4 zeros,  4 ones ...
+        const uint64_t m8  = 0x00ff00ff00ff00ff; //binary:  8 zeros,  8 ones ...
+        const uint64_t m16 = 0x0000ffff0000ffff; //binary: 16 zeros, 16 ones ...
+        const uint64_t m32 = 0x00000000ffffffff; //binary: 32 zeros, 32 ones
+        const uint64_t hff = 0xffffffffffffffff; //binary: all ones
+        const uint64_t h01 = 0x0101010101010101; //the sum of 256 to the power of 0,1,2,3...
+
+        //This is a naive implementation, shown for comparison,
+        //and to help in understanding the better functions.
+        //It uses 24 arithmetic operations (shift, add, and).
+        int popcount_1(uint64_t x) {
+            x = (x & m1 ) + ((x >>  1) & m1 ); //put count of each  2 bits into those  2 bits
+            x = (x & m2 ) + ((x >>  2) & m2 ); //put count of each  4 bits into those  4 bits
+            x = (x & m4 ) + ((x >>  4) & m4 ); //put count of each  8 bits into those  8 bits
+            x = (x & m8 ) + ((x >>  8) & m8 ); //put count of each 16 bits into those 16 bits
+            x = (x & m16) + ((x >> 16) & m16); //put count of each 32 bits into those 32 bits
+            x = (x & m32) + ((x >> 32) & m32); //put count of each 64 bits into those 64 bits
+            return x;
+        }
+
+        //This uses fewer arithmetic operations than any other known
+        //implementation on machines with slow multiplication.
+        //It uses 17 arithmetic operations.
+        int popcount_2(uint64_t x) {
+            x -= (x >> 1) & m1;             //put count of each 2 bits into those 2 bits
+            x = (x & m2) + ((x >> 2) & m2); //put count of each 4 bits into those 4 bits
+            x = (x + (x >> 4)) & m4;        //put count of each 8 bits into those 8 bits
+            x += x >>  8;  //put count of each 16 bits into their lowest 8 bits
+            x += x >> 16;  //put count of each 32 bits into their lowest 8 bits
+            x += x >> 32;  //put count of each 64 bits into their lowest 8 bits
+            return x & 0x7f;
+        }
+
+        //This uses fewer arithmetic operations than any other known
+        //implementation on machines with fast multiplication.
+        //It uses 12 arithmetic operations, one of which is a multiply.
+        int popcount_3(uint64_t x) {
+            x -= (x >> 1) & m1;             //put count of each 2 bits into those 2 bits
+            x = (x & m2) + ((x >> 2) & m2); //put count of each 4 bits into those 4 bits
+            x = (x + (x >> 4)) & m4;        //put count of each 8 bits into those 8 bits
+            return (x * h01)>>56;  //returns left 8 bits of x + (x<<8) + (x<<16) + (x<<24) + ...
+        }
+        ```
+
+        As Wegner (1960) described, the bitwise and of x with x − 1 differs from
+        x only in zeroing out the least significant nonzero bit: subtracting 1
+        changes the rightmost string of 0s to 1s, and changes the rightmost 1 to a
+        0. If x originally had n bits that were 1, then after only n iterations of
+        this operation, x will be reduced to zero. The following implementation is
+        based on this principle.
+
+        ```cpp
+        //This is better when most bits in x are 0
+        //It uses 3 arithmetic operations and one comparison/branch per "1" bit in x.
+        int popcount_4(uint64_t x) {
+            int count;
+            for (count=0; x; count++)
+                x &= x-1;
+            return count;
+        }
+        ```
+
+        <div class="tzx-drawer" shy>
+        我的测试
+
+        :   代码
+
+            :   ```cpp
+                #include <stdio.h>
+
+                int popcount_4(int x) {
+                    int count;
+                    for (count=0; x; count++)
+                        x &= x-1;
+                    return count;
+                }
+
+                int main(int argc, char **argv)
+                {
+                    int i = 0;
+
+                    scanf("%d", &i);
+                    do {
+                        printf("%d has %d '1's.\n", i, popcount_4(i));
+                    } while( 1 == scanf("%d", &i) );
+
+                    return 0;
+                }
+                ```
+
+            编译运行
+
+            :   ```bash
+                $ gcc main.c -o main.exe
+                $ echo 1 2 3 4 5 8 24 235265 | ./main.exe
+                1 has 1 '1's.
+                2 has 1 '1's.
+                3 has 2 '1's.
+                4 has 1 '1's.
+                5 has 2 '1's.
+                8 has 1 '1's.
+                24 has 2 '1's.
+                235265 has 8 '1's.
+                ```
+        </div>
+
+        If we are allowed greater memory usage, we can calculate the Hamming weight
+        faster than the above methods. With unlimited memory, we could simply
+        create a large **lookup table** of the Hamming weight of every 64 bit integer.
+        If we can store a lookup table of the hamming function of every 16 bit
+        integer, we can do the following to compute the Hamming weight of every 32
+        bit integer.
+
+        ```cpp
+        static uint8_t wordbits = {
+            /* bitcounts of integers 0 through 65535, inclusive */
+        };
+        static int popcount(uint32_t i)
+        {
+            return (wordbits[i&0xFFFF] + wordbits[i>>16]);
+        }
+        ```
+
+        refs and see also
+
+          - [迟来的书评和感想──给喜爱编程的朋友 (评论: 编程之美)](https://book.douban.com/review/3010762/)
+
+-   Dynamic cast -<
+
+    :   ~~~ {#line14551 .c}
+        // static_cast_Operator.cpp
+        // compile with: /LD
+        class B {};
+
+        class D : public B {};
+
+        void f(B* pb, D* pd) {
+           D* pd2 = static_cast<D*>(pb);   // Not safe, D can have fields
+                                           // and methods that are not in B.
+
+           B* pb2 = static_cast<B*>(pd);   // Safe conversion, D always
+                                           // contains all of B.
+        }
+
+        // static_cast_Operator_2.cpp
+        // compile with: /LD /GR
+        class B {
+        public:
+           virtual void Test(){}
+        };
+        class D : public B {};
+
+        void f(B* pb) {
+           D* pd1 = dynamic_cast<D*>(pb);
+           D* pd2 = static_cast<D*>(pb);
+        }
+
+        // static_cast_Operator_3.cpp
+        // compile with: /LD /GR
+        typedef unsigned char BYTE;
+
+        void f() {
+           char ch;
+           int i = 65;
+           float f = 2.5;
+           double dbl;
+
+           ch = static_cast<char>(i);   // int to char
+           dbl = static_cast<double>(f);   // float to double
+           i = static_cast<BYTE>(ch);
+        }
+
+        // dynamic_cast_1.cpp
+        // compile with: /c
+        class B { };
+        class C : public B { };
+        class D : public C { };
+
+        void f(D* pd) {
+           C* pc = dynamic_cast<C*>(pd);   // ok: C is a direct base class
+                                           // pc points to C subobject of pd
+           B* pb = dynamic_cast<B*>(pd);   // ok: B is an indirect base class
+                                           // pb points to B subobject of pd
+        }
+
+        // dynamic_cast_2.cpp
+        // compile with: /c /GR
+        class A {virtual void f();};
+        class B {virtual void f();};
+
+        void f() {
+           A* pa = new A;
+           B* pb = new B;
+           void* pv = dynamic_cast<void*>(pa);
+           // pv now points to an object of type A
+
+           pv = dynamic_cast<void*>(pb);
+           // pv now points to an object of type B
+        }
+
+        // dynamic_cast_3.cpp
+        // compile with: /c /GR
+        class B {virtual void f();};
+        class D : public B {virtual void f();};
+
+        void f() {
+           B* pb = new D;   // unclear but ok
+           B* pb2 = new B;
+
+           D* pd = dynamic_cast<D*>(pb);   // ok: pb actually points to a D
+           D* pd2 = dynamic_cast<D*>(pb2);   // pb2 points to a B not a D
+        }
+        ~~~
+
+        a **`type qualifier`** is not allowed on a static member function.
+
+-   [Good Old & Dirty printf() Debugging in a Non-console C/C++ Application or DLL - CodeProject](http://www.codeproject.com/Tips/227809/Good-old-dirty-printf-debugging-in-a-non-console-C){.featured .heart} -<
+
+    :   <http://www.cnblogs.com/xianqingzh/archive/2011/07/08/2101510.html>
+
+        [《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks){.featured .heart} -<
+
+        :   `freopen`{.c}
+
+            ```c
+            // like piping
+            freopen(in_path, "r", stdin);
+            freopen(out_path, "w", stdout);
+            freopen(err_path, "w", stderr);
+
+            // remember to close them:
+            fclose(stdin);
+            fclose(stdout);
+            fclose(stderr);
+            ```
+
+            Debugging PRINT
+
+            ```cpp
+            #ifdef _DEBUG
+            # define Debug(fmtstr, ...) printf(fmtstr, ##__VA_ARGS__)
+            #else
+            # define Debug(fmtstr, ...)
+            #endif
+            ```
+
+            **这是 `__VAR_ARGS__`，就连 Windows 也支持。**
+
+            还可参考：C is awesome -- function pointer stack
+
+            VARS
+
+            ANSI C 标准中有几个标准预定义宏（也是常用的）：
+
+            #. `__LINE__`：在源代码中插入当前源代码行号；
+            #. `__FILE__`：在源文件中插入当前源文件名；
+            #. `__DATE__`：在源文件中插入当前的编译日期
+            #. `__TIME__`：在源文件中插入当前编译时间；
+            #. `__STDC__`：当要求程序严格遵循ANSI C标准时该标识被赋值为1；
+            #. `__cplusplus`：当编写C++程序时该标识符被定义。
+
+            `#define KEYWORD` 还是 `#define KEY VALUE`？
+
+            有人喜欢这样：
+
+            ```cpp
+            #define DEBUG       //此时#ifdef DEBUG为真
+            //#define DEBUG 0  //此时为假
+            int main()
+            {
+               #ifdef DEBUG
+                  printf("Debugging\n");
+               #else
+                  printf("Not debugging\n");
+               #endif
+               printf("Running\n");
+               return 0;
+            }
+            ```
+
+            不过我更喜欢这样：
+
+            ```cpp
+            #define BEDUG (true)
+            if (debug) {
+                // todo
+            }
+            ```
+
+            当然前者编出的程序性能会好一点。
+
+            return 的妙用
+
+            :   这个主要用于 test，比如：
+
+                ```cpp
+                // define some testing vars here
+
+                // this is test6 (current testing part)
+
+                return;
+                // this is test5
+
+                return;
+                // this is test4
+
+                ...
+
+                return;
+                // test0
+                ```
+
+                好处是不用总去注释，坏处是编出来的程序会大一点，还可能忘了把 return 去掉，
+                导致提前退出而不自知。
+
+            Windows 编译宏：[Predefined Macros (C/C++)](https://msdn.microsoft.com/en-us/library/b0084kay%28v=vs.80%29.aspx)
+
+            :   这个好，可以用：
+
+                ```cpp
+                _WIN64
+                ```
+
+            C
+
+            :   这个我比较熟悉，如果你能看懂下面这些就够了：
+
+                ```
+                // printf
+                %i %d %lld %20d %020d %-20d %+20d
+                %f %lf %5.2lf
+                %s %-s %20s
+                %*d %*s
+                // scanf
+                %*d %*s %lf
+                ```
+
+                不举例子了
+
+                就像 C++ 中的 StringStream
+
+                ```cpp
+                QString result;
+                QTextStream(&result) << "pi = " << 3.14;
+                // result == "pi = 3.14"
+                ```
+
+
+-   [Jeff Dean facts: How a Google programmer became the Chuck Norris of the Internet.](http://www.slate.com/articles/technology/doers/2013/01/jeff_dean_facts_how_a_google_programmer_became_the_chuck_norris_of_the_internet.single.html){.featured .heart} -<
+
+    :   -   If you could harness the power of the multiverse you could try every
+            possible option in the design space and see which worked best. But
+            that's crazy impractical, isn't it?
+        -   Dr. Dean thinks an important skill for every software engineer is
+            the ability to **estimate the performance** of alternative systems, using
+            back of the envelope calculations, without having to build them.
+
+        Numbers Everyone Should Know
+
+        To evaluate design alternatives you first need a good sense of how long typical operations will take. Dr. Dean gives this list:
+
+        -   L1 cache reference 0.5 ns
+        -   Branch mispredict 5 ns
+        -   L2 cache reference 7 ns
+        -   Mutex lock/unlock 100 ns
+        -   Main memory reference 100 ns
+        -   Compress 1K bytes with Zippy 10,000 ns
+        -   Send 2K bytes over 1 Gbps network 20,000 ns
+        -   **Read 1 MB sequentially from memory 250,000 ns**
+        -   Round trip within same datacenter 500,000 ns
+        -   Disk seek 10,000,000 ns
+        -   Read 1 MB sequentially from network 10,000,000 ns
+        -   Read 1 MB sequentially from disk 30,000,000 ns
+        -   Send packet CA->Netherlands->CA 150,000,000 ns
+
+        Some things to notice:
+
+        -   Notice the magnitude differences in the performance of different options.
+        -   Datacenters are far away so it takes a long time to send anything between them.
+        -   Memory is fast and disks are slow.
+        -   By using a cheap compression algorithm a lot (by a factor of 2) of network bandwidth can be saved.
+        -   Writes are 40 times more expensive than reads.
+        -   Global shared data is expensive. This is a fundamental limitation of
+            distributed systems. The lock contention in shared heavily written
+            objects kills performance as transactions become serialized and slow.
+        -   Architect for scaling writes.
+        -   Optimize for low write contention.
+        -   Optimize wide. Make writes as parallel as you can.
+
+        Lessons Learned
+
+        -   Back-of-the-envelope calculations allow you to take a look at different
+            variations.
+        -   When designing your system, these are the kind of calculations you
+            should be doing **over and over in your head**.
+        -   Know the back of the envelope numbers for the building blocks of your
+            system. It's not good enough to just know the generic performance
+            numbers, you have to know how your subsystems perform.  You can't make
+            decent back-of-the-envelope calculations if you don't know what's going
+            on.
+        -   Monitor and measure every part of your system so you can make these
+            sorts of projections from real data.
+
+        refs and see also
+
+          - [Numbers Everyone Should Know - High Scalability -](http://highscalability.com/numbers-everyone-should-know)
+
+
+        **用二进制可以快速地估算，下面是一些常用数字：**
+
+        ----------------------------------------------              ------------------------------------------------------------------------
+        Hex                                                         Bin
+        ----------------------------------------------              ------------------------------------------------------------------------
+        10                                                          2^^3.32^^
+
+        100                                                         2^^6.64^^
+
+        1000                                                        2^^9.96^^ &asymp; 2^^10^^
+
+        360                                                         2^^8.5^^
+
+        pi = 3.14                                                   2^^1.651^^
+
+        e = 2.72                                                    2^^1.44^^
+
+        $\sqrt{2} = 1.414$                                          2^^0.5^^
+
+        地球半径 R = 6371 km = 6371 &times; 10^^3^^ m               2^^22.6^^
+        ----------------------------------------------              ------------------------------------------------------------------------
+
+        怎么用，举例：
+
+        比如你想知道赤道上一个经度对应的长度，
+
+        地球半径为 $R$ = 6371 千米 = 2 ^^22.6^^ m，
+        则 distance = $\frac{2\pi \times R}{360}$ = 2^^(1+1.651+22.6-8.5)^^ = 2^^10+6.75^^ = 1000 * 100 = 100 km。
+        和实际用计算器计算的 110 km 差不多。
+
+        你也看到我们需要反向计算 2^^x^^ 的十进制是多少，所以再列一个表：
+
+        --------------------------------------              ------------------------------------------------------------------------
+        Bin                                                 Hex
+        --------------------------------------              ------------------------------------------------------------------------
+        2^^1^^                                              2
+
+        2^^2^^                                              4
+
+        2^^3^^                                              8
+
+        2^^4^^                                              16
+
+        **2^^5^^**                                          **32**
+
+        2^^6^^                                              64
+
+        2^^7^^                                              128
+
+        **2^^8^^**                                          **256**
+
+        2^^9^^                                              512 = 500
+
+        2^^10^^                                             1024 = 1000
+
+        2^^11^^                                             2048
+
+        2^^12^^                                             4096
+
+        2^^13^^                                             8192
+
+        2^^14^^                                             16384
+
+        2^^15^^ = 2^^10^^ * 2^^5^^                          1000 * 32 = 32 k （实际为 **32768**）
+
+        2^^16^^                                             **65536**
+
+        2^^31^^                                             1k * 1k * 1k * 2 =
+                                                            1m * 1k * 2 = 1g * 2 = 2g（2 billion） （实际为 **2,147,483,648**）
+                                                            ^[Control + R, `=`, `pow(2,31)`]
+
+        2^^32^^                                             4g, 4,294,967,296
+        --------------------------------------              ------------------------------------------------------------------------
+
+        * k: thousand
+        * m: million
+        * g: billion
+
+        Value | SI[^SI]
+        ----- | -------
+        1000 | k | kilo
+        1000^^2^^ | M | mega
+        1000^^3^^ | G | giga
+        1000^^4^^ | T | tera
+        1000^^5^^ | P | peta
+        1000^^6^^ | E | exa
+        1000^^7^^ | Z | zetta
+        1000^^8^^ | Y | yotta
+
+        Value | IEC[^IEC] | JEDEC
+        ----- | --------- | -----
+        1024 | Ki | kibi | K | kilo
+        1024^^2^^ | Mi | mebi | M | mega
+        1024^^3^^ | Gi | gibi | G | giga
+        1024^^4^^ | Ti | tebi | – |
+        1024^^5^^ | Pi | pebi | – |
+        1024^^6^^ | Ei | exbi | – |
+        1024^^7^^ | Zi | zebi | – |
+        1024^^8^^ | Yi | yobi | –
+
+[^SI]: The SI prefixes (metric prefix) are standardized for use in the
+    International System of Units (SI) by the International Bureau of Weights
+    and Measures (BIPM) in resolutions dating from 1960 to 1991.
+[^IEC]: IEC 80000-13:2008 is an international standard that defines quantities
+    and units used in information science, and specifies names and symbols for
+    these quantities and units. The standard is published by the International
+    Electrotechnical Commission (IEC) and is part of the group of standards
+    called ISO/IEC 80000, published jointly by the IEC and the International
+    Organization for Standardization (ISO).
+
+-   [malloc 与 free？ - 知乎](https://www.zhihu.com/question/41567197#answer-32596782) -<
+
+    :   我先问你个问题：指针中是没有所在内存块大小的信息的，那么 free 怎么才能知道
+        要释放的内存块有多大呢？于是，对于大多数内存分配器，malloc 申请的实际内存比
+        你要求的空间要大几个字节，里面存储了额外的数据来记录这块内存有多大，一般就
+        是直接存在指针左边。free 的时候，就会去读取指针地址减去一个常数之后的那块内
+        存，来获取内存块的信息。因此如果你 free 一个不指向内存块开始处的指针，free
+        的时候就会把其他的数据错误解释成内存块的信息，（大概率）导致程序崩溃。当然
+        现代的内存分配器对于不同大小的内存申请，会采用不同的分配策略，但无论策略如
+        何，去 free 一个不是 malloc 来的指针，都是非常危险的举动。
+
+        作者：Belleve
+
+        **初学者的话，不要多想，把 CSAPP 看了再说。**
+
+        C 是一门**设计感不是很强的语言**，换句话说很多东西就是没什么道理和规律可循
+        的，要知道具体的问题和当时的写法才能明白其中道理。
+
+        比如吧，malloc 是个内存管理 package，并不是一个很底层的东西。 更加底层的看，
+        一个程序有一大块内存，叫作 heap。但是呢，heap 的大小是有限的，用完了问操作系
+        统要更多 heap，是很耗费资源的，于是就需要内存管理系统来帮助整理 heap，提高利
+        用率。
+
+        这个时候就要在内存里面建立一个链表，把没有用的内存块，大小等等都储存起来，
+        方便按照大小取用。随着内存块被 malloc 和被 free，这些 free block 也会被打散和合
+        并。之所以可以做到，就是因为默认每个内存块的首尾都记录有信息。
+
+        你任意在内存块里移动，free 的时候程序自动往前读一个 block，发现的却不是一个完
+        整的 tag (你自己放了什么就是什么)，assertion failure 已经是小事了，基本上会
+        segfault，运气不好你会跳到别的内存块去，损坏一大片内存。
+
+        所以，不要乱搞。CSAPP 里自己写过一个 malloc 就明白了。
+
+        当然了，国内一般是不教 Linux 和 bash 一类的，国内很多人是不会用的，这也是为啥大
+        家都觉得 windows 好的一个原因。**我可以负责任地说我在美国读的 CS 本科，系里没有一
+        台 Windows 电脑。**
+
+        电池是化学工业。
+
+        新材料的研发难度是知乎这群程序员根本无法想象的。程序员们都活在完美的无熵世
+        界里，邱奇和图灵命定了整个世界的法则。律法是存在的，而且是万能的，我们只需
+        要跟从律法，就能得到想要的结果——如果它不对，一定是我的问题，找到改正就好。
+        醒醒吧，真实世界远远比你们的小世界可怕，我们面对的是一片漆黑和死寂，我们不
+        知道规则，不知道哪里是致命的陷阱：做材料研究的是在和上帝搏斗。
+
+        做个不恰当的比喻：研发新材料的难度好比 @李阿玲 徒手写 TeX：一次写出一个四万
+        行的程序，各个部件耦合性极强且无法解耦，写完前无法预测结果，无法单元测试……
+        啊不对，材料研究比 @李阿玲 更加令人绝望，因为 @李阿玲 好歹可以去 debug，材
+        料的性质不对无法 debug，只能改配方重新合成一份来 **trial-and-error**，错了不知
+        道为什么，最后成功了也不知道为什么……因此真无怪乎有些人把材料科学比作「往下
+        水道扔钱」。有人问计算化学——很好，我们组就是做计算化学的，优化一个 30 原子
+        的小分子结构需要两个小时；预测两个小分子的反应产物需要整整一天。我不认为地
+        球上有一台超算能在人类可接受的时间内算出某个电池结构的电量。
+
+        refs and see also
+
+        -   [电池技术为什么如此高深莫测，以至于一直是手机等相关行业的短板？](https://www.zhihu.com/question/27604615/answer/37295615)
+
+-   [deerchao的个人网站](http://deerchao.net/){.heart} -<
+
+    :   ```tzx-bigquote
+        `^\w+` 匹配一行的第一个单词(或整个字符串的第一个单词，具体匹配哪个意思得看选项设置)
+
+        `<a[^>]+>` 匹配用尖括号括起来的以a开头的字符串。
+
+        `(?=exp)` 也叫**零宽度正预测先行断言**，它断言自身出现的位置的后面能匹配表
+        达式exp。比如 `\b\w+(?=ing\b)`，匹配以 ing 结尾的单词的前面部分(除了ing以外
+        的部分)，如查找 `I'm singing while you're dancing.` 时，它会匹配sing和danc。
+
+        (?<=exp)也叫零宽度正回顾后发断言，它断言自身出现的位置的前面能匹配表达式exp。
+        比如(?<=\bre)\w+\b会匹配以re开头的单词的后半部分(除了re以外的部分)，例如在
+        查找reading a book时，它匹配ading。
+
+        地球人，是不是觉得这些术语名称太复杂，太难记了？我也有同感。知道有这么一种
+        东西就行了，它叫什么，随它去吧！人若无名，便可专心练剑；物若无名，便可随意
+        取舍……
+
+        断言用来声明一个应该为真的事实。正则表达式中只有当断言为真时才会继续进行匹
+        配。
+
+        负向零宽断言
+
+        例如：\d{3}(?!\d)匹配三位数字，而且这三位数字的后面不能是数字；\b((?!abc)\w)+\b
+        匹配不包含连续字符串abc的单词。
+
+        为什么第一个匹配是aab（第一到第三个字符）而不是ab（第二到第三个字符）？简单地说
+        ，因为正则表达式有另一条规则，比懒惰／贪婪规则的优先级更高：最先开始的匹配拥有
+        最高的优先权——The match that begins earliest wins。
+        ```
+
+        平衡组/递归匹配
+
+        -   url: `[a-zA-z]+://[^\s]*`
+        -   qq: `[1-9]\d{4,}`
+        -   htlm tag: `<(.*)(.*)>.*<\/\1>|<(.*) \/>`
+        -   chinese: `[\u4e00-\u9fa5]`
+        -   chinese chars and puncs: `[\u3000-\u301e\ufe10-\ufe19\ufe30-\ufe44\ufe50-\ufe6b\uff01-\uffee]`
+        -   chinese id card: `\d{15}(\d\d[0-9xX])?`
+
+        refs and see also
+
+        -   [正则表达式语言 - 快速参考](https://msdn.microsoft.com/zh-cn/library/az24scfc.aspx)
+        -   [常用正则表达式](http://deerchao.net/tutorials/regex/common.htm)
+        -   [2011年中国（大陆）行政区划表](http://deerchao.net/info/region/index.htm)
+
+-   [Shell, Terminal, Console区别 - 為學日益, 為道日損](http://www.lijigang.com/blog/2016/07/22/shell,-terminal,-console%E5%8C%BA%E5%88%AB/) -<
+
+    :   ![](http://www.lijigang.com/assets/blog/2016/07/22/shell,-terminal,-console%E5%8C%BA%E5%88%AB/shell_terminal.png)
+
+-   `airplane rule`{.heart} -<
+
+    :   >   Complexity increases the possibility of failure; a twin-engine
+        >   airplane has twice as many engine problems as a single-engine
+        >   airplane
+
+        By analogy, in both software and electronics, the rule that
+        **simplicity increases robustness**.
+
+        It is correspondingly argued that the right way to build reliable systems
+        is to put all your eggs in one basket, after making sure that you've built
+        a really good basket.
+
+-   `unzip` -<
+
+    :   **c**, compress; **x**, extract, **f**, file
+
+        .zip (`zip & unzip`)
+
+        :   ```bash
+            zip     -r          archive_name.zip directory_to_compress   # r: recursive
+            unzip               archive_name.zip
+            ```
+
+        .tar (`{c/x}vf`)
+
+        :   ```bash
+            tar     -cvf        archive_name.tar directory_to_compress
+            tar     -xvf        archive_name.tar.gz
+            tar     -xvf        archive_name.tar -C /tmp/extract_here/   # C: change outdir
+            ```
+
+        .tar.gz (`.tar + z`)
+
+        :   ```bash
+            tar     -zcvf       archive_name.tar.gz directory_to_compress
+            tar     -zxvf       archive_name.tar.gz
+            tar     -zxvf       archive_name.tar.gz -C /tmp/extract_here/
+            ```
+
+        .tar.bz2 (`.tar + j`)
+
+        :   ```bash
+            tar     -jcvf       archive_name.tar.bz2 directory_to_compress
+            tar     -jxvf       archive_name.tar.bz2 -C /tmp/extract_here/
+            ```
+
+        .tar.xz (`.tar + x`)
+
+        :   ```bash
+            tar     xvfJ        filename.tar.xz
+            tar     xpvf        /path/to/my_archive.tar.xz -C /path/to/extract
+            tar     --xz -xvf   filename.tar.xz
+            ```
+
+        refs and see also
+
+        -   [bash - How to extract tar.xz files in Linux? - Stack Overflow](http://stackoverflow.com/questions/12298368/how-to-extract-tar-xz-files-in-linux)
+        -   [How to create and extract zip, tar, tar.gz and tar.bz2 files in Linux - Simple Help](http://www.simplehelp.net/2008/12/15/how-to-create-and-extract-zip-tar-targz-and-tarbz2-files-in-linux/)
+        -   [oh-my-zsh/extract.plugin.zsh at master · robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/extract/extract.plugin.zsh)
+
+-   [灵魂机器 答过的问题 - 知乎](https://www.zhihu.com/people/soulmachine/answers?order_by=vote_num){.heart} -<
+
+    :   所以，你自己在提这个问题之前，其实已经知道了答案，就不妨明说吧，你在二本学
+        校，进 google 的可能性有，但是概率非常非常非常低，比其他学校的学生概率要低得
+        多。如果你在大学四年，不玩命学习，每天学习时间不超过 11 小时（类似于武侠小说
+        的主角，基本都有一段奇遇，经历过后功力大涨），**你就洗洗睡吧。**
+
+        首先最基本的两点建议，
+
+        1.  无论白天黑夜，不要带手机在身边，每天只在睡觉前把手机打开 15 分钟，处理未接
+            电话和未读短信，**最好是把手机砸了**（作为学生社交关系非常简单，完全没
+            必要拥有手机）
+        2.  打开电脑除了 Google, Stackoverflow 等编程网站，不要上其他社交网站，例如 QQ，
+            微博等等，禁止开机进入 Windows, 装个 Ubuntu.
+
+        2015/02/18日更新：
+
+        不少人觉得这方法很偏激，我才说了两点建议。。。我不妨说的更具体一点，说说我
+        当年是如何操作的吧
+
+        1.  戒手机。每天只在 23:30 睡觉前开机手法短信，回几个电话，当然，随着与世隔绝
+            的日子一天一天下去，我的未接短信和未接电话越来越少，几个月后只有几个亲人
+            偶尔有联系。
+        2.  戒网。比前面的建议更激进，基本一个月只上一次网，每次上网也是查查信息。
+        3.  戒电脑。我认为大部分人打开电脑后，注意力会涣散，一会儿就偏离开机前心里想
+            要做的事，四处看网页去了，于是我一狠心让自己每天只用一个小时电脑。
+        4.  由于戒了电脑，我只能在纸上写代码。我一般会花几个小时，写上十几页的代码，
+            然后用一个小时，把代码敲进去，编译运行。这锻炼了我一次性写出 bug free 代码
+            的能力，后来一部分代码还行形成了一本开源书, soulmachine/acm-cheat-sheet · GitHub
+        5.  由于戒了电脑，没有 evernote 做笔记了, 我便用纸和笔记笔记，用掉了五六个笔记
+            本，每当写满了一百多页后，便集中开电脑几个小时，把笔记敲进电脑。这些笔记
+            后来也形成了一些电子书, / - soulmachine - a brank new AI architecture ,
+            曾经受到很多考研朋友的喜爱。
+        8.  每天学习 11 个小时。很多人觉得 11 个小时没什么，不错，一天两天如此没什么，可
+            是天天如此，就需要对时间安排极度精准了，我的日程是这样的，每天 7:00 起床,
+            10 分钟吃早餐，10 分钟步行到自习室, 7:30 准时开始看书，11:30 去食堂吃饭，
+            17:30 吃晚饭, 23:00 下自习，回到租住的房间洗漱睡觉。
+
+        有几个 tips 要注意，
+
+        -   早餐一定要简单，如果你去食堂吃或者路边买早餐，10 分钟搞定不可能，所以我都
+            是每周末去一次超市，买一袋子面包片，每天早晨两片面包，其他复杂的食物，例
+            如果汁，水煮鸡蛋等都很费时间
+        -   午睡在桌子上趴着睡就好，回到房间睡床上，一睡就不想起来。
+
+        总结，以上所有方法都是围绕一个核心，**与世隔绝，极致专注。**
+
+        再打个比方，不少人说用 Kindle 看书比 iPad Mini 效率高，我估计可能因为
+        Kindle 干别的都不行，只好专心看书。我使用过两者均长达一年多，亲身体验，确实
+        是这个原因。那这个例子跟本答案有类似之处。如果你想学习，就把自己放到一个除
+        了学习什么都干不了的环境中。
+
+        对一个人说的话找错误是非常容易的，如果我把我所说的话，全部在逻辑上修复严密，
+        比如“戒网”改成“在一定程度上戒网”，如此这般把所有文字修改一遍，那这些话就变
+        成了**政治正确的完美废话**，重要观点就淹没在琐碎冗长的文字之中了。因此，我
+        会直接忽视那些抬杠的，挑小毛病的评论。
+
+        作为面试官，我曾经听说过几个面试者对我给他们的面试经历评价为“明明小公司一个，
+        面什么算法”。后来我曾经找出了其中一些人的简历，回忆了一下面试过程，基本上他
+        们都满足以下四条中的两条以上：
+
+        -   简历上 4-5 个项目经历，结果一问，别说不是项目主持了，根本就是参与度极低，
+            一问三不知。（我曾遇到过同一个大概不超过 1 万行的项目在 3 个人简历上同时出
+            现的，而且他们都不是项目主持）
+        -   简历上声称熟练掌握的内容，掌握程度仅限于最基本的使用，缺乏任何的设计分
+            析能力。
+        -   对所面试的岗位毫无概念，不明白自己是否符合岗位描述上的必要条件
+        -   对面试提问思路不清晰，或思路表达不清晰。面对问题时，不是仅仅得不到完美
+            的最终答案，而是思路一片空白。
+        -   **坚决认为 C++ 是王道，“我还是想做 C++”，拒绝多语言工作和学习。但实际上 C++
+            掌握的并不好。**
+
+        鄙公司（小公司招人不容易啊！）面试程序时，除非简历上写明了 ACM 获奖经历，否
+        则我给他们安排的所谓“算法题”基本上不会超过二分查找的难度，而且其实并没有太
+        多思路上的扩展，仅仅是算法实现而已。而且这仅限于我实在找不出任何的其它亮点，
+        完全无法满足一个 C++ 岗位的要求，还坚持想从事 C++ 岗位的时候才会进行这样的
+        提问。因为我们其实是相信员工在岗位上的成长的，面试时不允许查找资料，时间也
+        有限，能解决的问题难度不如工作时所能解决的问题难度也是很正常的。但至少你要
+        有点思路吧？二分查找不会写个枚举也好吧？白卷是闹哪样？
+
+        结果他们认为是因为算法题表现不好而被我拒绝了。
+
+        除了鄙公司，以我在大公司的被面试以及面试经验，虽然连基本的算法题都答不出实
+        在是一件值得鄙视和怀疑的事情，但我依然觉得如果你各方面能力均表现优秀，十分
+        符合岗位所需的要求，其实是不太会因为一个复杂的算法题没有答上来而直接被挂掉
+        的。**当然，如果你在面试算法题时毫无思路，或缺乏基本的算法复杂度分析等能力，
+        被扣分也几乎是一定的。**你被各方面都不比你差，算法问题表现比你更强的面试者
+        干掉，也是很有可能的。
+
+        说了那么多，总结起来只有一句：“因为公司面算法而义愤填膺的，肯定是面试挂掉了
+        而不知道自己究竟为什么挂掉了的。”
+
+        我觉得未来的面试都改成综艺节目那种形式，四个人一组，现场用答题板答题，这样
+        被刷掉的就不会有那么多怨言了……
+
+        PS: 爱抱怨的还是少数。我遇到的面试者中，还是有不少虽然我没有录取（不符合岗
+        位需求），但性格和沟通上还是很喜欢的孩子的。
+
+        算法题是用来衡量你思考和解决问题的能力的。如果是大公司的研发岗位，面一些很
+        难的算法题我也不觉得为过，当然，不代表一定要答出最完美的答案，**更重要的是
+        你的思考、沟通、验证、以及执行过程**。我当初在面试百度的时候，面的是一个算
+        是很高端的字符串匹配题，最完美的答案（改进版 AC 自动机）我当时是既不知道又
+        是即使知道了也写不出来，然而我给出了我能力范围内最漂亮的答案（后缀数组），
+        复杂度虽然多了一个 lgN，但面试官也看到了我的分析能力以及思考过程的清晰、方
+        案的完整度以及快速可实施性，后来一样还是过了。至于“ACM 级别”，我想你太小瞧
+        ACM 了，真的，就这道题目，在 ACM 圈子里是最 low 的模板题而已，稍微集训过几
+        个月的人都会，完全不值得讨论……
+
+        至于“没本事不要设立高门槛”，我倒是觉得，不管有没有本事，有钱就有资格设置高
+        门槛。至于门槛是设在这种看似不直接产生作用的算法能力上，还是设在什么管理、
+        项目经验上，还是设在外貌性别上，这是企业站在自己的角度根据自己的需求选择的，
+        你觉得不合适，大可选择别的企业，而不是到处抱怨。大企业，以及大企业出身的管
+        理人员，尤其是面试应届毕业生的时候，都有可能会更倾向于成长型的员工。这种情
+        况下，不面算法面什么？面你行业背景吗？面你项目经历吗？
+
+        **可笑死了，没本事就嘲笑别人没本事。**
+
+        还有一些情况是这样子的，例如我问超大整数乘法然后对方说用 Python 直接用乘号，
+        又或者说我问快速排序对方说用 Haskell 一行写完。这就如同一个面试者打开公文包
+        掏出一个轮子说「我这正好有一个，不知道是否合适？」呃……你的百宝袋里面还有什
+        么？
+
+        最后从面试官的角度来说，面试 ACM/ICPC 竞赛选手往往都很无聊。他们能够给出一
+        个完美的轮子，但我不觉得我能从他们身上学到新东西。（面试过足够多的人后，要
+        见到一个比已知完美轮子更完美的轮子其实非常难。）更有趣的面试者会说，「你知
+        道吗，其实中国古代独轮手推车的轮子设计得比古罗马战车的轮子要合理」。其实我
+        不知道你在说什么，但如果你能够把整套理论说得自圆其说的话我觉得你至少有点思
+        维能力，同时你还真的对轮子感兴趣。事后我可能会去搜索一下看看你说的理论是否
+        正确，但至少我会学到点新东西。
+
+        当然啦。。**看 C++ 要看 leveldb, 看 C 要看 redis**
+
+        我告诉你一个识别 C++ 代码质量的诀窍：找几个 class，如果其 dtor 有 delete 或释放
+        资源的操作，看看作者是否同时正确禁用了 copy ctor 和 assignment operator（或者正
+        确实现了它们，如果 class 确实应该是 copyable 的话），这反映了作者设计 C++ class
+        的基本功：正确管理内存和其他资源，以及他有没有认真读过 Effective C++。
+
+        其实，一个人要成牛人，最重要的不是看过多少书，而是有没有一个自己的世界观，并且
+        从这个世界观出发，**知道什么要做，什么能做，什么要坚持，什么要追求，什么是命中注
+        定，什么是此生无缘，然后才能选 A 不选 B，有决断心和行动力**。为此，得要体会过了别人
+        选择的艰难，明白所要追求事业的难度，然后自己的选择才有意义。这些可以通过读书，
+        也可以通过别的方式。
+
+        在这个行业当实习生，待遇恰恰是最不重要的，你的起点高度跟你几年后能达到的水准没
+        有任何必然关系。而且，你到岗后的努力也比你一开始的选择更加重要。
+
+-   fov -<
+
+    :   ![在像幅不变的情况下，如果增大焦距；
+            就需要把 field of view 缩小；FOV 缩小，远处的东西就会变大](http://whudoc.qiniudn.com/2016/fov-focal.jpg)
+
+-   [有多少程序员后悔英语没学好？或者庆幸学好了? - 知乎](https://www.zhihu.com/question/27867216) -<
+
+    :   英语想要投入日常生活中使用还是比较难的，不过幸好有声称“我 6 级差点就到 600”的
+        老婆，我实在听不懂就让她弄，啊哈哈哈。
+
+        我就是活生生没学好英语的受害者。去年面试 facebook onsite 之后被拒，问原因，
+        recruiter 说你的技术很好，但是我们担心你在工作上用英语沟通会有问题，建议你去
+        报个英语班过一两年再来应聘，尼玛
+
+        看，“英语不学好，老死在内地”这话没说错吧
+
+-   [Think different. - Original Ad](http://www.thecrazyones.it/spot-en.html#){.heart} -<
+
+    :   |   Here's to the crazy ones.
+        |   The misfits.
+        |   The rebels.
+        |   The troublemakers.
+        |   The round pegs in the square holes.
+        |
+        |   The ones who see things differently.
+        |
+        |   They're not fond of rules.
+        |   And they have no respect for the status quo.
+        |
+        |   You can quote them, disagree with them,
+        |   glorify or vilify them.
+        |   About the only thing you can't do is ignore them.
+        |
+        |   Because they change things.
+        |
+        |   They push the human race forward.
+        |
+        |   While some may see them as the crazy ones,
+        |   we see genius.
+        |
+        |   Because the people who are crazy enough to think
+        |   they can change the world, are the ones who do.
+
+        [最棒的征兵广告_土豆_高清视频在线观看](http://www.tudou.com/programs/view/nMwXpcXrOZ0/?FR=LIAN) -<
+
+        :   |   If you are, you breathe.
+            |   If you breath, you talk.
+            |   If you talk, you ask.
+            |   If you ask, you think.
+            |   If you think, you search.
+            |   If you search, you experience.
+            |   If you experience, you learn.
+            |   If you learn, you grow.
+            |   If you grow, you wish.
+            |   If you wish, you find, and if you find, you doubt.
+            |   If you doubt, you question.
+            |   If you question, you understand, and if you understand, you know.
+            |   If you know, you want to know more.
+            |   If you **want to know more**, you are alive.
+
+![](http://www.imagemagick.org/Usage/img_diagrams/glyph_metrics.gif){align=right}
+
+-   What the fuck am I reading? -<
+
+    :   调查结果如下：
+
+        -   绝大多数母语成年人士的词汇量为 20,000–35,000 words
+        -   8 岁的母语人士平均词汇量为 10,000 words
+        -   4 岁的母语人士平均词汇量为 5,000 words
+        -   母语人士的词汇量大小主要是 4 到 15 岁之间的阅读量决定
+
+        令人比较丧气的结果如下：
+
+        -   绝大多数外语人士的词汇量仅为 4,500 words
+        -   在英语国家居住的（？非）母语人士词汇量平均仅为 10,000 words
+
+        不论是国内还是国外的考试要求词汇量，真的是太低了，四六级只有五六千，专四专八也
+        就才一万三，托福雅思考试被誉为外语水平最高等级测试，词汇量要求不过一万，老外压
+        根没想过中国人外语能学的多好。
+
+        而词汇量一万，只不过是母语国家 8 岁小孩的词汇水平，将会在听说读写中遇到极大的障碍！
+
+        ![](https://img3.doubanio.com/view/note/large/public/p33273771.jpg)
+
+-   Koans / Tips -<
+
+    :   -   这种事情，就让他们一群傻逼去闹吧，看淡了就行。坚持自己的兴趣，获不获奖真的不重要。学到知识是自己的。**傻逼终究还是傻逼。**
+
+        -   我无意神化史蒂夫·乔布斯，但他老人家说的话实在是太到位了：
+
+            >   和聪明人在一起工作，最大的好处就是不用考虑他们的自尊。
+
+        -   成吉思汗
+
+            >   It is not enough to succeed; everyone else must fail.
+
+        -   但要避免“金锁”，不要在局部最高点沾沾自喜！Java 高手还要去学 Ruby、Perl。
+
+        -   Worst musician in the band。宁为狮尾，不为狐头。
+
+            A jazz musician friend of mine told me this:
+
+            >   If you are not the worst musician in in your band, you should
+            >   immediately switch bands.
+
+            I work at Spotify. I feel like a piece of shit programmer almost
+            every day. I didn’t at my last workplace. So I left and started at
+            Spotify.
+
+            When the time comes when I no longer feel like a piece of shit
+            programmer here, I’ll quit and move on to a place that can once
+            again make me feel like piece of shit.
+
+            This strategy has worked out really well for me during my career.
+
+            <http://www.quora.com/Computer-Programmers/What-does-it-feel-like-to-be-an-average-programmer-among-very-talented-ones>
+
+        -   "Good morning, Dave," said HAL.
+
+            然后我截图了一个著名电影《2001 太空漫游》里对电脑 HAL 9000 的描述：
+            这机器就跟人类一样，能表达情绪的。但我们也不知道它是被程序写好表现得这样，
+            还是说它真的有感觉……
+
+            ![11](http://gnat.qiniudn.com/speech/robot-10.jpg)
+
+        -   posts
+
+            -   [Game of Throne](http://tangzx.qiniudn.com/post-0086-game-of-throne-series.html)
+            -   [考研英语习作](http://tangzx.qiniudn.com/post-0020-kaoyan-english.html)
+            -   [随便翻翻 & Men Lists & Words Lists](http://tangzx.qiniudn.com/post-0041-lists-read-at-random.html)
+
+        -   gone girl
+
+            >   But I made him smarter. Sharper.
+            >
+            >   I inspired him to rise to my level.
+            >
+            >   **I forged the man of my dreams.**
+
+        -   A meme (/ˈmiːm/ meem) is “an idea, behavior, or style that spreads from person to person within a culture.”
+
+            The gene has its **cultural analog**, too: the meme. In cultural evolution, a
+            meme is a replicator and propagator—an idea, a fashion, a chain letter, or a
+            conspiracy(共谋) theory. On a bad day, a meme is a virus.
+
+            （你不能说 meme 是流言蜚语，因为它是中性词。它更像是地方特色、风俗，roman's way of living。
+            有道上的翻译是“文化基因”，很好。）
+
+            **注意不要和 mime 弄混，那是 mime（`maim`），这是 meme（“两个我”）。**
+            mime 引申出去一个词叫 mimic。
+
+            MIME is an Internet standard, 互联网文本格式（比如 `text/javascript`）。
+
+        -   intrusive thoughts
+
+            实际上有 intrusive `[ɪn'trusɪv]` thoughts 的人有很多，包括丘吉尔首相自己也有。
+            他无法忍受住在楼上，因为他总是有「忍不住要从阳台跳下去」的想法。
+
+            Intrusive thoughts are **unwelcome involuntary** thoughts, images, or unpleasant
+            ideas that may become **obsessions**, are upsetting or distressing, and can be
+            difficult to manage or eliminate. When they are associated with
+            obsessive-compulsive disorder (OCD), depression, body dysmorphic disorder
+            (BDD), and sometimes attention-deficit hyperactivity disorder (ADHD), the
+            thoughts may become paralyzing, anxiety-provoking, or persistent. Intrusive
+            thoughts may also be associated with episodic memory, unwanted worries or
+            memories from OCD, posttraumatic stress disorder, other anxiety disorders,
+            eating disorders, or psychosis. Intrusive thoughts, urges, and images are of
+            inappropriate things at inappropriate times, and they can be divided into three
+            categories: "inappropriate aggressive thoughts, inappropriate sexual thoughts,
+            or blasphemous religious thoughts".
+
+            我也有个很 horrible 的 intrusive thoughts。
+
+            refs and see also
+
+            -   http://www.zhihu.com/question/23848160#answer-5660473
+            -   http://en.wikipedia.org/wiki/Intrusive_thoughts
+
+        -   Publish or Perish
+
+        -   **It’s a thing I call “taste”** (Linus Torvalds)
+
+        -   [All Our Patent Are Belong To You | Tesla](https://www.tesla.com/blog/all-our-patent-are-belong-you)
+
+            When I started out with my first company, Zip2, I thought patents were
+            a good thing and worked hard to obtain them. … After Zip2, when I
+            realized that receiving a patent really just meant that you bought a
+            lottery ticket to a lawsuit, I avoided them whenever possible.
+
+            The unfortunate reality is the opposite: electric car programs (or
+            programs for any vehicle that doesn’t burn hydrocarbons) at the major
+            manufacturers are small to non-existent, constituting an average of far
+            less than 1% of their total vehicle sales.
+
+            Technology leadership is not defined by patents, which history has
+            repeatedly shown to be small protection indeed against a determined
+            competitor, but rather by the ability of a company to attract and
+            motivate the world’s most talented engineers. We believe that applying
+            the open source philosophy to our patents will strengthen rather than
+            diminish Tesla’s position in this regard.
+
+        -   我必须承认，在现成的答案面前，再花时间设想解法确实有点“耽误功夫”，而且
+            自己的解法往往不能跟现成答案对比，有时候甚至差很多。这当然让人难为情，
+            但是**持续的比较、思考所带来的收获，远比“拿现成的来用”的收获要大**。
+
+        -   再看一下，其实 X/Y 表示的是线性空间 X 里面的向量投影到线性空间 Y 后相等（或者说 Congruent）。
+            比如二维平面 x-y，用 （x，y）表示。（x，0）表示所有 y 为 0 的向量集合，显然也是一个线性空间。
+            则 （x，y）/（x，0）这个 Quotient Space 里的（2, 2） 和（2, 8）一样（因为投影把 y 方向的信息忽略了）。
+
+            In linear algebra, the quotient of a vector space V by a subspace N is a vector
+            space obtained by "collapsing" N to zero. The space obtained is called a
+            quotient space and is denoted V/N (read V mod N or V by N).
+
+        -   一鼓作气，再而衰，三而竭
+
+[从武侠小说到程序员面试 - Lucida](http://lucida.me/blog/from-wuxia-to-programmer-interview/)
+
+:   其实就是用 `'a' <= input && input <= 'z'` 替代 `input >= 'a' && input <= 'z'` ——
+    这个技巧源自于代码大全，代码大全里面专门有一节讲解如何编写可读的布尔表达式。从
+    这里我可以看出这些面试者都没有读过代码大全，考虑到代码大全几乎是程序设计的必读
+    书籍，我可以推断出这些面试者很可能没有阅读习惯，而不阅读的程序员一般都不会太出色。

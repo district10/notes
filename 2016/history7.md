@@ -1298,52 +1298,6 @@ LaTeX 字体。陈硕的 typeset 模板。 -<
 
     有个故事叫叶公好龙。 重口味基本上都是这么回事。
 
-[Think different. - Original Ad](http://www.thecrazyones.it/spot-en.html#){.heart} -<
-
-:   ```tzx-bigquote
-    Here's to the crazy ones.
-    The misfits.
-    The rebels.
-    The troublemakers.
-    The round pegs in the square holes.
-
-    The ones who see things differently.
-
-    They're not fond of rules.
-    And they have no respect for the status quo.
-
-    You can quote them, disagree with them,
-    glorify or vilify them.
-    About the only thing you can't do is ignore them.
-
-    Because they change things.
-
-    They push the human race forward.
-
-    While some may see them as the crazy ones,
-    we see genius.
-
-    Because the people who are crazy enough to think
-    they can change the world, are the ones who do.
-    ```
-
-    [最棒的征兵广告_土豆_高清视频在线观看](http://www.tudou.com/programs/view/nMwXpcXrOZ0/?FR=LIAN) -<
-
-    :   |   If you are, you breathe.
-        |   If you breath, you talk.
-        |   If you talk, you ask.
-        |   If you ask, you think.
-        |   If you think, you search.
-        |   If you search, you experience.
-        |   If you experience, you learn.
-        |   If you learn, you grow.
-        |   If you grow, you wish.
-        |   If you wish, you find, and if you find, you doubt.
-        |   If you doubt, you question.
-        |   If you question, you understand, and if you understand, you know.
-        |   If you know, you want to know more.
-        |   If you want to know more, you are alive.
-
 [域名 - 简书](http://www.jianshu.com/p/865614642b0a) -<
 
 :   帽子说：傻！你们程序员再过几年就是年薪百万，全中国的人民都在创业，没技术没资金

@@ -5,6 +5,8 @@ title: Algorithms
 Algorithms
 ==========
 
+![](http://whudoc.qiniudn.com/ascii.png)
+
 ## 0.
 
 [我的算法学习之路 - Lucida](http://lucida.me/blog/on-learning-algorithms/) -<
@@ -47,10 +49,10 @@ Algorithms
     之后就是各种面试，详情见之前的博客，总之就是**项目经历**、**纸上代码**加**正确
     性证明**这三板斧，摧枯拉朽。
 
-    MIT教授Erik Demaine则更为直接：
+    MIT 教授 Erik Demaine 则更为直接：
 
-    >   If you want to become a good programmer, you can spend 10 years
-    >   programming, or spend 2 years programming and learning algorithms.
+    >   **If you want to become a good programmer, you can spend 10 years
+    >   programming, or spend 2 years programming and learning algorithms.**
 
 [9个offer，12家公司，35场面试，从微软到谷歌，应届计算机毕业生的2012求职之路 - _Luc_ - 博客园](http://www.cnblogs.com/figure9/archive/2013/01/09/2853649.html) -<
 
@@ -129,6 +131,141 @@ Algorithms
     programs，这两本书难度很高，需要大量的时间阅读，不适合临场阅读准备，但读过后，
     写出的代码绝逼会上两个层次，这里我就不多介绍了。
 
+[白板编程浅谈——Why, What, How - Lucida](http://lucida.me/blog/whiteboard-coding-demystified/){.heart} -<
+
+:   技术面试中的问题大致可以分为 5 类：
+
+    -   编码：考察面试者的编码能力，一般要求面试者在 20 ~ 30 分钟之内编写一段需
+        求明确的小程序（例：编写一个函数划分一个整形数组，把负数放在左边，零放
+        在中间，正数放在右边）；
+    -   设计：考察面试者的设计/表达能力，一般要求面试者在 30 分钟左右内给出一个
+        系统的大致设计（例：设计一个类似微博的系统）
+    -   项目：考察面试者的设计/表达能力以及其简历的真实度（例：描述你做过的 xxx
+        系统中的难点，以及你是如何克服这些难点）
+    -   脑筋急转弯：考察面试者的『反应/智力』（例：如果你变成蚂蚁大小然后被扔进
+        一个搅拌机里，你将如何脱身？）
+    -   查漏：考察面试者对某种技术的熟练度（例：Java 的基本类型有几种？）
+
+    因为几乎所有的当面（On-site）技术面试均要求面试者在白板上写出代码，而不是在
+    面试者熟悉的 IDE 或是编辑器中写出。
+
+    为什么要进行白板编程（WHY）
+
+    :   -   除了判定面试者的开发效率，白板编程还有助于展示面试者的编程思路，并便于面试者和面试官进行交流
+        -   让面试者在解题的过程中将他/他的思维过程和编码习惯展现在面试官面前，以便面试官判定面试者是否具备清晰的逻辑思维和良好的编程素养
+        -   如果面试者陷入困境或是陷阱，面试官也可以为其提供适当的辅助，以免面试陷入无人发言的尴尬境地
+
+    什么是合适的白板编程题目（WHAT）
+
+    :   下面是一些问滥的编程问题：
+
+        -   编程之美 书里的所有题目；
+        -   July 的算法博客 中的绝大多数题目（包括 面试 100 题 中的所有题目）；
+        -   leecode 里的大部分题目；
+
+        需要注意的是，尽管过于直接的算法题目不适合面试，但是我们可以将其进行一
+        点改动，从而使其变成合理的题目，例如稳定划分和二分搜索计数（给出有序数
+        组中某个元素出现的次数）就不错，尽管它们实际是快速排序和二分搜索的变种
+
+        这些题目往往要求面试者拥有极强的算法背景，尽管算法问题是否过于复杂因人而异
+
+        -   需要 aha! moment（参考 脑筋急转弯）
+        -   需要使用某些『非主流』数据结构/算法才能求解
+        -   耗时过长（例如实现红黑树的插入/删除）
+
+        应该问什么问题
+
+        -   不止一种解法 -<
+
+            :   良好的编程问题都会有不止一种解法。这样面试者可以在短时间内给出
+                一个不那么聪明但可实现的『粗糙』算法，然后通过思考（或面试官提
+                示）逐步得到更加优化的解法，面试官可以通过这个过程观察到面试者
+                的思维方式，从而对面试者进行更客观的评估。
+
+                以 数组最大子序列和 为例，它有一个很显然的 O(n3) 解法，将 O(n3)
+                解法稍加改动可以得到 O(n2) 解法，利用分治思想，可以得到
+                O(n*logn) 解法，除此之外它还有一个 o(n) 解法。（编程珠玑 和 数
+                据结构与算法分析 C语言描述 对这道题均有非常精彩的描述，有兴趣的
+                朋友可以自行阅读）
+
+        -   考察点明确
+
+        -   延伸问题
+
+            :   良好的编程问题应拥有延伸问题。延伸问题既可以应对面试者背题的情
+                况，也可以渐进的（Incremental）考察面试者的编程能力，同时还保证
+                了面试的延续性（Continuity）。
+
+    如何进行白板编程（HOW）
+
+    :   面试者应该做什么
+
+        -   面试前
+
+            -   拥有扎实的数据结构/算法基础
+            -   知道如何利用 前条件/不变式/后条件 这些工具编写正确的程序
+            -   能够在白板（或纸上）实现基本的数据结构和算法（如果 1 和 2 做到这一步是水到渠成）
+            -   在 leetcode 或 careercup 上面进行过练习，了解常见的技术面试题目（我个人不鼓励刷题，但在面试前建立起对面试题的『感觉』非常重要）
+
+        -   面试中
+
+            -   理解题目，确认需求
+
+            -   使用实例数据验证自己的程序 -<
+
+                :   ```cpp
+                    Given range [2, 3, 4, 5, 1] and pivot 3
+
+                    [ 2, 3, 4, 5, 1 ]
+                      ^             ^
+                     p,b            e
+
+                    [ 2, 3, 4, 5, 1 ]
+                         ^          ^
+                        p,b         e
+
+                    [ 2, 3, 4, 5, 1 ]
+                         ^  ^       ^
+                         p  b       e
+
+                    [ 2, 3, 4, 5, 1 ]
+                         ^     ^    ^
+                         p     b    e
+
+                    [ 2, 1, 4, 5, 3 ]
+                            ^     ^ ^
+                            p     b e
+
+                    [ 2, 1, 4, 5, 3 ]
+                            ^       ^
+                            p      b,e
+
+                    Now we have all [0, p) < 3 and all [p, e) >= 3
+                    ```
+
+            -   他们在面试时会自带一根细笔迹的水笔，专门用于白板编程。
+
+        不会做怎么办
+
+        -   至少先给出一个暴力（Brute force）解法
+        -   寻找合适的数据结构（例如栈/队列/树/堆/图）和算法（例如分治/回溯/动态规划/贪婪）
+        -   从小数据集开始尝试
+        -   如果还是没有头绪，重新考虑题目的前条件，思考是否漏掉了条件（或是隐含的条件）
+        -   如果 3 分钟过后还是没有任何思路，请求面试官提示，不要觉得不好意思——经过提示给出答案远强于没有答案
+
+    个人不建议面试者在面试之后把题目发到网上，很多公司在面试前都会和面试者打招
+    呼，有的会签订 NDA（Non Disclosure Agreement）条款以确保面试者不会泄露面试
+    题目。尽管他们很少真的去查，但如果被查到那绝对是得不偿失。
+
+    我自己在面试之后会把面试中的编程题目动手写一遍（除非题目过于简单不值得），
+    这样既能够验证自己写的代码，也可以保证自己不会在同一个地方摔倒两次。
+
+    |   东瀛修炼绝世武功（在校刻苦学习技术）；
+    |   远赴中原挑战群雄（即将毕业开始求职）；
+    |   拔剑削枯枝作战书（撰写简历进行面试）；
+    |   惊动中原第一高手（简历/面试得到赏识）；
+    |   海上决战名扬天下（得到Offer搞定工作）。
+
 ## 1.
 
 [九章算法班 - 硅谷顶尖 IT 企业一线工程师直播教学](http://www.jiuzhang.com/course/1/) -<
@@ -183,7 +320,26 @@ Algorithms
 
                 从面试者的角度来说，出题的目的？
 
-                还可以用牛逼闪闪的 KMP 算法。参考 [从头到尾彻底理解KMP（2014年8月22日版） - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/7041827)。
+                还可以用牛逼闪闪的 KMP 算法。参考 [从头到尾彻底理解KMP（2014年8
+                月22日版） - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/7041827)。
+
+                [字符串匹配的KMP算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html){.heart} -<
+
+                :   ![](http://image.beekka.com/blog/201305/bg2013050109.png)
+
+                    移动位数 = 已匹配的字符数 - 对应的部分匹配值
+
+                    ![](http://image.beekka.com/blog/201305/bg2013050110.png)
+
+                    ![](http://image.beekka.com/blog/201305/bg2013050114.png)
+
+                    ![](http://whudoc.qiniudn.com/2016/kmp-table.png)
+
+                    "部分匹配"的实质是，有时候，字符串头部和尾部会有重复。比如，"ABCDAB"之中有
+                    两个"AB"，那么它的"部分匹配值"就是2（"AB"的长度）。搜索词移动的时候，第一个
+                    "AB"向后移动4位（字符串长度-部分匹配值），就可以来到第二个"AB"的位置。
+
+                    [字符串匹配的 Boyer-Moore 算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)
 
                 在一个字符串中找到第一个只出现一次的字符。如输入 abaccdeff，则输出 b。
 
@@ -3157,7 +3313,7 @@ ACM-Cheatsheet -<
                             }
                             ```
 
-                    -   strcpy
+                    -   strcpy -<
 
                         :   ```cpp
                             char * strcpy( char *to, const char *from ) {
@@ -3197,7 +3353,7 @@ ACM-Cheatsheet -<
                             }
                             ```
 
-                            TODO
+                            see also KMP.
 
                     -   atoi -<
 
@@ -3240,16 +3396,13 @@ ACM-Cheatsheet -<
                             想是，当出现不匹配时，就能知晓一部分文本的内容（因为在
                             匹配失败之前它们已经和模式相匹配）。我们可以利用这些信
                             息避免将指针回退到所有这些已知的字符之前。这样，当出现
-                            不匹配时，可以提前判断如何重新开始查找，而这种判断只取
-                            决于模式本身。
+                            不匹配时，可以提前判断如何重新开始查找，**而这种判断只取决于模式本身**。
 
-                            推荐网上的几篇比较好的博客，讲的是部分匹配表(partial
-                            match table)的方法（即next数组），“字符串匹配的KMP算法”
-                            \myurl{http://t.cn/zTOPfdh}，图文并茂，非常通俗易懂，作
-                            者是阮一峰；“KMP算法详解”
-                            \myurl{http://www.matrix67.com/blog/archives/115}，作者
-                            是顾森 Matrix67；"Knuth-Morris-Pratt string matching"
-                            \myurl{http://www.ics.uci.edu/~eppstein/161/960227.html}。
+                            推荐网上的几篇比较好的博客，讲的是部分匹配表(partial match table)的方法（即next数组），
+                            [“字符串匹配的KMP算法”](http://t.cn/zTOPfdh)，图文并茂，非常通俗易懂，作
+                            者是阮一峰；[“KMP算法详解”](http://www.matrix67.com/blog/archives/115)，作者
+                            是顾森 Matrix67；
+                            ["Knuth-Morris-Pratt string matching"](http://www.ics.uci.edu/~eppstein/161/960227.html)。
 
                             ```
                                 A   B   C   D   A   B   D
@@ -3286,13 +3439,6 @@ ACM-Cheatsheet -<
                             #include <stdlib.h>
                             #include <string.h>
 
-                            /*
-                             * @brief 计算部分匹配表，即next数组.
-                             *
-                             * @param[in] pattern 模式串
-                             * @param[out] next next数组
-                             * @return 无
-                             */
                             void compute_prefix(const char *pattern, int next[]) {
                                 int i;
                                 int j = -1;
@@ -3301,19 +3447,11 @@ ACM-Cheatsheet -<
                                 next[0] = j;
                                 for (i = 1; i < m; i++) {
                                     while (j > -1 && pattern[j + 1] != pattern[i]) j = next[j];
-
                                     if (pattern[i] == pattern[j + 1]) j++;
                                     next[i] = j;
                                 }
                             }
 
-                            /*
-                             * @brief KMP算法.
-                             *
-                             * @param[in] text 文本
-                             * @param[in] pattern 模式串
-                             * @return 成功则返回第一次匹配的位置，失败则返回-1
-                             */
                             int kmp(const char *text, const char *pattern) {
                                 int i;
                                 int j = -1;
@@ -3326,18 +3464,18 @@ ACM-Cheatsheet -<
                                 compute_prefix(pattern, next);
 
                                 for (i = 0; i < n; i++) {
-                                    printf( "\n\n\n" );
-                                    printf( "      %*si = %d\n", i, "", i );
-                                    printf( "      %*s|\n", i, "");
-                                    printf( "text: %s\n", text );
-                                    while (j > -1 && pattern[j + 1] != text[i]) {
-                                        printf( "\nj: %d->", j );
-                                        j = next[j];
-                                        printf( "%d\n", j );
-                                    }
-                                    printf( "      %*s%s\n", i-j-1, "", pattern );
-                                    printf( "      %*s|\n", i, "");
-                                    printf( "      %*sj:%d->", i-1, "", j );
+                                    //              printf( "\n\n\n" );
+                                    //              printf( "      %*si = %d\n", i, "", i );
+                                    //              printf( "      %*s|\n", i, "");
+                                    //              printf( "text: %s\n", text );
+                                    //              while (j > -1 && pattern[j + 1] != text[i]) {
+                                    //                  printf( "\nj: %d->", j );
+                                    //                  j = next[j];
+                                    //                  printf( "%d\n", j );
+                                    //              }
+                                    //              printf( "      %*s%s\n", i-j-1, "", pattern );
+                                    //              printf( "      %*s|\n", i, "");
+                                    //              printf( "      %*sj:%d->", i-1, "", j );
 
                                     if (text[i] == pattern[j + 1]) j++;
                                     if (j == m - 1) {
@@ -3359,27 +3497,24 @@ ACM-Cheatsheet -<
 
                                 if (i >= 0) printf("matched @: %s\n", ch + i);
 
-                                const char *needles[] = {
-                                    "ABCDABD",
-                                    "ABC",
-                                    "ABC"
-                                };
-                                for( int i = 0; i < sizeof(needles)/sizeof(needles[0]); ++i ) {
-                                    const char *pattern = needles[i];
-                                    static int next[50];
-                                    int m = strlen( pattern );
-                                    memset( next, 0, sizeof(next) );
-                                    compute_prefix( pattern, next );
-                                    printf( "next[] for: " );
-                                    for( int i = 0; i < m; ++i ) { printf("  %c  ", pattern[i] ); }
-                                    printf( "\n" );
-                                    printf( "            " );
-                                    for( int i = 0; i < m; ++i ) { printf("%3d  ", next[i] ); }
-                                    printf( "\n" );
-                                }
-
-
-
+                                //              const char *needles[] = {
+                                //                  "ABCDABD",
+                                //                  "ABC",
+                                //                  "ABC"
+                                //              };
+                                //              for( int i = 0; i < sizeof(needles)/sizeof(needles[0]); ++i ) {
+                                //                  const char *pattern = needles[i];
+                                //                  static int next[50];
+                                //                  int m = strlen( pattern );
+                                //                  memset( next, 0, sizeof(next) );
+                                //                  compute_prefix( pattern, next );
+                                //                  printf( "next[] for: " );
+                                //                  for( int i = 0; i < m; ++i ) { printf("  %c  ", pattern[i] ); }
+                                //                  printf( "\n" );
+                                //                  printf( "            " );
+                                //                  for( int i = 0; i < m; ++i ) { printf("%3d  ", next[i] ); }
+                                //                  printf( "\n" );
+                                //              }
                                 return 0;
                             }
                             ```
@@ -3395,6 +3530,7 @@ ACM-Cheatsheet -<
                             A = a b a b a b a a b a b …
                             B =     a b a b a c b
                             j =     1 2 3 4 5 6 7
+                            ```
 
                             预处理不需要按照P的定义写成O(m^2)甚至O(m^3)的。我们
                             可以通过P[1],P[2],…,P[j-1]的值来获得P[j]的值。对于
@@ -3408,21 +3544,24 @@ ACM-Cheatsheet -<
                             得到，即是否P[6]=P[ P[5] ]+1。这里想不通的话可以仔
                             细看一下：
 
+                            ```
                                 1 2 3 4 5 6 7
                             B = a b a b a c b
                             P = 0 0 1 2 3 ?
+                            ```
 
-                            P[5]=3是因为B[1..3]和B[3..5]都是"aba"；而P[3]=1则告
-                            诉我们，B[1]、B[3]和B[5]都是"a"。既然P[6]不能由P[5]
-                            得到，或许可以由P[3]得到（如果B[2]恰好和B[6]相等的
-                            话，P[6]就等于P[3]+1了）。显然，P[6]也不能通过P[3]
-                            得到，因为B[2]<>B[6]。事实上，这样一直推到P[1]也不
-                            行，最后，我们得到，P[6]=0。
+                            `P[5]=3` 是因为 `B[1..3]` 和 `B[3..5]` 都是 "aba"；而 `P[3]=1` 则告
+                            诉我们，`B[1]`、`B[3]` 和 `B[5]` 都是"a"。既然 `P[6]` 不能由 `P[5]`
+                            得到，或许可以由 `P[3]` 得到（如果 `B[2]` 恰好和 `B[6]` 相等的
+                            话，`P[6]` 就等于 `P[3]+1` 了）。显然，`P[6]` 也不能通过 `P[3]`
+                            得到，因为 `B[2]<>B[6]`。事实上，这样一直推到 `P[1]` 也不
+                            行，最后，我们得到，`P[6]=0`。
 
                             怎么这个预处理过程跟前面的KMP主程序这么像呢？其实，
                             KMP的预处理本身就是一个B串“自我匹配”的过程。它的代
                             码和上面的代码神似：
 
+                            ```
                             P[1]:=0;
                             j:=0;
                             for i:=2 to m do
@@ -3431,7 +3570,9 @@ ACM-Cheatsheet -<
                                if B[j+1]=B[i] then j:=j+1;
                                P[i]:=j;
                             end;
+                            ```
 
+                            ```cpp
                             void compute_prefix(const char *pattern, int next[]) {
                                 int i;
                                 int j = -1;
@@ -3736,38 +3877,22 @@ ACM-Cheatsheet -<
                     :   ```cpp
                         #include <queue>
                         #include <stdio.h>
-                        /**
-                         * @brief 打印杨辉三角系数.
-                         *
-                         * 分行打印二项式(a+b)^n展开式的系数。在输出上一行
-                         * 系数的同时，将其下一行的系数预先计算好，放入队列中。
-                         * 在各行系数之间插入一个0。
-                         *
-                         * @param[in] n (a+b)^n
-                         * @return 无
-                         */
                         using namespace std;
 
                         void yanghui_triangle(const int n) {
                             int i = 1;
                             queue<int> q;
-                            /* 预先放入第一行的1 */
-                            q.push(i);
+                            q.push(i);                                  // 预先放入第一行的1
 
-                            for(i = 0; i <= n; i++) {     /* 逐行处理*/
+                            for(i = 0; i <= n; i++) {                   // 逐行处理
                                 int j;
                                 int s = 0;
-                                q.push(s);      /* 在各行间插入一个0*/
+                                q.push(s);                              // 在各行间插入一个0
 
-                                /* 处理第i行的i+2个系数（包括一个0）*/
-                                for(j = 0; j < i+2; j++) {
-                                    int t;
-                                    int tmp;
-                                    t = q.front();  /*读取一个系数，放入t*/
-                                    q.pop();
-                                    tmp = s + t;      /* 计算下一行系数，并进队列*/
-                                    q.push(tmp);
-                                    s = t;            /* 打印一个系数，第i+2个是0*/
+                                for(j = 0; j < i+2; j++) {              // 处理第i行的i+2个系数（包括一个0）
+                                    int t = q.front(); q.pop();
+                                    q.push( t+s );
+                                    s = t;                              // 打印一个系数，第i+2个是0
                                     if(j != i+1) {
                                         printf("%d ",s);
                                     }
@@ -3782,12 +3907,94 @@ ACM-Cheatsheet -<
                         ```
 
                         ```
-                        1
-                        1 1
-                        1 2 1
-                        1 3 3 1
-                        1 4 6 4 1
-                        1 5 10 10 5 1
+                        1                      i=0         (a+b)^0 = 1
+                        1 1                    i=1         (a+b)^1 = a + b
+                        1 2 1                  i=2         (a+b)^2 = a^2 + 2ab + b^2
+                        1 3 3 1                i=3         (a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3
+                        1 4 6 4 1              i=4         ...
+                        1 5 10 10 5 1          i=6         ...
+
+
+                            |           queue
+                        ----+------------------------------------------------------------------
+                            |           1
+                        ----+------------------------------------------------------------------
+                        i=0 |           1   0                       s=0, 0<j<i+2=2
+                            |           0                           t=1, then push 1,       j=0
+                            |           0   1                       s=t=1, print "1",       j=1
+                            |                                              print "\n"
+                        ----+------------------------------------------------------------------
+                        i=1 |           0   1   0                   s=0, 0<j<3
+                            |           1   0                       t=0, then push 0,       j=0
+                            |           1   0   0                   s=t
+                            |           1   0   0                   s=t
+
+i 0, and queue:  1 0
+in queue:  1 0
+t: 1, t+s: 2, s: 1
+1 in queue:  0 1
+t: 0, t+s: 0, s: 0
+
+i 1, and queue:  1 1 0
+in queue:  1 1 0
+t: 1, t+s: 2, s: 1
+1 in queue:  1 0 1
+t: 1, t+s: 2, s: 1
+1 in queue:  0 1 2
+t: 0, t+s: 0, s: 0
+
+i 2, and queue:  1 2 1 0
+in queue:  1 2 1 0
+t: 1, t+s: 2, s: 1
+1 in queue:  2 1 0 1
+t: 2, t+s: 4, s: 2
+2 in queue:  1 0 1 3
+t: 1, t+s: 2, s: 1
+1 in queue:  0 1 3 3
+t: 0, t+s: 0, s: 0
+
+i 3, and queue:  1 3 3 1 0
+in queue:  1 3 3 1 0
+t: 1, t+s: 2, s: 1
+1 in queue:  3 3 1 0 1
+t: 3, t+s: 6, s: 3
+3 in queue:  3 1 0 1 4
+t: 3, t+s: 6, s: 3
+3 in queue:  1 0 1 4 6
+t: 1, t+s: 2, s: 1
+1 in queue:  0 1 4 6 4
+t: 0, t+s: 0, s: 0
+
+i 4, and queue:  1 4 6 4 1 0
+in queue:  1 4 6 4 1 0
+t: 1, t+s: 2, s: 1
+1 in queue:  4 6 4 1 0 1
+t: 4, t+s: 8, s: 4
+4 in queue:  6 4 1 0 1 5
+t: 6, t+s: 12, s: 6
+6 in queue:  4 1 0 1 5 10
+t: 4, t+s: 8, s: 4
+4 in queue:  1 0 1 5 10 10
+t: 1, t+s: 2, s: 1
+1 in queue:  0 1 5 10 10 5
+t: 0, t+s: 0, s: 0
+
+i 5, and queue:  1 5 10 10 5 1 0
+in queue:  1 5 10 10 5 1 0
+t: 1, t+s: 2, s: 1
+1 in queue:  5 10 10 5 1 0 1
+t: 5, t+s: 10, s: 5
+5 in queue:  10 10 5 1 0 1 6
+t: 10, t+s: 20, s: 10
+10 in queue:  10 5 1 0 1 6 15
+t: 10, t+s: 20, s: 10
+10 in queue:  5 1 0 1 6 15 20
+t: 5, t+s: 10, s: 5
+5 in queue:  1 0 1 6 15 20 15
+t: 1, t+s: 2, s: 1
+1 in queue:  0 1 6 15 20 15 6
+t: 0, t+s: 0, s: 0
+
                         ```
 
     -   chap5. Tree -<

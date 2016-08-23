@@ -1380,52 +1380,6 @@ title: 历史笔记 6
     -   [Unix signal - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Unix_signal)
     -   [用 GDB 调试程序（一） - 陈皓专栏　【空谷幽兰，心如皓月】 - 博客频道 - CSDN.NET](http://blog.csdn.net/haoel/article/details/2879)
 
-[C 语言中为什么不能用 char 类型来存储 getchar() 的返回值 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/archive/2012/12/23/2819111.html){.heart} -<
-
-:   `int getchar ( void );`
-
-    `fgetc()`
-      ~ reads the next character from stream and returns it as an unsigned char cast to an int, or EOF on
-        end of file or error.
-
-    `getc()`
-      ~ is equivalent to `fgetc()` except that it may be implemented as a macro which evaluates stream  more
-        than once.
-
-    `getchar()`
-      ~ is equivalent to `getc(stdin)`.
-
-    `gets()`
-      ~ reads a line from stdin into the buffer pointed to by s until either a terminating newline or EOF,
-        which it replaces with a null byte ('\0').  No check for buffer overrun is performed (see BUGS below).
-
-    `fgets()`
-      ~ reads in at most one less than size characters from  stream  and  stores  them  into  the  buffer
-        pointed  to  by s.  Reading stops after an EOF or a newline.  If a newline is read, it is stored into the
-        buffer.  A terminating null byte ('\0') is stored after the last character in the buffer.
-
-    `ungetc()`
-      ~ pushes c back to stream, cast to unsigned char, where it is available for subsequent read operations.
-        Pushed-back characters will be returned in reverse order; only one pushback is guaranteed.
-
-    ```
-    ---------------------------------      ----------------------------------------------
-    |    int到char转化（截断）      |      |       |             char到int转化（扩展）  |
-    ---------------------------------      ----------------------------------------------
-    | 十进制  |  int        |  char |      |  char |unsigned char=>int| signed char=>int|
-    |---------|-------------|-------|      |-------|------------------|-----------------|
-    |  2      |00 00 00 02  |  02   |      |  02   |  00 00 00 02     |00 00 00 02      |
-    |  1      |00 00 00 01  |  01   |      |  01   |  00 00 00 01     |00 00 00 01      |
-    |  0      |00 00 00 00  |  00   |      |  00   |  00 00 00 00     |00 00 00 00      |
-    | EOF(-1) |FF FF FF FF  |  FF   |      |  FF   |  00 00 00 FF     |FF FF FF FF      |
-    |  -2     |FF FF FF FE  |  FE   |      |  FE   |  00 00 00 FE     |FF FF FF FE      |
-    --------------------------------       ----------------------------------------------
-    ```
-
-    refs and see also
-
-    -   [[翻译]禅与文件和文件夹组织的艺术 上 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/archive/2013/01/15/zen-and-the-art-of-file-and-folder-organization-part1.html)
-
 [Permanently change keyboard layout on Ubuntu Server 11.10](http://krisreeves.com/things-that-should-be-easy/permanently-change-keyboard-layout-on-ubuntu-server-11-10/) -<
 
 :   `dpkg-reconfigure console-setup`{.bash}
@@ -2240,17 +2194,6 @@ PPA -- Personal Package Archive -<
     肯付出相对应的代价；在扩张自身权利的时候，眼睛永远只看到别人有的，和自己没
     有的。
 
-`airplane rule`{.heart} -<
-
-:   “Complexity increases the possibility of failure; a twin-engine airplane
-    has twice as many engine problems as a single-engine airplane.” By analogy,
-    in both software and electronics, the rule that **simplicity increases
-    robustness**.
-
-    It is correspondingly argued that the right way to build reliable systems
-    is to put all your eggs in one basket, after making sure that you've built
-    a really good basket.
-
 Extra-Sensory-Perception. -<
 
 :   Often referred to as "The sixth Sense". Often used in conversation when one
@@ -2430,54 +2373,6 @@ RAINBOCTOCAT -<
     ![150x200](http://gnat.qiniudn.com/rainboctocat.png?imageView2/1/w/150/h/200)
 
     ![180x180](http://gnat.qiniudn.com/rainboctocat.png?imageView2/1/w/180/h/180)
-
-`unzip`{.heart} -<
-
-:   **c**, compress; **x**, extract, **f**, file
-
-    .zip (`zip & unzip`)
-
-    :   ```bash
-        zip     -r          archive_name.zip directory_to_compress   # r: recursive
-        unzip               archive_name.zip
-        ```
-
-    .tar (`{c/x}vf`)
-
-    :   ```bash
-        tar     -cvf        archive_name.tar directory_to_compress
-        tar     -xvf        archive_name.tar.gz
-        tar     -xvf        archive_name.tar -C /tmp/extract_here/   # C: change outdir
-        ```
-
-    .tar.gz (`.tar + z`)
-
-    :   ```bash
-        tar     -zcvf       archive_name.tar.gz directory_to_compress
-        tar     -zxvf       archive_name.tar.gz
-        tar     -zxvf       archive_name.tar.gz -C /tmp/extract_here/
-        ```
-
-    .tar.bz2 (`.tar + j`)
-
-    :   ```bash
-        tar     -jcvf       archive_name.tar.bz2 directory_to_compress
-        tar     -jxvf       archive_name.tar.bz2 -C /tmp/extract_here/
-        ```
-
-    .tar.xz (`.tar + x`)
-
-    :   ```bash
-        tar     xvfJ        filename.tar.xz
-        tar     xpvf        /path/to/my_archive.tar.xz -C /path/to/extract
-        tar     --xz -xvf   filename.tar.xz
-        ```
-
-    refs and see also
-
-    -   [bash - How to extract tar.xz files in Linux? - Stack Overflow](http://stackoverflow.com/questions/12298368/how-to-extract-tar-xz-files-in-linux)
-    -   [How to create and extract zip, tar, tar.gz and tar.bz2 files in Linux - Simple Help](http://www.simplehelp.net/2008/12/15/how-to-create-and-extract-zip-tar-targz-and-tarbz2-files-in-linux/)
-    -   [oh-my-zsh/extract.plugin.zsh at master · robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/extract/extract.plugin.zsh)
 
 [Mysterious New Line](http://stackoverflow.com/questions/71417/why-is-r-a-newline-for-vim) -<
 
@@ -3092,154 +2987,6 @@ Young Sailor II -<
 
 [wpf - How does Cocoa compare to Microsoft, Qt? - Stack Overflow](http://stackoverflow.com/questions/2442340/how-does-cocoa-compare-to-microsoft-qt)
 
-[白板编程浅谈——Why, What, How - Lucida](http://lucida.me/blog/whiteboard-coding-demystified/){.heart}
-
-[灵魂机器 答过的问题 - 知乎](https://www.zhihu.com/people/soulmachine/answers?order_by=vote_num){.heart} -<
-
-:   所以，你自己在提这个问题之前，其实已经知道了答案，就不妨明说吧，你在二本学
-    校，进 google 的可能性有，但是概率非常非常非常低，比其他学校的学生概率要低得
-    多。如果你在大学四年，不玩命学习，每天学习时间不超过 11 小时（类似于武侠小说
-    的主角，基本都有一段奇遇，经历过后功力大涨），**你就洗洗睡吧。**
-
-    首先最基本的两点建议，
-
-    1.  无论白天黑夜，不要带手机在身边，每天只在睡觉前把手机打开 15 分钟，处理未接
-        电话和未读短信，**最好是把手机砸了**（作为学生社交关系非常简单，完全没
-        必要拥有手机）
-    2.  打开电脑除了 Google, Stackoverflow 等编程网站，不要上其他社交网站，例如 QQ，
-        微博等等，禁止开机进入 Windows, 装个 Ubuntu.
-
-    2015/02/18日更新：
-
-    不少人觉得这方法很偏激，我才说了两点建议。。。我不妨说的更具体一点，说说我
-    当年是如何操作的吧
-
-    1.  戒手机。每天只在 23:30 睡觉前开机手法短信，回几个电话，当然，随着与世隔绝
-        的日子一天一天下去，我的未接短信和未接电话越来越少，几个月后只有几个亲人
-        偶尔有联系。
-    2.  戒网。比前面的建议更激进，基本一个月只上一次网，每次上网也是查查信息。
-    3.  戒电脑。我认为大部分人打开电脑后，注意力会涣散，一会儿就偏离开机前心里想
-        要做的事，四处看网页去了，于是我一狠心让自己每天只用一个小时电脑。
-    4.  由于戒了电脑，我只能在纸上写代码。我一般会花几个小时，写上十几页的代码，
-        然后用一个小时，把代码敲进去，编译运行。这锻炼了我一次性写出 bug free 代码
-        的能力，后来一部分代码还行形成了一本开源书, soulmachine/acm-cheat-sheet · GitHub
-    5.  由于戒了电脑，没有 evernote 做笔记了, 我便用纸和笔记笔记，用掉了五六个笔记
-        本，每当写满了一百多页后，便集中开电脑几个小时，把笔记敲进电脑。这些笔记
-        后来也形成了一些电子书, / - soulmachine - a brank new AI architecture ,
-        曾经受到很多考研朋友的喜爱。
-    8.  每天学习 11 个小时。很多人觉得 11 个小时没什么，不错，一天两天如此没什么，可
-        是天天如此，就需要对时间安排极度精准了，我的日程是这样的，每天 7:00 起床,
-        10 分钟吃早餐，10 分钟步行到自习室, 7:30 准时开始看书，11:30 去食堂吃饭，
-        17:30 吃晚饭, 23:00 下自习，回到租住的房间洗漱睡觉。
-
-    有几个 tips 要注意，
-
-    -   早餐一定要简单，如果你去食堂吃或者路边买早餐，10 分钟搞定不可能，所以我都
-        是每周末去一次超市，买一袋子面包片，每天早晨两片面包，其他复杂的食物，例
-        如果汁，水煮鸡蛋等都很费时间
-    -   午睡在桌子上趴着睡就好，回到房间睡床上，一睡就不想起来。
-
-    总结，以上所有方法都是围绕一个核心，**与世隔绝，极致专注。**
-
-    再打个比方，不少人说用 Kindle 看书比 iPad Mini 效率高，我估计可能因为
-    Kindle 干别的都不行，只好专心看书。我使用过两者均长达一年多，亲身体验，确实
-    是这个原因。那这个例子跟本答案有类似之处。如果你想学习，就把自己放到一个除
-    了学习什么都干不了的环境中。
-
-    对一个人说的话找错误是非常容易的，如果我把我所说的话，全部在逻辑上修复严密，
-    比如“戒网”改成“在一定程度上戒网”，如此这般把所有文字修改一遍，那这些话就变
-    成了**政治正确的完美废话**，重要观点就淹没在琐碎冗长的文字之中了。因此，我
-    会直接忽视那些抬杠的，挑小毛病的评论。
-
-    作为面试官，我曾经听说过几个面试者对我给他们的面试经历评价为“明明小公司一个，
-    面什么算法”。后来我曾经找出了其中一些人的简历，回忆了一下面试过程，基本上他
-    们都满足以下四条中的两条以上：
-
-    -   简历上 4-5 个项目经历，结果一问，别说不是项目主持了，根本就是参与度极低，
-        一问三不知。（我曾遇到过同一个大概不超过 1 万行的项目在 3 个人简历上同时出
-        现的，而且他们都不是项目主持）
-    -   简历上声称熟练掌握的内容，掌握程度仅限于最基本的使用，缺乏任何的设计分
-        析能力。
-    -   对所面试的岗位毫无概念，不明白自己是否符合岗位描述上的必要条件
-    -   对面试提问思路不清晰，或思路表达不清晰。面对问题时，不是仅仅得不到完美
-        的最终答案，而是思路一片空白。
-    -   **坚决认为 C++ 是王道，“我还是想做 C++”，拒绝多语言工作和学习。但实际上 C++
-        掌握的并不好。**
-
-    鄙公司（小公司招人不容易啊！）面试程序时，除非简历上写明了 ACM 获奖经历，否
-    则我给他们安排的所谓“算法题”基本上不会超过二分查找的难度，而且其实并没有太
-    多思路上的扩展，仅仅是算法实现而已。而且这仅限于我实在找不出任何的其它亮点，
-    完全无法满足一个 C++ 岗位的要求，还坚持想从事 C++ 岗位的时候才会进行这样的
-    提问。因为我们其实是相信员工在岗位上的成长的，面试时不允许查找资料，时间也
-    有限，能解决的问题难度不如工作时所能解决的问题难度也是很正常的。但至少你要
-    有点思路吧？二分查找不会写个枚举也好吧？白卷是闹哪样？
-
-    结果他们认为是因为算法题表现不好而被我拒绝了。
-
-    除了鄙公司，以我在大公司的被面试以及面试经验，虽然连基本的算法题都答不出实
-    在是一件值得鄙视和怀疑的事情，但我依然觉得如果你各方面能力均表现优秀，十分
-    符合岗位所需的要求，其实是不太会因为一个复杂的算法题没有答上来而直接被挂掉
-    的。**当然，如果你在面试算法题时毫无思路，或缺乏基本的算法复杂度分析等能力，
-    被扣分也几乎是一定的。**你被各方面都不比你差，算法问题表现比你更强的面试者
-    干掉，也是很有可能的。
-
-    说了那么多，总结起来只有一句：“因为公司面算法而义愤填膺的，肯定是面试挂掉了
-    而不知道自己究竟为什么挂掉了的。”
-
-    我觉得未来的面试都改成综艺节目那种形式，四个人一组，现场用答题板答题，这样
-    被刷掉的就不会有那么多怨言了……
-
-    PS: 爱抱怨的还是少数。我遇到的面试者中，还是有不少虽然我没有录取（不符合岗
-    位需求），但性格和沟通上还是很喜欢的孩子的。
-
-    算法题是用来衡量你思考和解决问题的能力的。如果是大公司的研发岗位，面一些很
-    难的算法题我也不觉得为过，当然，不代表一定要答出最完美的答案，**更重要的是
-    你的思考、沟通、验证、以及执行过程**。我当初在面试百度的时候，面的是一个算
-    是很高端的字符串匹配题，最完美的答案（改进版 AC 自动机）我当时是既不知道又
-    是即使知道了也写不出来，然而我给出了我能力范围内最漂亮的答案（后缀数组），
-    复杂度虽然多了一个 lgN，但面试官也看到了我的分析能力以及思考过程的清晰、方
-    案的完整度以及快速可实施性，后来一样还是过了。至于“ACM 级别”，我想你太小瞧
-    ACM 了，真的，就这道题目，在 ACM 圈子里是最 low 的模板题而已，稍微集训过几
-    个月的人都会，完全不值得讨论……
-
-    至于“没本事不要设立高门槛”，我倒是觉得，不管有没有本事，有钱就有资格设置高
-    门槛。至于门槛是设在这种看似不直接产生作用的算法能力上，还是设在什么管理、
-    项目经验上，还是设在外貌性别上，这是企业站在自己的角度根据自己的需求选择的，
-    你觉得不合适，大可选择别的企业，而不是到处抱怨。大企业，以及大企业出身的管
-    理人员，尤其是面试应届毕业生的时候，都有可能会更倾向于成长型的员工。这种情
-    况下，不面算法面什么？面你行业背景吗？面你项目经历吗？
-
-    **可笑死了，没本事就嘲笑别人没本事。**
-
-    还有一些情况是这样子的，例如我问超大整数乘法然后对方说用 Python 直接用乘号，
-    又或者说我问快速排序对方说用 Haskell 一行写完。这就如同一个面试者打开公文包
-    掏出一个轮子说「我这正好有一个，不知道是否合适？」呃……你的百宝袋里面还有什
-    么？
-
-    最后从面试官的角度来说，面试 ACM/ICPC 竞赛选手往往都很无聊。他们能够给出一
-    个完美的轮子，但我不觉得我能从他们身上学到新东西。（面试过足够多的人后，要
-    见到一个比已知完美轮子更完美的轮子其实非常难。）更有趣的面试者会说，「你知
-    道吗，其实中国古代独轮手推车的轮子设计得比古罗马战车的轮子要合理」。其实我
-    不知道你在说什么，但如果你能够把整套理论说得自圆其说的话我觉得你至少有点思
-    维能力，同时你还真的对轮子感兴趣。事后我可能会去搜索一下看看你说的理论是否
-    正确，但至少我会学到点新东西。
-
-当然啦。。**看 C++ 要看 leveldb, 看 C 要看 redis** -<
-
-:   我告诉你一个识别 C++ 代码质量的诀窍：找几个 class，如果其 dtor 有 delete 或释放
-    资源的操作，看看作者是否同时正确禁用了 copy ctor 和 assignment operator（或者正
-    确实现了它们，如果 class 确实应该是 copyable 的话），这反映了作者设计 C++ class
-    的基本功：正确管理内存和其他资源，以及他有没有认真读过 Effective C++。
-
-    其实，一个人要成牛人，最重要的不是看过多少书，而是有没有一个自己的世界观，并且
-    从这个世界观出发，**知道什么要做，什么能做，什么要坚持，什么要追求，什么是命中注
-    定，什么是此生无缘，然后才能选 A 不选 B，有决断心和行动力**。为此，得要体会过了别人
-    选择的艰难，明白所要追求事业的难度，然后自己的选择才有意义。这些可以通过读书，
-    也可以通过别的方式。
-
-    在这个行业当实习生，待遇恰恰是最不重要的，你的起点高度跟你几年后能达到的水准没
-    有任何必然关系。而且，你到岗后的努力也比你一开始的选择更加重要。
-
 [yedf/handy: 简洁易用的 C++11 网络库 / 支持单机千万并发连接 / a simple C++11 network server framework](https://github.com/yedf/handy) -<
 
 :   非常简洁的一个网络库，10 行代码能够编写一个完整的 echo 服务器，采用最新的 c++11
@@ -3439,10 +3186,6 @@ Young Sailor II -<
 [在 ACM-ICPC 中获得很好成绩的人，现在都在干什么？ - 程序猴子的回答 - 知乎](https://www.zhihu.com/question/26828533/answer/34212232)
 
 [Layout – The Miniguru – Always on the Home Row](http://www.guru-board.com/english/layout_en)
-
-![在像幅不变的情况下，如果增大焦距；
-    就需要把 field of view 缩小；
-    FOV 缩小，远处的东西就会变大](http://whudoc.qiniudn.com/2016/fov-focal.jpg)
 
 [Dolly zoom - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dolly_zoom)
 
@@ -4406,11 +4149,6 @@ Vim -<
     refs and see also
 
     -   [进入 2012 -- 回顾我走过的编程之路 - 陈梓瀚 (vczh) - 博客园](http://www.cnblogs.com/geniusvczh/archive/2011/12/16/2290808.html)
-
-[有多少程序员后悔英语没学好？或者庆幸学好了? - 知乎](https://www.zhihu.com/question/27867216) -<
-
-:   英语想要投入日常生活中使用还是比较难的，不过幸好有声称“我 6 级差点就到 600”的
-    老婆，我实在听不懂就让她弄，啊哈哈哈。
 
 [CoCo - A Python Virtual Machine](http://knuth.luther.edu/~leekent/CoCo/)
 

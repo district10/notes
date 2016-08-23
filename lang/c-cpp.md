@@ -1266,6 +1266,18 @@ C++ 简介 | Intro
 
         -   [std::equal_range - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/equal_range)
 
+-   print out queue, stack -<
+
+    :   ```cpp
+        for( std::stack<int> dump = stack; !dump.empty(); dump.pop() ) {
+            std::cout << dump.top() << '\n';
+        }
+
+        for( deque<int>::iterator it = q.begin(); it != q.end(); ++it )
+            cout << *it << endl;
+        }
+        ```
+
 -   upper_bound & lower_bound -<
 
     :   Returns an iterator pointing to the first element in the range
@@ -1821,6 +1833,21 @@ C++ 简介 | Intro
         float:                 3.40282e+38 or   0x1.fffffep+127
         double:               1.79769e+308 or   0x1.fffffffffffffp+1023
         ```
+
+        72 法则
+
+        :   “假设以年利率r%投资一笔钱y年，如果r×y=72，那么你的投资
+            差不多会翻倍。”比如年利率6%投资1000美元12年，可以得到
+            2012美元。很有意思～
+
+            假设一个程序n=40时需要10秒，并且n增加1，时间就增加12%，
+            根据72法则，每当n增加6，运行时间就加倍，n每增加60，运行
+            时间就是原来的1000倍（n增加60，也就是说翻10倍，2的10次
+            方是1024）
+
+            tip：π秒 = 1纳世纪秒 = 10^-9 * 100 s = 10^-7 s
+
+            一年有 pi * 10^7 秒。
 
         refs and see also
 
@@ -3740,6 +3767,52 @@ C++ 简介 | Intro
 
         -   [c++ 虚函数的作用是什么？ - 知乎](https://www.zhihu.com/question/23971699)
         -   [虚函数和纯虚函数的区别 - Hackbuteer1的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/hackbuteer1/article/details/7558868)
+
+-   [C 语言中为什么不能用 char 类型来存储 getchar() 的返回值 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/archive/2012/12/23/2819111.html) -<
+
+    :   `int getchar ( void );`
+
+        `fgetc()`
+          ~ reads the next character from stream and returns it as an unsigned char cast to an int, or EOF on
+            end of file or error.
+
+        `getc()`
+          ~ is equivalent to `fgetc()` except that it may be implemented as a macro which evaluates stream  more
+            than once.
+
+        `getchar()`
+          ~ is equivalent to `getc(stdin)`.
+
+        `gets()`
+          ~ reads a line from stdin into the buffer pointed to by s until either a terminating newline or EOF,
+            which it replaces with a null byte ('\0').  No check for buffer overrun is performed (see BUGS below).
+
+        `fgets()`
+          ~ reads in at most one less than size characters from  stream  and  stores  them  into  the  buffer
+            pointed  to  by s.  Reading stops after an EOF or a newline.  If a newline is read, it is stored into the
+            buffer.  A terminating null byte ('\0') is stored after the last character in the buffer.
+
+        `ungetc()`
+          ~ pushes c back to stream, cast to unsigned char, where it is available for subsequent read operations.
+            Pushed-back characters will be returned in reverse order; only one pushback is guaranteed.
+
+        ```
+        ---------------------------------      ----------------------------------------------
+        |    int到char转化（截断）      |      |       |             char到int转化（扩展）  |
+        ---------------------------------      ----------------------------------------------
+        | 十进制  |  int        |  char |      |  char |unsigned char=>int| signed char=>int|
+        |---------|-------------|-------|      |-------|------------------|-----------------|
+        |  2      |00 00 00 02  |  02   |      |  02   |  00 00 00 02     |00 00 00 02      |
+        |  1      |00 00 00 01  |  01   |      |  01   |  00 00 00 01     |00 00 00 01      |
+        |  0      |00 00 00 00  |  00   |      |  00   |  00 00 00 00     |00 00 00 00      |
+        | EOF(-1) |FF FF FF FF  |  FF   |      |  FF   |  00 00 00 FF     |FF FF FF FF      |
+        |  -2     |FF FF FF FE  |  FE   |      |  FE   |  00 00 00 FE     |FF FF FF FE      |
+        --------------------------------       ----------------------------------------------
+        ```
+
+        refs and see also
+
+        -   [禅与文件和文件夹组织的艺术 上 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/archive/2013/01/15/zen-and-the-art-of-file-and-folder-organization-part1.html)
 
 -   TODO，我已经理解或者下文有介绍的，不再贴在这里，faqend -<
 
@@ -7802,3 +7875,65 @@ C++ 简介 | Intro
         [一道阿里实习生笔试题的疑惑？ - RednaxelaFX 的回答 - 知乎](https://www.zhihu.com/question/29256578/answer/43725188)
 
         memory locality
+
+        -   [Pitfalls of C](http://www.math.pku.edu.cn/teachers/qiuzy/c/reading/pitfall.htm){.featured .heart} -<
+
+            :   这书居然在网上直接放着（其实考研复试那段时间我看完了，有时间再看一下，note some）
+
+                SHIT.
+
+                The C language is like a carving knife: simple, sharp, and extremely useful
+                in skilled hands. Like any sharp tool, C can injure people who don't know
+                how to handle it.
+
+                Once we know how to declare the variable, we know how to cast a constant to
+                that type: just drop the name from the variable declaration. Thus, we cast
+                0 to a "pointer to function returning void'' by saying:
+
+                ```cpp
+                (void(*)())0
+                ```
+
+                and we can now replace fp by (void(*)())0:
+
+                `(*(void(*)())0)();`
+
+                The semicolon on the end turns the expression into a statement.
+                and we can now replace `fp` by `(void(*)())0`:
+
+                ```cpp
+                if (flags & FLAG != 0) ...  //  if (flags & (FLAG != 0)) ...
+                r = h<<4 + l;               //  r = h << (4 + l);
+                ```
+
+                One way to avoid these problems is to parenthesize everything, but
+                expressions with too many parentheses are hard to understand, so it is
+                probably useful to try to remember the precedence levels in C.
+                Unfortunately, there are fifteen of them, so this is not always easy to do.
+                It can be made easier, though, by classifying them into groups.
+
+                The operators that bind the most tightly are the ones that aren't really
+                operators: subscripting, function calls, and structure selection. These all
+                associate to the left.
+
+                Next come the unary operators. These have the highest precedence of any of
+                the true operators. Because function calls bind more tightly than unary
+                operators, you must write `(*p)()` to call a function pointed to by `p`; `*p()`
+                implies that `p` is a function that returns a pointer. Casts are unary
+                operators and have the same precedence as any other unary operator. Unary
+                operators are right-associative, so `*p++` is interpreted as `*(p++)` and not
+                as `(*p)++`.
+
+                Next come the true binary operators. The arithmetic operators have the
+                highest precedence, then the shift operators, the relational operators, the
+                logical operators, the assignment operators, and finally the conditional
+                operator. The two most important things to keep in mind are:
+
+                1.  Every logical operator has lower precedence than every relational operator.
+                2.  The shift operators bind more tightly than the relational operators but less tightly than the arithmetic operators.
+
+                Within the various operator classes, there are few surprises.
+                Multiplication, division, and remainder have the same precedence, addition
+                and subtraction have the same precedence, and the two shift operators have
+                the same precedence.
+
