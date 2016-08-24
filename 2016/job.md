@@ -5,6 +5,62 @@ title: Job
 Job
 ===
 
+Nina And Her Very Long Hair -<
+
+:   |   i have a tale, but not a tail
+    |   like felius domesticum
+    |
+    |   it's of a girl, a real girl
+    |   i'm calling by her real name
+    |
+    |   and thus began
+    |   a summer camp sonnet 十四行诗
+    |   she saw a boy who would soon be
+    |   a bee in her teenage bonnet
+    |   nina and her very long hair
+    |   held a torch that got her nowhere
+    |   she hit him with a thunderbolt smile
+    |   every thing she had she threw
+    |   every dress and every shoe
+    |   nina and her very long hair
+    |   held a torch that got her nowhere
+    |   as hard as she tried
+    |   he never looked twice
+    |   he never did see the light,
+    |   and end the plight (`[plaɪt]`困境) of nina
+    |
+    |   sometimes a film, comes over me,
+    |   like a cold cup of tea
+    |   and i forget, what i was set
+    |   to snag (被绊住) and bag, grab and seize
+    |
+    |   at seventeen
+    |   she was still reeling 蹒跚
+    |   she went to camp
+    |   with a comb and a tent
+    |   and that same old feeling
+    |   nina and her very long hair
+    |   held a torch that got her nowhere
+    |   she hit him with a thunderbolt smile
+    |   every thing she had she threw
+    |   every dress and every shoe
+    |   nina and her very long hair
+    |   held a torch that got her nowhere
+    |   as hard as she tried
+    |   he never looked twice
+    |   he never did see the light,
+    |   and end the plight of nina
+    |
+    |   and so she snipped,
+    |   she cut and she clipped
+    |   enough to thatch a cottage roof
+    |   and once she'd preened,
+    |   she glowed and she gleamed
+    |   off she set to make him swoon
+    |
+    |   she was the girl with very short hair,
+    |   that got her nowhere
+
 [大型的校园招聘一年有几次，分别是什么时候？ - 职场 - 知乎](http://www.zhihu.com/question/19889357) -<
 
 :   一般，应届毕业生招聘可分为四个阶段。不同阶段，用人单位的组成有很大不同。
@@ -110,7 +166,7 @@ Job
             |   工作强度很大。
             |   工作强度非常大。
 
-    -   Alibaba
+    -   Alibaba -<
 
         :   首先关于待遇，BAT 和微软应届生年薪应该都是 20W 出头（百度 13K*14.5，
             阿里 13K*16，腾讯记不太清了，微软加年终奖大约是 24W），差距也不太大，
@@ -189,14 +245,148 @@ Job
 
     如果是 C++ 的话，换我来做校招面试官，我会问到 C++ 语言，STL 的用法与一些实
     现细节，操作系统与算法等知识，并且会根据他的回答与情况进行不断的追问，参考
-    我这个答案：实现字符串替换函数 char *strReplace(const char *original,const
-    char *substr,const char *replace)？ - 蓝色的回答同时，我也会问问他简历的项
+    我这个答案：实现字符串替换函数
+    `char *strReplace(const char *original,const char *substr,const char *replace)`，
+    我也会问问他简历的项
     目的相关东西，并且主动权主要在他手里，让他多说，然后我来问，我会希望他可以
     把我讲懂，我会偶尔提出我的问题，并且进行延伸，希望他可以想到办法。
 
     心态：校招出现误杀的概率极大，所以要保持好良好的心态。比如我的简历也都被直
     接刷过，所以不要一些公司不通过就轻易的直接否定掉自己，这样才能自信的面对每
     一次面试，最后收获到自己满意的 Offer。
+
+    [实现字符串替换函数char *strReplace(const char *original,const char *substr,const char *replace)？ - 蓝色的回答 - 知乎](http://www.zhihu.com/question/29697022/answer/45288038) -<
+
+    :   对于这个问题，首先情景是在面试场合，那么若我是面试者的话，我会选择先短
+        时间实现一个可以工作的代码，然后再和面试官一起交流，探寻更高效的实现（
+        前提他是一个好的面试官），而如果我是面试官的话，如果出这道题，我观察的
+        不仅是他的实现，也观察他的编码习惯，Corner Case的考虑，他的思维过程等，
+        如这道题目，他一上来就啪啪啪的吭哧吭哧的写了，一上来就没有判定指针是否
+        为空，就直接用了，那么这样的话，会减分不少。所以，正是如此，作为面试者
+        ，也需要揣摩出面试官的心理，针针入血，刺激到他的High点，产生相见恨晚的
+        感觉那就基本上成功了。
+
+        而面试中，最好不要沉默，而要展现自己，如与面试官确定需求条件，这样也可
+        以为自己赢得更多的一些时间思考，也表明自己是一个编码很谨慎的人，具有着
+        职业精神，而非学生时期的那么冲动了。
+
+        而在实现这道题目的时候，你有几种方向，一种是测试驱动，即你先写单元测试
+        用例，然后再实现，对面试官表明我的开发是有测试做积淀的，是有支撑的，而
+        非盲目的想当然是怎么样的。第二种是直接先实现，再测试。即理清楚了需求，
+        就直接实现，然后再来写单元测试用例来验证自己的实现是否正确。当然，这到
+        底哪种好呢？我相信会有不同的看法，当然我更倾向于第一种。
+
+        随后在开始实现的时候，你可以边实现边展现你的思路是怎么样，并对一些该强
+        调的地方进行强调，如这道题目，第一步判定original是否为空指针，写完后你
+        就可以给面试官说了，然后让面试官意识到你是知道这个的，同时你可以给面试
+        官再次确认，如果遇到这样的情况，我们应该是返回为NULL呢，还是说有其他的
+        处理方式，或者说我们采用assert？当然这都是可以商量的。也许你会说很愚蠢
+        ，怎么婆婆妈妈的，这都是在为自己赢取时间，并且表明自己是很谨慎的，有职
+        业素养的程序员。然后，与此同时，substr，replace为NULL的时候，我们应该返
+        回NULL，还是strdup等等，抑或怎么样？这些都是需要确认的。于是，实现可能
+        是这样的：
+
+        ```cpp
+        char * strReplace(const char *original, const char *substr, const char *replace)
+        {
+            if( original == NULL || substr == NULL || replace == NULL ) {
+                return NULL;
+            }
+
+            char *newstr    = strdup(original);
+            char *head      = newstr;
+
+            char *tok       = NULL;
+            char *oldstr    = NULL;
+
+            while( tok = strstr(head, substr) ) {
+                oldstr = newstr;
+                newstr = (char*) malloc(strlen(oldstr) - strlen(substr) + strlen(replace) + 1);
+                if( newstr == NULL ) { // failed to alloc mem, free old string and return NULL
+                    free(oldstr);
+                    return NULL;
+                }
+                memcpy( newstr, oldstr, tok - oldstr );
+                memcpy( newstr + (tok - oldstr), replace, strlen(replace) );
+                memcpy( newstr + (tok - oldstr) + strlen(replace), tok + strlen(substr), strlen(oldstr) - strlen(substr) - (tok - oldstr));
+                memset( newstr + strlen(oldstr) - strlen(substr) + strlen(replace), 0, 1);
+                head = newstr + (tok - oldstr) + strlen(replace);
+                free(oldstr);
+            }
+            return newstr;
+        }
+        ```
+
+        然后如果我是面试官，我这时候可能就会有几个问题
+
+        1. 既然用了memcpy，那么他是否也可以自己实现memcpy呢？而作为面试官，实际考察点，可能不在于此，而在于他是否知道地址重叠，以及怎么处理
+        2. 能否有更高效的版本实现呢？
+
+        那么作为面试者，当被问住实现 memcpy 的时候，同样要清楚，其实既然这么考，
+        自然有更深层次的考察，如果此时能知道地址重叠的情况，并知道如何处理，那
+        就非常的棒了，因为刺激到了面试官的High点，抓住了他的意图。
+
+        而作为面试官，问有没有更高效的版本实现，是希望更深层次的知道他到底有多
+        强，也是想继续拓展一下话题。那么面试者这时候也许就会想到，我们对字符串
+        的处理，这时候可能这个字符串有很多需要替换的，其实这里面会有一个隐藏的
+        计数count，那么我们也许可以考虑实现一个带Cache Position的版本。OK，这时
+        候，面试者可能就吭哧吭哧的讲解Cache，然后实现Cache版本，这个时候，面试
+        官也抓住了一个话题聊下去，如是否知道L1 Cache，L2 Cache，L3 Cache，区别
+        ？是否知道MemCached这东西？如果用过MemCached，就有的聊了，如果没有用过
+        ，没有关系，那么可以从L1 Cache这个话题开始。然后，作为面试官可以继续拓
+        展到CPU的相关知识，如Program Counter，指令周期等等，而作为面试者，这个
+        时候则需要知道的是，考这些内容是在测自己的专业深度，不要心里埋怨平时开
+        发根本用不上这东西，怎么考这么煞笔的问题，而应该将自己平时积累的专业深
+        度知识都拿出来。聊完计算机组织结构知识，很容易就可以聊到操作系统知识，
+        聊到编译器的知识，甚至于说对于面试者重新写Cache版本的时候，可以聊到重构
+        ，可以聊到设计模式，这样可以测出面试者的专业知识广度，这样的话，面试者
+        的能力也能最大化的被测出来。
+
+        于是，作为面试者，可以发现自己所写的每一行代码，每一处细节都可以作为面
+        试官的话题延伸点，那么面试者写下每一行代码的时候都要有把握解释清楚到底
+        发生了什么，而且如果面试者足够的聪明，在写下代码的时候，甚至可以引导面
+        试官往哪方面来问，如在实现这个函数的时候，作为面试者，我可能就会想面试
+        官会有几个地方可能询问： 1. strstr的用法和实现 2. memcpy的用法与实现，
+        乃至于memmove的比较. 那么当出现上述问了高效版本的时候，其实对自己是更有
+        利的，因为提高性能的办法其实有各种方式，如果强在计算机组织等，则可以往
+        寄存器，Cache等低层次的说，如果强在算法方面，可以往更快的算法方面走。这
+        个时候，在重构的时候，面试者自然也要留个心眼，进行漂亮的重构，乃至考虑
+        到可维护性，可扩展性等方面，这样也是对自己能力的一个很好的展现。
+
+        于是，如果是一个好的面试官，很容易就能测出来面试者的水平。如果是一个好
+        的面试者，也很容易能够展现出自己的能力，乃至引领面试官进入到自己的节奏。
+        而这两者，我个人觉得其实更难做的是一个好的面试官，因为面试官需要实时
+        评估，而面试者需要的仅是很好的展示自己。
+
+        `strReplace("abcabc", "abc", " abcabc")` 应该返回什么？
+
+        ```java
+        public static String replace(final String text, final String searchString, final String replacement, int max) {
+            if (isEmpty(text) || isEmpty(searchString) || replacement == null || max == 0) {
+                return text;
+            }
+            int start = 0;
+            int end = text.indexOf(searchString, start);
+            if (end == INDEX_NOT_FOUND) {
+                return text;
+            }
+            final int replLength = searchString.length();
+            int increase = replacement.length() - replLength;
+            increase = increase < 0 ? 0 : increase;
+            increase *= max < 0 ? 16 : max > 64 ? 64 : max;
+            final StringBuilder buf = new StringBuilder(text.length() + increase);
+            while (end != INDEX_NOT_FOUND) {
+                buf.append(text.substring(start, end)).append(replacement);
+                start = end + replLength;
+                if (--max == 0) {
+                    break;
+                }
+                end = text.indexOf(searchString, start);
+            }
+            buf.append(text.substring(start));
+            return buf.toString();
+        }
+        ```
 
 [华为百度腾讯这些大公司，校招需要达到哪种水平才有机会进去？ - Android 开发 - 知乎](http://www.zhihu.com/question/31762389) -<
 
@@ -229,7 +419,7 @@ Job
 
     `当过几次面试官，我一般会在以下几个方面各问一些问题：`{.heart}
 
-    -   你擅长的语言方面问一些语言实现机制之类的比较深入的问题。
+    -   你擅长的语言方面问一些**语言实现机制**之类的比较深入的问题。
     -   数据结构与算法问几个，基础的数据结构，一般 hash 表、二分法、贪心什么的，
         如果都答上来，会问一些比较偏的。
     -   数学思维，考一些概率问题、一些巧妙的转化什么的，考察一个人的智力水平，
@@ -238,8 +428,8 @@ Job
         络编程之类的，都问你一下基础的接口长什么样，你以前用过没有，有用过它做
         什么事之类的。还会问你，这个东西底下的原理是什么样的，为什么设计成这样。
         考察你思考的深度。
-    -   如果做过网站的话，可能会问一些 HTTP 协议相关的东西，看看你有没有思考过你
-        写的网站是怎么的运行起来的。
+    -   如果做过网站的话，可能会问一些 HTTP 协议相关的东西，看看你
+        **有没有思考过你写的网站是怎么的运行起来的**。
 
     就这样。你简历说你做出过什么东西，这个我可能会参考一下，然后主要问你你可能
     擅长的方向。
@@ -260,7 +450,7 @@ Job
 
 [为什么网易校招有名校情结？ - 薪酬待遇 - 知乎](http://www.zhihu.com/question/33514695) -<
 
-:   网易有名校情结你可以去 Google、Facebook 还有 Microsoft 啊。真不行阿里百度腾
+:   网易有名校情结你可以去 **Google、Facebook 还有 Microsoft** 啊。真不行阿里百度腾
     讯也不是进不了，一般重点还是能去的。
 
     拿个 ACM 大奖，你去 Google 工作三年，清北去网易工作三年，你就彻底跟他们拉开差距了。
@@ -269,7 +459,7 @@ Job
 
     在湾区，MSRA 帮、Google 帮不知道比其他校友帮高到哪里去了。
 
-[如何评价微软 2015 秋季校招机试最后一题？ - 微软（Microsoft） - 知乎](http://www.zhihu.com/question/36057618) -<
+[如何评价微软 2015 秋季校招机试最后一题？ - 微软（Microsoft） - 知乎](http://www.zhihu.com/question/36057618)
 
 [怎么进入 BAT 的研发部门？ - 互联网 - 知乎](http://www.zhihu.com/question/25680951){.featured .heart} -<
 
@@ -286,60 +476,60 @@ Job
 
 `本人在 2015 年校招拿了 BAT 以及网易游戏等 offer，而且基本上都给了 Special，那就从我的角度来谈谈今年校招的体会。`{.featured .heart} -<
 
-:   1. 冰冻三尺非一日之寒
+:   @1 冰冻三尺非一日之寒
 
-    综合身边一些拿到牛 offer 的同学，有个共同的特点就是：热爱这个行业。一个人在
-    某个领域的成就是和自身在相关领域投入的时间和精力成正相关的。付出了多少，虽
-    然短期内收益微乎其微，如果经过数年的持续努力，便会由量变产生惊人的质变。比
-    如多读书、多看代码，一些计算机编程方面的经典书籍、GitHub 上面一些 star 越千
-    的优秀开源项目，绝对值得多花时间研读。
+    :   综合身边一些拿到牛 offer 的同学，有个共同的特点就是：热爱这个行业。一个人在
+        某个领域的成就是和自身在相关领域投入的时间和精力成正相关的。付出了多少，虽
+        然短期内收益微乎其微，如果经过数年的持续努力，便会由量变产生惊人的质变。比
+        如多读书、多看代码，一些计算机编程方面的经典书籍、GitHub 上面一些 star 越千
+        的优秀开源项目，绝对值得多花时间研读。
 
-    我自身的情况大概是本科期间积累了 10 万行的代码量，有了这个基础硕士期间阅读
-    一些代码呀，参与一些开源呀，就变得水到渠成。
+        我自身的情况大概是本科期间积累了 10 万行的代码量，有了这个基础硕士期间阅读
+        一些代码呀，参与一些开源呀，就变得水到渠成。
 
-    2. 主动培养自己的动手能力
+    @2 主动培养自己的动手能力
 
-    算法方面可以适当阅读算法导论、算法引论等书籍，多刷刷 leetcode, UVa 之类的培
-    养出一定的解题思维。虽然说一些算法在工程中很难用到，但是解决问题的思路以及
-    不断去优化业务代码的想法，这些意识是可以通过算法训练得到的。
+    :   算法方面可以适当阅读算法导论、算法引论等书籍，多刷刷 leetcode, UVa 之类的培
+        养出一定的解题思维。虽然说一些算法在工程中很难用到，但是解决问题的思路以及
+        不断去优化业务代码的想法，这些意识是可以通过算法训练得到的。
 
-    一般国内的互联网公司还是比较看重项目经验这块的，也就是你曾经做过什么，能突
-    出个性的地方也在于此了。这个方面可以从一些国外大学课程的大作业慢慢培养，如
-    系统设计方面经典的有 MIT 6.824 Home Page: Spring 2014，CMU
-    <http://www.cs.cmu.edu/~dga/15-440/F12/>，CMU 15-410, Operating System
-    Design and Implementation 。如果跟着进度做完大作业的话，相信工程能力以及对
-    系统设计的理解都会有很大的提高。
+        一般国内的互联网公司还是比较看重项目经验这块的，也就是你曾经做过什么，能突
+        出个性的地方也在于此了。这个方面可以从一些国外大学课程的大作业慢慢培养，如
+        系统设计方面经典的有 MIT 6.824 Home Page: Spring 2014，CMU
+        <http://www.cs.cmu.edu/~dga/15-440/F12/>，CMU 15-410, Operating System
+        Design and Implementation 。如果跟着进度做完大作业的话，相信工程能力以及对
+        系统设计的理解都会有很大的提高。
 
-    3. 核心竞争力
+    @3 核心竞争力
 
-    这个问题很大啦，那我也冒昧的说一下自己的理解。曾经很长一段时间内，我都不太
-    清楚自己未来要干什么。不过幸运的是，身边总有一些优秀的同学在激励自己前行（
-    寝室 7 个人有 6 个拿到网易游戏 offer 我会乱说 :-p ），而且在读研之初就得到
-    @靖难 学长的指点实在是人生之幸。那么问题来了，花了这么多时间去思考自己要干
-    嘛就这么重要吗？我觉得非常重要。当有了一个努力的方向，就会不断的去靠近，围
-    绕着这个点不断探索，最终形成别人没办法轻易超越的壁垒。
+    :   这个问题很大啦，那我也冒昧的说一下自己的理解。曾经很长一段时间内，我都不太
+        清楚自己未来要干什么。不过幸运的是，身边总有一些优秀的同学在激励自己前行（
+        寝室 7 个人有 6 个拿到网易游戏 offer 我会乱说 :-p ），而且在读研之初就得到
+        @靖难 学长的指点实在是人生之幸。那么问题来了，花了这么多时间去思考自己要干
+        嘛就这么重要吗？我觉得非常重要。当有了一个努力的方向，就会不断的去靠近，围
+        绕着这个点不断探索，最终形成别人没办法轻易超越的壁垒。
 
-    4. 关于面试
+    @4 关于面试
 
-    面试在于突出自己的闪光点，体现自己的不可替代性。当你一步步走过上述几个阶段
-    的时候，便会发现其实 BAT 的 offer 并没有想象中那么难，难的是克服惰性不断的
-    去超越自己。
+    :   面试在于突出自己的闪光点，体现自己的不可替代性。当你一步步走过上述几个阶段
+        的时候，便会发现其实 BAT 的 offer 并没有想象中那么难，难的是克服惰性不断的
+        去超越自己。
 
-    找工作要从实习抓起。这并不是说实习一定会做一些多么核心的事情，而是一场面试
-    几十分钟，面试官也无法清楚的判断你的实力，需要从你过往在哪实习过以及拿到过
-    哪些 offer 来对你进行综合判断。
+        找工作要从实习抓起。这并不是说实习一定会做一些多么核心的事情，而是一场面试
+        几十分钟，面试官也无法清楚的判断你的实力，需要从你过往在哪实习过以及拿到过
+        哪些 offer 来对你进行综合判断。
 
-    GitHub，StackOverflow 等是加分点，参与过开源项目大加分。嘴里说出的话可能有
-    可以虚假夸大的成分，但是 GitHub 上面的代码提交记录以及代码质量不会骗人。我
-    面试的过程中，就有几个面试官主动索要 GitHub 账号地址 kedebug · GitHub 并且
-    当场登陆查看相关项目情况，这都是能够提升自身形象大大利好的事情。
+        GitHub，StackOverflow 等是加分点，参与过开源项目大加分。嘴里说出的话可能有
+        可以虚假夸大的成分，但是 GitHub 上面的代码提交记录以及代码质量不会骗人。我
+        面试的过程中，就有几个面试官主动索要 GitHub 账号地址 kedebug · GitHub 并且
+        当场登陆查看相关项目情况，这都是能够提升自身形象大大利好的事情。
 
     ---
 
     有 985 的文凭，简历肯定过。然后笔试也是随便过不说了。然后是面试。里面主要是
-    问一些基础问题。一般也是根据你的简历或者自我介绍来问的。所以你简历中获得自
-    我介绍中涉及的东西一定要搞清楚。比如你写的了解通信协议，他肯定会问你这方面
-    最重要最经典的问题，通信协议方面最重要的就是 tcp 了，他肯定会再三次握手，四
+    问一些**基础问题**。一般也是根据你的简历或者自我介绍来问的。所以你简历中获得自
+    我介绍中涉及的东西一定要搞清楚。比如你写的了解**通信协议**，他肯定会问你这方面
+    **最重要最经典的问题**，通信协议方面最重要的就是 tcp 了，他肯定会再三次握手，四
     次握手，滑动窗口等这些问题问你几个。你写了解网络编程，他肯定会问你，select,
     epoll, 的优缺点，实现机制。**这些东西不能只是会用，还要了解它的实现机制。**
     然后之后的面试可能会多问你一些项目相关的东西。这就需要你把你项目上的一些问
@@ -358,13 +548,13 @@ Job
     我觉得楼主有点把进 BAT 想的太难了！首先就今年 BAT 的校招过程给楼主说说首先，
     最早动手的是 A 大约八月末在线笔试，在线的笔试题主要分为选择题和综合题两部分
     选择题时间 40 分钟，基本上就是些智力题，加少许基础知识题，主要应该注意的地
-    方就是时间！综合题包括编程题和问答题，一共应该是三道题编程题都是最基本的编
-    程题，只要楼主平时多写代码，把基本的算法都练过一遍我觉得应该没什么问题。这
+    方就是时间！综合题包括编程题和问答题，一共应该是**三道题编程题都是最基本的编程题**，
+    只要楼主平时多写代码，把基本的算法都练过一遍我觉得应该没什么问题。这
     就是阿里的笔试，说实话，阿里的笔试过的好多，也有可能是部门的关系，我接触到
     的，笔试的，只要不是抄袭的，基本上都过了，进入面试阿里的面试一共三面，这里
     提醒楼主一下，阿里在校招前会有内推环节，这个进入阿里的概率很大可以免去笔试，
     根据部门不同，面试为 2～3 轮，不过阿里的终面刷人还是很厉害的阿里的校招面试，
-    基本上就是靠你基本功，加编程能力，基本的算法是一定要会的，上面说的剑指
+    **基本上就是靠你基本功，加编程能力**，基本的算法是一定要会的，上面说的剑指
     offer 等是一定要看的，基本就这样。然后是 T，T 的笔试还是出的很有水平的，也
     是选择题加编程题，选择题是不定项选择基本以智力题和基本知识为主，主要是考察
     一个人的综合能力吧，不过 T 的笔试，刷人还是比较厉害的进入面试的人会少很多，
@@ -380,7 +570,7 @@ Job
     然后，BAT 都共同关注的，就是基本知识和编程能力了所以楼主的基本课程，操作系
     统、数据结构、计算机网络、数据库这都是需要准备的算法，很重要很重要，BAT 都
     很注重考算法和数据结构的剑指 offer 是本好书，我是碰到好多那上面的算法题，或
-    者是原题，或者是相关的，所以楼主可以结合上面的答案，在算法方面多下功夫！
+    者是原题，或者是相关的，所以楼主可以结合上面的答案，**在算法方面多下功夫！**
 
     鉴于评论中薛同学的提醒这里忘记说一点了就是简历，简历很重要！简历上的内容很
     重要。我一朋友，接到国内某大型互联网公司的面试通知，就是因为简历上自己所做
@@ -395,9 +585,9 @@ Job
     话，希望可以利用这一年的时间，做些相关项目，包括数据挖掘、机器学习之类的现
     在都比较火，基本是个互联网公司都会招这个方向的。楼主可以定向准备一下。
 
-    另外，写到简历上的项目，自己一定要搞明白，能给面试官讲明白，很多面试官，面
+    **另外，写到简历上的项目，自己一定要搞明白，能给面试官讲明白，很多面试官，面
     试的时候，都喜欢直接从简历上的项目经历开始，然后根据项目中涉及到的技术进行
-    技术问题拓展来考察你！以上！
+    技术问题拓展来考察你！以上！**
 
 [今年（2015 年）校招 (互联网行业) 薪水情况如何？Offercome 那篇报告内容属实么？ - 校园招聘 - 知乎](http://www.zhihu.com/question/37114403) -<
 
@@ -451,9 +641,9 @@ Job
     公平的，最后评定的时候这十人团队的贡献自然是算在团队领袖头上的。
 
     当然也有技术做得非常牛 b 的人，比如 windows 组有个叫 landy 的，在某个
-    release 之后升 distinguished engineer 了，这个级别已经和副总裁一样高了。那
-    么他做了什么事呢？他一个人把 windows kernel 的内存管理重写了一遍，极大增强
-    了内存布局的灵活性。这事地球上没有第二个人能做。
+    release 之后升 distinguished engineer 了，这个级别已经和副总裁一样高了。
+    **那么他做了什么事呢？他一个人把 windows kernel 的内存管理重写了一遍，极大增强
+    了内存布局的灵活性。这事地球上没有第二个人能做。**
 
     所以你如果觉得自己比较厉害要体现价值，要么就得做别人做不了的事情，要么就带
     团队去，不然一个人做个螺丝钉那你所能提供的价值怎么都是有限的。
@@ -478,7 +668,57 @@ Job
     这就有问题了。因为你的工资取决于所有跟你同一个等级的人要求最低的那个。如果
     里面刚好有那么一些没见过世面的年轻人，你一辈子都别想有好的待遇。
 
-[互联网求职路上，你见过哪些写得很好、很用心的面经？最好能分享自己的面经、心路历程。 - 校园招聘 - 知乎](http://www.zhihu.com/question/29693016)
+[互联网求职路上，你见过哪些写得很好、很用心的面经？最好能分享自己的面经、心路历程。 - 校园招聘 - 知乎](http://www.zhihu.com/question/29693016) -<
+
+:   面试的本质不是一问一答，而是亮点展示
+
+    :   我记得前几年很火的魔术师刘谦曾经说过一句话：“很多人，包括职业魔术师，都
+        误会魔术表演了。魔术的真正魅力倒不是偷梁换柱的那一刹那，而是整个魔术表
+        演从开始气氛铺垫，到最后极具张力的释放整个起承转合的排演和演绎。简而言
+        之，魔术师首先不是要会变，而是要会演。”我觉得刘谦说的这个思路套在面试上
+        也是很实用的，很多人在参加面试的过程中，基本上是疲于应付面试官的问题，
+        这是不对的。面试的真正本质是亮点展示，一问一答只是形式。你需要在回答面
+        试官问题的过程中，尽可能展现出你本人的亮点。比如你面试上文所说的那个做
+        app的创业公司运营总监的职位。老板可能会问你：“对来创业公司工作怎么看？”
+
+        一般人可能会回答：“创业公司个人自主权比较大，能力成长快，没有大公司那么
+        多条条框框，同时我很看好贵公司的发展潜力，所以觉得这是一个不错的机会！”
+        以上回答看似不错，但是没有展现出自己的亮点，光说对方怎么好了。理想的回
+        答可能是这样的：
+
+        >   “我自己之前是有在创业公司工作的经历，觉得创业公司能力成长快，体制灵
+        >   活，所以非常向往创业公司的工作机会。我也相信自己之前的创业公司经历
+        >   能够帮我很快适应贵公司的工作节奏；同时因为我有大公司大平台的经历，
+        >   所以资源相对丰富，做事也更系统化更有调理，我相信这样复合型的背景是
+        >   比一般人更适合这份工作！”
+
+        这个套路不一定每次都管用，但以我的经验来看，每次我在面试过程中说了类似
+        的话，对方往往都会露出疑似高潮的表情，基本都是当场拍板发offer了。
+
+        不过归根到底，面试技巧只是让你更好的展现自己，更好的挖掘你自己的价值以
+        及让对方感受到。长期来讲的王道还是提升自己的能力和价值。说了这么多，如
+        果大家觉得我说得有道理，可以整理一下相关的思路，运用到实践中。特别是最
+        近有面试计划的朋友，这些方法真可以一试。如果身边有在找工作或者准备离职
+        跳槽的朋友，可以把这篇文章推荐给他们。
+
+    [2014找工作总结-机会往往留给有准备的人 - 江南烟雨 - 博客频道 - CSDN.NET](http://blog.csdn.net/xiajun07061225/article/details/12844801)
+
+    [一个应届计算机毕业生的2012求职之路 - Hackbuteer1的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/hackbuteer1/article/details/8501605) -<
+
+    :   首先说说我拿到的offer情况：
+
+        -   微软，3面->终面，搞定
+        -   百度，3面->终面，口头offer
+        -   搜狗，2面，悲剧
+        -   腾讯，1面，悲剧
+        -   布丁移动，3面，搞定
+        -   涂鸦游戏，3面，搞定
+        -   友盟，3面->CEO面，搞定
+        -   雅虎，4面->终面，搞定
+        -   微策略，2面，悲剧
+        -   人民搜索，3面->终面，搞定
+        -   人人，2面+终面+Special面，搞定
+        -   Google，7面，搞定
 
 [想进 Google，Facebook 等公司，校招前一段时间是用来实习还是刷算法题？ - 百度 - 知乎](http://www.zhihu.com/question/27730634) -<
 
@@ -551,7 +791,7 @@ Job
     试官提出的问题
 
     |   问题1：
-    |       用非递归方式写二叉树的后序遍历。
+    |       **用非递归方式写二叉树的后序遍历。**
     |   回答：
     |       要用到栈，具体过程由于当时太紧张，没答上来。
 
@@ -598,11 +838,37 @@ Job
 
     **同学，你进了微软了吗？**
 
-[如何得到 Google 的工作机会？ - Tony 的回答 - 知乎](https://www.zhihu.com/question/24099873/answer/26711652)
+[如何得到 Google 的工作机会？ - Tony 的回答 - 知乎](https://www.zhihu.com/question/24099873/answer/26711652){.hearts} -<
 
-[面试 C++ 程序员，什么样的问题是好问题？ - 知乎](https://www.zhihu.com/question/20184857) -<
+:   Google有内部推荐计划吗？
 
-:   对于应届生：
+    :   有。Google非常看重，并且鼓励Referral。员工只要成功Refer一位最终被录取的
+        candidate，就能得到奖励 。换句话说，如果你有认识在Google工作的人，而他
+        同时认为你确实是有这个能力的话，通常Google员工是很乐意帮忙Refer你的。
+
+        所以说，如果你真的很想来Google工作，可以多发展这方面的社交。比如
+        LinkedIn上搜索校友，或是参加Google的校招活动认识recruiter和/或员工。
+
+        Google内部推荐你的人需要填Referral form，上面有很多类似他会怎么评价你，
+        怎么证明你的领导才能等问题 。如果要找人refer的话，确保你让他充分了解你
+        自己，这是对双方的负责。
+
+    工程师体现的途径就是你的coding skill。coding skill的体现在与你参加过的个人/
+    团体项目，github上的协同项目，学校的研究项目，面试时的当场表现。其他所有方
+    面几乎都不重要，唯一重要的就是你的coding skill；能力强，Google能包容一切，
+    包括你的GPA，毕业院校，专业，甚至你不是本科生都无所谓。
+
+    Google有什么职位？
+
+    :   官网：[Teams and Roles](https://www.google.com.hk/about/careers/teams/)
+
+        分三类：
+
+        -   Build Cool Stuff: 硬件、软件工程师，产品经理，Google X等。
+        -   Sell Cool Stuff: 销售，运营等。
+        -   Do Cool Stuff: 行政，法律，市场，招聘，公关，人事，财务等。
+
+    对于应届生：
 
     -   标准库各容器的基本操作的复杂度。标准库算法的复杂度，例如 std::sort() 的
         平均复杂度、最坏复杂度（答 O(N^2) 和 O(N log N) 都算对），最坏情况什么
@@ -615,7 +881,35 @@ Job
         每个单词出现的次数（最多十几行代码），如果有时间，输出时再按出现次数排
         序。
 
-    作者：陈硕
+    传说中Google的Benefit真的有那么逆天吗？
+
+    :   比传说中还逆天。
+
+        -   母亲有18星期的产假，父亲有4星期的产假。
+        -   小孩出生后Google报销奶粉钱。
+        -   员工的health，dental，vision保险同时包括员工的丈夫妻子和小孩。
+        -   如果员工在Google工作期间去世了，员工的另一半和孩子会得到员工5－10年的年薪。
+        -   每年圣诞节Google送给全体员工Chromebook、手机或平板。2010年更是每人发了1000美刀和全体员工10%的 raise。
+        -   可以带狗上班。
+
+        Benefits真的太多了，再说就太拉仇恨了。
+
+    准备阶段
+
+    -   找人内推。师兄或者师姐。别太在意面子。
+    -   最好有一定科研经历或实习经历。其中对于去Google工作而言，最好的是先去Google实习。
+    -   做一些算法题，熟悉一下套路。搞OI的就不用刷了，不难。
+    -   多练英语。如果要拿海外岗位的话，英语不好可能是致命的。
+
+    面试阶段
+
+    -   和所有技术面试一样。别穿正装。
+    -   我只被面试过，没面试过人。从我个人的经验总结来说，最好不要有超过三分钟的空白，要保持交流，沟通思考进度，围观面试官反馈。不会就说不会，不要装逼。
+    -   心态放好。此处不留爷，自有留爷处。
+
+[面试 C++ 程序员，什么样的问题是好问题？ - 知乎](https://www.zhihu.com/question/20184857){.featured} -<
+
+:   作者：陈硕
 
     既然你是在校学生，而且编程语言和数据结构的基础还不错，我认为应该在《操作系
     统》和《计算机体系结构》这两门课上下功夫，然后才去读编程方面的 APUE、UNP 等
@@ -640,8 +934,8 @@ Job
     名靠前的大学的课程主页，找到这两门课最近几年的课程大纲、讲义、参考书目、阅
     读材料、随堂练习、课后作业、编程实验、期末项目等，然后你就心里有数了。
 
-    **学习任何一门课程都要善于抓住主要矛盾、分清主次、突出重点，关键是掌握知识
-    框架，学会以后真正有用的知识和技能，而不要把精力平均分配在一些琐事上。**
+    **学习任何一门课程都要善于抓住主要矛盾、分清主次、突出重点，关键是掌握
+    知识框架，学会以后真正有用的知识和技能，而不要把精力平均分配在一些琐事上。**
 
     请允许我再次引用孟岩的观点：<http://blog.csdn.net/myan/article/details/5877305>
 
@@ -709,74 +1003,40 @@ Job
 
     -   [Linux C++ 服务器端这条线怎么走？一年半能做出什么？ - 陈硕的回答 - 知乎](https://www.zhihu.com/question/22608820/answer/21968467)
 
-NOTES -<
-
-:   [TCP 连接的建立和终止过程 - 辛未羊的博客](http://panqiincs.github.io/blog/2015/10/17/establishment-and-termination-of-tcp-connection/) -<
-
-    :   Richard Stevens 先生在 [UNP2e (UNIX 网络编程 卷 1：套接字联网 API)](http://book.douban.com/subject/4859464/) 的前言中写道：
-
-        >   I have found when teaching network programming that about 80% of all
-        >   network programming problems have nothing to do with network programming,
-        >   per se. That is, the problems are not with the API functions such as
-        >   accept and select, but the problems arise from **a lack of understanding of
-        >   the underlying network protocols**. For example, I have found that once a
-        >   student understands TCP's **three-way handshake and four-packet connection termination**,
-        >   many network programming problems are immediately understood.
-
-        下面是我的 remix。
-
-        **TCP 的三路握手**
-
-        肯定是客户端先表白。
-
-        1.  客户端对服务器：我要和你发展关系。（#1，SYN）
-        2.  服务器对客户端：你可以和我发展关系。（#2，SYN，ACK）
-        3.  客户端对服务器：在一起~（#3，ACK）
-
-        于是三次握手后，他们在一起了（连接建立了）。
-
-        ![](http://www.tcpipguide.com/free/diagrams/tcpopen3way.png)
-
-        **TCP 的四次挥手**
-
-        可以是客户端说分手，也可以是客户端。这里以客户端作为负心汉。
-
-        1. 客户端对服务器：恋爱谈完了，我们分手把。（#1，FIN）
-        2. 服务器对客户端：可以的。（如果还有财务纠纷那就先还钱，不让分手的。）（#2，ACK）
-        3. 服务器对客户端：那就分。（#3，FIN）
-        4. 客户端对服务器：恩。（#4，ACK）
-
-        ![](http://www.tcpipguide.com/free/diagrams/tcpclose.png)
-
 [北美求职记_QAMichaelPeng_新浪博客](http://blog.sina.com.cn/s/blog_6740daa70101771h.html){.heart}
 
-[为什么 Microsoft 不与“FLAG”并称呢？](http://www.zhihu.com/question/31979481)
+:   简历写完就托朋友内推。建议大家能走内推的尽量内推。起码能拿到一个电话面试的
+    机会，不至于直接被HR过滤掉.这时已经12月中，正好走上美国圣诞季，一直没有消息。
+    直到1月中才有两个电话面试。
 
-:   再回到微软的问题：我之前很早的时候，拿了一个上海的微软（STC，在闵行的紫
+    面试准备，各种OI, ACM, OJ中的算法都不会用到，把《编程珠矶》和 @陈利人 的微博上的每道题都做出来，北美求职就不是问题.
+
+    不要说没时间，在创业公司上班且每天要做两顿饭洗碗刷锅洗家里所有衣服尿布且看
+    一小时娃的奶爸每天早上还能抽出3小时左右看书写程序，大家肯定时间更充裕了。
+
+[为什么 Microsoft 不与“FLAG”并称呢？](http://www.zhihu.com/question/31979481) -<
+
+:   这个名字大概是3，4年前开始叫的吧，那时大概是指 “Facebook，LinkedIn，Amazon，Google”。
+    首先这只是咱们中国人自己叫着玩的，而且我也是回国才知道有FLAG这
+    个叫法，所以不算正事。主要是这四家在那个年代是最受北美牛校的毕业生欢迎的四
+    家公司，而微软由于公司规模太大和发展速度放缓等原因稍微要落后一个梯队，所以
+    没有算在里面。比如我认识CMU的校友里面，去微软的很少，基本上在上面4家还有
+    Vmware，Cisco。
+
+    再回到微软的问题：我之前很早的时候，拿了一个上海的微软（STC，在闵行的紫
     竹园区）的 offer，当时薪水13.1w，股票125股；后来打听了一下Seattle的微软
     Package，股票多点，也没翻10倍，所以基本上对FLAG来说就是杯水车薪。而且现
     在一般大牛的技术人员或者牛逼毕业生，都是只看股票不看薪水的；薪水就是个
     零花钱，买买车付付房租还行，根本没法发财。所以一般只看裸薪是多少（而没
     有股票意识）的人，都是没见过世面，也没体会过资本市场的造富速度的人。
 
----
-
-## TODO
-
--   [4ker/Cpp-Primer: C++ Primer 5ed answers](https://github.com/4ker/Cpp-Primer)
--   写作计划见 `../../blog/_pages/orgit.md`
--   [fex-team/interview-questions: FEX 面试问题](https://github.com/fex-team/interview-questions)
--   [计算机网络 · GitBook](http://hit-alibaba.github.io/interview/basic/network/)
--   [qiu-deqing/FE-interview: 收集的前端面试题和答案](https://github.com/qiu-deqing/FE-interview)
--   [paddingme/Front-end-Web-Development-Interview-Question: 前端开发面试题大收集](https://github.com/paddingme/Front-end-Web-Development-Interview-Question)
--   [4ker/recipes: Some code snippets for sharing](https://github.com/4ker/recipes)
--   [4ker/annotated-git-1.0](https://github.com/4ker/annotated-git-1.0/)
--   [C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#S-const)
--   [Definitions and ODR - cppreference.com](http://en.cppreference.com/w/cpp/language/definition)
+    作为已经很多年不使用windows平台的IT从业者，我说句个人观点，21世纪初的IT公司
+    ，能笑到21世纪末的，应该是微软、Google、Amazon。FLAG里其它几位够呛，给微软
+    还真不在一个级数上，只是M放进来凑不成一个单词而已。
 
 ---
 
-Targets
+## Targets
 
 -   [网易 2017 年校园招聘](http://campus.163.com/#/campus/0/0/1) -<
 

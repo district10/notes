@@ -1751,3 +1751,77 @@ System & Network & MISC
     这个技巧源自于代码大全，代码大全里面专门有一节讲解如何编写可读的布尔表达式。从
     这里我可以看出这些面试者都没有读过代码大全，考虑到代码大全几乎是程序设计的必读
     书籍，我可以推断出这些面试者很可能没有阅读习惯，而不阅读的程序员一般都不会太出色。
+
+[TCP 连接的建立和终止过程 - 辛未羊的博客](http://panqiincs.github.io/blog/2015/10/17/establishment-and-termination-of-tcp-connection/) -<
+
+:   ```
+    [SYN+SYN/ACK+ACK]
+
+    +-------+                           +-------+
+    |       |   --->--SYN------->---+   |       |
+    |       |                       |   |       |
+    | client|   ---<--SYN/ACK---<---+   | server|
+    |       |   |                       |       |
+    |       |   +-->------ACK--->----   |       |
+    +-------+                           +-------+
+
+    [FIN+ACK; FIN+ACK]
+
+    +-------+                           +-------+
+    |       |   --->--FIN------->---+   |       |
+    |       |                       |   |       |
+    | client|   ---<------ACK---<---+   | server|
+    |       |                           |       |
+    |       |   +--<--FIN-------<----   |       |
+    |       |   |                       |       |
+    |       |   +-->------ACK--->----   |       |
+    +-------+                           +-------+
+
+
+    ```
+
+    Richard Stevens 先生在 [UNP2e (UNIX 网络编程 卷 1：套接字联网 API)](http://book.douban.com/subject/4859464/) 的前言中写道：
+
+    >   I have found when teaching network programming that about 80% of all
+    >   network programming problems have nothing to do with network programming,
+    >   per se. That is, the problems are not with the API functions such as
+    >   accept and select, but the problems arise from **a lack of understanding of
+    >   the underlying network protocols**. For example, I have found that once a
+    >   student understands TCP's **three-way handshake and four-packet connection termination**,
+    >   many network programming problems are immediately understood.
+
+    下面是我的 remix。
+
+    **TCP 的三路握手**
+
+    肯定是客户端先表白。
+
+    1.  客户端对服务器：我要和你发展关系。（#1，SYN）
+    2.  服务器对客户端：你可以和我发展关系。（#2，SYN，ACK）
+    3.  客户端对服务器：在一起~（#3，ACK）
+
+    于是三次握手后，他们在一起了（连接建立了）。
+
+    ![](http://www.tcpipguide.com/free/diagrams/tcpopen3way.png)
+
+    **TCP 的四次挥手**
+
+    可以是客户端说分手，也可以是客户端。这里以客户端作为负心汉。
+
+    1. 客户端对服务器：恋爱谈完了，我们分手把。（#1，FIN）
+    2. 服务器对客户端：可以的。（如果还有财务纠纷那就先还钱，不让分手的。）（#2，ACK）
+    3. 服务器对客户端：那就分。（#3，FIN）
+    4. 客户端对服务器：恩。（#4，ACK）
+
+    ![](http://www.tcpipguide.com/free/diagrams/tcpclose.png)
+
+-   [计算机网络 · GitBook](http://hit-alibaba.github.io/interview/basic/network/)
+-   [qiu-deqing/FE-interview: 收集的前端面试题和答案](https://github.com/qiu-deqing/FE-interview)
+-   [paddingme/Front-end-Web-Development-Interview-Question: 前端开发面试题大收集](https://github.com/paddingme/Front-end-Web-Development-Interview-Question)
+-   [4ker/recipes: Some code snippets for sharing](https://github.com/4ker/recipes)
+-   [4ker/annotated-git-1.0](https://github.com/4ker/annotated-git-1.0/)
+-   [fex-team/interview-questions: FEX 面试问题](https://github.com/fex-team/interview-questions)
+
+[为什么在 CPU 中要用 Cache 从内存中快速提取数据？ - 知乎](https://www.zhihu.com/question/22431522)
+
+[在校学生一枚，面对高性能服务器开发、分布式系统、缓存系统等等。该如何最快最好的提升自己的技术水平呢？ - 知乎](https://www.zhihu.com/question/20183430)

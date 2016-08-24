@@ -410,6 +410,24 @@ C++ 简介 | Intro
         -   [raw2pts/raw2pts.c at master · district10/raw2pts](https://github.com/district10/raw2pts/blob/master/raw2pts.c)
         -   [Input/output with files - C++ Tutorials](http://www.cplusplus.com/doc/tutorial/files/)
 
+-   fgets -<
+
+    :   ```cpp
+        #include <stdio.h>
+
+        int main() {
+            char buf[5];
+            fgets( buf, sizeof(buf), stdin );
+            printf( "buf is: %s\n", buf );
+        }
+        ```
+
+        ```bash
+        $ gcc main.cpp -o main
+        $ echo abcdef | ./main
+        buf is: abcd
+        ```
+
 -   atoi, strtol, strtof, etc -<
 
     :   -   atoi, atol, atoll -<
@@ -706,6 +724,35 @@ C++ 简介 | Intro
         另一个不符合直觉的是 `int buf = { 0 };` 确实会把所有元素初始化为 0，
         但是 `int buf = { 3 };` 只回初始化第一个元素为 3，其它都是 0……至少
         在我的 `gcc` 和 `g++` 上都是如此。
+
+-   std::fill -<
+
+    :   ```cpp
+        template< class ForwardIt, class T >
+        void fill( ForwardIt first, ForwardIt last, const T& value );
+        ```
+
+        ```cpp
+        #include <algorithm>
+        #include <vector>
+        #include <iostream>
+
+        int main()
+        {
+            std::vector<int> v{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+
+            std::fill(v.begin(), v.end(), -1);
+
+            for (auto elem : v) {
+                std::cout << elem << " ";   // -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+            }
+            std::cout << "\n";
+        }
+        ```
+
+        refs and see also
+
+        -   [std::fill - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/fill)
 
 -   scanf, fscanf, sscanf, scanf_s, fscanf_s, sscanf_s -<
 
@@ -1853,6 +1900,100 @@ C++ 简介 | Intro
 
         -   [std::numeric_limits::max - cppreference.com](http://en.cppreference.com/w/cpp/types/numeric_limits/max)
 
+-   std::priority_queue, std::greater -<
+
+    :   A priority queue is a container adaptor that provides constant time
+        lookup of **the largest (by default)** element, at the expense of
+        logarithmic insertion and extraction.
+
+        **Max heap.**
+
+        A user-provided Compare can be supplied to change the ordering, e.g.
+        using `std::greater<T>` would cause the smallest element to appear as the `top()`.
+
+        Working with a priority_queue is similar to managing a heap in some
+        random access container, with the benefit of not being able to
+        accidentally invalidate the heap.
+
+        ```cpp
+        template<   class T,
+                    class Container = std::vector<T>,
+                    class Compare = std::less<typename Container::value_type>   >
+        class priority_queue;
+
+        template<   class T,
+                    class Container = std::vector<T>,
+                    class Compare = std::default_order_t<typename Container::value_type>    >
+        class priority_queue;
+        ```
+
+        ```cpp
+        #include <functional>               // std::greater
+        #include <queue>
+        #include <vector>
+        #include <iostream>
+
+        template<typename T> void print_queue(T& q) {
+            while(!q.empty()) {
+                std::cout << q.top() << " ";
+                q.pop();
+            }
+            std::cout << '\n';
+        }
+
+        int main() {
+            std::priority_queue<int> q;
+
+            for(int n : {1,8,5,6,3,4,0,9,7,2}) {
+                q.push(n);
+            }
+
+            print_queue(q);
+
+            std::priority_queue<int, std::vector<int>, std::greater<int> > q2;
+
+            for(int n : {1,8,5,6,3,4,0,9,7,2})
+                q2.push(n);
+
+            print_queue(q2);
+
+            // Using lambda to compare elements.
+            auto cmp = [](int left, int right) { return (left ^ 1) < (right ^ 1);};
+            std::priority_queue<int, std::vector<int>, decltype(cmp)> q3(cmp);
+
+            for(int n : {1,8,5,6,3,4,0,9,7,2})
+                q3.push(n);
+
+            print_queue(q3);
+
+        }
+        ```
+
+        ```
+        9 8 7 6 5 4 3 2 1 0
+        0 1 2 3 4 5 6 7 8 9
+        8 9 6 7 4 5 2 3 0 1
+        ```
+
+        In computer science, a priority queue is an abstract data type which is
+        like a regular queue or stack data structure, but where additionally
+        each element has a "priority" associated with it. In a priority queue,
+        an element with high priority is served before an element with low
+        priority. If two elements have the same priority, they are served
+        according to their order in the queue.
+
+        While priority queues are often implemented with heaps, they are
+        conceptually distinct from heaps. A priority queue is an abstract
+        concept like "a list" or "a map"; just as a list can be implemented
+        with a linked list or an array, a priority queue can be implemented
+        with a heap or a variety of other methods such as an unordered array.
+
+        refs and see also
+
+        -   [Priority queue - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Priority_queue)
+        -   [std::priority_queue - cppreference.com](http://en.cppreference.com/w/cpp/container/priority_queue)
+        -   [std::greater - cppreference.com](http://en.cppreference.com/w/cpp/utility/functional/greater)
+
 -   MISC, unordered_map, find, unordered_multimap -<
 
     :   ```cpp
@@ -1981,6 +2122,42 @@ C++ 简介 | Intro
         -   **template 里 type parameter 关键字可以用 class 不能用 struct**
 
         之外的其它不同之处吧。
+
+        ```cpp
+        #include <iostream>
+        using namespace std;
+
+        struct SB {
+            int sbx;    // public by default
+        };
+
+        struct SD : SB {    // public by default
+        };
+
+        class CB {
+        public:
+            int cbx;
+        private:
+            int pri;
+        };
+
+        class CD : CB {
+            // `class CD: public CB' --> tmp.cpp:13:9: error: ‘int CB::cbx’ is inaccessible
+        public:
+            using CB::cbx;      // in base, it's public, so using it, will be a public
+            // using CB::pri;   // it's private, so can not inhenrite
+        };
+
+        int main() {
+
+            SD sd;
+            cout << sd.sbx << endl;
+
+            CD cd;
+            cout << cd.cbx << endl;
+            // cout << cd.pri << endl;
+        }
+        ```
 
         refs and see also
 
@@ -5309,6 +5486,127 @@ C++ 简介 | Intro
         -   [c++ - Example to use shared_ptr? - Stack Overflow](http://stackoverflow.com/questions/3476938/example-to-use-shared-ptr)
         -   [scoped_ptr - 1.50.0](http://www.boost.org/doc/libs/1_50_0/libs/smart_ptr/scoped_ptr.htm)
         -   [Smart Pointers - 1.50.0](http://www.boost.org/doc/libs/1_50_0/libs/smart_ptr/smart_ptr.htm)
+
+-   [Definitions and ODR - cppreference.com](http://en.cppreference.com/w/cpp/language/definition)
+
+    :   Definitions are declarations that **fully define the entity**
+        introduced by the declaration. Every declaration is a definition,
+        except for the following:
+
+        -   A function declaration without a function body
+
+            ```cpp
+            int f(int); // declares, but doesn't define f
+            ```
+
+        -   Any declaration with an extern storage class specifier or with a language
+            linkage specifier (such as extern "C") without an initializer
+
+            ```cpp
+            extern const int a; // declares, but doesn't define a
+            extern const int b = 1; // defines b
+            ```
+
+        -   Declaration of a non-inline (since C++17) static data member inside a class definition
+
+            ```cpp
+            struct S {
+                int n;               // defines S::n
+                static int i;        // declares, but doesn't define S::i
+                inline static int x; // defines S::x
+            };                       // defines S
+            int S::i;                // defines S::i
+            ```
+
+        -   (deprecated) Namespace scope declaration of a static data member that was defined within the class with the constexpr specifier
+
+            ```cpp
+            struct S {
+                static constexpr int x = 42; // implicitly inline, defines S::x
+            };
+            constexpr int S::x; // declares S::x, not a redefinition
+            ```
+
+        -   (since C++17) Declaration of a class name (by forward declaration or by the use of the elaborated type specifier in another declaration)
+
+            ```cpp
+            struct S; // declares, but doesn't define S
+            class Y f(class T p); // declares, but doesn't define Y and T (and also f and p)
+            ```
+
+        -   An opaque declaration of an enumeration (since C++11)
+
+            ```cpp
+            enum Color : int; // declares, but doesn't define Color
+            ```
+
+        -   Declaration of a template parameter
+
+            ```cpp
+            template<typename T> // declares, but doesn't define T
+            ```
+
+        -   A parameter declaration in a function declaration that isn't a definition
+
+            ```cpp
+            int f(int x); // declares, but doesn't define f and x
+            int f(int x) { // defines f and x
+                 return x+a;
+            }
+            ```
+
+        -   A typedef declaration
+
+            ```cpp
+            typedef S S2; // declares, but doesn't define S2 (S may be incomplete)
+            ```
+
+        -   An alias-declaration (since C++11)
+
+            ```cpp
+            using S2 = S; // declares, but doesn't define S2 (S may be incomplete)
+            ```
+
+        -   A using-declaration
+
+            ```cpp
+            using N::d; // declares, but doesn't define d
+            ```
+
+        One Definition Rule
+
+        :   Only one definition of any variable, function, class type,
+            enumeration type, or template is allowed in any one translation
+            unit (some of these may have multiple declarations, but only one
+            definition is allowed).
+
+            One and only one definition of every non-inline function or
+            variable that is odr-used (see below) is required to appear in the
+            entire program (including any standard and user-defined libraries).
+            The compiler is not required to diagnose this violation, but the
+            behavior of the program that violates it is undefined.
+
+            For an inline function or inline variable (since C++17), a
+            definition is required in every translation unit where it is
+            odr-used.
+
+            ODR-use
+
+            :   Informally, an object is odr-used if its address is taken, or a reference
+                is bound to it, and a function is odr-used if a function call to it is made or
+                its address is taken. If an object or a function is odr-used, its definition
+                must exist somewhere in the program; a violation of that is a link-time error.
+
+                ```cpp
+                struct S {
+                    static const int x = 0; // static data member
+                    // a definition outside of class is required if it is odr-used
+                };
+                const int& f(const int& r);
+
+                int n = b ? (1, S::x) // S::x is not odr-used here
+                          : f(S::x);  // S::x is odr-used here: a definition is required
+                ```
 
 ## 好书/博共享 | Selected Books/Posts
 

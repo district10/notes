@@ -3868,134 +3868,96 @@ ACM-Cheatsheet -<
 
     -   chap4. Stack and Queue -<
 
-        :   -   stack
+        :   -   stack, queue
 
-            -   queue
+            -   yanghui triangle -<
 
-                -   yanghui triangle -<
+                :   ```cpp
+                    #include <queue>
+                    #include <stdio.h>
+                    using namespace std;
+                    void yanghui_triangle(const int n);
+                    int main() { yanghui_triangle( 5 ); }
 
-                    :   ```cpp
-                        #include <queue>
-                        #include <stdio.h>
-                        using namespace std;
+                    void yanghui_triangle(const int n) {
+                        int i = 1;
+                        queue<int> q;
+                        q.push(i);                                  // 预先放入第一行的1
 
-                        void yanghui_triangle(const int n) {
-                            int i = 1;
-                            queue<int> q;
-                            q.push(i);                                  // 预先放入第一行的1
+                        for(i = 0; i <= n; i++) {                   // 逐行处理
+                            int j;
+                            int s = 0;
+                            q.push(s);                              // 在各行间插入一个0
 
-                            for(i = 0; i <= n; i++) {                   // 逐行处理
-                                int j;
-                                int s = 0;
-                                q.push(s);                              // 在各行间插入一个0
-
-                                for(j = 0; j < i+2; j++) {              // 处理第i行的i+2个系数（包括一个0）
-                                    int t = q.front(); q.pop();
-                                    q.push( t+s );
-                                    s = t;                              // 打印一个系数，第i+2个是0
-                                    if(j != i+1) {
-                                        printf("%d ",s);
-                                    }
+                            for(j = 0; j < i+2; j++) {              // 处理第i行的i+2个系数（包括一个0）
+                                int t = q.front(); q.pop();
+                                q.push( t+s );
+                                s = t;                              // 打印一个系数，第i+2个是0
+                                if(j != i+1) {
+                                    printf("%d ",t);
                                 }
-                                printf("\n");
                             }
+                            printf("\n");
                         }
+                    }
+                    ```
 
-                        int main() {
-                            yanghui_triangle( 5 );
-                        }
-                        ```
+                    TODO
 
-                        ```
-                        1                      i=0         (a+b)^0 = 1
-                        1 1                    i=1         (a+b)^1 = a + b
-                        1 2 1                  i=2         (a+b)^2 = a^2 + 2ab + b^2
-                        1 3 3 1                i=3         (a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3
-                        1 4 6 4 1              i=4         ...
-                        1 5 10 10 5 1          i=6         ...
+                    ```
+                                                            |   queue
+                    ----------------------------------------+---------------------------
+                    i = 0, j = [0, i+2), push 2 times       |   1
+                    push 0                                  |
+                                                            |   1   0
+                    withdraw t=1                            |
+                    push( t=1 + s=0 )                       |
+                                                            |   0   1
+                    s=t=1                                   |
+                    withdraw t=0                            |
+                    push( t=0 + s=1 )                       |
+                                                            |   1   1
+                    ----------------------------------------+---------------------------
+                    i = 1, j = [0, i+2), push 3 times       |   1   1
+                    push 0                                  |   1   1   0
+                    withdraw t=1, push(t=1+s=0)             |   1   0   1
+                    s=t=1                                   |
+                    withdraw t=1, push(t=1+s=1)             |   0   1   2
+                    s=t=1                                   |
+                    withdraw t=0, push(t=0+s=1)             |   1   2   1
+                    ----------------------------------------+---------------------------
+                    i = 2, j = [0, i+2), push 4 times       |   1   2   1
+                    push 0                                  |   1   2   1   0
+                    t=1, push(t=1+s=0), s=1                 |   2   1   0   1
+                    t=2, push(t=2+s=1), s=2                 |   1   0   1   3
+                    t=1, push(t=1+s=2), s=1                 |   0   1   3   3
+                    t=0, push(t=0+s=1), s=0                 |   1   3   3   1
+                    ----------------------------------------+---------------------------
+                    i = 3, j = [0, i+2), push 5 times       |   1   3   3   1
+                    push 0                                  |   1   3   3   1   0
+                    t=1, push(t=1+s=0), s=1                 |   3   3   1   0   1
+                    t=3, push(t=3+s=1), s=3                 |   3   1   0   1   4
+                    t=3, push(t=3+s=3), s=3                 |   1   0   1   4   6
+                    t=1, push(t=1+s=3), s=1                 |   0   1   4   6   4
+                    t=0, push(t=0+s=1), s=0                 |   1   4   6   4   1
+                    ----------------------------------------+---------------------------
+                    i = 4, j = [0, i+2), push 6 times       |   1   4   6   4   1
+                    push 0                                  |   1   4   6   4   1   0
+                    t=1, push(t=1+s=0), s=1                 |   4   6   4   1   0   1
+                    t=4, push(t=4+s=1), s=4                 |   6   4   1   0   1   5
+                    t=6, push(t=6+s=4), s=6                 |   4   1   0   1   5   10
+                    t=4, push(t=4+s=6), s=4                 |   1   0   1   5   10  10
+                    t=1, push(t=1+s=4), s=1                 |   0   1   5   10  10  5
+                    t=0, push(t=0+s=1), s=0                 |   1   5   10  10  5   1
+                    ...
 
-
-                            |           queue
-                        ----+------------------------------------------------------------------
-                            |           1
-                        ----+------------------------------------------------------------------
-                        i=0 |           1   0                       s=0, 0<j<i+2=2
-                            |           0                           t=1, then push 1,       j=0
-                            |           0   1                       s=t=1, print "1",       j=1
-                            |                                              print "\n"
-                        ----+------------------------------------------------------------------
-                        i=1 |           0   1   0                   s=0, 0<j<3
-                            |           1   0                       t=0, then push 0,       j=0
-                            |           1   0   0                   s=t
-                            |           1   0   0                   s=t
-
-i 0, and queue:  1 0
-in queue:  1 0
-t: 1, t+s: 2, s: 1
-1 in queue:  0 1
-t: 0, t+s: 0, s: 0
-
-i 1, and queue:  1 1 0
-in queue:  1 1 0
-t: 1, t+s: 2, s: 1
-1 in queue:  1 0 1
-t: 1, t+s: 2, s: 1
-1 in queue:  0 1 2
-t: 0, t+s: 0, s: 0
-
-i 2, and queue:  1 2 1 0
-in queue:  1 2 1 0
-t: 1, t+s: 2, s: 1
-1 in queue:  2 1 0 1
-t: 2, t+s: 4, s: 2
-2 in queue:  1 0 1 3
-t: 1, t+s: 2, s: 1
-1 in queue:  0 1 3 3
-t: 0, t+s: 0, s: 0
-
-i 3, and queue:  1 3 3 1 0
-in queue:  1 3 3 1 0
-t: 1, t+s: 2, s: 1
-1 in queue:  3 3 1 0 1
-t: 3, t+s: 6, s: 3
-3 in queue:  3 1 0 1 4
-t: 3, t+s: 6, s: 3
-3 in queue:  1 0 1 4 6
-t: 1, t+s: 2, s: 1
-1 in queue:  0 1 4 6 4
-t: 0, t+s: 0, s: 0
-
-i 4, and queue:  1 4 6 4 1 0
-in queue:  1 4 6 4 1 0
-t: 1, t+s: 2, s: 1
-1 in queue:  4 6 4 1 0 1
-t: 4, t+s: 8, s: 4
-4 in queue:  6 4 1 0 1 5
-t: 6, t+s: 12, s: 6
-6 in queue:  4 1 0 1 5 10
-t: 4, t+s: 8, s: 4
-4 in queue:  1 0 1 5 10 10
-t: 1, t+s: 2, s: 1
-1 in queue:  0 1 5 10 10 5
-t: 0, t+s: 0, s: 0
-
-i 5, and queue:  1 5 10 10 5 1 0
-in queue:  1 5 10 10 5 1 0
-t: 1, t+s: 2, s: 1
-1 in queue:  5 10 10 5 1 0 1
-t: 5, t+s: 10, s: 5
-5 in queue:  10 10 5 1 0 1 6
-t: 10, t+s: 20, s: 10
-10 in queue:  10 5 1 0 1 6 15
-t: 10, t+s: 20, s: 10
-10 in queue:  5 1 0 1 6 15 20
-t: 5, t+s: 10, s: 5
-5 in queue:  1 0 1 6 15 20 15
-t: 1, t+s: 2, s: 1
-1 in queue:  0 1 6 15 20 15 6
-t: 0, t+s: 0, s: 0
-
-                        ```
+                    1                   i=0                 (a+b)^0 = 1
+                    1 1                 i=1                 (a+b)^1 = a + b
+                    1 2 1               i=2                 (a+b)^2 = a^2 + 2ab + b^2
+                    1 3 3 1             i=3                 (a+b)^3 = a^3 + 3a^2b + 3ab^2 + b^3
+                    1 4 6 4 1           i=4                 ...
+                    1 5 10 10 5 1       i=6                 ...
+                    ```
 
     -   chap5. Tree -<
 
@@ -4004,52 +3966,33 @@ t: 0, t+s: 0, s: 0
             -   threaded tree -<
 
                 :   ```cpp
-                    #include <stddef.h>    /* for NULL */
+                    #include <stddef.h>                 // for NULL
                     #include <stdio.h>
 
                     typedef int elem_t;
                     typedef struct tbt_node_t {
-                        int ltag; /** 1表示是线索，0表示是孩子 */
-                        int rtag; /** 1表示是线索，0表示是孩子 */
-                        struct tbt_node_t *left; /** 左孩子*/
-                        struct tbt_node_t *right; /** 右孩子*/
-                        elem_t elem; /** 结点所存放的数据*/
+                        int ltag;                                   // 0 for child, 1 for thread
+                        int rtag;
+                        struct tbt_node_t *left;                    // left child, or pre
+                        struct tbt_node_t *right;                   // right child , or succ
+                        elem_t elem;                                // node
                     } tbt_node_t;
 
-                    /* 内部函数 */
                     static void in_thread(tbt_node_t *p, tbt_node_t **pre);
                     static tbt_node_t *first(tbt_node_t *p);
                     static tbt_node_t *next(const tbt_node_t *p);
 
-                     /**
-                      * @brief 建立中序线索二叉树.
-                      * @param[in] root 树根
-                      * @return 无
-                      */
                     void create_in_thread(tbt_node_t *root) {
-                        /* 前驱结点指针*/
                         tbt_node_t *pre=NULL;
-                        if(root != NULL) { /* 非空二叉树，线索化*/
-                            /* 中序遍历线索化二叉树*/
-                            in_thread(root, &pre);
-                            /* 处理中序最后一个结点*/
-                            pre->right = NULL;
+                        if( !root ) {                   // 非空二叉树，线索化
+                            in_thread( root, &pre );    // threaded in_order traversal
+                            pre->right = NULL;          // the only last work to do
                             pre->rtag = 1;
                         }
                     }
 
-
-                    /**
-                      * @brief 在中序线索二叉树上执行中序遍历.
-                      * @param[in] root 树根
-                      * @param[in] visit 访问结点的数据的函数
-                      * @return 无
-                      */
-                    void in_order(tbt_node_t *root, int(*visit)(tbt_node_t*)) {
-                        tbt_node_t *p;
-                        for(p = first(root); p != NULL; p = next(p)) {
-                            visit(p);
-                        }
+                    void in_order( tbt_node_t *root, int(*visit)(tbt_node_t*) ) {
+                        for( tbt_node_t *p = first(root); p; p = next(p) ) { visit(p); }
                     }
                     ```
 
@@ -4076,61 +4019,49 @@ t: 0, t+s: 0, s: 0
                     ```
 
                     ```cpp
-                     /*
-                      * @brief 中序线索化二叉树的主过程.
-                      * @param[in] p 当前要处理的结点
-                      * @param[inout] pre 当前结点的前驱结点
-                      * @return 无
-                      */
-                    static void in_thread(tbt_node_t *p, tbt_node_t **pre) {
-                        if(p != NULL) {
-                            in_thread(p->left, pre); /* 线索化左子树 */
-                            if(p->left == NULL) {  /* 左子树为空，建立前驱 */
+                    static void in_thread( tbt_node_t *p, tbt_node_t **pre ) {
+                        if( p ) {
+                            in_thread( p->left, pre );
+                            if( !p->left ) {                        // left child point to pre
                                 p->left = *pre;
                                 p->ltag = 1;
                             }
                             /* 建立前驱结点的后继线索 */
-                            if((*pre) != NULL &&
-                                (*pre)->right == NULL) {
+
+                            if( (*pre) && !(*pre)->right ) {        // pre's right child point to self
                                 (*pre)->right = p;
                                 (*pre)->rtag = 1;
                             }
-                            *pre = p; /* 更新前驱 */
-                            in_thread(p->right, pre); /* 线索化右子树 */
+                            *pre = p;
+                            in_thread( p->right, pre );
                         }
                     }
                     ```
 
                     ```cpp
-                     /*
-                      * @brief 寻找线索二叉树的中序下的第一个结点.
-                      * @param[in] p 线索二叉树中的任意一个结点
-                      * @return 此线索二叉树的第一个结点
-                      */
-                    static tbt_node_t *first(tbt_node_t *p) {
-                        if(p == NULL)  return NULL;
 
-                        while(p->ltag == 0) {
-                            p = p->left;  /* 最左下结点，不一定是叶结点*/
+                    // 寻找线索二叉树的中序下的第一个结点.
+                    // p 线索二叉树中的任意一个结点
+                    // return 此线索二叉树的第一个结点
+                    static tbt_node_t *first(tbt_node_t *p) {
+                        if( !p ) { return NULL; }
+                        while( p->ltag == 0 ) {
+                            p = p->left;            // left-most node, (may not be leaf, (it may has right child))
                         }
                         return p;
                     }
 
-                     /*
-                      * @brief 求中序线索二叉树中某结点的后继.
-                      * @param[in] p 某结点
-                      * @return p的后继
-                      */
-                    static tbt_node_t *next(const tbt_node_t *p) {
-                        if(p->rtag == 0) {
+                    static tbt_node_t *next( const tbt_node_t *p ) {
+                        assert( p );
+                        if( p->rtag == 0 ) {
                             return first(p->right);
                         } else {
-                            return p->right;
+                            return p->right;        // succ
                         }
                     }
                     ```
 
-            -   morris traversal (see jiuzhang)
+            -   morris traversal
 
             -   rebuild tree -<
 
@@ -4147,7 +4078,7 @@ t: 0, t+s: 0, s: 0
                         if(n <= 0) { return; }
                         build_post( pre+1,          in,             left_len,       post );
                         build_post( pre+left_len+1, in+left_len+1,  n-left_len-1,   post+left_len );
-                        post[n - 1] = pre[0];       // you can put this line before recursion.
+                        post[n - 1] = pre[0];                   // you can put this line before recursion.
                     }
 
 
@@ -4157,11 +4088,11 @@ t: 0, t+s: 0, s: 0
                         "            A                 \n"
                         "           / \\               \n"
                         "          /   \\              \n"
-                        "        B      C              \n"
-                        "       /       / \\           \n"
-                        "      D       E   F           \n"
-                        "       \\                     \n"
-                        "        G                     \n" );
+                        "         B     C              \n"
+                        "        /     / \\            \n"
+                        "       D     E   F            \n"
+                        "        \\                    \n"
+                        "         G                    \n" );
                         const char *pre = "ABDGCEF";
                         const char *in  = "DGBAECF";
                         char post[10] = { 0 };
@@ -4177,11 +4108,11 @@ t: 0, t+s: 0, s: 0
                                 A
                                / \
                               /   \
-                            B      C
-                           /       / \
-                          D       E   F
-                           \
-                            G
+                             B     C
+                            /     / \
+                           D     E   F
+                            \
+                             G
 
                     pre:  ABDGCEF
                     in:   DGBAECF
@@ -4190,28 +4121,96 @@ t: 0, t+s: 0, s: 0
 
                     ```cpp
                     void rebuild( const char *pre, const char *in, int n, bt_node_t **root ) {
-                        int left_len;
-                        // 检查终止条件
-                        if (n <= 0 || pre == NULL || in == NULL)
+                        if( n <= 0 || !pre || !in ) {                                       // 检查终止条件
                             return;
-                        //获得前序遍历的第一个结点
-                        *root = (bt_node_t*) malloc(sizeof(bt_node_t));
+                        }
+
+                        *root = (bt_node_t*) malloc(sizeof(bt_node_t));                     // 获得前序遍历的第一个结点
                         (*root)->elem = *pre;
                         (*root)->left = NULL;
                         (*root)->right = NULL;
 
-                        left_len = strchr(in, pre[0]) - in;
-                        //重建左子树
-                        rebuild(pre + 1, in, left_len, &((*root)->left));
-                        //重建右子树
-                        rebuild(pre + left_len + 1, in + left_len + 1, n - left_len - 1,
-                                &((*root)->right));
+                        int left_len = strchr( in, pre[0] ) - in;
+                        rebuild( pre + 1, in,                                               // 重建左子树
+                                 left_len,          &((*root)->left) );
+                        rebuild( pre + left_len + 1, in + left_len + 1,                     // 重建右子树
+                                 n - left_len - 1,  &((*root)->right) );
                     }
+                    ```
+
+                    ```
+                    pre = "ABDGCEF";
+                    in  = "DGBAECF";
+
+                        DGBAECF(ABDGCEF)    ->          A               ->          A
+                            / \                                                    / \
+                           /   \                                                  /   \
+                      DGB(BDG) ECF(CEF)     ->      B       C                    B     C
+                                                DG(DG)  E       F               D     E F
+                                                                                 G
                     ```
 
             -   Heap -<
 
-                :   -   [Heap (data structure) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Heap_(data_structure))
+                :   -   [Heap (data structure) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Heap_(data_structure)) -<
+
+                        :   In computer science, a heap is a **specialized tree-based data structure**
+                            that satisfies the heap property: If A is a parent node of B
+                            then the key (the value) of node A is ordered with respect to
+                            the key of node B with the same ordering applying
+                            across the heap. A heap can be classified further
+                            as either a "**max heap**" or a "**min heap**". In
+                            a max heap, the keys of parent nodes are always
+                            greater than or equal to those of the children and
+                            the highest key is in the root node. In a min heap,
+                            the keys of parent nodes are less than or equal to
+                            those of the children and the lowest key is in the
+                            root node. Heaps are crucial in several efficient
+                            graph algorithms such as Dijkstra's algorithm, and
+                            in the sorting algorithm heapsort.
+                            **A common implementation of a heap is the binary
+                            heap, in which the tree is a complete binary tree.**
+
+                            ![Example of a complete binary max-heap with node
+                                keys being integers from 1 to 100](https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Max-Heap.svg/240px-Max-Heap.svg.png)
+
+                            When a heap is a **complete binary tree**, it has a
+                            smallest possible height—a heap with N nodes always
+                            has (logN) height. A heap is a useful data structure
+                            when you need to remove the object with the highest
+                            (or lowest) priority.
+
+                        [Heapsort - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Heapsort) -<
+
+                        :   ```
+                            iParent(i)     = floor((i-1) / 2)
+                            iLeftChild(i)  = 2*i + 1
+                            iRightChild(i) = 2*i + 2
+
+                            procedure heapsort(a, count) is
+                                input: an unordered array a of length count
+
+                                (Build the heap in array a so that largest
+                                value is at the root) heapify(a, count)
+
+                                (The following loop maintains the invariants
+                                that a[0:end] is a heap and every element
+                                beyond end is greater than everything before it
+                                (so a[end:count] is in sorted order))
+
+                                end ← count - 1
+                                while end > 0 do
+                                    // a[0] is the root and largest value. The
+                                    // swap moves it in front of the sorted
+                                    // elements.)
+                                    swap(a[end], a[0])
+                                    // the heap size is reduced by one
+                                    end ← end - 1
+                                    // the swap ruined the heap property, so restore it
+                                    siftDown(a, 0, end)
+                            ```
+
+                            ![](https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif)
 
                     -   heap.c -<
 
@@ -4220,18 +4219,17 @@ t: 0, t+s: 0, s: 0
                             ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-46-26-create-binary-heap-On.gif)
 
                             ```cpp
-                            #include <stdlib.h>  // malloc
-                            #include <string.h>  // memcpy
+                            #include <stdlib.h>                             // malloc
+                            #include <string.h>                             // memcpy
                             typedef struct heap_t {
-                                int     size;
-                                int     capacity;
+                                int size;
+                                int capacity;
                                 int *elems;
-                                int (*cmp)(const int *, const int *);     // compare function
+                                int (*cmp)(const int *, const int *);       // compare function
                             } heap_t;
 
-
                             int cmp_int( const int *x, const int *y ) {
-                                const int sub = *x - *y;
+                                int sub = *x - *y;
                                 return sub > 0 ? 1 : sub < 0 ? -1 : 0;
                             }
 
@@ -4246,9 +4244,9 @@ t: 0, t+s: 0, s: 0
                                 return h;
                             }
 
-                            void heap_destroy(heap_t *h) {
-                                free(h->elems);
-                                free(h);
+                            void heap_destroy( heap_t *h ) {
+                                free( h->elems );
+                                free( h );
                             }
 
                             int heap_empty( const heap_t *h ) {
@@ -4258,27 +4256,41 @@ t: 0, t+s: 0, s: 0
                             int heap_size( const heap_t *h ) {
                                 return h->size;
                             }
+                            ```
 
-                            // 0, 1, 2, ... -> left/right child of `i`: `2*i+1`/`2*i+2`
-                            /*
-                             * @brief 小根堆的自上向下筛选算法.
-                             * @param[in] h 堆对象的指针
-                             * @param[in] start 开始结点
-                             * @return 无
-                             */
-                            void heap_sift_down( const heap_t *h, const int start ) {
+                            ```
+                            sift down
+                            ---------
+
+                            3   9   6   8   5   1   4   2   7           9   8   6   7   5   1   4   2   3
+                                         [3]                                          9
+                                        /   \                                       /   \
+                                       /      \                                    /      \
+                                     9         6                                 8         6
+                                    /  \       /  \                             /  \       /  \
+                                  8     5     1    4                          7     5     1    4
+                                 / \                                         / \
+                                2    7                                      2    [3]
+                                                    tmp = h[j]
+
+                                (i)         can go down?
+                                /\
+                               /  \             j or j+1 ?
+                              /    \            h[i]    =   h[j]
+                            (j)   (j+1)         h[i]    =   tmp
+                            ```
+
+                            ```cpp
+                            void heap_sift_down( const heap_t *h, const int start ) {       // 小根堆的自上向下筛选算法.
                                 int i = start;
-                                int j;
                                 const int tmp = h->elems[start];
 
-                                for(j = 2 * i + 1; j < h->size; j = 2 * j + 1) {
-                                    if(j < (h->size - 1) &&
-                                        // h->elems[j] > h->elems[j + 1]
-                                        h->cmp(&(h->elems[j]), &(h->elems[j + 1])) > 0) {
-                                            j++; /* j 指向两子女中小者*/
+                                // 2*i+1: left child, 2*i+2: right child
+                                for( int j = 2*i+1; j < h->size; j = 2*j+1 ) {
+                                    if( j+1 < h->size && h->cmp(&(h->elems[j]), &(h->elems[j + 1])) > 0 ) {
+                                        j++;                                    // sift towards j, j 指向两子女中小者
                                     }
-                                    // tmp <= h->data[j]
-                                    if(h->cmp(&tmp, &(h->elems[j])) <= 0) {
+                                    if( h->cmp(&tmp, &(h->elems[j])) <= 0 ) {   // they are all big guys down there.
                                         break;
                                     } else {
                                         h->elems[i] = h->elems[j];
@@ -4287,125 +4299,109 @@ t: 0, t+s: 0, s: 0
                                 }
                                 h->elems[i] = tmp;
                             }
+                            ```
 
-                            /*
-                             * @brief 小根堆的自下向上筛选算法.
-                             * @param[in] h 堆对象的指针
-                             * @param[in] start 开始结点
-                             * @return 无
-                             */
+                            ```
+                                                    tmp = h[j]
+
+                                       (i)          can go up?
+                                       /\
+                                      /  \              h[j]    =   h[i]
+                                     /    \             j       =   i
+                                   (j)     *            i       =   (j-1)/2
+
+
+                            ```
+
+                            ```
+                            // 小根堆的自下向上筛选算法.
                             void heap_sift_up( const heap_t *h, const int start ) {
-                                int j = start;
-                                int i= (j - 1) / 2;
                                 const int tmp = h->elems[start];
-
-                                while(j > 0) {
-                                    // h->data[i] <= tmp
-                                    if(h->cmp(&(h->elems[i]), &tmp) <= 0) {
+                                int j = start;
+                                int i= (j - 1) / 2;                             // parent
+                                while( j > 0 ) {
+                                    if( h->cmp(&(h->elems[i]), &tmp) <= 0 ) {   // parent is small enough
                                         break;
                                     } else {
                                         h->elems[j] = h->elems[i];
                                         j = i;
-                                        i = (i - 1) / 2;
+                                        i = (j-1)/2;
                                     }
                                 }
                                 h->elems[j] = tmp;
                             }
 
-                            /**
-                             * @brief 添加一个元素.
-                             * @param[in] h 堆对象的指针
-                             * @param[in] x 要添加的元素
-                             * @return 无
-                             */
-                            void heap_push(heap_t *h, const int x) {
-                                if(h->size == h->capacity) { /*已满，重新分配内存*/
-                                    int *tmp =
-                                        (int *)realloc(h->elems, h->capacity * 2 * sizeof(int));
-                                    h->elems = tmp;
+                            void heap_push( heap_t *h, const int x ) {
+                                if( h->size == h->capacity ) {
                                     h->capacity *= 2;
+                                    int *tmp = (int *)realloc( h->elems, h->capacity*sizeof(int) );
+                                    h->elems = tmp;
                                 }
-
-                                h->elems[h->size] = x;
-                                h->size++;
-
-                                heap_sift_up(h, h->size - 1);
+                                h->elems[h->size++] = x;                        // append
+                                heap_sift_up( h, h->size - 1 );                 // sift up last node
                             }
 
-                            /**
-                             * @brief 弹出堆顶元素.
-                             * @param[in] h 堆对象的指针
-                             * @return 无
-                             */
-                            void heap_pop(heap_t *h) {
+                            void heap_pop( heap_t *h ) {
                                 h->elems[0] = h->elems[h->size - 1];
-                                h->size --;
-                                heap_sift_down(h, 0);
+                                --h->size;
+                                heap_sift_down( h, 0 );
                             }
 
-                            /**
-                             * @brief 获取堆顶元素.
-                             * @param[in] h 堆对象的指针
-                             * @return 堆顶元素
-                             */
-                            int heap_top(const heap_t *h) {
+                            int heap_top( const heap_t *h ) {
                                 return h->elems[0];
                             }
                             ```
 
-                    -   Minimum N -<
+                    -   Minimum N, (heap, priority_queue) -<
 
                         :   ```cpp
                             #include <cstdio>
                             #include <queue>
                             #include <algorithm>
                             #include <functional>
-
                             using namespace std;
 
-                            const int MAXN = 100000;
-
                             int N;
+                            const int MAXN = 100000;
                             int a[MAXN], b[MAXN];
 
                             typedef struct node_t {
                                 int sum;
-                                int b; /* sum=a[i]+b[b] */
-                                bool operator>(const node_t &other) const {
+                                int b;                                          // b is the index, init with 0, sum=a[i]+b[b=0]
+                                bool operator>( const node_t &other ) const {   // std::greater<node_t>
                                     return sum > other.sum;
                                 }
                             } node_t;
 
                             void k_merge() {
-                                sort(a, a+N);
-                                sort(b, b+N);
-                                priority_queue< node_t, vector<node_t>, greater<node_t> > q;
+                                sort( a, a+N );
+                                sort( b, b+N );
+                                priority_queue< node_t, vector<node_t>, greater<node_t> > q;    // a min heap
 
-                                for (int i = 0; i < N; i++) {
+                                for( int i = 0; i < N; ++i ) {
                                     node_t tmp;
-                                    tmp.sum = a[i]+b[0];
                                     tmp.b = 0;
-                                    q.push(tmp);
+                                    tmp.sum = a[i]+b[tmp.b];
+                                    q.push( tmp );
                                 }
 
-                                for (int i = 0; i < N; i++) {
+                                for( int i = 0; i < N; ++i ) {
                                     node_t tmp = q.top(); q.pop();
                                     printf("%d ", tmp.sum);
                                     tmp.sum = tmp.sum - b[tmp.b] + b[tmp.b + 1];
-                                    tmp.b++;
+                                    ++tmp.b;
                                     q.push(tmp);
                                 }
                             }
 
                             int main() {
-                                scanf("%d", &N);
-                                for (int i = 0; i < N; i++) {
-                                    scanf("%d", &a[i]);
+                                scanf( "%d", &N );
+                                for( int i = 0; i < N; ++i ) {
+                                    scanf( "%d", &a[i] );
                                 }
-                                for (int i = 0; i < N; i++) {
-                                    scanf("%d", &b[i]);
+                                for( int i = 0; i < N; ++i ) {
+                                    scanf( "%d", &b[i] );
                                 }
-
                                 k_merge();
                                 return 0;
                             }
@@ -4429,64 +4425,63 @@ t: 0, t+s: 0, s: 0
                             #include <stdlib.h>
 
                             typedef struct ufs_t {
-                                int *p;     /** 树的双亲表示法 */
+                                int *p;                         // 树的双亲表示法
                                 int size;
                             } ufs_t;
 
-                            ufs_t* ufs_create(int n) {
-                                ufs_t *ufs = (ufs_t*)malloc(sizeof(ufs_t));
-                                int i;
+                            ufs_t* ufs_create( int n ) {
+                                ufs_t *ufs = (ufs_t *)malloc(sizeof(ufs_t));
                                 ufs->p = (int*)malloc(n * sizeof(int));
-                                for(i = 0; i < n; i++) {
-                                    ufs->p[i] = -1; // init to disjoint, every node is root
+                                for( int i = 0; i < n; ++i ) {
+                                    ufs->p[i] = -1;             // init to disjoint, every node is root
                                 }
                                 return ufs;
                             }
 
-                            void ufs_destroy(ufs_t *ufs) {
-                                free(ufs->p);
-                                free(ufs);
+                            void ufs_destroy( ufs_t *ufs ) {
+                                free( ufs->p );
+                                free( ufs );
                             }
 
-                            // 带路径压缩，递归版.
-                            int ufs_find(ufs_t *ufs, int x) {
-                                if (ufs->p[x] < 0) { return x; }
-                                return ufs->p[x] = ufs_find(ufs, ufs->p[x]);
+                            // 带路径压缩，递归版, return index
+                            int ufs_find( ufs_t *ufs, int x ) {
+                                if( ufs->p[x] < 0 ) { return x; }
+                                return ufs->p[x] = ufs_find( ufs, ufs->p[x] );      // parent
                             }
 
                             // 朴素版, deprecated
-                            static int ufs_find_naive(ufs_t *ufs, int x) {
-                                while (ufs->p[x] >= 0) {
+                            static int ufs_find_naive( ufs_t *ufs, int x ) {
+                                while( ufs->p[x] >= 0 ) {
                                     x = ufs->p[x];
                                 }
                                 return x;
                             }
 
                             // 带路径压缩，迭代版
-                            static int ufs_find_iterative(ufs_t *ufs, int x) {
-                                int oldx = x; /* 记录原始x */
-                                while (ufs->p[x] >= 0) {
-                                    x = ufs->p[x];
+                            static int ufs_find_iterative( ufs_t *ufs, int x ) {
+                                int oldx = x;
+                                while( ufs->p[x] >= 0 ) {
+                                    x = ufs->p[x];              // log the parent
                                 }
-                                while (oldx != x) {
-                                    int temp = ufs->p[oldx];
+                                while( oldx != x ) {
+                                    int temp = ufs->p[oldx];    // go up, up and up. assign the x.
                                     ufs->p[oldx] = x;
                                     oldx = temp;
                                 }
                                 return x;
                             }
 
-                            int ufs_union(ufs_t *ufs, int x, int y) {
+                            int ufs_union( ufs_t *ufs, int x, int y ) {
                                 const int rx = ufs_find(ufs, x);
                                 const int ry = ufs_find(ufs, y);
-                                if(rx == ry) return -1;
+                                if( rx == ry ) { return -1; }
 
                                 ufs->p[rx] += ufs->p[ry];
                                 ufs->p[ry] = rx;
                                 return 0;
                             }
 
-                            int ufs_set_size(ufs_t *ufs, int x) {
+                            int ufs_set_size( ufs_t *ufs, int x ) {
                                 const int rx = ufs_find(ufs, x);
                                 return -ufs->p[rx];
                             }
@@ -4503,24 +4498,22 @@ t: 0, t+s: 0, s: 0
 
                             int main() {
                                 int n, m, k;
-                                while (scanf("%d%d", &n, &m) && n > 0) {
+                                while( scanf("%d%d", &n, &m) && n > 0 ) {
                                     ufs_t *ufs = ufs_create(MAXN);
-                                    while (m--) {
-                                        int x, y; /* 两个学生 */
-                                        int rx, ry; /* x, y 所属的集合的根 */
+                                    while( m-- ) {
+                                        int x, y;                           // two students
+                                        int rx, ry;                         // x, y 所属的集合的根
                                         scanf("%d", &k);
 
-                                        k--;
-                                        scanf("%d", &x);
+                                        scanf("%d", &x); k--;
                                         rx = ufs_find(ufs, x);
-                                        while (k--) {
+                                        while( k-- ) {
                                             scanf("%d", &y);
-                                            ry = ufs_find(ufs, y);
-                                            ufs_union(ufs, rx, ry);  /* 只要是跟x同一个集合的都并进去 */
+                                            ry = ufs_find( ufs, y );
+                                            ufs_union( ufs, rx, ry );       // merge y to x
                                         }
                                     }
-                                    /* 最后搜索0属于哪个集合，这个集合有多少人 */
-                                    printf("%d\n", ufs_set_size(ufs, 0));
+                                    printf( "%d\n", ufs_set_size(ufs, 0) );
                                     ufs_destroy(ufs);
                                 }
                                 return 0;
@@ -4546,6 +4539,139 @@ t: 0, t+s: 0, s: 0
                             4
                             1
                             1
+                            ```
+
+                    -   食物链 -<
+
+                        :   动物王国中有三类动物A,B,C，这三类动物的食物链构成了有趣的环形。A吃B， B吃C，C吃
+                            A。 现有N个动物，从1到N编号。每个动物都是A,B,C中的一种，但是我们并不知道它
+                            到底是哪一种。
+
+                            有人用两种说法对这N个动物所构成的食物链关系进行描述：
+
+                            -   第一种说法是"1 X Y"，表示X和Y是同类。
+                            -   第二种说法是"2 X Y"，表示X吃Y。
+
+                            此人对N个动物，用上述两种说法，一句接一句地说出K句
+                            话，这K句话有的是真的，有的是假的。当一句话满足下列
+                            三条之一时，这句话就是假话，否则就是真话。
+
+                            -   当前的话与前面的某些真的话冲突，就是假话；
+                            -   当前的话中X或Y比N大，就是假话；
+                            -   当前的话表示X吃X，就是假话。
+
+                            你的任务是根据给定的 N(1 < N < 50,000) 和 K 句话(0 <= K <=100,000 )，输出假话的总数。
+
+
+                            输出只有一个整数，表示假话的数目。
+
+                            ```
+                            input:
+
+                                第一行是两个整数N和K，以一个空格分隔。
+
+                                以下K行每行是三个正整数D，X，Y，两数之间用一个空格隔开，其中D表示说法的种类。
+
+                                -   若D=1，则表示X和Y是同类。
+                                -   若D=2，则表示X吃Y。
+
+                                100 7
+                                1 101 1
+                                2 1 2
+                                2 2 3
+                                2 3 3
+                                1 1 3
+                                2 3 1
+                                1 5 5
+
+                            output:
+
+                                3
+                            ```
+
+                            ```cpp
+                            /* POJ 1182 食物链, Catch them, http://poj.org/problem?id=1182 */
+                            #include <stdio.h>
+                            #include <stdlib.h>
+
+                            typedef struct ufs_t {
+                                int *p;
+                                int *dist;                          // 表示x与父节点p[x]的关系，0表示x与p[x]是同类，1 表示x吃p[x]，2 表示p[x]吃x
+                                int size;
+                            } ufs_t;
+
+                            ufs_t* ufs_create(int n) {
+                                ufs_t *ufs = (ufs_t*)malloc(sizeof(ufs_t));
+                                ufs->p = (int*)malloc(n * sizeof(int));
+                                ufs->dist = (int*)malloc(n * sizeof(int));
+                                for( int i = 0; i < n; ++i ) {
+                                    ufs->p[i] = -1;
+                                    ufs->dist[i] = 0;               // 自己与自己是同类
+                                }
+                                return ufs;
+                            }
+
+                            void ufs_destroy( ufs_t *ufs ) {
+                                free( ufs->p );
+                                free( ufs->dist );
+                                free( ufs );
+                            }
+
+                            int ufs_find( ufs_t *ufs, int x ) {
+                                if( ufs->p[x] < 0 ) { return x; }
+
+                                const int parent = ufs->p[x];
+                                ufs->p[x] = ufs_find( ufs, ufs->p[x] );
+                                ufs->dist[x] = (ufs->dist[x] + ufs->dist[parent]) % 3;  // ???
+                                return ufs->p[x];
+                            }
+
+                            int ufs_union( ufs_t *ufs, int root1, int root2 ) {
+                                if( root1 == root2 ) { return -1; }
+                                ufs->p[root1] += ufs->p[root2];
+                                ufs->p[root2] = root1;
+                                return 0;
+                            }
+
+                            void ufs_add_relation( ufs_t *ufs, int x, int y, int relation ) {
+                                const int rx = ufs_find(ufs, x);
+                                const int ry = ufs_find(ufs, y);
+                                ufs_union( ufs, ry, rx );                               // 注意顺序！
+                                // rx与x关系 + x与y的关系 + y与ry的关系 = rx与ry的关系
+                                ufs->dist[rx] = (ufs->dist[y] - ufs->dist[x] + 3 + relation) % 3;
+                            }
+
+                            int main() {
+                                int result = 0;                                         // 假话的数目
+
+                                ufs_t *ufs;
+                                int n, k;
+                                scanf("%d%d", &n, &k);
+                                ufs = ufs_create(n + 1);
+
+                                while( k-- ) {
+                                    int d, x, y;
+                                    scanf("%d%d%d", &d, &x, &y);
+
+                                    if (x > n || y > n || (d == 2 && x == y)) {
+                                        result++;
+                                    } else {
+                                        const int rx = ufs_find(ufs, x);
+                                        const int ry = ufs_find(ufs, y);
+
+                                        if (rx == ry) {                                 // 若在同一个集合则可确定x和y的关系
+                                            if((ufs->dist[x] - ufs->dist[y] + 3) % 3 != d - 1)
+                                                result++;
+                                        } else {
+                                            ufs_add_relation(ufs, x, y, d-1);
+                                        }
+                                    }
+                                }
+
+                                printf("%d\n", result);
+                                ufs_destroy( ufs );
+                                return 0;
+                            }
                             ```
 
                     refs and see also
@@ -4576,10 +4702,9 @@ t: 0, t+s: 0, s: 0
 
                             int A[MAXN];
 
-                            /* 完全二叉树，结点编号从1开始，层次从1开始.
-                             * 用一维数组存储完全二叉树，空间约为4N，
-                             * 参考 http://comzyh.tk/blog/archives/479/
-                             */
+                            // 完全二叉树，结点编号从1开始，层次从1开始.
+                            // 用一维数组存储完全二叉树，空间约为4N，
+                            // 参考 http://comzyh.tk/blog/archives/479/
                             node_t node[MAXN * 4];
 
                             int minx, maxx;                             // 存放查询的结果
@@ -4976,7 +5101,85 @@ t: 0, t+s: 0, s: 0
 
             -   hash table -<
 
-                :   -   [Open addressing - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Open_addressing){.featured}
+                :   -   [Open addressing - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Open_addressing){.featured} -<
+
+                        :   **Open addressing**, or **closed hashing**, is a
+                            method of **collision resolution** in hash tables. With
+                            this method a hash collision is resolved by
+                            probing, or searching through alternate locations
+                            in the array (the probe sequence) until either the
+                            target record is found, or an unused array slot is
+                            found, which indicates that there is no such key in
+                            the table. Well known probe sequences include:
+
+                            ```
+                            record pair { key, value }
+                            var pair array slot[0..num_slots-1]
+
+                            function find_slot(key)
+                                i := hash(key) modulo num_slots
+                                // search until we either find the key, or find an empty slot.
+                                while (slot[i] is occupied) and ( slot[i].key ≠ key )
+                                    i = (i + 1) modulo num_slots
+                                return i
+                            ```
+
+                            -   Linear probing
+                                  ~ in which the interval between probes is fixed — often at 1.
+                            -   Quadratic probing
+                                  ~ in which the interval between probes increases linearly (hence, the indices are described by a quadratic function).
+                            -   Double hashing
+                                  ~ in which the interval between probes is fixed for each record but is computed by another hash function.
+
+                            **Open Addressing 思想非常简单。如果第一次 Hash 寻找到得位置失败，那就不断进行位移，直到找到满足条件的位置。**
+
+                            Linear probing
+
+                            :   -   优点：思路简单，而且只要Hash表不满，总能找到满足条件的位置。
+                                -   缺点：容易产生**主聚合效应（primary clustering）**。简单来说，就是插入的点
+                                    容易聚集到一块地方，从而使得第一次Hash到这块范围的数都必须顺序搜索这块
+                                    范围。根据复杂的计算，我们可以得到，当load factor（此概念在上一章介绍）
+                                    为0.5时，平均每次插入（等同于非成功寻找）需要位移2.5次，平均每次成功寻
+                                    找需要位移1.5次。将load factor保证在0.5以下，那么时间是比较理想的。
+
+                            Linear probing
+                            :   -   顾名思义，就是Function(i) = i^2。简单地计算
+                                    可以得到：h(i+1)(x) = hi(x) + 2i -1. 另外，只有
+                                    当load factor小于0.5且Hash表大小为质数时，才能
+                                    保证每次插入都成功（可以证明，这里略）。
+                                -   优点：不会产生主聚合效应。
+                                -   缺点：虽然Quadratic方法不会产生主聚合效应。
+                                    但会产生**次聚合效应（secondary clustering）**。
+                                    即，第一次Hash到同一个位置的点，他们之后
+                                    的搜索过程都完全一样，需要重复。
+
+                            延迟删除（lazy deletion）
+
+                            :   如果我们需要删除一个值，不能简单的把那个位置的值去掉。简单思索便可明白，因
+                                为这个点后面的值可能是通过位移过去的，如果这点被挖空，那么我们想寻找后面的
+                                值就变得不可能了。
+
+                                因此，我们使用一个延迟删除的技术。思想很简单，我们给每个点赋予一个状态，分
+                                别是被占用（legitimate,  `[ləˈdʒɪtəmɪt]`, 合法的；正当的），空（empty），被删除（deleted）。初始时所有点都为
+                                空，当被插入一个值时将状态设为被占用，但被删除时状态设为被删除。这样的话，
+                                如果我们要寻找一个点，只要搜索路径上的点非空，且其值与我们想要搜索的值不同
+                                ，那么就不断搜索下去，直到找到空点或者相同值得点。（如果觉得拗口，请看下面
+                                的代码）。
+
+                            假設整個hash table的數據不在cache。因為是開放尋址，
+                            每次collision要再跳到另一個slot（即probing），hash
+                            table越滿就會有越多次跳轉，產生較多cache miss。
+
+                            若整個hash table都能儲存在cache，怎樣做都不會出現cache miss。
+
+                            但考慮hash table遠大於cache大小時，可以理解為每次不
+                            同的hashing都會cache miss，collision和cache miss的
+                            概率成正比。
+
+                            refs and see also
+
+                            -   [《数据结构》学习-- Hash(3) --Open Addressing - 江饭 - 博客频道 - CSDN.NET](http://blog.csdn.net/jiangfan2014/article/details/46042747)
+                            -   [使用 open addressing 的 Hash 表载荷过高为什么会降低 CPU 的缓存命中率？ - 知乎](https://www.zhihu.com/question/22911718)
 
                     -   hash table -<
 
@@ -4987,51 +5190,48 @@ t: 0, t+s: 0, s: 0
                             一个元素，而是链表的首地址。
 
                             开地址法有很多方案，有线性探测法(Linear Probing)、
-                            二次探测法(Quodratic Probing)和双散列法(Double
+                            二次探测法(Quadratic Probing)和双散列法(Double
                             Hashing)等。
 
                             下面是拉链法的C语言实现。
 
                             ```cpp
-                            /** 元素的哈希函数  */
                             template<typename elem_t>
                             int elem_hash(const elem_t &e);
 
-                            /** 元素的比较函数  */
                             template<typename elem_t>
                             bool operator==(const elem_t &e1, const elem_t &e2);
 
-                            /** 哈希集合, elem_t 是元素的数据类型. */
                             template<typename elem_t>
                             class hash_set {
                             public:
                                 hash_set(int prime, int capacity);
                                 ~hash_set();
-                                bool find(const elem_t &elem); /** 查找某个元素是否存在. */
-                                bool insert(const elem_t &elem); /** 添加一个元素，如果已存在则添加失败. */
+                                bool find(const elem_t &elem);                  // 查找某个元素是否存在.
+                                bool insert(const elem_t &elem);                // 添加一个元素，如果已存在则添加失败.
                             private:
-                                int prime; /** 哈希表取模的质数，也即哈希桶的个数，小于 capacity. */
-                                int capacity; /** 哈希表容量，一定要大于元素最大个数  */
+                                int prime;                                      // 哈希表取模的质数，也即哈希桶的个数，小于 capacity
+                                int capacity;                                   // 哈希表容量，一定要大于元素最大个数
 
-                                int *head/*[PRIME]*/; /** 首节点下标 */
+                                int *head;                                      // head[PRIME], 首节点下标
 
                                 struct node_t {
                                     elem_t elem;
                                     int next;
                                     node_t():next(-1) {}
-                                } *node/*[HASH_SET_CAPACITY]*/; /** 静态链表 */
+                                } *node;                                        // node[HASH_SET_CAPACITY], 静态链表
 
-                                int size; /** 实际元素个数 */
+                                int size;
                             };
 
                             template<typename elem_t>
-                            hash_set<elem_t>::hash_set(int prime, int capacity) {
+                            hash_set<elem_t>::hash_set( int prime, int capacity ) {
                                 this->prime = prime;
                                 this->capacity = capacity;
                                 head = new int[prime];
                                 node = new node_t[capacity];
-                                fill(head, head + prime, -1);
-                                fill(node, node + capacity, node_t());
+                                fill( head, head + prime, -1 );
+                                fill( node, node + capacity, node_t() );
                                 size = 0;
                             }
 
@@ -5048,28 +5248,24 @@ t: 0, t+s: 0, s: 0
 
                             template<typename elem_t>
                             bool hash_set<elem_t>::find(const elem_t &elem) {
-                                for (int i = head[elem_hash(elem)]; i != -1; i = node[i].next)
-                                    if (elem == node[i].elem) return true;
-
+                                for( int i = head[elem_hash(elem)]; i != -1; i = node[i].next ) {
+                                    if( elem == node[i].elem ) { return true; }
+                                }
                                 return false;
                             }
 
                             template<typename elem_t>
                             bool hash_set<elem_t>::insert(const elem_t &elem) {
                                 const int hash_code = elem_hash(elem);
-
-                                for (int i = head[hash_code]; i != -1; i = node[i].next)
-                                    if (elem == node[i].elem) return false; // 已经存在
-
-                                /* 不存在，则插入在首节点之前 */
-                                node[size].next = head[hash_code];
+                                if( find(elem) ) { return false; }
+                                node[size].next = head[hash_code]; // 不存在，则插入在首节点之前
                                 node[size].elem = elem;
                                 head[hash_code] = size++;
                                 return true;
                             }
                             ```
 
-                    -   babelfish -<
+                    -   babelfish (easy, use `dict.find`) -<
 
                         :   input:
 
@@ -5132,31 +5328,43 @@ t: 0, t+s: 0, s: 0
                             cat fish.txt | ./a.out
                             ```
 
+                            c++ version, buggy...
+
+                            ```cpp
+                            #include <iostream>
+                            #include <map>
+                            #include <string>
+                            #include <sstream>
+                            #include <stdio.h>
+
+                            using namespace std;
+
+                            int main() {
+                                string line;
+                                map<string, string> dict;
+
+                                while ( getline( cin, line ) && !line.empty() ) {
+                                    stringstream ss( line );
+                                    string s1, s2;
+                                    ss >> s1 >> s2;
+                                    dict[s2] = s1;
+                                    // printf( "s1: %s, s2: %s\n", s1.c_str(), s2.c_str() );
+                                }
+
+                                while ( cin >> line && !line.empty() ) {
+                                    if ( dict.find(line) != dict.end() ) {
+                                        cout << "eh" << endl;
+                                    } else {
+                                        cout << dict[line] << endl;
+                                    }
+                                }
+                                return 0;
+                            }
+                            ```
+
     -   chap7. Sorting -<
 
-        :   -----------------------------------------------------------------
-            排序方法        平均时间        最坏情况    辅助存储    是否稳定
-            -----------     -----------     ----------  ---------   ---------
-            直接插入排序    O(n^2)          O(n^2)      O(1)        是
-
-            折半插入排序    O(n^2)          O(n^2)      O(1)        是
-
-            希尔排序        N/A             N/A         O(1)        否
-
-            冒泡排序        O(n^2)          O(n^2)      O(1)        是
-
-            快速排序        O(nlogn)        O(n^2)      O(logn)     否
-
-            简单选择排序    O(n^2)          O(n^2)      O(1)        否
-
-            堆排序          O(nlogn)        O(nlogn)    O(1)        否
-
-            二路归并        O(nlogn)        O(nlogn)    O(n)        是
-
-            基数排序        O(d*(n+R))      O(d*(n+R))  O(R)        是
-            -----------------------------------------------------------------
-
-            -   util: print.cpp -<
+        :   -   util: print.cpp -<
 
                 :   print.cpp
 
@@ -5186,6 +5394,22 @@ t: 0, t+s: 0, s: 0
                     }
                     ```
 
+                    effect
+
+                    ```
+                                                |9|
+                                                |X|                 |8|
+                                                |X|                 |X|  |7|
+                                           |6|  |X|                 |X|  |X|
+                                           |X|  |X|  |5|            |X|  |X|
+                                           |X|  |X|  |X|       |4|  |X|  |X|
+                                      |3|  |X|  |X|  |X|       |X|  |X|  |X|
+                                 |2|  |X|  |X|  |X|  |X|       |X|  |X|  |X|
+                                 |X|  |X|  |X|  |X|  |X|  |1|  |X|  |X|  |X|
+                                ---------------------------------------------
+                                  0    1    2    3    4    5    6    7    8     (index)
+                    ```
+
             -   insertion sort -<
 
                 :   -   straight insertion sort -<
@@ -5206,27 +5430,30 @@ t: 0, t+s: 0, s: 0
                                 // insert ith element
                                 for (i = start + 1; i < end; i++) {
                                     tmp = A[i];
-                                    for (j = i - 1; tmp < A[j] && j >= start; j--) { // to the left
-                                        A[j + 1] = A[j];
+                                    for (j = i - 1; j >= start && tmp < A[j]; j--) {    // to the left
+                                        A[j + 1] = A[j];                                // j->j+1
                                     }
                                     A[j + 1] = tmp;
-                                    {
-                                        // print staff
-                                        static char buf[50];
-                                        sprintf( buf, "i: %d, j+1: %d", i, j+1 );
-                                        print( A, end-start, buf );
-                                    }
                                 }
                             }
 
                             int main() {
                                 int A[] = { 3, 2, 6, 9, 5, 1, 4, 8, 7  };
                                 int n = sizeof(A)/sizeof(A[0]);
-                                // for( int i = 0; i < n; ++i ) { printf( " %d", A[i] ); } printf( "\n" );
-                                print( A, n, "before sorting" );
                                 straight_insertion_sort( A, 0, n );
-                                print( A, n, "after sorting" );
-                                // for( int i = 0; i < n; ++i ) { printf( " %d", A[i] ); } printf( "\n" );
+                            }
+                            ```
+
+                            which is better, why?
+
+                            ```cpp
+                            for( int j = i - 1; j >= start && tmp < A[j]; --j ) {   // good
+                                A[j + 1] = A[j];
+                            }
+
+                            for( int j = i - 1; j >= start && tmp < A[j]; ) {
+                                A[j + 1] = A[j];
+                                --j;                                                // better in some aspect
                             }
                             ```
 
@@ -5399,37 +5626,61 @@ t: 0, t+s: 0, s: 0
                             }
                             ```
 
+                            ```
+                            +-------------------------------+
+                            |   find 4                      |
+                            |                       R   L   |
+                            |   0   1   2   4   4   4   6   |
+                            |                           ^   |
+                            +-------------------------------+
+
+                            L=0, R=6        ->      M=3
+
+                            L           M           R
+                            0   1   2   4   4   4   6
+
+                                            L   M   R               target >= a[M], L=M+1
+                            0   1   2   4   4   4   6
+
+                                                    L
+                                                    M
+                                                    R               target <  a[M], R=M-1
+                            0   1   2   4   4   4   6
+
+                                                R   L               a[R] == 4
+                            0   1   2   4   4   4   6
+                            ```
+
                     -   shell insertion sort -<
 
-                        :   从对直接插入排序的分析得知，其算法时间复杂度为
-                            $O(n^2)$，但是，若待排序记录序列为“正序”时，其时间
-                            复杂度可提高至$O(n)$。由此可设想，若待排序记录序列
-                            按关键字“基本有序”，即序列中具有下列特性$$R_i.key <
-                            \max\left\{R_j.key\right\},\; j<i$$的记录较少时，直
-                            接插入排序的效率就可大大提高，从另一方面来看，由于
-                            直接插入排序算法简单，则在n值很小时效率也比较高。希
-                            尔排序正是从这两点分析出发对直接插入排序进行改进得
-                            到的一种插入排序方法。
+                        :   从对直接插入排序的分析得知，其算法时间复杂度为 O(n^2)，
+                            但是，若待排序记录序列为“正序”时，其时间
+                            复杂度可提高至 O(n)。由此可设想，若待排序记录序列
+                            按关键字“基本有序”，即序列中具有下列特性
+                            $$R_i.key < \max\left\{R_j.key\right\},\; j<i$$
+                            的记录较少时，直接插入排序的效率就可大大提高，从另
+                            一方面来看，由于直接插入排序算法简单，则在n值很小时
+                            效率也比较高。希尔排序正是从这两点分析出发对直接插
+                            入排序进行改进得到的一种插入排序方法。
 
-                            \textbf{希尔排序}(Shell Sort)的基本思想是：设待排序
-                            元素序列有n个元素，首先取一个整数$gap=\lfloor
-                            \dfrac{n}{3} \rfloor+1$作为间隔，将全部元素分为gap
-                            个子序列，所有距离为gap的元素放在同一个子序列中，在
-                            每一个子序列中分别施行直接插入排序。然后缩小间隔gap
-                            ，取$gap=\lfloor \dfrac{gap}{3}\rfloor+1$ ，重复上
-                            述的子序列划分和排序工作，直到最后取$gap=1$，将所有
-                            元素放在同一个序列中排序为止。
+                            希尔排序 (Shell Sort) 的基本思想是：设待排序元素序
+                            列有n个元素，首先取一个整数 gap = n/3+1 作为间隔，
+                            将全部元素分为gap个子序列，所有距离为gap的元素放在
+                            同一个子序列中，在每一个子序列中分别施行直接插入排
+                            序。然后缩小间隔gap，取 gap=n/3+1, 重复上述的子序列
+                            划分和排序工作，直到最后取gap=1，将所有元素放在同一
+                            个序列中排序为止。
 
                             ```cpp
-                            // 和一趟直接插入排序相比，仅有一点不同，就是前后元素的间距是gap而不是1
+                            // 和一趟直接插入排序相比，仅有一点不同，就是前后元素的间距是 gap 而不是 1
                             // [start, end)
                             // gap 间隔
                             static void shell_insert( int A[], const int start, const int end, const int gap ) {
                                 int tmp;
                                 int i, j;
-                                for (i = start + gap; i < end; i++) {
+                                for( int i = start + gap; i < end; ++i ) {
                                     tmp = A[i];
-                                    for (j = i - gap; tmp < A[j] && j >= start; j -= gap) {
+                                    for( int j = i - gap; j>=start && A[j] > tmp; j -= gap ) {
                                         A[j + gap] = A[j];
                                     }
                                     A[j + gap] = tmp;
@@ -5438,7 +5689,7 @@ t: 0, t+s: 0, s: 0
 
                             void shell_sort( int A[], const int start, const int end ) {
                                 int gap = end - start;
-                                while (gap > 1) {
+                                while( gap > 1 ) {
                                     gap = gap / 3 + 1;
                                     shell_insert( A, start, end, gap );
                                 }
@@ -5463,9 +5714,10 @@ t: 0, t+s: 0, s: 0
                             void bubble_sort( int A[], const int start, const int end ) {
                                 int exchange;
                                 int tmp;
+                                // i is the element to set, in this loop
                                 for ( int i = start; i < end - 1; i++) {
                                     exchange = 0;
-                                    for ( int j = end - 1; j > i; j--) { /* 发生逆序，交换*/
+                                    for ( int j = end - 1; j > i; j--) {        // 发生逆序，交换
                                         if (A[j - 1] > A[j]) {
                                             tmp = A[j - 1];
                                             A[j - 1] = A[j];
@@ -5473,7 +5725,7 @@ t: 0, t+s: 0, s: 0
                                             exchange = 1;
                                         }
                                     }
-                                    if (exchange == 0) return; /* 本趟无逆序，停止处理*/
+                                    if( exchange == 0 ) { return; }             // 本趟无逆序，停止处理
                                 }
                             }
                             ```
@@ -5484,7 +5736,7 @@ t: 0, t+s: 0, s: 0
 
                             ```cpp
                             void quick_sort( int A[], const int start, const int end ) {
-                                if( start < end - 1 ) { /* 至少两个元素*/
+                                if( start < end - 1 ) {                                     // 至少两个元素
                                     const int pivot_pos = partition( A, start, end );
                                     quick_sort( A, start, pivot_pos );
                                     quick_sort( A, pivot_pos + 1, end );
@@ -5494,7 +5746,6 @@ t: 0, t+s: 0, s: 0
 
                             ```cpp
                             int partition( int A[], const int start, const int end ) {
-                                printf( "p0: " ); for( int i = start; i < end; ++i ) { printf( " %d", A[i] ); } printf( "\n" );
                                 int i = start;
                                 int j = end - 1;
                                 const int pivot = A[i];
@@ -5506,25 +5757,31 @@ t: 0, t+s: 0, s: 0
                                     A[j] = A[i];                                // move to right
                                 }
                                 A[i] = pivot;
-                                printf( "p1: " ); for( int i = start; i < end; ++i ) { printf( " %d", A[i] ); } printf( "\n" );
                                 return i;
                             }
                             ```
 
                             ```
                             log:
-                                        p0:  3 2 6 9 5 1 4 8 7
-                                        p1:  1 2 3 9 5 6 4 8 7
-                                        p0:  1 2
-                                        p1:  1 2
-                                        p0:  9 5 6 4 8 7
-                                        p1:  7 5 6 4 8 9
-                                        p0:  7 5 6 4 8
-                                        p1:  4 5 6 7 8
-                                        p0:  4 5 6
-                                        p1:  4 5 6
-                                        p0:  5 6
-                                        p1:  5 6
+                                        -------------------------------------
+                                        p0:  3  2   6   9   5   1   4   8   7
+                                        p1:  1  2   3   9   5   6   4   8   7
+                                        ------------+------------------------
+                                        p0:  1  2   |
+                                        p1:  1  2   |
+                                        ------------+------------------------
+                                        p0:         |   9   5   6   4   8   7
+                                        p1:         |   7   5   6   4   8   9
+                                        ------------+-----------------------+
+                                        p0:             7   5   6   4   8   |
+                                        p1:             4   5   6   7   8   |
+                                        ----------------------------+-------+
+                                        p0:             4   5   6   |
+                                        p1:             4   5   6   |
+                                        ----------------+-----------+--------
+                                        p0:             |   5   6
+                                        p1:             |   5   6
+                                        ----------------+--------------------
 
                             analysis
 
@@ -5604,17 +5861,13 @@ t: 0, t+s: 0, s: 0
                                 int tmp;
 
                                 // A[i] will be put at right position
-                                for( int i = start; i < end; i++ ) {
+                                for( int i = start; i < end; ++i ) {
                                     int k = i;
-                                    /* 在a[i]到a[end-1]中寻找最小元素*/
-                                    for ( int j = i + 1; j < end; j++ ) {
-                                        if(A[j] < A[k]) k = j;
+                                    for( int j = i + 1; j < end; ++j ) {
+                                        if( A[j] < A[k] ) { k = j; }          // 在 a[i] 到 a[end-1] 中寻找最小元素
                                     }
-                                    /* 交换*/
-                                    if (k != i) {
-                                        tmp = A[i];
-                                        A[i] = A[k];
-                                        A[k]= tmp;
+                                    if( k != i ) {
+                                        tmp = A[i]; A[i] = A[k]; A[k]= tmp;
                                     }
                                 }
                             }
@@ -5625,7 +5878,80 @@ t: 0, t+s: 0, s: 0
                         :   ![](http://whudoc.qiniudn.com/2016/2016-08-06_10-52-11-heap-sort.gif)
 
                             ```cpp
-                            TODO
+                            #include <stdio.h>
+                            #include "heap.c"
+
+                            int cmp( const int *x, const int *y ) {
+                                int sub = *x - *y;
+                                return sub < 0 ? 1 : sub > 0 ? -1 : 0;
+                            }
+
+                            void heap_sort( int *a, const int n, int (*cmp)(const int *, const int *) ) {
+                                heap_t h;
+                                h.cmp = cmp;
+                                h.elems = a;
+                                h.size = h.capacity = n;
+
+                                int i = (h.size - 2)/2;             // 找最初调整位置：最后分支结点
+                                while( i >= 0 ) {                   // 自底向上逐步扩大形成堆
+                                    heap_sift_down( &h, i );
+                                    --i;
+                                }
+
+                                int tmp;
+                                for( int i = h.size - 1; i > 0; --i ) {
+                                    tmp = h.elems[i]; h.elems[i] = h.elems[0]; h.elems[0] = tmp;
+                                    h.size = i;                     // 相当于 --h.size
+                                    heap_sift_down( &h, 0 );
+                                }
+                            }
+
+                            int main() {
+                                int A[] = { 3, 2, 6, 9, 5, 1, 4, 8, 7  };
+                                int n = sizeof(A)/sizeof(A[0]);
+                                heap_sort( A, n, &cmp );
+                            }
+                            ```
+
+                            ```
+                             3 2 6 9 5 1 4 8 7
+                            before sift at 3
+                             3 2 6 9 5 1 4 8 7
+                             3 2 6 9 5 1 4 8 7
+                            before sift at 2
+                             3 2 6 9 5 1 4 8 7
+                             3 2 6 9 5 1 4 8 7
+                            before sift at 1
+                             3 2 6 9 5 1 4 8 7
+                             3 9 6 8 5 1 4 2 7
+                            before sift at 0
+                             3 9 6 8 5 1 4 2 7
+                             9 8 6 7 5 1 4 2 3
+                            before sift at 0
+                             3 8 6 7 5 1 4 2
+                             8 7 6 3 5 1 4 2
+                            before sift at 0
+                             2 7 6 3 5 1 4
+                             7 5 6 3 2 1 4
+                            before sift at 0
+                             4 5 6 3 2 1
+                             6 5 4 3 2 1
+                            before sift at 0
+                             1 5 4 3 2
+                             5 3 4 1 2
+                            before sift at 0
+                             2 3 4 1
+                             4 3 2 1
+                            before sift at 0
+                             1 3 2
+                             3 1 2
+                            before sift at 0
+                             2 1
+                             2 1
+                            before sift at 0
+                             1
+                             1
+                             1 2 3 4 5 6 7 8 9
                             ```
 
             -   merge sort -<
@@ -5842,12 +6168,42 @@ t: 0, t+s: 0, s: 0
                 :   ```cpp
                     ```
 
+            -   conclusion -<
+
+                :   -----------------------------------------------------------------
+                    排序方法        平均时间        最坏情况    辅助存储    是否稳定
+                    -----------     -----------     ----------  ---------   ---------
+                    直接插入排序    O(n^2)          O(n^2)      O(1)        是
+
+                    折半插入排序    O(n^2)          O(n^2)      O(1)        是
+
+                    希尔排序        N/A             N/A         O(1)        否
+
+                    冒泡排序        O(n^2)          O(n^2)      O(1)        是
+
+                    快速排序        O(nlogn)        O(n^2)      O(logn)     否
+
+                    简单选择排序    O(n^2)          O(n^2)      O(1)        否
+
+                    堆排序          O(nlogn)        O(nlogn)    O(1)        否
+
+                    二路归并        O(nlogn)        O(nlogn)    O(n)        是
+
+                    基数排序        O(d*(n+R))      O(d*(n+R))  O(R)        是
+                    -----------------------------------------------------------------
+
+
     -   chap8. Brute Force -<
 
-        :   -   next_permutation -<
+        :   -   next_permutation :hearts: -<
 
                 :   下面考虑用C语言实现。不难想到用数组表示P和S。由于P和S是互补
                     的，它们二者知道其中给一个，另一个就完全确定了，因此不用保存P。
+
+                    ```
+                    P[0]    P[1]    P[2]    P[3]    ...     P[cur]  ...     P[n-1]
+                    |-------- used -------------------------|-----not used--------|
+                    ```
 
                     ```cpp
                     #include <stdio.h>
@@ -5855,23 +6211,21 @@ t: 0, t+s: 0, s: 0
 
                     // permutation P, set S
                     static void print_permutation_r( int n, int cur, int P[] ) {
-                        if( cur == n ) {                    // 收敛条件
+                        if( cur == n ) {                                            // 收敛条件
                             for( int i = 0; i < n; ++i ) { printf( "%d", P[i] ); }
                             printf( "\n" );
                         }
 
-                        // 扩展状态，尝试在A[cur]中填各种整数i，按从小到大的顺序
+                        // 扩展状态，尝试在 A[cur] 中填各种整数 i，按从小到大的顺序
                         for( int i = 1; i <= n; i++ ) {
                             int used = 0;
                             for( int j = 0; j < cur; j++ ) {
-                                if (P[j] == i) {
-                                    used = 1; // 如果i已经在A[0]~A[cur-1]出现过，则不能再选
-                                }
+                                if (P[j] == i) { used = 1; }                        // 如果 i 已经在 A[0]~A[cur-1] 出现过，则不能再选
                             }
                             if( !used ) {
                                 P[cur] = i;
-                                print_permutation_r(n, cur + 1, P); // 递归调用
-                                // 不需要恢复P[cur]，返回上层时时会被覆盖
+                                print_permutation_r( n, cur + 1, P );               // 递归调用
+                                                                                    // 不需要恢复P[cur]，返回上层时时会被覆盖
                             }
                         }
                     }
@@ -6007,26 +6361,17 @@ t: 0, t+s: 0, s: 0
                         (4, 4)
                     ```
 
+                    POJ 3984 迷宫问题, <http://poj.org/problem?id=3984>
+
                     ```cpp
-                    /* POJ 3984 迷宫问题, http://poj.org/problem?id=3984 */
-                    #include <cstdio>
+                    #include <stdio.h>
                     #include <cstring>
                     #include <queue>
-
                     using namespace std;
 
-                    const int MAXN = 5;
-
-                    // 迷宫的行数，列数
-                    int m = MAXN, n = MAXN;
-                    // 迷宫，0表示空地，1表示障碍物
-                    int map[MAXN][MAXN];
-
-                    // 四个方向
-                    const char name[4] = { 'U', 'R', 'D', 'L' };
-                    const int dx[4] = { -1, 0, 1, 0 }; // 行
-                    const int dy[4] = { 0, 1, 0, -1 }; // 列
-
+                    const char name[4] = { 'U', 'R', 'D', 'L' };    //      |
+                    const int dx[4] = { -1, 0, 1, 0 };              //      |
+                    const int dy[4] = { 0, 1, 0, -1 };              //      V  rowsise: x
 
                     typedef struct state_t {
                         int data;
@@ -6034,45 +6379,78 @@ t: 0, t+s: 0, s: 0
                         int father;
                     } state_t;
 
-                    const int STATE_MAX = MAXN * MAXN;  /* 状态总数 */
+                    const int MAXN = 5;
+                    int m = MAXN, n = MAXN;                                 // 迷宫的行数，列数
+                    int map[MAXN][MAXN];                                    // 迷宫，0 表示空地，1 表示障碍物
 
+                    const int STATE_MAX = MAXN * MAXN;                      // 状态总数
                     state_t nodes[STATE_MAX];
-
-                    int state_hash(const state_t &s);
-
-                    int state_index(const state_t &s) {
+                    int state_hash(  const state_t &s ) {
+                        return s.data;
+                    }
+                    int state_index( const state_t &s ) {
                         return state_hash(s);
                     }
 
                     void print_action(const int end) {
-                        if (nodes[end].father == -1) return;
-
-                        print_action(nodes[end].father);
-                        putchar(name[nodes[end].action]);
+                        if( nodes[end].father == -1 ) { return; }           // no father
+                        print_action( nodes[end].father );
+                        putchar( name[nodes[end].action] );
                     }
-
-                    void print_path(const int end) {
-                        if (nodes[end].father == -1) {
-                            printf("(%d, %d)\n", end / n, end % n);
-                            return;
+                    void print_path( const int end ) {
+                        if( nodes[end].father != -1 ) {                     // starting point
+                            print_path( nodes[end].father );
                         }
-                        print_path(nodes[end].father);
                         printf("(%d, %d)\n", end / n, end % n);
                     }
 
-                    void hashset_init();
+                    const state_t END = { 24, -1, -1 };                     // (4, 4)
+                    bool state_is_target( const state_t &s ) {              // end point
+                        return s.data == END.data;
+                    }
 
-                    bool hashset_find(const state_t &s);
+                    const int HASH_CAPACITY = STATE_MAX;
+                    bool visited[HASH_CAPACITY];
+                    void hashset_init() {
+                        memset( visited, 0, sizeof(visited) );
+                    }
+                    bool hashset_find( const state_t &s ) {
+                        return visited[state_hash(s)] == true;
+                    }
+                    void hashset_insert( const state_t &s ) {
+                        visited[state_hash(s)] = true;
+                    }
 
-                    void hashset_insert(const state_t &s);
+                    int x, y;                                               // 扩展点，即当前位置
+                    int action_cur;
+                    const int ACTION_BEGIN = 0;
+                    const int ACTION_END   = 4;
+                    void state_extend_init(const state_t &s) {
+                        action_cur = ACTION_BEGIN;
+                        x = s.data / n;
+                        y = s.data % n;
+                    }
 
-                    void state_extend_init(const state_t &s);
+                    bool state_extend( const state_t &s, state_t &next ) {
+                        while( action_cur < ACTION_END ) {
+                            const int nx = x + dx[action_cur];
+                            const int ny = y + dy[action_cur];
+                            if( 0 <= nx && nx < m && 0 <= ny && ny < n && !map[nx][ny] ) {  // in scope, and empty
+                                next.data = nx * n + ny;
+                                if( !hashset_find(next) ) {                                 // 判重
+                                    next.action = action_cur;                               // 记录路径
+                                    next.father = state_hash(s);
+                                    nodes[state_index(next)] = next;
+                                    ++action_cur;                                           // return前别忘了增1
+                                    return true;
+                                }
+                            }
+                            ++action_cur;
+                        }
+                        return false;
+                    }
 
-                    bool state_extend(const state_t &s, state_t &next);
-
-                    bool state_is_target(const state_t &s);
-
-                    int bfs(state_t &start) {
+                    int bfs( state_t &start ) {
                         queue<state_t> q;
                         hashset_init();
 
@@ -6081,101 +6459,37 @@ t: 0, t+s: 0, s: 0
 
                         nodes[state_index(start)] = start;
                         hashset_insert(start);
-                        if (state_is_target(start))
+                        if ( state_is_target(start) ) {
                             return state_index(start);
+                        }
+
                         q.push(start);
-
-                        while (!q.empty()) {
+                        while( !q.empty() ) {
                             const state_t s = q.front(); q.pop();
+                            state_extend_init( s );
                             state_t next;
-
-                            state_extend_init(s);
-                            while (state_extend(s, next)) {
-                                if (state_is_target(next)) {
+                            while( state_extend(s, next) ) {
+                                if( state_is_target(next) ) {       // the END
                                     return state_index(next);
                                 }
-                                q.push(next);
-                                hashset_insert(next);
+                                q.push( next );
+                                hashset_insert( next );
                             }
                         }
                         return -1;
                     }
 
                     int main(void) {
-                        state_t start = {0, -1, -1}; /* 左上角为起点 */
-                        int end;
-
-                        for (int i = 0; i < m; i++) {
-                            for (int j = 0; j < n; j++) {
-                                scanf("%d", &map[i][j]);
+                        for( int i = 0; i < m; ++i ) {
+                            for( int j = 0; j < n; ++j ) {
+                                scanf( "%d", &map[i][j] );
                             }
                         }
 
-                        end = bfs(start);
-                        print_path(end);
+                        state_t start = { 0, -1, -1 };                          // 左上角为起点
+                        int end = bfs( start );
+                        print_path( end );
                         return 0;
-                    }
-
-                    /********** functions implement **************/
-                    /* 存在完美哈希方案 */
-
-                    const int HASH_CAPACITY = STATE_MAX;
-                    bool visited[HASH_CAPACITY];
-
-                    int state_hash(const state_t &s) {
-                        return s.data;
-                    }
-
-                    void hashset_init() {
-                        memset(visited, 0, sizeof(visited));
-                    }
-
-                    bool hashset_find(const state_t &s) {
-                        return visited[state_hash(s)] == true;
-                    }
-
-                    void hashset_insert(const state_t &s) {
-                        visited[state_hash(s)] = true;
-                    }
-
-                    int action_cur;
-                    #define ACTION_BEGIN 0
-                    #define ACTION_END 4
-                    /** 扩展点，即当前位置 */
-                    int x, y;
-
-                    void state_extend_init(const state_t &s) {
-                        action_cur = ACTION_BEGIN;
-                        x = s.data / n;
-                        y = s.data % n;
-                    }
-
-                    bool state_extend(const state_t &s, state_t &next) {
-                        while(action_cur < ACTION_END) {
-                            const int nx = x + dx[action_cur];
-                            const int ny = y + dy[action_cur];
-
-                            if (nx >= 0 && nx < m && ny >= 0 && ny < n && !map[nx][ny]) {
-                                next.data = nx * n + ny;
-
-                                if (!hashset_find(next)) { /* 判重 */
-                                    /* 记录路径 */
-                                    next.action = action_cur;
-                                    next.father = state_hash(s);
-                                    nodes[state_index(next)] = next;
-
-                                    action_cur++;  /* return前别忘了增1 */
-                                    return true;
-                                }
-                            }
-                            action_cur++;
-                        }
-                        return false;
-                    }
-
-                    const state_t END = {24, -1, -1};
-                    bool state_is_target(const state_t &s) {
-                        return s.data == END.data;
                     }
                     ```
 
