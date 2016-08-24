@@ -11,8 +11,8 @@ Algorithms
 
 [我的算法学习之路 - Lucida](http://lucida.me/blog/on-learning-algorithms/) -<
 
-:   基友在人人发百度实习内推贴，当时自我感觉牛逼闪闪放光芒，于是就抱着看看国内IT环
-    境+虐虐面试官的变态心理投了简历，结果在第一面就自己的师兄爆出翔：他让我写一个
+:   基友在人人发百度实习内推贴，当时自我感觉牛逼闪闪放光芒，于是就抱着看看国内 IT 环
+    境 + 虐虐面试官的变态心理投了简历，结果在第一面就自己的师兄爆出翔：他让我写一个
     stof（字符串转浮点数），我磨磨唧唧半天也没写出完整实现，之后回到宿舍赶快写了一
     个版本发到师兄的邮箱，结果对方压根没鸟我。
 
@@ -22,7 +22,7 @@ Algorithms
     -   原来自己还是一个**编程弱逼**。
     -   原来自己还是一个**算法菜逼**。
 
-    我也很happy，因为没想到自己写的库居然比MS的还要快几十倍，同时小十几倍。
+    我也很 happy，因为没想到自己写的库居然比 MS 的还要快几十倍，同时小十几倍。
 
     从这个事情之后我变得特别理解那些造轮子的人——你要想想，如果你需要一个飞机轮子但
     市场上只有自行车轮子而且老板还催着你交工，你能怎么搞。
@@ -32,15 +32,16 @@ Algorithms
     求职季时我有一种莫名的复仇感——尼玛之前百度实习面试老子被你们黑的漫天飞翔，
     这回求职老子要把你们一个个黑回来，尼玛。
 
-    现在回想当时的心理实属傻逼+幼稚，但这种黑暗心理也起了一定的积极作用：我丝毫不敢
-    有任何怠慢，以至于在5月份底我就开始准备求职笔试面试，比身边的同学早了两个月不止。
+    现在回想当时的心理实属傻逼 + 幼稚，但这种黑暗心理也起了一定的积极作用：我丝毫不敢
+    有任何怠慢，以至于在 5 月份底我就开始准备求职笔试面试，比身边的同学早了两个月不止。
 
     我没有像身边的同学那般刷题——而是继续看书抄代码学算法，因为我认为那些难得离谱的
     题面试官也不会问——事实上也是如此。
 
     **编程珠玑**&更多的编程珠玑
 
-    没听说过这两本书请自行面壁。前者偏算法理论，后者偏算法轶事，前者提升能力，后者增长谈资，都值得一读。
+    没听说过这两本书请自行面壁。前者偏算法理论，后者偏算法轶事，前者提升能力，
+    后者增长谈资，都值得一读。
 
     证明简单代码段的正确性是一个很神奇的技能——因为面试时大多数公司都会要求在纸上写
     一段代码，然后面试官检查这段代码，如果你能够自己证明自己写的代码是正确的，面试
@@ -54,46 +55,50 @@ Algorithms
     >   **If you want to become a good programmer, you can spend 10 years
     >   programming, or spend 2 years programming and learning algorithms.**
 
-[9个offer，12家公司，35场面试，从微软到谷歌，应届计算机毕业生的2012求职之路 - _Luc_ - 博客园](http://www.cnblogs.com/figure9/archive/2013/01/09/2853649.html) -<
+[9 个 offer，12 家公司，35 场面试，从微软到谷歌，应届计算机毕业生的 2012 求职之路 - _Luc_ - 博客园](http://www.cnblogs.com/figure9/archive/2013/01/09/2853649.html) -<
 
-:   外企（Google、MS、Yahoo等）>国内互联网（阿里、腾讯、百度、网易等）>企事业单位（基本不考虑）
+:   外企（Google、MS、Yahoo 等）>国内互联网（阿里、腾讯、百度、网易等）>企事业单位（基本不考虑）
 
-    我的微软mentor曾提到过，我的实习面试表现一般，但后来表现出的动手能力大大超出之
-    前面试的预估，而有些面试表现很出色，问题对答如流的选手，入职之后反而不是很理想
-    ，至少没有达到面试时发挥出的水准。
+    我的微软 mentor 曾提到过，我的实习面试表现一般，但后来表现出的动手能力大大
+    超出之前面试的预估，而有些面试表现很出色，问题对答如流的选手，入职之后反而
+    不是很理想，至少没有达到面试时发挥出的水准。
 
-    这说明一个问题，就是**笔试面试，准备和不准备会差异很大**。如果你的简历不是那么NB，
-    那就只能靠笔试和面试的加分撑场面。身边经常有同学纳闷这样代码都编不利索的傻屌都
-    能进MS为什么我不能进，答案往往很简单：人家比你多准备了一个月。平时电脑上写程序
-    可能很利索，笔试面试时在纸上写写试试你就知道什么叫拙计。
+    这说明一个问题，就是**笔试面试，准备和不准备会差异很大**。如果你的简历不是
+    那么 NB，那就只能靠笔试和面试的加分撑场面。身边经常有同学纳闷这样代码都编不
+    利索的傻屌都能进 MS 为什么我不能进，答案往往很简单：人家比你多准备了一个月。
+    平时电脑上写程序可能很利索，笔试面试时在纸上写写试试你就知道什么叫拙计。
 
-    IT公司的笔试和面试的题量都不大（相对于企事业单位和银行动辄上百道选择题的题量，
-    算是很少），一般十几道选择题，三四道大题就算题量很大。但计算机的东西实在又是太
-    多，程序设计、数据结构、算法设计、操作系统、体系结构、编译原理、数据库、软件工
-    程等分支，编译的话太难（一千个码农里也没几个人能在纸上写一个最基础的递归下降
-    LLParser），软件工程、体系结构、数据库这些太水（不是说这些分支没用，而是它们很
-    难考察，尤其对应届生来说这些都是些文字游戏，比如说面向对象的三要素五原则，有个
-    鸟用），这么一排除，再把数据结构和算法设计一合并，就剩下**程序设计**、**算法**和
-    **操作系统**。没错，这三项搞定，国内外IT公司通杀。
+    IT 公司的笔试和面试的题量都不大（相对于企事业单位和银行动辄上百道选择题的题
+    量，算是很少），一般十几道选择题，三四道大题就算题量很大。但计算机的东西实
+    在又是太多，程序设计、数据结构、算法设计、操作系统、体系结构、编译原理、数
+    据库、软件工程等分支，编译的话太难（一千个码农里也没几个人能在纸上写一个最
+    基础的递归下降 LLParser），软件工程、体系结构、数据库这些太水（不是说这些分
+    支没用，而是它们很难考察，尤其对应届生来说这些都是些文字游戏，比如说面向对
+    象的三要素五原则，有个鸟用），这么一排除，再把数据结构和算法设计一合并，就
+    剩下**程序设计**、**算法**和**操作系统**。没错，这三项搞定，国内外 IT 公司
+    通杀。
 
     **Tips**
 
     -   重温之前自己做过的靠谱项目，并总结里面的关键难题和解决思路
-    -   重读Programming Pearls和More Programming Pearls，并完成所有课后题
+    -   重读 Programming Pearls 和 More Programming Pearls，并完成所有课后题
     -   独立解决编程之美里面的题目（国内不少企业选题用的这本书）
-    -   完成Careercup里Amazon、Google和Microsoft这三个分类下面的前20页面试题
-    -   完成TopCoder的数十道D1L2~D2L1难度区间的算法题目
-    -   重读Computer Systems a Programmer's Perspective的关键章节，回顾里面的关键点
+    -   完成 Careercup 里 Amazon、Google 和 Microsoft 这三个分类下面的前 20 页面试题
+    -   完成 TopCoder 的数十道 D1L2~D2L1 难度区间的算法题目
+    -   重读 Computer Systems a Programmer's Perspective 的关键章节，回顾里面的关键点
 
-    从七月底开始一直到十一月，花了接近四个月，很多东西都是一边面试一边准备：**面试->发现盲点->修复盲点**。
+    从七月底开始一直到十一月，花了接近四个月，很多东西都是一边面试一边准备：
+    **面试->发现盲点->修复盲点**。
 
     简历
 
-    -   篇幅。控制在一页以内。倒不是说不能写两页，而是HR没时间看两页这么多。而且就
-        我看过的几百封简历而言，凡是超过两页的没一个靠谱，有这么高的先验概率，HR才
-        没工夫一个个筛，反正中国有的是人。
-    -   重点。一定要有重点，做到让 HR 通过简历在 20 秒内确定你靠不靠谱。可以用加黑字体进行视觉引导。
-    -   别字。千万不要出现错别字，别字简历一般直接干掉。一页的简历都能出问题，一般不会靠谱。
+    -   篇幅。控制在一页以内。倒不是说不能写两页，而是 HR 没时间看两页这么多。
+        而且就我看过的几百封简历而言，凡是超过两页的没一个靠谱，有这么高的先验
+        概率，HR 才没工夫一个个筛，反正中国有的是人。
+    -   重点。一定要有重点，做到让 HR 通过简历在 20 秒内确定你靠不靠谱。可以用
+        加黑字体进行视觉引导。
+    -   别字。千万不要出现错别字，别字简历一般直接干掉。一页的简历都能出问题，
+        一般不会靠谱。
 
     但是研发的算法题是一样的，最后一道算法题很有意思，我花了一个多小时才想到利用组
     合数学里面的知识（多元一次方程非负解）给出设计方案，后来和面试官聊这道题时他们
@@ -101,35 +106,35 @@ Algorithms
 
     微软：
 
-    -   题型只有**二十道不定项选择题**，难度较难，要求在一小时四十分钟完成。难度较难，
-        覆盖面非常广，从设计模式，算法分析，代码阅读到C++语言特性，甚至连冷门的函数
-        式程序设计语言都有涉及。
-    -   微软的笔试题目BT之处在于其独特的积分机制：答对了加分，不答无分，答错了倒扣。
-        这就使得很多ds答完试卷感觉自我良好但实际已经被倒扣出翔。以最后一道题为例，
-        答对了加7分，答错倒扣13分，相当于一下子损失20分。所以微软的笔试题会做就得
-        做对，不会做就别蒙，要不更惨。
-    -   此外，微软的笔试题是英文的，加上时间比较短，有些人题都读不完，有些 ds 连
-        functional language是什么都不知道，自然败的很惨。
+    -   题型只有**二十道不定项选择题**，难度较难，要求在一小时四十分钟完成。难
+        度较难，覆盖面非常广，从设计模式，算法分析，代码阅读到 C++ 语言特性，甚
+        至连冷门的函数式程序设计语言都有涉及。
+    -   微软的笔试题目 BT 之处在于其独特的积分机制：答对了加分，不答无分，答错
+        了倒扣。这就使得很多 ds 答完试卷感觉自我良好但实际已经被倒扣出翔。以最
+        后一道题为例，答对了加 7 分，答错倒扣 13 分，相当于一下子损失 20 分。所
+        以微软的笔试题会做就得做对，不会做就别蒙，要不更惨。
+    -   此外，微软的笔试题是英文的，加上时间比较短，有些人题都读不完，有些 ds
+        连 functional language 是什么都不知道，自然败的很惨。
 
-    从笔试题可以明显看出，国外的大型IT公司（比如雅虎，微软和谷歌等）并不在意你现在
-    的skill set，而更看重你的potential，因此题目大多很基础，并具备相当的深度，以确
-    保你对CS有深刻的理解并能够走的很远；而国内的IT公司（比如百度、搜狗和人人等）更
-    看重你现在的skill set，因此会出现不少语言特性，OS操作之类的具体题目，以确保你能
-    够以尽快的速度上手干活，至于能发展到啥程度他们就不care了。
+    从笔试题可以明显看出，国外的大型 IT 公司（比如雅虎，微软和谷歌等）并不在意你现在
+    的 skill set，而更看重你的 potential，因此题目大多很基础，并具备相当的深度，以确
+    保你对 CS 有深刻的理解并能够走的很远；而国内的 IT 公司（比如百度、搜狗和人人等）更
+    看重你现在的 skill set，因此会出现不少语言特性，OS 操作之类的具体题目，以确保你能
+    够以尽快的速度上手干活，至于能发展到啥程度他们就不 care 了。
 
     考虑到几乎所有的公司都有编程题目，也就是在纸上写代码，这里推荐几本相关书籍：
 
     -   1 **Elements of programming style** 2nd，写出良好风格的代码。纸上代码一
         般不长，但短短几行代码往往可以看出这个人的水准，风格很差的代码往往会被
-        pass掉。
-    -   2 **Algorithm design manual** 2nd，作为非ACM出身的码农，这本书比算导实
-        用很多，课后题也很实在，对回溯，动态规划这些编程技巧讲的非常清楚。
-    -   3 **C interfaces and implementation**，无论是面试还是笔试，一般都会用C
-        写程序，这本书包含大量的工业级C代码，绝佳的参考和模仿素材。
+        pass 掉。
+    -   2 **Algorithm design manual** 2nd，作为非 ACM 出身的码农，这本书比算导
+        实用很多，课后题也很实在，对回溯，动态规划这些编程技巧讲的非常清楚。
+    -   3 **C interfaces and implementation**，无论是面试还是笔试，一般都会用 C
+        写程序，这本书包含大量的工业级 C 代码，绝佳的参考和模仿素材。
 
-    最后推荐下Elements of programming和Structure and interpretation of computer
-    programs，这两本书难度很高，需要大量的时间阅读，不适合临场阅读准备，但读过后，
-    写出的代码绝逼会上两个层次，这里我就不多介绍了。
+    最后推荐下 Elements of programming 和 Structure and interpretation of
+    computer programs，这两本书难度很高，需要大量的时间阅读，不适合临场阅读准备，
+    但读过后，写出的代码绝逼会上两个层次，这里我就不多介绍了。
 
 [白板编程浅谈——Why, What, How - Lucida](http://lucida.me/blog/whiteboard-coding-demystified/){.heart} -<
 
@@ -151,9 +156,12 @@ Algorithms
 
     为什么要进行白板编程（WHY）
 
-    :   -   除了判定面试者的开发效率，白板编程还有助于展示面试者的编程思路，并便于面试者和面试官进行交流
-        -   让面试者在解题的过程中将他/他的思维过程和编码习惯展现在面试官面前，以便面试官判定面试者是否具备清晰的逻辑思维和良好的编程素养
-        -   如果面试者陷入困境或是陷阱，面试官也可以为其提供适当的辅助，以免面试陷入无人发言的尴尬境地
+    :   -   除了判定面试者的开发效率，白板编程还有助于展示面试者的编程思路，并
+            便于面试者和面试官进行交流
+        -   让面试者在解题的过程中将他/他的思维过程和编码习惯展现在面试官面前，
+            以便面试官判定面试者是否具备清晰的逻辑思维和良好的编程素养
+        -   如果面试者陷入困境或是陷阱，面试官也可以为其提供适当的辅助，以免面
+            试陷入无人发言的尴尬境地
 
     什么是合适的白板编程题目（WHAT）
 
@@ -185,7 +193,7 @@ Algorithms
                 以 数组最大子序列和 为例，它有一个很显然的 O(n3) 解法，将 O(n3)
                 解法稍加改动可以得到 O(n2) 解法，利用分治思想，可以得到
                 O(n*logn) 解法，除此之外它还有一个 o(n) 解法。（编程珠玑 和 数
-                据结构与算法分析 C语言描述 对这道题均有非常精彩的描述，有兴趣的
+                据结构与算法分析 C 语言描述 对这道题均有非常精彩的描述，有兴趣的
                 朋友可以自行阅读）
 
         -   考察点明确
@@ -204,8 +212,10 @@ Algorithms
 
             -   拥有扎实的数据结构/算法基础
             -   知道如何利用 前条件/不变式/后条件 这些工具编写正确的程序
-            -   能够在白板（或纸上）实现基本的数据结构和算法（如果 1 和 2 做到这一步是水到渠成）
-            -   在 leetcode 或 careercup 上面进行过练习，了解常见的技术面试题目（我个人不鼓励刷题，但在面试前建立起对面试题的『感觉』非常重要）
+            -   能够在白板（或纸上）实现基本的数据结构和算法（如果 1 和 2 做到
+                这一步是水到渠成）
+            -   在 leetcode 或 careercup 上面进行过练习，了解常见的技术面试题目
+                （我个人不鼓励刷题，但在面试前建立起对面试题的『感觉』非常重要）
 
         -   面试中
 
@@ -248,10 +258,13 @@ Algorithms
         不会做怎么办
 
         -   至少先给出一个暴力（Brute force）解法
-        -   寻找合适的数据结构（例如栈/队列/树/堆/图）和算法（例如分治/回溯/动态规划/贪婪）
+        -   寻找合适的数据结构（例如栈 / 队列 / 树 / 堆 / 图）和算法（例如分治 / 回溯 / 动
+            态规划 / 贪婪）
         -   从小数据集开始尝试
-        -   如果还是没有头绪，重新考虑题目的前条件，思考是否漏掉了条件（或是隐含的条件）
-        -   如果 3 分钟过后还是没有任何思路，请求面试官提示，不要觉得不好意思——经过提示给出答案远强于没有答案
+        -   如果还是没有头绪，重新考虑题目的前条件，思考是否漏掉了条件（或是隐
+            含的条件）
+        -   如果 3 分钟过后还是没有任何思路，请求面试官提示，不要觉得不好意思——
+            经过提示给出答案远强于没有答案
 
     个人不建议面试者在面试之后把题目发到网上，很多公司在面试前都会和面试者打招
     呼，有的会签订 NDA（Non Disclosure Agreement）条款以确保面试者不会泄露面试
@@ -321,9 +334,10 @@ Algorithms
                 从面试者的角度来说，出题的目的？
 
                 还可以用牛逼闪闪的 KMP 算法。参考 [从头到尾彻底理解KMP（2014年8
-                月22日版） - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/7041827)。
+                月22日版） - 结构之法 算法之道 - 博客频道 -
+                CSDN.NET](http://blog.csdn.net/v_july_v/article/details/7041827)。
 
-                [字符串匹配的KMP算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html){.heart} -<
+                [字符串匹配的 KMP 算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html){.heart} -<
 
                 :   ![](http://image.beekka.com/blog/201305/bg2013050109.png)
 
@@ -335,9 +349,10 @@ Algorithms
 
                     ![](http://whudoc.qiniudn.com/2016/kmp-table.png)
 
-                    "部分匹配"的实质是，有时候，字符串头部和尾部会有重复。比如，"ABCDAB"之中有
-                    两个"AB"，那么它的"部分匹配值"就是2（"AB"的长度）。搜索词移动的时候，第一个
-                    "AB"向后移动4位（字符串长度-部分匹配值），就可以来到第二个"AB"的位置。
+                    "部分匹配"的实质是，有时候，字符串头部和尾部会有重复。比如，
+                    "ABCDAB"之中有两个"AB"，那么它的"部分匹配值"就是 2（"AB"的长
+                    度）。搜索词移动的时候，第一个"AB"向后移动 4 位（字符串长度 -
+                    部分匹配值），就可以来到第二个"AB"的位置。
 
                     [字符串匹配的 Boyer-Moore 算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)
 
@@ -352,9 +367,11 @@ Algorithms
 
             :   -   如果没有 strlen？要自己写一个？还是融汇在的自己代码里。
                 -   输入参数上，`char *str` 改成 `const char *str` 是不是更好？
-                -   参数命名上，str 和 sub 好不好？要不换成 haystack 和 needle 怎么样？
-                -   int len = strlen(str) 这里 len 的类型换成 size_t 是不是更好？int 型最多表示
-                    多长的字节？2^31-1/2^10(k)/2^10(m)/2^10(g) = 2^{31-30} = 2 GB。我猜完全没有必要用……
+                -   参数命名上，str 和 sub 好不好？要不换成 haystack 和 needle
+                    怎么样？
+                -   int len = strlen(str) 这里 len 的类型换成 size_t 是不是更好？
+                    int 型最多表示多长的字节？2^31-1/2^10(k)/2^10(m)/2^10(g) =
+                    2^{31-30} = 2 GB。我猜完全没有必要用……
 
                 上面的问题你怎么回答。
 
@@ -362,7 +379,8 @@ Algorithms
 
             :   挺重要。
 
-                >   同样动作重复 300 次，肌肉就会有记忆，而一个动作重复 600 次，脊椎就会有记忆。
+                >   同样动作重复 300 次，肌肉就会有记忆，而一个动作重复 600 次，
+                >   脊椎就会有记忆。
                 >
                 >   --- 李小龙
 
@@ -370,7 +388,7 @@ Algorithms
 
         -   refs and see also -<
 
-            :   -   [程序员编程艺术：第四章、现场编写类似strstr/strcpy/strpbrk的函数 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6417600)
+            :   -   [程序员编程艺术：第四章、现场编写类似 strstr/strcpy/strpbrk 的函数 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6417600)
 
     2016/8/6 上午9:30:00 2. 二分搜索 Binary Search -<
 
@@ -446,8 +464,8 @@ Algorithms
                             *
                     ```
 
-                    但其实……怎么 round 是无所谓的。我这里只是让自己感受一下 mid 的
-                    位置。面试的时候可以快速的找到中点（而不是用 index 算）。
+                    但其实……怎么 round 是无所谓的。我这里只是让自己感受一下 mid
+                    的位置。面试的时候可以快速的找到中点（而不是用 index 算）。
 
         -   讲解 Search in Rotated Sorted Array 等 5-7 道高频二分搜索题 -<
 
@@ -455,7 +473,9 @@ Algorithms
 
                     :   ![](http://whudoc.qiniudn.com/2016/20141025161730953.png)
 
-                        图片来自：[【LeetCode】Search in Rotated Sorted Array 解题报告 - 跳出温水的青蛙 - 博客频道 - CSDN.NET](http://blog.csdn.net/ljiabin/article/details/40453607)。
+                        图片来自：[【LeetCode】Search in Rotated Sorted Array
+                        解题报告 - 跳出温水的青蛙 - 博客频道 -
+                        CSDN.NET](http://blog.csdn.net/ljiabin/article/details/40453607)。
                         chenhao 的代码实在……我没看懂。我的代码如下，已经通过了：
 
                         ```cpp
@@ -701,6 +721,7 @@ Algorithms
                         还有一个解答，见 [leetcode #108 answer 2](#lc108a2)
 
                         [109. Convert Sorted List to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)
+
                         和这个类似，我加了一层转换就 pass 了：
 
                         ```cpp
@@ -790,15 +811,17 @@ Algorithms
                                     :   参考 [Morris Traversal方法遍历二叉树（非递归，
                                             不用栈，`O(1)` 空间） - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2013/06/15/MorrisTraversal.html)。
 
-                                        要使用 O(1) 空间进行遍历，最大的难点在于，遍历
-                                        到子节点的时候怎样重新返回到父节点（假设节点中
-                                        没有指向父节点的p 指针），由于不能用栈作为辅助
-                                        空间。为了解决这个问题，Morris 方法用到了线索二
-                                        叉树（threaded binary tree）的概念。在 Morris
-                                        方法中不需要为每个节点额外分配指针指向其前驱
-                                        （predecessor）和后继节点（successor），只需要
-                                        利用叶子节点中的左右空指针指向某种顺序遍历下的
-                                        前驱节点或后继节点就可以了。
+                                        要使用 O(1) 空间进行遍历，最大的难点在
+                                        于，遍历到子节点的时候怎样重新返回到父
+                                        节点（假设节点中没有指向父节点的 p 指
+                                        针），由于不能用栈作为辅助空间。为了解
+                                        决这个问题，Morris 方法用到了线索二叉树
+                                        （threaded binary tree）的概念。在
+                                        Morris 方法中不需要为每个节点额外分配指
+                                        针指向其前驱（predecessor）和后继节点
+                                        （successor），只需要利用叶子节点中的左
+                                        右空指针指向某种顺序遍历下的前驱节点或
+                                        后继节点就可以了。
 
                                         ![moris preorder](http://images.cnitblog.com/blog/300640/201306/14221458-aa5f9e92cce743ccacbc735048133058.jpg)
 
@@ -890,52 +913,77 @@ Algorithms
 
                                         ![红色是为了定位到某个节点，黑色线是为了
                                             找到前驱节点。](http://images.cnitblog.com/blog/300640/201306/15150628-5285f29bab234750a62e2309394b6e14.jpg)
+
                                         ![moris inorder](http://images.cnitblog.com/blog/300640/201306/14214057-7cc645706e7741e3b5ed62b320000354.jpg)
 
                         -   后序遍历 -<
 
                             :   -   用栈 -<
 
-                                    :   ```cpp
+                                    :   ```
                                         =do { while {}  } while;=
 
-                                        //  【思路】
-                                        //
-                                        //            Root    第一件事，从 root 到 leaf (left leaf) 一路 push 入栈，
-                                        //             /      结果是从 root 移到了虚无之中。
-                                        //            /
-                                        //           /
-                                        //         leaf       额，那就 pop 咯。
-                                        //
-                                        //         popped     对于这个 popped 出来的节点，它的 right 存在且没有处理过？
-                                        //            \       1.  那再把它 push！然后把 right 当成 root 继续处理。
-                                        //             \      2.  没有右边，那就是左右都处理完了，于是处理 popped。
-                                        //              ?
+                                        【思路】
+
+                                                  Root    第一件事，从 root 到 leaf (left leaf) 一路 push 入栈，
+                                                   /      结果是从 root 移到了虚无之中。
+                                                  /
+                                                 /
+                                               leaf       额，那就 pop 咯。
+
+                                               popped     对于这个 popped 出来的节点，它的 right 存在且没有处理过？
+                                                  \       1.  那再把它 push！然后把 right 当成 root 继续处理。
+                                                   \      2.  没有右边，那就是左右都处理完了，于是处理 popped。
+                                                    ?
+
+                                        ```
+
+                                        tested, orig by chenhao:
+
+                                        ```cpp
                                         vector<int> postorderTraversal( TreeNode *root ) {
-                                            vector<int> result;
-                                            stack<const TreeNode *> s;
-                                            const TreeNode *p = root, *q = nullptr;
-                                            do {
-                                                while( p ) {
-                                                    s.push( p );
-                                                    p = p->left;
-                                                }
-                                                q = nullptr;
-                                                while( !s.empty() ) {
-                                                    p = s.top();
-                                                    s.pop();
-                                                    if( p->right == q ) {
-                                                        result.push_back( p->val );
-                                                        q = p;
-                                                    } else {
-                                                        s.push( p );                // 计划当前结点
-                                                        p = p->right;               // 但先处理右边
-                                                    }
-                                                }
-                                            } while( !s.empty() );
-                                            return result;
+                                            vector<int> ret;
+                                            stack<TreeNode *> s;
+                                            if( root ) { s.push( root ); }
+                                            while( !s.empty() ) {
+                                                TreeNode *n = s.top(); s.pop();
+                                                ret.push_back( n->val );
+                                                if( n->left ){ s.push( n->left ); }
+                                                if( n->right ){ s.push( n->right ); }
+                                            }
+                                            std::reverse( ret.begin(), ret.end() );  // the trick
+                                            return ret;
                                         }
                                         ```
+
+                                        ```cpp
+                                        vector<int> postorderTraversal( TreeNode *root ) {
+                                            vector<int> ret;
+                                            stack<const TreeNode *> s;
+                                            const TreeNode *cur = root, *pre = nullptr;
+                                            while( !s.empty() || cur ) {
+                                                if( cur ) {              // keep going the left
+                                                    s.push( cur );
+                                                    cur = cur->left;
+                                                } else {
+                                                    const TreeNode *n = s.top();
+                                                    // left way is finsised, keep going to the right way
+                                                    if( n->right && n->right != pre ) {
+                                                        cur = n->right;
+                                                    } else {
+                                                        // both left and right has been accessed.
+                                                        ret.push_back( n->val );
+                                                        pre = n; s.pop();
+                                                    }
+                                                }
+                                            }
+                                            return ret;
+                                        }
+                                        ```
+
+                                        refs and see also
+
+                                        -   [Tree traversal - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Tree_traversal)
 
                                 -   Moris -<
 
@@ -1148,7 +1196,7 @@ Algorithms
                             The inorder predecessor can then be easily deleted
                             because it has at most one child. The same method
                             works symmetrically using the inorder successor
-                            labelled 9.这其实是在找一个比删掉节点（7）小（当然
+                            labelled 9. 这其实是在找一个比删掉节点（7）小（当然
                             是小）但经可能大的能够接替 7 的工作的节点。这个节点
                             在左边最右。这是如图所示。](https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Binary_search_tree_delete.svg/960px-Binary_search_tree_delete.svg.png)
 
@@ -1435,8 +1483,8 @@ Algorithms
 
                 满足下面三个条件之一：
 
-                -   求出所有**具体**的方案而非方案**个数** http://www.lintcode.com/problem/palindrome-partitioning/
-                -   输入数据是一个**集合**而不**序列**• http://www.lintcode.com/problem/longest-consecutive-sequence/
+                -   求出所有**具体**的方案而非方案**个数**<http://www.lintcode.com/problem/palindrome-partitioning/>
+                -   输入数据是一个**集合**而不**序列**<http://www.lintcode.com/problem/longest-consecutive-sequence/>
                 -   暴力的算法已经是多项式级别，2^n → n^2 是 DP 擅长的事
 
                 则极不可能使用动态规划求解
@@ -1476,6 +1524,7 @@ Algorithms
                             [6,5,7],                      [ 11 =(5+6),  10 =(5+5 )   13 =(6+7) ]
                            [4,1,8,3]                  [   15         11        18          16       ]
                                                                       ^
+                                                                      |
                                                                       +----got you
 
                         从下往上看呢？
@@ -1627,25 +1676,25 @@ Algorithms
 
             :   -   **坐标型动态规划 15%**
                     -   state:
-                        -   f[x] 表示我从起点走到坐标x......
-                        -   f[x][y] 表示我从起点走到坐标x,y......
-                    -   function: 研究走到x,y这个点之前的一步
+                        -   f[x] 表示我从起点走到坐标 x......
+                        -   f[x][y] 表示我从起点走到坐标 x,y......
+                    -   function: 研究走到 x,y 这个点之前的一步
                     -   initialize: 起点
                     -   answer: 终点
                 -   **序列型动态规划 30%**
-                    -   state: f[i]表示前i个位置/数字/字符,第i个...
-                    -   function: f[i] = f[j] ... j 是i之前的一个位置
+                    -   state: f[i] 表示前 i 个位置 / 数字 / 字符, 第 i 个...
+                    -   function: f[i] = f[j] ... j 是 i 之前的一个位置
                     -   initialize: f[0]..
                     -   answer: f[n]..
-                        -   一般answer是f(n)而不是f(n-1)
-                        -   因为对于n个字符,包含前0个字符(空串),前1个字符......前n个字符。
+                        -   一般 answer 是 f(n) 而不是 f(n-1)
+                        -   因为对于 n 个字符, 包含前 0 个字符 (空串), 前 1 个字符...... 前 n 个字符。
                 -   **双序列动态规划 30%**
                 -   划分型动态规划 10%
                 -   背包型动态规划 10%
                 -   区间型动态规划 5%
 
-                >   如果不是跟坐标相关的动态规划, 一般有N个数/字符,就开N+1个位
-                >   置的数组, 第0个位置单独留出来作初始化
+                >   如果不是跟坐标相关的动态规划, 一般有 N 个数 / 字符, 就开 N+1 个位
+                >   置的数组, 第 0 个位置单独留出来作初始化
 
         [Word Break 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/word-break/) -<
 
@@ -1695,12 +1744,12 @@ Algorithms
             }
             ```
 
-            -   state: f[i]表示“前i”个字符能否被完美切分
+            -   state: f[i] 表示“前 i”个字符能否被完美切分
             -   function: f[i] = OR{f[j] && j+1~i is a word}, 其中 j < i
             -   initialize: f[0] = true
             -   answer: f[n]
 
-            注意:切分位置的枚举->单词长度枚举 O(NL 2 ), N: 字符串长度, L: 最长的单词的长度
+            注意:切分位置的枚举->单词长度枚举 O(NL 2), N: 字符串长度, L: 最长的单词的长度
 
         [Palindrome Partitioning II 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/palindrome-partitioning-ii/)
 
@@ -1708,8 +1757,8 @@ Algorithms
 
         -   双序列动态规划 Two Sequences DP -<
 
-            :   -   state: f[i][j]代表了第一个sequence的前i个数字/字符,配上第二个sequence的前j个...
-                -   function: f[i][j] = 研究第i个和第j个的匹配关系
+            :   -   state: f[i][j] 代表了第一个 sequence 的前 i 个数字 / 字符, 配上第二个 sequence 的前 j 个...
+                -   function: f[i][j] = 研究第 i 个和第 j 个的匹配关系
                 -   initialize: f[i][0] 和 f[0][i]
                 -   answer: f[n][m]
                 -   n = s1.length()
@@ -1719,21 +1768,17 @@ Algorithms
 
             :   求Max, [Longest Common Subsequence 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/longest-common-subsequence/) -<
 
-                :   • http://www.lintcode.com/problem/longest-common-substring/
+                :   -   http://www.lintcode.com/problem/longest-common-substring/
+                    -   state: f[i][j] 表示前 i 个字符配上前 j 个字符的 LCS 的长度
+                    -   function: f[i][j] = MAX(f[i-1][j], f[i][j-1], f[i-1][j-1] + 1) // A[i - 1] == B[j - 1] = MAX(f[i-1][j], f[i][j-1]) // A[i - 1] != B[j - 1]
+                    -   intialize: f[i][0] = 0 f[0][j] = 0
+                    -   answer: f[n][m]
 
-                    state: f[i][j]表示前i个字符配上前j个字符的LCS的长度
-                    • function: f[i][j] = MAX(f[i-1][j], f[i][j-1], f[i-1][j-1] + 1) // A[i - 1] == B[j - 1]
-                    •
-                    = MAX(f[i-1][j], f[i][j-1])
-                    // A[i - 1] != B[j - 1]
-                    • intialize: f[i][0] = 0 f[0][j] = 0
-                    • answer: f[n][m]
-
-                求Min, [Edit Distance 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/edit-distance/)
+                求 Min, [Edit Distance 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/edit-distance/)
 
                 求方案总数, [Distinct Subsequences 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/distinct-subsequences/) -<
 
-                :   -   state: f[i][j] 表示 S的前i个字符中选取T的前j个字符,有多少种方案
+                :   -   state: f[i][j] 表示 S 的前 i 个字符中选取 T 的前 j 个字符, 有多少种方案
                     -   function: f[i][j] = f[i - 1][j] + f[i - 1][j - 1] // S[i-1] == T[j-1] = f[i - 1][j] // S[i-1] != T[j-1]
                     -   initialize: f[i][0] = 1, f[0][j] = 0 (j > 0)
                     -   answer: f[n][m] (n = sizeof(S), m = sizeof(T))
@@ -1742,15 +1787,15 @@ Algorithms
 
                 什么情况下可能使用/不用动态规划?
 
-                -   最大值最小值/是否可行/方案总数
-                -   求所有方案/集合而不是序列/指数级到多项式
+                -   最大值最小值 / 是否可行 / 方案总数
+                -   求所有方案 / 集合而不是序列 / 指数级到多项式
                 -   解决动态规划问题的四点要素
-                -   状态,方程,初始化,答案
+                -   状态, 方程, 初始化, 答案
                 -   三种面试常见的动态规划类别及状态特点
-                -   坐标,单序列,双序列
+                -   坐标, 单序列, 双序列
                 -   两招独孤九剑
-                -   二维DP需要初始化第0行和第0列
-                -   n个字符的字符串要开n+1个位置的数组
+                -   二维 DP 需要初始化第 0 行和第 0 列
+                -   n 个字符的字符串要开 n+1 个位置的数组
 
                 其他类型的动态规划(算法强化班) -<
 
@@ -2722,7 +2767,6 @@ aoapc-book -<
                 :   -   eight queen -<
 
                         :   ```
-
                               y - x    ?dx == dy                                y + x    ? dx == -dy (dx+dy==0)
                                   +----------------------------------> y            +-----------------------------------> y
                                   |  0   1   2   3   4   5   6   7                  |  0   1   2   3   4   5   6   7
@@ -2733,7 +2777,7 @@ aoapc-book -<
                                   | -5  -4  -3  -2  -1   0   1   2                  |  5   6   7   8   9  10  11  12
                                 x | -6  -5  -4  -3  -2  -1   0   1               x  |  6   7   8   9  10  11  12  13
                                   | -7  -6  -5  -4  -3  -2  -1   0                  |  7   8   9  10  11  12  13  14
-                                  v                                                 v
+                                  V                                                 V
                             ```
 
                             ```cpp
@@ -3182,7 +3226,7 @@ ACM-Cheatsheet -<
 
 :   -   [GitHub - soulmachine/acm-cheat-sheet: Acm Cheat Sheet](https://github.com/soulmachine/acm-cheat-sheet) -<
 
-        :   [HR面试这一环可能会问到的问题 · soulmachine/acm-cheat-sheet Wiki · GitHub](https://github.com/soulmachine/acm-cheat-sheet/wiki/HR%E9%9D%A2%E8%AF%95%E8%BF%99%E4%B8%80%E7%8E%AF%E5%8F%AF%E8%83%BD%E4%BC%9A%E9%97%AE%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98) -<
+        :   [HR 面试这一环可能会问到的问题 · soulmachine/acm-cheat-sheet Wiki · GitHub](https://github.com/soulmachine/acm-cheat-sheet/wiki/HR%E9%9D%A2%E8%AF%95%E8%BF%99%E4%B8%80%E7%8E%AF%E5%8F%AF%E8%83%BD%E4%BC%9A%E9%97%AE%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98) -<
 
             :   **What are your strengths?**
 
@@ -3392,15 +3436,15 @@ ACM-Cheatsheet -<
 
                 :   -   KMP -<
 
-                        :   KMP算法是Knuth、Morris和Pratt在1976年发表的。它的基本思
+                        :   KMP 算法是 Knuth、Morris 和 Pratt 在 1976 年发表的。它的基本思
                             想是，当出现不匹配时，就能知晓一部分文本的内容（因为在
                             匹配失败之前它们已经和模式相匹配）。我们可以利用这些信
                             息避免将指针回退到所有这些已知的字符之前。这样，当出现
                             不匹配时，可以提前判断如何重新开始查找，**而这种判断只取决于模式本身**。
 
-                            推荐网上的几篇比较好的博客，讲的是部分匹配表(partial match table)的方法（即next数组），
-                            [“字符串匹配的KMP算法”](http://t.cn/zTOPfdh)，图文并茂，非常通俗易懂，作
-                            者是阮一峰；[“KMP算法详解”](http://www.matrix67.com/blog/archives/115)，作者
+                            推荐网上的几篇比较好的博客，讲的是部分匹配表 (partial match table) 的方法（即 next 数组），
+                            [“字符串匹配的 KMP 算法”](http://t.cn/zTOPfdh)，图文并茂，非常通俗易懂，作
+                            者是阮一峰；[“KMP 算法详解”](http://www.matrix67.com/blog/archives/115)，作者
                             是顾森 Matrix67；
                             ["Knuth-Morris-Pratt string matching"](http://www.ics.uci.edu/~eppstein/161/960227.html)。
 
@@ -3409,19 +3453,19 @@ ACM-Cheatsheet -<
                                 0   0   0   0   1   2   0
 
                             "部分匹配值"就是"前缀"和"后缀"的最长的共有元素的长度。以"ABCDABD"为例，
-                            -   "A"的前缀和后缀都为空集，共有元素的长度为0；
-                            -   "AB"的前缀为[A]，后缀为[B]，共有元素的长度为0；
-                            -   "ABC"的前缀为[A, AB]，后缀为[BC, C]，共有元素的
-                                长度0；
-                            -   "ABCD"的前缀为[A, AB, ABC]，后缀为[BCD, CD, D]，
-                                共有元素的长度为0；
-                            -   "ABCDA"的前缀为[A, AB, ABC, ABCD]，后缀为
-                                [BCDA, CDA, DA, A]，共有元素为"A"，长度为1；
-                            -   "ABCDAB"的前缀为[A, AB, ABC, ABCD, ABCDA]，后缀
-                                为[BCDAB, CDAB, DAB, AB, B]，共有元素为"AB"，长
-                                度为2；
-                            -   "ABCDABD"的前缀为[A, AB, ABC, ABCD, ABCDA, ABCDAB]，
-                                后缀为[BCDABD, CDABD, DABD, ABD, BD, D]，共有元素的长度为0。
+                            -   "A"的前缀和后缀都为空集，共有元素的长度为 0；
+                            -   "AB"的前缀为 [A]，后缀为 [B]，共有元素的长度为 0；
+                            -   "ABC"的前缀为 [A, AB]，后缀为 [BC, C]，共有元素的
+                                长度 0；
+                            -   "ABCD"的前缀为 [A, AB, ABC]，后缀为 [BCD, CD, D]，
+                                共有元素的长度为 0；
+                            -   "ABCDA"的前缀为 [A, AB, ABC, ABCD]，后缀为
+                                [BCDA, CDA, DA, A]，共有元素为"A"，长度为 1；
+                            -   "ABCDAB"的前缀为 [A, AB, ABC, ABCD, ABCDA]，后缀
+                                为 [BCDAB, CDAB, DAB, AB, B]，共有元素为"AB"，长
+                                度为 2；
+                            -   "ABCDABD"的前缀为 [A, AB, ABC, ABCD, ABCDA, ABCDAB]，
+                                后缀为 [BCDABD, CDABD, DABD, ABD, BD, D]，共有元素的长度为 0。
 
                                       |
                             BBC ABCDAB ABCDABCDABDE
@@ -3532,16 +3576,16 @@ ACM-Cheatsheet -<
                             j =     1 2 3 4 5 6 7
                             ```
 
-                            预处理不需要按照P的定义写成O(m^2)甚至O(m^3)的。我们
-                            可以通过P[1],P[2],…,P[j-1]的值来获得P[j]的值。对于
-                            刚才的B="ababacb"，假如我们已经求出了P[1],P[2],P[3]
-                            和P[4]，看看我们应该怎么求出P[5]和P[6]。P[4]=2，那
-                            么P [5]显然等于P[4]+1，因为由P[4]可以知道，B[1,2]已
-                            经和B[3,4]相等了，现在又有B[3]=B[5]，所以P[5]可以由
-                            P[4] 后面加一个字符得到。P[6]也等于P[5]+1吗？显然不
-                            是，因为B[ P[5]+1 ]<>B[6]。那么，我们要考虑“退一步”
-                            了。我们考虑P[6]是否有可能由P[5]的情况所包含的子串
-                            得到，即是否P[6]=P[ P[5] ]+1。这里想不通的话可以仔
+                            预处理不需要按照 P 的定义写成 O(m^2) 甚至 O(m^3) 的。我们
+                            可以通过 P[1],P[2],…,P[j-1] 的值来获得 P[j] 的值。对于
+                            刚才的 B="ababacb"，假如我们已经求出了 P[1],P[2],P[3]
+                            和 P[4]，看看我们应该怎么求出 P[5] 和 P[6]。P[4]=2，那
+                            么 P [5] 显然等于 P[4]+1，因为由 P[4] 可以知道，B[1,2] 已
+                            经和 B[3,4] 相等了，现在又有 B[3]=B[5]，所以 P[5] 可以由
+                            P[4] 后面加一个字符得到。P[6] 也等于 P[5]+1 吗？显然不
+                            是，因为 B[ P[5]+1 ]<>B[6]。那么，我们要考虑“退一步”
+                            了。我们考虑 P[6] 是否有可能由 P[5] 的情况所包含的子串
+                            得到，即是否 P[6]=P[ P[5] ]+1。这里想不通的话可以仔
                             细看一下：
 
                             ```
@@ -3557,8 +3601,8 @@ ACM-Cheatsheet -<
                             得到，因为 `B[2]<>B[6]`。事实上，这样一直推到 `P[1]` 也不
                             行，最后，我们得到，`P[6]=0`。
 
-                            怎么这个预处理过程跟前面的KMP主程序这么像呢？其实，
-                            KMP的预处理本身就是一个B串“自我匹配”的过程。它的代
+                            怎么这个预处理过程跟前面的 KMP 主程序这么像呢？其实，
+                            KMP 的预处理本身就是一个 B 串“自我匹配”的过程。它的代
                             码和上面的代码神似：
 
                             ```
@@ -3776,12 +3820,8 @@ ACM-Cheatsheet -<
 
                     -   Boyer-Moore -<
 
-                        :   推荐网上的几篇比较好的博客，“字符串匹配的
-                            Boyer-Moore算法”
-                            \myurl{http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html}
-                            ，图文并茂，非常通俗易懂，作者是阮一峰；Boyer-Moore
-                            algorithm,
-                            \myurl{http://www-igm.univ-mlv.fr/~lecroq/string/node14.html}。
+                        :   推荐网上的几篇比较好的博客，[“字符串匹配的 Boyer-Moore 算法”](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)，
+                            图文并茂，非常通俗易懂，作者是阮一峰；[Boyer-Moore algorithm](http://www-igm.univ-mlv.fr/~lecroq/string/node14.html)。
 
                             有兴趣的读者还可以看原始论文\footnote{BOYER R.S.,
                             MOORE J.S., 1977, A fast string searching
@@ -3882,17 +3922,17 @@ ACM-Cheatsheet -<
                     void yanghui_triangle(const int n) {
                         int i = 1;
                         queue<int> q;
-                        q.push(i);                                  // 预先放入第一行的1
+                        q.push(i);                                  // 预先放入第一行的 1
 
                         for(i = 0; i <= n; i++) {                   // 逐行处理
                             int j;
                             int s = 0;
                             q.push(s);                              // 在各行间插入一个0
 
-                            for(j = 0; j < i+2; j++) {              // 处理第i行的i+2个系数（包括一个0）
+                            for(j = 0; j < i+2; j++) {              // 处理第 i 行的 i+2 个系数（包括一个 0）
                                 int t = q.front(); q.pop();
                                 q.push( t+s );
-                                s = t;                              // 打印一个系数，第i+2个是0
+                                s = t;                              // 打印一个系数，第 i+2 个是 0
                                 if(j != i+1) {
                                     printf("%d ",t);
                                 }
@@ -4543,24 +4583,24 @@ ACM-Cheatsheet -<
 
                     -   食物链 -<
 
-                        :   动物王国中有三类动物A,B,C，这三类动物的食物链构成了有趣的环形。A吃B， B吃C，C吃
-                            A。 现有N个动物，从1到N编号。每个动物都是A,B,C中的一种，但是我们并不知道它
+                        :   动物王国中有三类动物 A,B,C，这三类动物的食物链构成了有趣的环形。A 吃 B， B 吃 C，C 吃
+                            A。 现有 N 个动物，从 1 到 N 编号。每个动物都是 A,B,C 中的一种，但是我们并不知道它
                             到底是哪一种。
 
-                            有人用两种说法对这N个动物所构成的食物链关系进行描述：
+                            有人用两种说法对这 N 个动物所构成的食物链关系进行描述：
 
                             -   第一种说法是"1 X Y"，表示X和Y是同类。
                             -   第二种说法是"2 X Y"，表示X吃Y。
 
-                            此人对N个动物，用上述两种说法，一句接一句地说出K句
-                            话，这K句话有的是真的，有的是假的。当一句话满足下列
+                            此人对 N 个动物，用上述两种说法，一句接一句地说出 K 句
+                            话，这 K 句话有的是真的，有的是假的。当一句话满足下列
                             三条之一时，这句话就是假话，否则就是真话。
 
                             -   当前的话与前面的某些真的话冲突，就是假话；
-                            -   当前的话中X或Y比N大，就是假话；
-                            -   当前的话表示X吃X，就是假话。
+                            -   当前的话中 X 或 Y 比 N 大，就是假话；
+                            -   当前的话表示 X 吃 X，就是假话。
 
-                            你的任务是根据给定的 N(1 < N < 50,000) 和 K 句话(0 <= K <=100,000 )，输出假话的总数。
+                            你的任务是根据给定的 N(1 < N < 50,000) 和 K 句话 (0 <= K <=100,000 )，输出假话的总数。
 
 
                             输出只有一个整数，表示假话的数目。
@@ -4568,12 +4608,12 @@ ACM-Cheatsheet -<
                             ```
                             input:
 
-                                第一行是两个整数N和K，以一个空格分隔。
+                                第一行是两个整数 N 和 K，以一个空格分隔。
 
-                                以下K行每行是三个正整数D，X，Y，两数之间用一个空格隔开，其中D表示说法的种类。
+                                以下 K 行每行是三个正整数 D，X，Y，两数之间用一个空格隔开，其中 D 表示说法的种类。
 
-                                -   若D=1，则表示X和Y是同类。
-                                -   若D=2，则表示X吃Y。
+                                -   若 D=1，则表示 X 和 Y 是同类。
+                                -   若 D=2，则表示 X 吃 Y。
 
                                 100 7
                                 1 101 1
@@ -4596,7 +4636,7 @@ ACM-Cheatsheet -<
 
                             typedef struct ufs_t {
                                 int *p;
-                                int *dist;                          // 表示x与父节点p[x]的关系，0表示x与p[x]是同类，1 表示x吃p[x]，2 表示p[x]吃x
+                                int *dist;                          // 表示 x 与父节点 p[x] 的关系，0 表示 x 与 p[x] 是同类，1 表示 x 吃 p[x]，2 表示 p[x] 吃 x
                                 int size;
                             } ufs_t;
 
@@ -4637,7 +4677,7 @@ ACM-Cheatsheet -<
                                 const int rx = ufs_find(ufs, x);
                                 const int ry = ufs_find(ufs, y);
                                 ufs_union( ufs, ry, rx );                               // 注意顺序！
-                                // rx与x关系 + x与y的关系 + y与ry的关系 = rx与ry的关系
+                                // rx 与 x 关系 + x 与 y 的关系 + y 与 ry 的关系 = rx 与 ry 的关系
                                 ufs->dist[rx] = (ufs->dist[y] - ufs->dist[x] + 3 + relation) % 3;
                             }
 
@@ -4677,7 +4717,7 @@ ACM-Cheatsheet -<
                     refs and see also
 
                     -   [Union Find - Algorithmist](http://www.algorithmist.com/index.php/Union_Find)
-                    -   [并查集(Union-Find)算法介绍 - dm_vincent的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/dm_vincent/article/details/7655764)
+                    -   [并查集 (Union-Find) 算法介绍 - dm_vincent 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/dm_vincent/article/details/7655764)
 
             -   Interval Tree -<
 
@@ -4702,8 +4742,8 @@ ACM-Cheatsheet -<
 
                             int A[MAXN];
 
-                            // 完全二叉树，结点编号从1开始，层次从1开始.
-                            // 用一维数组存储完全二叉树，空间约为4N，
+                            // 完全二叉树，结点编号从 1 开始，层次从 1 开始.
+                            // 用一维数组存储完全二叉树，空间约为 4N，
                             // 参考 http://comzyh.tk/blog/archives/479/
                             node_t node[MAXN * 4];
 
@@ -4711,7 +4751,7 @@ ACM-Cheatsheet -<
 
                             void init() { memset(node, 0, sizeof(node)); }
 
-                            // 以t为根结点，为区间A[l,r]建立线段树
+                            // 以 t 为根结点，为区间 A[l,r] 建立线段树
                             void build(int t, int l, int r) {
                                 node[t].left = l, node[t].right = r;
                                 if (l == r) {
@@ -4725,7 +4765,7 @@ ACM-Cheatsheet -<
                                 node[t].min = min( node[L(t)].min, node[R(t)].min );
                             }
 
-                            // 查询根结点为t，区间为A[l,r]的最大值和最小值
+                            // 查询根结点为 t，区间为 A[l,r] 的最大值和最小值
                             void query(int t, int l, int r) {
                                 if (node[t].left == l && node[t].right == r) {
                                     if (maxx < node[t].max)
@@ -4752,7 +4792,7 @@ ACM-Cheatsheet -<
                                 for (i = 1; i <= n; i++) scanf("%d", &A[i]);
 
                                 init();
-                                /* 建立以tree[1]为根结点，区间为A[1,n]的线段树 */
+                                // 建立以 tree[1] 为根结点，区间为 A[1,n] 的线段树
                                 build(1, 1, n);
 
                                 while (q--) {
@@ -4760,7 +4800,7 @@ ACM-Cheatsheet -<
                                     scanf("%d%d", &a, &b);
                                     maxx = 0;
                                     minx = INT_MAX;
-                                    query(1, a, b); /* 查询区间A[a,b]的最大值和最小值 */
+                                    query(1, a, b);                 // 查询区间 A[a,b] 的最大值和最小值
                                     printf("%d\n", maxx - minx);
                                 }
                                 return 0;
@@ -4787,29 +4827,29 @@ ACM-Cheatsheet -<
                             能模拟，效率很低。
 
                             现在考虑，每一轮都令所有剩下的人从左到右重新编号，
-                            例如3退出后，场上还剩下1、2、4、5，则给1新编号1，2
-                            新编号2，4新编号3，5新编号4。不妨称这个编号为“剩余
+                            例如 3 退出后，场上还剩下 1、2、4、5，则给 1 新编号 1，2
+                            新编号 2，4 新编号 3，5 新编号 4。不妨称这个编号为“剩余
                             队列编号”。如下所示，括号内为原始编号：
 
                             ```
-                            1(1) 2(2) 3(3) 4(4) 5(5) --> 剩余队列编号3淘汰，对应原编号3
-                            1(1) 2(2) 3(4) 4(5) --> 剩余队列编号1淘汰，对应原编号1
-                            1(2) 2(4) 3(5) --> 剩余队列编号3淘汰，对应原编号5
-                            1(2) 2(4) --> 剩余队列编号1淘汰，对应原编号2
-                            1(4) --> 剩余队列编号1滔天，对应原编号4
+                            1(1) 2(2) 3(3) 4(4) 5(5) --> 剩余队列编号 3 淘汰，对应原编号 3
+                            1(1) 2(2) 3(4) 4(5) --> 剩余队列编号 1 淘汰，对应原编号 1
+                            1(2) 2(4) 3(5) --> 剩余队列编号 3 淘汰，对应原编号 5
+                            1(2) 2(4) --> 剩余队列编号 1 淘汰，对应原编号 2
+                            1(4) --> 剩余队列编号 1 滔天，对应原编号 4
                             ```
 
-                            一个人在当前剩余队列中编号为$i$，则说明他是从左到右
-                            数第$i$个人，这启发我们可以用线段树来解决问题。用线
-                            段树维护原编号$[i..j]$内还有多少人没 有被淘汰，这样
+                            一个人在当前剩余队列中编号为 i，则说明他是从左到右
+                            数第 i 个人，这启发我们可以用线段树来解决问题。用线
+                            段树维护原编号 [i..j] 内还有多少人没 有被淘汰，这样
                             每次选出被淘汰者后，在当前线段树中查找位置就可以了。
 
-                            例如我们有5个原编号，当前淘汰者在剩余队列中编号为3
-                            ，先看左子树，即原编号[1..3]区间内，如果剩下的人不
-                            足3个，则说明当前剩余编号为3的 这个人原编号只能是在
-                            [4..5]区间内，继续在[4..5]上搜索；如果[1..3]内剩下
-                            的人大于等于3个，则说明就在[1..3]内，也继续缩小范围
-                            查找，这样即可在$O(\log N)$时间内完成对应。问题得到
+                            例如我们有 5 个原编号，当前淘汰者在剩余队列中编号为 3
+                            ，先看左子树，即原编号 [1..3] 区间内，如果剩下的人不
+                            足 3 个，则说明当前剩余编号为 3 的 这个人原编号只能是在
+                            [4..5] 区间内，继续在 [4..5] 上搜索；如果 [1..3] 内剩下
+                            的人大于等于 3 个，则说明就在 [1..3] 内，也继续缩小范围
+                            查找，这样即可在 O(\log N) 时间内完成对应。问题得到
                             圆满的解决。
 
                             ```cpp
@@ -4825,8 +4865,8 @@ ACM-Cheatsheet -<
                                 int count; /* 区间内的元素个数 */
                             } node_t;
 
-                            /* 完全二叉树，结点编号从1开始，层次从1开始.
-                             * 用一维数组存储完全二叉树，空间约为4N，
+                            /* 完全二叉树，结点编号从 1 开始，层次从 1 开始.
+                             * 用一维数组存储完全二叉树，空间约为 4N，
                              * 参考 http://comzyh.tk/blog/archives/479/
                              */
                             node_t node[MAXN * 4];
@@ -4835,7 +4875,7 @@ ACM-Cheatsheet -<
                                 memset(node, 0, sizeof(node));
                             }
 
-                            /* 以t为根结点，为区间[l,r]建立线段树 */
+                            /* 以 t 为根结点，为区间 [l,r] 建立线段树 */
                             void build(int t, int l, int r) {
                                 node[t].left = l;
                                 node[t].right = r;
@@ -4921,7 +4961,7 @@ ACM-Cheatsheet -<
                             #define CHAR_COUNT  10                      // 字符的种类，也即单个节点的子树的最大个数
                             #define MAX_CODE_LEN 10
                             #define MAX_NODE_COUNT  (MAXN * MAX_CODE_LEN + 1)  /** 字典树的最大节点个数. */
-                                               /* 如果没有指定MAXN，则是 CHAR_COUNT^(MAX_CODE_LEN+1)-1 */
+                                               /* 如果没有指定 MAXN，则是 CHAR_COUNT^(MAX_CODE_LEN+1)-1 */
 
                             typedef struct trie_node_t {
                                 struct trie_node_t* next[CHAR_COUNT];
@@ -5044,7 +5084,7 @@ ACM-Cheatsheet -<
                         }
                         return -(left+1);           // instead of returning -1
                     }
-                    // -(left+1) == ~left == ~(~(~left))
+                    // -(left+1) == ~left == ~(~(~left))，可以看到这个“编码” effective，而且直观。
 
                     int main() {
                         int A[] = { 1,  5,  6,  9,  12,    18,    25,    73  };
@@ -5135,22 +5175,27 @@ ACM-Cheatsheet -<
 
                             Linear probing
 
-                            :   -   优点：思路简单，而且只要Hash表不满，总能找到满足条件的位置。
-                                -   缺点：容易产生**主聚合效应（primary clustering）**。简单来说，就是插入的点
-                                    容易聚集到一块地方，从而使得第一次Hash到这块范围的数都必须顺序搜索这块
-                                    范围。根据复杂的计算，我们可以得到，当load factor（此概念在上一章介绍）
-                                    为0.5时，平均每次插入（等同于非成功寻找）需要位移2.5次，平均每次成功寻
-                                    找需要位移1.5次。将load factor保证在0.5以下，那么时间是比较理想的。
+                            :   -   优点：思路简单，而且只要 Hash 表不满，总能
+                                    找到满足条件的位置。
+                                -   缺点：容易产生**主聚合效应（primary
+                                    clustering）**。简单来说，就是插入的点容易
+                                    聚集到一块地方，从而使得第一次 Hash 到这块
+                                    范围的数都必须顺序搜索这块范围。根据复杂的
+                                    计算，我们可以得到，当 load factor（此概念
+                                    在上一章介绍）为 0.5 时，平均每次插入（等同
+                                    于非成功寻找）需要位移 2.5 次，平均每次成功
+                                    寻找需要位移 1.5 次。将 load factor 保证在
+                                    0.5 以下，那么时间是比较理想的。
 
                             Linear probing
-                            :   -   顾名思义，就是Function(i) = i^2。简单地计算
+                            :   -   顾名思义，就是 Function(i) = i^2。简单地计算
                                     可以得到：h(i+1)(x) = hi(x) + 2i -1. 另外，只有
-                                    当load factor小于0.5且Hash表大小为质数时，才能
+                                    当 load factor 小于 0.5 且 Hash 表大小为质数时，才能
                                     保证每次插入都成功（可以证明，这里略）。
                                 -   优点：不会产生主聚合效应。
-                                -   缺点：虽然Quadratic方法不会产生主聚合效应。
+                                -   缺点：虽然 Quadratic 方法不会产生主聚合效应。
                                     但会产生**次聚合效应（secondary clustering）**。
-                                    即，第一次Hash到同一个位置的点，他们之后
+                                    即，第一次 Hash 到同一个位置的点，他们之后
                                     的搜索过程都完全一样，需要重复。
 
                             延迟删除（lazy deletion）
@@ -5159,22 +5204,28 @@ ACM-Cheatsheet -<
                                 为这个点后面的值可能是通过位移过去的，如果这点被挖空，那么我们想寻找后面的
                                 值就变得不可能了。
 
-                                因此，我们使用一个延迟删除的技术。思想很简单，我们给每个点赋予一个状态，分
-                                别是被占用（legitimate,  `[ləˈdʒɪtəmɪt]`, 合法的；正当的），空（empty），被删除（deleted）。初始时所有点都为
-                                空，当被插入一个值时将状态设为被占用，但被删除时状态设为被删除。这样的话，
-                                如果我们要寻找一个点，只要搜索路径上的点非空，且其值与我们想要搜索的值不同
-                                ，那么就不断搜索下去，直到找到空点或者相同值得点。（如果觉得拗口，请看下面
+                                因此，我们使用一个延迟删除的技术。思想很简单，
+                                我们给每个点赋予一个状态，分别是被占用
+                                （legitimate,  `[ləˈdʒɪtəmɪt]`, 合法的；正当
+                                的），空（empty），被删除（deleted）。初始时所
+                                有点都为空，当被插入一个值时将状态设为被占用，
+                                但被删除时状态设为被删除。这样的话，如果我们要
+                                寻找一个点，只要搜索路径上的点非空，且其值与我
+                                们想要搜索的值不同，那么就不断搜索下去，直到找
+                                到空点或者相同值得点。（如果觉得拗口，请看下面
                                 的代码）。
 
-                            假設整個hash table的數據不在cache。因為是開放尋址，
-                            每次collision要再跳到另一個slot（即probing），hash
-                            table越滿就會有越多次跳轉，產生較多cache miss。
+                            假設整個 hash table 的數據不在 cache。因為是開放尋
+                            址，每次 collision 要再跳到另一個 slot（即
+                            probing），hash table 越滿就會有越多次跳轉，產生較
+                            多 cache miss。
 
-                            若整個hash table都能儲存在cache，怎樣做都不會出現cache miss。
+                            若整個 hash table 都能儲存在 cache，怎樣做都不會出
+                            現 cache miss。
 
-                            但考慮hash table遠大於cache大小時，可以理解為每次不
-                            同的hashing都會cache miss，collision和cache miss的
-                            概率成正比。
+                            但考慮 hash table 遠大於 cache 大小時，可以理解為每
+                            次不同的 hashing 都會 cache miss，collision 和
+                            cache miss 的概率成正比。
 
                             refs and see also
 
@@ -5183,17 +5234,17 @@ ACM-Cheatsheet -<
 
                     -   hash table -<
 
-                        :   哈希表处理冲突有两种方式，开地址法(Open Addressing)
-                            和闭地址法(Closed Addressing)。
+                        :   哈希表处理冲突有两种方式，开地址法 (Open Addressing)
+                            和闭地址法 (Closed Addressing)。
 
-                            闭地址法也即拉链法(Chaining)，每个哈希地址里不再是
+                            闭地址法也即拉链法 (Chaining)，每个哈希地址里不再是
                             一个元素，而是链表的首地址。
 
-                            开地址法有很多方案，有线性探测法(Linear Probing)、
-                            二次探测法(Quadratic Probing)和双散列法(Double
-                            Hashing)等。
+                            开地址法有很多方案，有线性探测法 (Linear Probing)、
+                            二次探测法 (Quadratic Probing) 和双散列法 (Double
+                            Hashing) 等。
 
-                            下面是拉链法的C语言实现。
+                            下面是拉链法的 C 语言实现。
 
                             ```cpp
                             template<typename elem_t>
@@ -5659,16 +5710,16 @@ ACM-Cheatsheet -<
                             按关键字“基本有序”，即序列中具有下列特性
                             $$R_i.key < \max\left\{R_j.key\right\},\; j<i$$
                             的记录较少时，直接插入排序的效率就可大大提高，从另
-                            一方面来看，由于直接插入排序算法简单，则在n值很小时
+                            一方面来看，由于直接插入排序算法简单，则在 n 值很小时
                             效率也比较高。希尔排序正是从这两点分析出发对直接插
                             入排序进行改进得到的一种插入排序方法。
 
                             希尔排序 (Shell Sort) 的基本思想是：设待排序元素序
-                            列有n个元素，首先取一个整数 gap = n/3+1 作为间隔，
-                            将全部元素分为gap个子序列，所有距离为gap的元素放在
+                            列有 n 个元素，首先取一个整数 gap = n/3+1 作为间隔，
+                            将全部元素分为 gap 个子序列，所有距离为 gap 的元素放在
                             同一个子序列中，在每一个子序列中分别施行直接插入排
-                            序。然后缩小间隔gap，取 gap=n/3+1, 重复上述的子序列
-                            划分和排序工作，直到最后取gap=1，将所有元素放在同一
+                            序。然后缩小间隔 gap，取 gap=n/3+1, 重复上述的子序列
+                            划分和排序工作，直到最后取 gap=1，将所有元素放在同一
                             个序列中排序为止。
 
                             ```cpp
@@ -6197,8 +6248,8 @@ ACM-Cheatsheet -<
 
         :   -   next_permutation :hearts: -<
 
-                :   下面考虑用C语言实现。不难想到用数组表示P和S。由于P和S是互补
-                    的，它们二者知道其中给一个，另一个就完全确定了，因此不用保存P。
+                :   下面考虑用 C 语言实现。不难想到用数组表示 P 和 S。由于 P 和 S 是互补
+                    的，它们二者知道其中给一个，另一个就完全确定了，因此不用保存 P。
 
                     ```
                     P[0]    P[1]    P[2]    P[3]    ...     P[cur]  ...     P[n-1]
@@ -6225,7 +6276,7 @@ ACM-Cheatsheet -<
                             if( !used ) {
                                 P[cur] = i;
                                 print_permutation_r( n, cur + 1, P );               // 递归调用
-                                                                                    // 不需要恢复P[cur]，返回上层时时会被覆盖
+                                                                                    // 不需要恢复 P[cur]，返回上层时时会被覆盖
                             }
                         }
                     }
@@ -6264,7 +6315,7 @@ ACM-Cheatsheet -<
 
                     -   bit vector -<
 
-                        :   开一个位向量B，B[i]=1表示选择S[i], B[i]=0表示不选择。
+                        :   开一个位向量 B，B[i]=1 表示选择 S[i], B[i]=0 表示不选择。
 
                             ```cpp
                             void print_subset2(int *S, int n, char *B, int cur) {
@@ -6283,13 +6334,13 @@ ACM-Cheatsheet -<
 
                     -   binary -<
 
-                        :   前提：集合的元素不超过int位数。用一个int整数表示位
-                            向量，第i位为1，则表示选择S[i]，为0则不选择。例如
-                            S=\{A,B,C,D\}，则0110=6表示子集\{B,C\}。
+                        :   前提：集合的元素不超过 int 位数。用一个 int 整数表示位
+                            向量，第 i 位为 1，则表示选择 S[i]，为 0 则不选择。例如
+                            S=\{A,B,C,D\}，则 0110=6 表示子集 \{B,C\}。
 
                             这种方法最巧妙。因为它不仅能生成子集，还能方便的表
                             示集合的并、交、差等集合运算。设两个集合的位向量分
-                            别为B1和B2，则 B1|B2, B1&B2, B1^B2 分别对应集合的
+                            别为 B1 和 B2，则 B1|B2, B1&B2, B1^B2 分别对应集合的
                             并、交、对称差。
 
                             ```cpp
@@ -6441,7 +6492,7 @@ ACM-Cheatsheet -<
                                     next.action = action_cur;                               // 记录路径
                                     next.father = state_hash(s);
                                     nodes[state_index(next)] = next;
-                                    ++action_cur;                                           // return前别忘了增1
+                                    ++action_cur;                                           // return 前别忘了增 1
                                     return true;
                                 }
                             }
@@ -6521,11 +6572,11 @@ ACM-Cheatsheet -<
                     typedef struct state_t {
                         int8_t data[DIGITS];  /** 状态的数据. */
                         int action; /* 由父状态移动到本状态的动作 */
-                        int father; /* 父状态在nodes[]中的下标，也即父状态的哈希值 */
-                        int count;  /** 所花费的步骤数（也即路径长度-1） */
+                        int father; /* 父状态在 nodes[] 中的下标，也即父状态的哈希值 */
+                        int count;  /** 所花费的步骤数（也即路径长度 -1） */
                     } state_t;
 
-                    // 3x3的棋盘，状态最多有 9!种
+                    // 3x3 的棋盘，状态最多有 9! 种
                     const int STATE_MAX = 362880;  /* 状态总数 */
 
                     state_t nodes[STATE_MAX+1];
@@ -6638,8 +6689,8 @@ ACM-Cheatsheet -<
 
                     /********** 方案1，完美哈希，使用康托展开 **************/
 
-                    // 9 位变进制数（空格）能表示0到(9!-1)内的所有自然数,恰好有9!个，
-                    // 与状态一一对应，因此可以把状态一一映射到一个9位变进制数
+                    // 9 位变进制数（空格）能表示 0 到 (9!-1) 内的所有自然数, 恰好有 9! 个，
+                    // 与状态一一对应，因此可以把状态一一映射到一个 9 位变进制数
 
                     // 9 位变进制数，每个位数的单位，0!~8!
                     const int fac[] = {40320, 5040, 720, 120, 24, 6, 2, 1, 1};
@@ -6757,9 +6808,9 @@ ACM-Cheatsheet -<
 
                             -   如何扩展状态？ -<
 
-                                :   这一步跟第2步相关。状态里记录的数据不同，扩展方法就不同。对于
+                                :   这一步跟第 2 步相关。状态里记录的数据不同，扩展方法就不同。对于
                                     固定不变的数据结构（一般题目直接给出，作为输入数据），如二叉树，图等，扩展
-                                    方法很简单，直接往下一层走，对于隐式图，要先在第1步里想清楚状态所带的数据，
+                                    方法很简单，直接往下一层走，对于隐式图，要先在第 1 步里想清楚状态所带的数据，
                                     想清楚了这点，那如何扩展就很简单了。
 
                             -   关于判重，状态是否存在完美哈希方案？
@@ -6768,7 +6819,7 @@ ACM-Cheatsheet -<
 
                                     -   如果不存在，则需要使用通用的哈希表（自己实现或用标准库，例如
                                         `unordered_set`）来判重；自己实现哈希表的话，如果能够预估状态个数的
-                                        上限，则可以开两个数组，head和next，表示哈希表，参考第 subsec:eightDigits 节方案2。
+                                        上限，则可以开两个数组，head 和 next，表示哈希表，参考第 subsec:eightDigits 节方案 2。
                                     -   如果存在，则可以开一个大布尔数组，作为哈希表来判重，且此时可以精确计算
                                         出状态总数，而不仅仅是预估上限。
 
@@ -6782,28 +6833,28 @@ ACM-Cheatsheet -<
 
                         :   广搜需要一个队列，用于一层一层扩展，一个hashset，用于判重，一棵树（只求长度时不需要），用于存储整棵树。
 
-                            对于队列，如果用纯C，需要造一个队列轮子；如果用C++，
-                            可以用\fn{queue}，也可以把\fn{vector}当做队列使用。当求长度时，有两种做法：
+                            对于队列，如果用纯 C，需要造一个队列轮子；如果用 C++，
+                            可以用 \fn{queue}，也可以把 \fn{vector}当做队列使用。当求长度时，有两种做法：
 
-                            -   只用一个队列，但在状态结构体\fn{state_t}里增加
-                                一个整数字段\fn{step}，表示走到当前状态用了多少
-                                步，当碰到目标状态，直接输出\fn{step}即可。这个
-                                方案，可以很方便的变成A*算法，把队列换成优先队
+                            -   只用一个队列，但在状态结构体 \fn{state_t}里增加
+                                一个整数字段 \fn{step}，表示走到当前状态用了多少
+                                步，当碰到目标状态，直接输出 \fn{step}即可。这个
+                                方案，可以很方便的变成 A*算法，把队列换成优先队
                                 列即可。
                             -   用两个队列，\fn{current, next}，分别表示当前层
-                                次和下一层，另设一个全局整数\fn{level}，表示层
+                                次和下一层，另设一个全局整数 \fn{level}，表示层
                                 数（也即路径长度），当碰到目标状态，输出
                                 \fn{level}即可。这个方案，状态可以少一个字段，
                                 节省内存。
 
-                            对于hashset，如果有完美哈希方案，用布尔数组
-                            (\fn{bool visited[STATE_MAX]}或\fn{vector<bool>
-                            visited(STATE_MAX, false)})来表示；如果没有，可以用
-                            STL里的\fn{set}或\fn{unordered_set}。
+                            对于 hashset，如果有完美哈希方案，用布尔数组
+                            (\fn{bool visited[STATE_MAX]}或 \fn{vector<bool>
+                            visited(STATE_MAX, false)}) 来表示；如果没有，可以用
+                            STL 里的 \fn{set}或 \fn{unordered_set}。
 
-                            对于树，如果用STL，可以用\fn{unordered_map<state_t,
+                            对于树，如果用 STL，可以用 \fn{unordered_map<state_t,
                             state_t > father}表示一颗树，代码非常简洁。如果能够
-                            预估状态总数的上限（设为STATE_MAX），可以用数组
+                            预估状态总数的上限（设为 STATE_MAX），可以用数组
                             (\fn{state_t nodes[STATE_MAX]})，即树的双亲表示法来
                             表示树，效率更高，当然，需要写更多代码。
 
@@ -6814,7 +6865,7 @@ ACM-Cheatsheet -<
                                  * @brief 反向生成路径.
                                  * @param[in] father 树
                                  * @param[in] target 目标节点
-                                 * @return 从起点到target的路径
+                                 * @return 从起点到 target 的路径
                                  */
                                 template<typename state_t>
                                 vector<state_t> gen_path(const unordered_map<state_t, state_t> &father,
@@ -6981,9 +7032,9 @@ Programming Pearls -<
 
                 :   #1 找数字 -<
 
-                    :   给定一个包含32位整数的顺序文件(sequential file)，它至多只能包含40亿(4 billion)个这样的
-                        整数，并且整数的次序是随机的(in a random order)。请查找一个此文件中不存在的32
-                        位整数。在有足够内存的情况下(with ample quantities of main memory)，你会如何解决这个问题？如果你
+                    :   给定一个包含 32 位整数的顺序文件 (sequential file)，它至多只能包含 40 亿 (4 billion) 个这样的
+                        整数，并且整数的次序是随机的 (in a random order)。请查找一个此文件中不存在的 32
+                        位整数。在有足够内存的情况下 (with ample quantities of main memory)，你会如何解决这个问题？如果你
                         可以使用若干外部临时文件但可用主存却只有上百字节，你会如何解决这个问题？
 
                         -   Given a sequential file that contain at most 4x109
@@ -7002,7 +7053,7 @@ Programming Pearls -<
 
                         类似二分查找。可以根据某一位（操作时，可以从最高位 到
                         最低位依次处理），把待处理的数据分成两部分。在一部分中，
-                        此位为0，另一部分此位为1。
+                        此位为 0，另一部分此位为 1。
 
                         之后，分别统计落在两个部分的数的个数。（此时我们不考虑数据是否重复）
 
@@ -7154,21 +7205,21 @@ Programming Pearls -<
                     构造程序的正确性上来先要找到**断言**(assertions)，也
                     就是所谓的【循环不变式】，当然这个在实际程序中，只有靠经验了。找到断言，即可以勾勒
                     出，输入、程序变量和输出之间的关系，使得程序员可以准确阐述这些关系。拿二分来说，
-                    就是如果元素t在数组中，那么它一定在range中。在之后所有的操作都要遵循该不变式。
+                    就是如果元素 t 在数组中，那么它一定在 range 中。在之后所有的操作都要遵循该不变式。
 
                     接下来看程序的结构。
 
-                    -   如果是顺序控制结构(sequential control structures)。则可以通过在语句之间添加断言并分别分析程序执行的每一步。
-                    -   如果是选择控制结构(selection control structures)，则要对每一个分支进行结构的正确性证明。
+                    -   如果是顺序控制结构 (sequential control structures)。则可以通过在语句之间添加断言并分别分析程序执行的每一步。
+                    -   如果是选择控制结构 (selection control structures)，则要对每一个分支进行结构的正确性证明。
                         选择每一个分支，使用断言来证明。例如，如果进入了 `if i > j` 的分支，
                         那么我们就可以断言 `i > j` 并且使用
                         这个事实来推倒出下一个断言。
-                    -   最麻烦就是迭代控制结构(iteration control structures)。要证明循环的正确性，就必须为其确立3个性质。
-                        -   初始化(initialization)：循环初次执行的时候不变式为真。
-                        -   保持(preservation)：如果在某次迭代开始的时候以及循环体执行的时候
-                            ，不变式为真，那么循环执行完毕的时候不变式仍然为真
-                            。每次迭代都保持该不变式为真。
-                        -   终止(termination)：循环能够终止，并且可以得到预期的结果，而且我
+                    -   最麻烦就是迭代控制结构 (iteration control structures)。要证明循环的正确性，就必须为其确立 3 个性质。
+                        -   初始化 (initialization)：循环初次执行的时候不变式为真。
+                        -   保持 (preservation)：如果在某次迭代开始的时候以及循
+                            环体执行的时候，不变式为真，那么循环执行完毕的时候
+                            不变式仍然为真。每次迭代都保持该不变式为真。
+                        -   终止 (termination)：循环能够终止，并且可以得到预期的结果，而且我
                             们必须用其他方法证明循环一定能终止。就像二分每次范
                             围都在减少，课后习题，豆子每次都在减少一个。
 
@@ -7228,22 +7279,22 @@ Programming Pearls -<
 
                     量纲检验：即在检验几何或物理等式时，我们可以先看看其中的单位在乘除过后是否与原式能保持一致。
 
-                    模9法（舍9法）：在加法计算当中，加数的数字总和与和数的数字
-                    总和模9相等。举个例子：3142+2718+1123=6973.  （
-                    3+1+4+2+2+7+1+8+1+1+2+3）%9=7=（6+9+7+3）%9.
+                    模 9 法（舍 9 法）：在加法计算当中，加数的数字总和与和数的数字
+                    总和模 9 相等。举个例子：3142+2718+1123=6973.
+                    （3+1+4+2+2+7+1+8+1+1+2+3）%9=7=（6+9+7+3）%9.
 
                     72 法则
 
-                    :   “假设以年利率r%投资一笔钱y年，如果r×y=72，那么你的投资
-                        差不多会翻倍。”比如年利率6%投资1000美元12年，可以得到
-                        2012美元。很有意思～
+                    :   “假设以年利率 r% 投资一笔钱 y 年，如果 r×y=72，那么你的投资
+                        差不多会翻倍。”比如年利率 6% 投资 1000 美元 12 年，可以得到
+                        2012 美元。很有意思～
 
-                        假设一个程序n=40时需要10秒，并且n增加1，时间就增加12%，
-                        根据72法则，每当n增加6，运行时间就加倍，n每增加60，运行
-                        时间就是原来的1000倍（n增加60，也就是说翻10倍，2的10次
-                        方是1024）
+                        假设一个程序 n=40 时需要 10 秒，并且 n 增加 1，时间就增
+                        加 12%，根据 72 法则，每当 n 增加 6，运行时间就加倍，n
+                        每增加 60，运行时间就是原来的 1000 倍（n 增加 60，也就
+                        是说翻 10 倍，2 的 10 次方是 1024）
 
-                        tip：π秒 = 1纳世纪秒 = 10^-9 * 100 s = 10^-7 s
+                        tip：π秒 = 1 纳世纪秒 = 10^-9 * 100 s = 10^-7 s
 
                         一年有 pi * 10^7 秒。
 
@@ -7252,22 +7303,22 @@ Programming Pearls -<
                     :   作者强调安全性，并且举了一个例子。一个建筑工程师对于桥
                         建筑的破环函数的数学公式不懂（对于桥来说，风力、震动等
                         破环因子都可以通过复杂的数学公式推导出来），于是他设想
-                        他的桥会遭受到正常破环的6倍。结果是与他同时期建造的桥全
+                        他的桥会遭受到正常破环的 6 倍。结果是与他同时期建造的桥全
                         部倒塌，只有他的桥屹立不倒。
 
-                        “我们是和john Roebling(文中的建筑工程师)一样的工程师么？我很怀疑”
+                        “我们是和 john Roebling(文中的建筑工程师) 一样的工程师么？我很怀疑”
 
                     Little定律
 
-                    :   Denning和Buzen介绍的Little定律“系统中物体的平均数量等于
-                        物体离开系统的平均速率和每个物体在系统中停留的平均时间
-                        的乘积（并且如果物体离开和进入系统的通体出入流是平衡的
-                        ，那么离开速率也就是进入速率。）”书中举了个例子，假如你
-                        要进入一个火爆的夜总会（美国电影中经常见到），“这个地方
-                        可以容纳约60人，每个人在里面逗留的时间大约是3小时，因此
-                        我们进入夜总会的速率大概是每小时20人，现在在队伍中我们
-                        前面还有20人，也就是说我们要等大约1个小时，不如我们回家
-                        去读《编程珠玑》吧。”哈哈
+                    :   Denning 和 Buzen 介绍的 Little 定律“系统中物体的平均数
+                        量等于物体离开系统的平均速率和每个物体在系统中停留的平
+                        均时间的乘积（并且如果物体离开和进入系统的通体出入流是
+                        平衡的，那么离开速率也就是进入速率。）”书中举了个例子，
+                        假如你要进入一个火爆的夜总会（美国电影中经常见到），“这
+                        个地方可以容纳约 60 人，每个人在里面逗留的时间大约是 3
+                        小时，因此我们进入夜总会的速率大概是每小时 20 人，现在
+                        在队伍中我们前面还有 20 人，也就是说我们要等大约 1 个小
+                        时，不如我们回家去读《编程珠玑》吧。”哈哈
 
                     在进行粗略估算的时候，要切记爱因斯坦的名言：
 
@@ -7685,7 +7736,7 @@ Milo Yip 的博客 -<
 
 [soulmachine (Frank Dai)](https://github.com/soulmachine)
 
-授人以鱼，不如授之以渔，何况自己都忘了，建议去看sedgewick的《算法》第四版平衡搜索树和红黑树部分，讲得非常清晰。
+授人以鱼，不如授之以渔，何况自己都忘了，建议去看 sedgewick 的《算法》第四版平衡搜索树和红黑树部分，讲得非常清晰。
 
 -   [Zenefits电面真题 & 解析 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20348386?refer=jiuzhang)
 -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
@@ -7706,8 +7757,8 @@ Code Reading -<
 
 :   [4ker/Lua-Source-Internal: Lua source internal](https://github.com/4ker/Lua-Source-Internal)
 
-    [libevent源码深度剖析一 - sparkliang的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957667)
+    [libevent 源码深度剖析一 - sparkliang 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957667)
 
-    [libevent源码深度剖析二 - sparkliang的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957744)
+    [libevent 源码深度剖析二 - sparkliang 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957744)
 
     [daoluan/decode-memcached: memcached 源码剖析注释](https://github.com/daoluan/decode-memcached)

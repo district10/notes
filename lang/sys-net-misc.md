@@ -392,10 +392,10 @@ System & Network & MISC
         可以看到，函数的调用有完美的嵌套关系——调用者的生命期总是长于被调用者的生命期，并且后者在前者的之内。
 
         这样，被调用者的局部信息所占空间的分配总是后于调用者的（后入），而其释
-        放则总是先于调用者的（先出），所以正好可以满足栈的LIFO顺序，选用栈这种
+        放则总是先于调用者的（先出），所以正好可以满足栈的 LIFO 顺序，选用栈这种
         数据结构来实现调用栈是一种很自然的选择。
 
-        扩展：顺着SICP的线索学下去可以看到函数调用的顺序虽然跟LIFO顺序一致，但
+        扩展：顺着 SICP 的线索学下去可以看到函数调用的顺序虽然跟 LIFO 顺序一致，但
         是调用者的栈帧并不一定要保留，在特殊情况下可以不保留调用者栈帧——尾调用
         （tail call）的情况。关键点在于**调用者是否在一个函数调用之后还有待执行
         的计算**。**如果没有了（这个函数调用是尾调用），那调用者的局部状态就没
@@ -406,16 +406,16 @@ System & Network & MISC
         栈在这里可以有俩个理解,
 
         1.  是数据结构栈, 从这个角度说, 是的, 函数调用基本都是使用栈, 原因就是函数调用的
-            LIFO特性, 你不用栈可以么, 当然可以, 你可以用list, 但用栈实现代价最小. 所以
-            ...这个上面的很多人也回答了.
-        2.  是绝大多数现代操作系统提供的栈(内存布局), 然而如果从这个角度来说, 那并不是
-            所有的函数调用都是使用它, 比如现在有的stackless language. 包括PHP也是自己申请堆
+            LIFO 特性, 你不用栈可以么, 当然可以, 你可以用 list, 但用栈实现代价最小. 所以
+            ... 这个上面的很多人也回答了.
+        2.  是绝大多数现代操作系统提供的栈 (内存布局), 然而如果从这个角度来说, 那并不是
+            所有的函数调用都是使用它, 比如现在有的 stackless language. 包括 PHP 也是自己申请堆
             内存来实现函数调用层级关系, 但本质上他们只是没有使用操作系统提供的"栈", 而自己
             在堆上申请内存, 实现数据结构的"栈"来完成函数调用, 这样能避免操作系统提供的栈有
-            大小限制(ulimit -s), 比如我们经常会看到的stack overflow(这里不仅仅是指上千的嵌
+            大小限制 (ulimit -s), 比如我们经常会看到的 stack overflow(这里不仅仅是指上千的嵌
             套调用), 方便实现同时有成百上千个子任务存在的语言.
 
--   [为什么用od命令查看Java字节码不是大端存储？ - 知乎](https://www.zhihu.com/question/46978823) -<
+-   [为什么用 od 命令查看 Java 字节码不是大端存储？ - 知乎](https://www.zhihu.com/question/46978823) -<
 
     :   >   I love Macross Delta.
 
@@ -481,10 +481,11 @@ System & Network & MISC
 
 -   [堆、栈的地址高低？ 栈的增长方向？ - 知乎](https://www.zhihu.com/question/36103513) -<
 
-    :   进程地址空间的分布取决于操作系统，栈向什么方向增长取决于操作系统与CPU的组合。
-        不要把别的操作系统的实现方式套用到Windows上。
+    :   进程地址空间的分布取决于操作系统，栈向什么方向增长取决于操作系统与 CPU 的组合。
+        不要把别的操作系统的实现方式套用到 Windows 上。
 
-        x86硬件直接支持的栈确实是“向下增长”的：push指令导致sp自减一个slot，pop指令导致sp自增一个slot。其它硬件有其它硬件的情况。
+        x86 硬件直接支持的栈确实是“向下增长”的：push 指令导致 sp 自减一个 slot，
+        pop 指令导致 sp 自增一个 slot。其它硬件有其它硬件的情况。
 
         栈的增长方向与栈帧布局
 
@@ -496,13 +497,13 @@ System & Network & MISC
 
             而在一个栈帧内，局部变量是如何分布到栈帧里的（所谓栈帧布局，stack
             frame layout），这完全是编译器的自由。至于数组元素与栈的增长方向：C
-            与C++语言规范都规定了数组元素是分布在连续递增的地址上的。
+            与 C++ 语言规范都规定了数组元素是分布在连续递增的地址上的。
 
-            C与C++语言的数组元素要分配在连续递增的地址上，也不反映栈的增长方向。
+            C 与 C++ 语言的数组元素要分配在连续递增的地址上，也不反映栈的增长方向。
 
         以简化的Linux/x86模型为例
 
-        :   在简化的32位Linux/x86进程地址空间模型里，（主线程的）栈空间确实比堆
+        :   在简化的 32 位 Linux/x86 进程地址空间模型里，（主线程的）栈空间确实比堆
             空间的地址要高——它已经占据了用户态地址空间的最高可分配的区域，并且
             向下（向低地址）增长。
 
@@ -758,8 +759,7 @@ System & Network & MISC
         }
         ```
 
-        <div class="tzx-drawer" shy>
-        我的测试
+        我的测试 -<
 
         :   代码
 
@@ -800,7 +800,6 @@ System & Network & MISC
                 24 has 2 '1's.
                 235265 has 8 '1's.
                 ```
-        </div>
 
         If we are allowed greater memory usage, we can calculate the Hamming weight
         faster than the above methods. With unlimited memory, we could simply
@@ -962,8 +961,8 @@ System & Network & MISC
             有人喜欢这样：
 
             ```cpp
-            #define DEBUG       //此时#ifdef DEBUG为真
-            //#define DEBUG 0  //此时为假
+            #define DEBUG       // 此时 #ifdef DEBUG 为真
+            //#define DEBUG 0  // 此时为假
             int main()
             {
                #ifdef DEBUG
@@ -1319,7 +1318,7 @@ System & Network & MISC
         -   [常用正则表达式](http://deerchao.net/tutorials/regex/common.htm)
         -   [2011年中国（大陆）行政区划表](http://deerchao.net/info/region/index.htm)
 
--   [Shell, Terminal, Console区别 - 為學日益, 為道日損](http://www.lijigang.com/blog/2016/07/22/shell,-terminal,-console%E5%8C%BA%E5%88%AB/) -<
+-   [Shell, Terminal, Console 区别 - 為學日益, 為道日損](http://www.lijigang.com/blog/2016/07/22/shell,-terminal,-console%E5%8C%BA%E5%88%AB/) -<
 
     :   ![](http://www.lijigang.com/assets/blog/2016/07/22/shell,-terminal,-console%E5%8C%BA%E5%88%AB/shell_terminal.png)
 
@@ -1776,8 +1775,6 @@ System & Network & MISC
     |       |   |                       |       |
     |       |   +-->------ACK--->----   |       |
     +-------+                           +-------+
-
-
     ```
 
     Richard Stevens 先生在 [UNP2e (UNIX 网络编程 卷 1：套接字联网 API)](http://book.douban.com/subject/4859464/) 的前言中写道：
@@ -1825,3 +1822,5 @@ System & Network & MISC
 [为什么在 CPU 中要用 Cache 从内存中快速提取数据？ - 知乎](https://www.zhihu.com/question/22431522)
 
 [在校学生一枚，面对高性能服务器开发、分布式系统、缓存系统等等。该如何最快最好的提升自己的技术水平呢？ - 知乎](https://www.zhihu.com/question/20183430)
+
+-   [HTTP 协议入门 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/08/http.html){.hearts}
