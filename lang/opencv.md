@@ -6,8 +6,7 @@
  |   |
 rows |
      |
-    \|/
-     v y
+     V  y
 ```
 
 Basics -<

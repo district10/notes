@@ -487,6 +487,14 @@ System & Network & MISC
         x86 硬件直接支持的栈确实是“向下增长”的：**push 指令导致 sp 自减一个 slot，
         pop 指令导致 sp 自增一个 slot**。其它硬件有其它硬件的情况。
 
+        sp: stack pointer, see [Understanding the Stack](http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Mips/stack.html)
+
+        :   ![](http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/Mips/Figs/stack2.png)
+
+            refs and see also
+
+            -   [Stack register - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Stack_register)
+
         栈的增长方向与栈帧布局
 
         :   这个上下文里说的“栈”是**函数调用栈，是以“栈帧”（stack frame）**为单位的。
@@ -524,26 +532,6 @@ System & Network & MISC
     :   **ASCII, 0--127**
 
         ![](http://whudoc.qiniudn.com/ascii.png)
-
-        ```
-        aqaq @ grave
-
-                                 +------------------------------------------+
-                                 |  SP      "               &   '   (   )   |
-                                 |  )   !   @   #   $   %   ^   &   *   (   |
-                                 |  0   1   2   3   4   5   6   7   8   9   |
-                                 +--|---------------------------------------+
-                                    |
-                                    |
-          0         16      32      |48     64      80     96       112
-                                    |       阿      卡       琳      酱
-          NULL     DEL      SP     [0]      @       P       `       p           |   0
-                             !      1       A       Q       a       q           |   1
-                             "      2                                           |   2
-                             .      .                                           |   .
-        ------------------------------------------------------------------------+
-            0       1       2       3       4       5       6       7
-        ```
 
         **Non-ASCII**
 
@@ -1569,18 +1557,17 @@ System & Network & MISC
 
     :   ![`<---------<----------<----------<---------`](http://whudoc.qiniudn.com/2016/fov-focal.jpg)
 
-    在像幅不变的情况下，如果增大焦距；就需要把 field of view 缩小；FOV 缩小，远处的东西就会变大.
+        在像幅不变的情况下，如果增大焦距；就需要把 field of view 缩小；FOV 缩小，远处的东西就会变大.
 
-    ```
-        \
-        |\
-        | \
-        |  \                                 -__
-        |   \                                |    ----  _____
-        |   |\                               |             |    ---- __.
-     ---+---+-X big fov, small.            --+-------------+---------------X small fov, big f
-
-    ```
+        ```
+                                                                          \
+                                                                          |\
+                                                      bigger              | \
+          -__                                   <----------------         |  \
+          |    ----  _____                         focal distance         |   \
+          |             |    ---- __.                                     |   |\
+        --+-------------+---------------X small fov, big f             ---+---+-X big fov, small.
+        ```
 
 -   [有多少程序员后悔英语没学好？或者庆幸学好了? - 知乎](https://www.zhihu.com/question/27867216) -<
 
@@ -1798,13 +1785,6 @@ System & Network & MISC
             quotient space and is denoted V/N (read V mod N or V by N).
 
         -   一鼓作气，再而衰，三而竭
-
-[从武侠小说到程序员面试 - Lucida](http://lucida.me/blog/from-wuxia-to-programmer-interview/)
-
-:   其实就是用 `'a' <= input && input <= 'z'` 替代 `input >= 'a' && input <= 'z'` ——
-    这个技巧源自于代码大全，代码大全里面专门有一节讲解如何编写可读的布尔表达式。从
-    这里我可以看出这些面试者都没有读过代码大全，考虑到代码大全几乎是程序设计的必读
-    书籍，我可以推断出这些面试者很可能没有阅读习惯，而不阅读的程序员一般都不会太出色。
 
 [TCP 连接的建立和终止过程 - 辛未羊的博客](http://panqiincs.github.io/blog/2015/10/17/establishment-and-termination-of-tcp-connection/) -<
 

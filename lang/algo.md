@@ -7,7 +7,29 @@ Algorithms
 
 >   I have dreams, and regardless of whether or not they're realistic, I must work toward them.
 
+ASCII table -<
+
 :   ![](http://whudoc.qiniudn.com/ascii.png)
+
+    ```
+    aqaq @ grave
+
+                             +------------------------------------------+
+                             |  SP      "               &   '   (   )   |
+                             |  )   !   @   #   $   %   ^   &   *   (   |
+                             |  0   1   2   3   4   5   6   7   8   9   |
+                             +--|---------------------------------------+
+                                |
+                                |
+      0         16      32      |48     64      80     96       112
+                                |       阿      卡       琳      酱
+      NULL     DEL      SP     [0]      @       P       `       p           |   <-------------- 0
+                         !      1       A       Q       a       q           |   <-------------- 1
+                         "      2                                           |   <-------------- 2
+                         .      .                                           |   <-------------- .
+    ------------------------------------------------------------------------+
+        0       1       2       3       4       5       6       7
+    ```
 
 ## 0.
 
@@ -15,7 +37,7 @@ Algorithms
 
 :   基友在人人发百度实习内推贴，当时自我感觉牛逼闪闪放光芒，于是就抱着看看国内 IT 环
     境 + 虐虐面试官的变态心理投了简历，结果在第一面就自己的师兄爆出翔：他让我写一个
-    stof（字符串转浮点数），我磨磨唧唧半天也没写出完整实现，之后回到宿舍赶快写了一
+    `stof`（字符串转浮点数），我磨磨唧唧半天也没写出完整实现，之后回到宿舍赶快写了一
     个版本发到师兄的邮箱，结果对方压根没鸟我。
 
     这件事对我产生了很大的震动——
@@ -40,7 +62,7 @@ Algorithms
     我没有像身边的同学那般刷题——而是继续看书抄代码学算法，因为我认为那些难得离谱的
     题面试官也不会问——事实上也是如此。
 
-    **编程珠玑**&更多的编程珠玑
+    **编程珠玑** & 更多的编程珠玑
 
     没听说过这两本书请自行面壁。前者偏算法理论，后者偏算法轶事，前者提升能力，
     后者增长谈资，都值得一读。
@@ -49,8 +71,8 @@ Algorithms
     一段代码，然后面试官检查这段代码，如果你能够自己证明自己写的代码是正确的，面试
     官还能挑剔什么呢？
 
-    之后就是各种面试，详情见之前的博客，总之就是**项目经历**、**纸上代码**加**正确
-    性证明**这三板斧，摧枯拉朽。
+    之后就是各种面试，详情见之前的博客，总之就是**项目经历**、**【纸上代码】**加
+    **【正确性证明】**这三板斧，摧枯拉朽。
 
     MIT 教授 Erik Demaine 则更为直接：
 
@@ -192,9 +214,9 @@ Algorithms
                 示）逐步得到更加优化的解法，面试官可以通过这个过程观察到面试者
                 的思维方式，从而对面试者进行更客观的评估。
 
-                以 数组最大子序列和 为例，它有一个很显然的 O(n3) 解法，将 O(n3)
+                以【数组最大子序列和】为例，它有一个很显然的 O(n3) 解法，将 O(n3)
                 解法稍加改动可以得到 O(n2) 解法，利用分治思想，可以得到
-                O(n*logn) 解法，除此之外它还有一个 o(n) 解法。（编程珠玑 和 数
+                O(nlogn) 解法，除此之外它还有一个 O(n) 解法。（编程珠玑 和 数
                 据结构与算法分析 C 语言描述 对这道题均有非常精彩的描述，有兴趣的
                 朋友可以自行阅读）
 
@@ -278,15 +300,15 @@ Algorithms
     |   东瀛修炼绝世武功（在校刻苦学习技术）；
     |   远赴中原挑战群雄（即将毕业开始求职）；
     |   拔剑削枯枝作战书（撰写简历进行面试）；
-    |   惊动中原第一高手（简历/面试得到赏识）；
-    |   海上决战名扬天下（得到Offer搞定工作）。
+    |   惊动中原第一高手（简历 / 面试得到赏识）；
+    |   海上决战名扬天下（得到 Offer 搞定工作）。
 
 ## 1.
 
 A Bit of Logic -<
 
 :   --------------------------------------------------------------------------------------------------------------
-    Axiom                                           Signification
+    【Axiom】                                       【Signification】
     ------------------------------------            --------------------------------------------------------------
     **Associativity** of addition                   `u + (v + w) = (u + v) + w`
 
@@ -326,9 +348,9 @@ A Bit of Logic -<
     -   [Linear algebra - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Linear_algebra)
     -   [Bit field - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Bit_field)
 
-[九章算法班 - 硅谷顶尖 IT 企业一线工程师直播教学](http://www.jiuzhang.com/course/1/) -<
+九章算法班 -<
 
-:   我当然没有报这个班，但从这个列表，可以制定自己的复习内容。
+:   没有报这个班（关键是穷==），但从这个列表，可以制定自己的复习内容。
 
     -   无算法基础，或算法基础薄弱，不系统
     -   希望求职 Facebook, Google, Linkedin, Airbnb, Uber 等硅谷知名企业
@@ -337,7 +359,7 @@ A Bit of Logic -<
     -   获取最新面试动向
     -   认识一起找工作的其他小伙伴
 
-    2016/7/31 上午9:30:00 1. Introducing Algorithm Interview && Coding Style【免费试听】 -<
+    2016/7/31 上午 9:30:00 1. Introducing Algorithm Interview && Coding Style【免费试听】 -<
 
     :   -   通过 strStr 这一道常见面试题讲解面试中的常见误区 -<
 
@@ -376,37 +398,23 @@ A Bit of Logic -<
                 -   边界检查？
                 -   难度？
 
+                这个博客很好的说明了面试官的考察思路：
+
+                [从武侠小说到程序员面试 - Lucida](http://lucida.me/blog/from-wuxia-to-programmer-interview/) -<
+
+                :   其实就是用 `'a' <= input && input <= 'z'` 替代 `input >= 'a' && input <= 'z'` ——
+                    这个技巧源自于代码大全，代码大全里面专门有一节讲解如何编写可读的布尔表达式。从
+                    这里我可以看出这些面试者都没有读过代码大全，考虑到代码大全几乎是程序设计的必读
+                    书籍，我可以推断出这些面试者很可能没有阅读习惯，而不阅读的程序员一般都不会太出色。
+
                 从面试者的角度来说，出题的目的？
 
-                还可以用牛逼闪闪的 KMP 算法。参考 [从头到尾彻底理解KMP（2014年8
-                月22日版） - 结构之法 算法之道 - 博客频道 -
-                CSDN.NET](http://blog.csdn.net/v_july_v/article/details/7041827)。
-
-                [字符串匹配的 KMP 算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html){.heart} -<
-
-                :   ![](http://image.beekka.com/blog/201305/bg2013050109.png)
-
-                    移动位数 = 已匹配的字符数 - 对应的部分匹配值
-
-                    ![](http://image.beekka.com/blog/201305/bg2013050110.png)
-
-                    ![](http://image.beekka.com/blog/201305/bg2013050114.png)
-
-                    ![](http://whudoc.qiniudn.com/2016/kmp-table.png)
-
-                    "部分匹配"的实质是，有时候，字符串头部和尾部会有重复。比如，
-                    "ABCDAB"之中有两个"AB"，那么它的"部分匹配值"就是 2（"AB"的长
-                    度）。搜索词移动的时候，第一个"AB"向后移动 4 位（字符串长度 -
-                    部分匹配值），就可以来到第二个"AB"的位置。
-
-                    [字符串匹配的 Boyer-Moore 算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)
-
-                在一个字符串中找到第一个只出现一次的字符。如输入 abaccdeff，则输出 b。
+                还可以用牛逼闪闪的 KMP 算法。下文有说。
 
                 思路：
 
-                #.  可以用 bitmap
-                #.  可以排序，然后用 i，j 来判断。
+                -   可以用 bitmap
+                -   可以排序，然后用 i，j 来判断。
 
         -   从面试官的角度分析面试的考察点 -<
 
@@ -431,11 +439,11 @@ A Bit of Logic -<
 
         -   面试常见问题答疑
 
-        -   refs and see also -<
+        refs and see also
 
-            :   -   [程序员编程艺术：第四章、现场编写类似 strstr/strcpy/strpbrk 的函数 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6417600)
+        -   [程序员编程艺术：第四章、现场编写类似 strstr/strcpy/strpbrk 的函数 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6417600)
 
-    2016/8/6 上午9:30:00 2. 二分搜索 Binary Search -<
+    2016/8/6 上午 9:30:00 2. 二分搜索 Binary Search -<
 
     :   -   学习 Binary Search 的通用模板，不再死循环 -<
 
@@ -518,11 +526,6 @@ A Bit of Logic -<
 
                     :   ![](http://whudoc.qiniudn.com/2016/20141025161730953.png)
 
-                        图片来自：[【LeetCode】Search in Rotated Sorted Array
-                        解题报告 - 跳出温水的青蛙 - 博客频道 -
-                        CSDN.NET](http://blog.csdn.net/ljiabin/article/details/40453607)。
-                        chenhao 的代码实在……我没看懂。我的代码如下，已经通过了：
-
                         ```cpp
                         class Solution {
                         public:
@@ -603,6 +606,10 @@ A Bit of Logic -<
                             }
                         };
                         ```
+
+                        refs and see also
+
+                        -   [【LeetCode】Search in Rotated Sorted Array解题报告 - 跳出温水的青蛙 - 博客频道 - CSDN.NET](http://blog.csdn.net/ljiabin/article/details/40453607)。
 
                 -   [81. Search in Rotated Sorted Array II | LeetCode OJ](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/) -<
 
@@ -780,11 +787,11 @@ A Bit of Logic -<
                         }
                         ```
 
-        -   refs and see also -<
+        refs and see also
 
-            :   -   [Binary search algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Binary_search_algorithm)
+        -   [Binary search algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 
-    2016/8/7 上午9:30:00 3. 二叉树问题与分治算法 Binary Tree & Divide Conquer -<
+    2016/8/7 上午 9:30:00 3. 二叉树问题与分治算法 Binary Tree & Divide Conquer -<
 
     :   -   二叉树的深度优先遍历 Binary Tree DFS Traversal -<
 
@@ -801,49 +808,78 @@ A Bit of Logic -<
                                 }
                                 ```
 
-                                递归版的都很容易：
+                                递归版的都很容易：（Recursive solution is trivial `['trɪvɪəl]`, could you do it iteratively?）
 
                                 ```cpp
                                 void traversal( TreeNode *root, vector<int> &result ) {
                                     if( !root ) { return; }
-
-                                    // 如果先序
+                                    // 如果先序（中序和后序只是调整一下位置）
                                     result.push_back( root->val );
                                     traversal( root->left,  result );
                                     traversal( root->right, result );
-
-                                    // 中序和后序只是调整一下位置
                                 }
                                 ```
+
+                                ```
+                                【从维基百科查到的 iterative 方法的算法伪码】
+
+                                DPS: Depth-first search
+                                BPS: Breath-first search
+                                --------------------------------------------+------------------------------------------------------------
+                                            iterativePreorder(node)         |   levelorder(root)
+                                                if (node = null)            |       q ← empty queue
+                                                    return                  |       q.enqueue(root)
+                                                s ← empty stack             |       while (not q.isEmpty())
+                                                s.push(node)                |           node ← q.dequeue()
+                                                while (not s.isEmpty())     |           visit(node)
+                                                    node ← s.pop()          |           if (node.left ≠ null)
+                                                    visit(node)             |               q.enqueue(node.left)
+                                                    if (node.right ≠ null)  |           if (node.right ≠ null)
+                                                        s.push(node.right)  |               q.enqueue(node.right)
+                                                    if (node.left ≠ null)   |
+                                                        s.push(node.left)   |
+                                --------------------------------------------+------------------------------------------------------------------------------
+                                iterativeInorder(node)                      |   iterativePostorder(node)
+                                   s ← empty stack                          |       s ← empty stack
+                                                                            |       lastNodeVisited ← null
+                                   while (not s.isEmpty() or node ≠ null)   |       while (not s.isEmpty() or node ≠ null)
+                                       if (node ≠ null)                     |           if (node ≠ null)
+                                           s.push(node)                     |               s.push(node)
+                                           node ← node.left                 |               node ← node.left
+                                       else                                 |           else
+                                           node ← s.pop()                   |               peekNode ← s.peek()
+                                           visit(node)                      |               // if right child exists and traversing node
+                                           node ← node.right                |               // from left child, then move right
+                                                                            |               if (peekNode.right ≠ null and lastNodeVisited ≠ peekNode.right)
+                                                                            |                   node ← peekNode.right
+                                                                            |               else
+                                                                            |                   visit(peekNode)
+                                                                            |                   lastNodeVisited ← s.pop()
+                                ```
+
+                                refs and see also
+
+                                -   [Tree traversal - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Tree_traversal)
+                                -   [Binary Tree Preorder Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+                                -   [Binary Tree Inorder Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+                                -   [Binary Tree Postorder Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-postorder-traversal/)
+                                -   [Binary Tree Level Order Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+                                -   [Depth-first search - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Depth-first_search)
+                                -   [Breadth-first search - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Breadth-first_search)
 
                         -   先序遍历 -<
 
                             :   -   用栈 -<
 
-                                    :   ```
-                                        ==while( !empty ) { visit(pop), push(right), push(left); }==
-
-                                        1.  push root
-                                        2.  while   !empty
-
-                                                    i.      pop one
-                                                    ii.     visit it
-                                                    iii.    push right if has right
-                                                    iv.     push left  if has left
-                                        ```
-
-                                        ```cpp
+                                    :   ```cpp
                                         // Time: O(n), Space: O(n)
                                         vector<int> preorderTravesal( TreeNode *root ) {
                                             vector<int> result;
                                             stack<const TreeNode *> s;
-                                            // 以后 if( root != nullptr ) 一律写成 if( root )。更简洁清晰
-                                            if( root ) { s.push(root); }
+                                            if( root ) { s.push(root); }                // nullptr 一定不要 push！
                                             while( !s.empty() ) {
-                                                const TreeNode *p = s.top();
-                                                s.pop();
+                                                const TreeNode *p = s.top(); s.pop();
                                                 result.push_back( p->val );
-
                                                 if( p->right ) { s.push( p->right); }   // 这里不要疏忽了
                                                 if( p->left  ) { s.push( p->left ); }
                                             }
@@ -933,15 +969,14 @@ A Bit of Logic -<
                                         ```cpp
                                         vector<int> inorderTraveral( TreeNode *root ) {
                                             vector<int> result;
-                                            stack<const TreeNode *> s;
-                                            const TreeNode *p = root;
+                                            stack<TreeNode *> s;
+                                            TreeNode *p = root;
                                             while( !s.empty() || p ) {
                                                 if( p ) {
                                                     s.push( p );                    // 计划处理 p（当前）
                                                     p = p->left;                    // 但先处理左节点
                                                 } else {
-                                                    p = s.top();                    // 处理 p（当前），它的左子树已经处理完了~
-                                                    s.pop();
+                                                    p = s.top(); s.pop();           // 处理 p（当前），它的左子树已经处理完了~
                                                     result.push_back( p->val );
                                                     p = p->right;                   // 然后移到右边
                                                 }
@@ -966,8 +1001,6 @@ A Bit of Logic -<
                             :   -   用栈 -<
 
                                     :   ```
-                                        =do { while {}  } while;=
-
                                         【思路】
 
                                                   Root    第一件事，从 root 到 leaf (left leaf) 一路 push 入栈，
@@ -980,44 +1013,23 @@ A Bit of Logic -<
                                                   \       1.  那再把它 push！然后把 right 当成 root 继续处理。
                                                    \      2.  没有右边，那就是左右都处理完了，于是处理 popped。
                                                     ?
-
                                         ```
-
-                                        tested, orig by chenhao:
 
                                         ```cpp
                                         vector<int> postorderTraversal( TreeNode *root ) {
                                             vector<int> ret;
                                             stack<TreeNode *> s;
-                                            if( root ) { s.push( root ); }
-                                            while( !s.empty() ) {
-                                                TreeNode *n = s.top(); s.pop();
-                                                ret.push_back( n->val );
-                                                if( n->left ){ s.push( n->left ); }
-                                                if( n->right ){ s.push( n->right ); }
-                                            }
-                                            std::reverse( ret.begin(), ret.end() );  // the trick
-                                            return ret;
-                                        }
-                                        ```
-
-                                        ```cpp
-                                        vector<int> postorderTraversal( TreeNode *root ) {
-                                            vector<int> ret;
-                                            stack<const TreeNode *> s;
-                                            const TreeNode *cur = root, *pre = nullptr;
+                                            TreeNode *cur = root, *pre = nullptr;
                                             while( !s.empty() || cur ) {
-                                                if( cur ) {              // keep going the left
+                                                if( cur ) {                                 // keep going the left
                                                     s.push( cur );
                                                     cur = cur->left;
                                                 } else {
-                                                    const TreeNode *n = s.top();
-                                                    // left way is finsised, keep going to the right way
-                                                    if( n->right && n->right != pre ) {
+                                                    TreeNode *n = s.top();
+                                                    if( n->right && n->right != pre ) {     // left way is finsised, keep going to the right way
                                                         cur = n->right;
                                                     } else {
-                                                        // both left and right has been accessed.
-                                                        ret.push_back( n->val );
+                                                        ret.push_back( n->val );            // both left and right has been accessed.
                                                         pre = n; s.pop();
                                                     }
                                                 }
@@ -1026,9 +1038,23 @@ A Bit of Logic -<
                                         }
                                         ```
 
-                                        refs and see also
+                                        Another idea, by Chenhao. -<
 
-                                        -   [Tree traversal - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Tree_traversal)
+                                        :   ```cpp
+                                            vector<int> postorderTraversal( TreeNode *root ) {
+                                                vector<int> ret;
+                                                stack<TreeNode *> s;
+                                                if( root ) { s.push( root ); }
+                                                while( !s.empty() ) {
+                                                    TreeNode *n = s.top(); s.pop();
+                                                    ret.push_back( n->val );
+                                                    if( n->left ){ s.push( n->left ); }
+                                                    if( n->right ){ s.push( n->right ); }
+                                                }
+                                                std::reverse( ret.begin(), ret.end() );         // the trick
+                                                return ret;
+                                            }
+                                            ```
 
                                 -   Moris -<
 
@@ -1052,16 +1078,14 @@ A Bit of Logic -<
                                 ```cpp
                                 // Time: O(logn), Space: O(1)
                                 double pow( double x, int n ) {
-                                    if( n < 0 ) { return 1.0 / pow( x, -n); }
-                                    if( n == 0 ) { return 1; }
+                                    if( n < 0  ) { return 1.0 / pow( x, -n); }
+                                    if( n == 0 ) { return 1.0; }
                                     double v = pow( x, n/2 );
-                                    if( n%2 == 0 ) {
+                                    if( n%2 == 0 ) {                    // divide & conquer
                                         return v * v;
                                     } else {
                                         return v * v * x;
                                     }
-                                    // 写成 return n%2 ? v*v*x : v*v; 似乎没必要
-                                    // （毕竟这个算法本来不长）
                                 }
                                 ```
 
@@ -1069,9 +1093,8 @@ A Bit of Logic -<
 
                             :   ```cpp
                                 int sqrt( int x ) {
-                                    int left = 1, right = x / 2 + 1;
-                                    int mid;
-                                    if( x < 2 ) { return x; } // ?<0->..., 0->0, 1->1
+                                    int left = 1, right = x / 2 + 1, mid;
+                                    if( x < 2 ) { return x; }                   // ?<0->..., 0->0, 1->1
                                     while( left <= right ) {
                                         mid = (left+right)/2;
                                         if( x / mid > mid ) {
@@ -1087,9 +1110,9 @@ A Bit of Logic -<
                                 }
                                 ```
 
-                        -   refs and see also -<
+                        refs and see also
 
-                            :   -   [Divide and conquer algorithms - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithms)
+                        -   [Divide and conquer algorithms - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithms)
 
                 -   DFS 模板 Introduce DFS Template -<
 
@@ -1102,7 +1125,7 @@ A Bit of Logic -<
                                 将 path 放入 result
                             }
                             if( 可以剪纸 ) { return; }
-                            for( ... ) {    // 执行所有可能的扩展动作
+                            for( ... ) {                            // 执行所有可能的扩展动作
                                 执行动作，修改 path
                                 dfs( input, step+1 or gap--, result );
                                 恢复 path
@@ -1137,8 +1160,7 @@ A Bit of Logic -<
                                 void traverse( TreeNode *root, size_t level, vector<vector<int> > &result ) {
                                     if( !root ) { return; }
                                     if( level > result.size() ) {
-                                        result.push_back( vector<int>() );
-                                        // 似乎也可以用 resize( level );
+                                        result.push_back( vector<int>() );                  // 也可以用 resize( level );
                                     }
                                     result[level-1].push_back( root->val );
                                     traverse( root->left,   level+1, result );
@@ -1151,19 +1173,15 @@ A Bit of Logic -<
                             :   ```cpp
                                 // Time: O(n), Space: O(1)
                                 vector<vector<int> > levelOrder( TreeNode *root ) {
+                                    if( !root ) { return result; };
                                     vector<vector<int> > result;
-                                    queue<const TreeNode *> current, next;
-                                    if( !root ) {
-                                        return result;
-                                    } else {
-                                        current.push( root );
-                                    }
+                                    queue<TreeNode *> current, next;
 
+                                    current.push( root );
                                     while( !current.empty() ) {
                                         vector<int> level;
                                         while( !current.empty() ) {
-                                            TreeNode *node = current.front();
-                                            current.pop();
+                                            TreeNode *node = current.front(); current.pop();
                                             level.push_back( node->val );
                                             if( node->left  ) { next.push( node->left  ); }
                                             if( node->right ) { next.push( node->right ); }
@@ -1248,7 +1266,7 @@ A Bit of Logic -<
                         ![Tree rotations are very common internal operations in binary
                             trees to keep perfect, or near-to-perfect, internal balance in the tree.](https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/BinaryTreeRotations.svg/450px-BinaryTreeRotations.svg.png)
 
-                -   [Unique Binary Search Trees | LeetCode OJ](https://leetcode.com/problems/unique-binary-search-trees/) -<
+                -   Unique Binary Search Trees，多少个变形？ -<
 
                     :   Given n, how many structurally unique BST's (binary search trees) that store values 1...n?
 
@@ -1263,9 +1281,17 @@ A Bit of Logic -<
                            2     1         2                 3
                         ```
 
-                        数组为 1, 2, ... 以 i 为根节点的树，左子树由 `[i, i-1]` 构成，右子树为 `[i+1, n]` 构成。
-
                         ```
+                        【数组为 1, 2, ... 以 i 为根节点的树，左子树由 `[i, i-1]` 构成，右子树为 `[i+1, n]` 构成。】
+
+                        如果 n 为 1：
+                                            1
+
+                        如果 n 为 2：
+                                            1               或者        2
+                                             \                         /
+                                              2                       1
+
                         f(2) =  f(0) * f(1),    1 为根的情况
                              +  f(1) * f(0),    2 为根
 
@@ -1274,7 +1300,7 @@ A Bit of Logic -<
                              +  f(2) * f(0),    3 为根
                         ```
 
-                        递推公式为 `f(i) = sum{ f(k-1)*f(i-k) } for k = 0..i`，这是一个一维动态规划。
+                        递推公式为 `f(i) = sum{ f(k-1)*f(i-k) } for k = 1..i`，这是一个一维动态规划。
 
                         ```cpp
                         int numTrees( int n ) {
@@ -1289,7 +1315,11 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   [Validate Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/validate-binary-search-tree/) -<
+                        refs and see also
+
+                        -   [Unique Binary Search Trees | LeetCode OJ](https://leetcode.com/problems/unique-binary-search-trees/)
+
+                -   Validate Binary Search Tree -<
 
                     :   ```cpp
                         bool isValidBST( TreeNode *root ) {
@@ -1307,24 +1337,26 @@ A Bit of Logic -<
                         }
                         ```
 
+                        refs and see also
+
+                        -   [Validate Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/validate-binary-search-tree/)
+
                 -   [Convert Sorted Array to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/){#lc108a2} -<
 
                     :   Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
 
                         这道题在本笔记 [leetcode #108](#lc108) 也有。思路是一样的，不过那边更直白。
+                        首先要明确，这个 BST 不唯一。
 
                         ```cpp
                         TreeNode * sortedArrayToBST( vector<int> &nums ) {
                             return sortedArrayToBST( nums.begin(), nums.end() );
                         }
                         template<typename RandomAccessIterator>
-                        TreeNode * sortedArrayToBST(
-                            RandomAccessIterator first,
-                            RandomAccessIterator last
-                        ) {
+                        TreeNode * sortedArrayToBST( RandomAccessIterator first, RandomAccessIterator last ) {
                             const auto length = distance( first, last );
                             if( length <= 0 ) { return nullptr; }
-                            auto mid = first + length/2;
+                            RandomAccessIterator mid = first + length/2;
                             TreeNode *root = new TreeNode( *mid );
                             root->left = sortedArrayToBST( first, mid );
                             root->right = sortedArrayToBST( mid+1, last );
@@ -1336,7 +1368,7 @@ A Bit of Logic -<
 
                         -   [Convert Sorted Array to Balanced Binary Search Tree (BST) – LeetCode](http://articles.leetcode.com/convert-sorted-array-into-balanced)
 
-                -   [Convert Sorted List to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/) -<
+                -   Convert Sorted List to Binary Search Tree -<
 
                     :   这里和上面不同的是，list 不能随机存取。最省力的方法是，先把 list 转成 array……
 
@@ -1347,18 +1379,19 @@ A Bit of Logic -<
 
                         refs and see also
 
+                        -   [Convert Sorted List to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)
                         -   [Convert Sorted List to Balanced Binary Search Tree (BST) – LeetCode](http://articles.leetcode.com/convert-sorted-list-to-balanced-binary/)
 
-                -   refs and see also -<
+                refs and see also
 
-                    :   -   [Binary Trees](http://cslibrary.stanford.edu/110/BinaryTrees.html)
-                        -   [Binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Binary_search_tree)
+                -   [Binary Trees](http://cslibrary.stanford.edu/110/BinaryTrees.html)
+                -   [Binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Binary_search_tree)
 
-    2016/8/13 上午9:30:00 4. 动态规划 Dynamic Programming I -<
+    2016/8/13 上午 9:30:00 4. 动态规划 Dynamic Programming I -<
 
     :   -   [什么是动态规划？动态规划的意义是什么？ - 知乎](https://www.zhihu.com/question/23995189) -<
 
-            :   动态规划中递推式的求解方法不是动态规划的本质。
+            :   动态规划（Dynamic programming）中递推式的求解方法不是动态规划的本质。
 
                 动态规划的本质，是对问题【**状态**】的定义和【**状态转移方程**】的定义。
 
@@ -1375,7 +1408,7 @@ A Bit of Logic -<
 
                 动态规划迷思
 
-                :   -   “缓存”，“重叠子问题”，“记忆化”： -<
+                :   -   “缓存（memoization）”，“重叠子问题（subproblems）”，“记忆化”： -<
 
                         :   这三个名词，都是在阐述递推式求解的技巧。以
                             Fibonacci 数列为例，计算第 100 项的时候，需要计算第
@@ -1438,13 +1471,13 @@ A Bit of Logic -<
 
                 >   每个阶段的最优状态可以从之前某个阶段的某个或某些状态直接得到
 
-                这个性质叫做**最优子结构**；
+                这个性质叫做**最优子结构（optimal substructure）**；
 
                 >   而不管之前这个状态是如何得到的
 
                 这个性质叫做**无后效性**。
 
-        -   [Dynamic programming - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dynamic_programming)
+        -   [Dynamic programming - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dynamic_programming) -<
 
             :   Sometimes, applying memoization to the naive recursive
                 algorithm (namely the one obtained by a direct translation of
@@ -1477,20 +1510,33 @@ A Bit of Logic -<
                 省空间。在某些情况下，我们甚至可以提前计算出那些将来会用到的子
                 问题的解。
 
+                ```
+                var m := map(0 → 0, 1 → 1)
+                function fib(n)
+                    if key n is not in map m
+                        m[n] := fib(n − 1) + fib(n − 2)
+                    return m[n]
+                ```
+
+                This technique of saving values that have already been calculated is called memoization;
+
                 refs and see also
 
                 -   [动态规划算法 - 游戏人生 - C++博客](http://www.cppblog.com/Fox/archive/2008/05/07/Dynamic_programming.html)
+                -   [Optimal substructure - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Optimal_substructure)
+                -   [Overlapping subproblems - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Overlapping_subproblems)
+                -   [Memoization - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Memoization)
 
         -   动态规划算法的适用条件 -<
 
             :   必须满足如下三点：
 
-                -   最优化原理：如果问题的最优解所包含的子问题的解也是最优的，
-                    就称该问题具有最优子结构，即满足最优化原理。
-                -   无后效性：即某阶段状态一旦确定，就不受这个状态以后决策的影
+                -   **最优化原理**：如果问题的最优解所包含的子问题的解也是最优的，
+                    就称该问题具有最优子结构（optimal substructure），即满足最优化原理。
+                -   **无后效性**：即某阶段状态一旦确定，就不受这个状态以后决策的影
                     响。也就是说，某状态以后的过程不会影响以前的状态，只与当前
                     状态有关。
-                -   有重叠子问题：即子问题之间是不独立的，一个子问题在下一阶段
+                -   **有重叠子问题（overlapping subproblem）**：即子问题之间是不独立的，一个子问题在下一阶段
                     决策中可能被多次使用到。（该性质并不是动态规划适用的必要条
                     件，但是如果没有这条性质，动态规划算法同其他算法相比就不具
                     备优势）
@@ -1526,17 +1572,17 @@ A Bit of Logic -<
 
                 什么情况下不使用动态规划？
 
-                满足下面三个条件之一：
+                :   满足下面三个条件之一：
 
-                -   求出所有**具体**的方案而非方案**个数**<http://www.lintcode.com/problem/palindrome-partitioning/>
-                -   输入数据是一个**集合**而不**序列**<http://www.lintcode.com/problem/longest-consecutive-sequence/>
-                -   暴力的算法已经是多项式级别，2^n → n^2 是 DP 擅长的事
+                    -   求出所有**具体**的方案而非方案**个数**<http://www.lintcode.com/problem/palindrome-partitioning/>
+                    -   输入数据是一个**集合**而不**序列**<http://www.lintcode.com/problem/longest-consecutive-sequence/>
+                    -   暴力的算法已经是多项式级别，2^n → n^2 是 DP 擅长的事
 
-                则极不可能使用动态规划求解
+                    则极不可能使用动态规划求解
 
         -   leetcode 中几道动态规划题 -<
 
-            :   -   [Triangle | LeetCode OJ](https://leetcode.com/problems/triangle/) -<
+            :   -   Triangle
 
                     :   Given a triangle, find the minimum path sum from top to
                         bottom. Each step you may move to adjacent numbers on the
@@ -1588,7 +1634,7 @@ A Bit of Logic -<
                         int minimumTotal( vector<vector<int>> &triangle ) {
                             for( int i = triangle.size() -2; i >= 0; --i ) {
                                 for( int j = 0; j < i+1; ++j ) {
-                                    vector<vector<int>> &t = triangle;
+                                    vector<vector<int>> &t = triangle;                  // save some typing
                                     t[i][j] += min(t[i+1][j], t[i+1][j+1]);
                                 }
                             }
@@ -1596,7 +1642,11 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   [Maximum Subarray | LeetCode OJ](https://leetcode.com/problems/maximum-subarray/) -<
+                        refs and see also
+
+                        -   [Triangle | LeetCode OJ](https://leetcode.com/problems/triangle/)
+
+                -   Maximum Subarray
 
                     :    Find the contiguous subarray within an array
                         (containing at least one number) which has the largest sum.
@@ -1604,7 +1654,7 @@ A Bit of Logic -<
                         For example, given the array `[−2,1,−3,4,−1,2,1,−5,4]`,
                         the contiguous subarray `[4,−1,2,1]` has the largest sum = 6.
 
-                        贯序地看，对于新加入数组的一个元素，我们有两种选择：
+                        贯序地看，对于新加入数组的一个元素，我们有【两种选择】：
 
                         -   加入原来的 sub array，
                         -   新生成一个 sub array（原来的 sub array 为负）
@@ -1629,7 +1679,11 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   [Minimum Path Sum | LeetCode OJ](https://leetcode.com/problems/minimum-path-sum/) -<
+                        refs and see also
+
+                        -   [Maximum Subarray | LeetCode OJ](https://leetcode.com/problems/maximum-subarray/)
+
+                -   Minimum Path Sum -<
 
                     :   Given a m x n grid filled with non-negative numbers,
                         find a path from **top left** to **bottom right** which
@@ -1670,6 +1724,10 @@ A Bit of Logic -<
                                     }
                                 };
                                 ```
+
+                                refs and see also
+
+                                -   [Minimum Path Sum | LeetCode OJ](https://leetcode.com/problems/minimum-path-sum/)
 
                         -   动态规划 -<
 
@@ -1715,7 +1773,7 @@ A Bit of Logic -<
                                 }
                                 ```
 
-    2016/8/14 上午9:30:00 5. 动态规划 Dynamic Programming II -<
+    2016/8/14 上午 9:30:00 5. 动态规划 Dynamic Programming II -<
 
     :   -   面试中常见的动态规划类型 -<
 
@@ -1811,7 +1869,7 @@ A Bit of Logic -<
 
         -   problems -<
 
-            :   求Max, [Longest Common Subsequence 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/longest-common-subsequence/) -<
+            :   求 Max, [Longest Common Subsequence 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/longest-common-subsequence/) -<
 
                 :   -   http://www.lintcode.com/problem/longest-common-substring/
                     -   state: f[i][j] 表示前 i 个字符配上前 j 个字符的 LCS 的长度
@@ -1861,13 +1919,21 @@ A Bit of Logic -<
                     -   http://www.lintcode.com/problem/best-time-to-buy-and-sell-stock-iv/
                     -   http://www.lintcode.com/problem/maximum-subarray-iii/
 
-    2016/8/20 上午9:30:00 6. 链表 Linked List -<
+    2016/8/20 上午 9:30:00 6. 链表 Linked List -<
 
     :   -   介绍 Dummy Node 在链表问题中的运用 Introduce Dummy Node in Linked List
         -   你必须知道的几点 Linked List 的常用技巧 Basic skills in Linked List you
             should know
         -   两根指针算法 Two pointers
         -   常见问题讲解 Frequent Questions
+
+        sentinel, `['sɛntɪnl]`，哨兵。
+
+        refs and see also
+
+        -   [Linked list - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Linked_list#Sentinel_nodes)
+        -   [Sentinel value - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sentinel_value)
+        -   [Sentinel node - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sentinel_node)
 
     2016/8/21 上午9:30:00 7. 数组与数 Array & Numbers -<
 
@@ -1877,7 +1943,7 @@ A Bit of Logic -<
         -   两根指针与 x-sum 问题 Two Pointers & x-sum
         -   分割数组相关问题 Partition Array
 
-    2016/8/27 上午9:30:00 8. 数据结构 Data Structure -<
+    2016/8/27 上午 9:30:00 8. 数据结构 Data Structure -<
 
     :   -   线性数据结构
             -   队列的原理、实现和运用 Queue
@@ -1886,16 +1952,16 @@ A Bit of Logic -<
         -   树形数据结构
             -   堆的原理、实现和运用 Heap
 
-    2016/8/28 上午9:30:00 9. 图与搜索 Graph & Search -<
+    2016/8/28 上午 9:30:00 9. 图与搜索 Graph & Search -<
 
     :   -   图上的宽度优先搜索 Graph BFS
         -   拓扑排序 Topological Sorting
         -   组合类深度优先搜索 Combination Related DFS
         -   排列类深度优先搜索 Permutation Related DFS
 
-[九章算法强化班 - 硅谷顶尖IT企业一线工程师直播教学](http://www.jiuzhang.com/course/5/) -<
+    【下面是强化班内容】
 
-:   2016/8/21 上午7:00:00 FLAG算法面试难度提高？如何准备？【免费试听】 -<
+    2016/8/21 上午 7:00:00 FLAG 算法面试难度提高？如何准备？【免费试听】 -<
 
     :   -   各类 IT 企业的面试算法难度及风格
         -   如何解决中等难度以上的算法题
@@ -1908,7 +1974,7 @@ A Bit of Logic -<
             -   2. 如何通过一道题区分 3 类面试者
             -   3. 剖析面试官面试的思路
 
-    2016/8/28 上午7:00:00 数据结构 Data Structure (上) -<
+    2016/8/28 上午 7:00:00 数据结构 Data Structure (上) -<
 
     :   -   并查集
             -   1. 并查集的基本原理
@@ -1921,7 +1987,7 @@ A Bit of Logic -<
             -   1. 扫描线的常规题目
             -   2. 扫描线和其他数据结构结合的拓展
 
-    2016/8/29 上午7:00:00 数据结构 Data Structure (下) -<
+    2016/8/29 上午 7:00:00 数据结构 Data Structure (下) -<
 
     :   -   Heap的深入理解和运用
         -   Heap重要拓展：
@@ -1932,7 +1998,7 @@ A Bit of Logic -<
         -   Sliding Windows问题总结
         -   双端队列Deque
 
-    2016/9/4 上午7:00:00 两个指针 Two Pointers -<
+    2016/9/4 上午 7:00:00 两个指针 Two Pointers -<
 
     :   -   对撞型指针
             -   1. Two sum 类
@@ -1942,13 +2008,13 @@ A Bit of Logic -<
             -   2. 快慢类
         -   两个数组上的指针
 
-    2016/9/5 上午7:00:00 动态规划 Dynamic Programming (上) -<
+    2016/9/5 上午 7:00:00 动态规划 Dynamic Programming (上) -<
 
     :   -   记忆化搜索（区间动态规划、博弈类动态规划）
         -   背包类动态规划
         -   区间类动态规划
 
-    2016/9/11 上午7:00:00 动态规划 Dynamic Programming (下) -<
+    2016/9/11 上午 7:00:00 动态规划 Dynamic Programming (下) -<
 
     :   -   记忆化搜索拓展
             -   1. 区间动态规划
@@ -1958,7 +2024,7 @@ A Bit of Logic -<
             -   2. K sum
             -   3. Minimum Adjustment Cost
 
-    2016/9/12 上午7:00:00 如何解决 follow up 问题 -<
+    2016/9/12 上午 7:00:00 如何解决 follow up 问题 -<
 
     :   -   Peak Element I/II
         -   第 K 大
@@ -1973,6 +2039,11 @@ A Bit of Logic -<
             -   2. Submatrix sum
             -   3. Subarray Sum Closest
             -   4. Subarray sum II
+
+    refs and see also
+
+    -   [九章算法班 - 硅谷顶尖 IT 企业一线工程师直播教学](http://www.jiuzhang.com/course/1/)
+    -   [九章算法强化班 - 硅谷顶尖IT企业一线工程师直播教学](http://www.jiuzhang.com/course/5/)
 
 aoapc-book -<
 
@@ -2639,7 +2710,7 @@ aoapc-book -<
                             const int dr[] = { -1,  0,  1,  0 };        //          |
                             const int dc[] = {  0,  1,  0, -1 };        //          |
                                                                         //          | x (row-wise)
-                                                                        //          v
+                                                                        //          V
 
                             Node walk( const Node &u, int turn ) {
                                 int dir = u.dir;                        // turn = 0, forward
@@ -3492,6 +3563,29 @@ ACM-Cheatsheet -<
                             者是阮一峰；[“KMP 算法详解”](http://www.matrix67.com/blog/archives/115)，作者
                             是顾森 Matrix67；
                             ["Knuth-Morris-Pratt string matching"](http://www.ics.uci.edu/~eppstein/161/960227.html)。
+
+                            参考 [从头到尾彻底理解KMP（2014年8月22日版） - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/7041827)。
+
+                            [字符串匹配的 KMP 算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html){.heart} -<
+
+                            :   ![](http://image.beekka.com/blog/201305/bg2013050109.png)
+
+                                移动位数 = 已匹配的字符数 - 对应的部分匹配值
+
+                                ![](http://image.beekka.com/blog/201305/bg2013050110.png)
+
+                                ![](http://image.beekka.com/blog/201305/bg2013050114.png)
+
+                                ![](http://whudoc.qiniudn.com/2016/kmp-table.png)
+
+                                "部分匹配"的实质是，有时候，字符串头部和尾部会有重复。比如，
+                                "ABCDAB"之中有两个"AB"，那么它的"部分匹配值"就是 2（"AB"的长
+                                度）。搜索词移动的时候，第一个"AB"向后移动 4 位（字符串长度 -
+                                部分匹配值），就可以来到第二个"AB"的位置。
+
+                                [字符串匹配的 Boyer-Moore 算法 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)
+
+                                在一个字符串中找到第一个只出现一次的字符。如输入 abaccdeff，则输出 b。
 
                             ```
                                 A   B   C   D   A   B   D
@@ -7804,7 +7898,7 @@ Milo Yip 的博客 -<
 
     -   [面试题：检测点是否在扇形之内 - Milo Yip - 博客园](http://www.cnblogs.com/miloyip/archive/2013/04/19/3029852.html)
 
-    -   [怎样判断平面上一个矩形和一个圆形是否有重叠？ - Milo Yip 的回答 - 知乎](https://www.zhihu.com/question/24251545/answer/27184960) -< -<
+    -   [怎样判断平面上一个矩形和一个圆形是否有重叠？ - Milo Yip 的回答 - 知乎](https://www.zhihu.com/question/24251545/answer/27184960) -<
 
         :   ![](https://pic1.zhimg.com/31fcf0a6ba5b5b925d7d82dc5bc8a684_r.jpg)
 
@@ -7812,33 +7906,6 @@ Milo Yip 的博客 -<
 
             最后要比较 u 和 r 的长度，若距离少于 r，则两者相交。可以只求 u 的长度平方是
             否小于 r 的平方。
-
-[Dijkstra's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
-
--   [Sorting algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
--   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
--   [Heap · Data Structure and Algorithm notes](http://algorithm.yuanbin.me/zh-hans/basics_data_structure/heap.html)
-
-[五大常用算法：分治、动态规划、贪心、回溯和分支界定 - yapian8的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/yapian8/article/details/28240973)
-
-[soulmachine (Frank Dai)](https://github.com/soulmachine)
-
-授人以鱼，不如授之以渔，何况自己都忘了，建议去看 sedgewick 的《算法》第四版平衡搜索树和红黑树部分，讲得非常清晰。
-
--   [Zenefits电面真题 & 解析 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20348386?refer=jiuzhang)
--   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
--   [Sorting algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
--   [cirosantilli/algorithm-cheat: Algorithm tutorials and simple implementations with unit tests.](https://github.com/cirosantilli/algorithm-cheat)
--   [4ker/aoapc-book: Automatically exported from code.google.com/p/aoapc-book](https://github.com/4ker/aoapc-book)
--   [4ker/ppearls: Programming Pearls Prep work](https://github.com/4ker/ppearls)
--   [4ker/programming_pearls: the codes of "programming pearls(2nd edition)"](https://github.com/4ker/programming_pearls)
-
-[红黑树并没有我们想象的那么难(上) - 捣乱小子](http://daoluan.net/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/25/rbtree-is-not-difficult.html)
-[红黑树并没有我们想象的那么难(下) - 捣乱小子](http://daoluan.net/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/28/rbtree-is-not-difficult-2.html)
-
-[排序（一）归并、快排、优先队列等（图文详解） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237641)
-
-[排序（二）键索引、桶排序、位示图、败者树等（图文详解--败者树） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237809)
 
 Code Reading -<
 
@@ -8232,7 +8299,7 @@ StackOverflow -<
             if error ≥ 0.0 then
                 y := y + 1
                 error := error - 1.0
-    ```
+
     +----------+                            +--------------+
     | y = f(x) |                            | f(x, y) = 0  |
     +----------+                            +--------------+
@@ -8310,8 +8377,34 @@ StackOverflow -<
 
     :   ![In two dimensions, there are 4 orthants (called quadrants)](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Cartesian_coordinates_2D.svg/220px-Cartesian_coordinates_2D.svg.png)
 
+[Dijkstra's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+
+-   [Sorting algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
+-   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+-   [Heap · Data Structure and Algorithm notes](http://algorithm.yuanbin.me/zh-hans/basics_data_structure/heap.html)
+
 [程序员面试、算法研究、编程艺术、红黑树、数据挖掘5大系列集锦 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/6543438) -<
 
 :   [横空出世，席卷互联网--评微软等公司数据结构+算法面试100题 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6015165)
 
     [九月十月百度，迅雷，华为，阿里巴巴笔试面试六十题(第411~470题) - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/11921021)
+
+    [五大常用算法：分治、动态规划、贪心、回溯和分支界定 - yapian8的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/yapian8/article/details/28240973)
+
+    授人以鱼，不如授之以渔，何况自己都忘了，建议去看 sedgewick 的《算法》第四版平衡搜索树和红黑树部分，讲得非常清晰。
+
+    -   [Zenefits电面真题 & 解析 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20348386?refer=jiuzhang)
+    -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+    -   [Sorting algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
+    -   [cirosantilli/algorithm-cheat: Algorithm tutorials and simple implementations with unit tests.](https://github.com/cirosantilli/algorithm-cheat)
+    -   [4ker/aoapc-book: Automatically exported from code.google.com/p/aoapc-book](https://github.com/4ker/aoapc-book)
+    -   [4ker/ppearls: Programming Pearls Prep work](https://github.com/4ker/ppearls)
+    -   [4ker/programming_pearls: the codes of "programming pearls(2nd edition)"](https://github.com/4ker/programming_pearls)
+
+    [红黑树并没有我们想象的那么难(上) - 捣乱小子](http://daoluan.net/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/25/rbtree-is-not-difficult.html)
+
+    [红黑树并没有我们想象的那么难(下) - 捣乱小子](http://daoluan.net/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/28/rbtree-is-not-difficult-2.html)
+
+    [排序（一）归并、快排、优先队列等（图文详解） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237641)
+
+    [排序（二）键索引、桶排序、位示图、败者树等（图文详解--败者树） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237809)
