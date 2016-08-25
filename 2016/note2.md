@@ -778,3 +778,20 @@ title: Working Notes
     [数据｜程序员为什么不炫富？ - 覃超帝国兴亡史 - 跨越美利坚 & 技术精进之路 - 知乎专栏](https://zhuanlan.zhihu.com/p/21112258?refer=qinchao)
 
     [你的努力程度之低，根本轮不到拼天赋 - 功夫查理的编剧笔记 - 知乎专栏](https://zhuanlan.zhihu.com/p/20129091)
+
+[Pi - 5 Trillion Digits](http://www.numberworld.org/misc_runs/pi-5t/details.html)
+
+[个性也是一种竞争力 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/04/personality.html)
+
+[Image Optimization Part 2: Selecting the Right File Format](http://yuiblog.com/blog/2008/11/04/imageopt-2/)
+
+[比较下中国大陆和香港之间的个税差异 - 老赵点滴 - 追求编程之美](http://blog.zhaojie.me/2013/07/china-hongkong-taxing-comparison.html)
+
+:   至于其他开销，由于已经去除了差距最大的“房租”部分，我个人并不认为大陆一线大
+    城市（北京、上海、深圳）与香港相比有明显差距，更何况在某些方面，例如电子产品，
+    手机费，宽带费，还有女性日常所需的化妆品保养品等方面，香港似乎都还比大陆便宜不
+    少。
+
+    因此我认为，假如您的收入较高（例如年入超过60w人民币），不如考虑下在香港发展的机会。
+
+[理查德·汉明《你和你的研究》 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/04/you-and-your-research.html)

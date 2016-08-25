@@ -406,14 +406,14 @@ System & Network & MISC
         栈在这里可以有俩个理解,
 
         1.  是数据结构栈, 从这个角度说, 是的, 函数调用基本都是使用栈, 原因就是函数调用的
-            LIFO 特性, 你不用栈可以么, 当然可以, 你可以用 list, 但用栈实现代价最小. 所以
+            LIFO 特性, 你不用栈可以么, 当然可以, 你可以用 list, 但用栈实现**代价最小**. 所以
             ... 这个上面的很多人也回答了.
         2.  是绝大多数现代操作系统提供的栈 (内存布局), 然而如果从这个角度来说, 那并不是
             所有的函数调用都是使用它, 比如现在有的 stackless language. 包括 PHP 也是自己申请堆
-            内存来实现函数调用层级关系, 但本质上他们只是没有使用操作系统提供的"栈", 而自己
-            在堆上申请内存, 实现数据结构的"栈"来完成函数调用, 这样能避免操作系统提供的栈有
-            大小限制 (ulimit -s), 比如我们经常会看到的 stack overflow(这里不仅仅是指上千的嵌
-            套调用), 方便实现同时有成百上千个子任务存在的语言.
+            内存来实现**函数调用层级**关系, 但本质上他们只是没有使用操作系统提供的"栈", 而自己
+            在堆上申请内存, 实现数据结构的"栈"来完成函数调用, 这样能**避免操作系统提供的栈有大小限制 (ulimit -s)**,
+            比如我们经常会看到的 stack overflow (这里不仅仅是指上千的嵌套调用),
+            方便实现同时有成百上千个子任务存在的语言.
 
 -   [为什么用 od 命令查看 Java 字节码不是大端存储？ - 知乎](https://www.zhihu.com/question/46978823) -<
 
@@ -484,24 +484,24 @@ System & Network & MISC
     :   进程地址空间的分布取决于操作系统，栈向什么方向增长取决于操作系统与 CPU 的组合。
         不要把别的操作系统的实现方式套用到 Windows 上。
 
-        x86 硬件直接支持的栈确实是“向下增长”的：push 指令导致 sp 自减一个 slot，
-        pop 指令导致 sp 自增一个 slot。其它硬件有其它硬件的情况。
+        x86 硬件直接支持的栈确实是“向下增长”的：**push 指令导致 sp 自减一个 slot，
+        pop 指令导致 sp 自增一个 slot**。其它硬件有其它硬件的情况。
 
         栈的增长方向与栈帧布局
 
-        :   这个上下文里说的“栈”是函数调用栈，是以“栈帧”（stack frame）为单位的。
+        :   这个上下文里说的“栈”是**函数调用栈，是以“栈帧”（stack frame）**为单位的。
             每一次函数调用会在栈上分配一个新的栈帧，在这次函数调用结束时释放其空间。
-            被调用函数（callee）的栈帧相对调用函数（caller）的栈帧的位置反映了
-            栈的增长方向：如果被调用函数的栈帧比调用函数的在更低的地址，那么栈
-            就是向下增长；反之则是向上增长。
+            **被调用函数（callee）的栈帧相对调用函数（caller）的栈帧的位置反映了
+            栈的增长方向**：如果被调用函数的栈帧比调用函数的在**更低的地址，那么栈就是向下增长**；
+            反之则是向上增长。
 
-            而在一个栈帧内，局部变量是如何分布到栈帧里的（所谓栈帧布局，stack
-            frame layout），这完全是编译器的自由。至于数组元素与栈的增长方向：C
+            而在一个栈帧内，局部变量是如何分布到栈帧里的（所谓**栈帧布局，stack frame layout**），
+            这完全是编译器的自由。至于数组元素与栈的增长方向：C
             与 C++ 语言规范都规定了数组元素是分布在连续递增的地址上的。
 
             C 与 C++ 语言的数组元素要分配在连续递增的地址上，也不反映栈的增长方向。
 
-        以简化的Linux/x86模型为例
+        以简化的 Linux/x86 模型为例
 
         :   在简化的 32 位 Linux/x86 进程地址空间模型里，（主线程的）栈空间确实比堆
             空间的地址要高——它已经占据了用户态地址空间的最高可分配的区域，并且
@@ -535,8 +535,8 @@ System & Network & MISC
                                  +--|---------------------------------------+
                                     |
                                     |
-                                    |
-                                    |
+          0         16      32      |48     64      80     96       112
+                                    |       阿      卡       琳      酱
           NULL     DEL      SP     [0]      @       P       `       p           |   0
                              !      1       A       Q       a       q           |   1
                              "      2                                           |   2
@@ -556,8 +556,8 @@ System & Network & MISC
 
         **Unicode**
 
-        Unicode 当然是一个很大的集合，现在的规模可以容纳 100 多万个符号。每个符号的
-        编码都不一样，比如，U+0639 表示阿拉伯字母 Ain，U+0041 表示英语的大写字母 A，
+        **Unicode 当然是一个很大的集合，现在的规模可以容纳 100 多万 (1 million, 2^20 = (2^3)^(20/3) = 6 bytes) 个符号。**
+        每个符号的编码都不一样，比如，U+0639 表示阿拉伯字母 Ain，U+0041 表示英语的大写字母 A，
         U+4E25 表示汉字"严"。具体的符号对应表，可以查询 unicode.org，或者专门的汉字
         对应表。
 
@@ -570,7 +570,7 @@ System & Network & MISC
         Hex                 |   Binary
         --------------------+---------------------------------------------
         0000 0000-0000 007F | 0xxxxxxx
-        0000 0080-0000 07FF | 110xxxxx 10xxxxxx
+        0000 0080-0000 07FF | 110xxxxx 10xxxxxx                         110x -> 1100(12)/1101(13) -> C/E
         0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
         0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx
         ```
@@ -589,9 +589,9 @@ System & Network & MISC
         不过阮一峰表达得很简洁！：
 
 
-        >   跟据上表，解读 UTF-8 编码非常简单。如果一个字节的第一位是 0，则这个字节
+        >   **跟据上表，解读 UTF-8 编码非常简单。如果一个字节的第一位是 0，则这个字节
         >   单独就是一个字符；如果第一位是 1，则连续有多少个 1，就表示当前字符占用
-        >   多少个字节。
+        >   多少个字节。**
 
         已知"严"的 unicode 是 4E25（100111000100101），根据上表，可以发现 4E25 处在
         第三行的范围内（0000 0800-0000 FFFF），因此"严"的 UTF-8 编码需要三个字节，
@@ -913,17 +913,19 @@ System & Network & MISC
 
 -   [Good Old & Dirty printf() Debugging in a Non-console C/C++ Application or DLL - CodeProject](http://www.codeproject.com/Tips/227809/Good-old-dirty-printf-debugging-in-a-non-console-C){.featured .heart} -<
 
-    :   <http://www.cnblogs.com/xianqingzh/archive/2011/07/08/2101510.html>
+    :   `#define Debug(fmtstr, ...) printf(fmtstr, ##__VA_ARGS__)`{.cpp}
 
-        [《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks){.featured .heart} -<
+        <http://www.cnblogs.com/xianqingzh/archive/2011/07/08/2101510.html>
+
+        [《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks){.featured .heart}
 
         :   `freopen`{.c}
 
             ```c
             // like piping
-            freopen(in_path, "r", stdin);
-            freopen(out_path, "w", stdout);
-            freopen(err_path, "w", stderr);
+            freopen(in_path,    "r", stdin);
+            freopen(out_path,   "w", stdout);
+            freopen(err_path,   "w", stderr);
 
             // remember to close them:
             fclose(stdin);
@@ -1024,12 +1026,15 @@ System & Network & MISC
 
                 ```
                 // printf
-                %i %d %lld %20d %020d %-20d %+20d
-                %f %lf %5.2lf
+                %i %d %lld (for long long int/size_t, int64_t) %20d (width at
+                %least 20 char) %020d (preceeding zero's) %-20d (left align)
+                %%+20d (explicit positive sign)
+
+                %f %lf (double) %5.2lf
                 %s %-s %20s
-                %*d %*s
+                %*d %*s ("%*s", 5, " "), five spaces
                 // scanf
-                %*d %*s %lf
+                %*d %*s %lf, ignore int/string/double
                 ```
 
                 不举例子了
@@ -1042,7 +1047,6 @@ System & Network & MISC
                 // result == "pi = 3.14"
                 ```
 
-
 -   [Jeff Dean facts: How a Google programmer became the Chuck Norris of the Internet.](http://www.slate.com/articles/technology/doers/2013/01/jeff_dean_facts_how_a_google_programmer_became_the_chuck_norris_of_the_internet.single.html){.featured .heart} -<
 
     :   -   If you could harness the power of the multiverse you could try every
@@ -1050,7 +1054,7 @@ System & Network & MISC
             that's crazy impractical, isn't it?
         -   Dr. Dean thinks an important skill for every software engineer is
             the ability to **estimate the performance** of alternative systems, using
-            back of the envelope calculations, without having to build them.
+            **back of the envelope calculations**, without having to build them.
 
         Numbers Everyone Should Know
 
@@ -1108,21 +1112,21 @@ System & Network & MISC
         ----------------------------------------------              ------------------------------------------------------------------------
         Hex                                                         Bin
         ----------------------------------------------              ------------------------------------------------------------------------
-        10                                                          2^^3.32^^
+        **1000**                                                    &asymp; **2^^10^^**, 2^^9.9^^
 
-        100                                                         2^^6.64^^
+        100                                                         2^^6.6^^
 
-        1000                                                        2^^9.96^^ &asymp; 2^^10^^
+        10                                                          **2^^3.3^^**
 
         360                                                         2^^8.5^^
 
-        pi = 3.14                                                   2^^1.651^^
+        pi = 3.14                                                   2^^1.65^^, pi^^2^^ = 9 = 10 = 2^^3.3^^, so pi = 2^^1.65^^
 
         e = 2.72                                                    2^^1.44^^
 
         $\sqrt{2} = 1.414$                                          2^^0.5^^
 
-        地球半径 R = 6371 km = 6371 &times; 10^^3^^ m               2^^22.6^^
+        地球半径 R = 6371 km = 6371 &times; 10^^3^^ m               2^^22.6^^ = 2^^6^^*2^^6.6^^*2^^10^^ = 2^^22.6=(6+6.6+10)^^
         ----------------------------------------------              ------------------------------------------------------------------------
 
         怎么用，举例：
@@ -1203,6 +1207,31 @@ System & Network & MISC
         1024^^7^^ | Zi | zebi | – |
         1024^^8^^ | Yi | yobi | –
 
+        ```
+        +-----------+
+        |   8421    |
+        |   xxxx    |
+        +-----------+
+
+        0000    ->  0
+        0001    ->  1
+        0010    ->  2
+        0011    ->  3 = 2+1
+        0100    ->  4
+        0101    ->  5 = 4+1
+        0110    ->  6 = 4+2
+        0111    ->  7 = 4+2+1
+
+        1000    ->  8
+        1001    ->  9 = 8+1
+        1010    ->  a = 8+2     = 10
+        1011    ->  b = 8+2+1   = 11                12345 -> bcdef, b1  c2  d3  c4  f5
+        1100    ->  c = 8+4     = 12                [a: 10],  [c: 12],  [f: 15]
+        1101    ->  d = 8+4+1   = 13
+        1110    ->  e = 8+4+2   = 14
+        1111    ->  f = 8+4+2+1 = 15
+        ```
+
 [^SI]: The SI prefixes (metric prefix) are standardized for use in the
     International System of Units (SI) by the International Bureau of Weights
     and Measures (BIPM) in resolutions dating from 1960 to 1991.
@@ -1228,8 +1257,8 @@ System & Network & MISC
 
         **初学者的话，不要多想，把 CSAPP 看了再说。**
 
-        C 是一门**设计感不是很强的语言**，换句话说很多东西就是没什么道理和规律可循
-        的，要知道具体的问题和当时的写法才能明白其中道理。
+        C 是一门**<设计感不是很强的语言>**，**换句话说很多东西就是没什么道理和规律可循
+        的，要知道具体的问题和当时的写法才能明白其中道理。**
 
         比如吧，malloc 是个内存管理 package，并不是一个很底层的东西。 更加底层的看，
         一个程序有一大块内存，叫作 heap。但是呢，heap 的大小是有限的，用完了问操作系
@@ -1261,11 +1290,12 @@ System & Network & MISC
         做个不恰当的比喻：研发新材料的难度好比 @李阿玲 徒手写 TeX：一次写出一个四万
         行的程序，各个部件耦合性极强且无法解耦，写完前无法预测结果，无法单元测试……
         啊不对，材料研究比 @李阿玲 更加令人绝望，因为 @李阿玲 好歹可以去 debug，材
-        料的性质不对无法 debug，只能改配方重新合成一份来 **trial-and-error**，错了不知
-        道为什么，最后成功了也不知道为什么……因此真无怪乎有些人把材料科学比作「往下
-        水道扔钱」。有人问计算化学——很好，我们组就是做计算化学的，优化一个 30 原子
-        的小分子结构需要两个小时；预测两个小分子的反应产物需要整整一天。我不认为地
-        球上有一台超算能在人类可接受的时间内算出某个电池结构的电量。
+        料的性质不对无法 debug，只能改配方重新合成一份来 **trial-and-error** (`['traɪəl]`)，
+        错了不知道为什么，最后成功了也不知道为什么……因此真无怪乎有些人把材料科
+        学比作「往下水道扔钱」。有人问计算化学——很好，我们组就是做计算化学的，
+        优化一个 30 原子的小分子结构需要两个小时；预测两个小分子的反应产物需要
+        整整一天。我不认为地球上有一台超算能在人类可接受的时间内算出某个电池结
+        构的电量。
 
         refs and see also
 
@@ -1320,11 +1350,17 @@ System & Network & MISC
 
 -   [Shell, Terminal, Console 区别 - 為學日益, 為道日損](http://www.lijigang.com/blog/2016/07/22/shell,-terminal,-console%E5%8C%BA%E5%88%AB/) -<
 
-    :   ![](http://www.lijigang.com/assets/blog/2016/07/22/shell,-terminal,-console%E5%8C%BA%E5%88%AB/shell_terminal.png)
+    :   -   shell is script translator
+        -   terminal is the app that wrap a shell
+        -   console is..., what the fuck it is?
+
+        ![](http://www.lijigang.com/assets/blog/2016/07/22/shell,-terminal,-console%E5%8C%BA%E5%88%AB/shell_terminal.png)
 
 -   `airplane rule`{.heart} -<
 
-    :   >   Complexity increases the possibility of failure; a twin-engine
+    :   simplicity incerase robustness.
+
+        >   Complexity increases the possibility of failure; a twin-engine
         >   airplane has twice as many engine problems as a single-engine
         >   airplane
 
@@ -1518,7 +1554,7 @@ System & Network & MISC
         我告诉你一个识别 C++ 代码质量的诀窍：找几个 class，如果其 dtor 有 delete 或释放
         资源的操作，看看作者是否同时正确禁用了 copy ctor 和 assignment operator（或者正
         确实现了它们，如果 class 确实应该是 copyable 的话），这反映了作者设计 C++ class
-        的基本功：正确管理内存和其他资源，以及他有没有认真读过 Effective C++。
+        的基本功：**正确管理内存和其他资源，以及他有没有认真读过 Effective C++。**
 
         其实，一个人要成牛人，最重要的不是看过多少书，而是有没有一个自己的世界观，并且
         从这个世界观出发，**知道什么要做，什么能做，什么要坚持，什么要追求，什么是命中注
@@ -1531,8 +1567,20 @@ System & Network & MISC
 
 -   fov -<
 
-    :   ![在像幅不变的情况下，如果增大焦距；
-            就需要把 field of view 缩小；FOV 缩小，远处的东西就会变大](http://whudoc.qiniudn.com/2016/fov-focal.jpg)
+    :   ![`<---------<----------<----------<---------`](http://whudoc.qiniudn.com/2016/fov-focal.jpg)
+
+    在像幅不变的情况下，如果增大焦距；就需要把 field of view 缩小；FOV 缩小，远处的东西就会变大.
+
+    ```
+        \
+        |\
+        | \
+        |  \                                 -__
+        |   \                                |    ----  _____
+        |   |\                               |             |    ---- __.
+     ---+---+-X big fov, small.            --+-------------+---------------X small fov, big f
+
+    ```
 
 -   [有多少程序员后悔英语没学好？或者庆幸学好了? - 知乎](https://www.zhihu.com/question/27867216) -<
 
@@ -1543,7 +1591,7 @@ System & Network & MISC
         recruiter 说你的技术很好，但是我们担心你在工作上用英语沟通会有问题，建议你去
         报个英语班过一两年再来应聘，尼玛
 
-        看，“英语不学好，老死在内地”这话没说错吧
+        看，“**英语不学好，老死在内地**”这话没说错吧
 
 -   [Think different. - Original Ad](http://www.thecrazyones.it/spot-en.html#){.heart} -<
 
@@ -1571,6 +1619,8 @@ System & Network & MISC
         |
         |   Because the people who are crazy enough to think
         |   they can change the world, are the ones who do.
+
+        Steve Jobs narrated version.
 
         [最棒的征兵广告_土豆_高清视频在线观看](http://www.tudou.com/programs/view/nMwXpcXrOZ0/?FR=LIAN) -<
 
@@ -1652,7 +1702,12 @@ System & Network & MISC
             这机器就跟人类一样，能表达情绪的。但我们也不知道它是被程序写好表现得这样，
             还是说它真的有感觉……
 
-            ![11](http://gnat.qiniudn.com/speech/robot-10.jpg)
+            >   Well, he acts like he has genuine emotions. Hum, of course,
+            >   he's programmed that way to make it easier for us to talk to
+            >   him.  But as to whether or not he has feelings is something I
+            >   don't think anyone can truthfully answer.
+
+            ![](http://gnat.qiniudn.com/speech/robot-10.jpg)
 
         -   posts
 
@@ -1757,23 +1812,24 @@ System & Network & MISC
     [SYN+SYN/ACK+ACK]
 
     +-------+                           +-------+
-    |       |   --->--SYN------->---+   |       |
+    |       |   --->--SYN------->---+   |       |           客户端发送一个TCP的SYN=1，Seq=X的包到服务器端口
     |       |                       |   |       |
-    | client|   ---<--SYN/ACK---<---+   | server|
+    | client|   ---<--SYN/ACK---<---+   | server|           服务器发回SYN=1， ACK=X+1， Seq=Y的响应包
     |       |   |                       |       |
-    |       |   +-->------ACK--->----   |       |
+    |       |   +-->------ACK--->----   |       |           客户端发送ACK=Y+1， Seq=Z
     +-------+                           +-------+
+
 
     [FIN+ACK; FIN+ACK]
 
     +-------+                           +-------+
-    |       |   --->--FIN------->---+   |       |
+    |       |   --->--FIN------->---+   |       |       主动方发送Fin=1， Ack=Z， Seq= X报文
     |       |                       |   |       |
-    | client|   ---<------ACK---<---+   | server|
+    | client|   ---<------ACK---<---+   | server|       被动方发送ACK=X+1， Seq=Z报文
     |       |                           |       |
-    |       |   +--<--FIN-------<----   |       |
+    |       |   +--<--FIN-------<----   |       |       被动方发送Fin=1， ACK=X， Seq=Y报文
     |       |   |                       |       |
-    |       |   +-->------ACK--->----   |       |
+    |       |   +-->------ACK--->----   |       |       主动方发送ACK=Y， Seq=X报文
     +-------+                           +-------+
     ```
 
@@ -1812,15 +1868,303 @@ System & Network & MISC
 
     ![](http://www.tcpipguide.com/free/diagrams/tcpclose.png)
 
--   [计算机网络 · GitBook](http://hit-alibaba.github.io/interview/basic/network/)
--   [qiu-deqing/FE-interview: 收集的前端面试题和答案](https://github.com/qiu-deqing/FE-interview)
+[计算机网络 · GitBook](http://hit-alibaba.github.io/interview/basic/network/) -<
+
+:   HTTP -<
+
+    :   HTTP 的特性
+        -   HTTP构建于TCP/IP协议之上，默认端口号是80
+        -   HTTP是无连接无状态的
+
+        -   幂等的意味着对同一URL的多个请求应该返回同样的结果。
+        -   在 HTTP 1.1 版本中，默认情况下所有连接都被保持，如果加入 "Connection:
+            close" 才关闭。目前大部分浏览器都使用 HTTP 1.1 协议，也就是说默认都会发
+            起 Keep-Alive 的连接请求了，所以是否能完成一个完整的 Keep-Alive 连接就
+            看服务器设置情况。
+
+    TCP -<
+
+    :   TCP 的特性
+
+        -   TCP提供一种面向连接的、可靠的字节流服务
+        -   在一个TCP连接中，仅有两方进行彼此通信。广播和多播不能用于TCP
+        -   TCP使用校验和，确认和重传机制来保证可靠传输
+        -   TCP使用累积确认
+        -   TCP使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制
+
+    Socket -<
+
+    :   -   Socket 起源于 Unix ，Unix/Linux 基本哲学之一就是“一切皆文件”，都可以用“
+            打开(open) –> 读写(write/read) –> 关闭(close)”模式来进行操作。因此
+            Socket也被处理为一种特殊的文件。
+
+    二叉树 -<
+
+    :   二叉树：二叉树是有限个结点的集合，这个集合或者是空集，或者是由一个根结
+        点和两株互不相交的二叉树组成，其中一株叫根的做左子树，另一棵叫做根的右
+        子树。
+
+        二叉树的性质：
+
+        -   性质1：在二叉树中第 i 层的结点数最多为2^(i-1)（i ≥ 1）
+        -   性质2：高度为k的二叉树其结点总数最多为2^k－1（ k ≥ 1）
+        -   性质3：对任意的非空二叉树 T ，如果叶结点的个数为 n0，而其度为 2 的结点数为 n2，则：n0 = n2 + 1
+
+        满二叉树：深度为k且有2^k －1个结点的二叉树称为满二叉树
+
+        完全二叉树：深度为 k 的，有n个结点的二叉树，当且仅当其每个结点都与深度为 k
+        的满二叉树中编号从 1 至 n 的结点一一对应，称之为完全二叉树。（除最后一层外
+        ，每一层上的节点数均达到最大值；在最后一层上只缺少右边的若干结点）
+
+        性质4：具有 n 个结点的完全二叉树的深度为 log2n + 1
+
+        注意：仅有前序和后序遍历，不能确定一个二叉树，必须有中序遍历的结果
+
+        平衡二叉树 -<
+
+        :   平衡二叉树（balanced binary tree）,又称 AVL 树。它或者是一棵空树,或者是具有如下性质的二叉树：
+
+            -   它的左子树和右子树都是平衡二叉树，
+            -   左子树和右子树的深度之差的绝对值不超过1。
+
+            平衡二叉树是对二叉搜索树(又称为二叉排序树)的一种改进。二叉搜索树有一个
+            缺点就是，树的结构是无法预料的，随意性很大，它只与节点的值和插入的顺序
+            有关系，往往得到的是一个不平衡的二叉树。在最坏的情况下，可能得到的是一
+            个单支二叉树，其高度和节点数相同，相当于一个单链表，对其正常的时间复杂
+            度有O(log(n))变成了O(n)，从而丧失了二叉排序树的一些应该有的优点。
+
+        B-树 -<
+
+        :   B-树：B-树是一种非二叉的查找树， 除了要满足查找树的特性，还要满足以下结构特性：
+
+            一棵 m 阶的B-树：
+
+            -   树的根或者是一片叶子(一个节点的树),或者其儿子数在 2 和 m 之间。
+            -   除根外，所有的非叶子结点的孩子数在 m/2 和 m 之间。
+            -   所有的叶子结点都在相同的深度。
+
+            B-树的平均深度为logm/2(N)。执行查找的平均时间为O(logm)；
+
+        Trie 树 -<
+
+        :   Trie 树，又称前缀树，字典树， 是一种有序树，用于保存关联数组，其中的键通常
+            是字符串。与二叉查找树不同，键不是直接保存在节点中，而是由节点在树中的位置
+            决定。一个节点的所有子孙都有相同的前缀，也就是这个节点对应的字符串，而根节
+            点对应空字符串。一般情况下，不是所有的节点都有对应的值，只有叶子节点和部分
+            内部节点所对应的键才有相关的值。
+
+            Trie 树查询和插入时间复杂度都是 O(n)，是一种以空间换时间的方法。当节点树较多的时候，Trie 树占用的内存会很大。
+
+            Trie 树常用于搜索提示。如当输入一个网址，可以自动搜索出可能的选择。当没有完全匹配的搜索结果，可以返回前缀最相似的可能。
+
+    哈希表 -<
+
+    :   冲突解决 -<
+
+        :   -   链地址法
+
+                链地址法的基本思想是，为每个 Hash 值建立一个单链表，当发生冲突时，将记录插入到链表中。
+
+                ![](https://github.com/HIT-Alibaba/interview/blob/master/img/hash-table.jpg?raw=true)
+
+            -   开放地址法
+
+        http://open.163.com/movie/2010/12/1/S/M6UTT5U0I_M6V2U3R1S.html
+
+
+        比如数字0x12345678在两种不同字节序CPU中的存储顺序如下所示：
+
+        ```
+        Big Endian
+
+            低地址                                            高地址
+            ---------------------------------------------------->
+            +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+            |     12     |      34    |     56      |     78    |
+            +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+        Little Endian
+
+            低地址                                            高地址
+            ---------------------------------------------------->
+            +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+            |     78     |      56    |     34      |     12    |
+            +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+        ```
+
+        ```cpp
+        union test {
+            short  i;
+            char str[sizeof(short)];
+        } tt;
+
+        void main()
+        {
+            tt.i = 0x0102;
+            if(sizeof(short) == 2)
+                {
+                    if(tt.str[0] == 1 && tt.str[1] == 2)
+                        printf("大端字节序");
+                    else if(tt.str[0] = 2 && tt.str[1] == 1)
+                        printf("小端字节序");
+                    else
+                        printf("结果未知");
+                 }
+            else
+                printf("sizof(short)=%d,不等于2",sizeof(short));
+        }
+        ```
+
+        ![](http://images.cnblogs.com/cnblogs_com/jeffreyzhao/byte-order/500px-Big-Endian.png)
+
+        ![](http://images.cnblogs.com/cnblogs_com/jeffreyzhao/byte-order/500px-Little-Endian.png)
+
+[qiu-deqing/FE-interview: 收集的前端面试题和答案](https://github.com/qiu-deqing/FE-interview) -<
+
+:   HTTP method
+
+    -   一台服务器要与HTTP1.1兼容，只要为资源实现GET和HEAD方法即可
+    -   GET是最常用的方法，通常用于请求服务器发送某个资源。
+    -   HEAD与GET类似，但服务器在响应中值返回首部，不返回实体的主体部分
+    -   PUT让服务器用请求的主体部分来创建一个由所请求的URL命名的新文档，或者，
+        如果那个URL已经存在的话，就用干这个主体替代它
+    -   POST起初是用来向服务器输入数据的。实际上，通常会用它来支持HTML的表单。
+        表单中填好的数据通常会被送给服务器，然后由服务器将其发送到要去的地方。
+    -   TRACE会在目的服务器端发起一个环回诊断，最后一站的服务器会弹回一个TRACE
+        响应并在响应主体中携带它收到的原始请求报文。TRACE方法主要用于诊断，用于
+        验证请求是否如愿穿过了请求/响应链。
+    -   OPTIONS方法请求web服务器告知其支持的各种功能。可以查询服务器支持哪些方
+        法或者对某些特殊资源支持哪些方法。
+    -   DELETE请求服务器删除请求URL指定的资源
+
+    css sprite是什么,有什么优缺点
+
+    :   概念：将多个小图片拼接到一个图片中。通过background-position和元素尺寸调节需要显示的背景图案。
+
+        优点：
+
+        -   减少HTTP请求数，极大地提高页面加载速度
+        -   增加图片信息重复度，提高压缩比，减少图片大小
+        -   更换风格方便，只需在一张或几张图片上修改颜色或样式即可实现
+
+        缺点：
+
+        -   图片合并麻烦
+        -   维护麻烦，修改一个图片可能需要从新布局整个图片，样式
+
+    refs and see also
+
+    -   [fex-team/interview-questions: FEX 面试问题](https://github.com/fex-team/interview-questions)
+
 -   [paddingme/Front-end-Web-Development-Interview-Question: 前端开发面试题大收集](https://github.com/paddingme/Front-end-Web-Development-Interview-Question)
 -   [4ker/recipes: Some code snippets for sharing](https://github.com/4ker/recipes)
 -   [4ker/annotated-git-1.0](https://github.com/4ker/annotated-git-1.0/)
--   [fex-team/interview-questions: FEX 面试问题](https://github.com/fex-team/interview-questions)
 
-[为什么在 CPU 中要用 Cache 从内存中快速提取数据？ - 知乎](https://www.zhihu.com/question/22431522)
+[为什么在 CPU 中要用 Cache 从内存中快速提取数据？ - 知乎](https://www.zhihu.com/question/22431522) -<
 
-[在校学生一枚，面对高性能服务器开发、分布式系统、缓存系统等等。该如何最快最好的提升自己的技术水平呢？ - 知乎](https://www.zhihu.com/question/20183430)
+:   既然CPU速率高， 内存速率慢，那么中间加一个Cache的目的就是为了让存储体系可以跟上CPU的速度.
 
--   [HTTP 协议入门 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/08/http.html){.hearts}
+    普通的CPU+DRAM内存的结构, 如果没有设计Cache, 每一次CPU都要找内存要数据, 这
+    个延迟估计在80个时钟周期左右. 这是因为CPU要从内部运算核心将请求发到CPU边缘
+    的总线上, 从总线上电路板, 到达北桥, 再上电路板到达DRAM. DRAM搜索到数据后如
+    此再送回去. CPU动作那么快, 等的黄花菜都凉了.如果加了Cache会怎样? L1 Cache,
+    访问延迟在4个周期左右, L2 Cache, 延迟在15个周期左右, L3Cache, 延迟在50个周
+    期左右. 但是由于添加了很多Cache, CPU访问内存的速度被降低了, 需要120个周期左
+    右. 如果CPU需要的内容, 90%在L1 Cache里有, 6%在L2 Cache里有, 3%在L3 Cache里
+    有, 1%要去找DRAM拿. 那么整个存储体系的等效延迟就是: 7.2个时钟周期.这不是爽
+    歪了么??
+
+    预先读取，为什么cpu不能做呢？
+    预取(prefetch)这件事cpu的确不做, 是Cache在做, 每一集的Cache都会有自己的prefetcher. 而实际上L1 Cache已经被融合进CPU内部里了, L1I和L1D和CPU流水线简直就是紧挨在一起, L2 Cache又紧挨着CPU的L1D. 所以L1I, L1D, L2它们做预取, 和CPU自己做是一回事! 而且CPU跑多快, 预取的速度就有多快!
+    上面凭什么说"CPU需要的内容, 90%在L1 Cache里有, 6%在L2 Cache里有"? 就是因为Cache中数据大多是复用的, 而且Cache基于历史数据还一直在预取! 而CPU和prefetcher像极了老总和小秘的关系, 比如:
+
+[在校学生一枚，面对高性能服务器开发、分布式系统、缓存系统等等。该如何最快最好的提升自己的技术水平呢？ - 知乎](https://www.zhihu.com/question/20183430) -<
+
+:   作为学生的你，你现在学习的 算法、数据结构、网络原理、操作系统、组件原理、汇
+    编语言 等等科目，是内功！内功需要按顺序，循序渐进地学习，而且学习过程非常痛
+    苦且艰难！那些招式与内功相比，算个球！
+
+[HTTP 协议入门 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/08/http.html){.hearts}
+
+:   HTTP 是基于 TCP/IP 协议的应用层协议。它不涉及数据包（packet）传输，主要规定
+    了客户端和服务器之间的通信格式，默认使用80端口。
+
+    最早版本是1991年发布的0.9版。该版本极其简单，只有一个命令GET。
+
+    1996年5月，HTTP/1.0 版本发布，内容大大增加。
+
+    首先，任何格式的内容都可以发送。这使得互联网不仅可以传输文字，还能传输图像、视频、二进制文件。这为互联网的大发展奠定了基础。
+
+    其次，除了GET命令，还引入了POST命令和HEAD命令，丰富了浏览器与服务器的互动手段。
+
+    再次，HTTP请求和回应的格式也变了。除了数据部分，每次通信都必须包括头信息（HTTP header），用来描述一些元数据。
+
+    其他的新增功能还包括状态码（status code）、多字符集支持、多部分发送（multi-part type）、权限（authorization）、缓存（cache）、内容编码（content encoding）等。
+
+    Content-Type 字段
+
+    :   关于字符的编码，1.0版规定，头信息必须是 ASCII 码，后面的数据可以是任何格式
+        。因此，服务器回应的时候，必须告诉客户端，数据是什么格式，这就是
+        Content-Type字段的作用。
+
+        下面是一些常见的Content-Type字段的值。
+
+        ```
+        text/plain                  audio/mp4
+        text/html                   video/mp4
+        text/css                    application/pdf
+        image/jpeg                  application/zip
+        image/png                   application/atom+xml
+        image/svg+xml               application/javascript
+        ```
+
+        MIME type还可以在尾部使用分号，添加参数: `Content-Type: text/html; charset=utf-8`
+
+        HTTP/1.0 版的主要缺点是，每个TCP连接只能发送一个请求。发送数据完毕，连接就关闭，如果还要请求其他资源，就必须再新建一个连接。
+
+        TCP连接的新建成本很高，因为需要客户端和服务器三次握手，并且开始时发送速
+        率较慢（slow start）。所以，HTTP 1.0版本的性能比较差。随着网页加载的外
+        部资源越来越多，这个问题就愈发突出了。
+
+        1997年1月，HTTP/1.1 版本发布，只比 1.0 版本晚了半年。它进一步完善了 HTTP 协议，一直用到了20年后的今天，直到现在还是最流行的版本。
+
+        1.1 版的最大变化，就是引入了持久连接（persistent connection），即TCP连接默认不关闭，可以被多个请求复用，不用声明Connection: keep-alive。
+
+        客户端和服务器发现对方一段时间没有活动，就可以主动关闭连接。不过，规范的做法是，客户端在最后一个请求时，发送Connection: close，明确要求服务器关闭TCP连接。
+
+        目前，对于同一个域名，大多数浏览器允许同时建立6个持久连接。
+
+        2009年，谷歌公开了自行研发的 SPDY 协议，主要解决 HTTP/1.1 效率不高的问题。
+
+        这个协议在Chrome浏览器上证明可行以后，就被当作 HTTP/2 的基础，主要特性都在 HTTP/2 之中得到继承。
+
+        HTTP/2 允许服务器未经请求，主动向客户端发送资源，这叫做服务器推送（server push）。
+
+        常见场景是客户端请求一个网页，这个网页里面包含很多静态资源。正常情况下，
+        客户端必须收到网页后，解析HTML源码，发现有静态资源，再发出静态资源请
+        求。其实，服务器可以预期到客户端请求网页后，很可能会再请求静态资源，所
+        以就主动把这些静态资源随着网页一起发给客户端了。
+
+[浅谈字节序（Byte Order）及其相关操作 - Jeffrey Zhao - 博客园](http://www.cnblogs.com/JeffreyZhao/archive/2010/02/10/byte-order-and-related-library.html)
+
+:   对于我们常用的CPU架构，如Intel，AMD的CPU使用的都是小字节序，而例如Mac OS以
+    前所使用的Power PC使用的便是大字节序（不过现在Mac OS也使用Intel的CPU了）。
+    此外，除了大字节序和小字节序之外，还有一种很少见的中字节序（middle endian），
+    它会以2143的方式来保存数据（相对于大字节序的1234及小字节序的4321）。
+
+[定点数与浮点数](http://jsjedu.hxu.edu.cn/dxjsjjc/kcnr/wlkj/03architecture/detail/3-1-5.htm)
+
+[Master-1.注重实效的哲学 | PaddingMe's Blog](http://padding.me/blog/2016/04/11/2016-04-04Master-1-%E6%B3%A8%E9%87%8D%E5%AE%9E%E6%95%88%E7%9A%84%E5%93%B2%E5%AD%A6/)
+
+[你的字典里有多少元素？ - 老赵点滴 - 追求编程之美](http://blog.zhaojie.me/2014/07/how-many-elements-in-your-dictionary.html)
+
+:   “字典”或者说“哈希表”大家都会用，这真是一个好东西，只要创建了之后就可以不断
+    的丢东西进去，添加删除都是O(1)操作，那叫一个快字了得。不过这里我要再次引用
+    Alan Perlis的名言：“Lisp programmers know the value of everything but the
+    cost of nothing.”，目的是想提醒做事“不要忘记背后的代价”。
+
+[《写给大家看的设计书》读书笔记 | PaddingMe's Blog](http://padding.me/blog/2015/08/02/%E3%80%8A%E5%86%99%E7%BB%99%E5%A4%A7%E5%AE%B6%E7%9C%8B%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B9%A6%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/)
+
+:   约书亚树
+
+    >   一旦你能够说出什么东西的名字，就会很容易注意到它。你就会掌握它，拥有它，使它在你的控制中。

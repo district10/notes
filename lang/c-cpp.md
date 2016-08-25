@@ -428,7 +428,7 @@ C++ 简介 | Intro
         buf is: abcd
         ```
 
--   atoi, strtol, strtof, etc -<
+-   atoi, strtol, strtof, atof, etc -<
 
     :   -   atoi, atol, atoll -<
 
@@ -441,6 +441,41 @@ C++ 简介 | Intro
                 ```
 
                 `atoi(nptr)` 和 `strtol(nptr, NULL, 10);` 一样的，除了它不 detect errors。
+
+        -   atof -<
+
+            :   ```cpp
+                #include <stdlib.h>
+                double atof( const char *str );
+                ```
+
+                ```cpp
+                #include <cstdlib>
+                #include <iostream>
+
+                int main()
+                {
+                    std::cout << std::atof("0.0000000123") << "\n"
+                              << std::atof("0.012") << "\n"
+                              << std::atof("15e16") << "\n"
+                              << std::atof("-0x1afp-2") << "\n"
+                              << std::atof("inF") << "\n"
+                              << std::atof("Nan") << "\n";
+                }
+                ```
+
+                ```
+                1.23e-08
+                0.012
+                1.5e+17
+                -107.75
+                inf
+                nan
+                ```
+
+                refs and see also
+
+                -   [strtof, strtod, strtold - cppreference.com](http://en.cppreference.com/w/c/string/byte/strtof)
 
         -   strtol, strtoll, strtoul, strtoull -<
 
@@ -535,7 +570,7 @@ C++ 简介 | Intro
 
                 refs and see also
 
-                -   [strtof, strtod, strtold - cppreference.com](http://en.cppreference.com/w/c/string/byte/strtof)
+                -   [std::atof - cppreference.com](http://en.cppreference.com/w/cpp/string/byte/atof)
 
 -   itoa （不是标准库函数）-<
 
@@ -3991,6 +4026,14 @@ C++ 简介 | Intro
 
         -   [禅与文件和文件夹组织的艺术 上 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/archive/2013/01/15/zen-and-the-art-of-file-and-folder-organization-part1.html)
 
+-   When do you use float and when do you use double?
+
+    :   >   When in double, use `double`.
+
+        refs and see also
+
+        -   [c++ - When do you use float and when do you use double - Programmers Stack Exchange](http://programmers.stackexchange.com/questions/188721/when-do-you-use-float-and-when-do-you-use-double) -<
+
 -   TODO，我已经理解或者下文有介绍的，不再贴在这里，faqend -<
 
     :   -   [c++ faq - The Definitive C++ Book Guide and List - Stack Overflow](http://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
@@ -5487,7 +5530,7 @@ C++ 简介 | Intro
         -   [scoped_ptr - 1.50.0](http://www.boost.org/doc/libs/1_50_0/libs/smart_ptr/scoped_ptr.htm)
         -   [Smart Pointers - 1.50.0](http://www.boost.org/doc/libs/1_50_0/libs/smart_ptr/smart_ptr.htm)
 
--   [Definitions and ODR - cppreference.com](http://en.cppreference.com/w/cpp/language/definition)
+-   [Definitions and ODR - cppreference.com](http://en.cppreference.com/w/cpp/language/definition) -<
 
     :   Definitions are declarations that **fully define the entity**
         introduced by the declaration. Every declaration is a definition,
@@ -6513,27 +6556,6 @@ C++ 简介 | Intro
         [深入理解计算机系统（Computer Systems: A Programmer's Perspective）阅读体会 - _Luc_ - 博客园](http://www.cnblogs.com/figure9/archive/2010/04/10/1708942.html)
 
 -   [《C 语言接口与实现: 创建可重用软件的技术》 David R. Hanson, 郭旭【摘要 书评 试读】图书](https://www.amazon.cn/gp/product/B005LAJ9F6/ref=as_li_ss_tl?ie=UTF8&camp=536&creative=3132&creativeASIN=B005LAJ9F6&linkCode=as2&tag=lucida-23)
-
--   [Adoo's blog - Introduction to Algorithm -third edition](http://www.roading.org/category/introduction-to-algorithm-third-edition.html)
-
--   《DPV -- Algorithm》 -<
-
-    :   [算法之美（Algorithms）书评](https://book.douban.com/review/1325850/)
-
-        :   算法作为一门学问，有两条正交的线索。一个是算法处理的对象：数、矩阵、
-            集合、串 (strings)、排列 (permutations)、图 (graphs)、表达式
-            (formula)、分布(distributions)，等等。另一个是算法的设计思想：贪婪、
-            分治、动态规划、线性规划、局部搜索 (local search)，等等。这两条线索
-            几乎是相互独立的：同一个离散对象，例如图，稍有不同的问题，例如
-            single-source shortest path和all-pair shortest path，就可以用到不同
-            的设计思想，如贪婪和动态规划；而完全不同的离散对象上的问题，例如排
-            序和整数乘法，也许就会用到相同的思想，例如分治。
-
--   《The Algorithm Design Manual》 -<
-
-    :   [Skiena's Audio Lectures](http://www3.cs.stonybrook.edu/~algorith/video-lectures/)
-
-        [不愧对“手册”之名，即使通读过CLRS再读也有所收获（算法设计手册）书评](https://book.douban.com/review/6250350/)
 
 -   [chenshuo/documents](https://github.com/chenshuo/documents/){.heart} -<
 

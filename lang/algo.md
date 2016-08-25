@@ -5,7 +5,9 @@ title: Algorithms
 Algorithms
 ==========
 
-![](http://whudoc.qiniudn.com/ascii.png)
+>   I have dreams, and regardless of whether or not they're realistic, I must work toward them.
+
+:   ![](http://whudoc.qiniudn.com/ascii.png)
 
 ## 0.
 
@@ -280,6 +282,49 @@ Algorithms
     |   海上决战名扬天下（得到Offer搞定工作）。
 
 ## 1.
+
+A Bit of Logic -<
+
+:   --------------------------------------------------------------------------------------------------------------
+    Axiom                                           Signification
+    ------------------------------------            --------------------------------------------------------------
+    **Associativity** of addition                   `u + (v + w) = (u + v) + w`
+
+    **Commutativity** of addition                   `u + v = v + u`
+
+    **Identity element** of addition                There exists an element 0 ∈ V,
+                                                    called the zero vector, such that `v + 0 = v` for all v ∈ V.
+
+    **Inverse elements** of addition                For every v ∈ V, there exists an element −v ∈ V,
+                                                    called the additive inverse of v, such that v + (−v) = 0
+    --------------------------------------------------------------------------------------------------------------
+
+
+    XOR: either one, but not both
+
+    ------------------------------------------------
+    Symbol  Operator
+    ------  ----------------------------------------
+    `&`     bitwise AND
+
+    `|`     bitwise inclusive OR
+
+    `^`     bitwise XOR (eXclusive OR)
+
+    `<<`    left shift
+
+    `>>`    right shift
+
+    `~`     bitwise NOT (one's complement) (unary)
+    ------------------------------------------------
+
+    refs and see also
+
+    -   [Bitwise operation - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Bitwise_operation)
+    -   [Bitwise operations in C - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Bitwise_operations_in_C)
+    -   [Exclusive or - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Exclusive_or)
+    -   [Linear algebra - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Linear_algebra)
+    -   [Bit field - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Bit_field)
 
 [九章算法班 - 硅谷顶尖 IT 企业一线工程师直播教学](http://www.jiuzhang.com/course/1/) -<
 
@@ -7433,6 +7478,52 @@ Programming Pearls -<
     ![g](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-08-17.png)
     ![h](http://whudoc.qiniudn.com/2016/firefox_2016-08-06_11-08-42.png)
 
+Beauty of Programming -<
+
+:   -   ```cpp
+        #include <stdio.h>
+
+        int main() {
+            int i = 81;
+            while( i-- ) {
+                if( i/9%3 == i%9%3 ) { continue; }
+                printf( "A = %d, B = %d\n", i/9+1, i%9+1 );
+            }
+        }
+        ```
+
+        ```cpp
+        #include <stdio.h>
+
+        struct {
+            unsigned char a:4;
+            unsigned char b:4;
+        } i;
+
+        for( i.a = 1; i.a <= 9; ++i.a ) {
+            for( i.b = 1; i.b <= 9; ++i.b ) {
+                if( i.a%3 != i.b%3 ) {
+                    printf( "A = %d, B = %d\n", i.a, i.b );
+                }
+            }
+        }
+        ```
+
+    -   XOR
+
+        ```cpp
+        #include <stdio.h>
+
+        int main() {
+            int A[] = { 1, 2, 1, 3, 8, 8, 3, 9, 0, 9 }; // 0!
+            int x = 0;
+            for( int i =0; i < sizeof(A)/sizeof(A[0]); ++i ) {
+                x ^= A[i]; // communitive rule, xor
+            }
+            printf( "the missing one is: %d\n", x );
+        }
+        ```
+
 ## 2.
 
 常见 C/C++ 函数 -<
@@ -7705,10 +7796,6 @@ Programming Pearls -<
 
             -   [程序员编程艺术：第四章、现场编写类似strstr/strcpy/strpbrk的函数 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6417600)
 
-[程序员面试、算法研究、编程艺术、红黑树、数据挖掘5大系列集锦 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/6543438)
-
-[Bresenham's line algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm)
-
 Milo Yip 的博客 -<
 
 :   -   [《编程之美: 求二叉树中节点的最大距离》的另一个解法 - Milo Yip - 博客园](http://www.cnblogs.com/miloyip/archive/2010/02/25/binary_tree_distance.html)
@@ -7762,3 +7849,469 @@ Code Reading -<
     [libevent 源码深度剖析二 - sparkliang 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957744)
 
     [daoluan/decode-memcached: memcached 源码剖析注释](https://github.com/daoluan/decode-memcached)
+
+StackOverflow -<
+
+:   -   [logic - What is the optimal algorithm for the game 2048? - Stack Overflow](http://stackoverflow.com/questions/22342854/what-is-the-optimal-algorithm-for-the-game-2048)
+
+    -   [algorithm - What is a plain English explanation of "Big O" notation? - Stack Overflow](http://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation)
+
+    -   [c++ - Image Processing: Algorithm Improvement for 'Coca-Cola Can' Recognition - Stack Overflow](http://stackoverflow.com/questions/10168686/image-processing-algorithm-improvement-for-coca-cola-can-recognition) -<
+
+        :   signature scan lines.
+
+    -   [algorithm - What is tail recursion? - Stack Overflow](http://stackoverflow.com/questions/33923/what-is-tail-recursion) -<
+
+        :   ```python
+            def recsum(x):
+                if x == 1:
+                    return x
+                else:
+                    return x + recsum(x - 1)
+            ```
+
+            In traditional recursion, the typical model is that you
+            perform your recursive calls first, and then you take the
+            return value of the recursive call and calculate the
+            result. In this manner, you don't get the result of your
+            calculation until you have returned from every recursive
+            call.
+
+            In tail recursion, you perform your calculations first, and
+            then you execute the recursive call, passing the results of
+            your current step to the next recursive step. This results
+            in the last statement being in the form of "(return
+            (recursive-function params))" (I think that's the syntax
+            for Lisp). Basically, the return value of any given
+            recursive step is the same as the return value of the next
+            recursive call.
+
+            The consequence of this is that once you are ready to
+            perform your next recursive step, you don't need the
+            current stack frame any more. This allows for some
+            optimization. In fact, with an appropriately written
+            compiler, you should never have a stack overflow snicker
+            with a tail recursive call. Simply reuse the current stack
+            frame for the next recursive step. I'm pretty sure Lisp
+            does this.
+
+            >   An important point is that tail recursion is essentially equivalent to looping.
+
+    -   [algorithm - Easy interview question got harder: given numbers 1..100, find the missing number(s) - Stack Overflow](http://stackoverflow.com/questions/3492302/easy-interview-question-got-harder-given-numbers-1-100-find-the-missing-numbe){.hearts} -<
+
+        :   [Newton's identities - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Newton%27s_identities#Formulation_in_terms_of_symmetric_polynomials)
+
+    -   [search - Ukkonen's suffix tree algorithm in plain English? - Stack Overflow](http://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english)
+
+    -   [algorithm - Find an integer not among four billion given ones - Stack Overflow](http://stackoverflow.com/questions/7153659/find-an-integer-not-among-four-billion-given-ones) -<
+
+        :   >   Given an input file with four billion integers, provide
+            >   an algorithm to generate an integer which is not
+            >   contained in the file. Assume you have 1 GB memory.
+            >   Follow up with what you would do if you have only 10 MB of memory.
+
+            Assuming that "integer" means 32 bits
+
+            :   Having 10 MB of space is more than enough for you to count how many numbers
+                there are in the input file with any given 16-bit prefix, for all possible
+                16-bit prefixes in one pass through the input file. At least one of the
+                buckets will have be hit less than 2^16 times. Do a second pass to find of
+                which of the possible numbers in that bucket are used already.
+
+            If it means more than 32 bits, but still of bounded size
+
+            :   Do as above, ignoring all input numbers that happen to fall outside the
+                (signed or unsigned; your choice) 32-bit range.
+
+            If "integer" means mathematical integer
+
+            :   Read through the input once and keep track of the largest number length of
+                the longest number you've ever seen. When you're done, output the maximum
+                plus one a random number that has one more digit. (One of the numbers in
+                the file may be a bignum that takes more than 10 MB to represent exactly,
+                but if the input is a file, then you can at least represent the length of
+                anything that fits in it).
+
+            ```cpp
+            #define BITSPERWORD 32
+            #define SHIFT 5
+            #define MASK 0x1F
+            #define N 10000000
+            int a[1 + N/BITSPERWORD];
+
+            void set(int i) {        a[i>>SHIFT] |=  (1<<(i & MASK)); }
+            void clr(int i) {        a[i>>SHIFT] &= ~(1<<(i & MASK)); }
+            int  test(int i){ return a[i>>SHIFT] &   (1<<(i & MASK)); }
+            ```
+
+    -   [algorithm - What are the differences between NP, NP-Complete and NP-Hard? - Stack Overflow](http://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard) -<
+
+        :   Decision problem
+              ~ A problem with a yes or no answer.
+
+            Now, let us define those complexity classes.
+
+            P
+
+            :   P is a complexity class that represents the set of all decision problems
+                that can be solved in **polynomial time**. That is, given an instance of the
+                problem, the answer yes or no can be decided in polynomial time.
+
+                Example
+
+                Given a graph connected G, can its vertices be coloured using two colours so that no edge is monochromatic?
+
+                Algorithm: start with an arbitrary vertex, color it red and all of its
+                neighbours blue and continue. Stop when you run out of vertices or you are
+                forced to make an edge have both of its endpoints be the same color.
+
+            NP
+
+            :   NP is a complexity class that represents the set of all decision problems
+                for which the instances where the answer is "yes" have proofs that can be
+                verified in polynomial time.
+
+                This means that if someone gives us an instance of the problem and a
+                certificate (sometimes called a witness) to the answer being yes, we can
+                check that it is correct in polynomial time.
+
+                Example
+
+                Integer factorisation is in NP. This is the problem that given integers n
+                and m, is there an integer f with 1 < f < m, such that f divides n (f is a
+                small factor of n)?
+
+                This is a decision problem because the answers are yes or no. If someone
+                hands us an instance of the problem (so they hand us integers n and m) and
+                an integer f with 1 < f < m, and claim that f is a factor of n (the
+                certificate), we can check the answer in polynomial time by performing the
+                division n / f.
+
+            NP-Complete
+
+            :   NP-Complete is a complexity class which represents the set of all problems
+                X in NP for which it is possible to reduce any other NP problem Y to X in
+                polynomial time.
+
+                Intuitively this means that we can solve Y quickly if we know how to solve
+                X quickly. Precisely, Y is reducible to X, if there is a polynomial time
+                algorithm f to transform instances y of Y to instances x = f(y) of X in
+                polynomial time, with the property that the answer to y is yes, if and only
+                if the answer to f(y) is yes.
+
+                Example
+
+                3-SAT. This is the problem wherein we are given a conjunction (ANDs) of
+                3-clause disjunctions (ORs), statements of the form
+
+                ```
+                (x_v11 OR x_v21 OR x_v31) AND
+                (x_v12 OR x_v22 OR x_v32) AND
+                ...                       AND
+                (x_v1n OR x_v2n OR x_v3n)
+                ```
+
+                where each x_vij is a boolean variable or the negation of a variable from a
+                finite predefined list (x_1, x_2, ... x_n).
+
+                It can be shown that every NP problem can be reduced to 3-SAT. The proof of
+                this is technical and requires use of the technical definition of NP (based
+                on non-deterministic Turing machines). This is known as Cook's theorem.
+
+                What makes NP-complete problems important is that if a deterministic
+                polynomial time algorithm can be found to solve one of them,
+                **every NP problem is solvable in polynomial time** (one problem to rule them all).
+
+            NP-hard
+
+            P = NP
+
+            ```
+            ____________________________________________________________
+            | Problem Type | Verifiable in P time | Solvable in P time | Increasing Difficulty
+            |______________|______________________|____________________|           |
+            | P            |        Yes           |        Yes         |           |
+            | NP           |        Yes           |     Yes or No *    |           |
+            | NP-Complete  |        Yes           |      Unknown       |           |
+            | NP-Hard      |     Yes or No **     |      Unknown ***   |           |
+            |______________|______________________|____________________|           V
+            ```
+
+    -   [algorithm - Big O, how do you calculate/approximate it? - Stack Overflow](http://stackoverflow.com/questions/3255/big-o-how-do-you-calculate-approximate-it)
+
+    -   [algorithm - Calculate distance between two latitude-longitude points? (Haversine formula) - Stack Overflow](http://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula) -<
+
+        :   ```javascript
+            // This script [in Javascript] calculates great-circle distances between the
+            // two points – that is, the shortest distance over the earth’s surface – using
+            // the ‘Haversine’ formula.
+            function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+                var R = 6371; // Radius of the earth in km
+                var dLat = deg2rad(lat2-lat1);  // deg2rad below
+                var dLon = deg2rad(lon2-lon1);
+                var a =
+                    Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                    Math.sin(dLon/2) * Math.sin(dLon/2)
+                    ;
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                var d = R * c; // Distance in km
+                return d;
+            }
+
+            function deg2rad(deg) {
+                return deg * (Math.PI/180)
+            }
+            ```
+
+            refs and see also
+
+            -   [Haversine formula - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Haversine_formula)+
+            -   [Calculate distance and bearing between two Latitude/Longitude points using haversine formula in JavaScript](http://www.movable-type.co.uk/scripts/latlong.html)
+
+    -   [routing - What algorithms compute directions from point A to point B on a map? - Stack Overflow](http://stackoverflow.com/questions/430142/what-algorithms-compute-directions-from-point-a-to-point-b-on-a-map)
+
+    -   [c# - How to check if a number is a power of 2 - Stack Overflow](http://stackoverflow.com/questions/600293/how-to-check-if-a-number-is-a-power-of-2) -<
+
+        :   `x & (x-1) == 0 ?`, as I expected.
+
+    -   [algorithm - How to code a URL shortener? - Stack Overflow](http://stackoverflow.com/questions/742013/how-to-code-a-url-shortener) -<
+
+        :   -   encode, bijective.
+            -   checksum
+
+    -   [Algorithm to return all combinations of k elements from n - Stack Overflow](http://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n) -<
+
+        :   chenshuo has a better solution.
+
+    -   [sql - What is the most efficient/elegant way to parse a flat table into a tree? - Stack Overflow](http://stackoverflow.com/questions/192220/what-is-the-most-efficient-elegant-way-to-parse-a-flat-table-into-a-tree)
+
+    -   [algorithm - How to find list of possible words from a letter matrix [Boggle Solver] - Stack Overflow](http://stackoverflow.com/questions/746082/how-to-find-list-of-possible-words-from-a-letter-matrix-boggle-solver)
+
+    -   [c++ - Most effective way for float and double comparison - Stack Overflow](http://stackoverflow.com/questions/17333/most-effective-way-for-float-and-double-comparison)
+
+    -   [algorithm - Getting the closest string match - Stack Overflow](http://stackoverflow.com/questions/5859561/getting-the-closest-string-match)
+
+        :   -   [Levenshtein distance - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Levenshtein_distance)
+
+
+    -   [c - Why doesn't GCC optimize a*a*a*a*a*a to (a*a*a)*(a*a*a)? - Stack Overflow](http://stackoverflow.com/questions/6430448/why-doesnt-gcc-optimize-aaaaaa-to-aaaaaa)
+
+        :   Because Floating Point Math is not Associative. The way
+            you group the operands in floating point multiplication
+            has an effect on the numerical accuracy of the answer.
+
+            As a result, most compilers are very conservative about
+            reordering floating point calculations unless they can
+            be sure that the answer will stay the same, or unless
+            you tell them you don't care about numerical accuracy.
+            For example: the `-fassociative-math` option of gcc which
+            allows gcc to reassociate floating point operations, or
+            even the `-ffast-math` option which allows even more
+            aggressive tradeoffs of accuracy against speed.
+
+            Another similar case: most compilers won't optimize a +
+            b + c + d to (a + b) + (c + d) (this is an optimization
+            since the second expression can be pipelined better)
+            and evaluate it as given (i.e. as (((a + b) + c) + d)).
+            This too is because of corner cases:
+
+            ```cpp
+            #include <stdio.h>
+
+            int main() {
+                float a = 1e35, b = 1e-5, c = -1e35, d = 1e-5;
+                printf("%e %e\n", a + b + c + d, (a + b) + (c + d)); // 1.000000e-05 0.000000e+00
+            }
+            ```
+
+            [What Every Computer Scientist Should Know About Floating-Point Arithmetic](http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html)
+
+    -   [c - Divide a number by 3 without using `*`, `/`, `+`, `-,` `%` operators - Stack Overflow](http://stackoverflow.com/questions/11694546/divide-a-number-by-3-without-using-operators)
+
+        :   ```cpp
+            // replaces the + operator
+            int add(int x, int y) {
+                while(x) {
+                    int t = (x & y) <<1;
+                    y ^= x;
+                    x = t;
+                }
+                return y;
+            }
+
+            int divideby3 (int num) {
+                int sum = 0;
+                while (num > 3) {
+                    sum = add(num >> 2, sum);
+                    num = add(num >> 2, num & 3);
+                }
+                if (num == 3)
+                    sum = add(sum, 1);
+                return sum;
+            }
+            ```
+
+            As Jim commented this works because:
+
+            -   n = 4 * a + b
+            -   n / 3 = a + (a + b) / 3
+            -   So sum += a, n = a + b, and iterate
+            -   When a == 0 (n < 4), sum += floor(n / 3); i.e. 1, if n == 3, else 0
+
+    -   [How do you set, clear and toggle a single bit in C/C++? - Stack Overflow](http://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit-in-c-c) -<
+
+        :   -   set a bit: `number |= 1 << x;`
+            -   clear a bit: `number &= ~(1 << x);`
+            -   toggle a bit: `number ^= 1 << x;`
+            -   checking a bit: `bit = (number >> x) & 1;`
+            -   changing the nth bit to x: `number ^= (-x ^ number) & (1 << n);`
+
+    -   [In C++ source, what is the effect of extern "C"? - Stack Overflow](http://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c)
+
+    -   [c - How to initialize all members of an array to the same value - Stack Overflow](http://stackoverflow.com/questions/201101/how-to-initialize-all-members-of-an-array-to-the-same-value) -<
+
+        :   refs and see also
+
+            -   [不要被别人的 memset(buf, -1, sizeof(buf)) 迷惑了 · Issue #2 · district10/notes · GitHub](https://github.com/district10/notes/issues/2)
+
+    -   [Why use apparently meaningless do-while and if-else statements in C/C++ macros? - Stack Overflow](http://stackoverflow.com/questions/154136/why-use-apparently-meaningless-do-while-and-if-else-statements-in-c-c-macros)
+
+    -   [c++ - std::next_permutation Implementation Explanation - Stack Overflow](http://stackoverflow.com/questions/11483060/stdnext-permutation-implementation-explanation)
+
+    -   [how to find the intersection of two std:set in C++? - Stack Overflow](http://stackoverflow.com/questions/13448064/how-to-find-the-intersection-of-two-stdset-in-c)
+
+    -   [c++ - Why are std::shuffle methods being deprecated in C++14? - Stack Overflow](http://stackoverflow.com/questions/22600100/why-are-stdshuffle-methods-being-deprecated-in-c14)
+
+    -   [c++ - Composability of STL algorithms - Stack Overflow](http://stackoverflow.com/questions/6743093/composability-of-stl-algorithms)
+
+    -   [C++ <algorithm> implementation explained - Stack Overflow](http://stackoverflow.com/questions/17663449/c-algorithm-implementation-explained)
+
+    -   [c++ - std::copy n elements or to the end - Stack Overflow](http://stackoverflow.com/questions/26119212/stdcopy-n-elements-or-to-the-end)
+
+-   [Adoo's blog - Introduction to Algorithm -third edition](http://www.roading.org/category/introduction-to-algorithm-third-edition.html)
+
+-   《DPV -- Algorithm》 -<
+
+    :   [算法之美（Algorithms）书评](https://book.douban.com/review/1325850/)
+
+        :   算法作为一门学问，有两条正交的线索。一个是算法处理的对象：数、矩阵、
+            集合、串 (strings)、排列 (permutations)、图 (graphs)、表达式
+            (formula)、分布(distributions)，等等。另一个是算法的设计思想：贪婪、
+            分治、动态规划、线性规划、局部搜索 (local search)，等等。这两条线索
+            几乎是相互独立的：同一个离散对象，例如图，稍有不同的问题，例如
+            single-source shortest path和all-pair shortest path，就可以用到不同
+            的设计思想，如贪婪和动态规划；而完全不同的离散对象上的问题，例如排
+            序和整数乘法，也许就会用到相同的思想，例如分治。
+
+-   《The Algorithm Design Manual》 -<
+
+    :   [Skiena's Audio Lectures](http://www3.cs.stonybrook.edu/~algorith/video-lectures/)
+
+        [不愧对“手册”之名，即使通读过CLRS再读也有所收获（算法设计手册）书评](https://book.douban.com/review/6250350/)
+
+[Bresenham's line algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm) -<
+
+:   Bresenham's line algorithm is named after Jack Elton Bresenham who developed it in 1962 at IBM.
+
+    ![](https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Bresenham.svg/300px-Bresenham.svg.png)
+
+    $${\frac {y-y_{0}}{y_{1}-y_{0}}}={\frac {x-x_{0}}{x_{1}-x_{0}}}.$$
+
+    ```
+    function line(x0, y0, x1, y1)
+        real deltax := x1 - x0
+        real deltay := y1 - y0
+        real error := -1.0
+        real deltaerr := abs(deltay / deltax)       // Assume deltax != 0 (line is not vertical),
+                                                    // note that this division needs to be done in a way that preserves the fractional part
+        int y := y0
+        for x from x0 to x1-1
+            plot(x,y)
+            error := error + deltaerr
+            if error ≥ 0.0 then
+                y := y + 1
+                error := error - 1.0
+    ```
+    +----------+                            +--------------+
+    | y = f(x) |                            | f(x, y) = 0  |
+    +----------+                            +--------------+
+                                                                        A = dy
+    y       = f(x) = mx + b                                             B = dx
+            = (dy/dx)x + b                                              C = dx*b
+    dx*y    = dy*x + dx*b
+    0       = dy*x - dx*y + dx*b            f(x,y)  = 0 = Ax + By + C
+
+    +------+
+    | e.g. |
+    +------+
+
+    y = 0.5 * x +1                          f(x, y) = x - 2y + 2
+    ```
+
+    starting point: f(x0, y0) = 0
+
+    ![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Line_1.5x%2B1_--_candidates.svg/300px-Line_1.5x%2B1_--_candidates.svg.png)
+
+    ```
+    (x0+1, y0), (x0+1, y0+1)  ----- mid point : D = f(x0+1, y0+0.5)
+                                                D < 0   --->    go right
+                                                D > 0   --->    go down
+    ```
+
+    if D is positive, then choose ( x 0 + 1 , y 0 + 1 ), otherwise choose ( x 0 + 1 , y 0 ).
+
+    Alternatively, the difference between points can be used instead of evaluating
+    f(x,y) at midpoints. This alternative method allows for integer-only
+    arithmetic, which is generally faster than using floating-point arithmetic. To
+    derive the alternative method, define the difference to be as follows:
+
+    ```
+    D = f(x0+1, y0+0.5) - f(x0, y0) = A(x0+1-x0) + B(y0+0.5-y0)
+      = A + 0.5*B
+               if    <   0 ---------->  (x0, y0)
+               if    >   0 ---------->  (x0, y0+1)
+
+    plotLine(x0,y0, x1,y1)
+        dx = x1 - x0
+        dy = y1 - y0
+        D = dy - dx
+        y = y0
+
+        for x from x0 to x1-1
+            plot(x,y)
+            if D ≥ 0
+                y = y + 1
+                D = D - dx
+            D = D + dy
+    ```
+
+    ![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Line_1.5x%2B1_--_points.svg/300px-Line_1.5x%2B1_--_points.svg.png)
+
+    However, as mentioned above this is only for the first octant. This means there
+    are eight possible cases to consider. The simplest way to extend the same
+    algorithm, if implemented in hardware, is to flip the co-ordinate system on the
+    input and output of the single-octant drawer.
+
+    ```
+     Octants:
+      \2|1/
+      3\|/0
+     ---+---
+      4/|\7
+      /5|6\
+    ```
+
+    [Octant (plane geometry) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Octant_(plane_geometry))
+
+    :   ![An 8-point windrose](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Windrose.svg/150px-Windrose.svg.png)
+
+    [Orthant - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Orthant)
+
+    :   ![In two dimensions, there are 4 orthants (called quadrants)](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Cartesian_coordinates_2D.svg/220px-Cartesian_coordinates_2D.svg.png)
+
+[程序员面试、算法研究、编程艺术、红黑树、数据挖掘5大系列集锦 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/6543438) -<
+
+:   [横空出世，席卷互联网--评微软等公司数据结构+算法面试100题 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6015165)
+
+    [九月十月百度，迅雷，华为，阿里巴巴笔试面试六十题(第411~470题) - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/11921021)

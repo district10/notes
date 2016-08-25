@@ -8,13 +8,13 @@ title: TANG ZhiXiong's Notes/Wiki
 
 -   [Caffe 笔记](caffe-notes/index.html){title=caffe-notes/index.md}
 -   [Languages](lang/index.html){title=lang/index.md}
--   [Leetcode](leetcode/index.html){title=leetcode/index.md}
+-   [Leetcode](leetcode/index.html){.hide title=leetcode/index.md}
+-   [job](2016/job.html){.hide title=2016/job.md}
 
 ## 2016
 
 -   [【working notes】](2016/note2.html){.flag title=2016/note2.md}
--   [note1.html](2016/note1.html){.flag title=2016/note1.md}
--   [job](2016/job.html){.hide title=2016/job.md}
+-   [note1.html](2016/note1.html){title=2016/note1.md}
 -   [this](2016/this.html){.hide title=2016/this.md}
 -   [关于介绍本笔记特性](2016/intro-to-my-note.html){.hide title=2016/intro-to-my-note.md}
 -   [博客摘记之 yhlleo](2016/blog-yhlleo.html){title=2016/blog-yhlleo.md}
