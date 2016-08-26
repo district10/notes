@@ -5,6 +5,8 @@ title: Job
 Job
 ===
 
+>   Try not to become a man of success, but rather try to become a man of value.
+
 Nina And Her Very Long Hair -<
 
 :   |   i have a tale, but not a tail

@@ -5,6 +5,10 @@ title: System & Network & MISC
 System & Network & MISC
 =======================
 
+>   I have dreams, and regardless of whether or not they're realistic, I must work toward them.
+
+![](http://www.imagemagick.org/Usage/img_diagrams/glyph_metrics.gif){align=right}
+
 ## System
 
 ## Network
@@ -899,13 +903,13 @@ System & Network & MISC
 
         a **`type qualifier`** is not allowed on a static member function.
 
--   [Good Old & Dirty printf() Debugging in a Non-console C/C++ Application or DLL - CodeProject](http://www.codeproject.com/Tips/227809/Good-old-dirty-printf-debugging-in-a-non-console-C){.featured .heart} -<
+-   [Good Old & Dirty printf() Debugging in a Non-console C/C++ Application or DLL - CodeProject](http://www.codeproject.com/Tips/227809/Good-old-dirty-printf-debugging-in-a-non-console-C) -<
 
     :   `#define Debug(fmtstr, ...) printf(fmtstr, ##__VA_ARGS__)`{.cpp}
 
         <http://www.cnblogs.com/xianqingzh/archive/2011/07/08/2101510.html>
 
-        [《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks){.featured .heart}
+        [《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks)
 
         :   `freopen`{.c}
 
@@ -1037,7 +1041,9 @@ System & Network & MISC
 
 -   [Jeff Dean facts: How a Google programmer became the Chuck Norris of the Internet.](http://www.slate.com/articles/technology/doers/2013/01/jeff_dean_facts_how_a_google_programmer_became_the_chuck_norris_of_the_internet.single.html){.featured .heart} -<
 
-    :   -   If you could harness the power of the multiverse you could try every
+    :   `32,768`, ` 65,536`, `2,294,967,296`
+
+        -   If you could harness the power of the multiverse you could try every
             possible option in the design space and see which worked best. But
             that's crazy impractical, isn't it?
         -   Dr. Dean thinks an important skill for every software engineer is
@@ -1218,6 +1224,26 @@ System & Network & MISC
         1101    ->  d = 8+4+1   = 13
         1110    ->  e = 8+4+2   = 14
         1111    ->  f = 8+4+2+1 = 15
+
+        +---------------------------+
+        |                           |
+        |    1  a           14  n   |
+        |    2  b           15  o   |
+        |    3  c           16  p   |
+        |    4  d           17  q   |
+        |    5  e           18  r   |
+        |    6  f           19  s   |
+        |                           |
+        |    7  g           20  t   |
+        |                           |
+        |    8  h           21  u   |
+        |    9  i           22  v   |
+        |   10  j           23  w   |
+        |   11  k           24  x   |
+        |   12  l           25  y   |
+        |   13  m           26  z   |
+        |                           |
+        +---------------------------+
         ```
 
 [^SI]: The SI prefixes (metric prefix) are standardized for use in the
@@ -1625,8 +1651,6 @@ System & Network & MISC
             |   If you question, you understand, and if you understand, you know.
             |   If you know, you want to know more.
             |   If you **want to know more**, you are alive.
-
-![](http://www.imagemagick.org/Usage/img_diagrams/glyph_metrics.gif){align=right}
 
 -   What the fuck am I reading? -<
 
@@ -2055,7 +2079,10 @@ System & Network & MISC
     歪了么??
 
     预先读取，为什么cpu不能做呢？
-    预取(prefetch)这件事cpu的确不做, 是Cache在做, 每一集的Cache都会有自己的prefetcher. 而实际上L1 Cache已经被融合进CPU内部里了, L1I和L1D和CPU流水线简直就是紧挨在一起, L2 Cache又紧挨着CPU的L1D. 所以L1I, L1D, L2它们做预取, 和CPU自己做是一回事! 而且CPU跑多快, 预取的速度就有多快!
+    预取(prefetch)这件事cpu的确不做, 是Cache在做, 每一集的Cache都会有自己的
+    prefetcher. 而实际上L1 Cache已经被融合进CPU内部里了, L1I和L1D和CPU流水线简
+    直就是紧挨在一起, L2 Cache又紧挨着CPU的L1D. 所以L1I, L1D, L2它们做预取, 和
+    CPU自己做是一回事! 而且CPU跑多快, 预取的速度就有多快!
     上面凭什么说"CPU需要的内容, 90%在L1 Cache里有, 6%在L2 Cache里有"? 就是因为Cache中数据大多是复用的, 而且Cache基于历史数据还一直在预取! 而CPU和prefetcher像极了老总和小秘的关系, 比如:
 
 [在校学生一枚，面对高性能服务器开发、分布式系统、缓存系统等等。该如何最快最好的提升自己的技术水平呢？ - 知乎](https://www.zhihu.com/question/20183430) -<
@@ -2064,7 +2091,7 @@ System & Network & MISC
     编语言 等等科目，是内功！内功需要按顺序，循序渐进地学习，而且学习过程非常痛
     苦且艰难！那些招式与内功相比，算个球！
 
-[HTTP 协议入门 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/08/http.html){.hearts}
+[HTTP 协议入门 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/08/http.html){.hearts} -<
 
 :   HTTP 是基于 TCP/IP 协议的应用层协议。它不涉及数据包（packet）传输，主要规定
     了客户端和服务器之间的通信格式，默认使用80端口。
@@ -2125,7 +2152,7 @@ System & Network & MISC
         求。其实，服务器可以预期到客户端请求网页后，很可能会再请求静态资源，所
         以就主动把这些静态资源随着网页一起发给客户端了。
 
-[浅谈字节序（Byte Order）及其相关操作 - Jeffrey Zhao - 博客园](http://www.cnblogs.com/JeffreyZhao/archive/2010/02/10/byte-order-and-related-library.html)
+[浅谈字节序（Byte Order）及其相关操作 - Jeffrey Zhao - 博客园](http://www.cnblogs.com/JeffreyZhao/archive/2010/02/10/byte-order-and-related-library.html) -<
 
 :   对于我们常用的CPU架构，如Intel，AMD的CPU使用的都是小字节序，而例如Mac OS以
     前所使用的Power PC使用的便是大字节序（不过现在Mac OS也使用Intel的CPU了）。
@@ -2136,14 +2163,14 @@ System & Network & MISC
 
 [Master-1.注重实效的哲学 | PaddingMe's Blog](http://padding.me/blog/2016/04/11/2016-04-04Master-1-%E6%B3%A8%E9%87%8D%E5%AE%9E%E6%95%88%E7%9A%84%E5%93%B2%E5%AD%A6/)
 
-[你的字典里有多少元素？ - 老赵点滴 - 追求编程之美](http://blog.zhaojie.me/2014/07/how-many-elements-in-your-dictionary.html)
+[你的字典里有多少元素？ - 老赵点滴 - 追求编程之美](http://blog.zhaojie.me/2014/07/how-many-elements-in-your-dictionary.html) -<
 
 :   “字典”或者说“哈希表”大家都会用，这真是一个好东西，只要创建了之后就可以不断
     的丢东西进去，添加删除都是O(1)操作，那叫一个快字了得。不过这里我要再次引用
     Alan Perlis的名言：“Lisp programmers know the value of everything but the
     cost of nothing.”，目的是想提醒做事“不要忘记背后的代价”。
 
-[《写给大家看的设计书》读书笔记 | PaddingMe's Blog](http://padding.me/blog/2015/08/02/%E3%80%8A%E5%86%99%E7%BB%99%E5%A4%A7%E5%AE%B6%E7%9C%8B%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B9%A6%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/)
+[《写给大家看的设计书》读书笔记 | PaddingMe's Blog](http://padding.me/blog/2015/08/02/%E3%80%8A%E5%86%99%E7%BB%99%E5%A4%A7%E5%AE%B6%E7%9C%8B%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B9%A6%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/) -<
 
 :   约书亚树
 
