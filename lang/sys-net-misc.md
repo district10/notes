@@ -1041,7 +1041,7 @@ System & Network & MISC
 
 -   [Jeff Dean facts: How a Google programmer became the Chuck Norris of the Internet.](http://www.slate.com/articles/technology/doers/2013/01/jeff_dean_facts_how_a_google_programmer_became_the_chuck_norris_of_the_internet.single.html){.featured .heart} -<
 
-    :   `32,768`, ` 65,536`, `2,294,967,296`
+    :   `32,768`, ` 65,536`, `4,294,967,296`
 
         -   If you could harness the power of the multiverse you could try every
             possible option in the design space and see which worked best. But
@@ -1894,7 +1894,7 @@ System & Network & MISC
         -   在一个TCP连接中，仅有两方进行彼此通信。广播和多播不能用于TCP
         -   TCP使用校验和，确认和重传机制来保证可靠传输
         -   TCP使用累积确认
-        -   TCP使用滑动窗口机制来实现流量控制，通过动态改变窗口的大小进行拥塞控制
+        -   TCP使用**滑动窗口机制**来实现流量控制，通过动态改变窗口的大小进行拥塞控制
 
     Socket -<
 
@@ -2159,6 +2159,8 @@ System & Network & MISC
     此外，除了大字节序和小字节序之外，还有一种很少见的中字节序（middle endian），
     它会以2143的方式来保存数据（相对于大字节序的1234及小字节序的4321）。
 
+    ??? network???
+
 [定点数与浮点数](http://jsjedu.hxu.edu.cn/dxjsjjc/kcnr/wlkj/03architecture/detail/3-1-5.htm)
 
 [Master-1.注重实效的哲学 | PaddingMe's Blog](http://padding.me/blog/2016/04/11/2016-04-04Master-1-%E6%B3%A8%E9%87%8D%E5%AE%9E%E6%95%88%E7%9A%84%E5%93%B2%E5%AD%A6/)
@@ -2167,11 +2169,18 @@ System & Network & MISC
 
 :   “字典”或者说“哈希表”大家都会用，这真是一个好东西，只要创建了之后就可以不断
     的丢东西进去，添加删除都是O(1)操作，那叫一个快字了得。不过这里我要再次引用
-    Alan Perlis的名言：“Lisp programmers know the value of everything but the
-    cost of nothing.”，目的是想提醒做事“不要忘记背后的代价”。
+    Alan Perlis 的名言：
+
+    >   **Lisp programmers know the value of everything but the cost of nothing.**
+
+    目的是想提醒做事“不要忘记背后的代价”。
 
 [《写给大家看的设计书》读书笔记 | PaddingMe's Blog](http://padding.me/blog/2015/08/02/%E3%80%8A%E5%86%99%E7%BB%99%E5%A4%A7%E5%AE%B6%E7%9C%8B%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B9%A6%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/) -<
 
 :   约书亚树
 
     >   一旦你能够说出什么东西的名字，就会很容易注意到它。你就会掌握它，拥有它，使它在你的控制中。
+
+TCP使用**滑动窗口机制**来实现流量控制，通过动态改变窗口的大小进行拥塞控制
+
+:   TODO?

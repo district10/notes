@@ -172,22 +172,21 @@ C++ 简介 | Intro
         make sure to clear it's contents when necessary.
 
         ```cpp
-        vec.clear();    // the performance depends on how's your dtor
+        vec.clear();                // the performance depends on how's your dtor
 
         // or
-        vector<T>().swap( x );   // clear x reallocating
+        vector<T>().swap( x );      // clear x reallocating
         ```
 
         refs and see also
 
-        -   http://www.cplusplus.com/reference/vector/vector/clear/
-        -   http://stackoverflow.com/questions/16420357/c-fastest-way-to-clear-or-erase-a-vector
+        -   [vector::clear - C++ Reference](http://www.cplusplus.com/reference/vector/vector/clear/)
+        -   [performance - C++ fastest way to clear or erase a vector - Stack Overflow](http://stackoverflow.com/questions/16420357/c-fastest-way-to-clear-or-erase-a-vector)
 
 -   使用 reserve 来避免不必要的重新分配 -<
 
     :   ```cpp
-        // std::vector, Defined in header <algorithm>
-        void std::vector::reserve( size_type new_cap );
+        // void std::vector::reserve( size_type new_cap );
         vector<int> nums;
         nums.reserve( 25 );
         ```
@@ -286,6 +285,118 @@ C++ 简介 | Intro
         这个 `if( !file )` 是因为 file 重载了 `operator void *`，这句话等同于
         `if( NULL == (void *)file )`，见 [ios::operator void* - C++
         Reference](http://program.upc.edu.cn/CLibrary/iostream/ios/operator_voidpt.html)。
+
+        [The Safe Bool Idiom](http://www.artima.com/cppsource/safebool.html) -<
+
+        :   **Learn how to validate objects in a boolean context without the usual harmful side effects.**
+
+            The Goal -<
+
+            :   Test their validity in Boolean contexts
+
+                ```cpp
+                // method 1
+                if (some_type* p=get_some_type()) {
+                    // p is valid, use it
+                }
+                else {
+                    // p is not valid, take proper action
+                }
+
+                // method 2
+                smart_ptr<some_type> p(get_some_type());
+                if (p.is_valid()) {
+                    // p is valid, use it
+                }
+                else {
+                    // p is not valid, take proper action
+                }
+                ```
+
+            The Obvious Approach Is `operator bool`, and also, the Not Exactly Obvious, `operator!` -<
+
+            :   ```cpp
+                // operator bool version
+                class Testable {
+                    bool ok_;
+                public:
+                    explicit Testable(bool b=true):ok_(b) {}
+
+                    operator bool() const {
+                        return ok_;
+                    }
+                    bool operator!() const {
+                        return !ok_;
+                    }
+                };
+                ```
+
+            A Seemingly Innocent Approach: `operator void *` -<
+
+            :   ```cpp
+                operator void*() const {
+                    return ok_==true ? this : 0;
+                }
+                ```
+
+                good? see this:
+
+                ```cpp
+                Testable test;
+
+                // oops...
+                delete test;
+                ```
+
+                If you think that this situation can be saved with a little
+                const trickery, think again: The C++ Standard explicitly allows
+                delete expressions with pointers to const types.
+
+            Almost Getting There with a Nested Class -<
+
+            :   In 1996, Don Box wrote about a very clever technique in his C++
+                Report column a technique originally created to support testing
+                for nullness that almost does what we came here for. It
+                involves a conversion function to a nested type (that doesn't
+                even need to be defined), like so:
+
+                ```cpp
+                class Testable {
+                    bool ok_;
+                public:
+                    explicit Testable(bool b=true):ok_(b) {}
+                    class nested_class;         // no need to implement;
+                    operator const nested_class*() const {
+                      return ok_ ? reinterpret_cast<const nested_class*>(this) : 0;
+                    }
+                };
+                ```
+
+            The Safe Bool Idiom -<
+
+            :   It's time to make these tests safe. Remember that we need
+                to avoid unsafe conversions that allow for erroneous usage.
+                We must also avoid overloading issues, and we definitely
+                shouldn't allow deletion through the conversion. So, what
+                do we do?  Without further ado, let me give you the
+                solution in code.
+
+                ```cpp
+                class Testable {
+                    bool ok_;
+                    typedef void (Testable::*bool_type)() const;
+                    void this_type_does_not_support_comparisons() const {}
+                public:
+                    explicit Testable(bool b=true):ok_(b) {}
+                    operator bool_type() const {
+                        return ok_==true ?  &Testable::this_type_does_not_support_comparisons : 0;
+                    }
+                };
+                ```
+
+            refs and see also
+
+            -   [c++ - Is the safe-bool idiom obsolete in C++11? - Stack Overflow](http://stackoverflow.com/questions/6242768/is-the-safe-bool-idiom-obsolete-in-c11)
 
         用 getline 获取内容到 string 后，可以再用 C 语言的 scanf 来读取字段：
         `sscanf( string.c_str(), format, ...)`。
@@ -409,6 +520,17 @@ C++ 简介 | Intro
 
         -   [raw2pts/raw2pts.c at master · district10/raw2pts](https://github.com/district10/raw2pts/blob/master/raw2pts.c)
         -   [Input/output with files - C++ Tutorials](http://www.cplusplus.com/doc/tutorial/files/)
+
+-   operators -<
+
+    :   ```cpp
+        // 1
+        cout << phone << endl;
+        // 2
+        (cout << phone) << endl;
+        // 3
+        operator<<(cout, phone).operator<<(endl);
+        ```
 
 -   fgets -<
 
@@ -1497,7 +1619,7 @@ C++ 简介 | Intro
         meet the requirements of BidirectionalIterator, otherwise the behavior is
         undefined.
 
-        ```
+        ```cpp
         #include <iostream>
         #include <iterator>
         #include <vector>
@@ -1505,11 +1627,8 @@ C++ 简介 | Intro
         int main()
         {
             std::vector<int> v{ 3, 1, 4 };
-
             auto vi = v.begin();
-
             std::advance(vi, 2);
-
             std::cout << *vi << '\n';
         }
         // output: 4
@@ -2205,8 +2324,8 @@ C++ 简介 | Intro
 
     :   It's a limitation of many underlying processors. It can usually be
         worked around by doing 4 inefficient single byte fetches rather than
-        one efficient word fetch, but many language specifiers decided it would
-        be easier just to outlaw them and force everything to be aligned.
+        one efficient word fetch, but many language specifiers decided
+        **it would be easier just to outlaw them and force everything to be aligned**.
 
         因为 bulk read/write memory 要快些。内存对齐了数据就拷贝得快了。
 
@@ -2359,7 +2478,7 @@ C++ 简介 | Intro
 
         rms's code to test memory alignment -<
 
-        :   see [packtest.c](http://www.catb.org/esr/structure-packing/packtest.c) -<
+        :   see [packtest.c](http://www.catb.org/esr/structure-packing/packtest.c)
 
             ```cpp
             #include <stdio.h>
@@ -2541,7 +2660,9 @@ C++ 简介 | Intro
 
 -   为什么 fread、fwrite 要两个参数（sizeof(element) + number of element） -<
 
-    :   fread、fwrite 的 signature 是：
+    :   two questions, how big? how many?
+
+        fread、fwrite 的 signature 是：
 
         ```cpp
         size_t fread(        void *ptr, size_t size, size_t nmemb, FILE *stream );
@@ -2559,20 +2680,20 @@ C++ 简介 | Intro
 
 -   What and where are the stack and heap? -<
 
-    :   The stack is the memory set aside as scratch space for a thread of
-        execution. When a function is called, a block is reserved on the top of
+    :   **The stack is the memory set aside as scratch space for a thread of
+        execution.** When a function is called, a block is reserved on the top of
         the stack for local variables and some bookkeeping data. When that
         function returns, the block becomes unused and can be used the next
-        time a function is called. The stack is always reserved in a LIFO (last
-        in first out) order; the most recently reserved block is always the
-        next block to be freed. This makes it really simple to keep track of
-        the stack; freeing a block from the stack is nothing more than
-        adjusting one pointer.
+        time a function is called. The stack is always reserved
+        **in a LIFO (last in first out) order;** the most recently reserved
+        block is always the next block to be freed. This makes it really simple
+        to keep track of the stack; freeing a block from the stack is nothing
+        more than adjusting one pointer.
 
-        The heap is memory set aside for dynamic allocation. Unlike the stack,
-        there's no enforced pattern to the allocation and deallocation of
-        blocks from the heap; you can allocate a block at any time and free it
-        at any time. This makes it much more complex to keep track of which
+        **The heap is memory set aside for dynamic allocation.** Unlike the
+        stack, there's no enforced pattern to the allocation and deallocation
+        of blocks from the heap; you can allocate a block at any time and free
+        it at any time. This makes it much more complex to keep track of which
         parts of the heap are allocated or free at any given time; there are
         many custom heap allocators available to tune heap performance for
         different usage patterns.
@@ -2608,9 +2729,9 @@ C++ 简介 | Intro
         :   The stack is faster because the access pattern makes it trivial to
             allocate and deallocate memory from it (a pointer/integer is simply
             incremented or decremented), while the heap has much more complex
-            bookkeeping involved in an allocation or deallocation. Also, each
-            byte in the stack tends to be reused very frequently which means it
-            tends to be mapped to the processor's cache, making it very fast.
+            bookkeeping involved in an allocation or deallocation.
+            **Also, each byte in the stack tends to be reused very frequently which means it
+            tends to be mapped to the processor's cache, making it very fast.**
             Another performance hit for the heap is that the heap, being mostly
             a global resource, typically has to be multi-threading safe, i.e.
             each allocation and deallocation needs to be - typically -
@@ -2673,7 +2794,7 @@ C++ 简介 | Intro
             while( 1 == scanf("%d", &num) ) {
                 if( num < 2 ) { continue; }
                 int buf[num];
-                buf = 1;
+                buf[0] = 1;
                 for( int i = 1; i < num; ++i ) {
                     buf[i] = buf[i-1] * 2;
                     printf("%d ", buf[i]);
@@ -2682,6 +2803,8 @@ C++ 简介 | Intro
             }
         }
         ```
+
+        seems on stack.
 
         ![](http://whudoc.qiniudn.com/2016/20160706204948669.png)
 
@@ -2898,8 +3021,7 @@ C++ 简介 | Intro
             string s("Somewhere down the road");
             istringstream iss(s);
 
-            do
-            {
+            do {
                 string sub;
                 iss >> sub;
                 cout << "Substring: " << sub << endl;
@@ -3051,7 +3173,7 @@ C++ 简介 | Intro
 
         -   [Split a string in C++? - Stack Overflow](http://stackoverflow.com/questions/236129/split-a-string-in-c)
 
--   What does the explicit keyword in C++ mean? -<
+-   What does the explicit keyword in C++ mean? :hearts: -<
 
     :   这个关键词指出了 C++ 的蛋疼之处之一（谁让你兼容 C 的 implicit conversion 的！？）。
 
@@ -3226,18 +3348,19 @@ C++ 简介 | Intro
 
         -   reinterpert_cast
 
-            :   reinterpret_cast is the most dangerous cast, and should be used
-                very sparingly. It turns one type directly into another - such
-                as casting the value from one pointer to another, or storing a
-                pointer in an int, or all sorts of other nasty things. Largely,
-                the only guarantee you get with reinterpret_cast is that
-                normally if you cast the result back to the original type, you
-                will get the exact same value (but not if the intermediate type
-                is smaller than the original type). There are a number of
-                conversions that reinterpret_cast cannot do, too. It's used
-                primarily for particularly weird conversions and bit
-                manipulations, like turning a raw data stream into actual data,
-                or storing data in the low bits of an aligned pointer.
+            :   reinterpret_cast is the most dangerous cast, and
+                **should be used very sparingly**. It turns one type directly
+                into another - such as casting the value from one pointer to
+                another, or storing a pointer in an int, or all sorts of other
+                nasty things. Largely, the only guarantee you get with
+                reinterpret_cast is that normally if you cast the result back
+                to the original type, you will get the exact same value (but
+                not if the intermediate type is smaller than the original
+                type). There are a number of conversions that reinterpret_cast
+                cannot do, too. It's used primarily for particularly weird
+                conversions and bit manipulations, like turning a raw data
+                stream into actual data, or storing data in the low bits of an
+                aligned pointer.
 
         -   C casts
 
@@ -3301,12 +3424,10 @@ C++ 简介 | Intro
 
         ```cpp
         void f(void*) { }
-
         void f(int) { }
 
-        int main()
-        {
-            f(0); // what function will be called?
+        int main() {
+            f(0);                   // what function will be called?.... WHAT THE FUCK...
         }
         ```
 
@@ -3318,14 +3439,12 @@ C++ 简介 | Intro
         来举点儿奇葩例子吧！
 
         ```cpp
-        union U
-        {
+        union U {
             long i;
             nullptr_t t;
         };
 
-        int main()
-        {
+        int main() {
             U u;
             u.i = 3;
             printf("%ld\n",(long)u.t); // What it is? 0 or 3?
@@ -3339,14 +3458,11 @@ C++ 简介 | Intro
         而 nullptr 有类型后，还能做什么呢？那当然就是可以捕获异常了。
 
         ```cpp
-        int main()
-        {
-          try
-          {
+        int main() {
+          try {
             throw nullptr;
           }
-          catch(nullptr_t)
-          {
+          catch(nullptr_t) {
 
           }
         }
@@ -3424,7 +3540,7 @@ C++ 简介 | Intro
         -   [如何理解 C 语言关键字 restrict？ - 知乎](https://www.zhihu.com/question/41653775)
         -   [restrict type qualifier - cppreference.com](http://en.cppreference.com/w/c/language/restrict)
 
--   弱类型、强类型、动态类型、静态类型语言的区别是什么？ -<
+-   弱类型、强类型、动态类型、静态类型语言的区别是什么？ :hearts: -<
 
     :   先定义一些基础概念
 
@@ -3742,7 +3858,54 @@ C++ 简介 | Intro
         refs and see also
 
         -   [c++ - What is The Rule of Three? - Stack Overflow](http://stackoverflow.com/questions/4172722/what-is-the-rule-of-three)
-        -   [Rule of three (C++ programming) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Rule_of_three_%28C%2B%2B_programming%29)
+        -   [Rule of three (C++ programming) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Rule_of_three_(C%2B%2B_programming))
+
+-   What are the advantages of boost::noncopyable? -<
+
+    :   Rationale `[,ræʃə'næl]`
+
+        :   Class noncopyable has protected constructor and destructor members
+            to emphasize that it is to be used only as a base class. Dave
+            Abrahams notes concern about the effect on compiler optimization of
+            adding (even trivial inline) destructor declarations. He says:
+
+            “Probably this concern is misplaced, because noncopyable will be
+            used mostly for classes which own resources and thus have
+            non-trivial destruction semantics.”
+
+            With C++2011, using an optimized and trivial constructor and
+            similar destructor can be enforced by declaring both and marking
+            them default. This is done in the current implementation.
+
+        ```cpp
+        class noncopyable
+        {
+        protected:
+            noncopyable() {}
+            ~noncopyable() {}
+        private:  // emphasize the following members are private
+            noncopyable( const noncopyable& );
+            const noncopyable& operator=( const noncopyable& );
+        };
+        ```
+
+        usage:
+
+        ```cpp
+        #include <boost/core/noncopyable.hpp>
+
+        class X: private boost::noncopyable
+        {
+        };
+        ```
+
+        To be fair, `boost::noncopyable` was available long before C++11 and
+        compile support for `= delete`. I do agree with you that with C++11
+        near-compliant compilers, it is now obsolete.
+
+        refs and see also
+
+        -   [c++ - What are the advantages of boost::noncopyable - Stack Overflow](http://stackoverflow.com/questions/7823990/what-are-the-advantages-of-boostnoncopyable)
 
 -   What is the copy-and-swap idiom? -<
 
@@ -3761,7 +3924,51 @@ C++ 简介 | Intro
 
         -   [c++ - What is the copy-and-swap idiom? - Stack Overflow](http://stackoverflow.com/questions/3279543/what-is-the-copy-and-swap-idiom)
 
--   [c++ - What are move semantics? - Stack Overflow](http://stackoverflow.com/questions/3106110/what-are-move-semantics)
+-   What are move semantics? -<
+
+    :   this guy gave two answers...
+
+        ```cpp
+        #include <cstring>
+        #include <algorithm>
+
+        class string
+        {
+            char* data;
+
+        public:
+            string(const char* p) {
+                size_t size = strlen(p) + 1;
+                data = new char[size];
+                memcpy(data, p, size);
+            }
+
+            ~string() {
+                delete[] data;
+            }
+
+            string(const string& that) {
+                size_t size = strlen(that.data) + 1;
+                data = new char[size];
+                memcpy(data, that.data, size);
+            }
+
+            string(string&& that) {             // string&& is an rvalue reference to a string
+                data = that.data;
+                that.data = nullptr;
+            }
+
+            string& operator=(string that)
+            {
+                std::swap(data, that.data);
+                return *this;
+            }
+        };
+        ```
+
+        refs and see also
+
+        -   [c++ - What are move semantics? - Stack Overflow](http://stackoverflow.com/questions/3106110/what-are-move-semantics)
 
 -   Do the parentheses after the type name make a difference with new? -<
 
@@ -3958,10 +4165,8 @@ C++ 简介 | Intro
 
         引入原因：
 
-        -   1)  为了方便使用多态特性，我们常常需要在基类中定义虚拟函数。
-    　　-   2)  在很多情况下，基类本身生成对象是不合情理的。
-
-            例如，动物作为一个基类可以派生出老虎、孔雀等子类，但动物本身生成对象明显不合常理。
+        -   为了方便使用多态特性，我们常常需要在基类中定义虚拟函数。
+        -   在很多情况下，基类本身生成对象是不合情理的。例如，动物作为一个基类可以派生出老虎、孔雀等子类，但动物本身生成对象明显不合常理。
 
         为了解决上述问题，引入了纯虚函数的概念，将函数定义为纯虚函数（方法：
         `virtual ReturnType Function()= 0;`），则编译器要求在派生类中必须予以重写
@@ -3980,9 +4185,35 @@ C++ 简介 | Intro
         -   [c++ 虚函数的作用是什么？ - 知乎](https://www.zhihu.com/question/23971699)
         -   [虚函数和纯虚函数的区别 - Hackbuteer1的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/hackbuteer1/article/details/7558868)
 
--   [C 语言中为什么不能用 char 类型来存储 getchar() 的返回值 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/archive/2012/12/23/2819111.html) -<
+-   C 语言中为什么不能用 char 类型来存储 getchar() 的返回值?
 
-    :   `int getchar ( void );`
+    :   在键盘或者屏幕上的字符都是用char类型存储的，当然也可以用int类型来存储。
+        这个地方使用int来存储字符有一个微妙但很重要的原因：为了把有效数据和输入
+        的结束(EOF)区分开来。getchar()在没有更多输入数据时返回一个特殊值，这个
+        值不会跟任何实际的字符混淆。这个值称为 EOF（end of file,文件结束）。我
+        们必须把c变量声明成一个大到足够存储任何getchar()返回的值的类型。我们不
+        能用char类型，因为c必须大到足够容纳任意可能的char还有EOF。因此我们使用
+        int类型。
+
+
+        Unlike some other languages you may have used, chars in C are integers.
+        char is just another integer type, usually 8 bits and smaller than int,
+        but still an integer type.
+
+        So, you don't need ord() and chr() functions that exist in other
+        languages you may have used. In C you can convert between char and
+        other integer types using a cast, or just by assigning.
+
+        Unless EOF occurs, getchar() is defined to return "an unsigned char
+        converted to an int" (same as fgetc), so if it helps you can imagine
+        that it reads some char, c, then returns (int)(unsigned char)c.
+
+        You can convert this back to an unsigned char just by a cast or
+        assignment, and if you're willing to take a slight loss of theoretical
+        portability, you can convert it to a char with a cast or by assigning
+        it to a char.
+
+        `int getchar ( void );`
 
         `fgetc()`
           ~ reads the next character from stream and returns it as an unsigned char cast to an int, or EOF on
@@ -4009,24 +4240,26 @@ C++ 简介 | Intro
             Pushed-back characters will be returned in reverse order; only one pushback is guaranteed.
 
         ```
-        ---------------------------------      ----------------------------------------------
-        |    int到char转化（截断）      |      |       |             char到int转化（扩展）  |
-        ---------------------------------      ----------------------------------------------
-        | 十进制  |  int        |  char |      |  char |unsigned char=>int| signed char=>int|
+        +-------------------------------+      +--------------------------------------------+
+        |    int to char (truncate)     |      |       |         char to int (expand)       |
+        +-------------------------------+      +--------------------------------------------+
+        | hex     |  int        |  char |      |  char |unsigned char=>int| signed char=>int|
         |---------|-------------|-------|      |-------|------------------|-----------------|
         |  2      |00 00 00 02  |  02   |      |  02   |  00 00 00 02     |00 00 00 02      |
         |  1      |00 00 00 01  |  01   |      |  01   |  00 00 00 01     |00 00 00 01      |
         |  0      |00 00 00 00  |  00   |      |  00   |  00 00 00 00     |00 00 00 00      |
         | EOF(-1) |FF FF FF FF  |  FF   |      |  FF   |  00 00 00 FF     |FF FF FF FF      |
         |  -2     |FF FF FF FE  |  FE   |      |  FE   |  00 00 00 FE     |FF FF FF FE      |
-        --------------------------------       ----------------------------------------------
+        +-------------------------------+      +--------------------------------------------+
         ```
 
         refs and see also
 
         -   [禅与文件和文件夹组织的艺术 上 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/archive/2013/01/15/zen-and-the-art-of-file-and-folder-organization-part1.html)
+        -   [C 语言中为什么不能用 char 类型来存储 getchar() 的返回值 - Jack47 - 博客园](http://www.cnblogs.com/Jack47/archive/2012/12/23/2819111.html)
+        -   [int c = getchar()? - Stack Overflow](http://stackoverflow.com/questions/7119470/int-c-getchar)
 
--   When do you use float and when do you use double?
+-   When do you use float and when do you use double? -<
 
     :   >   When in double, use `double`.
 
@@ -4034,7 +4267,7 @@ C++ 简介 | Intro
 
         -   [c++ - When do you use float and when do you use double - Programmers Stack Exchange](http://programmers.stackexchange.com/questions/188721/when-do-you-use-float-and-when-do-you-use-double) -<
 
--   TODO，我已经理解或者下文有介绍的，不再贴在这里，faqend -<
+-   TODO，我已经理解或者下文有介绍的，不再贴在这里，faqend :hearts: -<
 
     :   -   [c++ faq - The Definitive C++ Book Guide and List - Stack Overflow](http://stackoverflow.com/questions/388242/the-definitive-c-book-guide-and-list)
         -   [c++ - Undefined behavior and sequence points - Stack Overflow](http://stackoverflow.com/questions/4176328/undefined-behavior-and-sequence-points)
@@ -5926,9 +6159,9 @@ C++ 简介 | Intro
                 -   若类没有定义任何构造函数，编译器会为其合成默认构造函数，再执行上述
                     四点。
 
-            拷贝构造函数（copy constuctor） -<
+            拷贝构造函数（copy constructor） -<
 
-            -   通常 C++ 初级程序员会认为当一个类为没有定义拷贝构造函数的时候，编译器会
+            :   通常 C++ 初级程序员会认为当一个类为没有定义拷贝构造函数的时候，编译器会
                 为其合成一个，答案是否定的。编译器只有在必要的时候在合成拷贝构造函数。
                 那么编译器什么时候合成，什么时候不合成，合成的拷贝构造函数在不同情况下
                 分别如何工作呢？这是本文的重点。
@@ -6230,7 +6463,7 @@ C++ 简介 | Intro
                 则是由虚函数与虚拟继承的实现方式，以及受它们的存取方式和复制控
                 制的要求决定的。
 
-            数据成员的存取
+            数据成员的存取 -<
 
             :   静态数据成员相当于一个仅对该类可见的全局变量，因为程序中只存在一个静态数据
                 成员的实例，所以其地址在编译时就已经被决定。不论如何静态数据成员的存取不会
@@ -6242,32 +6475,34 @@ C++ 简介 | Intro
                 虚基类的成员的时候。因为必须要等到执行期才能知道 pt 指向的确切
                 类型，所以必须通过一个间接导引才能完成。**
 
-            在 VC 中数据成员的布局顺序为：
+            VC 布局 -<
 
-            -   vptr 部分（如果基类有，则继承基类的）
-            -   vbptr （如果需要）
-            -   基类成员（按声明顺序）
-            -   自身数据成员
-            -   虚基类数据成员（按声明顺序
+            :   在 VC 中数据成员的布局顺序为：
 
-            ```cpp
-            class Point3d : public Point2d {
-            public:
-                Point3d( float x = 0.0f, float y = 0.0f, float z = 0.0f )
-                  : Point2d( x, y )
-                  , _z( z ) { }
+                -   vptr 部分（如果基类有，则继承基类的）
+                -   vbptr （如果需要）
+                -   基类成员（按声明顺序）
+                -   自身数据成员
+                -   虚基类数据成员（按声明顺序
 
-                void operator+=( const Point2d &rhs ) {
-                    Point2d::operator+=( rhs );
-                    _z += rsh.z();
-                }
+                ```cpp
+                class Point3d : public Point2d {
+                public:
+                    Point3d( float x = 0.0f, float y = 0.0f, float z = 0.0f )
+                      : Point2d( x, y )
+                      , _z( z ) { }
 
-                ...
+                    void operator+=( const Point2d &rhs ) {
+                        Point2d::operator+=( rhs );
+                        _z += rsh.z();
+                    }
 
-            protected:
-                float _z;
-            };
-            ```
+                    ...
+
+                protected:
+                    float _z;
+                };
+                ```
 
         第 4 章 Function 语意学（The Semantics of Function） -<
 
@@ -6547,15 +6782,6 @@ C++ 简介 | Intro
 
         -   [《深度探索 C++ 对象模型》笔记汇总](http://www.roading.org/develop/cpp/%e3%80%8a%e6%b7%b1%e5%ba%a6%e6%8e%a2%e7%b4%a2c%e5%af%b9%e8%b1%a1%e6%a8%a1%e5%9e%8b%e3%80%8b%e7%ac%94%e8%ae%b0%e6%b1%87%e6%80%bb.html)
         -   [C++ 之虚函数 (Virtual Member Functions)](http://www.roading.org/develop/cpp/c%E4%B9%8B%E8%99%9A%E5%87%BD%E6%95%B0virtual-member-functions.html)
-
--   CSAPP :hearts: -<
-
-    :   重点推荐第 3 章“程序的机器级表示”、第 5 章“优化程序性能”、第 6 章“存储器层次
-        结构”、第 10 章“虚拟存储器”。觉得这四章乃是全书之精华，看得人欲罢不能。
-
-        [深入理解计算机系统（Computer Systems: A Programmer's Perspective）阅读体会 - _Luc_ - 博客园](http://www.cnblogs.com/figure9/archive/2010/04/10/1708942.html)
-
--   [《C 语言接口与实现: 创建可重用软件的技术》 David R. Hanson, 郭旭【摘要 书评 试读】图书](https://www.amazon.cn/gp/product/B005LAJ9F6/ref=as_li_ss_tl?ie=UTF8&camp=536&creative=3132&creativeASIN=B005LAJ9F6&linkCode=as2&tag=lucida-23)
 
 -   [chenshuo/documents](https://github.com/chenshuo/documents/){.heart} -<
 
@@ -7493,6 +7719,48 @@ C++ 简介 | Intro
                 -   name mangling
                 -   RTTI 和异常处理的实现(以下本文不考虑异常处理)
 
+-   Essential C++ Effective STL, Effective C++, More Effective C++, Exceptional C++, More Exceptional C++, Exceptional C++ Style, C++ 必知必会 -<
+
+    :   -   Essential C++
+        -   Effective STl
+        -   Effective C++
+        -   More Effective C++
+        -   Exceptional C++
+        -   More Exceptional C++
+        -   Exceptional C++ Style
+        -   C++ 必知必会
+
+        TODO!!!!
+
+-   CSAPP :hearts: -<
+
+    :   重点推荐第 3 章“程序的机器级表示”、第 5 章“优化程序性能”、第 6 章“存储器层次
+        结构”、第 10 章“虚拟存储器”。觉得这四章乃是全书之精华，看得人欲罢不能。
+
+        [深入理解计算机系统（Computer Systems: A Programmer's Perspective）阅读体会 - _Luc_ - 博客园](http://www.cnblogs.com/figure9/archive/2010/04/10/1708942.html) -<
+
+        :   NB学校，自然用NB教材，更何况是CS里非常重要的计算机导论，而CMU的计算机导论教材就是CMU计算机系主任的作品：CSAPP。
+
+            程序的机器级表示
+
+            :   这一章偶花了不少时间阅读，毕竟偶学过汇编，基础基本为0。不过这本
+                书里出现的汇编指令绝大多数都由运算、取数存数、跳转这三种指令所
+                组成，所以在阅读上不会存在任何难度。
+
+                这 部分融合了程序员所需了解的编译和汇编这两样课程中的基础知识：
+                想知道for、do..while、while三种循环的实质性区别？想知道多重if和
+                switch的本质区别？想知道数组的存储方式？想知道数组下标读取和指
+                针读取的区别？想知道递归过程调用的背后实现机理？看看这一章，相
+                信你会对C语言 乃至程序设计语言有更深的理解。
+
+            程序性能优化
+
+            :   这一章对程序员尤其实用
+
+                唯一的遗憾就是这章的篇幅有些短小，对程序员最为重要的机器无关的
+                程序优化介绍的也并不充分，与此相比，偶感觉programming pearls和
+                practice of programming里面对性能优化的介绍更胜一筹。
+
 -   [cpp-cheat/cpp at master · cirosantilli/cpp-cheat](https://github.com/cirosantilli/cpp-cheat/tree/master/cpp){.heart} -<
 
     :   -   Standards -<
@@ -7867,139 +8135,294 @@ C++ 简介 | Intro
 
                         -   [cpp-cheat/operator_overload.cpp at master · cirosantilli/cpp-cheat](https://github.com/cirosantilli/cpp-cheat/blob/master/cpp/operator_overload.cpp)
 
--   Essential C++
+-   some C++ code snippets -<
 
+    :   -   function object -<
 
--   Effective STL, Effective C++, More Effective C++, Exceptional C++, More Exceptional C++, Exceptional C++ Style, C++ 必知必会 -<
+            :   ```cpp
+                #include <iostream>
+                #include <stdio.h>
 
-    :   -   Effective STl
-        -   Effective C++
-        -   More Effective C++
-        -   Exceptional C++
-        -   More Exceptional C++
-        -   Exceptional C++ Style
-        -   C++ 必知必会
+                struct compare {
+                    bool operator()( int *a, int *b ) const {
+                        return *a > *b;
+                    }
+                };
 
-        TODO!!!!
-
--   [Generic programming - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Generic_programming)
-
--   [Here be dragons: advances in problems you didn’t even know you had | teideal glic deisbhéalach](http://www.serpentine.com/blog/2011/06/29/here-be-dragons-advances-in-problems-you-didnt-even-know-you-had/)
--   [function/bind的救赎（上） - 孟岩 - 博客频道 - CSDN.NET](http://blog.csdn.net/myan/article/details/5928531)
-
--   snippets -<
-
-    :   ```cpp
-        std::srand(time(NULL));
-
-        // 哪里有错？
-        #include <iostream>
-        #include <stdio.h>
-
-        struct compare {
-            bool operator()( int *a, int *b ) const {
-                return *a > *b;
-            }
-        };
-
-        int main()
-        {
-            using std::cout;
-            int a, b;
-            while( 2 == scanf("%d %d", &a, &b) ) {
-                if( compare(&a,&b) ) {
-                    cout << "big\n";
-                } else {
-                    cout << "small\n";
+                int main()
+                {
+                    using std::cout;
+                    int a, b;
+                    while( 2 == scanf("%d %d", &a, &b) ) {
+                        if( compare()(&a,&b) ) {
+                            cout << "big\n";
+                        } else {
+                            cout << "small\n";
+                        }
+                    }
                 }
-            }
-        }
-        ```
-
--   Milo Yip 的博客 -<
-
-    :   -   [两条像面试用的编程问题，和我的囧事 - Milo Yip - 博客园](http://www.cnblogs.com/miloyip/archive/2010/03/04/1677902.html)
-
-            :   -   设计一个函数 f，使得它满足：f(f(x))=-x，这里输入参数为 32 位整型
-                -   设计一个函数 g，满足：g(g(x))=1/x，x 是浮点数
-
--   [Const Correctness, C++ FAQ](https://isocpp.org/wiki/faq/const-correctness#constptrptr-conversion)
-
--   [Hackbuteer1的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/hackbuteer1)
+                ```
 
 -   [AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/) -<
 
-    :   -   [恼人的函数指针（一） - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2011/11/20/2255813.html) -<
+    :   ```cpp
+        int (*func(int*, int))(const string&, const string&);
+        ```
 
-            :   ```cpp
-                int (*func(int*, int))(const string&, const string&);
-                ```
+        编译器在处理初始化队伍时，会根据成员变量的声明次序重新排序。也就是
+        说，虽然构造方法是先对 j 进行初始化，但是，根据 i 和 j 的声明次序，
+        实际上是先对 i 初始化，然后再对 j 进行初始化。
 
-                上面的声明，将 func(int*, int) 声明为一个函数，返回值为函数指针，函数类型为
-                int (*)(const string&, const string&)。
+        在 Microsoft C++ 系列的编译器中，通常使用 stdcall 调用规定，并且
+        stdcall 规定参数是从右到左入栈。
 
+        上面的声明，将 `func(int*, int)` 声明为一个函数，返回值为函数指针，函数类型为
+        `int (*)(const string&, const string&)`。
+
+        **二分搜索**
+
+        对于一个非负数 n，它的平方根不会大于（n/2+1）（谢谢 @linzhi-cs 提醒）。在 [0, n/2+1] 这个范围内可以进行二分搜索，求出 n 的平方根。
+
+        ```cpp
+        int sqrt(int x) {
+            long long i = 0;
+            long long j = x / 2 + 1;
+            while (i <= j)
+            {
+                long long mid = (i + j) / 2;
+                long long sq = mid * mid;
+                if (sq == x) return mid;
+                else if (sq < x) i = mid + 1;   // 这里可以用 x / mid == mid 来判断，也避免了 long long 类型
+                else j = mid - 1;
+            }
+            return j;
+        }
+        ```
+
+        **牛顿迭代法**
+
+        ![](http://images.cnitblog.com/blog/300640/201304/18155235-b272cc444a1845d3aede4c72a87f83dc.jpg)
+
+        经过 (xi，f(xi)) 这个点的切线方程为 f(x) = f(xi) + f’(xi)(x - xi)，
+        其中 f'(x) 为 f(x) 的导数，本题中为 2x。令切线方程等于 0，
+        即可求出 x_{i+1}=xi - f(xi) / f'(xi)。
+
+        继续化简，x{i+1}=xi - (xi2 - n) / (2xi) = xi - xi / 2 + n / (2xi) = xi / 2 + n / 2xi = (xi + n/xi) / 2。
+
+        ```cpp
+        int sqrt(int x) {
+            if (x == 0) return 0;
+            double last = 0;
+            double res = 1;
+            // 感觉这里应该用 fabs(res-last) < 1e-6，
+            // 但实际测试，没有问题
+            while (res != last)
+            {
+                last = res;
+                res = (res + x / res) / 2;
+            }
+            return int(res);
+        }
+        ```
+
+        41. First Missing Positive -<
+
+        :   Given an unsorted integer array, find the first missing positive integer.
+
+            For example,
+            Given [1,2,0] return 3,
+            and [3,4,-1,1] return 2.
+
+            Your algorithm should run in O(n) time and uses constant space.
+
+            ```cpp
+            #include <stdlib.h>
+            #include <time.h>
+            #include <iostream>
+            #include <iterator>
+            #include <map>
+            using namespace std;
+
+            #define INT_MAX      2147483647
+
+            /*
+             *  Idea:
+             *
+             *    We can move the num to the place whcih the index is the num.
+             *
+             *    for example,  (considering the array is zero-based.
+             *       1 => A[0], 2 => A[1], 3=>A[2]
+             *
+             *    Then, we can go through the array check the i+1 == A[i], if not ,just return i+1;
+             *
+             *    This solution comes from StackOverflow.com
+             *    http://stackoverflow.com/questions/1586858/find-the-smallest-integer-not-in-a-list
+            */
+            int firstMissingPositive_move(int A[], int n) {
+                if (n<=0) return 1;
+                cout << "\n";
+                copy( A, A+n, ostream_iterator<int>(cout, " ") );
+                cout << "\t[before]\n";
+                int num;
+                for(int i=0; i<n; i++) {
+                    num = A[i];
+                    while (num>0 && num<n && A[num-1]!=num) {
+                        swap(A[i], A[num-1]);
+                        num = A[i];
+                    }
+                }
+                copy( A, A+n, ostream_iterator<int>(cout, " ") );
+                cout << "\t[after]\n";
+                for (int i=0; i<n; i++){
+                    if (i+1 != A[i]){
+                        return i+1;
+                    }
+                }
+                return n+1;
+            }
+
+            /*
+             *    The idea is simple:
+             *
+             *    1) put all of number into a map.
+             *    2) for each number a[i] in array, remove its continous number in the map
+             *        2.1)  remove ... a[i]-3, a[i]-2, a[i]-1, a[i]
+             *        2.2)  remove a[i]+1, a[i]+2, a[i]+3,...
+             *    3) during the removeing process, if some number cannot be found, which means it's missed.
+             *
+             *    considering a case [-2, -1, 4,5,6],
+             *        [-2, -1] => missed 0
+             *        [4,5,6]  => missed 3
+             *
+             *    However, we missed 1, so, we have to add dummy number 0 whatever.
+             *
+             *    NOTE: this solution is not constant space slution!!!!
+             *
+             */
+            int firstMissingPositive_map(int A[], int n) {
+                map<int, int> cache;
+                for(int i=0; i<n; i++){
+                    cache[A[i]] = i;
+                }
+
+                //add dummy
+                if (cache.find(0)==cache.end() ) {
+                    cache[0] = -1;
+                }
+
+                int miss = INT_MAX;
+                int x;
+                for (int i=-1; i<n && cache.size()>0; i++){
+
+                    if (i == -1){
+                        x = 0; //checking dummy
+                    }else{
+                        x = A[i];
+                    }
+
+                    if ( cache.find(x)==cache.end() ){
+                        continue;
+                    }
+
+                    int num ;
+                    // remove the ... x-3, x-2, x-1, x
+                    for( num=x; cache.find(num)!=cache.end(); num--){
+                        cache.erase(cache.find(num));
+                    }
+                    if ( num>0 && num < miss  ){
+                        miss = num;
+                    }
+                    // remove the x+1, x+2, x+3 ...
+                    for ( num=x+1; cache.find(num)!=cache.end(); num++){
+                        cache.erase(cache.find(num));
+                    }
+                    if ( num>0 && num < miss) {
+                        miss = num;
+                    }
+                }
+
+
+                return miss;
+            }
+
+            int firstMissingPositive(int A[], int n) {
+                srand(time(0));
+                if (rand()%2){
+                    return firstMissingPositive_move(A, n);
+                }
+                return firstMissingPositive_map(A, n);
+            }
+
+
+            void printArray(int a[], int n){
+                cout << "[ ";
+                for(int i=0; i<n-1; i++) {
+                    cout << a[i] << ", ";
+                }
+                cout << a[n-1] << " ]";
+            }
+
+            void Test(int a[], int n, int expected) {
+                printArray(a, n);
+                int ret = firstMissingPositive(a, n);
+                cout << "\t   missed = " << ret << "  " << (ret==expected?"passed!":"failed!") << endl;
+                //printArray(a, n);
+                //cout <<endl;
+            }
+
+            int main()
+            {
+            #define TEST(a, e) Test(a, sizeof(a)/sizeof(int), e)
+
+                int a0[]={1};
+                TEST(a0, 2);
+
+                int a1[]={1,2,0};
+                TEST(a1, 3);
+
+                int a2[]={3,4,-1,1};
+                TEST(a2, 2);
+
+                int a3[]={1000,-1};
+                TEST(a3, 1);
+
+                int a4[]={1000, 200};
+                TEST(a4, 1);
+
+                int a5[]={2,5,3,-1};
+                TEST(a5, 1);
+
+                int a6[]={1, 100};
+                TEST(a6, 2);
+
+                int a7[]={7,8,9,11};
+                TEST(a7, 1);
+
+                int a8[]={4,3,2,1};
+                TEST(a8, 5);
+
+                return 0;
+            }
+            ```
+
+            refs and see also
+
+            -   [arrays - Find the Smallest Integer Not in a List - Stack Overflow](http://stackoverflow.com/questions/1586858/find-the-smallest-integer-not-in-a-list)
+            -   [First Missing Positive | LeetCode OJ](https://leetcode.com/problems/first-missing-positive/)
+
+        refs and see also
+
+        -   [恼人的函数指针（一） - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2011/11/20/2255813.html)
         -   [恼人的函数指针（二）：指向类成员的指针 - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2011/12/04/2275589.html)
-
         -   [关于构造方法的一个有趣的问题：初始化队伍 - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2011/05/22/2053581.html)
-
-            :   编译器在处理初始化队伍时，会根据成员变量的声明次序重新排序。也就是
-                说，虽然构造方法是先对 j 进行初始化，但是，根据 i 和 j 的声明次序，
-                实际上是先对 i 初始化，然后再对 j 进行初始化。
-
         -   [笔试题之二：函数参数入栈问题 - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2011/05/16/2048062.html)
-
-            :   在 Microsoft C++ 系列的编译器中，通常使用 stdcall 调用规定，并且
-                stdcall 规定参数是从右到左入栈。
-
         -   [笔试题之三：C++ dynamic_cast问题 - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2011/05/17/2048632.html)
-
         -   [LeetCode(Q69) Sqrt(x) (编程实现sqrt) - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2013/04/18/3028607.html) -<
+        -   [LeetCode(Q41) First Missing Positive (乱序数组中寻找第一个未出现的正整数) - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2013/04/21/3034631.html)
 
-            :   **二分搜索**
+-   [Hackbuteer1的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/hackbuteer1) -<
 
-                对于一个非负数 n，它的平方根不会大于（n/2+1）（谢谢 @linzhi-cs 提醒）。在 [0, n/2+1] 这个范围内可以进行二分搜索，求出 n 的平方根。
-
-                ```cpp
-                int sqrt(int x) {
-                    long long i = 0;
-                    long long j = x / 2 + 1;
-                    while (i <= j)
-                    {
-                        long long mid = (i + j) / 2;
-                        long long sq = mid * mid;
-                        if (sq == x) return mid;
-                        else if (sq < x) i = mid + 1;   // 这里可以用 x / mid == mid 来判断，也避免了 long long 类型
-                        else j = mid - 1;
-                    }
-                    return j;
-                }
-                ```
-
-                **牛顿迭代法**
-
-                ![](http://images.cnitblog.com/blog/300640/201304/18155235-b272cc444a1845d3aede4c72a87f83dc.jpg)
-
-                经过 (xi，f(xi)) 这个点的切线方程为 f(x) = f(xi) + f’(xi)(x - xi)，
-                其中 f'(x) 为 f(x) 的导数，本题中为 2x。令切线方程等于 0，
-                即可求出 x_{i+1}=xi - f(xi) / f'(xi)。
-
-                继续化简，x{i+1}=xi - (xi2 - n) / (2xi) = xi - xi / 2 + n / (2xi) = xi / 2 + n / 2xi = (xi + n/xi) / 2。
-
-                ```cpp
-                int sqrt(int x) {
-                    if (x == 0) return 0;
-                    double last = 0;
-                    double res = 1;
-                    // 感觉这里应该用 fabs(res-last) < 1e-6，
-                    // 但实际测试，没有问题
-                    while (res != last)
-                    {
-                        last = res;
-                        res = (res + x / res) / 2;
-                    }
-                    return int(res);
-                }
-                ```
+    :   TODO
 
 ## 杂七杂八
 
@@ -8153,10 +8576,6 @@ C++ 简介 | Intro
         -   [CppCoreGuidelines-zh-CN/CppCoreGuidelines-zh-CN.md at master ·
             lynnboy/CppCoreGuidelines-zh-CN](https://github.com/lynnboy/CppCoreGuidelines-zh-CN/blob/master/CppCoreGuidelines-zh-CN.md)
 
--   [awesome-c - NotABug.org: Free code hosting](https://notabug.org/koz.ross/awesome-c)
-
--   [LeetCode(Q41) First Missing Positive (乱序数组中寻找第一个未出现的正整数) - AnnieKim - 博客园](http://www.cnblogs.com/AnnieKim/archive/2013/04/21/3034631.html)
-
 -   MISC of MISC -<
 
     :   问题在于 Bear 和 Raccoon 的基类构造函数都提供了一个带有显式实参集合的
@@ -8183,7 +8602,7 @@ C++ 简介 | Intro
         Some Useful Code Tips
 
         -   多加 assert，避免未期望的行为逃逸
-        -  避免原生的 new 与 delete，使用智能指针
+        -   避免原生的 new 与 delete，使用智能指针
         -   忘记 C 的编码方式，使用 C++
 
         明白异常的开销，若不会发生异常，加上 noexcept。
@@ -8259,3 +8678,7 @@ C++ 简介 | Intro
                 and subtraction have the same precedence, and the two shift operators have
                 the same precedence.
 
+        -   [《C 语言接口与实现: 创建可重用软件的技术》 David R. Hanson, 郭旭【摘要 书评 试读】图书](https://www.amazon.cn/gp/product/B005LAJ9F6/ref=as_li_ss_tl?ie=UTF8&camp=536&creative=3132&creativeASIN=B005LAJ9F6&linkCode=as2&tag=lucida-23)
+        -   [Generic programming - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Generic_programming)
+        -   [Here be dragons: advances in problems you didn’t even know you had | teideal glic deisbhéalach](http://www.serpentine.com/blog/2011/06/29/here-be-dragons-advances-in-problems-you-didnt-even-know-you-had/)
+        -   [awesome-c - NotABug.org: Free code hosting](https://notabug.org/koz.ross/awesome-c)

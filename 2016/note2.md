@@ -795,3 +795,5 @@ title: Working Notes
     因此我认为，假如您的收入较高（例如年入超过60w人民币），不如考虑下在香港发展的机会。
 
 [理查德·汉明《你和你的研究》 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/04/you-and-your-research.html)
+
+[Rule of thumb - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Rule_of_thumb)
