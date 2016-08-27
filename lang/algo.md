@@ -31,6 +31,10 @@ ASCII table -<
 
     ![](http://whudoc.qiniudn.com/ascii.png)
 
+TODOs:
+
+-   rewrite UFS.c in C++: union, find, init.
+
 ## 0.
 
 [我的算法学习之路 - Lucida](http://lucida.me/blog/on-learning-algorithms/) -<
@@ -367,7 +371,7 @@ A Bit of Logic -<
     -   获取最新面试动向
     -   认识一起找工作的其他小伙伴
 
-    :scissors: 2016/7/31 上午 9:30:00 1. Introducing Algorithm Interview && Coding Style【免费试听】 -<
+    :scissors: 2016/07/31 上午 9:30:00 1. Introducing Algorithm Interview && Coding Style【免费试听】 -<
 
     :   -   通过 strStr 这一道常见面试题讲解面试中的常见误区 -<
 
@@ -439,15 +443,17 @@ A Bit of Logic -<
                     -   函数的概念（而不是写在main里）;
                     -   缩进和命名（而不是拼音）；
                     -   使用可读的字面量（'a' - 'A'而非32）；
-                    -   API设计（当to_upper接收到非小写字母字符应该返回什么？0？报错？还是返回原值？考虑到to_upper的应用场景是把一个字符串中的小写字母转化为大写，返回原值显然更合理）；
-                    -   是否有阅读习惯（至少可以看出你有没有认真的读过代码大全）；
+                    -   **API设计**（当to_upper接收到非小写字母字符应该返回什么
+                        ？0？报错？还是返回原值？考虑到to_upper的应用场景是把一
+                        个字符串中的小写字母转化为大写，返回原值显然更合理）；
+                    -   **是否有阅读习惯**（至少可以看出你有没有认真的读过代码大全）；
                     -   是否读过C标准库源码（指出toupper数组实现的出处）；
                     -   数组的运用（使用转换表）；
                     -   了解宏，以及宏的危害（使用宏）；
                     -   是否背过这道题（在第一时间给出使用数组+宏的最优方案）；
                     -   EOF以及C标准库风格。
 
-                    接下来我还会要求面试者测试这个函数并给出测试代码，这里恕不赘述。
+                    接下来我还会要求面试者测试这个函数并给出**测试**代码，这里恕不赘述。
 
                     我的答案是，排除对算法的盲目崇拜，因为这样的题目非常难出，
                     而且对面试官的要求又很高，所以绝大多数面试官都选择去网上搜
@@ -456,7 +462,7 @@ A Bit of Logic -<
                     丈”们却因为背过题目而被录用，这些录用的“裘千丈”们又会用同样
                     的方式招聘下一批更加糟糕的“裘千丈”，讽刺至级。
 
-                从面试者的角度来说，出题的目的？: qualified.
+                从面试者的角度来说，出题的目的？: **qualified.**
 
                 -   tell them you are professional
                 -   tell them you are smart
@@ -469,7 +475,7 @@ A Bit of Logic -<
 
                 还可以用牛逼闪闪的 KMP 算法。
 
-                KMP -<
+                KMP :hearts: -<
 
                 :   KMP 算法是 Knuth、Morris 和 Pratt 在 1976 年发表的。它的基本思
                     想是，当出现不匹配时，就能知晓一部分文本的内容（因为在
@@ -545,16 +551,16 @@ A Bit of Logic -<
                             j =     1 2 3 4 5 6 7
                             ```
 
-                            预处理不需要按照 P 的定义写成 O(m^2) 甚至 O(m^3) 的。我们
-                            可以通过 P[1],P[2],…,P[j-1] 的值来获得 P[j] 的值。对于
-                            刚才的 B="ababacb"，假如我们已经求出了 P[1],P[2],P[3]
-                            和 P[4]，看看我们应该怎么求出 P[5] 和 P[6]。P[4]=2，那
-                            么 P [5] 显然等于 P[4]+1，因为由 P[4] 可以知道，B[1,2] 已
-                            经和 B[3,4] 相等了，现在又有 B[3]=B[5]，所以 P[5] 可以由
-                            P[4] 后面加一个字符得到。P[6] 也等于 P[5]+1 吗？显然不
-                            是，因为 B[ P[5]+1 ]<>B[6]。那么，我们要考虑“退一步”
-                            了。我们考虑 P[6] 是否有可能由 P[5] 的情况所包含的子串
-                            得到，即是否 P[6]=P[ P[5] ]+1。这里想不通的话可以仔
+                            预处理不需要按照 P 的定义写成 `O(m^2)` 甚至 `O(m^3)` 的。我们
+                            可以通过 `P[1], P[2], …, P[j-1]` 的值来获得 `P[j]` 的值。对于
+                            刚才的 `B="ababacb"`，假如我们已经求出了 `P[1], P[2], P[3]`
+                            和 `P[4]`，看看我们应该怎么求出 `P[5]` 和 `P[6]`。`P[4] = 2`，那
+                            么 `P[5]` 显然等于 `P[4]+1`，因为由 `P[4]` 可以知道，`B[1,2]` 已
+                            经和 `B[3,4]` 相等了，现在又有 `B[3]=B[5]`，所以 `P[5]` 可以由
+                            `P[4]` 后面加一个字符得到。`P[6]` 也等于 `P[5]+1` 吗？显然不
+                            是，因为 `B[ P[5]+1 ] != B[6]`。那么，我们要考虑“退一步”
+                            了。我们考虑 `P[6]` 是否有可能由 `P[5]` 的情况所包含的子串
+                            得到，即是否 `P[6]=P[ P[5] ]+1`。这里想不通的话可以仔
                             细看一下：
 
                             ```
@@ -567,7 +573,7 @@ A Bit of Logic -<
                             诉我们，`B[1]`、`B[3]` 和 `B[5]` 都是"a"。既然 `P[6]` 不能由 `P[5]`
                             得到，或许可以由 `P[3]` 得到（如果 `B[2]` 恰好和 `B[6]` 相等的
                             话，`P[6]` 就等于 `P[3]+1` 了）。显然，`P[6]` 也不能通过 `P[3]`
-                            得到，因为 `B[2]<>B[6]`。事实上，这样一直推到 `P[1]` 也不
+                            得到，因为 `B[2] != B[6]`。事实上，这样一直推到 `P[1]` 也不
                             行，最后，我们得到，`P[6]=0`。
 
                             怎么这个预处理过程跟前面的 KMP 主程序这么像呢？其实，
@@ -599,9 +605,9 @@ A Bit of Logic -<
                         const int m = strlen(pattern);
 
                         next[0] = j;
-                        for (i = 1; i < m; i++) {
-                            while (j > -1 && pattern[j + 1] != pattern[i]) j = next[j];
-                            if (pattern[i] == pattern[j + 1]) j++;
+                        for ( i = 1; i < m; i++ ) {
+                            while (j > -1 && pattern[j + 1] != pattern[i]) { j = next[j]; }
+                            if( pattern[i] == pattern[j + 1] ) { j++; }
                             next[i] = j;
                         }
                     }
@@ -988,7 +994,7 @@ A Bit of Logic -<
 
         -   [程序员编程艺术：第四章、现场编写类似 strstr/strcpy/strpbrk 的函数 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6417600)
 
-    2016/8/6 上午 9:30:00 2. 二分搜索 Binary Search -<
+    :scissors: 2016/08/06 上午 9:30:00 2. 二分搜索 Binary Search -<
 
     :   -   binary search -<
 
@@ -1241,7 +1247,7 @@ A Bit of Logic -<
                         -   [【LeetCode】Search in Rotated Sorted Array解题报告 - 跳出温水的青蛙 - 博客频道 - CSDN.NET](http://blog.csdn.net/ljiabin/article/details/40453607)。
                         -   [33. Search in Rotated Sorted Array | LeetCode OJ](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
-                -   81. Search in Rotated Sorted Array II -<
+                -   Search in Rotated Sorted Array II -<
 
                     :   Follow up for "Search in Rotated Sorted Array":
 
@@ -1292,7 +1298,7 @@ A Bit of Logic -<
 
                         -   [81. Search in Rotated Sorted Array II | LeetCode OJ](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/)
 
-                -   153. Find Minimum in Rotated Sorted Array -<
+                -   Find Minimum in Rotated Sorted Array -<
 
                     :   Suppose a sorted array is rotated at some pivot unknown
                         to you beforehand.
@@ -1329,7 +1335,7 @@ A Bit of Logic -<
 
                         -   [153. Find Minimum in Rotated Sorted Array | LeetCode OJ](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
 
-                -   154. Find Minimum in Rotated Sorted Array II -<
+                -   Find Minimum in Rotated Sorted Array II -<
 
                     :   The array may contain duplicates.
 
@@ -1363,7 +1369,7 @@ A Bit of Logic -<
                         };
                         ```
 
-                -   108. Convert Sorted Array to Binary Search Tree -<
+                -   Convert Sorted Array to Binary Search Tree -<
 
                     :   ```cpp
                         /**
@@ -1431,106 +1437,169 @@ A Bit of Logic -<
 
         -   [Binary search algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Binary_search_algorithm)
 
-    2016/8/7 上午 9:30:00 3. 二叉树问题与分治算法 Binary Tree & Divide Conquer -<
+    :scissors: 2016/08/07 上午 9:30:00 3. 二叉树问题与分治算法 Binary Tree & Divide Conquer -<
 
-    :   -   二叉树的深度优先遍历 Binary Tree DFS Traversal -<
+    :   -   二叉树的节点定义 -<
+
+            :   ```cpp
+                struct TreeNode {
+                    int val;
+                    TreeNode *left;
+                    TreeNode *right;
+                    TreeNode( int x ) : val(x), left(nullptr), right(nullptr) { }
+                }
+                ```
+
+                递归版的都很容易：
+                （Recursive solution is trivial `['trɪvɪəl]`, could you do it iteratively `['itə,reitivli] `?）
+
+                ```cpp
+                void traversal( TreeNode *root, vector<int> &result ) {
+                    if( !root ) { return; }
+                    // 如果先序（中序和后序只是调整一下位置）
+                    result.push_back( root->val );
+                    traversal( root->left,  result );
+                    traversal( root->right, result );
+                }
+                ```
+
+                ```
+                【从维基百科查到的 iterative 方法的算法伪码】
+
+                DPS: Depth-first search
+                BPS: Breath-first search
+                --------------------------------------------
+                iterativePreorder(node)
+                    if (node = null)
+                        return
+                    s ← empty stack
+                    s.push(node)
+                    while (not s.isEmpty())
+                        node ← s.pop()
+                        visit(node)
+                        if (node.right ≠ null)
+                            s.push(node.right)
+                        if (node.left ≠ null)
+                            s.push(node.left)
+                --------------------------------------------
+                iterativeInorder(node)
+                   s ← empty stack
+
+                   while (not s.isEmpty() or node ≠ null)
+                       if (node ≠ null)
+                           s.push(node)
+                           node ← node.left
+                       else
+                           node ← s.pop()
+                           visit(node)
+                           node ← node.right
+                --------------------------------------------
+                iterativePostorder(node)
+                    s ← empty stack                                               O  1                  X-> go left/down
+                    lastNodeVisited ← null                                       /                      X-> go right?
+                    while (not s.isEmpty() or node ≠ null)                   2  O                       X-> go up.
+                        if (node ≠ null)                                       / \
+                            s.push(node)                                   3  X-> O  4
+                            node ← node.left                                     / \
+                        else                                                5  O    O  7
+                            peekNode ← s.peek()                              /     /
+                            // if right child exists and traversing node    X 6   X 8
+                            // from left child, then move right
+                            if (peekNode.right ≠ null and lastNodeVisited ≠ peekNode.right)
+                                node ← peekNode.right
+                            else
+                                visit(peekNode)
+                                lastNodeVisited ← s.pop()
+                --------------------------------------------
+                levelorder(root)
+                    q ← empty queue
+                    q.enqueue(root)
+                    while (not q.isEmpty())
+                        node ← q.dequeue()
+                        visit(node)
+                        if (node.left ≠ null)
+                            q.enqueue(node.left)
+                        if (node.right ≠ null)
+                            q.enqueue(node.right)
+                ```
+
+                template:
+
+                ```cpp
+                #include <stdio.h>
+                #include <iostream>
+                #include <queue>
+                #include <stack>
+                #include <vector>
+                #define nullptr 0
+                using namespace std;
+
+                struct TreeNode {
+                    int val;
+                    TreeNode *left;
+                    TreeNode *right;
+                    TreeNode(int x = -1 ) : val(x), left(NULL), right(NULL) {}  // added default ctor
+                };
+                void link( TreeNode &root, TreeNode * left, TreeNode *right ) {
+                    root.left  = left;
+                    root.right = right;
+                }
+
+                class Solution {
+                    public:
+                    vector<vector<int> > levelOrder( TreeNode *root );
+                    ...
+                };
+
+                int main() {
+                    TreeNode node[10];
+                    for( int i = 0; i < 10; ++i ) { node[i].val = i; }
+                    printf( "         0               \n"
+                            "        / \\             \n"
+                            "       /   \\            \n"
+                            "      1     2            \n"
+                            "    /  \\     \\         \n"
+                            "   3    4     5          \n"
+                            "   \\    /    / \\       \n"
+                            "    6  7    8   9        \n" );
+                    link( node[0], &node[1], &node[2] );
+                    link( node[1], &node[3], &node[4] );
+                    link( node[2],       0 , &node[5] );
+                    link( node[3],       0 , &node[6] );
+                    link( node[4], &node[7],       0  );
+                    link( node[5], &node[8], &node[9] );
+                    link( node[6],       0 ,       0  );
+                    link( node[7],       0 ,       0  );
+                    link( node[8],       0 ,       0  );
+                    link( node[9],       0 ,       0  );
+
+                    Solution sol;
+                    vector<vector<int> > ret = sol.levelOrder( &node[0] );
+                    for( int i = 0; i < ret.size(); ++i ) {
+                        for( int j = 0; j < ret[i].size(); ++j ) {
+                            cout << " " << ret[i][j];
+                        }
+                        cout << "\n";
+                    }
+                    return 0;
+                }
+                ```
+
+                refs and see also
+
+                -   [Tree traversal - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Tree_traversal)
+                -   [Binary Tree Preorder Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+                -   [Binary Tree Inorder Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+                -   [Binary Tree Postorder Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-postorder-traversal/)
+                -   [Binary Tree Level Order Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-level-order-traversal/)
+                -   [Depth-first search - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Depth-first_search)
+                -   [Breadth-first search - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Breadth-first_search)
+
+        -   二叉树的深度优先遍历 Binary Tree DFS Traversal -<
 
             :   -   先序 / 中序 / 后序 Preorder / inorder / postorder -<
 
-                    :   -   二叉树的节点定义 -<
-
-                            :   ```cpp
-                                struct TreeNode {
-                                    int val;
-                                    TreeNode *left;
-                                    TreeNode *right;
-                                    TreeNode( int x ) : val(x), left(nullptr), right(nullptr) { }
-                                }
-                                ```
-
-                                递归版的都很容易：（Recursive solution is trivial `['trɪvɪəl]`, could you do it iteratively?）
-
-                                ```cpp
-                                void traversal( TreeNode *root, vector<int> &result ) {
-                                    if( !root ) { return; }
-                                    // 如果先序（中序和后序只是调整一下位置）
-                                    result.push_back( root->val );
-                                    traversal( root->left,  result );
-                                    traversal( root->right, result );
-                                }
-                                ```
-
-                                ```
-                                【从维基百科查到的 iterative 方法的算法伪码】
-
-                                DPS: Depth-first search
-                                BPS: Breath-first search
-                                --------------------------------------------
-                                iterativePreorder(node)
-                                    if (node = null)
-                                        return
-                                    s ← empty stack
-                                    s.push(node)
-                                    while (not s.isEmpty())
-                                        node ← s.pop()
-                                        visit(node)
-                                        if (node.right ≠ null)
-                                            s.push(node.right)
-                                        if (node.left ≠ null)
-                                            s.push(node.left)
-                                --------------------------------------------
-                                iterativeInorder(node)
-                                   s ← empty stack
-
-                                   while (not s.isEmpty() or node ≠ null)
-                                       if (node ≠ null)
-                                           s.push(node)
-                                           node ← node.left
-                                       else
-                                           node ← s.pop()
-                                           visit(node)
-                                           node ← node.right
-                                --------------------------------------------
-                                iterativePostorder(node)
-                                    s ← empty stack                                               O  1                  X-> go left/down
-                                    lastNodeVisited ← null                                       /                      X-> go right?
-                                    while (not s.isEmpty() or node ≠ null)                   2  O                       X-> go up.
-                                        if (node ≠ null)                                       / \
-                                            s.push(node)                                   3  X-> O   4
-                                            node ← node.left                                     / \
-                                        else                                                5  O    O   7
-                                            peekNode ← s.peek()                              /     /
-                                            // if right child exists and traversing node    X 6   X 8
-                                            // from left child, then move right
-                                            if (peekNode.right ≠ null and lastNodeVisited ≠ peekNode.right)
-                                                node ← peekNode.right
-                                            else
-                                                visit(peekNode)
-                                                lastNodeVisited ← s.pop()
-                                --------------------------------------------
-                                levelorder(root)
-                                    q ← empty queue
-                                    q.enqueue(root)
-                                    while (not q.isEmpty())
-                                        node ← q.dequeue()
-                                        visit(node)
-                                        if (node.left ≠ null)
-                                            q.enqueue(node.left)
-                                        if (node.right ≠ null)
-                                            q.enqueue(node.right)
-                                ```
-
-                                refs and see also
-
-                                -   [Tree traversal - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Tree_traversal)
-                                -   [Binary Tree Preorder Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-preorder-traversal/)
-                                -   [Binary Tree Inorder Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-inorder-traversal/)
-                                -   [Binary Tree Postorder Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-postorder-traversal/)
-                                -   [Binary Tree Level Order Traversal | LeetCode OJ](https://leetcode.com/problems/binary-tree-level-order-traversal/)
-                                -   [Depth-first search - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Depth-first_search)
-                                -   [Breadth-first search - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Breadth-first_search)
-
-                        -   先序遍历 -<
+                    :   -   先序遍历 -<
 
                             :   -   用栈 -<
 
@@ -1662,22 +1731,7 @@ A Bit of Logic -<
 
                             :   -   用栈 -<
 
-                                    :   ```
-                                        【思路】
-
-                                                  Root    第一件事，从 root 到 leaf (left leaf) 一路 push 入栈，
-                                                   /      结果是从 root 移到了虚无之中。
-                                                  /
-                                                 /
-                                               leaf       额，那就 pop 咯。
-
-                                               popped     对于这个 popped 出来的节点，它的 right 存在且没有处理过？
-                                                  \       1.  那再把它 push！然后把 right 当成 root 继续处理。
-                                                   \      2.  没有右边，那就是左右都处理完了，于是处理 popped。
-                                                    ?
-                                        ```
-
-                                        ```cpp
+                                    :   ```cpp
                                         vector<int> postorderTraversal( TreeNode *root ) {
                                             vector<int> ret;
                                             stack<TreeNode *> s;
@@ -1710,12 +1764,34 @@ A Bit of Logic -<
                                                 while( !s.empty() ) {
                                                     root = s.top(); s.pop();
                                                     ret.push_back( root->val );
-                                                    if( root->left ) { s.push( root->left ); }
+                                                    if( root->left  ) { s.push( root->left ); }     // 和先序遍历几乎一模一样!!! 只是调换了顺序.
                                                     if( root->right ){ s.push( root->right ); }
                                                 }
-                                                std::reverse( ret.begin(), ret.end() );         // the trick
+                                                std::reverse( ret.begin(), ret.end() );             // the trick
                                                 return ret;
                                             }
+                                            ```
+
+                                            ```
+                                                A                   postorder:  DFEBCA
+                                               / \
+                                              B   C
+                                             / \
+                                            D   E
+                                               /
+                                              F
+
+                                            stack       vector      action
+                                            -----       ---------   -------------
+                                            ||          []
+                                            |A|         []          push root
+                                            |BC|        [A]         not empty, pop A, log A, push B, C
+                                            |B|         [AC]        not empty, pop C, log C, no push
+                                            |DE|        [ACB]       not empty, pop B, log B, push D, E
+                                            |DF|        [ACBE]      not empty, pop E, log E, push F
+                                            |D|         [ACBEF]     not empty, pop F, log F, no push
+                                            ||          [ACBEFD]    not empty, pop D, log D, no push
+                                            ||          [DFEBCA]    empty, reverse vec, return
                                             ```
 
                                 -   Moris -<
@@ -1823,14 +1899,22 @@ A Bit of Logic -<
 
                 -   rebuild tree -<
 
-                    :   ```cpp
+                    :   ```
+                                              +---------------------------------------------+
+                                              |                                             |
+                                              v                                             |
+                        {pre}       =   [    pre,+---+  {leftpre},      {rightpre}  ];      |
+                        {in}        =   [ {leftin},  +----->in,<-----+  {rightin}   ];      |
+                        {post}      =   [ {leftpost},   {rightpost}, +-+post        ];      |
+                                                                           ^                |
+                                                                           |                |
+                                                                           +----------------+
+                        ```
+
+                        ```cpp
                         #include <stdio.h>
                         #include <string.h>
 
-                        //      {pre}    =   [    pre,       {leftpre},      {rightpre}  ];
-                        //      {in}     =   [ {leftin},         in,         {rightin}   ];
-                        //      {post}   =   [ {leftpost},   {rightpost},    post        ];
-                        //
                         void build_post( const char * pre, const char *in, const int n, char *post ) {
                             int left_len = strchr(in, pre[0]) - in;
                             if(n <= 0) { return; }
@@ -1838,7 +1922,6 @@ A Bit of Logic -<
                             build_post( pre+left_len+1, in+left_len+1,  n-left_len-1,   post+left_len );
                             post[n - 1] = pre[0];                   // you can put this line before recursion.
                         }
-
 
                         int main() {
                             puts(
@@ -1909,7 +1992,7 @@ A Bit of Logic -<
                                                                                      G
                         ```
 
-                -   DFS 模板 Introduce DFS Template -<
+                -   DFS 模板 Introduce DFS Template :dizzy: -<
 
                     :   DFS (depth-first search) 是深搜。
 
@@ -1938,64 +2021,91 @@ A Bit of Logic -<
 
         -   二叉树的宽度优先遍历 Binary Tree BFS Traversal -<
 
-            :   -   BFS 模板 Introduce BFS template -<
+            :   就是层序遍历（level order traversal）
 
-                    :   就是层序遍历（level order traversal）
+                -   递归版本 -<
 
-                        -   递归版本 -<
+                    :   ```cpp
+                        // Time: O(n), Space: O(n)
+                        vector<vector<int> > levelOrder( TreeNode *root ) {
+                            vector<vector<int> > result;
+                            traverse( root, 1, result );
+                            return result;
+                        }
 
-                            :   ```cpp
-                                // Time: O(n), Space: O(n)
-                                vector<vector<int> > levelOrder( TreeNode *root ) {
-                                    vector<vector<int> > result;
-                                    traverse( root, 1, result );
-                                    return result;
+                        void traverse( TreeNode *root, size_t level, vector<vector<int> > &result ) {
+                            if( !root ) { return; }
+                            if( level > result.size() ) {
+                                result.push_back( vector<int>() );                  // 也可以用 resize( level );
+                            }
+                            result[level-1].push_back( root->val );
+                            traverse( root->left,   level+1, result );
+                            traverse( root->right,  level+1, result );
+                        }
+                        ```
+
+                -   迭代版本 1 -<
+
+                    :   ```cpp
+                        // Time: O(n), Space: O(1)
+                        vector<vector<int> > levelOrder( TreeNode *root ) {
+                            vector<vector<int> > ret;
+                            if( !root ) { return ret; };
+                            queue<TreeNode *> cur, next;
+
+                            cur.push( root );
+                            while( !cur.empty() ) {
+                                vector<int> level;
+                                while( !cur.empty() ) {
+                                    root = cur.front(); cur.pop();
+                                    level.push_back( root->val );
+                                    if( root->left  ) { next.push( root->left  ); }
+                                    if( root->right ) { next.push( root->right ); }
                                 }
+                                ret.push_back( level );
+                                swap( cur, next );
+                            }
+                            return ret;
+                        }
+                        ```
 
-                                void traverse( TreeNode *root, size_t level, vector<vector<int> > &result ) {
-                                    if( !root ) { return; }
-                                    if( level > result.size() ) {
-                                        result.push_back( vector<int>() );                  // 也可以用 resize( level );
+                -   迭代版本 2 -<
+
+                    :   ```cpp
+                        vector<vector<int> > levelOrder( TreeNode *root ) {
+                            vector<vector<int> > ret;
+                            if( !root ) { return ret; }
+                            queue<TreeNode *> q;
+                            q.push( root );
+                            q.push( nullptr );      // indicate end of cur level
+                            vector<int> cur;
+                            do {
+                                root = q.front(); q.pop();
+                                if( root ) {
+                                    cur.push_back( root->val );
+                                    if ( root->left  ) { q.push( root->left  ); }
+                                    if ( root->right ) { q.push( root->right ); }
+                                } else if( !q.empty() ) {
+                                    if( !cur.empty() ) {
+                                        ret.push_back( cur );
+                                        cur.clear();
                                     }
-                                    result[level-1].push_back( root->val );
-                                    traverse( root->left,   level+1, result );
-                                    traverse( root->right,  level+1, result );
+                                    q.push( nullptr );
                                 }
-                                ```
+                            } while( !q.empty() );
+                            if( !cur.empty() ) { ret.push_back( cur ); }
+                            return ret;
+                        }
+                        ```
 
-                        -   迭代版本 -<
+                refs and see also
 
-                            :   ```cpp
-                                // Time: O(n), Space: O(1)
-                                vector<vector<int> > levelOrder( TreeNode *root ) {
-                                    if( !root ) { return result; };
-                                    vector<vector<int> > result;
-                                    queue<TreeNode *> current, next;
-
-                                    current.push( root );
-                                    while( !current.empty() ) {
-                                        vector<int> level;
-                                        while( !current.empty() ) {
-                                            TreeNode *node = current.front(); current.pop();
-                                            level.push_back( node->val );
-                                            if( node->left  ) { next.push( node->left  ); }
-                                            if( node->right ) { next.push( node->right ); }
-                                        }
-                                        result.push_back( level );
-                                        swap( next, current );
-                                    }
-                                    return result;
-                                }
-                                ```
-
-                -   refs and see also -<
-
-                    :   -   [Breadth-First Traversal of a Tree](https://www.cs.bu.edu/teaching/c/tree/breadth-first/)
-                        -   [Stack-based breadth-first search tree traversal](http://www.ibm.com/developerworks/aix/library/au-aix-stack-tree-traversal/index.html)
+                -   [Stack-based breadth-first search tree traversal](http://www.ibm.com/developerworks/aix/library/au-aix-stack-tree-traversal/index.html)
+                -   [《编程之美：分层遍历二叉树》的另外两个实现 - Milo Yip - 博客园](http://www.cnblogs.com/miloyip/archive/2010/05/12/binary_tree_traversal.html)
 
         -   二叉搜索树 Binary Search Tree -<
 
-            :   -   What is BST -<
+            :   -   What is BST (wikipedia) -<
 
                     :   In computer science, binary search trees (BST), sometimes
                         called ordered or sorted binary trees, are a particular type of
@@ -2136,11 +2246,11 @@ A Bit of Logic -<
 
                         -   [Validate Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/validate-binary-search-tree/)
 
-                -   [Convert Sorted Array to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/){#lc108a2} -<
+                -   Convert Sorted Array to Binary Search Tree -<
 
                     :   Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
 
-                        这道题在本笔记 [leetcode #108](#lc108) 也有。思路是一样的，不过那边更直白。
+                        dup problem, same idea. (思路是一样的，不过那边更直白。)
                         首先要明确，这个 BST 不唯一。
 
                         ```cpp
@@ -2162,8 +2272,9 @@ A Bit of Logic -<
                         refs and see also
 
                         -   [Convert Sorted Array to Balanced Binary Search Tree (BST) – LeetCode](http://articles.leetcode.com/convert-sorted-array-into-balanced)
+                        -   [Convert Sorted Array to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)
 
-                -   Convert Sorted List to Binary Search Tree -<
+                -   Convert Sorted List to Binary Search Tree :TODO: -<
 
                     :   这里和上面不同的是，list 不能随机存取。最省力的方法是，先把 list 转成 array……
 
@@ -2231,7 +2342,7 @@ A Bit of Logic -<
         -   [Binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Binary_search_tree)
         -   [Divide and conquer algorithms - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Divide_and_conquer_algorithms)
 
-    Before diving into DP, we learn some sorting techniques :hearts: -<
+    :scissors: 2016/?/? 上午 9:30:00 ?. Sortings -<
 
     :   -   util: print.cpp -<
 
@@ -3061,9 +3172,9 @@ A Bit of Logic -<
                 基数排序        O(d*(n+R))      O(d*(n+R))  O(R)        是
                 -----------------------------------------------------------------
 
-    Beyond some sorting techniques, we need also some brute force wisdoms. -<
+    :scissors: 2016/?/? 上午 9:30:00 ?. Brute Force -<
 
-    :   -   next_permutation :hearts: -<
+    :   -   next_permutation :hearts: -< -<
 
             :   下面考虑用 C 语言实现。不难想到用数组表示 P 和 S。由于 P 和 S 是互补
                 的，它们二者知道其中给一个，另一个就完全确定了，因此不用保存 P。
@@ -3203,11 +3314,11 @@ A Bit of Logic -<
                         }
                         ```
 
-    Still, some BFS, DFS background. -<
+    :scissors: 2016/?/? 上午 9:30:00 ?. more BFS, DFS -<
 
     :   -   chap9. BFS -<
 
-            :   -   maze -<
+            :   -   maze :hearts: -<
 
                     :   ```
                         input:
@@ -3769,9 +3880,9 @@ A Bit of Logic -<
                 -   combination sum ii
                 -   conclusion
 
-    2016/8/13 上午 9:30:00 4. 动态规划 Dynamic Programming I -<
+    :scissors: 2016/08/13 上午 9:30:00 4. 动态规划 Dynamic Programming I -<
 
-    :   -   [什么是动态规划？动态规划的意义是什么？ - 知乎](https://www.zhihu.com/question/23995189) -<
+    :   -   什么是动态规划？动态规划的意义是什么？ -<
 
             :   动态规划（Dynamic programming）中递推式的求解方法不是动态规划的本质。
 
@@ -3858,6 +3969,10 @@ A Bit of Logic -<
                 >   而不管之前这个状态是如何得到的
 
                 这个性质叫做**无后效性**。
+
+                refs and see also
+
+                -   [什么是动态规划？动态规划的意义是什么？ - 知乎](https://www.zhihu.com/question/23995189)
 
         -   [Dynamic programming - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dynamic_programming) -<
 
@@ -4155,7 +4270,7 @@ A Bit of Logic -<
                                 }
                                 ```
 
-    2016/8/14 上午 9:30:00 5. 动态规划 Dynamic Programming II -<
+    :scissors: 2016/08/14 上午 9:30:00 5. 动态规划 Dynamic Programming II -<
 
     :   -   面试中常见的动态规划类型 -<
 
@@ -4301,7 +4416,7 @@ A Bit of Logic -<
                     -   http://www.lintcode.com/problem/best-time-to-buy-and-sell-stock-iv/
                     -   http://www.lintcode.com/problem/maximum-subarray-iii/
 
-    2016/8/20 上午 9:30:00 6. 链表 Linked List -<
+    :scissors: 2016/08/20 上午 9:30:00 6. 链表 Linked List -<
 
     :   -   介绍 Dummy Node 在链表问题中的运用 Introduce Dummy Node in Linked List -<
 
@@ -4345,6 +4460,7 @@ A Bit of Logic -<
                         link backward to the previous node](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Doubly-linked-list.svg/610px-Doubly-linked-list.svg.png)
 
                     ![A circular linked list](https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Circularly-linked-list.svg/350px-Circularly-linked-list.svg.png)
+
                 Sentinel nodes -<
 
                 :   In computer programming, a sentinel node is a specifically
@@ -4519,7 +4635,9 @@ A Bit of Logic -<
 
                     -   [Linked List Cycle II | LeetCode OJ](https://leetcode.com/problems/linked-list-cycle-ii/)
 
-        -   常见问题讲解 Frequent Questions
+        -   常见问题讲解 Frequent Questions -<
+
+            :   TODO
 
         refs and see also
 
@@ -4528,9 +4646,14 @@ A Bit of Logic -<
         -   [Sentinel node - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sentinel_node)
         -   [Splitting Linked List – LeetCode](http://articles.leetcode.com/splitting-linked-list/)
 
-    2016/8/21 上午 9:30:00 7. 数组与数 Array & Numbers -<
+    :scissors: 2016/08/21 上午 9:30:00 7. 数组与数 Array & Numbers -<
 
     :   -   旋转排序数组相关问题与三步翻转法的运用 Rotated Sorted Array & 3-step Reversion
+
+            just this picture:
+
+            ![](http://whudoc.qiniudn.com/2016/20141025161730953.png)
+
         -   两个排序数组的中位数 Median of Two Sorted Array -<
 
             :   There are two sorted arrays nums1 and nums2 of size m and n respectively.
@@ -4565,6 +4688,8 @@ A Bit of Logic -<
                 }
                 ...
                 ```
+
+                TODO, leetcode tijie.
 
                 refs and see also
 
@@ -4614,7 +4739,7 @@ A Bit of Logic -<
 
         -   分割数组相关问题 Partition Array
 
-    2016/8/27 上午 9:30:00 8. 数据结构 Data Structure -<
+    :scissors: 2016/08/27 上午 9:30:00 8. 数据结构 Data Structure -<
 
     :   线性数据结构
 
@@ -4658,11 +4783,9 @@ A Bit of Logic -<
                                                                 |   queue
                         ----------------------------------------+---------------------------
                         i = 0, j = [0, i+2), push 2 times       |   1
-                        push 0                                  |
-                                                                |   1   0
+                        push 0                                  |   1   0
                         withdraw t=1                            |
-                        push( t=1 + s=0 )                       |
-                                                                |   0   1
+                        push( t=1 + s=0 )                       |   0   1
                         s=t=1                                   |
                         withdraw t=0                            |
                         push( t=0 + s=1 )                       |
@@ -4709,7 +4832,7 @@ A Bit of Logic -<
                         1 5 10 10 5 1       i=6                 ...
                         ```
 
-        -   栈的原理、实现和运用, Heap -<
+        -   栈的原理、实现和运用, Stack -<
 
             :   TODO
 
@@ -5258,7 +5381,7 @@ A Bit of Logic -<
                         2 3 4 4 5
                         ```
 
-    2016/8/28 上午 9:30:00 9. 图与搜索 Graph & Search -<
+    :scissors: 2016/08/28 上午 9:30:00 9. 图与搜索 Graph & Search -<
 
     :   -   图上的宽度优先搜索 Graph BFS
         -   拓扑排序 Topological Sorting
@@ -5267,9 +5390,9 @@ A Bit of Logic -<
 
     【下面是强化班内容】
 
-    2016/8/21 上午 7:00:00 FLAG 算法面试难度提高？如何准备？【免费试听】 -<
+    :scissors: 2016/08/21 上午 7:00:00 FLAG 算法面试难度提高？如何准备？【免费试听】 -<
 
-    :  -   [HR 面试这一环可能会问到的问题 · soulmachine/acm-cheat-sheet Wiki · GitHub](https://github.com/soulmachine/acm-cheat-sheet/wiki/HR%E9%9D%A2%E8%AF%95%E8%BF%99%E4%B8%80%E7%8E%AF%E5%8F%AF%E8%83%BD%E4%BC%9A%E9%97%AE%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98) -<
+    :  -   HR 面试这一环可能会问到的问题 -<
 
             :   **What are your strengths?**
 
@@ -5365,6 +5488,7 @@ A Bit of Logic -<
                 refs and see also
 
                 -   [Top 10 HR Interview Questions & How To Answer Them | Human Resources Blog | Top HR Blog](http://humanresourcesblog.in/2012/09/26/top-10-hr-interview-questions-how-to-answer-them/)
+                -   [HR 面试这一环可能会问到的问题 · soulmachine/acm-cheat-sheet Wiki · GitHub](https://github.com/soulmachine/acm-cheat-sheet/wiki/HR%E9%9D%A2%E8%AF%95%E8%BF%99%E4%B8%80%E7%8E%AF%E5%8F%AF%E8%83%BD%E4%BC%9A%E9%97%AE%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98)
 
         -   各类 IT 企业的面试算法难度及风格
         -   如何解决中等难度以上的算法题
@@ -5377,34 +5501,36 @@ A Bit of Logic -<
             -   2. 如何通过一道题区分 3 类面试者
             -   3. 剖析面试官面试的思路
 
-    2016/8/28 上午 7:00:00 数据结构 Data Structure (上) -<
+    :scissors: 2016/08/28 上午 7:00:00 数据结构 Data Structure (上) -<
 
     :   -   并查集 -<
 
-            :   -   并查集的基本原理
-                -   并查集的相关运用
-                -   并查集的拓展（带路径压缩）
-                -   并查集的运用
+            :   basics ideas -<
 
-                并查集又称不相交集，有两个名字的原因在于它原就有两个不同的英文
-                名字，Disjoint sets和Union-find set。更准确点应该说并查集是用来
-                操作不相交集的数据结构。算法 导论上这一章就叫用于不相交集合的数
-                据结构（Data Structures for Disjoint Sets）。 维基百科上也说：
+                :   -   并查集的基本原理
+                    -   并查集的相关运用
+                    -   并查集的拓展（带路径压缩）
+                    -   并查集的运用
 
-                In computer science, a disjoint-set data structure, also called
-                a union–find data structure or merge–find set, is a data
-                structure that keeps track of a set of elements partitioned
-                into a number of disjoint (nonoverlapping) subsets. It supports
-                two useful operations:
+                    并查集又称不相交集，有两个名字的原因在于它原就有两个不同的英文
+                    名字，Disjoint sets和Union-find set。更准确点应该说并查集是用来
+                    操作不相交集的数据结构。算法 导论上这一章就叫用于不相交集合的数
+                    据结构（Data Structures for Disjoint Sets）。 维基百科上也说：
 
-                -   Find: Determine which subset a particular element is in.
-                    Find typically returns an item from this set that serves as
-                    its "representative"; by comparing the result of two Find
-                    operations, one can determine whether two elements are in
-                    the same subset.
-                -   Union: Join two subsets into a single subset.
+                    In computer science, a disjoint-set data structure, also called
+                    a union–find data structure or merge–find set, is a data
+                    structure that keeps track of a set of elements partitioned
+                    into a number of disjoint (nonoverlapping) subsets. It supports
+                    two useful operations:
 
-                但一般说 Disjoint Sets 就指的是Data Structures for Disjoint Sets。
+                    -   Find: Determine which subset a particular element is in.
+                        Find typically returns an item from this set that serves as
+                        its "representative"; by comparing the result of two Find
+                        operations, one can determine whether two elements are in
+                        the same subset.
+                    -   Union: Join two subsets into a single subset.
+
+                    但一般说 Disjoint Sets 就指的是Data Structures for Disjoint Sets。
 
                 Disjoint-set data structure -<
 
@@ -6068,7 +6194,7 @@ A Bit of Logic -<
                             3   1   5   2   4
                             ```
 
-    2016/8/29 上午 7:00:00 数据结构 Data Structure (下) -<
+    :scissors: 2016/08/29 上午 7:00:00 数据结构 Data Structure (下) -<
 
     :   -   Heap的深入理解和运用
         -   Heap重要拓展：
@@ -6079,7 +6205,7 @@ A Bit of Logic -<
         -   Sliding Windows问题总结
         -   双端队列Deque
 
-    2016/9/4 上午 7:00:00 两个指针 Two Pointers -<
+    :scissors: 2016/09/04 上午 7:00:00 两个指针 Two Pointers -<
 
     :   -   对撞型指针
             -   1. Two sum 类
@@ -6089,13 +6215,13 @@ A Bit of Logic -<
             -   2. 快慢类
         -   两个数组上的指针
 
-    2016/9/5 上午 7:00:00 动态规划 Dynamic Programming (上) -<
+    :scissors: 2016/9/5 上午 7:00:00 动态规划 Dynamic Programming (上) -<
 
     :   -   记忆化搜索（区间动态规划、博弈类动态规划）
         -   背包类动态规划
         -   区间类动态规划
 
-    2016/9/11 上午 7:00:00 动态规划 Dynamic Programming (下) -<
+    :scissors: 2016/9/11 上午 7:00:00 动态规划 Dynamic Programming (下) -<
 
     :   -   记忆化搜索拓展
             -   1. 区间动态规划
@@ -6105,7 +6231,7 @@ A Bit of Logic -<
             -   2. K sum
             -   3. Minimum Adjustment Cost
 
-    2016/9/12 上午 7:00:00 如何解决 follow up 问题 -<
+    :scissors: 2016/9/12 上午 7:00:00 如何解决 follow up 问题 -<
 
     :   -   Peak Element I/II
         -   第 K 大
@@ -6121,7 +6247,7 @@ A Bit of Logic -<
             -   3. Subarray Sum Closest
             -   4. Subarray sum II
 
-    Bonus Problems -<
+    :scissors: Bonus Problems -<
 
     :   [Bresenham's line algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm) -<
 
@@ -6239,7 +6365,7 @@ A Bit of Logic -<
     -   希望理解Google三驾马车
     -   希望了解NoSQL Database
 
-    8/15/2016, 1:00:00 AM 走进系统设计 & 设计推特 【免费试听】 -<
+    :scissors: 8/15/2016, 1:00:00 AM 走进系统设计 & 设计推特 【免费试听】 -<
 
     :   -   什么是系统设计 What is System Design
         -   系统设计中常见的问题是什么 How we ask System Design in Interview
@@ -6248,7 +6374,7 @@ A Bit of Logic -<
         -   系统设计的知识点构成 Basic Knowledge of System Design
         -   设计推特 Design a Twitter
 
-    8/21/2016, 1:00:00 AM 数据库系统 Database System -<
+    :scissors: 8/21/2016, 1:00:00 AM 数据库系统 Database System -<
 
     :   通过设计聊天系统 Whatsapp 了解：
 
@@ -6259,7 +6385,7 @@ A Bit of Logic -<
         -   一致性哈希算法 Consistent Hashing
         -   分片算法 Sharding
 
-    8/22/2016, 1:00:00 AM 爬虫系统与搜索建议系统 Web Crawler & Google Suggestion -<
+    :scissors: 8/22/2016, 1:00:00 AM 爬虫系统与搜索建议系统 Web Crawler & Google Suggestion -<
 
     :   通过对爬虫系统设计 (Web Crawler) 与 搜索建议系统设计 (Google Suggestion) 了解如下内容：
 
@@ -6269,7 +6395,7 @@ A Bit of Logic -<
         -   Trie 结构的原理及应用
         -   如何在系统设计中使用 Trie
 
-    8/28/2016, 1:00:00 AM 分布式文件系统 & 设计查询系统 Google File System & Design Lookup Service -<
+    :scissors: 8/28/2016, 1:00:00 AM 分布式文件系统 & 设计查询系统 Google File System & Design Lookup Service -<
 
     :   以 GFS 为例系统学习 Google File System，并通过一道实战真题Lookup Service巩固要点，了解如下内容：
 
@@ -6278,7 +6404,7 @@ A Bit of Logic -<
         -   如何做replica, check sum 检查
         -   了解consistent hash和sharding的实际应用
 
-    8/29/2016, 1:00:00 AM, Web System & Design Tiny Url 网站系统设计 & 设计短网址系统 -<
+    :scissors: 8/29/2016, 1:00:00 AM, Web System & Design Tiny Url 网站系统设计 & 设计短网址系统 -<
 
     :   实战真题
 
@@ -6289,7 +6415,7 @@ A Bit of Logic -<
 
         关键词：Web, Consistent Hashing, Memcached, Tiny url.
 
-    9/4/2016, 1:00:00 AM, Big Table 原理透析 -<
+    :scissors: 9/4/2016, 1:00:00 AM, Big Table 原理透析 -<
 
     :   通过设计分布式数据库系统Bigtable了解如下内容：
 
@@ -6298,7 +6424,7 @@ A Bit of Logic -<
         -   了解如何建立index
         -   学习Bloom Filter的实现原理
 
-    9/5/2016, 1:00:00 AM, Map Reduce & Design WhatsApp -<
+    :scissors: 9/5/2016, 1:00:00 AM, Map Reduce & Design WhatsApp -<
 
     :   学习Map Reduce 的应用与原理
 
@@ -6314,7 +6440,7 @@ A Bit of Logic -<
         -   聊天系统中的 Pull vs Push
         -   讲解一种特殊的Service - Realtime Service
 
-    9/11/2016, 1:00:00 AM, 基于地理位置信息的系统设计 Location Based Service -<
+    :scissors: 9/11/2016, 1:00:00 AM, 基于地理位置信息的系统设计 Location Based Service -<
 
     :   系统学习LBS相关系统设计的核心要点：
 

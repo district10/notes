@@ -797,3 +797,52 @@ title: Working Notes
 [理查德·汉明《你和你的研究》 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/04/you-and-your-research.html)
 
 [Rule of thumb - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Rule_of_thumb)
+
+[partitioning - How to enable exFAT in Ubuntu 14.04 - Ask Ubuntu](http://askubuntu.com/questions/451364/how-to-enable-exfat-in-ubuntu-14-04)
+
+:   ```
+    Error mounting /dev/sdb1 at /media/tzx/Lubuntu: Command-line `mount -t "exfat"
+        -o "uhelper=udisks2,nodev,nosuid,uid=1000,gid=1000,iocharset=utf8,namecase=0,errors=remount-ro,umask=0077"
+        "/dev/sdb1" "/media/tzx/Lubuntu"' exited with non-zero exit status 32: mount:
+        unknown filesystem type 'exfat'
+    ```
+
+    ```bash
+    sudo apt-get install exfat-fuse exfat-utils
+    sudo mkdir /media/exfat
+    sudo mount -t exfat /dev/sdxx /media/exfat
+    ```
+
+[在宿舍写代码总被一个室友认为在装逼，该怎么办？ - 知乎](https://www.zhihu.com/question/30362260)
+
+:   大多数时候所谓合群，都渐渐成了平庸。如果大家原本就不一样，保持不一样就挺好。
+
+    大学的时候室友经常聚在一起看NBA或者少儿不宜的片子，而我只是一个人默默的敲键
+    盘。
+
+    他们经常会嘲讽我：还真是小看你了，丫还是一个文人呢。
+
+    我回应着说：我不是文人，我是骚客。
+
+    [程序员到底有多累、多辛苦？ - 知乎](https://www.zhihu.com/question/39813913)
+
+    :   中铁大桥局，执全球桥梁工程牛耳，云南普立大桥，当前全球第一高桥。现场资
+        深建筑工程师，住工程房，餐风宿雪，一年回不了几次家，月收入不足两万。
+
+        中国水电，全球水电工程项目几无敌手，某主力勘探院资深工程师，非洲丛林住
+        简易房，一呆一个多月，国内出差以月计，平时半数在西藏，周六基本为工作日，
+        国内时月入一万出头。
+
+        以上两例，均是30-40之间的，智力体力都在巅峰。程序员同学自行对比。
+
+        IT 至今仍是投入产出比最高的行业之一，很多人天天挂在嘴边的金融IT男，不是
+        空穴来风。
+
+        这个行业这不算苦，不算累，只是有点智力门槛而已。
+
+        我们程序员闲的没事时候，又习惯性不想离开计算机，然后就总编些自黑的段子，
+        又苦又累也好，收入低早衰也罢，包括找不到媳妇之类，全是这么出来的，行
+        外人不必当真。
+
+        只不过，段子传的时间长了，信的人就多了。
+        现在居然一些自己人也信了。
