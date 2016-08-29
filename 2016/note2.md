@@ -913,3 +913,517 @@ title: Working Notes
     在这个前提下，我们看到的，才是一个真实的男人，其余那些，都是**蹩脚的演员**。
 
 [我该拿什么拯救你的英语写作能力 - The Dairy of Marisa - 知乎专栏](https://zhuanlan.zhihu.com/p/20761142?refer=marisa)
+
+[只增不减的互联网恶习](http://yanyiwu.com/work/2016/01/21/silly-increment.html)
+
+[姚氏教学法成功案例分析](http://yanyiwu.com/work/2015/12/19/yao-style-leadership.html)
+
+[假如真的有寒冬](http://yanyiwu.com/work/2015/09/05/if-the-winter-is-coming.html)
+
+:   互联网的价值是什么？ 我认为是效率，互联网公司具有传统公司不具备的高效率。
+
+[影响我一生的两个选择](http://yanyiwu.com/life/2014/10/11/choices-change-my-life.html)
+
+:   在大三的时候我过去北大互联网实验室实习，是想使用自己的保送研究生的资格保送
+    到北大读研究生。 可惜后来保送北大落选（最后保送到北邮的网络研究院，也就是去
+    年因为毕业去谷歌的人数多而在应届生小有名气的研究生院）。 而在那个大三的暑假，
+    我回家用了一个月的时间和家人亲戚朋友谈我不打算继续读研的想法， 长辈几乎没人
+    理解，为什么一个他们眼中的好学生会有这么大逆不道的想法？ 而当我在他们的要求
+    下继续读了研究生之后，我更加坚定了我的想法。 正如许大神当时备考了清华计算机
+    研究生却在最后选择了直接工作的原因相同： 研究生不过是在给导师打工而已。 而
+    我从大三开始就一直在外面疯狂的实习。 我深刻知道外面工作 和 给导师打工 之间
+    个人能力提升的巨大差别。 而且我实习的内容属于个性化推荐和搜索服务，广告系统
+    的工程实践性工作。 这方面我所读的研究生院导师项目，那些所谓的国家级 863 项目，
+    无法给予我任何帮助。 读研的最大收获是让我明白原来以前仰慕的各种 863 国家项目，
+    原来都是可以浑水摸鱼忽悠过去的。
+
+    所以当时摆在我面前的无非有两条路，一是继续留在学校里面，像那些最后去谷歌的
+    学长学姐一样，疯狂的刷面试题目。 等找工作之前先去微软亚洲研究院实习，然后继
+    续刷题，最后运气不差的话，拿个谷歌的 offer 。 网上有不少拿了谷歌 offer 的应
+    届生写长篇大论关于如何拿到谷歌 offer 如何难如何难 ，其实秘籍很简单：刷题 + 实
+    习。 这个秘籍并不是我无中生有，这是有法可依的，至少从去年和今年看，这个方法
+    屡试不爽。 今年刚听说一个本科和我一起组队搞北邮 ACM 校赛的学长，也是这么干
+    的，然后也是顺理成章拿到了谷歌美国的 offer。
+
+[如何成为内在动机驱使的人？ - 阳志平的网志](http://www.yangzhiping.com/psy/YangQ&A-SelfDetermination.html)
+
+:   之后，放弃了学术康庄大路，走上了创业林萌小路。十来年，我一直在心理学这个狭
+    小领域工作，看着全国高校心理系数量从我就读时的二十个扩张为两百个；看着心理
+    学从无人听闻到今天成为显学，人工智能、产品设计与企业管理无处不在。十来年，
+    我的经验是，越凭兴趣去做的事，越容易取得预想不到的成就，如果一上来精打细算，
+    奔着名利去，那么它也就是那么回事。
+
+    看起来一切都很好，就是感觉太物质了…过上怎样的精神追求就看个人了。其实有钱还
+    是好啊，可以专心 IT/EE 技术宅，不愁买不起设备。也可以雇几个 phd 每周给自己
+    讲篇 paper 愉悦一下身心。只不过香港没有领先的制造业光搞金融不是回事。不知道
+    自己一个人技术宅下去是不是足够有趣……当然地球已经是平的了，能做到什么地步还
+    是靠自己。
+
+[Lu Wang's Page](http://coolwanglu.github.io/)
+
+:   His name is written as 王璐 in Chinese.
+
+    He [codes](http://github.com/coolwanglu/).
+
+    He draws.
+
+    He plays.
+
+    He talks.
+
+    He [types](http://data.typeracer.com/pit/profile?user=coolwanglu).
+
+    He notes.
+
+    He is not cool at all despite his stupid username.
+
+[Re: TopLanguage {经典演讲}庞加莱关于数学发现的心理学的演讲 - Google 网上论坛](https://groups.google.com/forum/#!topic/pongba/PfyE4FBkhsw) -<
+
+:   以下是导读和自己的一点感想：
+
+    在读《数学领域发现的心理学》的时候看到脚注里面提到庞加莱的这篇演讲。最喜欢
+    数学家讲problem solving心理学了。认知科学家、神经科学家没有数学家解决复杂问
+    题时候的心理体验，所以做的研究缺乏一些也许只能靠内省来获得的知识，而且使用
+    的问题也趋于简单。而数学家又往往不通心理学，或者干脆就不关心问题到底是怎么
+    解决的，只关心能否解决。
+
+    所幸庞加莱，这个被称为最后一位数学全才的人，对解题的心理学也非常有兴趣。在
+    演讲中可以发现，他对于自己解决数学问题过程中的心理过程作了深刻的反省，虽然
+    庞加莱不是认知神经科学家，但演讲中的使用的类比以及描述基本上都是靠谱的。
+
+    其中最有意思的是他也提到了自己的几次顿悟的瞬间（其中有一次就是著名的踏上马
+    车一瞬间想到解的那次）。
+
+    庞加莱认为下意识里面会对问题的各个元素（条件）进行组合，然后根据人对于知识
+    的某种美感上的偏好筛选出来，那些足够"美"的东西就会浮上意识层面，于是产生顿
+    悟。这也是我看了一些认知科学的书之后得到的说法。但此外庞加莱同时也认为下意
+    识进行的探索是相当多的，他认为也许远远大于意识层面进行的探索（组合）。而我
+    倾向于认为下意识层面能进行的逻辑推理是有限远的，一般一到两步就了不得了。下
+    意识里面更多的进行的是某种模糊的模式匹配，或者说模糊联想。这就是为什么对问
+    题有一个全局感性认识那么重要的原因，这样的认识足够模糊足够全局，有助于提取
+    出重要的相关知识来。此外，一个总体的认识往往包含了问题的最重要（往往也是最
+    本质的）要素，将这些要素同时装进工作记忆有着非常重要的意义----使它们有机会
+    组合在一起，衍生出新的知识。否则就是陷在在问题的某个局部（某几个局部条件）
+    下，得到不相干的知识。
+
+    另外他也提到了对问题整体理解的另一个好处，当你对解的大致过程有了一个整体认
+    识之后，即便缺乏某个局部的细节，也可以在这个整体视图的指导下将其推导出来
+    （填充出来）。说到这里顺便说一个有关的思维心理学实验：大家知道围棋高手能够
+    记忆非常复杂的残局，而新手简直连半部残局也记忆不了。原因其实就是围棋高手具
+    有领域知识：对各种各样围棋套路的知识，对各种局面的形态的知识。有了这些知识，
+    只要记住局面的一个大概，就可以推导出那些细节了。事实上，当让高手们记忆一盘
+    毫无规律放置的棋局时，他们的表现并不比门外汉好。
+
+    以下是全文转载(via)：Mathematical Creation How is mathematics made? What
+    sort of brain is it that can compose the propositions and systems of
+    mathematics? How do the mental processes of the geometer or algebraist
+    compare with those of the musician, the poet, the painter, the chess
+    player? In mathematical creation which are the key elements? Intuition? An
+    exquisite sense of space and time? The precision of a calculating machine?
+    A powerful memory? Formidable skill in following complex logical sequences?
+    A supreme capacity for concentration?
+
+    The essay below, delivered in the first years of this century as a lecture
+    before the Psychological Society in Paris, is the most celebrated of the
+    attempts to describe what goes on in the mathematician's brain. Its author,
+    Henri Poincaré, cousin of Raymond, the politician, was peculiarly fitted to
+    undertake the task. One of the foremost mathematicians of all time,
+    unrivaled as an analyst and mathematical physicist, Poincaré was known also
+    as a brilliantly lucid expositor of the philosophy of science. These
+    writings are of the first importance as professional treatises for
+    scientists and are at the same time accessible, in large part, to the
+    understanding of the thoughtful layman.
+
+    Poincaré on Mathematical Creation The genesis of mathematical creation is a
+    problem which should intensely interest the psychologist. It is the
+    activity in which the human mind seems to take least from the outside
+    world, in which it acts or seems to act only of itself and on itself, so
+    that in studying the procedure of geometric thought we may hope to reach
+    what is most essential in man's mind...
+
+    A first fact should surprise us, or rather would surprise us if we were not
+    so used to it. How does it happen there are people who do not understand
+    mathematics? If mathematics invokes only the rules of logic, such as are
+    accepted by all normal minds; if its evidence is based on principles common
+    to all men, and that none could deny without being mad, how does it come
+    about that so many persons are here refractory?
+
+    That not every one can invent is nowise mysterious. That not every one can
+    retain a demonstration once learned may also pass. But that not every one
+    can understand mathematical reasoning when explained appears very
+    surprising when we think of it. And yet those who can follow this reasoning
+    only with difficulty are in the majority; that is undeniable, and will
+    surely not be gainsaid by the experience of secondary-school teachers.
+
+    And further: how is error possible in mathematics? A sane mind should not
+    be guilty of a logical fallacy, and yet there are very fine minds who do
+    not trip in brief reasoning such as occurs in the ordinary doings of life,
+    and who are incapable of following or repeating without error the
+    mathematical demonstrations which are longer, but which after all are only
+    an accumulation of brief reasonings wholly analogous to those they make so
+    easily. Need we add that mathematicians themselves are not infallible?...
+
+    As for myself, I must confess, I am absolutely incapable even of adding
+    without mistakes... My memory is not bad, but it would be insufficient to
+    make me a good chess-player. Why then does it not fail me in a difficult
+    piece of mathematical reasoning where most chess-players would lose
+    themselves? Evidently because it is guided by the general march of the
+    reasoning. A mathematical demonstration is not a simple juxtaposition of
+    syllogisms, it is syllogisms placed in a certain order, and the order in
+    which these elements are placed is much more important than the elements
+    themselves. If I have the feeling, the intuition, so to speak, of this
+    order, so as to perceive at a glance the reasoning as a whole, I need no
+    longer fear lest I forget one of the elements, for each of them will take
+    its allotted place in the array, and that without any effort of memory on
+    my part.
+
+    We know that this feeling, this intuition of mathematical order, that makes
+    us divine hidden harmonies and relations, cannot be possessed by every one.
+    Some will not have either this delicate feeling so difficult to define, or
+    a strength of memory and attention beyond the ordinary, and then they will
+    be absolutely incapable of understanding higher mathematics. Such are the
+    majority. Others will have this feeling only in a slight degree, but they
+    will be gifted with an uncommon memory and a great power of attention. They
+    will learn by heart the details one after another; they can understand
+    mathematics and sometimes make applications, but they cannot create.
+    Others, finally, will possess in a less or greater degree the special
+    intuition referred to, and then not only can they understand mathematics
+    even if their memory is nothing extraordinary, but they may become creators
+    and try to invent with more or less success according as this intuition is
+    more or less developed in them.
+
+    In fact, what is mathematical creation? It does not consist in making new
+    combinations with mathematical entities already known. Anyone could do
+    that, but the combinations so made would be infinite in number and most of
+    them absolutely without interest. To create consists precisely in not
+    making useless combinations and in making those which are useful and which
+    are only a small minority. Invention is discernment, choice.
+
+    It is time to penetrate deeper and to see what goes on in the very soul of
+    the mathematician. For this, I believe, I can do best by recalling memories
+    of my own. But I shall limit myself to telling how I wrote my first memoir
+    on Fuchsian functions. I beg the reader's pardon; I am about to use some
+    technical expressions, but they need not frighten him, for he is not
+    obliged to understand them. I shall say, for example, that I have found the
+    demonstration of such a theorem under such circumstances. This theorem will
+    have a barbarous name, unfamiliar to many, but that is unimportant; what is
+    of interest for the psychologist is not the theorem but the circumstances.
+
+    For fifteen days I strove to prove that there could not be any functions
+    like those I have since called Fuchsian functions. I was then very
+    ignorant; every day I seated myself at my work table, stayed an hour or
+    two, tried a great number of combinations and reached no results. One
+    evening, contrary to my custom, I drank black coffee and could not sleep.
+    Ideas rose in crowds; I felt them collide until pairs interlocked, so to
+    speak, making a stable combination. By the next morning I had established
+    the existence of a class of Fuchsian functions, those which come from the
+    hypergeometric series; I had only to write out the results, which took but
+    a few hours.
+
+    Then I wanted to represent these functions by the quotient of two series;
+    this idea was perfectly conscious and deliberate, the analogy with elliptic
+    functions guided me. I asked myself what properties these series must have
+    if they existed, and I succeeded without difficulty in forming the series I
+    have called theta-Fuchsian.
+
+    Just at this time I left Caen, where I was then living, to go on a geologic
+    excursion under the auspices of the school of mines. The changes of travel
+    made me forget my mathematical work. Having reached Coutances, we entered
+    an omnibus to go some place or other. At the moment when I put my foot on
+    the step the idea came to me, without anything in my former thoughts
+    seeming to have paved the way for it, that the transformations I had used
+    to define the Fuchsian functions were identical with those of non-Euclidean
+    geometry. I did not verify the idea; I should not have had time, as, upon
+    taking my seat in the omnibus, I went on with a conversation already
+    commenced, but I felt a perfect certainty. On my return to Caen, for
+    conscience's sake I verified the result at my leisure.
+
+    Then I turned my attention to the study of some arithmetical questions
+    apparently without much success and without a suspicion of any connection
+    with my preceding researches. Disgusted with my failure, I went to spend a
+    few days at the seaside, and thought of something else. One morning,
+    walking on the bluff, the idea came to me, with just the same
+    characteristics of brevity, suddenness and immediate certainty that the
+    arithmetic transformations of indeterminate ternary quadratic forms were
+    identical with those of non-Euclidean geometry.
+
+    Returned to Caen, I meditated on this result and deduced the consequences.
+    The example of quadratic forms showed me that there were Fuchsian groups
+    other than those corresponding to the hypergeometric series; I saw that I
+    could apply to them the theory of theta-Fuchsian series and that
+    consequently there existed Fuchsian functions other than those from the
+    hypergeometric series, the ones I then knew. Naturally I set myself to form
+    all these functions. I made a systematic attack upon them and carried all
+    the outworks, one after another. There was one, however, that still held
+    out, whose fall would involve that of the whole place. But all my efforts
+    only served at first the better to show me the difficulty, which indeed was
+    something. All this work was perfectly conscious.
+
+    Thereupon I left for Mont-Valérien, where I was to go through my military
+    service; so I was very differently occupied. One day, going along the
+    street, the solution of the difficulty which had stopped me suddenly
+    appeared to me. I did not try to go deep into it immediately, and only
+    after my service did I again take up the question. I had all the elements
+    and had only to arrange them and put them together. So I wrote out my final
+    memoir at a single stroke and without difficulty.
+
+    I shall limit myself to this single example; it is useless to multiply
+    them...
+
+    Most striking at first is this appearance of sudden illumination, a
+    manifest sign of long, unconscious prior work. The role of this unconscious
+    work in mathematical invention appears to me incontestable, and traces of
+    it would be found in other cases where it is less evident. Often when one
+    works at a hard question, nothing good is accomplished at the first attack.
+    Then one takes a rest, longer or shorter, and sits down anew to the work.
+    During the first half-hour, as before, nothing is found, and then all of a
+    sudden the decisive idea presents itself to the mind...
+
+    There is another remark to be made about the conditions of this unconscious
+    work; it is possible, and of a certainty it is only fruitful, if it is on
+    the one hand preceded and on the other hand followed by a period of
+    conscious work. These sudden inspirations (and the examples already cited
+    prove this) never happen except after some days of voluntary effort which
+    has appeared absolutely fruitless and whence nothing good seems to have
+    come, where the way taken seems totally astray. These efforts then have not
+    been as sterile as one thinks; they have set agoing the unconscious machine
+    and without them it would not have moved and would have produced nothing...
+
+    Such are the realities; now for the thoughts they force upon us. The
+    unconscious, or, as we say, the subliminal self plays an important role in
+    mathematical creation; this follows from what we have said. But usually the
+    subliminal self is considered as purely automatic. Now we have seen that
+    mathematical work is not simply mechanical, that it could not be done by a
+    machine, however perfect. It is not merely a question of applying rules, of
+    making the most combinations possible according to certain fixed laws. The
+    combinations so obtained would be exceedingly numerous, useless and
+    cumbersome. The true work of the inventor consists in choosing among these
+    combinations so as to eliminate the useless ones or rather to avoid the
+    trouble of making them, and the rules which must guide this choice are
+    extremely fine and delicate. It is almost impossible to state them
+    precisely; they are felt rather than formulated. Under these conditions,
+    how imagine a sieve capable of applying them mechanically?
+
+    A first hypothesis now presents itself; the subliminal self is in no way
+    inferior to the conscious self; it is not purely automatic; it is capable
+    of discernment; it has tact, delicacy; it knows how to choose, to divine.
+    What do I say? It knows better how to divine than the conscious self, since
+    it succeeds where that has failed. In a word, is not the subliminal self
+    superior to the conscious self? You recognize the full importance of this
+    question...
+
+    Is this affirmative answer forced upon us by the facts I have just given? I
+    confess that, for my part, I should hate to accept it. Re-examine the facts
+    then and see if they are not compatible with another explanation.
+
+    It is certain that the combinations which present themselves to the mind in
+    a sort of sudden illumination, after an unconscious working somewhat
+    prolonged, are generally useful and fertile combinations, which seem the
+    result of a first impression. Does it follow that the subliminal self,
+    having divined by a delicate intuition that these combinations would be
+    useful, has formed only these, or has it rather formed many others which
+    were lacking in interest and have remained unconscious?
+
+    In this second way of looking at it, all the combinations would be formed
+    in consequence of the automatism of the subliminal self, but only the
+    interesting ones would break into the domain of consciousness. And this is
+    still very mysterious. What is the cause that, among the thousand products
+    of our unconscious activity, some are called to pass the threshold, while
+    others remain below? Is it a simple chance which confers this privilege?
+    Evidently not; among all the stimuli of our senses, for example, only the
+    most intense fix our attention, unless it has been drawn to them by other
+    causes. More generally the privileged unconscious phenomena, those
+    susceptible of becoming conscious, are those which, directly or indirectly,
+    affect most profoundly our emotional sensibility.
+
+    It may be surprising to see emotional sensibility invoked à propos of
+    mathematical demonstrations which, it would seem, can interest only the
+    intellect. This would be to forget the feeling of mathematical beauty, of
+    the harmony of numbers and forms, of geometric elegance. This is a true
+    esthetic feeling that all real mathematicians know, and surely it belongs
+    to emotional sensibility.
+
+    Now, what are the mathematic entities to which we attribute this character
+    of beauty and elegance, and which are capable of developing in us a sort of
+    esthetic emotion? They are those whose elements are harmoniously disposed
+    so that the mind without effort can embrace their totality while realizing
+    the details. This harmony is at once a satisfaction of our esthetic needs
+    and an aid to the mind, sustaining and guiding. And at the same time, in
+    putting under our eyes a well-ordered whole, it makes us foresee a
+    mathematical law... Thus it is this special esthetic sensibility which
+    plays the role of the delicate sieve of which I spoke, and that
+    sufficiently explains why the one lacking it will never be a real creator.
+
+    Yet all the difficulties have not disappeared. The conscious self is
+    narrowly limited, and as for the subliminal self we know not its
+    limitations, and this is why we are not too reluctant in supposing that it
+    has been able in a short time to make more different combinations than the
+    whole life of a conscious being could encompass. Yet these limitations
+    exist. Is it likely that it is able to form all the possible combinations,
+    whose number would frighten the imagination? Nevertheless that would seem
+    necessary, because if it produces only a small part of these combinations,
+    and if it makes them at random, there would be small chance that the good,
+    the one we should choose, would be found among them.
+
+    Perhaps we ought to seek the explanation in that preliminary period of
+    conscious work which always precedes all fruitful unconscious labor. Permit
+    me a rough comparison. Figure the future elements of our combinations as
+    something like the hooked atoms of Epicurus. During the complete repose of
+    the mind, these atoms are motionless, they are, so to speak, hooked to the
+    wall...
+
+    On the other hand, during a period of apparent rest and unconscious work,
+    certain of them are detached from the wall and put in motion. They flash in
+    every direction through the space (I was about to say the room) where they
+    are enclosed, as would, for example, a swarm of gnats or, if you prefer a
+    more learned comparison, like the molecules of gas in the kinematic theory
+    of gases. Then their mutual impacts may produce new combinations.
+
+    What is the role of the preliminary conscious work? It is evidently to
+    mobilize certain of these atoms, to unhook them from the wall and put them
+    in swing. We think we have done no good, because we have moved these
+    elements a thousand different ways in seeking to assemble them, and have
+    found no satisfactory aggregate. But, after this shaking up imposed upon
+    them by our will, these atoms do not return to their primitive rest. They
+    freely continue their dance.
+
+    Now, our will did not choose them at random; it pursued a perfectly
+    determined aim. The mobilized atoms are therefore not any atoms whatsoever;
+    they are those from which we might reasonably expect the desired solution.
+    Then the mobilized atoms undergo impacts which make them enter into
+    combinations among themselves or with other atoms at rest which they struck
+    against in their course. Again I beg pardon, my comparison is very rough,
+    but I scarcely know how otherwise to make my thought understood.
+
+    However it may be, the only combinations that have a chance of forming are
+    those where at least one of the elements is one of those atoms freely
+    chosen by our will. Now, it is evidently among these that is found what I
+    called the good combination. Perhaps this is a way of lessening the
+    paradoxical in the original hypothesis...
+
+    I shall make a last remark: when above I made certain personal
+    observations, I spoke of a night of excitement when I worked in spite of
+    myself. Such cases are frequent, and it is not necessary that the abnormal
+    cerebral activity be caused by a physical excitant as in that I mentioned.
+    It seems, in such cases, that one is present at his own unconscious work,
+    made partially perceptible to the over-excited consciousness, yet without
+    having changed its nature. Then we vaguely comprehend what distinguishes
+    the two mechanisms or, if you wish, the working methods of the two egos.
+    And the psychologic observations I have been able thus to make seem to me
+    to confirm in their general outlines the views I have given.
+
+    Surely they have need of [confirmation], for they are and remain in spite
+    of all very hypothetical: the interest of the questions is so great that I
+    do not repent of having submitted them to the reader.
+
+[信息时代的独立阅读者（一）：内心的小声音](http://mp.weixin.qq.com/s?__biz=MzIzNTA4ODA2Ng==&mid=2247483654&idx=1&sn=13f7b4190ae3a6eaa14ee38fd2ec5810&scene=0#wechat_redirect) -<
+
+:   没有什么路是躺着走出来的。
+
+    独立思考，从来都是一种人格，而不是一门技术。敢于在汹涌的外部声音中站定，并仍然
+    听得到内心的小声音。敢于在冲突的湍流中抚摸逻辑链中最微妙的环节，品咂思维和情感
+    的纹路，在因果链的最深处寻找幽暗但无可置疑的光亮。并敢于对各种信息保持开放的心
+    智，而不是急于寻找安全的高地。
+
+    所以「独立思考」的重点在于「独立」，而不是「思考」。思考是人类的本能，但缺乏独
+    立的勇气，不管怎么思考都是在一个隐形的框内。
+
+    所以，拥有独立思考的人格，Critical Thinking 只是一个技术细节而已。不拥有独立思
+    考的人格，Critical Thinking 只是多了一个自我辩护的强大工具而已。
+
+    按理来说，高度信息化的现代社会，应该很大的缓解社会阶层固化的问题，因为教育资源
+    不再是一个稀缺和昂贵品（例如可汗学院的课就比大多数课堂教育更好）。然而现实却是
+    阶层固化仍在继续，好大学仍然无比重要，因为阻挡人的成长的力量来自心智内部——再多/
+    好的外部资源，心智不解锁，仍然是无法受用的
+
+[網誌 - BYVoid](https://www.byvoid.com/zht/blog/tag/C++)
+
+:   幾天以來還認識了不少同學，水平都遠超過我。從前在七中的時候，我有一種登峰造
+    極的幻覺，因爲沒有人能與我的水平匹敵，可是來到這個培訓班卻發現，原來僅僅在
+    河南省就有這麼多比我強的人。十天之內老師講的東西超出了我大腦能夠承受的全部，
+    我深深地感受到了自己的渺小，原來前方的道路還那麼漫長。
+
+    我向常老師申請得到了機房旁邊的一個小型辦公室，廢棄很久了，裏面放着學校網絡
+    的交換機。有了這個小屋，我和馬浩、高翔三人就能更加自由地掌控來機房的時間和
+    次數了，也能脫離混亂的機房環境（裏面有很多人打遊戲）。我越來越覺得，衝擊省
+    選、參加 NOI 和努力學習文化課是存在着某種衝突的，時間上不可調和的衝突。我下
+    定決心，在省選前將近一個月，我開始停課專門投入到競賽中。省選成功了就繼續努
+    力 NOI，失敗了告別 OI，回教室補課，準備年底的保送生考試，總之，成敗在此一舉。
+    馬浩和我的想法一樣，於是我們兩人便一起開始停課。然而高翔，做出了讓我至今不
+    解的行爲，就在省選前一個月，他突然放棄了，不再把任何精力投入到競賽中，甚至
+    連「試試」都不願意，一心去準備保送生考試了。
+
+    從 6 月 1 號開始，我和馬浩再次停課，這次的目標是 NOI。不得不承認，學到這個
+    時候，功利的心理越來越強了。以省隊隊員的身份，只要在 NOI 上獲了銀牌，就能直
+    接與大學「簽約」，也就是說可以不用參加保送生考試直接保送大學。具體一點，獲
+    得銀牌成績可以去上交大、復旦，銀牌前幾名可以去北大，金牌可以去清華。多麼誘
+    人啊，但前來參賽的也是各路高手，想要脫穎而出並非易事。六月初我和馬浩在常老
+    師的帶領下，去了廣東參加培訓，在那裏見到了更多的強人，不得不驚歎河南是個小
+    地方。七月初，我和馬浩又去紹興參加了「特別夏令營」，這裏幾乎全部是各省頂尖
+    人物，我深深地感受到了自己的渺小，但也積累了很好地經驗，因爲有實力不一定能
+    夠成功，適當的投機很有必要。
+
+    |   勸君莫惜金縷衣
+    |   勸君惜取少年時
+    |   花開堪折直須折
+    |   莫待無花空折枝
+
+    說實話，還沒開始軍訓我就後悔當時沒選擇去北大了。原因有很多，最主要的莫過於
+    是清華過於強調「集體觀念」，經常強迫人做毫無意義的事情。這裏我認爲「毫無意
+    義」的事情，別人也許並不這麼覺得，這也是體現了價值觀的差異。我不喜歡的是清
+    華對「異端」的容忍程度要遠遠小於北大。後來我看到一篇文章，說清華人和北大人
+    的差異，大致意思是清華人最大的特點是抱團，北大人各個卻像是獨行俠一樣。清華
+    人創辦的企業，排他性非常強，北大人很難任職高層，而相反卻不一樣。漸漸我也明
+    白了，所謂「傳統」是如何產生的。清華並非外界傳說的那樣封閉保守，但其兼容性
+    真的有待於提高。一年下來，如果讓我重新選擇一次，我還會選擇清華。不知道爲什
+    麼，也許祗是懼怕重來一次吧。
+
+    自由意志主義者。信仰新不可知論，堅持古典自由主義，支持放任市場、自由貿易和
+    全球化，反對政府擴張、福利主義及民粹主義。支持大城市、核電站、集約化養殖、
+    轉基因作物，反對有機農業，反對「人類活動導致氣候變化說」。
+
+[全栈工程师、极客和领导者 · BlahGeek's Blog](https://blog.blahgeek.com/fullstack-and-geek/)
+
+:   我只是为自己又一次成为了曾经的自己不想成为的人而悲伤。
+
+[標籤](https://www.byvoid.com/blog/tag)
+
+[我不和運氣差的人合作，嗎？ - Tzeng Yuxio](http://tzengyuxio.me/blog/2012/04/11/to-hire-lucky-or-unlucky-its-a-question/)
+
+:   吾少也賤，故多能鄙事。
+
+    Ernestine 的回答點出了重點。如果我們今天有 50 個不錯的人才，那我很樂意找出到底
+    哪一半的人有進公司的熱誠，哪一半沒有。但如果我們今天的履歷裡有 99 個庸才跟一個
+    天才，那我的首要目標是要想辦法找出這一個天才是誰，至於誰比較有進公司的熱誠則是
+    次要的了。
+
+    >   hiring programmers, not ascetics or rock stars
+
+    Ernestine 甚至會抗拒去查看求職者在社交媒體上分享的資訊。她不想因為求職者在政治、
+    興趣等觀點上與她志趣相投或是理念不同，而產生偏見，進而影響求職者被錄用與不錄用
+    （這在美國也是違法的），同時這對公司也不是件好事。她雇用時，單純只考量求職者在
+    專業技能上是否滿足條件。從招聘的觀點來看，去考慮對方是否跟你合不合得來，其實就
+    只是種運氣的問題，而非適任不適任的問題。
+
+    Ernestine 的方法很簡單。今天如果我要找程式設計師，我就只專注在相關的技能、
+    經驗或作品上。而不是看著履歷表上洋洋灑灑一大堆與適任與否無關的資訊或情報。
+
+
+[Your Brain is 60% Female, 40% Male](http://www.blogthings.com/whatgenderisyourbrainquiz/results/?result=60)
+
+:   -   You tend to notice when someone has poor etiquette
+
+    Your Brain is 60% Female, 40% Male
+
+    :   |   Your brain is a healthy mix of male and female
+        |   You are both sensitive and savvy
+        |   Rational and reasonable, you tend to keep level headed
+        |   But you also tend to wear your heart on your sleeve
+
+[深入理解 C 语言 | 酷 壳 - CoolShell.cn](http://coolshell.cn/articles/5761.html)
+
+[十分钟后开始使用英语…… | {am} xiaolai](http://xiaolai.li/2016/06/11/makecs-appendix01/)
+
+[你学你的，用不着别人批准 | {am} xiaolai](http://xiaolai.li/2016/06/14/teach-yourself-without-permission/)
+
+[About | Xcat Liu's Blog](http://blog.xcatliu.com/about/)

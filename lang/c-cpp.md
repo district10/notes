@@ -4245,15 +4245,15 @@ C++ 简介 | Intro
         -   [c++ 虚函数的作用是什么？ - 知乎](https://www.zhihu.com/question/23971699)
         -   [虚函数和纯虚函数的区别 - Hackbuteer1的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/hackbuteer1/article/details/7558868)
 
--   C 语言中为什么不能用 char 类型来存储 getchar() 的返回值?
+-   C 语言中为什么不能用 char 类型来存储 getchar() 的返回值? -<
 
-    :   在键盘或者屏幕上的字符都是用char类型存储的，当然也可以用int类型来存储。
-        这个地方使用int来存储字符有一个微妙但很重要的原因：为了把有效数据和输入
-        的结束(EOF)区分开来。getchar()在没有更多输入数据时返回一个特殊值，这个
-        值不会跟任何实际的字符混淆。这个值称为 EOF（end of file,文件结束）。我
-        们必须把c变量声明成一个大到足够存储任何getchar()返回的值的类型。我们不
-        能用char类型，因为c必须大到足够容纳任意可能的char还有EOF。因此我们使用
-        int类型。
+    :   在键盘或者屏幕上的字符都是用 char 类型存储的，当然也可以用 int 类型来存储。
+        这个地方使用 int 来存储字符有一个微妙但很重要的原因：为了把有效数据和输入
+        的结束 (EOF) 区分开来。getchar() 在没有更多输入数据时返回一个特殊值，这个
+        值不会跟任何实际的字符混淆。这个值称为 EOF（end of file, 文件结束）。我
+        们必须把 c 变量声明成一个大到足够存储任何 getchar() 返回的值的类型。我们不
+        能用 char 类型，因为 c 必须大到足够容纳任意可能的 char 还有 EOF。因此我们使用
+        int 类型。
 
 
         Unlike some other languages you may have used, chars in C are integers.
