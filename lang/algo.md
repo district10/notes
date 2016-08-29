@@ -13400,7 +13400,7 @@ A Bit of Logic -<
                 }
                 ```
 
-        -   10-10 UVa10491 Cows and Cars                            ch10/uva10491.cpp
+        -   10-10 UVa10491 Cows and Cars                            ch10/uva10491.cpp -<
 
             :   ```cpp
                 // UVa10491 Cows and Cars
@@ -13658,7 +13658,7 @@ A Bit of Logic -<
                 }
                 ```
 
-        -   10-18 UVa10288 Coupons                                  ch10/UVa10288.cpp
+        -   10-18 UVa10288 Coupons                                  ch10/UVa10288.cpp -<
 
             :   ```cpp
                 // UVa10288 Coupons
