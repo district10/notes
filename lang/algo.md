@@ -1314,58 +1314,69 @@ aoapc-book -<
 
         -   第 4 章，函数和递归 -<
 
-                -   知识点 -<
+            :   -   知识点 -<
 
-                    :   -   由于使用了调用栈，C 语言自然支持了递归。在 C 语言中，调用自己和调用其他函数并没有本质不同。
-                        -   正文段（Text Segment）存储指令，数据段（Data Segment）用于存储已经初始化的全局变量；BSS 段（BSS Segment）
-                            用于存储没赋值的全局变量所需的空间。运行时创建的调用栈所在段区被称为堆栈段（Stack Segment），越界访问就会出现 Segment Fault。
-                            栈帧太多，可能越界，这叫栈溢出（Stack Overflow）。
+                    :   -   由于使用了调用栈，C 语言自然支持了递归。在 C 语言中，
+                            调用自己和调用其他函数并没有本质不同。
+                        -   正文段（Text Segment）存储指令，数据段（Data
+                            Segment）用于存储已经初始化的全局变量；BSS 段（BSS
+                            Segment）用于存储没赋值的全局变量所需的空间。运行时
+                            创建的调用栈所在段区被称为堆栈段（Stack Segment），
+                            越界访问就会出现 Segment Fault。栈帧太多，可能越界，
+                            这叫栈溢出（Stack Overflow）。
 
-                            可以用 `ulimit -a` 显示 stack size，用 `ulimit -s 32768` 设置为 32 MB。Windows 上也可以设置。
+                            可以用 `ulimit -a` 显示 stack size，用 `ulimit -s
+                            32768` 设置为 32 MB。Windows 上也可以设置。
 
                             局部变量太大，也可能 stack overflow。
 
                 -   古老的密码 -<
 
-                    :   一个随意的字符串 JWPUDJSTVP 能不能通过字符变换变成 VICTORIOUS，只要统计单词的频率。看是否匹配就可以了。
-                        （因为是一一对应。）
+                    :   一个随意的字符串 JWPUDJSTVP 能不能通过字符变换变成
+                        VICTORIOUS，只要统计单词的频率，看是否匹配就可以了。
 
                         ```cpp
-                        #include<stdio.h>
-                        #include<string.h> // strlen
-                        #include<stdlib.h> // qsort
+                        #include <stdio.h>
+                        #include <string.h>                                             // strlen
+                        #include <stdlib.h>                                             // qsort
 
-                        int cmp(const void *a, const void *b ) {
-                          return *(int *)a - *(int *)b;
+                        int cmp( const void *a, const void *b ) {
+                            return *(int *)a - *(int *)b;
                         }
 
                         int main() {
-                          char s1[200], s2[200];
-                          while(scanf("%s%s", s1, s2) == 2) {
-                            int n = strlen(s1);
-                            int cnt1[26] = {0}, cnt2[26] = {0};
-                            for(int i = 0; i < n; i++) cnt1[s1[i] - 'A']++;     // 统计
-                            for(int i = 0; i < n; i++) cnt2[s2[i] - 'A']++;
-                            qsort(cnt1, 26, sizeof(int), cmp);                  // 对字频排序
-                            qsort(cnt2, 26, sizeof(int), cmp);
-                            int ok = 1;
-                            for(int i = 0; i < 26; i++)
-                              if(cnt1[i] != cnt2[i]) ok = 0;                    // 是否匹配？
-                            if(ok) printf("YES\n"); else printf("NO\n");
-                          }
-                          return 0;
+                            char s1[200], s2[200];
+                            while( scanf( "%s%s", s1, s2 ) == 2 ) {
+                                int n = strlen(s1);
+                                // assert( strlen(s1) == strlen(s2) );
+                                int cnt1[26] = {0}, cnt2[26] = {0};
+                                for( int i = 0; i < n; i++ ) { cnt1[s1[i] - 'A']++; }   // 统计
+                                for( int i = 0; i < n; i++ ) { cnt2[s2[i] - 'A']++; }
+                                qsort( cnt1, 26, sizeof( int ), cmp );                  // 对字频排序
+                                qsort( cnt2, 26, sizeof( int ), cmp );
+                                int ok = 1;
+                                for( int i = 0; i < 26; i++ ) {
+                                    if( cnt1[i] != cnt2[i] ) { ok = 0; }                // 是否匹配？
+                                }
+                                if( ok ) {
+                                    printf( "YES\n" );
+                                } else {
+                                    printf( "NO\n" );
+                                }
+                            }
+                            return 0;
                         }
                         ```
 
                         也可以用 c++ 的 sort，修改如下几行即可：
 
                         ```cpp
-                        #include<algorithm> // sort
-                        sort(cnt1, cnt1 + 26);
-                        sort(cnt2, cnt2 + 26);
+                        #include<algorithm>                                             // sort
+                        sort( cnt1, cnt1 + 26 );
+                        sort( cnt2, cnt2 + 26 );
                         ```
 
-                -   骰子涂色
+                -   骰子涂色 -<
 
                     :   rbgggr 和 rggbgr 一样。
 
@@ -1411,7 +1422,7 @@ aoapc-book -<
                             if( !W1 ) { b1 = solve( W1 ); }
                             if( !W2 ) { b2 = solve( W2 ); }
                             W = W1 + W2;
-                            return b1 && b2 && (W1*D1==W2*D2);
+                            return b1 && b2 && ( W1*D1 == W2*D2 );
                         }
 
                         int main() {
@@ -1438,7 +1449,6 @@ aoapc-book -<
                         ```cpp
                         template<typename T>
                         T sum( T *begin, T *end ) {
-                            T *p = begin;
                             T ans = 0;
                             for( T *p = begin; p != end; ++p ) {
                                 ans = ans + *p;
@@ -1484,7 +1494,7 @@ aoapc-book -<
                                         sort( a, a+n );
                                         while( q-- ) {
                                             scanf( "%d", &x );
-                                            int p = lower_bound( a, a+n, x ) - a;   // offset
+                                            int p = lower_bound( a, a+n, x ) - a;       // offset
                                             if( a[p] == x ) {
                                                 printf( "%d found at %d\n", x, p+1 );
                                             } else {
@@ -1526,10 +1536,10 @@ aoapc-book -<
                                         }
                                         stringstream ss( s );
                                         while( ss >> buf ) {
-                                            dict.insert( buf );
+                                            dict.insert( buf );                                                         // set.insert( item )
                                         }
-                                        for( set<string>::iterator it = dict.begin(); it != dict.end(); ++it ) {
-                                            cout << *it << "\n";    // already sorted
+                                        for( set<string>::iterator it = dict.begin(); it != dict.end(); ++it ) {        // 迭代器输出所有元素
+                                            cout << *it << "\n";                                                        // already sorted
                                         }
                                     }
                                     return 0;
@@ -1570,17 +1580,154 @@ aoapc-book -<
                                 }
                                 ```
 
-                        -   Queue, Priority Queue -<
+                                需要注意的是：
 
-                            :   **queue**
+                                -   直接用 `++cnt[r]` 也是可以的；
+                                -   `map.count( key )` 返回 1 或者 0；
+                                -   `map.find( key )` 返回 iter，可能是 `map.end()`
 
-                                instruction sets.
+                        -   Stack, Queue, Priority Queue -<
 
-                                **priority_queue**
+                            :   -   stack -<
 
-                                -   ugly number -<
+                                    :   >   明白 stack，以及常用的 `push(item)`, `item = top()`, `pop()` 操作。
 
-                                    :   ```cpp
+                                        The SetStack Computer，支持如下操作：
+
+                                        -   PUSH：空集“{}”入栈
+                                        -   DUP：复制栈顶并入栈
+                                        -   UNION：出栈两个元素，求 union 并入栈
+                                        -   INTERSECT：出栈两个元素，求 intersect 并入栈
+                                        -   ADD：出栈两个元素，把先出的元素加到后出的元素，然后入栈
+
+                                        集合的集合的表示？
+
+                                        一个集合有整形的 id，它的内容用 `set<int>` 表示。整个栈用
+                                        `stack<int>` 表示。
+
+                                        ```cpp
+                                        // UVa12096 The SetStack Computer
+                                        #include <iostream>
+                                        #include <string>
+                                        #include <set>
+                                        #include <map>
+                                        #include <stack>
+                                        #include <vector>
+                                        #include <algorithm>
+                                        using namespace std;
+
+                                        #define ALL(x) x.begin(), x.end()
+                                        #define INS(x) inserter(x, x.begin())
+
+                                        typedef set<int> Set;
+                                        map<Set,int> IDcache;                                       // 把集合映射成 ID
+                                        vector<Set> Setcache;                                       // 根据 ID 取集合
+
+                                        // 查找给定集合 x 的 ID。如果找不到，分配一个新 ID
+                                        int ID( Set x ) {
+                                            if( IDcache.count( x ) ) { return IDcache[x]; }
+                                            Setcache.push_back( x );                                // 添加新集合
+                                            return IDcache[x] = Setcache.size() - 1;
+                                        }
+
+                                        int main () {
+                                            int T;
+                                            cin >> T;
+                                            while( T-- ) {
+                                                stack<int> s;                                       // 题目中的栈
+                                                int n;
+                                                cin >> n;
+                                                for( int i = 0; i < n; i++ ) {
+                                                    string op;
+                                                    cin >> op;
+                                                    if( op[0] == 'P' ) {
+                                                        s.push( ID( Set() ) );                      // push '{}'
+                                                    } else if( op[0] == 'D' ) {
+                                                        s.push( s.top(  ) );                        // dup
+                                                    } else {
+                                                        Set x1 = Setcache[s.top()]; s.pop();
+                                                        Set x2 = Setcache[s.top()]; s.pop();
+                                                        Set x;
+                                                        if( op[0] == 'U' ) { set_union ( ALL( x1 ), ALL( x2 ), INS( x ) ); }
+                                                        if( op[0] == 'I' ) { set_intersection ( ALL( x1 ), ALL( x2 ), INS( x ) ); }
+                                                        if( op[0] == 'A' ) { x = x2; x.insert( ID( x1 ) ); }
+                                                        s.push(ID(x));
+                                                    }
+                                                    cout << Setcache[s.top()].size() << endl;
+                                                }
+                                                cout << "***" << endl;
+                                            }
+                                            return 0;
+                                        }
+                                        ```
+
+                                -   queue -<
+
+                                    :   t 个队伍排队。新来的人，如果有队友，就插入到队友后面，如果没有，就只能排最后面。
+                                        输入每个团队中所有队员的编号，要求支持如下 3 中命令：
+
+                                        -   ENQUEUE x：把 x 入队
+                                        -   DEQUEUE
+                                        -   STOP：停止模拟
+
+                                        对于每个 DEQUEUE 指令，输出出对的人的编号。
+
+                                        ```cpp
+                                        // UVa540 Team Queue
+                                        #include <cstdio>
+                                        #include <queue>
+                                        #include <map>
+                                        using namespace std;
+
+                                        const int maxt = 1000 + 10;
+
+                                        int main() {
+                                            int t, kase = 0;
+                                            while( scanf( "%d", &t ) == 1 && t ) {
+                                                printf( "Scenario #%d\n", ++kase );
+
+                                                map<int, int> team;                                     // team[x] 表示编号为 x 的人所在的团队编号
+                                                for( int i = 0; i < t; i++ ) {
+                                                    int n, x;
+                                                    scanf( "%d", &n );
+                                                    while( n-- ) { scanf( "%d", &x ); team[x] = i; }
+                                                }
+
+                                                // 模拟
+                                                queue<int> q, q2[maxt];                                 // q 是团队的队列，而 q2[i] 是团队 i 成员的队列
+
+                                                for( ;; ) {
+                                                    int x;
+                                                    char cmd[10];
+                                                    scanf( "%s", cmd );
+                                                    if( cmd[0] == 'S' ) { break; }
+                                                    else if( cmd[0] == 'D' ) {
+                                                        int t = q.front();
+                                                        printf( "%d\n", q2[t].front() ); q2[t].pop(  );
+                                                        if( q2[t].empty(  ) ) { q.pop(); }              // 团体 t 全体出队列
+                                                    }
+                                                    else if( cmd[0] == 'E' ) {
+                                                        scanf( "%d", &x );
+                                                        int t = team[x];
+                                                        if( q2[t].empty() ) q.push( t );                // 团队 t 进入队列
+                                                        q2[t].push( x );
+                                                    }
+                                                }
+                                                printf( "\n" );
+                                            }
+
+                                            return 0;
+                                        }
+                                        ```
+
+                                -   priority_queue -<
+
+                                    :   ugly number 是不能被 2，3，5 以为的其他素数整除的数。
+                                        （相比质数不是那么严格。）也就是 2，3，5 的各种）乘积的组合。
+
+                                        如果 x 是 ugly number，2x，3x 和 5x 都会是 ugly number。用优先队列即可。
+
+                                        ```cpp
                                         #include <iostream>
                                         #include <vector>
                                         #include <queue>
@@ -1590,23 +1737,32 @@ aoapc-book -<
                                         typedef long long LL;
 
                                         int main() {
-                                            priority_queue<LL, vector<LL>, greater<LL> > pq;
-                                            set<LL> s;
-                                            pq.push( 1LL );
-                                            s.insert( 1LL );
+                                            int n;
+                                            while( scanf("%d", &n) && n ) {
+                                                priority_queue<LL, vector<LL>, greater<LL> > pq;                            // greater 于是 ascend 排序
+                                                pq.push( 1LL );
+                                                set<LL> s;
+                                                s.insert( 1LL );
 
-                                            for( int i = 1; ; ++i ) {
-                                                LL x = pq.top(); pq.pop();  // the smallest ugly number
-                                                if( i == 1500 ) {
-                                                    cout << "The 1500'th ugly number is " << x << ".\n";
-                                                    break;
-                                                }
-                                                for( int j = 0; j < 3; ++j ) {
-                                                    const int coeff[3] = {  2,  3,  5   };
-                                                    LL x2 = x * coeff[j];
-                                                    if( !s.count(x2) ) {
-                                                        s.insert( x2 );
-                                                        pq.push( x2 );
+                                                for( int i = 1; ; ++i ) {
+                                                    LL x = pq.top(); pq.pop();  // the smallest ugly number
+                                                    if( i == n ) {
+                                                        cout << "The " << n << "'th ugly number is " << x << ".\n";
+                                                        int j = 0;
+                                                        for( set<LL>::iterator it = s.begin(); it != s.end(); ++it ) {
+                                                            if( ++j == n ) {
+                                                                cout << "The " << n << "'th ugly number is " << *it << ".\n";
+                                                            }
+                                                        }
+                                                        break;
+                                                    }
+                                                    for( int j = 0; j < 3; ++j ) {
+                                                        const int coeff[3] = {  2,  3,  5   };
+                                                        LL x2 = x * coeff[j];
+                                                        if( !s.count(x2) ) {
+                                                            s.insert( x2 );
+                                                            pq.push( x2 );
+                                                        }
                                                     }
                                                 }
                                             }
@@ -1616,10 +1772,19 @@ aoapc-book -<
                                         output:
 
                                         ```
+                                        $ a.out
+                                        1500<RET>
+                                        The 1500'th ugly number is 859963392.
                                         The 1500'th ugly number is 859963392.
                                         ```
 
-                                        but, why???
+                                        从队列前面取出的第 n 个数正好是第 n 个大的 ugly number。
+
+                                        注：
+
+                                        -   `priority_queue<int> pq` 是越小的整数优先级越低（逆序）
+                                        -   `priority_queue<int, vector<int>, greater<int> > pq` 是越大的整数优先级越低（正序）
+                                        -   queue 使用 `front()` 出队，priority queue 使用 `top()`
 
                         -   Test STL -<
 
@@ -1643,7 +1808,9 @@ aoapc-book -<
 
                     :   -   Unix ls -<
 
-                            :   ```cpp
+                            :   像 `ls` 一样格式化打印（主要处理 column 对齐问题）。
+
+                                ```cpp
                                 #include <iostream>
                                 #include <string>
                                 #include <algorithm>
@@ -1704,7 +1871,7 @@ aoapc-book -<
                             :   ```cpp
                                 // UVa1592 Database
                                 // Rujia Liu
-                                // 本程序只是为了演示STL各种用法，效率较低。实践中一般用C字符串和哈希表来实现。
+                                // 本程序只是为了演示 STL 各种用法，效率较低。实践中一般用 C 字符串和哈希表来实现。
 
                                 #include<iostream>
                                 #include<cstdio>
@@ -8960,6 +9127,93 @@ aoapc-book -<
                         return 0;
                     }
                     ```
+
+            -   6-1 UVa210 并行程序模拟，Concurrency Simulator                        ch6/UVa210.cpp -<
+
+                :   模拟 n 个程序
+
+                    ```cpp
+                    // UVa210 Concurrency Simulator
+                    #include <cstdio>
+                    #include <queue>
+                    #include <cstring>
+                    #include <cstdlib>
+                    #include <cctype>
+                    using namespace std;
+
+                    const int maxn = 1000;
+
+                    deque<int> readyQ;
+                    queue<int> blockQ;
+                    int n, quantum, c[5], var[26], ip[maxn];                        // ip[pid] 是程序 pid 的当前行号。所有程序都存在 prog 数组，更类似真实的情况，代码也更短
+                    bool locked;
+                    char prog[maxn][10];
+
+                    void run(int pid) {
+                        int q = quantum;
+                        while(q > 0) {
+                            char *p = prog[ip[pid]];
+                            switch(p[2]) {
+                                case '=':
+                                    var[p[0] - 'a'] = isdigit(p[5]) ? (p[4] - '0') * 10 + p[5] - '0' : p[4] - '0';
+                                    q -= c[0];
+                                    break;
+                                case 'i': // print
+                                    printf("%d: %d\n", pid+1, var[p[6] - 'a']);
+                                    q -= c[1];
+                                    break;
+                                case 'c': // lock
+                                    if(locked) { blockQ.push(pid); return; }
+                                    locked = true;
+                                    q -= c[2];
+                                    break;
+                                case 'l': // unlock
+                                    locked = false;
+                                    if(!blockQ.empty()) {
+                                        int pid2 = blockQ.front(); blockQ.pop();
+                                        readyQ.push_front(pid2);
+                                    }
+                                    q -= c[3];
+                                    break;
+                                case 'd': // end
+                                    return;
+                            }
+                            ip[pid]++;
+                        }
+                        readyQ.push_back(pid);
+                    }
+
+                    int main() {
+                        int T;
+                        scanf("%d", &T);
+                        while(T--) {
+                            scanf("%d %d %d %d %d %d %d\n", &n, &c[0], &c[1], &c[2], &c[3], &c[4], &quantum);
+                            memset(var, 0, sizeof(var));
+
+                            int line = 0;
+                            for(int i = 0; i < n; i++) {
+                                fgets(prog[line++], maxn, stdin);
+                                ip[i] = line - 1;
+                                while(prog[line - 1][2] != 'd')
+                                    fgets(prog[line++], maxn, stdin);
+                                readyQ.push_back(i);
+                            }
+
+                            locked = false;
+                            while(!readyQ.empty()) {
+                                int pid = readyQ.front(); readyQ.pop_front();
+                                run(pid);
+                            }
+                            if(T) printf("\n");
+                        }
+                        return 0;
+                    }
+                    ```
+
+            -   6-2 UVa514 Rails                                        ch6/UVa514.cpp
+            -   6-3 UVa442 Matrix Chain Multiplication                  ch6/UVa442.cpp
+            -   6-4 UVa11988 Broken Keyboard
+            -   6-5 UVa12657 Boxes in a Line                            ch6/UVa12657.cpp
 
             -   Dropping Balls -<
 

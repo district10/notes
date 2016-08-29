@@ -2148,6 +2148,66 @@ C++ 简介 | Intro
         -   [std::priority_queue - cppreference.com](http://en.cppreference.com/w/cpp/container/priority_queue)
         -   [std::greater - cppreference.com](http://en.cppreference.com/w/cpp/utility/functional/greater)
 
+-   std::set -<
+
+    :   -   set_union -<
+
+            :   Defined in header <algorithm>
+
+                ```cpp
+                template< class InputIt1, class InputIt2, class OutputIt >
+                OutputIt set_union( InputIt1 first1, InputIt1 last1,
+                                    InputIt2 first2, InputIt2 last2,
+                                    OutputIt d_first );
+
+                template< class ExecutionPolicy, class InputIt1, class InputIt2, class OutputIt >
+                OutputIt set_union( ExecutionPolicy&& policy, InputIt1 first1, InputIt1 last1,
+                                    InputIt2 first2, InputIt2 last2,
+                                    OutputIt d_first );
+
+                template< class InputIt1, class InputIt2,
+                          class OutputIt, class Compare >
+                OutputIt set_union( InputIt1 first1, InputIt1 last1,
+                                    InputIt2 first2, InputIt2 last2,
+                                    OutputIt d_first, Compare comp );
+
+                template< class ExecutionPolicy, class InputIt1, class InputIt2,
+                          class OutputIt, class Compare >
+                OutputIt set_union( ExecutionPolicy&& policy, InputIt1 first1, InputIt1 last1,
+                                    InputIt2 first2, InputIt2 last2,
+                                    OutputIt d_first, Compare comp );
+                ```
+
+                ```cpp
+                #include <vector>
+                #include <set>
+                #include <iostream>
+                #include <algorithm>
+                #include <iterator>
+
+                int main()
+                {
+                    std::vector<int> v1 = {1, 2, 3, 4, 5};
+                    std::vector<int> v2 = {      3, 4, 5, 6, 7};
+                    std::vector<int> dest1;
+
+                    std::set_union(v1.begin(), v1.end(),
+                                   v2.begin(), v2.end(),
+                                   std::back_inserter(dest1));
+
+                    for (const auto &i : dest1) {
+                        std::cout << i << ' ';
+                    }
+                    std::cout << '\n';
+                }
+                ```
+
+                output:
+
+                ```
+                1 2 3 4 5 6 7
+                ```
+
 -   MISC, unordered_map, find, unordered_multimap -<
 
     :   ```cpp
