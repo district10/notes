@@ -1427,3 +1427,5 @@ title: Working Notes
 [你学你的，用不着别人批准 | {am} xiaolai](http://xiaolai.li/2016/06/14/teach-yourself-without-permission/)
 
 [About | Xcat Liu's Blog](http://blog.xcatliu.com/about/)
+
+[javascript - onchange event on input type=range is not triggering in firefox while dragging - Stack Overflow](http://stackoverflow.com/questions/18544890/onchange-event-on-input-type-range-is-not-triggering-in-firefox-while-dragging)

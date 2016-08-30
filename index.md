@@ -33,6 +33,7 @@ nothing special.
 -   [Caffe 笔记](caffe-notes/index.html){title=caffe-notes/index.md}
 -   [Languages](lang/index.html){title=lang/index.md}
 -   [Leetcode](leetcode/index.html){.hide title=leetcode/index.md}
+-   [Cracking the Coding Interview](cracking-the-coding-interview/index.html){.hide title=cracking-the-coding-interview/index.md}
 -   [job](2016/job.html){.hide title=2016/job.md}
 
 ---

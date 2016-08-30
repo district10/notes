@@ -18,6 +18,9 @@ ifeq (,$(DUMB))
 endif
 
 all: $(DST) $(CSS)
+clone:
+	git clone --depth 1 https://github.com/district10/leetcode.git
+	git clone --depth 1 https://github.com/4ker/cracking-the-coding-interview.git
 serve:
 	cd publish; python -m SimpleHTTPServer
 clean:
