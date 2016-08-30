@@ -1429,3 +1429,6 @@ title: Working Notes
 [About | Xcat Liu's Blog](http://blog.xcatliu.com/about/)
 
 [javascript - onchange event on input type=range is not triggering in firefox while dragging - Stack Overflow](http://stackoverflow.com/questions/18544890/onchange-event-on-input-type-range-is-not-triggering-in-firefox-while-dragging)
+
+[BoroMeke | 故事有些长，有机会全都讲给你听](http://www.boromeke.com/)
+[离岸公司科普 | Ntkrnl](http://shabi.us/2011/11/05/offshore-company/)

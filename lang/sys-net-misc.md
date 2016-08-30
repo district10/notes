@@ -2225,3 +2225,9 @@ System & Network & MISC
 TCP使用**滑动窗口机制**来实现流量控制，通过动态改变窗口的大小进行拥塞控制
 
 :   TODO?
+
+[Code point - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Code_point)
+
+:   refs and see also
+
+    -   [Extended ASCII - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Extended_ASCII)
