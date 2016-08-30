@@ -52,19 +52,20 @@ TODOs:
 
     我也很 happy，因为没想到自己写的库居然比 MS 的还要快几十倍，同时小十几倍。
 
-    从这个事情之后我变得特别理解那些造轮子的人——你要想想，如果你需要一个飞机轮子但
-    市场上只有自行车轮子而且老板还催着你交工，你能怎么搞。
+    从这个事情之后我变得特别理解那些造轮子的人——你要想想，如果你需要一个飞机轮
+    子但市场上只有自行车轮子而且老板还催着你交工，你能怎么搞。
 
     实习实习着就到了研二暑假，接下来就是求职季。
 
     求职季时我有一种莫名的复仇感——尼玛之前百度实习面试老子被你们黑的漫天飞翔，
     这回求职老子要把你们一个个黑回来，尼玛。
 
-    现在回想当时的心理实属傻逼 + 幼稚，但这种黑暗心理也起了一定的积极作用：我丝毫不敢
-    有任何怠慢，以至于在 5 月份底我就开始准备求职笔试面试，比身边的同学早了两个月不止。
+    现在回想当时的心理实属傻逼 + 幼稚，但这种黑暗心理也起了一定的积极作用：我丝
+    毫不敢有任何怠慢，以至于在 5 月份底我就开始准备求职笔试面试，比身边的同学早
+    了两个月不止。
 
-    我没有像身边的同学那般刷题——而是继续看书抄代码学算法，因为我认为那些难得离谱的
-    题面试官也不会问——事实上也是如此。
+    我没有像身边的同学那般刷题——而是继续看书抄代码学算法，因为我认为那些难得离
+    谱的题面试官也不会问——事实上也是如此。
 
     **编程珠玑** & 更多的编程珠玑
 
@@ -4702,83 +4703,138 @@ A Bit of Logic -<
                         原答案似乎简洁很多：
 
                         ```cpp
-                        #include<cstdio>
-                        #include<cstring>
-                        #include<algorithm>
+                        #include <cstdio>
+                        #include <cstring>
+                        #include <algorithm>
                         using namespace std;
 
                         int main() {
                             int n, kase = 0;
                             char buf[99];
-                            while(scanf("%d", &n) == 1 && n) {
+                            while( scanf( "%d", &n ) == 1 && n ) {
                                 int cnt = 0;
-                                if(kase++) printf("\n");
-                                for(int fghij = 1234; ; fghij++) {
+                                if( kase++ ) { printf( "\n" ); }
+                                for( int fghij = 1234; ; fghij++ ) {
                                     int abcde = fghij * n;
-                                    sprintf(buf, "%05d%05d", abcde, fghij);
-                                    if(strlen(buf) > 10) break;
-                                    sort(buf, buf+10);
-                                    bool ok = true;
-                                    for(int i = 0; i < 10; i++)
-                                        if(buf[i] != '0' + i) ok = false;
-                                    if(ok) {
+                                    sprintf( buf, "%05d%05d", abcde, fghij );
+                                    if( strlen( buf ) > 10 ) { break; }
+                                    sort( buf, buf+10 );
+                                    int ok = 1;
+                                    for( int i = 0; i < 10; i++ ) {
+                                        if( buf[i] != '0' + i ) { ok = 0; }
+                                    }
+                                    if( ok ) {
                                         cnt++;
-                                        printf("%05d / %05d = %d\n", abcde, fghij, n);
+                                        printf( "%05d / %05d = %d\n", abcde, fghij, n );
                                     }
                                 }
-                                if(!cnt) printf("There are no solutions for %d.\n", n);
+                                if( !cnt ) { printf( "There are no solutions for %d.\n", n ); }
                             }
                             return 0;
                         }
                         ```
 
-                -   Maximum -<
+                -   最大乘积 -<
 
-                    :   ```cpp
+                    :   输入 n 个元素组成的序列 S，找一个乘积最大的连续子序列。
+                        如果最大为负，输出 0。1 <= n <= 18，-10 <= S_i <= 10。
+
+                        ```
+                        input:
+
+                            3
+                            2   4  -3
+                            5
+                            2   5  -1   2  -1
+
+                        output:
+
+                            8
+                            20
+                        ```
+
+                        因为 n 和 S_i 的值域，最大乘积不会超过 10^^18^^，可以用 long long 表示。
+
+                        ```cpp
                         // UVa11059 Maximum Product
-                        // Rujia Liu
-                        #include<iostream>
+                        #include <iostream>
                         using namespace std;
 
                         int main() {
                             int S[20], kase = 0, n;
-                            while(cin >> n && n) {
-                                for(int i = 0; i < n; i++) cin >> S[i];
+                            while( cin >> n && n ) {
+                                for( int i = 0; i < n; i++ ) { cin >> S[i]; }
                                 long long ans = 0;
-                                for(int i = 0; i < n; i++) {
+                                for( int i = 0; i < n; i++ ) {
                                     long long v = 1;
-                                    for(int j = i; j < n; j++) {
+                                    for( int j = i; j < n; j++ ) {
                                         v *= S[j];
-                                        if(v > ans) ans = v;
+                                        if( v > ans ) { ans = v; }
                                     }
                                 }
-                                cout << "Case #" << ++kase << ": The maximum product is " << ans << ".\n\n";
+                                cout << "Case #" << ++kase
+                                     << ": The maximum product is " << ans << ".\n\n";
                             }
                             return 0;
                         }
                         ```
 
-                -   Fractual Again? -<
+                -   分数拆分，Fractual Again? -<
 
-                    :   ```cpp
+                    :   输入正整数 k，找到所有的正整数 x >= y，使得 1/k = 1/x + 1/y。
+
+                        ```
+                        input:
+
+                            2
+                            12
+
+                        output:
+
+                            2
+                            1/2 = 1/6 + 1/3
+                            1/2 = 1/4 + 1/4
+                            8
+                            1/12 = 1/156 + 1/13
+                            1/12 = 1/84 + 1/14
+                            1/12 = 1/60 + 1/15
+                            1/12 = 1/48 + 1/16
+                            1/12 = 1/36 + 1/18
+                            1/12 = 1/30 + 1/20
+                            1/12 = 1/28 + 1/21
+                            1/12 = 1/24 + 1/24
+                        ```
+
+                        分析：
+
+                        1/k = 1/x + 1/y
+
+                        `x >= y` -> `1/x <= 1/y` -> `1/k <= 2/y` -> `y <= 2k`
+
+                        `x > 0` -> `y > k`
+
+                        所以在 `y~(k, 2k]` 枚举。
+
+                        ```cpp
                         // UVa10976 Fractions Again?!
-                        // Rujia Liu
-                        #include<cstdio>
-                        #include<vector>
+                        #include <cstdio>
+                        #include <vector>
                         using namespace std;
 
                         int main() {
                             int k;
-                            while(scanf("%d", &k) == 1 && k) {
+                            while( scanf( "%d", &k ) == 1 && k ) {
                                 vector<int> X, Y;
-                                for(int y = k+1; y <= k*2; y++) {
+                                for( int y = k+1; y <= k*2; y++ ) {
                                     // 1/k = 1/x + 1/y => x = ky/(y-k)
-                                    if(k*y%(y-k) == 0)
-                                    { X.push_back(k*y/(y-k)); Y.push_back(y); }
+                                    if( k*y%( y-k ) == 0 ) {
+                                        X.push_back(k*y/(y-k)); Y.push_back(y);
+                                    }
                                 }
-                                printf("%d\n", X.size());
-                                for(int i = 0; i < X.size(); i++)
-                                    printf("1/%d = 1/%d + 1/%d\n", k, X[i], Y[i]);
+                                printf( "%d\n", X.size() );
+                                for( int i = 0; i < X.size(); i++ ) {
+                                    printf( "1/%d = 1/%d + 1/%d\n", k, X[i], Y[i] );
+                                }
                             }
                             return 0;
                         }
@@ -4811,7 +4867,7 @@ A Bit of Logic -<
                             for( int i = 1; i <= n; i++ ) {
                                 int used = 0;
                                 for( int j = 0; j < cur; j++ ) {
-                                    if (P[j] == i) { used = 1; }                        // 如果 i 已经在 A[0]~A[cur-1] 出现过，则不能再选
+                                    if (P[j] == i) { used = 1; break; }                 // 如果 i 已经在 A[0]~A[cur-1] 出现过，则不能再选
                                 }
                                 if( !used ) {
                                     P[cur] = i;
@@ -4822,165 +4878,203 @@ A Bit of Logic -<
                         }
 
                         void print_permutation( int n ) {
-                            int *P = (int*)malloc(n * sizeof(int));
+                            int *P = (int *)malloc( n * sizeof(int) );
                             print_permutation_r( n, 0, P );
                             free( P );
                         }
 
                         int main() {
-                            print_permutation( 3 );
+                            int n;
+                            while( scanf( "%d", &n ) && n ) {
+                                print_permutation( n );
+                            }
                         }
                         ```
 
-                -   生成 1~n 的全排列：next_permutation. -<
+                        真的很像八皇后。
 
-                    :   ```cpp
-                        // 求1~n的全排列. n<100
-                        // Rujia Liu
-                        #include<cstdio>
+                        如果确定了 n 的范围，比如 n <= 100，可以用全局 A[100]，避免动态内存分配。
+
+                -   生成可重集的排列 -<
+
+                    :   直接用 stl 里面的 next_permutation。
+
+                        ```cpp
+                        #include <stdio.h>
+                        #include <stdlib.h>
+                        #include <algorithm>
+
                         using namespace std;
 
-                        int A[101];
-
-                        // 输出1~n的全排列
-                        void print_permutation(int n, int* A, int cur) {
-                            if(cur == n) { // 递归边界
-                                for(int i = 0; i < n; i++) printf("%d ", A[i]);
-                                printf("\n");
-                            } else for(int i = 1; i <= n; i++) { // 尝试在A[cur]中填各种整数i
-                                int ok = 1;
-                                for(int j = 0; j < cur; j++)
-                                    if(A[j] == i) ok = 0; // 如果i已经在A[0]~A[cur-1]出现过，则不能再选
-                                if(ok) {
-                                    A[cur] = i;
-                                    print_permutation(n, A, cur+1); // 递归调用
-                                }
-                            }
-                        }
-
                         int main() {
-                            int n;
-                            scanf("%d", &n);
-                            print_permutation(n, A, 0);
+                            int n, p[10];
+                            scanf( "%d", &n );
+                            for( int i = 0; i < n; i++ ) { scanf( "%d", &p[i] ); }
+                            sort( p, p+n );                                                 // 排序，得到 p 的最小排列
+                            do {
+                                for( int i = 0; i < n; i++ ) { printf( "%d ", p[i] ); }     // 输出排列 p
+                                printf( "\n" );
+                            } while(  next_permutation( p, p+n )  );                        // 求下一个排列
                             return 0;
                         }
                         ```
 
-                -   生成可重集的排列 -<
+                        ```bash
+                        $ echo "4 5 2 2 4" | ./a.out
+                        2 2 4 5
+                        2 2 5 4
+                        2 4 2 5
+                        2 4 5 2
+                        2 5 2 4
+                        2 5 4 2
+                        4 2 2 5
+                        4 2 5 2
+                        4 5 2 2
+                        5 2 2 4
+                        5 2 4 2
+                        5 4 2 2
+                        ```
 
-                    :   ```cpp
-                        // 可重集的全排列
-                        // Rujia Liu
-                        #include<cstdio>
-                        #include<algorithm>
+                        当然，自己写也是可以得。
+
+                        ```cpp
+                        #include <cstdio>
+                        #include <algorithm>
                         using namespace std;
 
                         int P[100], A[100];
 
-                        // 输出数组P中元素的全排列。数组P中可能有重复元素
-                        void print_permutation(int n, int* P, int* A, int cur) {
-                            if(cur == n) {
-                                for(int i = 0; i < n; i++) printf("%d ", A[i]);
-                                printf("\n");
-                            } else for(int i = 0; i < n; i++) if(!i || P[i] != P[i-1]) {
-                                int c1 = 0, c2 = 0;
-                                for(int j = 0; j < cur; j++) if(A[j] == P[i]) c1++;
-                                for(int j = 0; j < n; j++) if(P[i] == P[j]) c2++;
-                                if(c1 < c2) {
-                                    A[cur] = P[i];
-                                    print_permutation(n, P, A, cur+1);
+                        // 输出数组 P 中元素的全排列。数组 P 中可能有重复元素
+                        void print_permutation( int n, int* P, int* A, int cur ) {
+                            if( cur == n ) {
+                                for( int i = 0; i < n; i++ ) { printf( "%d ", A[i] ); }
+                                printf( "\n" );
+                            } else {
+                                for( int i = 0; i < n; i++ ) {
+                                    if( i == 0 || P[i] != P[i-1] ) {
+                                        int c1 = 0, c2 = 0;
+                                        for( int j = 0; j < cur; j++ ) { if( A[j] == P[i] ) { c1++; } }
+                                        for( int j = 0; j <   n; j++ ) { if( P[i] == P[j] ) { c2++; } }
+                                        if( c1 < c2 ) {
+                                            A[cur] = P[i];
+                                            print_permutation( n, P, A, cur+1 );
+                                        }
+                                    }
                                 }
                             }
                         }
 
                         int main() {
                             int i, n;
-                            scanf("%d", &n);
-                            for(i = 0; i < n; i++)
-                                scanf("%d", &P[i]);
-                            sort(P, P+n);
-                            print_permutation(n, P, A, 0);
+                            scanf( "%d", &n );
+                            for( i = 0; i < n; i++ ) {
+                                scanf( "%d", &P[i] );
+                            }
+                            sort( P, P+n );
+                            print_permutation( n, P, A, 0 );
                             return 0;
                         }
                         ```
 
-                        ```cpp
-                        // 可重集的全排列(next_permutation版)
-                        // Rujia Liu
-                        #include<cstdio>
-                        #include<algorithm>
-                        using namespace std;
+                        所以啊，枚举排列要不自己递归枚举，要不就用 stl 的 next_permutation。
 
-                        int main() {
-                            int n, p[10];
-                            scanf("%d", &n);
-                            for(int i = 0; i < n; i++) scanf("%d", &p[i]);
-                            sort(p, p+n); // 排序，得到p的最小排列
-                            do {
-                                for(int i = 0; i < n; i++) printf("%d ", p[i]); // 输出排列p
-                                printf("\n");
-                            } while(next_permutation(p, p+n)); // 求下一个排列
-                            return 0;
-                        }
+                -   解答树 -<
+
+                    :   ```
+                                                                                    (*,*,*,*)
+                                                                                        |
+                                      .--------------------------------+----------------+---------------+-------------------------------.
+                                      |                                |                                |                               |
+                                  (1,*,*,*)                        (2,*,*,*)                        (3,*,*,*)                       (4,*,*,*)
+                                 /    |    \                      /    |    \                      /    |    \                     /    |    \
+                        (1,2,*,*) (1,3,*,*) (1,4,*,*)    (2,1,*,*) (2,3,*,*) (2,4,*,*)    (3,1,*,*) (3,2,*,*) (3,4,*,*)   (4,1,*,*) (4,2,*,*) (4,3,*,*)
                         ```
+
+                        第 0 层有 n 个儿子，第一层各节点各有 n-1 个儿子，第二层
+                        各有 n-2 个儿子，第 n 层节点没有儿子。每个叶子对应一个
+                        排列，共有 n! 个叶子。这棵树展示的是： 从什么都没做到逐
+                        步生成完整解的过程。
+
+                        解答树特点: 多步骤，多选择，用递归
+
+                        0 层:1 个节点，1 层:n 个节点，2 层:n*(n-1)，第 3 层：n*(n-1)*(n-2)，第 n 层:n*(n-1)*(n-2)*(n-3)*...*1 = n! 个节点。
+                        全部加起来。最后居然复杂度是 O(n!)
+
+                        多数情况下: 解答树上所有节点来源于最后一两层
+
+                        1 + 1/2 + 1/3 + ... = e，泰勒公式。
 
         -   子集生成 -<
 
             :   -   增量构造法 -<
 
                     :   ```cpp
-                        // {0~n-1}的所有子集：增量构造法
-                        // Rujia Liu
-                        #include<cstdio>
+                        // {0~n-1} 的所有子集：增量构造法
+                        #include <cstdio>
                         using namespace std;
 
-                        void print_subset(int n, int* A, int cur) {
-                            for(int i = 0; i < cur; i++) printf("%d ", A[i]); // 打印当前集合
-                            printf("\n");
-                            int s = cur ? A[cur-1]+1 : 0; // 确定当前元素的最小可能值
-                            for(int i = s; i < n; i++) {
+                        void print_subset( int n, int* A, int cur ) {
+                            for( int i = 0; i < cur; i++ ) { printf( "%d ", A[i] ); }   // 打印当前集合
+                            printf( "\n" );
+                            int s = cur != 0 ? A[cur-1]+1 : 0;                          // 确定当前元素的最小可能值
+                            for( int i = s; i < n; i++ ) {
                                 A[cur] = i;
-                                print_subset(n, A, cur+1); // 递归构造子集
+                                print_subset( n, A, cur+1 );                            // 递归构造子集
                             }
                         }
 
                         int A[10];
                         int main() {
                             int n;
-                            scanf("%d", &n);
-                            print_subset(n, A, 0);
+                            scanf( "%d", &n );
+                            print_subset( n, A, 0 );
                             return 0;
                         }
                         ```
 
+                        output
+
+                        ```
+                        0
+                        0 1
+                        0 1 2
+                        0 2
+                        1
+                        1 2
+                        2
+                        ```
+
                 -   位向量法 -<
 
-                    :   开一个位向量 B，B[i]=1 表示选择 S[i], B[i]=0 表示不选择。
+                    :   不直接构造 A，取而代之构造 B。
+
+                        开一个位向量 B，`B[i]=1` 表示选择 `S[i]`, `B[i]=0` 表示不选择。
 
                         ```cpp
-                        // {0~n-1}的所有子集：位向量法
-                        // Rujia Liu
-                        #include<cstdio>
+                        // {0~n-1} 的所有子集：位向量法
+                        #include <cstdio>
                         using namespace std;
 
-                        void print_subset(int n, int* B, int cur) {
-                            if(cur == n) {
-                                for(int i = 0; i < cur; i++)
-                                    if(B[i]) printf("%d ", i); // 打印当前集合
-                                printf("\n");
+                        void print_subset( int n, int* B, int cur ) {
+                            if( cur == n ) {
+                                for( int i = 0; i < cur; i++ ) {
+                                    if( B[i] ) { printf( "%d ", i ); }      // 打印当前集合
+                                }
+                                printf( "\n" );
                                 return;
                             }
-                            B[cur] = 1; // 选第cur个元素
-                            print_subset(n, B, cur+1);
-                            B[cur] = 0; // 不选第cur个元素
-                            print_subset(n, B, cur+1);
+                            B[cur] = 1;                                     // 选第 cur 个元素
+                            print_subset( n, B, cur+1 );
+                            B[cur] = 0;                                     // 不选第 cur 个元素
+                            print_subset( n, B, cur+1 );
                         }
 
                         int B[10];
                         int main() {
                             int n;
-                            scanf("%d", &n);
-                            print_subset(5, B, 0);
+                            scanf( "%d", &n );
+                            for( int i = 0; i < n; ++i ) { scanf("%d", &B[i]); }
+                            print_subset( n, B, 0 );
                             return 0;
                         }
                         ```
@@ -4989,69 +5083,70 @@ A Bit of Logic -<
 
                     :   前提：集合的元素不超过 int 位数。用一个 int 整数表示位
                         向量，第 i 位为 1，则表示选择 S[i]，为 0 则不选择。例如
-                        S=\{A,B,C,D\}，则 0110=6 表示子集 \{B,C\}。
+                        S={A,B,C,D}，则 0110=6 表示子集 {B,C}。
 
                         这种方法最巧妙。因为它不仅能生成子集，还能方便的表
                         示集合的并、交、差等集合运算。设两个集合的位向量分
                         别为 B1 和 B2，则 B1|B2, B1&B2, B1^B2 分别对应集合的
                         并、交、对称差。
 
+                        ```
+                        15  14  13  12  11  10  9   8   7   6   5   4   3   2   1   0
+                        |   |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
+                        0   1   0   0   0   1   1   0   0   0   1   1   0   1   1   1
+                            ^               ^   ^               ^   ^       ^   ^   ^
+                            |               |   |               |   |       |   |   |
+                            +---------------+---+---------------+---+-------+---+---+
+                                                |
+                                                |
+                                                V
+                                   { 14, 10, 9, 5, 4, 2, 1, 0 }
+                        ```
+
+                        XOR 最重要的性质是“开关性” --- XOR 两次等于没有 XOR：A^B^B = A。
+
                         ```cpp
                         // {0~n-1}的所有子集：二进制法
-                        // Rujia Liu
-                        #include<cstdio>
+                        #include <cstdio>
                         using namespace std;
 
-                        void print_subset(int n, int s) {  // 打印{0, 1, 2, ..., n-1}的子集S
-                            for(int i = 0; i < n; i++)
-                                if(s&(1<<i)) printf("%d ", i); // 这里利用了C语言“非0值都为真”的规定
-                            printf("\n");
+                        void print_subset( int n, int s ) {             // 打印 {0, 1, 2, ..., n-1} 的子集 S
+                            for( int i = 0; i < n; i++ ) {
+                                if( s&(1<<i) ) { printf("%d ", i); }    // 这里利用了C语言“非0值都为真”的规定
+                            }
+                            printf( "\n" );
                         }
 
                         int main() {
                             int n;
-                            scanf("%d", &n);
-                            for(int i = 0; i < (1<<n); i++)  // 枚举各子集所对应的编码 0, 1, 2, ..., 2^n-1
-                                print_subset(n, i);
-                            return 0;
-                        }
-                        ```
-
-                -   test -<
-
-                    :   ```cpp
-                        #include <stdio.h>
-                        #include <stdlib.h>
-
-                        void print_subset1(int *S, int n, int *P, int cur, int ed);
-                        void print_subset2(int *S, int n, char *B, int cur);
-                        void print_subset3(int *S, int n);
-
-                        int main() {
-                            int n, i;
-
-                            while(scanf("%d",&n) > 0) {
-                                int *S = (int*)malloc(n * sizeof(int));
-                                int *P = (int*)malloc(n * sizeof(int));
-                                char *B = (char*)malloc(n * sizeof(char));
-
-                                for(i = 0; i < n; i++) scanf("%d",&S[i]);
-
-                                print_subset1(S, n, P, 0, 0); putchar('\n');
-                                print_subset2(S, n, B, 0); putchar('\n');
-                                print_subset3(S, n);
-
-                                free(S);
-                                free(P);
-                                free(B);
+                            scanf( "%d", &n );
+                            for( int i = 0; i < ( 1<<n ); i++ ) {       // 枚举各子集所对应的编码 0, 1, 2, ..., 2^n-1
+                                print_subset( n, i );
                             }
                             return 0;
                         }
                         ```
 
+                        ```bash
+                        $ echo 3 | ./a.out
+                        0
+                        1
+                        0 1
+                        2
+                        0 2
+                        1 2
+                        0 1 2
+                        ```
+
+                        ALL_BITS = (1<<n) -1，A 的补集就是 A^ALL_BITS。
+
         -   回溯法 -<
 
-            :   -   n 皇后问题 -<
+            :   -   回溯法理论 TODO
+
+                    :   之前两种思路是：递归构造、直接枚举（一一 generate，然后 test）。
+
+                -   n 皇后问题 -<
 
                     :   -   orig -<
 
@@ -5257,33 +5352,36 @@ A Bit of Logic -<
 
                         -   生成 - 测试法 -<
 
-                            :   ```cpp
-                                // n皇后问题：生成-测试法
-                                // Rujia Liu
-                                #include<cstdio>
+                            :   generate-test，也就是直接枚举法。
+
+                                ```cpp
+                                // n 皇后问题：生成-测试法
+                                #include <cstdio>
                                 using namespace std;
 
                                 int C[50], tot = 0, n = 8, nc = 0;
 
-                                void search(int cur) {
+                                void search( int cur ) {
                                     int i, j;
                                     nc++;
-                                    if(cur == n) {
-                                        for(i = 0; i < n; i++)
-                                            for(j = i+1; j < n; j++)
-                                                if(C[i] == C[j] || i-C[i] == j-C[j] || i+C[i] == j+C[j]) return;
+                                    if( cur == n ) {
+                                        for( i = 0; i < n; i++ ) {
+                                            for(j = i+1; j < n; j++) {
+                                                if( C[i] == C[j] || i-C[i] == j-C[j] || i+C[i] == j+C[j] ) { return; }
+                                            }
+                                        }
                                         tot++;
-                                    } else for(i = 0; i < n; i++) {
+                                    } else for( i = 0; i < n; i++ ) {
                                         C[cur] = i;
-                                        search(cur+1);
+                                        search( cur+1 );
                                     }
                                 }
 
                                 int main() {
-                                    scanf("%d", &n);
-                                    search(0);
-                                    printf("%d\n", tot);
-                                    printf("%d\n", nc);
+                                    scanf( "%d", &n );
+                                    search( 0 );
+                                    printf( "%d\n", tot );
+                                    printf( "%d\n", nc );
                                     return 0;
                                 }
                                 ```

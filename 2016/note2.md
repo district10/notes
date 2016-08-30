@@ -1431,4 +1431,30 @@ title: Working Notes
 [javascript - onchange event on input type=range is not triggering in firefox while dragging - Stack Overflow](http://stackoverflow.com/questions/18544890/onchange-event-on-input-type-range-is-not-triggering-in-firefox-while-dragging)
 
 [BoroMeke | 故事有些长，有机会全都讲给你听](http://www.boromeke.com/)
+
 [离岸公司科普 | Ntkrnl](http://shabi.us/2011/11/05/offshore-company/)
+
+[女生拥有一头短发是一种什么体验？ - 知乎](https://www.zhihu.com/question/31159026#answer-42351840)
+
+[事后才感觉「好像有哪里不对」是一种怎样的体验？ - 知乎](https://www.zhihu.com/question/38766625#answer-43170465) -<
+
+:   几个程序员去吃饭，有人点了一道菜，麻辣牛蛙。然后其中有个人说自己不吃牛蛙，
+    于是负责点菜的直接在麻辣牛蛙前划了两道斜线，就像这样：
+
+    `//麻辣牛蛙`
+
+    现场没有任何人觉得有哪里不对。
+
+    背单词，遇到了 itch，意思是“痒；渴望”，突然有了一个了不起的发现：bitch....
+
+[身高 2 米以上是一种怎样的体验？ - 知乎](https://www.zhihu.com/question/26730775#answer-43045149) -<
+
+:   替我大学同寝室下铺哥们怒答一发：
+
+    -   2 米 02 身高，体重 100kg，天天俯卧撑加仰卧起坐的魔鬼筋肉人，非虚胖那种。
+        浑身毛发发达，三寸护心毛飘洒胸前。
+    -   大学刚报道第一天其实我是他下铺，结果这哥们一进门我就决定跟他换上铺了。
+        他说呵呵你人真好。我心想：我是为自己生命安全着想好么。睡你下铺哪天塌了
+        被压死就不值了。
+
+    发型无所谓，鼻毛必须修剪得漂亮。
