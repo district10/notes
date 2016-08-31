@@ -31,6 +31,9 @@ ASCII table -<
 
     ![](http://whudoc.qiniudn.com/ascii.png)
 
+    ../../aoapc-book/aoapc-bac2nd/README.md
+    ../../acm-cheat-sheet/C++/ACM-cheat-sheet.tex
+
 TODOs:
 
 -   rewrite UFS.c in C++: union, find, init.
@@ -4606,11 +4609,55 @@ A Bit of Logic -<
 
     :scissors: 2016/00/00 上午 9:30:00 0. Brute Force -<
 
-    :   -   Simple Enumeration -<
+    :   -   Brute-force search -<
+
+            :   In computer science, **brute-force search** or **exhaustive search**,
+                also known as **generate and test**, is a very general
+                problem-solving technique that consists of systematically
+                enumerating all possible candidates for the solution and
+                checking whether each candidate satisfies the problem's
+                statement.
+
+                Brute-force search is also useful **as a baseline method when
+                benchmarking other algorithms or metaheuristics.** Indeed,
+                brute-force search can be viewed as the simplest metaheuristic.
+                Brute force search should not be confused with backtracking,
+                where large sets of solutions can be discarded without being
+                explicitly enumerated (as in the textbook computer solution to
+                the eight queens problem above). The brute-force method for
+                finding an item in a table — namely, check all entries of the
+                latter, sequentially — is called linear search.
+
+                In order to apply brute-force search to a specific class of
+                problems, one must implement **four procedures**, `first`, `next`,
+                `valid`, and `output`. These procedures should take as a parameter
+                the data P for the particular instance of the problem that is
+                to be solved, and should do the following:
+
+                -   **`first (P)`**: generate a first candidate solution for P.
+                -   **`next (P, c)`**: generate the next candidate for P after the current one c.
+                -   **`valid (P, c)`**: check whether candidate c is a solution for P.
+                -   **`output (P, c)`**: use the solution c of P as appropriate to the application.
+
+                ```
+                c ← first(P)
+                while c ≠ Λ do
+                    if valid(P,c) then output(P, c)
+                    c ← next(P,c)
+                end while
+                ```
+
+                Combinatorial explosion, or the curse of dimensionality.
+
+                refs and see also
+
+                -   [Brute-force search - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Brute-force_search)
+
+        -   简单枚举 -<
 
             :   -   Division, abcde/fghij = n, a~j -> 0~9, n = 2..79 -<
 
-                    :   fghij * {2, 3, 4, ... } = {xxxxx, ...}, then test 0~9
+                    :   fghij &times; {2, 3, 4, ... } = {xxxxx, ...}, then test 0~9
 
                         ```cpp
                         #include <iostream>
@@ -4621,37 +4668,25 @@ A Bit of Logic -<
                         using namespace std;
 
                         bool five( int n ) {
-                            int numpad[10] = { 0 };
                             if( n < 1234 || n > 98765   ) { return false;   }
+                            int numpad[10] = { 0 };
                             if( n < 9876                ) { ++numpad[0];    }
                             while( n ) {
-                                int m = n % 10;
-                                ++numpad[m];
-                                if( numpad[m] >= 2 ) {
-                                    return false;
-                                }
+                                if( ++numpad[n%10] >= 2 ) { return false; }
                                 n /= 10;
                             }
                             return true;
                         }
 
                         bool ten( int n1, int n2, int buf[] ) {
-                            int numpad[10] = { 0 };
                             if( !five(n1) || !five(n2) ) { return false; }
+                            int numpad[10] = { 0 };
                             while( n1 ) {
-                                int m = n1 % 10;
-                                ++numpad[m];
-                                if( numpad[m] >= 2 ) {
-                                    return false;
-                                }
+                                if( ++numpad[n1%10] >= 2 ) { return false; }
                                 n1 /= 10;
                             }
                             while( n2 ) {
-                                int m = n2 % 10;
-                                ++numpad[m];
-                                if( numpad[m] >= 2 ) {
-                                    return false;
-                                }
+                                if( ++numpad[n2%10] >= 2 ) { return false; }
                                 n2 /= 10;
                             }
                             return true;
@@ -4661,12 +4696,12 @@ A Bit of Logic -<
 
                             vector<pair<int, int> > result;
 
-                            int fghij = 1234; // 01234, but careful, not octal!
+                            int fghij = 1234;                               // 01234, but careful, not octal!
                             for( int f = fghij; f <= 98765/2; ++f ) {
                                 if( !five(f) ) { continue; }
                                 for( int j = 2; j <= 79; ++j ) {
                                     int a = f * j;
-                                    if( a >= 98765 ) { break; }
+                                    if( a > 98765 ) { break; }
                                     if( !five(a) ) {
                                         continue;
                                     } else {
@@ -4867,12 +4902,11 @@ A Bit of Logic -<
                             for( int i = 1; i <= n; i++ ) {
                                 int used = 0;
                                 for( int j = 0; j < cur; j++ ) {
-                                    if (P[j] == i) { used = 1; break; }                 // 如果 i 已经在 A[0]~A[cur-1] 出现过，则不能再选
+                                    if( P[j] == i ) { used = 1; break; }                // 如果 i 已经在 A[0]~A[cur-1] 出现过，则不能再选
                                 }
                                 if( !used ) {
                                     P[cur] = i;
                                     print_permutation_r( n, cur + 1, P );               // 递归调用
-                                                                                        // 不需要恢复 P[cur]，返回上层时时会被覆盖
                                 }
                             }
                         }
@@ -4897,7 +4931,49 @@ A Bit of Logic -<
 
                 -   生成可重集的排列 -<
 
-                    :   直接用 stl 里面的 next_permutation。
+                    :   直接用 STL 里面的 next_permutation。
+
+                        std::next_permutation -<
+
+                        :   接口是这样的：
+
+                            ```cpp
+                            template< class BidirIt >
+                            bool next_permutation( BidirIt first, BidirIt last );
+
+                            template< class BidirIt, class Compare >
+                            bool next_permutation( BidirIt first, BidirIt last, Compare comp );
+                            ```
+
+                            Possible implementation :hearts: -<
+ -<
+                            :   ```cpp
+                                template<class BidirIt>
+                                bool next_permutation(BidirIt first, BidirIt last)
+                                {
+                                    if (first == last) return false;
+                                    BidirIt i = last;
+                                    if (first == --i) return false;
+
+                                    while (true) {
+                                        BidirIt i1, i2;
+
+                                        i1 = i;
+                                        if (*--i < *i1) {
+                                            i2 = last;
+                                            while (!(*i < *--i2))
+                                                ;
+                                            std::iter_swap(i, i2);
+                                            std::reverse(i1, last);
+                                            return true;
+                                        }
+                                        if (i == first) {
+                                            std::reverse(first, last);
+                                            return false;
+                                        }
+                                    }
+                                }
+                                ```
 
                         ```cpp
                         #include <stdio.h>
@@ -4935,7 +5011,7 @@ A Bit of Logic -<
                         5 4 2 2
                         ```
 
-                        当然，自己写也是可以得。
+                        当然，自己写也是可以得。TODO
 
                         ```cpp
                         #include <cstdio>
@@ -4997,8 +5073,8 @@ A Bit of Logic -<
 
                         解答树特点: 多步骤，多选择，用递归
 
-                        0 层:1 个节点，1 层:n 个节点，2 层:n*(n-1)，第 3 层：n*(n-1)*(n-2)，第 n 层:n*(n-1)*(n-2)*(n-3)*...*1 = n! 个节点。
-                        全部加起来。最后居然复杂度是 O(n!)
+                        0 层：`1` 个节点，1 层：`n` 个节点，2 层：`n*(n-1)`，第 3 层：`n*(n-1)*(n-2)`，第 n 层：`n*(n-1)*(n-2)*(n-3)*...*1 = n!` 个节点。
+                        全部加起来。最后居然复杂度是 O(n!)　TODO（把公式写完整）
 
                         多数情况下: 解答树上所有节点来源于最后一两层
 
@@ -5112,7 +5188,7 @@ A Bit of Logic -<
 
                         void print_subset( int n, int s ) {             // 打印 {0, 1, 2, ..., n-1} 的子集 S
                             for( int i = 0; i < n; i++ ) {
-                                if( s&(1<<i) ) { printf("%d ", i); }    // 这里利用了C语言“非0值都为真”的规定
+                                if( s&(1<<i) ) { printf("%d ", i); }    // 这里利用了 C 语言“非 0 值都为真”的规定
                             }
                             printf( "\n" );
                         }
@@ -5142,13 +5218,126 @@ A Bit of Logic -<
 
         -   回溯法 -<
 
-            :   -   回溯法理论 TODO
+            :   -   回溯法理论 TODO -<
 
                     :   之前两种思路是：递归构造、直接枚举（一一 generate，然后 test）。
 
                 -   n 皇后问题 -<
 
-                    :   -   orig -<
+                    :   -   问题描述 -<
+
+                            :   The eight queens puzzle is the problem of
+                                **placing eight chess queens** on an 8×8 chessboard
+                                so that no two queens **threaten each other**.
+                                Thus, a solution requires that no two queens
+                                share the same row, column, or diagonal. The
+                                eight queens puzzle is an example of the more
+                                general n queens problem of placing n
+                                non-attacking queens on an n×n chessboard, for
+                                which solutions exist for all natural numbers n
+                                with the exception of n=2 and n=3.
+
+                                The eight queens puzzle has **92 distinct solutions**.
+                                If solutions that differ only by symmetry
+                                operations (rotations and reflections) of the
+                                board are counted as one, the puzzle has
+                                **12 fundamental solutions**.
+
+                                refs and see also
+
+                                -   [Eight queens puzzle - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Eight_queens_puzzle)
+
+                        -   生成 - 测试法 -<
+
+                            :   generate-test，也就是直接枚举法（暴力法）。
+
+                                These brute-force algorithms to count the
+                                number of solutions are computationally
+                                manageable for n = 8, but would be intractable
+                                for problems of n ≥ 20, as 20! = 2.433 x 10^^18^^.
+
+                                ```cpp
+                                // n 皇后问题：生成-测试法
+                                #include <cstdio>
+                                using namespace std;
+
+                                int C[50], tot = 0, n = 8, nc = 0;
+
+                                void search( int cur ) {
+                                    int i, j;
+                                    nc++;
+                                    if( cur == n ) {
+                                        for( i = 0; i < n; i++ ) {                      // 两两判断，是否 valid
+                                            for(j = i+1; j < n; j++) {
+                                                if( C[i] == C[j] || i-C[i] == j-C[j] || i+C[i] == j+C[j] ) { return; }
+                                            }
+                                        }
+                                        tot++;
+                                    } else for( i = 0; i < n; i++ ) {
+                                        C[cur] = i;
+                                        search( cur+1 );
+                                    }
+                                }
+
+                                int main() {
+                                    scanf( "%d", &n );
+                                    search( 0 );
+                                    printf( "%d\n", tot );
+                                    printf( "%d\n", nc );
+                                    return 0;
+                                }
+                                ```
+
+                                ```bash
+                                $ echo 8 | ./a.out
+                                92
+                                19173961
+                                ```
+
+                        -   普通回溯法 -<
+
+                            :   ```cpp
+                                // n 皇后问题：普通回溯法
+                                #include <cstdio>
+                                using namespace std;
+
+                                int C[50], tot = 0, n = 8, nc = 0;
+
+                                void search( int cur ) {
+                                    int i, j;
+                                    nc++;
+                                    if( cur == n ) {
+                                        tot++;
+                                    } else for( i = 0; i < n; i++ ) {
+                                        int ok = 1;
+                                        C[cur] = i;
+                                        for( j = 0; j < cur; j++ ) {
+                                            int dx = cur - j, dy = C[cur] - C[j];
+                                            if( C[cur] == C[j] || dx == dy || dy == -dy ) {
+                                                ok = 0;
+                                                break;
+                                            }
+                                        }
+                                        if( ok ) { search( cur+1 ); }
+                                    }
+                                }
+
+                                int main() {
+                                    scanf( "%d", &n );
+                                    search( 0 );
+                                    printf( "%d\n", tot );
+                                    printf( "%d\n", nc );
+                                    return 0;
+                                }
+                                ```
+
+                                ```bash
+                                $ echo 8 | ./a.out
+                                92
+                                2057
+                                ```
+
+                        -   优化了的回溯法 -<
 
                             :   ```
                                   y - x    ?dx == dy                                y + x    ? dx == -dy (dx+dy==0)
@@ -5165,35 +5354,22 @@ A Bit of Logic -<
                                 ```
 
                                 ```cpp
-                                void search( int cur ) {
-                                    if( cur == n ) {
-                                        ++tot;
-                                    } else {
-                                        for( int i = 0; i < n; ++i ) {
-                                            int ok = 1;
-                                            C[cur] = i;
-                                            for( int j = 0; j < cur; ++j ) {
-                                                int dx = cur - j, dy = C[cur] - C[j];
-                                                if( C[cur] == C[j] || dx == dy || dy == -dy ) {
-                                                    ok = 0; break;
-                                                }
-                                                if( ok ) { search(cur+1); }
-                                            }
-                                        }
-                                    }
-                                }
-                                ```
+                                #include <cstdio>
+                                #include <cstring>
+                                using namespace std;
 
-                                ```cpp
+                                int vis[3][50], C[8], tot = 0, n = 8, nc = 0;
+
                                 void search( int cur ) {
+                                    ++nc;
                                     if( cur == n ) {
                                         ++tot;
                                     } else {
                                         for( int i = 0; i < n; ++i ) {
-                                            // vis: visited, vis[0] -> col, vis[1] -> major diag, vis[2] -> minor diag
+                                            // vis: visited, vis[0] -> col, vis[1] -> minor diag, vis[2] -> major diag
                                             if( !vis[0][i] && !vis[1][cur+i] && !vis[2][cur-i+n] ) {
                                                 C[cur] = i;
-                                                // col         y-x=0           y+x=0
+                                                // col          x+y                 y-x
                                                 vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 1;
                                                 search( cur+1 );
                                                 vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 0;    // 改回来
@@ -5201,6 +5377,21 @@ A Bit of Logic -<
                                         }
                                     }
                                 }
+
+                                int main() {
+                                    memset( vis, 0, sizeof(vis) );
+                                    search( 0 );
+                                    printf( "%d\n", tot );
+                                    printf( "%d\n", nc );
+                                    return 0;
+                                }
+                                ```
+
+                                output:
+
+                                ```bash
+                                92
+                                2057
                                 ```
 
                                 print the result:
@@ -5350,281 +5541,98 @@ A Bit of Logic -<
                                 -----------------
                                 ```
 
-                        -   生成 - 测试法 -<
-
-                            :   generate-test，也就是直接枚举法。
-
-                                ```cpp
-                                // n 皇后问题：生成-测试法
-                                #include <cstdio>
-                                using namespace std;
-
-                                int C[50], tot = 0, n = 8, nc = 0;
-
-                                void search( int cur ) {
-                                    int i, j;
-                                    nc++;
-                                    if( cur == n ) {
-                                        for( i = 0; i < n; i++ ) {
-                                            for(j = i+1; j < n; j++) {
-                                                if( C[i] == C[j] || i-C[i] == j-C[j] || i+C[i] == j+C[j] ) { return; }
-                                            }
-                                        }
-                                        tot++;
-                                    } else for( i = 0; i < n; i++ ) {
-                                        C[cur] = i;
-                                        search( cur+1 );
-                                    }
-                                }
-
-                                int main() {
-                                    scanf( "%d", &n );
-                                    search( 0 );
-                                    printf( "%d\n", tot );
-                                    printf( "%d\n", nc );
-                                    return 0;
-                                }
-                                ```
-
-                        -   普通回溯法 -<
-
-                            :   ```cpp
-                                // n皇后问题：普通回溯法
-                                // Rujia Liu
-
-                                #include<cstdio>
-                                using namespace std;
-
-                                int C[50], tot = 0, n = 8, nc = 0;
-
-                                void search(int cur) {
-                                    int i, j;
-                                    nc++;
-                                    if(cur == n) {
-                                        tot++;
-                                    } else for(i = 0; i < n; i++) {
-                                        int ok = 1;
-                                        C[cur] = i;
-                                        for(j = 0; j < cur; j++)
-                                            if(C[cur] == C[j] || cur-C[cur] == j-C[j] || cur+C[cur] == j+C[j]) {
-                                                ok = 0;
-                                                break;
-                                            }
-                                        if(ok) search(cur+1);
-                                    }
-                                }
-
-                                int main() {
-                                    scanf("%d", &n);
-                                    search(0);
-                                    printf("%d\n", tot);
-                                    printf("%d\n", nc);
-                                    return 0;
-                                }
-                                ```
-
-                        -   普通回溯法 -<
-
-                            :   ```cpp
-                                // n皇后问题：优化的回溯法
-                                // Rujia Liu
-
-                                #include<cstdio>
-                                #include<cstring>
-                                using namespace std;
-
-                                int C[50], vis[3][50], tot = 0, n = 8, nc = 0;
-
-                                void search(int cur) {
-                                    int i, j;
-                                    nc++;
-                                    if(cur == n) {
-                                        tot++;
-                                    } else for(i = 0; i < n; i++) {
-                                        if(!vis[0][i] && !vis[1][cur+i] && !vis[2][cur-i+n]) {
-                                            C[cur] = i;
-                                            vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 1;
-                                            search(cur+1);
-                                            vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 0;
-                                        }
-                                    }
-                                }
-
-                                int main() {
-                                    scanf("%d", &n);
-                                    memset(vis, 0, sizeof(vis));
-                                    search(0);
-                                    printf("%d\n", tot);
-                                    printf("%d\n", nc);
-                                    return 0;
-                                }
-                                ```
-
                 -   prime ring -<
 
-                    :   brute force.
+                    :   输入正整数 n，把整数 1，2，...，n 组成一个环，使得相邻两个整数的和均为素数。
+                        输出时从整数 1 开始逆时针排列。同一个环应恰好输出一次。n <= 16。
 
-                        ```cpp
-                        #include <iostream>
-                        #include <algorithm> // next_permutation
-                        #include <stdio.h>
-                        #include <string.h>
-                        #include <math.h> // sqrt
+                        ```
+                        input:
 
-                        using namespace std;
+                            6
 
-                        const int maxn = 20;
-                        int isp[maxn*2];
-                        int A  [maxn];
+                        output:
 
-                        bool is_prime( int num ) {
-                            if( num <2 ) { return false; }
-                            int ceil = 1+(int)sqrt( (double)num );
-                            for( int i = 2; i < ceil; ++i ) {
-                                if( num%i == 0 ) {
-                                    return false;
-                                }
-                            }
-                            return true;
-                        }
-
-                        int main() {
-                            memset( isp, 0, sizeof(isp) );
-                            for( int i = 0; i < maxn*2; ++i ) {
-                                isp[i] = is_prime(i);
-                                // printf( "%d is%s prime.\n", i, isp[i]==1? "" : " not" );
-                            }
-
-                            int n;
-                            while( scanf( "%d", &n ) && n > 0 ) {
-                                memset( A,   0, sizeof(A  ) );
-                                for( int i = 0; i < n;   ++i ) { A[i] = i+1; }
-                                do {
-                                    int ok = 1;
-                                    for( int i = 0; i < n; ++i ) {
-                                        if( !isp[A[i]+A[(i+1)%n]] ) {
-                                            ok = 0;
-                                            break;
-                                        }
-                                    }
-                                    if( ok ) {
-                                        for( int i = 0; i < n; ++i ) {
-                                            printf( "%d ", A[i] );
-                                        }
-                                        printf( "\n" );
-                                    }
-                                } while( next_permutation(A+1, A+n) );
-                            }
-                        }
+                            1   4   3   2   5   6
+                            1   6   5   2   3   4
                         ```
 
-                        backtrace (buggy)
+                        如果直接暴力。排列总数高达 16! = 2x10^^13^^ -<
 
-                        ```cpp
-                        #include <iostream>
-                        #include <algorithm> // next_permutation
-                        #include <stdio.h>
-                        #include <string.h>
-                        #include <math.h> // sqrt
+                        :   直接暴力--生成测试法。
 
-                        using namespace std;
-
-                        const int maxn = 20;
-                        int isp[maxn*2];
-                        int A  [maxn];
-                        int vis[maxn];
-
-                        bool is_prime( int num ) {
-                            if( num < 2 ) { return false; }
-                            int ceil = 1+(int)sqrt( (double)num );
-                            for( int i = 2; i < ceil; ++i ) {
-                                if( num%i == 0 ) { return false; }
-                            }
-                            return true;
-                        }
-
-                        void dfs( int cur, int n ) {
-                            if( cur == n ) {
-                                if( isp[A[0]+A[n+1]] ) {    // margin
-                                    for( int i = 0; i < n; ++i ) {
-                                        printf( "%d ", A[i] );
-                                    }
+                            ```cpp
+                            for( int i = 2; i <= n*2; ++i ) { isp[i] = is_prime( i ); }
+                            for( int i = 0; i < n; ++i ) { A[i] = i+1; }
+                            do  {
+                                int ok = 1;
+                                for( int i = 0; i < n; ++i ) {
+                                    if( !isp[A[i]+A[(i+1)%n]] ) { ok = 0; break; }
+                                }
+                                if( ok ) {
+                                    for( int i = 0; i < n; ++i ) { printf( "%d ", A[i] ); }
                                     printf( "\n" );
-                                } else {
-                                    printf( "oops\n" );
                                 }
-                                return;
-                            } else {
-                                for( int i = 2; i <= n; ++i ) {
-                                    if( !vis[i] && isp[i+A[cur-1]] ) {
-                                        A[cur] = i;
-                                        vis[i] = 1;
-                                        dfs( cur+1, n );
-                                        vis[i] = 0;
-                                    }
-                                }
-                            }
-                        }
+                            } while( next_permutation(A+1, A+n) );
+                            ```
 
-                        int main() {
-                            memset( isp, 0, sizeof(isp) );
-                            for( int i = 0; i < maxn*2; ++i ) { isp[i] = is_prime(i); }
-                            memset( vis, 0, sizeof(vis) );
-                            for( int i = 0; i < maxn; ++i ) { A[i] = i+1; }
+                            当 n = 12 就相当慢了。
 
-                            int n;
-                            while( scanf( "%d", &n ) && n > 0 ) {
-                                dfs( 0, n );
-                            }
-                        }
-                        ```
-
-                        orig code:
+                        生成--测试法太慢，现在用回溯法。
 
                         ```cpp
                         // UVa524 Prime Ring Problem
-                        // Rujia Liu
-                        #include<cstdio>
-                        #include<cstring>
-                        #include<algorithm>
+                        #include <cstdio>
+                        #include <cstring>
+                        #include <algorithm>
                         using namespace std;
 
-                        int is_prime(int x) {
-                            for(int i = 2; i*i <= x; i++)
-                                if(x % i == 0) return 0;
+                        int is_prime( int x ) {
+                            for( int i = 2; i*i <= x; i++ ) {
+                                if( x % i == 0 ) { return 0; }
+                            }
                             return 1;
                         }
 
                         int n, A[50], isp[50], vis[50];
-                        void dfs(int cur) {
-                            if(cur == n && isp[A[0]+A[n-1]]) {
-                                for(int i = 0; i < n; i++) {
-                                    if(i != 0) printf(" ");
-                                    printf("%d", A[i]);
+                        void dfs( int cur ) {
+                            if( cur == n && isp[A[0]+A[n-1]] ) {                // 边界，第一和末尾
+                                for( int i = 0; i < n; i++ ) {
+                                    if( i != 0 ) { printf( " " ); }
+                                    printf( "%d", A[i] );
                                 }
-                                printf("\n");
+                                printf( "\n" );
+                            } else {
+                                for( int i = 2; i <= n; i++ ) {
+                                    if( !vis[i] && isp[i+A[cur-1]] ) {
+                                        A[cur] = i;
+                                        vis[i] = 1;                             // visited
+                                        dfs( cur+1 );
+                                        vis[i] = 0;                             // change back
+                                    }
+                                }
                             }
-                            else for(int i = 2; i <= n; i++)
-                                if(!vis[i] && isp[i+A[cur-1]]) {
-                                    A[cur] = i;
-                                    vis[i] = 1;
-                                    dfs(cur+1);
-                                    vis[i] = 0;
-                                }
                         }
 
                         int main() {
                             int kase = 0;
-                            while(scanf("%d", &n) == 1 && n > 0) {
-                                if(kase > 0) printf("\n");
-                                printf("Case %d:\n", ++kase);
-                                for(int i = 2; i <= n*2; i++) isp[i] = is_prime(i);
-                                memset(vis, 0, sizeof(vis));
+                            while( scanf( "%d", &n ) == 1 && n > 0 ) {
+                                if( kase > 0 ) { printf( "\n" ); }
+                                printf( "Case %d:\n", ++kase );
+                                for( int i = 2; i <= n*2; i++ ) { isp[i] = is_prime( i ); }
+                                memset( vis, 0, sizeof(vis) );
                                 A[0] = 1;
-                                dfs(1);
+                                dfs( 1 );
                             }
                             return 0;
                         }
+                        ```
+
+                        ```bash
+                        $ echo 6 | ./a.out
+                        Case 1:
+                        1 4 3 2 5 6
+                        1 6 5 2 3 4
                         ```
 
                 -   困难的串 Krypton Factor -<
@@ -5645,54 +5653,65 @@ A Bit of Logic -<
 
                             ABAC ABA
                             ABAC ABCA CBAB CABA CABC ACBA CABA
-
                         ```
 
                         ```cpp
                         // UVa129 Krypton Factor
-                        // Rujia Liu
-                        #include<stdio.h>
+                        #include <stdio.h>
                         int n, L, cnt;
                         int S[100];
 
-                        int dfs(int cur) {                                       // 返回0表示已经得到解，无须继续搜索
-                            if(cnt++ == n) {
-                                for(int i = 0; i < cur; i++) {
-                                    if(i % 64 == 0 && i > 0) printf("\n");
-                                    else if(i % 4 == 0 && i > 0) printf(" ");
-                                    printf("%c", 'A'+S[i]); // 输出方案
+                        int dfs( int cur ) {                                                // 返回 0 表示已经得到解，无须继续搜索
+                            if( cnt++ == n ) {
+                                for( int i = 0; i < cur; i++ ) {
+                                    if( i % 64 == 0 && i > 0 ) {
+                                        printf( "\n" );
+                                    } else if( i % 4 == 0 && i > 0 ) {
+                                        printf( " " );
+                                    }
+                                    printf( "%c", 'A'+S[i] );                               // 输出方案
                                 }
-                                printf("\n%d\n", cur);
+                                printf( "\n%d\n", cur );
                                 return 0;
                             }
-                            for(int i = 0; i < L; i++) {
+                            for( int i = 0; i < L; i++ ) {
                                 S[cur] = i;
                                 int ok = 1;
-                                for(int j = 1; j*2 <= cur+1; j++) {                  // 尝试长度为j*2的后缀
+                                for( int j = 1; j*2 <= cur+1; j++ ) {                       // 尝试长度为j*2的后缀
                                     int equal = 1;
-                                    for(int k = 0; k < j; k++)                         // 检查后一半是否等于前一半
-                                        if(S[cur-k] != S[cur-k-j]) { equal = 0; break; }
-                                    if(equal) { ok = 0; break; }                       // 后一半等于前一半，方案不合法
+                                    for( int k = 0; k < j; k++ ) {                          // 检查后一半是否等于前一半
+                                        if( S[cur-k] != S[cur-k-j] ) { equal = 0; break; }
+                                    }
+                                    if( equal ) { ok = 0; break; }                          // 后一半等于前一半，方案不合法
                                 }
-                                if(ok) if(!dfs(cur+1)) return 0;                     // 递归搜索。如果已经找到解，则直接退出
+                                if( ok ) if( !dfs(cur+1) ) { return 0; }                    // 递归搜索。如果已经找到解，则直接退出
                             }
                             return 1;
                         }
 
                         int main() {
-                            while(scanf("%d%d", &n, &L) == 2 && n > 0) {
+                            while( scanf( "%d%d", &n, &L ) == 2 && n > 0 ) {
                                 cnt = 0;
-                                dfs(0);
+                                dfs( 0 );
                             }
                             return 0;
                         }
                         ```
 
+
+                        ```bash
+                        $ echo 7 3 | ./a.out
+                        ABAC ABA
+                        7
+                        ```
+
                         回溯法要注意忽略不必要的判断。
 
-                -   Bandwith -<
+                -   带宽，Bandwith :hearts: -<
 
-                    :   给出一个 n（n<=8）个节点的图 G 和一个节点的排列。定义节点 i 的带宽
+                    :   >   最优性剪纸
+
+                        给出一个 n（n<=8）个节点的图 G 和一个节点的排列。定义节点 i 的带宽
                         b(i) 为 i 和相邻结点在排列中的最远距离，而所有 b(i) 的最大值就是
                         整个图的带宽。给定图 G，求出让带宽最小的节点排列，如图 7-7 所示。
 
@@ -5730,7 +5749,6 @@ A Bit of Logic -<
 
                         ```cpp
                         // UVa140 Bandwidth
-                        // Rujia Liu
                         #include<cstdio>
                         #include<cstring>
                         #include<vector>
@@ -5787,7 +5805,7 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   Mobile Computing -<
+                -   天平难题，Mobile Computing -<
 
                     :   ```cpp
                         // UVa1354 Mobile Computing
@@ -5883,12 +5901,20 @@ A Bit of Logic -<
                             31
                         ```
 
+                        三种编码方式：
+
+                        -   完美哈希：把 0~8 的全排列和 0~362879 对应起来。
+                        -   hash 表：冲突越多效率越低，适用返回广。
+                        -   STL 里的 set：`set.insert( item )`，`set.count( item )`，`set.clear()`
+
+                        可以先用 set 把逻辑调通，然后换效率更高的 hash。
+
                         ```cpp
                         #include <iostream>
-                        #include <algorithm> // next_permutation
+                        #include <algorithm>                                    // next_permutation
                         #include <stdio.h>
                         #include <string.h>
-                        #include <math.h> // sqrt
+                        #include <math.h>                                       // sqrt
 
                         using namespace std;
 
@@ -5903,7 +5929,7 @@ A Bit of Logic -<
                         const int dy[] = {   0,  0, -1,  1  };
 
                         int vis[362880], fact[9];
-                        void init_lookup_table() {
+                        void init_lookup_table() {                              // fact[i] = i!
                             fact[0] = 1;
                             for( int i = 1; i < 9; ++i ) {
                                 fact[i] = fact[i-1] * i;
@@ -5930,11 +5956,11 @@ A Bit of Logic -<
 
                         int bfs() {
                             init_lookup_table();
-                            int front = 1, rear = 2;                // 0 is 'not exist'
+                            int front = 1, rear = 2;                                    // 不适用下标 0，0 is 'not exist'
                             while( front < rear ) {
                                 State &s = st[front];
                                 if( memcmp( goal, s, sizeof(s) ) == 0 ) {
-                                    return front;                   // gotcha
+                                    return front;                                       // gotcha
                                 }
                                 int z;
                                 for( z = 0; z < 9; ++z ) { if( !s[z] ) { break; } }     // get '0'
@@ -5946,7 +5972,7 @@ A Bit of Logic -<
                                     if( newx >= 0 && newx < 3 && newy >= 0 && newy < 3 ) {
                                         State &t = st[rear];
                                         // seems, both `&t' or `t' will work
-                                        memcpy( t, s, sizeof(s) );  // type of t, s: int[9] is actually a int *
+                                        memcpy( t, s, sizeof(s) );                      // type of t, s: int[9] is actually a int *
                                         t[newz] = s[z];
                                         t[z] = s[newz];
                                         dist[rear] = dist[front] + 1;
@@ -5973,112 +5999,34 @@ A Bit of Logic -<
                         }
                         ```
 
-                        ```
                         input.txt
 
-                            2   6   4   1   3   7   0   5   8
-                            8   1   5   7   3   6   4   0   2
-
-                        output.txt
-
-                            1   2   3   4   5   6   7   8   0
-                            1   2   3   4   5   6   8   7   0
+                        ```
+                        2   6   4   1   3   7   0   5   8
+                        8   1   5   7   3   6   4   0   2
                         ```
 
                         run it:
 
                         ```bash
-                        g++ source.cpp -o source
-                        cat input.txt | ./source
+                        $ g++ source.cpp -o source
+                        $ cat input.txt | ./source
+                        1   2   3   4   5   6   7   8   0
+                        1   2   3   4   5   6   8   7   0
                         ```
 
                         完美哈希。
 
-                -   埃及分数问题 -<
+                -   7-8 倒水问题，fill -<
 
-                    :   ```cpp
-                        // 埃及分数问题
-                        // Rujia Liu
+                    :   三个杯子容量为 a，b，c（1<=a,b,c<=200）。
 
-                        #include<cstdio>
-                        #include<cstring>
-                        #include<iostream>
-                        #include<algorithm>
-                        #include<cassert>
-                        using namespace std;
+                        状态：第 1、2、3 杯子对应的水有 (v0, v1, v2)。
 
-                        int a, b, maxd;
+                        状态和它的转移：状态图（state graph）。
 
-                        typedef long long LL;
-
-                        LL gcd(LL a, LL b) {
-                          return b == 0 ? a : gcd(b, a%b);
-                        }
-
-                        // 返回满足1/c <= a/b的最小c
-                        inline int get_first(LL a, LL b) {
-                          return b/a+1;
-                        }
-
-                        const int maxn = 100 + 5;
-
-                        LL v[maxn], ans[maxn];
-
-                        // 如果当前解v比目前最优解ans更优，更新ans
-                        bool better(int d) {
-                          for(int i = d; i >= 0; i--) if(v[i] != ans[i]) {
-                            return ans[i] == -1 || v[i] < ans[i];
-                          }
-                          return false;
-                        }
-
-                        // 当前深度为d，分母不能小于from，分数之和恰好为aa/bb
-                        bool dfs(int d, int from, LL aa, LL bb) {
-                          if(d == maxd) {
-                            if(bb % aa) return false; // aa/bb必须是埃及分数
-                            v[d] = bb/aa;
-                            if(better(d)) memcpy(ans, v, sizeof(LL) * (d+1));
-                            return true;
-                          }
-                          bool ok = false;
-                          from = max(from, get_first(aa, bb)); // 枚举的起点
-                          for(int i = from; ; i++) {
-                            // 剪枝：如果剩下的maxd+1-d个分数全部都是1/i，加起来仍然不超过aa/bb，则无解
-                            if(bb * (maxd+1-d) <= i * aa) break;
-                            v[d] = i;
-                            // 计算aa/bb - 1/i，设结果为a2/b2
-                            LL b2 = bb*i;
-                            LL a2 = aa*i - bb;
-                            LL g = gcd(a2, b2); // 以便约分
-                            if(dfs(d+1, i+1, a2/g, b2/g)) ok = true;
-                          }
-                          return ok;
-                        }
-
-                        int main() {
-                          int kase = 0;
-                          while(cin >> a >> b) {
-                            int ok = 0;
-                            for(maxd = 1; maxd <= 100; maxd++) {
-                              memset(ans, -1, sizeof(ans));
-                              if(dfs(0, get_first(a, b), a, b)) { ok = 1; break; }
-                            }
-                            cout << "Case " << ++kase << ": ";
-                            if(ok) {
-                              cout << a << "/" << b << "=";
-                              for(int i = 0; i < maxd; i++) cout << "1/" << ans[i] << "+";
-                              cout << "1/" << ans[maxd] << "\n";
-                            } else cout << "No solution.\n";
-                          }
-                          return 0;
-                        }
-                        ```
-
-                -   7-8 UVa10603 Fill                               UVa10603.cpp -<
-
-                    :   ```cpp
+                        ```cpp
                         // UVa10603 Fill
-                        // Rujia Liu
                         #include<cstdio>
                         #include<cstring>
                         #include<queue>
@@ -6156,59 +6104,72 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   7-9 UVa1601 The Morning after Halloween         UVa1601.cpp -<
+                -   7-9 UVa1601 万圣节的早上，The Morning after Halloween :hearts: -<
 
-                    :   ```cpp
+                    :   `w*h`（w,h <= 16）网格上有 n（n <= 3）个小写字母（代表鬼），要求把它们移到对应的大写字母里。每步可以同时移动多个鬼。
+                        但移动后不能两个鬼占用同一个位置，也不能再一步之内交换位置。
+
+                        ```
+                        ####                        ####        ####        ####        ####
+                         ab#                         ab#        a b#        acb#        ab #
+                        #c##                        #c##        #c##        # ##        #c##
+                        ####                        ####        ####        ####        ####
+
+                        状态数：(16^2)^3
+                        每次转移：5^3，上下左右以及不动
+                        ```
+
+                        ```cpp
                         // UVa1601 The Morning after Halloween
-                        // Rujia Liu
                         // This code implements the simpliest yet efficient-enough algorithm I'm aware of
                         // Readers are encouraged to experiment on other algorithms (especially for better efficiency!)
-                        #include<cstdio>
-                        #include<cstring>
-                        #include<cctype>
-                        #include<queue>
+                        #include <cstdio>
+                        #include <cstring>
+                        #include <cctype>
+                        #include <queue>
                         using namespace std;
 
                         const int maxs = 20;
-                        const int maxn = 150; // 75% cells plus 2 fake nodes
-                        const int dx[]={1,-1,0,0,0}; // 4 moves, plus "no move"
-                        const int dy[]={0,0,1,-1,0};
+                        const int maxn = 150;                                   // 75% cells plus 2 fake nodes
+                        const int dx[] = { 1,-1,0,0,0 };                        // 4 moves, plus "no move"
+                        const int dy[] = { 0,0,1,-1,0 };
 
-                        inline int ID(int a, int b, int c) {
+                        inline int ID( int a, int b, int c ) {
                             return (a<<16)|(b<<8)|c;
                         }
 
-                        int s[3], t[3]; // starting/ending position of each ghost
+                        int s[3], t[3];                                         // starting/ending position of each ghost
 
-                        int deg[maxn], G[maxn][5]; // target cells for each move (including "no move")
+                        int deg[maxn], G[maxn][5];                              // target cells for each move (including "no move")
 
-                        inline bool conflict(int a, int b, int a2, int b2) {
+                        inline bool conflict( int a, int b, int a2, int b2 ) {
                             return a2 == b2 || (a2 == b && b2 == a);
                         }
 
-                        int d[maxn][maxn][maxn]; // distance from starting state
-
+                        int d[maxn][maxn][maxn];                                // distance from starting state
                         int bfs() {
                             queue<int> q;
-                            memset(d, -1, sizeof(d));
-                            q.push(ID(s[0], s[1], s[2])); // starting node
+                            memset( d, -1, sizeof(d) );
+                            q.push( ID( s[0], s[1], s[2] ) );                   // starting node
                             d[s[0]][s[1]][s[2]] = 0;
-                            while(!q.empty()) {
+                            while( !q.empty(  ) ) {
                                 int u = q.front(); q.pop();
                                 int a = (u>>16)&0xff, b = (u>>8)&0xff, c = u&0xff;
-                                if(a == t[0] && b == t[1] && c == t[2]) return d[a][b][c]; // solution found
-                                for(int i = 0; i < deg[a]; i++) {
+                                if( a == t[0] && b == t[1] && c == t[2] ) {     // solution found
+                                    return d[a][b][c];
+                                }
+                                for( int i = 0; i < deg[a]; i++ ) {
                                     int a2 = G[a][i];
-                                    for(int j = 0; j < deg[b]; j++) {
+                                    for( int j = 0; j < deg[b]; j++ ) {
                                         int b2 = G[b][j];
-                                        if(conflict(a, b, a2, b2)) continue;
-                                        for(int k = 0; k < deg[c]; k++) {
+                                        if( conflict( a, b, a2, b2 ) ) { continue; }
+                                        for( int k = 0; k < deg[c]; k++ ) {
                                             int c2 = G[c][k];
-                                            if(conflict(a, c, a2, c2)) continue;
-                                            if(conflict(b, c, b2, c2)) continue;
-                                            if(d[a2][b2][c2] != -1) continue;
+                                            if( conflict( a, c, a2, c2 ) ) { continue; }
+                                            if( conflict( b, c, b2, c2 ) ) { continue; }
+                                            if( d[a2][b2][c2] != -1      ) { continue; }
                                             d[a2][b2][c2] = d[a][b][c]+1;
-                                            q.push(ID(a2, b2, c2));
+                                            q.push( ID( a2, b2, c2 ) );
                                         }
                                     }
                                 }
@@ -6219,44 +6180,155 @@ A Bit of Logic -<
                         int main() {
                             int w, h, n;
 
-                            while(scanf("%d%d%d\n", &w, &h, &n) == 3 && n) {
+                            while( scanf( "%d%d%d\n", &w, &h, &n ) == 3 && n ) {
                                 char maze[20][20];
-                                for(int i = 0; i < h; i++)
+                                for( int i = 0; i < h; i++ ) {
                                     fgets(maze[i], 20, stdin);
+                                }
 
                                 // extract empty cells
-                                int cnt, x[maxn], y[maxn], id[maxs][maxs]; // cnt is the number of empty cells
+                                int cnt, x[maxn], y[maxn], id[maxs][maxs];      // cnt is the number of empty cells
                                 cnt = 0;
-                                for(int i = 0; i < h; i++)
-                                    for(int j = 0; j < w; j++)
-                                        if(maze[i][j] != '#') {
+                                for( int i = 0; i < h; i++ ) {
+                                    for( int j = 0; j < w; j++ ) {
+                                        if( maze[i][j] != '#' ) {
                                             x[cnt] = i; y[cnt] = j; id[i][j] = cnt;
-                                            if(islower(maze[i][j])) s[maze[i][j] - 'a'] = cnt;
-                                            else if(isupper(maze[i][j])) t[maze[i][j] - 'A'] = cnt;
+                                            if( islower( maze[i][j] ) ) {
+                                                s[maze[i][j] - 'a'] = cnt;
+                                            } else if( isupper( maze[i][j] ) ) {
+                                                t[maze[i][j] - 'A'] = cnt;
+                                            }
                                             cnt++;
                                         }
+                                    }
+                                }
 
                                 // build a graph of empty cells
                                 for(int i = 0; i < cnt; i++) {
                                     deg[i] = 0;
-                                    for(int dir = 0; dir < 5; dir++) {
+                                    for( int dir = 0; dir < 5; dir++ ) {
                                         int nx = x[i]+dx[dir], ny = y[i]+dy[dir];
                                         // "Outermost cells of a map are walls" means we don't need to check out-of-bound
-                                        if(maze[nx][ny] != '#') G[i][deg[i]++] = id[nx][ny];
+                                        if( maze[nx][ny] != '#' ) {
+                                            G[i][deg[i]++] = id[nx][ny];
+                                        }
                                     }
                                 }
 
                                 // add fakes nodes so that in each case we have 3 ghosts. this makes the code shorter
-                                if(n <= 2) { deg[cnt] = 1; G[cnt][0] = cnt; s[2] = t[2] = cnt++; }
-                                if(n <= 1) { deg[cnt] = 1; G[cnt][0] = cnt; s[1] = t[1] = cnt++; }
+                                if( n <= 2 ) { deg[cnt] = 1; G[cnt][0] = cnt; s[2] = t[2] = cnt++; }
+                                if( n <= 1 ) { deg[cnt] = 1; G[cnt][0] = cnt; s[1] = t[1] = cnt++; }
 
-                                printf("%d\n", bfs());
+                                printf( "%d\n", bfs() );
                             }
                             return 0;
                         }
                         ```
 
-                -   7-10 UVa11212 Editing a Book                    UVa11212.cpp -<
+        -   迭代加深搜索 -<
+
+            :   -   埃及分数问题 :hearts: -<
+
+                    :   2/3 = 1/2 + 1/6，但是不能有 2/3 = 1/3 + 1/3。加数越少越好。其中最小分数越大越好。
+
+                        解答树太夸张。深度不见底，宽度也没有边界。用 BFS 一层都搜不完。
+
+                        用迭代加深搜索（iterative deepening）。
+
+                        第 i 层，sum of before: c/d，第 i 个位 1/e，则还需要至少 (a/b-c/d)/(1/e) 个分数，
+                        总和才能达到 a/b。
+
+                        例如：19/45 = 1/5 + 1/100 + ...，至少需要 (19/45-1/5)/(1/101) = 23 项。
+
+                        **估计至少还要多少步才能出解。**
+
+                        ```cpp
+                        // 埃及分数问题
+                        #include <cstdio>
+                        #include <cstring>
+                        #include <iostream>
+                        #include <algorithm>
+                        #include <cassert>
+                        using namespace std;
+
+                        int a, b, maxd;
+
+                        typedef long long LL;
+
+                        LL gcd( LL a, LL b ) {
+                            return b == 0 ? a : gcd( b, a%b );
+                        }
+
+                        // 返回满足 1/c <= a/b 的最小 c
+                        inline int get_first( LL a, LL b ) {
+                            return b/a+1;
+                        }
+
+                        const int maxn = 100 + 5;
+                        LL v[maxn], ans[maxn];
+
+                        // 如果当前解 v 比目前最优解 ans 更优，更新 ans
+                        bool better( int d ) {
+                            for( int i = d; i >= 0; i-- ) {
+                                if( v[i] != ans[i] ) {
+                                    return ans[i] == -1 || v[i] < ans[i];
+                                }
+                            }
+                            return false;
+                        }
+
+                        // 当前深度为 d，分母不能小于 from，分数之和恰好为 aa/bb
+                        bool dfs( int d, int from, LL aa, LL bb ) {
+                            if( d == maxd ) {
+                                if( bb % aa ) { return false; }                         // aa/bb 必须是埃及分数
+                                v[d] = bb/aa;
+                                if( better( d ) ) {
+                                    memcpy( ans, v, sizeof( LL ) * ( d+1 ) );           // 0..d
+                                }
+                                return true;
+                            }
+                            int ok = 0;
+                            from = max( from, get_first( aa, bb ) );                    // 枚举的起点
+                            for( int i = from; ; i++ ) {
+                                if( bb *(maxd+1-d) <= i*aa ) { break; }                 // 剪枝：如果剩下的 maxd+1-d 个分数全部都是 1/i，加起来仍然不超过 aa/bb，则无解
+                                v[d] = i;
+                                LL b2 = bb*i;                                           // 计算 aa/bb - 1/i，设结果为 a2/b2
+                                LL a2 = aa*i - bb;
+                                LL g = gcd( a2, b2 );                                   // 以便约分
+                                if( dfs( d+1, i+1, a2/g, b2/g ) ) { ok = true; }
+                            }
+                            return ok;
+                        }
+
+                        int main() {
+                            int kase = 0;
+                            while( cin >> a >> b ) {
+                                int ok = 0;
+                                for( maxd = 1; maxd <= 100; maxd++ ) {
+                                    memset( ans, -1, sizeof(ans) );
+                                    if( dfs( 0, get_first( a, b ), a, b ) ) { ok = 1; break; }
+                                }
+                                cout << "Case " << ++kase << ": ";
+                                if( ok ) {
+                                    cout << a << "/" << b << "=";
+                                    for( int i = 0; i < maxd; i++ ) {
+                                        cout << "1/" << ans[i] << "+";
+                                    }
+                                    cout << "1/" << ans[maxd] << "\n";
+                                } else {
+                                    cout << "No solution.\n";
+                                }
+                            }
+                            return 0;
+                        }
+                        ```
+
+                        ```bash
+                        $ echo 495 499 | ./a.out
+                        Case 1: 495/499=1/2+1/5+1/6+1/8+1/3992+1/14970
+                        ```
+
+                -   7-10 UVa11212 编辑书稿，Editing a Book -<
 
                     :   ```cpp
                         // UVa11212 Editing a Book
@@ -6329,11 +6401,30 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   7-11 UVa12325 Zombie's Treasure Chest           UVa12325.cpp -<
+        -   小结 -<
+
+            :   -   **直接枚举**：效率不高。
+
+                -   **枚举子集和排列**：n 个元素的子集有 2^^n^^ 个，可用递归的方法枚举（增量法和位向量法），也可以用
+                    二进制法枚举。递归法效率高，方便剪枝，缺点在于代码比较长。当 n <= 15 时，一般用二进制枚举。
+
+                    n 个不同元素的全排列有 n! 个。除了用递归的方法枚举，还可以用 STL 的 next_permutation，它可以处理
+                    重复元素的情况。
+
+                -   **回溯法**，回溯就是递归枚举，只不过可以提前终止递归，即回溯（backtracking）。
+
+                -   **状态空间的搜索**：本质上，状态空间搜索和图算法相似度比较大。
+
+                    最好掌握 `Dijkstra`、`A*` 以及 `双向广度优先搜索`。
+
+                -   迭代加深搜索，埃及分数和编辑书稿都是经典题。
+
+        -   竞赛题目选讲 -<
+
+            :   -   7-11 UVa12325 Zombie's Treasure Chest           UVa12325.cpp -<
 
                     :   ```cpp
                         // UVa12325 Zombie's Treasure Chest
-                        // Rujia Liu
                         #include<cstdio>
                         #include<algorithm>
                         using namespace std;
@@ -6513,76 +6604,158 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   7-14 UVa1602 Lattice Animals                    UVa1602.cpp -<
+                -   7-14 UVa1602 网格动物，Lattice Animals -<
 
-                    :   ```cpp
+                    :   输入 n、w、h（1<=n<=10，1<=w,h<=n），求能放在 `w*h` 网格内里的不同的 n 连块的个数。
+
+                        ```
+                        2x4 里面的 5 连块：
+
+                                --      --      --      --      --
+                            1|  ##      #        #      ##       #
+                            2|  ##      #       ##       #      ##
+                            3|   #      #       #       ##       #
+                            4|          ##      #                #
+
+                        3x3 里面的 8 连块：
+
+                                ---     ---     ---
+                            1|  ###     ###     ###
+                            2|  ###     ###     # #
+                            3|   ##     # #     ###
+                        ```
+
+                        如果用回溯法，和有很多重复枚举：
+
+                        ```
+                                    ##
+                                     #
+
+                                     |
+                         +-------+---+--+------+
+                         |       |      |      |
+
+                         X                X
+                         ##     X##      ##    ##X
+                          #       #       #     #
+                        ```
+
+                        Polyomino  -<
+
+                        :   A **polyomino `[,pɒlɪ'ɒmɪnəʊ]`** is a plane geometric figure formed by
+                            joining one or more equal squares edge to edge. It
+                            is a polyform whose cells are squares. It may be
+                            regarded as a finite subset of the regular square
+                            tiling with a connected interior.
+
+                            它们还有自己的名字：
+
+                            --------------------------------------
+                            Number of cells             Name
+                            ---------------             ----
+                            1                           monomino
+
+                            2                           domino
+
+                            3                           tromino
+
+                            4                           tetromino
+
+                            5                           pentomino
+
+                            6                           hexomino
+
+                            7                           heptomino
+
+                            8                           octomino
+
+                            9                           nonomino
+
+                            10                          decomino
+
+                            11                          undecomino
+
+                            12                          dodecomino
+                            --------------------------------------
+
+                            ![The 18 one-sided pentominoes, including 6 mirrored pairs](https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/All_18_Pentominoes.svg/330px-All_18_Pentominoes.svg.png)
+
+                            ![The 35 free hexominoes, colored according to their symmetry.](https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/All_35_free_hexominoes.svg/330px-All_35_free_hexominoes.svg.png)
+
+                            refs and see also
+
+                            -   [Polyomino - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Polyomino)
+
+                        ```cpp
                         // UVa1602 Lattice Animals
-                        // Rujia Liu
-                        #include<cstdio>
-                        #include<cstring>
-                        #include<algorithm>
-                        #include<set>
+                        #include <cstdio>
+                        #include <cstring>
+                        #include <algorithm>
+                        #include <set>
                         using namespace std;
 
                         struct Cell {
                             int x, y;
-                            Cell(int x=0, int y=0):x(x),y(y) {};
-                            bool operator < (const Cell& rhs) const {
+                            Cell( int x=0, int y=0 ) : x(x), y(y) { }
+                            bool operator <( const Cell& rhs ) const {
                                 return x < rhs.x || (x == rhs.x && y < rhs.y);
                             }
                         };
 
                         typedef set<Cell> Polyomino;
 
-                        #define FOR_CELL(c, p) for(Polyomino::const_iterator c = (p).begin(); c != (p).end(); ++c)
+                        #define FOR_CELL(c, p) for( Polyomino::const_iterator c = (p).begin(); c != (p).end(); ++c )
 
-                        inline Polyomino normalize(const Polyomino &p) {
+                        inline Polyomino normalize( const Polyomino &p ) {
                             int minX = p.begin()->x, minY = p.begin()->y;
-                            FOR_CELL(c, p) {
+                            FOR_CELL( c, p ) {
                                 minX = min(minX, c->x);
                                 minY = min(minY, c->y);
                             }
                             Polyomino p2;
-                            FOR_CELL(c, p)
-                                p2.insert(Cell(c->x - minX, c->y - minY));
+                            FOR_CELL( c, p ) {
+                                p2.insert( Cell(c->x-minX, c->y-minY) );
+                            }
                             return p2;
                         }
 
-                        inline Polyomino rotate(const Polyomino &p) {
+                        inline Polyomino rotate( const Polyomino &p ) {
                             Polyomino p2;
-                            FOR_CELL(c, p)
-                                p2.insert(Cell(c->y, -c->x));
+                            FOR_CELL( c, p ) {
+                                p2.insert( Cell(c->y, -c->x) );
+                            }
                             return normalize(p2);
                         }
 
-                        inline Polyomino flip(const Polyomino &p) {
+                        inline Polyomino flip( const Polyomino &p ) {
                             Polyomino p2;
-                            FOR_CELL(c, p)
-                                p2.insert(Cell(c->x, -c->y));
-                            return normalize(p2);
+                            FOR_CELL( c, p ) {
+                                p2.insert( Cell(c->x,-c->y) );
+                            }
+                            return normalize( p2 );
                         }
 
-                        const int dx[] = {-1,1,0,0};
-                        const int dy[] = {0,0,-1,1};
+                        const int dx[] = {  -1,  1,  0,  0  };
+                        const int dy[] = {   0,  0, -1,  1  };
+
                         const int maxn = 10;
-
                         set<Polyomino> poly[maxn+1];
                         int ans[maxn+1][maxn+1][maxn+1];
 
                         // add a cell to p0 and check whether it's new. If so, add to the polyonimo set
-                        void check_polyomino(const Polyomino& p0, const Cell& c) {
+                        void check_polyomino( const Polyomino& p0, const Cell& c ) {
                             Polyomino p = p0;
                             p.insert(c);
                             p = normalize(p);
 
                             int n = p.size();
-                            for(int i = 0; i < 4; i++) {
-                                if(poly[n].count(p) != 0) return;
+                            for( int i = 0; i < 4; i++ ) {
+                                if( poly[n].count(p) ) { return; }
                                 p = rotate(p);
                             }
                             p = flip(p);
-                            for(int i = 0; i < 4; i++) {
-                                if(poly[n].count(p) != 0) return;
+                            for( int i = 0; i < 4; i++ ) {
+                                if( poly[n].count( p ) ) { return; }
                                 p = rotate(p);
                             }
                             poly[n].insert(p);
@@ -6590,43 +6763,48 @@ A Bit of Logic -<
 
                         void generate() {
                             Polyomino s;
-                            s.insert(Cell(0, 0));
+                            s.insert( Cell(0, 0) );
                             poly[1].insert(s);
 
                             // generate
-                            for(int n = 2; n <= maxn; n++) {
-                                for(set<Polyomino>::iterator p = poly[n-1].begin(); p != poly[n-1].end(); ++p)
-                                    FOR_CELL(c, *p)
-                                        for(int dir = 0; dir < 4; dir++) {
+                            for( int n = 2; n <= maxn; n++ ) {
+                                for( set<Polyomino>::iterator p = poly[n-1].begin(); p != poly[n-1].end(); ++p ) {
+                                    FOR_CELL( c, *p ) {
+                                        for( int dir = 0; dir < 4; dir++ ) {
                                             Cell newc(c->x + dx[dir], c->y + dy[dir]);
-                                            if(p->count(newc) == 0) check_polyomino(*p, newc);
+                                            if( p->count(newc) == 0 ) { check_polyomino(*p, newc); }
                                         }
+                                    }
+                                }
                             }
 
                             // precompute answers
-                            for(int n = 1; n <= maxn; n++)
-                                for(int w = 1; w <= maxn; w++)
-                                    for(int h = 1; h <= maxn; h++) {
+                            for( int n = 1; n <= maxn; n++ ) {
+                                for( int w = 1; w <= maxn; w++ ) {
+                                    for( int h = 1; h <= maxn; h++ ) {
                                         int cnt = 0;
-                                        for(set<Polyomino>::iterator p = poly[n].begin(); p != poly[n].end(); ++p) {
+                                        for( set<Polyomino>::iterator p = poly[n].begin(); p != poly[n].end(); ++p ) {
                                             int maxX = 0, maxY = 0;
                                             FOR_CELL(c, *p) {
-                                                maxX = max(maxX, c->x);
-                                                maxY = max(maxY, c->y);
+                                                maxX = max( maxX, c->x );
+                                                maxY = max( maxY, c->y );
                                             }
-                                            if(min(maxX, maxY) < min(h, w) && max(maxX, maxY) < max(h, w))
+                                            if( min( maxX, maxY ) < min( h, w ) && max( maxX, maxY ) < max( h, w ) ) {
                                                 ++cnt;
+                                            }
                                         }
                                         ans[n][w][h] = cnt;
                                     }
+                                }
+                            }
                         }
 
                         int main() {
                             generate();
 
                             int n, w, h;
-                            while(scanf("%d%d%d", &n, &w, &h) == 3) {
-                                printf("%d\n", ans[n][w][h]);
+                            while( scanf( "%d%d%d", &n, &w, &h ) == 3 ) {
+                                printf( "%d\n", ans[n][w][h] );
                             }
                             return 0;
                         }
@@ -6634,7 +6812,9 @@ A Bit of Logic -<
 
                 -   7-15 UVa1603 Square Destroyer                   UVa1603.cpp -<
 
-                    :   ```cpp
+                    :   用迭代加深。或者 DLX 算法。
+
+                        ```cpp
                         // UVa1603 Square Destroyer
                         // Rujia Liu
                         // This code implements a variant of an algorithm presented in a book. It's simple yet efficient.
