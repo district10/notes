@@ -638,9 +638,27 @@ System & Network & MISC
             -   `Byte Order Mark` (BOM)
             -   `Internet Assigned Numbers Authority` (IANA)  互联网号码分配局
 
+        Endianess +<
+
+        :   ![](https://en.wikipedia.org/wiki/File:Big-Endian.svg)
+            ![](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Little-Endian.svg/300px-Little-Endian.svg.png)
+
+            Big-endian is the most common format in data networking; fields in
+            the protocols of the Internet protocol suite, such as IPv4, IPv6,
+            TCP, and UDP, are transmitted in big-endian order. For this reason,
+            big-endian byte order is also referred to as network byte order.
+            Little-endian storage is popular for microprocessors, in part due
+            to significant influence on microprocessor designs by Intel
+            Corporation. Mixed forms also exist, for instance the ordering of
+            bytes in a 16-bit word may differ from the ordering of 16-bit words
+            within a 32-bit word. Such cases are sometimes referred to as
+            mixed-endian or middle-endian. There are also some bi-endian
+            processors that operate in either little-endian or big-endian mode.
+
         refs and see also
 
-        -   [阮一峰：utf-8编码已经成为主流](http://www.ruanyifeng.com/blog/2008/05/growth_of_utf-8_on_the_web.html)
+        -   [阮一峰：utf-8 编码已经成为主流](http://www.ruanyifeng.com/blog/2008/05/growth_of_utf-8_on_the_web.html)
+        -   [Endianness - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Endianness)
 
 -   [Hamming weight - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hamming_weight){.featured .heart} -<
 
@@ -2231,3 +2249,23 @@ TCP使用**滑动窗口机制**来实现流量控制，通过动态改变窗口�
 :   refs and see also
 
     -   [Extended ASCII - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Extended_ASCII)
+
+[boost bind 源码剖析 - coredump - SegmentFault](https://segmentfault.com/a/1190000002782934)
+
+[leveldb源码分析(1)－－arena内存池的实现 - redteam - SegmentFault](https://segmentfault.com/a/1190000003061165)
+
+[STL区间成员函数及区间算法总结 - 大CC - SegmentFault](https://segmentfault.com/a/1190000002940216)
+
+[《Effective C++》 - mikey219 - SegmentFault](https://segmentfault.com/a/1190000002580652)
+
+[二叉排序树实现（C++封装） - zhoutk - SegmentFault](https://segmentfault.com/a/1190000002472284)
+
+[位运算 - 人工智能之路 - SegmentFault](https://segmentfault.com/a/1190000004088082)
+
+[快速了解C/C++的左值和右值 - JK - SegmentFault](https://segmentfault.com/a/1190000003793498)
+
+[Stack Overflow - 话题精华 - 知乎](https://www.zhihu.com/topic/19558054/top-answers)
+
+[Identicon - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Identicon)
+
+[Morse code - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Morse_code)

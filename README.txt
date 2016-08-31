@@ -12,7 +12,7 @@
 
 -   关于格式：
 
-    1.  Markdown 格式书写，请遵循如下准则。
+    1.  Markdown 格式书写，请遵循如下准则：
 
         加粗用**加粗**，斜体用*斜体*，加粗并斜体用***加粗并斜体***。
 
@@ -77,20 +77,19 @@
                 下面是一点 C++ 代码：
 
                 ```cpp
-                std::cout << "explicit is better implicit.\n";
+                std::cout << "explicit is better than implicit.\n";
                 ```
 
             而不用
 
                 下面是一点 C++ 代码：
 
-                    std::cout << "explicit is better implicit.\n";
+                    std::cout << "explicit is better than implicit.\n";
 
     2.  内容折叠
 
-        内容折叠是一种信息隐藏（褒义）手段。一个好的笔记应该有清晰的层次结构，
-        因为不能折叠内容会导致某种程度的【信息过度接收 panic】。
-        所以本笔记提供内容折叠功能。
+        内容折叠是一种信息隐藏（褒义）手段。不能折叠内容会导致某种程度的【信息过度接收 panic】，
+        它损害了一个好的笔记原有的清晰的层次结构。所以本笔记提供内容折叠功能。
 
         在 Emacs org-mode 格式中，它被称为 drawer。
 

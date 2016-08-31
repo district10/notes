@@ -1200,3 +1200,5 @@ MISC -<
     吃饭的时候面试官说，他第一次拿到这道题目的时候也是做了一个下午才搞定（逃
 
 [微软(Microsoft) - 应届生求职招聘论坛 - Powered by Discuz!](http://bbs.yingjiesheng.com/forum-228-1.html)
+
+[侯捷网站](http://jjhou.boolan.com/)

@@ -5421,6 +5421,64 @@ C++ 简介 | Intro
                 often. The d-pointer is heavily used in the Qt and KDE
                 libraries.
 
+        TODO: read the refs and see also.
+
+        refs and see also
+
+        -   [C++ Reference Guide | The Handle/Body Idiom | InformIT](http://www.informit.com/guides/content.aspx?g=cplusplus&seqNum=242)
+        -   [C++ Programming/Idioms - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/C%2B%2B_Programming/Idioms#Pointer_To_Implementation_.28pImpl.29)
+        -   [More C++ Idioms/Handle Body : Wikis (The Full Wiki)](http://www.thefullwiki.org/More_C%2B%2B_Idioms/Handle_Body)
+
+-   [More C++ Idioms - Wikibooks, open books for an open world](https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms) -<
+
+    :   TODO
+
+-   [Placement syntax - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Placement_syntax)
+
+    :   **Placement new allows you to construct an object on memory that's already allocated.**
+
+        You may want to do this for optimizations (it is faster not to
+        re-allocate all the time) but you need to re-construct an object
+        multiple times. If you need to keep re-allocating it might be more
+        efficient to allocate more than you need, even though you don't want to
+        use it yet.
+
+        Devex gives a good example:
+
+        >   Standard C++ also supports placement new operator, which constructs
+        >   an object on a pre-allocated buffer. This is useful when building a
+        >   memory pool, a garbage collector or simply when performance and
+        >   exception safety are paramount (there's no danger of allocation
+        >   failure since the memory has already been allocated, and
+        >   constructing an object on a pre-allocated buffer takes less time):
+
+        ```cpp
+        char *buf  = new char[sizeof(string)]; // pre-allocated buffer
+        string *p = new (buf) string("hi");    // placement new
+        string *q = new string("hi");          // ordinary heap allocation
+        ```
+
+        You may also want to be sure there can be no allocation failure at a
+        certain part of critical code (maybe you work on a pacemaker for
+        example). In that case you would want to use placement new.
+
+        **Deallocation in placement new**
+
+        You should not deallocate every object that is using the memory buffer.
+        Instead you should `delete[]` only the original buffer. You would have
+        to then call the destructors directly of your classes manually. For a
+        good suggestion on this please see Stroustrup's FAQ on:
+        [Is there a "placement delete"?](http://www.stroustrup.com/bs_faq2.html#placement-delete)
+
+        refs and see also
+
+        -   [c++ - What uses are there for "placement new"? - Stack Overflow](http://stackoverflow.com/questions/222557/what-uses-are-there-for-placement-new)
+
+-   [std::ptrdiff_t - cppreference.com](http://en.cppreference.com/w/cpp/types/ptrdiff_t) -<
+
+    :   refs and see also
+        -   [C data types - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/C_data_types#Type_ptrdiff_t)
+
 -   [Return value optimization - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Return_value_optimization) -<
 
     :   In the context of the C++ programming language, the return value
@@ -5643,6 +5701,10 @@ C++ 简介 | Intro
             需要特别指出的是，如果 `shared_ptr` 所表征的引用关系中出现一个环(???例子？)，那么
             环上所述对象的引用次数都肯定不可能减为 0 那么也就不会被删除，为了解决
             这个问题引入了 weak_ptr。
+
+            [shared_ptr - 1.61.0](http://www.boost.org/doc/libs/1_61_0/libs/smart_ptr/shared_ptr.htm)
+
+            :   TODO. Chenshuo 推荐阅读。
 
         `weak_ptr` -<
 
