@@ -8804,3 +8804,5 @@ C++ 简介 | Intro
         -   [Generic programming - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Generic_programming)
         -   [Here be dragons: advances in problems you didn’t even know you had | teideal glic deisbhéalach](http://www.serpentine.com/blog/2011/06/29/here-be-dragons-advances-in-problems-you-didnt-even-know-you-had/)
         -   [awesome-c - NotABug.org: Free code hosting](https://notabug.org/koz.ross/awesome-c)
+
+[c++里如何理解vector是动态数组，而这个单词本义是向量？为什么这么叫？ - 知乎](https://www.zhihu.com/question/35050138)

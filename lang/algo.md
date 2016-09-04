@@ -19194,4 +19194,32 @@ Code Reading -<
 
 [LeetCode solutions | MaskRay](http://maskray.me/blog/2014-06-29-leetcode-solutions)
 
- [《挑战程序设计竞赛(第2版)》-码农场](http://www.hankcs.com/tag/%e3%80%8a%e6%8c%91%e6%88%98%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e7%ab%9e%e8%b5%9b%e7%ac%ac2%e7%89%88%e3%80%8b/)
+[《挑战程序设计竞赛(第2版)》-码农场](http://www.hankcs.com/tag/%e3%80%8a%e6%8c%91%e6%88%98%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e7%ab%9e%e8%b5%9b%e7%ac%ac2%e7%89%88%e3%80%8b/)
+
+[AVL树，红黑树，B树，B+树，Trie树都分别应用在哪些现实场景中？ - 知乎](https://www.zhihu.com/question/30527705)
+
+[利用Trie树求多个字符串的最小编辑距离 - 时空霹雳的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/u010189459/article/details/34114465)
+
+[有哪些学习算法的网站推荐？ - 知乎](https://www.zhihu.com/question/20368410)
+
+:   所以, 倾情推荐:
+
+    http://oj.leetcode.com LeetCode Online Judge
+
+    只要每道题都可以保证3遍以内过, 所有湾区工作entry level随便挑. 涉及到的基本都是Linked List, DP, BST这样的简单数据结构或者算法题.
+
+    不难, 但是对于初学算法的人来说, 能熟练运用这些算法已经很不容易了. 可以说是非常不容易了. 因为太多的人眼高手低.
+
+    所以说, 还是做题最有效. 就算是你看了算法导论的前几页, 知道了什么是insertion sort, 不见得你写出来的代码就是对的. 不信的话, 打开Insertion Sort List, 试试能不能通过.
+
+[演算法筆記](http://www.csie.ntnu.edu.tw/~u91029/)
+
+[網誌 - BYVoid](https://www.byvoid.com/blog/tag/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)
+
+[用链表的目的是什么？省空间还是省时间？ - 知乎](https://www.zhihu.com/question/31082722)
+
+[数据结构与算法中，树一般会应用在哪些方面？为什么？ - 知乎](https://www.zhihu.com/question/20176446)
+
+[如何从零写一个正则表达式引擎？ - 知乎](https://www.zhihu.com/question/27434493)
+
+:   http://whudoc.qiniudn.com/2016/regex.zip

@@ -2269,3 +2269,16 @@ TCP使用**滑动窗口机制**来实现流量控制，通过动态改变窗口�
 [Identicon - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Identicon)
 
 [Morse code - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Morse_code)
+
+所以, 倾情推荐:
+
+http://oj.leetcode.com LeetCode Online Judge
+
+只要每道题都可以保证3遍以内过, 所有湾区工作entry level随便挑. 涉及到的基本都是Linked List, DP, BST这样的简单数据结构或者算法题.
+
+作者：Zhang Tianyi
+链接：https://www.zhihu.com/question/20368410/answer/29345596
+来源：知乎
+著作权归作者所有，转载请联系作者获得授权。
+
+你人还是不够聪明，这个问题一出来你就应该知道他背诵的版本是hash啦。。。你应该顺着他说hash，这不是开玩笑。
