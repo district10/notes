@@ -8806,3 +8806,24 @@ C++ 简介 | Intro
         -   [awesome-c - NotABug.org: Free code hosting](https://notabug.org/koz.ross/awesome-c)
 
 [c++里如何理解vector是动态数组，而这个单词本义是向量？为什么这么叫？ - 知乎](https://www.zhihu.com/question/35050138)
+
+比如想当然地把 C 里的类似知识代入 C++，结果写出有问题代码的：
+
+int *p = new int;
+if (p == nullptr) {
+   // 错误处理
+}
+
+实际上永远不可能到达错误处理，因为 new 失败不返回 nullptr，而是抛异常。
+
+---
+
+析构函数是特别的成员函数，行为和一般成员函数不一样。
+
+问题中谈到一般成员函数需要有相同的签名（除返回类型），这是因为一个类可能有多个虚函数，需以此规则去匹配类层次架构中哪些是同一组虚函数。而每个类只能有一个析构函数，匹配不成问题。
+
+如果定义C++语法时，析构函数不是命名为~className()，而是选择所有类都相同的名字，如~()，应该也不会造成问题。
+
+refs and see also
+
+-   [C++中虚析构函数（virtual destructor）的函数名为什么可以不一样？ - 知乎](https://www.zhihu.com/question/36083262)

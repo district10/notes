@@ -1315,6 +1315,28 @@ System & Network & MISC
     called ISO/IEC 80000, published jointly by the IEC and the International
     Organization for Standardization (ISO).
 
+估算法 -<
+
+:   斯特林公式，Stirling's approximation / Stirling's formula -<
+
+    :   ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/70d0355f245d8a6d291b78e9769e74d3267a2244)
+
+        ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/3b3c28f23e205ed542a2b9bbeff5c56db3881877)
+
+        ![Comparison of Stirling's approximation with the factorial](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Mplwp_factorial_gamma_stirling.svg/450px-Mplwp_factorial_gamma_stirling.svg.png)
+
+        ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/f6722bc60d3d3f81bed6801a25b682c8c71c22a5)
+
+    [Time value of money - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Time_value_of_money)
+
+    [Method of matched asymptotic expansions - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Method_of_matched_asymptotic_expansions)
+
+    ![A tiling with squares whose side lengths are successive Fibonacci numbers](https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/34%2A21-FibonacciBlocks.png/450px-34%2A21-FibonacciBlocks.png)
+
+    refs and see also
+
+    -   [Stirling's approximation - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Stirling%27s_approximation)
+
 -   [malloc 与 free？ - 知乎](https://www.zhihu.com/question/41567197#answer-32596782) -<
 
     :   我先问你个问题：指针中是没有所在内存块大小的信息的，那么 free 怎么才能知道
@@ -2272,13 +2294,14 @@ TCP使用**滑动窗口机制**来实现流量控制，通过动态改变窗口�
 
 所以, 倾情推荐:
 
-http://oj.leetcode.com LeetCode Online Judge
+<http://oj.leetcode.com> LeetCode Online Judge
 
-只要每道题都可以保证3遍以内过, 所有湾区工作entry level随便挑. 涉及到的基本都是Linked List, DP, BST这样的简单数据结构或者算法题.
+只要每道题都可以保证 3 遍以内过, 所有湾区工作 entry level 随便挑. 涉及到的基本都是 Linked List, DP, BST 这样的简单数据结构或者算法题.
 
-作者：Zhang Tianyi
-链接：https://www.zhihu.com/question/20368410/answer/29345596
-来源：知乎
-著作权归作者所有，转载请联系作者获得授权。
+你人还是不够聪明，这个问题一出来你就应该知道他背诵的版本是 hash 啦。。。你应该顺着他说 hash，这不是开玩笑。
 
-你人还是不够聪明，这个问题一出来你就应该知道他背诵的版本是hash啦。。。你应该顺着他说hash，这不是开玩笑。
+---
+
+[Big O notation - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Big_O_notation#The_Knuth_definition)
+
+[Cayley's formula - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Cayley%27s_formula)

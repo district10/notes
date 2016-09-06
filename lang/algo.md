@@ -21,7 +21,7 @@ ASCII table -<
                                 |                                           aqaq @ grave
       0         16      32      |48     64      80     96       112
                                 |       阿      卡       琳      酱
-      NULL     DEL      SP     [0]      @       P       `       p           |   <-------------- 0
+      NULL     DEL      SP           @       P       `       p           |   <-------------- 0
                          !      1       A       Q       a       q           |   <-------------- 1
                          "      2                                           |   <-------------- 2
                          .      .                                           |   <-------------- .
@@ -383,6 +383,22 @@ TODOs:
     -   [知其所以然（三）：为什么算法这么难？](http://mindhacks.cn/2011/07/10/the-importance-of-knowing-why-part3/)
     -   [数学之美番外篇：快排为什么那样快](http://mindhacks.cn/2008/06/13/why-is-quicksort-so-quick/)
 
+[有哪些学习算法的网站推荐？ - 知乎](https://www.zhihu.com/question/20368410) -<
+
+:   所以, 倾情推荐:
+
+    <http://oj.leetcode.com> LeetCode Online Judge
+
+    只要每道题都可以保证 3 遍以内过, 所有湾区工作 entry level 随便挑. 涉及到的
+    基本都是 Linked List, DP, BST 这样的简单数据结构或者算法题.
+
+    不难, 但是对于初学算法的人来说, 能熟练运用这些算法已经很不容易了. 可以说是
+    非常不容易了. **因为太多的人眼高手低.**
+
+    所以说, 还是做题最有效. 就算是你看了算法导论的前几页, 知道了什么是
+    insertion sort, 不见得你写出来的代码就是对的. 不信的话, 打开 Insertion Sort
+    List, 试试能不能通过.
+
 ## 1.
 
 A Bit of Logic -<
@@ -673,15 +689,15 @@ A Bit of Logic -<
                             ```
 
                             预处理不需要按照 P 的定义写成 `O(m^2)` 甚至 `O(m^3)` 的。我们
-                            可以通过 `P[1], P[2], …, P[j-1]` 的值来获得 `P[j]` 的值。对于
-                            刚才的 `B="ababacb"`，假如我们已经求出了 `P[1], P[2], P[3]`
-                            和 `P[4]`，看看我们应该怎么求出 `P[5]` 和 `P[6]`。`P[4] = 2`，那
-                            么 `P[5]` 显然等于 `P[4]+1`，因为由 `P[4]` 可以知道，`B[1,2]` 已
-                            经和 `B[3,4]` 相等了，现在又有 `B[3]=B[5]`，所以 `P[5]` 可以由
-                            `P[4]` 后面加一个字符得到。`P[6]` 也等于 `P[5]+1` 吗？显然不
-                            是，因为 `B[ P[5]+1 ] != B[6]`。那么，我们要考虑“退一步”
-                            了。我们考虑 `P[6]` 是否有可能由 `P[5]` 的情况所包含的子串
-                            得到，即是否 `P[6]=P[ P[5] ]+1`。这里想不通的话可以仔
+                            可以通过 `P, P, …, P[j-1]` 的值来获得 `P[j]` 的值。对于
+                            刚才的 `B="ababacb"`，假如我们已经求出了 `P, P, P`
+                            和 `P`，看看我们应该怎么求出 `P` 和 `P`。`P = 2`，那
+                            么 `P` 显然等于 `P+1`，因为由 `P` 可以知道，`B[1,2]` 已
+                            经和 `B[3,4]` 相等了，现在又有 `B=B`，所以 `P` 可以由
+                            `P` 后面加一个字符得到。`P` 也等于 `P+1` 吗？显然不
+                            是，因为 `B[ P+1 ] != B`。那么，我们要考虑“退一步”
+                            了。我们考虑 `P` 是否有可能由 `P` 的情况所包含的子串
+                            得到，即是否 `P=P[ P ]+1`。这里想不通的话可以仔
                             细看一下：
 
                             ```
@@ -690,19 +706,19 @@ A Bit of Logic -<
                             P = 0 0 1 2 3 ?
                             ```
 
-                            `P[5]=3` 是因为 `B[1..3]` 和 `B[3..5]` 都是 "aba"；而 `P[3]=1` 则告
-                            诉我们，`B[1]`、`B[3]` 和 `B[5]` 都是"a"。既然 `P[6]` 不能由 `P[5]`
-                            得到，或许可以由 `P[3]` 得到（如果 `B[2]` 恰好和 `B[6]` 相等的
-                            话，`P[6]` 就等于 `P[3]+1` 了）。显然，`P[6]` 也不能通过 `P[3]`
-                            得到，因为 `B[2] != B[6]`。事实上，这样一直推到 `P[1]` 也不
-                            行，最后，我们得到，`P[6]=0`。
+                            `P=3` 是因为 `B[1..3]` 和 `B[3..5]` 都是 "aba"；而 `P=1` 则告
+                            诉我们，`B`、`B` 和 `B` 都是"a"。既然 `P` 不能由 `P`
+                            得到，或许可以由 `P` 得到（如果 `B` 恰好和 `B` 相等的
+                            话，`P` 就等于 `P+1` 了）。显然，`P` 也不能通过 `P`
+                            得到，因为 `B != B`。事实上，这样一直推到 `P` 也不
+                            行，最后，我们得到，`P=0`。
 
                             怎么这个预处理过程跟前面的 KMP 主程序这么像呢？其实，
                             KMP 的预处理本身就是一个 B 串“自我匹配”的过程。它的代
                             码和上面的代码神似：
 
                             ```
-                            P[1]:=0;
+                            P:=0;
                             j:=0;
                             for i:=2 to m do
                             begin
@@ -725,7 +741,7 @@ A Bit of Logic -<
                         int j = -1;
                         const int m = strlen(pattern);
 
-                        next[0] = j;
+                        next = j;
                         for ( i = 1; i < m; i++ ) {
                             while (j > -1 && pattern[j + 1] != pattern[i]) { j = next[j]; }
                             if( pattern[i] == pattern[j + 1] ) { j++; }
@@ -783,9 +799,9 @@ A Bit of Logic -<
                         //                  "ABC",
                         //                  "ABC"
                         //              };
-                        //              for( int i = 0; i < sizeof(needles)/sizeof(needles[0]); ++i ) {
+                        //              for( int i = 0; i < sizeof(needles)/sizeof(needles); ++i ) {
                         //                  const char *pattern = needles[i];
-                        //                  static int next[50];
+                        //                  static int next;
                         //                  int m = strlen( pattern );
                         //                  memset( next, 0, sizeof(next) );
                         //                  compute_prefix( pattern, next );
@@ -806,7 +822,7 @@ A Bit of Logic -<
                         int j = -1;
                         const int m = strlen(pattern);
 
-                        next[0] = j;
+                        next = j;
                         for (i = 1; i < m; i++) {
                             while (j > -1 && pattern[j + 1] != pattern[i]) j = next[j];
 
@@ -821,9 +837,9 @@ A Bit of Logic -<
                                            -1                           p[i=2] != p[j+1=0]
                                                 -1                      p[i=3] != p[j+1=0]
                                                       0                 p[i=4] == p[j+1=0], ++j, (j=1 now)
-                                                           ?            p[1]   == p[5], not inside while
+                                                           ?            p   == p, not inside while
                                                            1            p[i=5] == p[j+1=1], ++j, (j=2 now)
-                                                                ?       p[2]   != p[6], j = next[j=2] = -1
+                                                                ?       p   != p, j = next[j=2] = -1
                                                                -1
                     so:
                                  -1   -1   -1   -1    0    1   -1
@@ -1213,7 +1229,7 @@ A Bit of Logic -<
                         }
 
                         int main() {
-                            char s[30];
+                            char s;
                             while( scanf( "%s", s ) == 1 ) {
                                 int len = strlen(s);
                                 int p = 1, m = 1;
@@ -1336,7 +1352,7 @@ A Bit of Logic -<
                                         scanf( "%d", &b[i] );
                                         if( a[i] == b[i] ) { A++; }         // 统计 A
                                     }
-                                    if( b[0] == 0 ) { break; }              // 正常的猜测序列不会有 0，所以只判断第一个数是否为 0 即可
+                                    if( b == 0 ) { break; }              // 正常的猜测序列不会有 0，所以只判断第一个数是否为 0 即可
                                     for(int d = 1; d <= 9; d++) {
                                         int c1 = 0, c2 = 0;                 // 统计数字 d 在答案序列和猜测序列中各出现多少次
                                         for(int i = 0; i < n; i++) {
@@ -1417,11 +1433,11 @@ A Bit of Logic -<
                         }
 
                         int main() {
-                            char s1[200], s2[200];
+                            char s1, s2;
                             while( scanf( "%s%s", s1, s2 ) == 2 ) {
                                 int n = strlen(s1);
                                 // assert( strlen(s1) == strlen(s2) );
-                                int cnt1[26] = {0}, cnt2[26] = {0};
+                                int cnt1 = {0}, cnt2 = {0};
                                 for( int i = 0; i < n; i++ ) { cnt1[s1[i] - 'A']++; }   // 统计
                                 for( int i = 0; i < n; i++ ) { cnt2[s2[i] - 'A']++; }
                                 qsort( cnt1, 26, sizeof( int ), cmp );                  // 对字频排序
@@ -1712,17 +1728,17 @@ A Bit of Logic -<
                                                 for( int i = 0; i < n; i++ ) {
                                                     string op;
                                                     cin >> op;
-                                                    if( op[0] == 'P' ) {
+                                                    if( op == 'P' ) {
                                                         s.push( ID( Set() ) );                      // push '{}'
-                                                    } else if( op[0] == 'D' ) {
+                                                    } else if( op == 'D' ) {
                                                         s.push( s.top(  ) );                        // dup
                                                     } else {
                                                         Set x1 = Setcache[s.top()]; s.pop();
                                                         Set x2 = Setcache[s.top()]; s.pop();
                                                         Set x;
-                                                        if( op[0] == 'U' ) { set_union ( ALL( x1 ), ALL( x2 ), INS( x ) ); }
-                                                        if( op[0] == 'I' ) { set_intersection ( ALL( x1 ), ALL( x2 ), INS( x ) ); }
-                                                        if( op[0] == 'A' ) { x = x2; x.insert( ID( x1 ) ); }
+                                                        if( op == 'U' ) { set_union ( ALL( x1 ), ALL( x2 ), INS( x ) ); }
+                                                        if( op == 'I' ) { set_intersection ( ALL( x1 ), ALL( x2 ), INS( x ) ); }
+                                                        if( op == 'A' ) { x = x2; x.insert( ID( x1 ) ); }
                                                         s.push(ID(x));
                                                     }
                                                     cout << Setcache[s.top()].size() << endl;
@@ -1770,15 +1786,15 @@ A Bit of Logic -<
 
                                                 for( ;; ) {
                                                     int x;
-                                                    char cmd[10];
+                                                    char cmd;
                                                     scanf( "%s", cmd );
-                                                    if( cmd[0] == 'S' ) { break; }
-                                                    else if( cmd[0] == 'D' ) {
+                                                    if( cmd == 'S' ) { break; }
+                                                    else if( cmd == 'D' ) {
                                                         int t = q.front();
                                                         printf( "%d\n", q2[t].front() ); q2[t].pop(  );
                                                         if( q2[t].empty(  ) ) { q.pop(); }              // 团体 t 全体出队列
                                                     }
-                                                    else if( cmd[0] == 'E' ) {
+                                                    else if( cmd == 'E' ) {
                                                         scanf( "%d", &x );
                                                         int t = team[x];
                                                         if( q2[t].empty() ) q.push( t );                // 团队 t 进入队列
@@ -1829,7 +1845,7 @@ A Bit of Logic -<
                                                         break;
                                                     }
                                                     for( int j = 0; j < 3; ++j ) {
-                                                        const int coeff[3] = {  2,  3,  5   };
+                                                        const int coeff = {  2,  3,  5   };
                                                         LL x2 = x * coeff[j];
                                                         if( !s.count(x2) ) {
                                                             s.insert( x2 );
@@ -2029,9 +2045,9 @@ A Bit of Logic -<
                                 const int n_cut = 70;
 
                                 struct Player {
-                                    char name[25];
+                                    char name;
                                     int amateur;
-                                    int sc[4];
+                                    int sc;
                                     int sc36, sc72, dq;
                                     int rnds;
                                 } player[maxn];
@@ -2095,7 +2111,7 @@ A Bit of Logic -<
                                         double amount = purse * tot / m; // if m=0, amount will be nan but we don't use it in that case :)
                                         while(i < j) {
                                             printf("%s ", player[i].name);
-                                            char t[5];
+                                            char t;
                                             sprintf(t, "%d%c", rank, m > 1 && have_money && !player[i].amateur ? 'T' : ' ');
                                             printf("%-10s", t);
                                             REP(e,4) printf("%-5d", player[i].sc[e]);
@@ -2113,7 +2129,7 @@ A Bit of Logic -<
 
                                 int main() {
                                     int T;
-                                    char s[40];
+                                    char s;
 
                                     gets(s);
                                     sscanf(s,"%d",&T);
@@ -2138,7 +2154,7 @@ A Bit of Logic -<
 
                                             // player name
                                             strncpy(player[k].name, s, 20);
-                                            player[k].name[20] = 0;
+                                            player[k].name = 0;
                                             player[k].amateur = 0;
                                             if(strchr(player[k].name, '*')) {
                                                 player[k].amateur = 1;
@@ -2149,8 +2165,8 @@ A Bit of Logic -<
                                             memset(player[k].sc, -1, sizeof(player[k].sc));
                                             REP(i,4) {
                                                 // raw score
-                                                char t[5];
-                                                REP(j,3) t[j] = s[20 + i*3 + j]; t[3] = '\0';
+                                                char t;
+                                                REP(j,3) t[j] = s[20 + i*3 + j]; t = '\0';
 
                                                 // parse
                                                 if(!sscanf(t,"%d", &player[k].sc[i])) {
@@ -2232,7 +2248,7 @@ A Bit of Logic -<
 
                                         // 输入邮件正文
                                         string data;
-                                        while(getline(cin, t) && t[0] != '*') data += "     " + t + "\n";
+                                        while(getline(cin, t) && t != '*') data += "     " + t + "\n";
 
                                         for(int i = 0; i < mta.size(); i++) {
                                             string mta2 = mta[i];
@@ -2310,7 +2326,7 @@ A Bit of Logic -<
                                         int m = unique(x, x+n*2) - x; // x 坐标排序后去重，得到 m 个坐标
 
                                         if(kase++) printf("\n");
-                                        printf("For map #%d, the visible buildings are numbered as follows:\n%d", kase, b[0].id);
+                                        printf("For map #%d, the visible buildings are numbered as follows:\n%d", kase, b.id);
                                         for(int i = 1; i < n; i++) {
                                             bool vis = false;
                                             for(int j = 0; j < m-1; j++)
@@ -2357,8 +2373,8 @@ A Bit of Logic -<
                     int A[] = { 1,  5,  6,  9,  12,    18,    25,    73  };
                     int x;
                     while( scanf("%d", &x) == 1 ) {
-                        int pos = binary_search( A, sizeof(A)/sizeof(A[0]), x );
-                        for( int i = 0; i < sizeof(A)/sizeof(A[0]); ++i ) {
+                        int pos = binary_search( A, sizeof(A)/sizeof(A), x );
+                        for( int i = 0; i < sizeof(A)/sizeof(A); ++i ) {
                             printf( "[%3d]", A[i] );
                         }
                         printf( "\n" );
@@ -2413,7 +2429,7 @@ A Bit of Logic -<
                 {
                     // 这两个判断不必要
                     // if( length <= 0 ) { return -1; }
-                    // if( length == 1 ) { return array[0] == value ? 0: -1; }
+                    // if( length == 1 ) { return array == value ? 0: -1; }
 
                     int low = 0;
                     int high = length-1;
@@ -2720,7 +2736,7 @@ A Bit of Logic -<
                                     return NULL;
                                 }
                                 if(nums.size()==1){
-                                    return new TreeNode(nums[0]);
+                                    return new TreeNode(nums);
                                 }
                                 int mid = nums.size()/2;
 
@@ -2883,7 +2899,7 @@ A Bit of Logic -<
                 };
 
                 int main() {
-                    TreeNode node[10];
+                    TreeNode node;
                     for( int i = 0; i < 10; ++i ) { node[i].val = i; }
                     printf( "         0               \n"
                             "        / \\             \n"
@@ -2893,19 +2909,19 @@ A Bit of Logic -<
                             "   3    4     5          \n"
                             "   \\    /    / \\       \n"
                             "    6  7    8   9        \n" );
-                    link( node[0], &node[1], &node[2] );
-                    link( node[1], &node[3], &node[4] );
-                    link( node[2],       0 , &node[5] );
-                    link( node[3],       0 , &node[6] );
-                    link( node[4], &node[7],       0  );
-                    link( node[5], &node[8], &node[9] );
-                    link( node[6],       0 ,       0  );
-                    link( node[7],       0 ,       0  );
-                    link( node[8],       0 ,       0  );
-                    link( node[9],       0 ,       0  );
+                    link( node, &node, &node );
+                    link( node, &node, &node );
+                    link( node,       0 , &node );
+                    link( node,       0 , &node );
+                    link( node, &node,       0  );
+                    link( node, &node, &node );
+                    link( node,       0 ,       0  );
+                    link( node,       0 ,       0  );
+                    link( node,       0 ,       0  );
+                    link( node,       0 ,       0  );
 
                     Solution sol;
-                    vector<vector<int> > ret = sol.levelOrder( &node[0] );
+                    vector<vector<int> > ret = sol.levelOrder( &node );
                     for( int i = 0; i < ret.size(); ++i ) {
                         for( int j = 0; j < ret[i].size(); ++j ) {
                             cout << " " << ret[i][j];
@@ -3265,11 +3281,11 @@ A Bit of Logic -<
                                 #include <string.h>
 
                                 void build_post( const char * pre, const char *in, const int n, char *post ) {
-                                    int left_len = strchr(in, pre[0]) - in;
+                                    int left_len = strchr(in, pre) - in;
                                     if(n <= 0) { return; }
                                     build_post( pre+1,          in,             left_len,       post );
                                     build_post( pre+left_len+1, in+left_len+1,  n-left_len-1,   post+left_len );
-                                    post[n - 1] = pre[0];                   // you can put this line before recursion.
+                                    post[n - 1] = pre;                   // you can put this line before recursion.
                                 }
 
                                 int main() {
@@ -3286,7 +3302,7 @@ A Bit of Logic -<
                                     const char *pre = "ABDGCEF";
                                     const char *in  = "DGBAECF";
                                     //          post= "GDBEFCA";
-                                    char post[10] = { 0 };
+                                    char post = { 0 };
                                     build_post( pre, in, strlen(pre), post );
                                     printf( "pre:  %s\n", pre );
                                     printf( "in:   %s\n", in );
@@ -3325,7 +3341,7 @@ A Bit of Logic -<
                                     (*root)->left = NULL;
                                     (*root)->right = NULL;
 
-                                    int left_len = strchr( in, pre[0] ) - in;
+                                    int left_len = strchr( in, pre ) - in;
                                     rebuild( pre + 1, in,                                               // 重建左子树
                                              left_len,          &((*root)->left) );
                                     rebuild( pre + left_len + 1, in + left_len + 1,                     // 重建右子树
@@ -3378,7 +3394,7 @@ A Bit of Logic -<
                                 string print( int root, string pad ) {
                                     if( root == 0 ) { return pad; }
                                     const static string space = "        ";
-                                    char buf[20];
+                                    char buf;
                                     sprintf( buf, "%d", root );
                                     string result = pad + space + string(buf);
                                     result += "\n";
@@ -3637,7 +3653,7 @@ A Bit of Logic -<
                         ```cpp
                         int numTrees( int n ) {
                             vector<int> f( n+1, 0 );
-                            f[0] = f[1] = 1;
+                            f = f = 1;
                             for( int i = 2; i <= n; ++i ) {
                                 for( int k = 1; k <= n; ++k ) {
                                     f[i] += f[k-1] * f[i-k];
@@ -3854,7 +3870,7 @@ A Bit of Logic -<
 
                         int main() {
                             int A[] = { 3, 2, 6, 9, 5, 1, 4, 8, 7  };
-                            int n = sizeof(A)/sizeof(A[0]);
+                            int n = sizeof(A)/sizeof(A);
                             straight_insertion_sort( A, 0, n );
                         }
                         ```
@@ -4315,7 +4331,7 @@ A Bit of Logic -<
 
                             int tmp;
                             for( int i = h.size - 1; i > 0; --i ) {
-                                tmp = h.elems[i]; h.elems[i] = h.elems[0]; h.elems[0] = tmp;
+                                tmp = h.elems[i]; h.elems[i] = h.elems; h.elems = tmp;
                                 h.size = i;                     // 相当于 --h.size
                                 heap_sift_down( &h, 0 );
                             }
@@ -4323,7 +4339,7 @@ A Bit of Logic -<
 
                         int main() {
                             int A[] = { 3, 2, 6, 9, 5, 1, 4, 8, 7  };
-                            int n = sizeof(A)/sizeof(A[0]);
+                            int n = sizeof(A)/sizeof(A);
                             heap_sort( A, n, &cmp );
                         }
                         ```
@@ -4669,8 +4685,8 @@ A Bit of Logic -<
 
                         bool five( int n ) {
                             if( n < 1234 || n > 98765   ) { return false;   }
-                            int numpad[10] = { 0 };
-                            if( n < 9876                ) { ++numpad[0];    }
+                            int numpad = { 0 };
+                            if( n < 9876                ) { ++numpad;    }
                             while( n ) {
                                 if( ++numpad[n%10] >= 2 ) { return false; }
                                 n /= 10;
@@ -4680,7 +4696,7 @@ A Bit of Logic -<
 
                         bool ten( int n1, int n2, int buf[] ) {
                             if( !five(n1) || !five(n2) ) { return false; }
-                            int numpad[10] = { 0 };
+                            int numpad = { 0 };
                             while( n1 ) {
                                 if( ++numpad[n1%10] >= 2 ) { return false; }
                                 n1 /= 10;
@@ -4705,7 +4721,7 @@ A Bit of Logic -<
                                     if( !five(a) ) {
                                         continue;
                                     } else {
-                                        int buf[10] = { 0 };
+                                        int buf = { 0 };
                                         if( ten(f, a, buf) ) {
                                             printf( "hit %05d/%05d = %d\n", a, f, j );
                                             result.push_back( pair<int,int>(a, f) );
@@ -4745,7 +4761,7 @@ A Bit of Logic -<
 
                         int main() {
                             int n, kase = 0;
-                            char buf[99];
+                            char buf;
                             while( scanf( "%d", &n ) == 1 && n ) {
                                 int cnt = 0;
                                 if( kase++ ) { printf( "\n" ); }
@@ -4756,7 +4772,7 @@ A Bit of Logic -<
                                     sort( buf, buf+10 );
                                     int ok = 1;
                                     for( int i = 0; i < 10; i++ ) {
-                                        if( buf[i] != '0' + i ) { ok = 0; }
+                                        if( buf[i] != '0' + i ) { ok = 0; break; }
                                     }
                                     if( ok ) {
                                         cnt++;
@@ -4771,7 +4787,9 @@ A Bit of Logic -<
 
                 -   最大乘积 -<
 
-                    :   输入 n 个元素组成的序列 S，找一个乘积最大的连续子序列。
+                    :   这个存粹是暴力了起点和终点，然后看是否“水位更高”。
+
+                        输入 n 个元素组成的序列 S，找一个乘积最大的连续子序列。
                         如果最大为负，输出 0。1 <= n <= 18，-10 <= S_i <= 10。
 
                         ```
@@ -4788,7 +4806,7 @@ A Bit of Logic -<
                             20
                         ```
 
-                        因为 n 和 S_i 的值域，最大乘积不会超过 10^^18^^，可以用 long long 表示。
+                        因为 n 和 S_i 的值域，最大乘积不会超过 10^18^，可以用 long long 表示。
 
                         ```cpp
                         // UVa11059 Maximum Product
@@ -4796,7 +4814,7 @@ A Bit of Logic -<
                         using namespace std;
 
                         int main() {
-                            int S[20], kase = 0, n;
+                            int S, kase = 0, n;
                             while( cin >> n && n ) {
                                 for( int i = 0; i < n; i++ ) { cin >> S[i]; }
                                 long long ans = 0;
@@ -4814,9 +4832,11 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   分数拆分，Fractual Again? -<
+                -   分数拆分，Fractual Again? :hearts: -<
 
-                    :   输入正整数 k，找到所有的正整数 x >= y，使得 1/k = 1/x + 1/y。
+                    :   暴力前分析了取值范围。
+
+                        输入正整数 k，找到所有的正整数 x >= y，使得 1/k = 1/x + 1/y。
 
                         ```
                         input:
@@ -4861,8 +4881,7 @@ A Bit of Logic -<
                             while( scanf( "%d", &k ) == 1 && k ) {
                                 vector<int> X, Y;
                                 for( int y = k+1; y <= k*2; y++ ) {
-                                    // 1/k = 1/x + 1/y => x = ky/(y-k)
-                                    if( k*y%( y-k ) == 0 ) {
+                                    if( k*y%( y-k ) == 0 ) {                // 1/k = 1/x + 1/y => x = ky/(y-k)
                                         X.push_back(k*y/(y-k)); Y.push_back(y);
                                     }
                                 }
@@ -4883,9 +4902,11 @@ A Bit of Logic -<
                         的，它们二者知道其中给一个，另一个就完全确定了，因此不用保存 P。
 
                         ```
-                        P[0]    P[1]    P[2]    P[3]    ...     P[cur]  ...     P[n-1]
+                        P    P    P    P    ...     P[cur]  ...     P[n-1]
                         |-------- used -------------------------|-----not used--------|
                         ```
+
+                        buggy!!! TODO
 
                         ```cpp
                         #include <stdio.h>
@@ -4902,7 +4923,7 @@ A Bit of Logic -<
                             for( int i = 1; i <= n; i++ ) {
                                 int used = 0;
                                 for( int j = 0; j < cur; j++ ) {
-                                    if( P[j] == i ) { used = 1; break; }                // 如果 i 已经在 A[0]~A[cur-1] 出现过，则不能再选
+                                    if( P[j] == i ) { used = 1; break; }                // 如果 i 已经在 A~A[cur-1] 出现过，则不能再选
                                 }
                                 if( !used ) {
                                     P[cur] = i;
@@ -4927,9 +4948,9 @@ A Bit of Logic -<
 
                         真的很像八皇后。
 
-                        如果确定了 n 的范围，比如 n <= 100，可以用全局 A[100]，避免动态内存分配。
+                        如果确定了 n 的范围，比如 n <= 100，可以用全局 A，避免动态内存分配。
 
-                -   生成可重集的排列 -<
+                -   生成可重集的排列 :hearts: -<
 
                     :   直接用 STL 里面的 next_permutation。
 
@@ -4946,7 +4967,7 @@ A Bit of Logic -<
                             ```
 
                             Possible implementation :hearts: -<
- -<
+
                             :   ```cpp
                                 template<class BidirIt>
                                 bool next_permutation(BidirIt first, BidirIt last)
@@ -4983,7 +5004,7 @@ A Bit of Logic -<
                         using namespace std;
 
                         int main() {
-                            int n, p[10];
+                            int n, p;
                             scanf( "%d", &n );
                             for( int i = 0; i < n; i++ ) { scanf( "%d", &p[i] ); }
                             sort( p, p+n );                                                 // 排序，得到 p 的最小排列
@@ -5011,14 +5032,15 @@ A Bit of Logic -<
                         5 4 2 2
                         ```
 
-                        当然，自己写也是可以得。TODO
+                        当然，自己写也是可以得。:hearts: 【这个代码十分重要！！！】
 
                         ```cpp
                         #include <cstdio>
                         #include <algorithm>
                         using namespace std;
 
-                        int P[100], A[100];
+                        const int maxn = 50;
+                        int P[maxn], A[maxn];
 
                         // 输出数组 P 中元素的全排列。数组 P 中可能有重复元素
                         void print_permutation( int n, int* P, int* A, int cur ) {
@@ -5050,6 +5072,22 @@ A Bit of Logic -<
                             print_permutation( n, P, A, 0 );
                             return 0;
                         }
+                        ```
+
+                        ```bash
+                        $ echo 4 2 3 1 1 | ./a.out
+                        1 1 2 3
+                        1 1 3 2
+                        1 2 1 3
+                        1 2 3 1
+                        1 3 1 2
+                        1 3 2 1
+                        2 1 1 3
+                        2 1 3 1
+                        2 3 1 1
+                        3 1 1 2
+                        3 1 2 1
+                        3 2 1 1
                         ```
 
                         所以啊，枚举排列要不自己递归枚举，要不就用 stl 的 next_permutation。
@@ -5099,7 +5137,7 @@ A Bit of Logic -<
                             }
                         }
 
-                        int A[10];
+                        int A;
                         int main() {
                             int n;
                             scanf( "%d", &n );
@@ -5145,7 +5183,7 @@ A Bit of Logic -<
                             print_subset( n, B, cur+1 );
                         }
 
-                        int B[10];
+                        int B;
                         int main() {
                             int n;
                             scanf( "%d", &n );
@@ -5254,27 +5292,27 @@ A Bit of Logic -<
                                 These brute-force algorithms to count the
                                 number of solutions are computationally
                                 manageable for n = 8, but would be intractable
-                                for problems of n ≥ 20, as 20! = 2.433 x 10^^18^^.
+                                for problems of n ≥ 20, as 20! = 2.433 x 10^18^.
 
                                 ```cpp
                                 // n 皇后问题：生成-测试法
                                 #include <cstdio>
                                 using namespace std;
 
-                                int C[50], tot = 0, n = 8, nc = 0;
+                                int C, tot = 0, n = 8, nc = 0;
 
                                 void search( int cur ) {
                                     int i, j;
                                     nc++;
                                     if( cur == n ) {
-                                        for( i = 0; i < n; i++ ) {                      // 两两判断，是否 valid
+                                        for( i = 0; i < n; i++ ) {      // 到最后再判断咯。是否 valid
                                             for(j = i+1; j < n; j++) {
                                                 if( C[i] == C[j] || i-C[i] == j-C[j] || i+C[i] == j+C[j] ) { return; }
                                             }
                                         }
                                         tot++;
                                     } else for( i = 0; i < n; i++ ) {
-                                        C[cur] = i;
+                                        C[cur] = i;                     // 直接暴力很多情况，很多都是不可行的
                                         search( cur+1 );
                                     }
                                 }
@@ -5301,7 +5339,7 @@ A Bit of Logic -<
                                 #include <cstdio>
                                 using namespace std;
 
-                                int C[50], tot = 0, n = 8, nc = 0;
+                                int C, tot = 0, n = 8, nc = 0;
 
                                 void search( int cur ) {
                                     int i, j;
@@ -5311,7 +5349,7 @@ A Bit of Logic -<
                                     } else for( i = 0; i < n; i++ ) {
                                         int ok = 1;
                                         C[cur] = i;
-                                        for( j = 0; j < cur; j++ ) {
+                                        for( j = 0; j < cur; j++ ) {        // 在进入一种可能性的时候就判断是否可能。
                                             int dx = cur - j, dy = C[cur] - C[j];
                                             if( C[cur] == C[j] || dx == dy || dy == -dy ) {
                                                 ok = 0;
@@ -5334,12 +5372,14 @@ A Bit of Logic -<
                                 ```bash
                                 $ echo 8 | ./a.out
                                 92
-                                2057
+                                2057        # 对比直接暴力法的 19173961
                                 ```
 
                         -   优化了的回溯法 -<
 
-                            :   ```
+                            :   通过设置标志位来避免通过循环来判断是否 valid。
+
+                                ```
                                   y - x    ?dx == dy                                y + x    ? dx == -dy (dx+dy==0)
                                       +----------------------------------> y            +-----------------------------------> y
                                       |  0   1   2   3   4   5   6   7                  |  0   1   2   3   4   5   6   7
@@ -5353,12 +5393,15 @@ A Bit of Logic -<
                                       V                                                 V
                                 ```
 
+                                标志位的编码无所谓，只要能检测标志、设置标志、移除标志，即可。
+                                这个在我的一个简历投递里说得还详细点：[应聘简答 for 创业公司求 Java 开发工程师，基于微信平台](../misc/yotouch.html)。
+
                                 ```cpp
                                 #include <cstdio>
                                 #include <cstring>
                                 using namespace std;
 
-                                int vis[3][50], C[8], tot = 0, n = 8, nc = 0;
+                                int vis, C, tot = 0, n = 8, nc = 0;
 
                                 void search( int cur ) {
                                     ++nc;
@@ -5366,13 +5409,13 @@ A Bit of Logic -<
                                         ++tot;
                                     } else {
                                         for( int i = 0; i < n; ++i ) {
-                                            // vis: visited, vis[0] -> col, vis[1] -> minor diag, vis[2] -> major diag
-                                            if( !vis[0][i] && !vis[1][cur+i] && !vis[2][cur-i+n] ) {
+                                            // vis: visited, vis -> col, vis -> minor diag, vis -> major diag
+                                            if( !vis[i] && !vis[cur+i] && !vis[cur-i+n] ) {
                                                 C[cur] = i;
                                                 // col          x+y                 y-x
-                                                vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 1;
+                                                vis[i] = vis[cur+i] = vis[cur-i+n] = 1;
                                                 search( cur+1 );
-                                                vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 0;    // 改回来
+                                                vis[i] = vis[cur+i] = vis[cur-i+n] = 0;    // 改回来
                                             }
                                         }
                                     }
@@ -5557,7 +5600,7 @@ A Bit of Logic -<
                             1   6   5   2   3   4
                         ```
 
-                        如果直接暴力。排列总数高达 16! = 2x10^^13^^ -<
+                        如果直接暴力。排列总数高达 16! = 2x10^13^ -<
 
                         :   直接暴力--生成测试法。
 
@@ -5581,7 +5624,6 @@ A Bit of Logic -<
                         生成--测试法太慢，现在用回溯法。
 
                         ```cpp
-                        // UVa524 Prime Ring Problem
                         #include <cstdio>
                         #include <cstring>
                         #include <algorithm>
@@ -5594,9 +5636,10 @@ A Bit of Logic -<
                             return 1;
                         }
 
-                        int n, A[50], isp[50], vis[50];
+                        const int maxn = 50;
+                        int n, A[maxn], isp[maxn], vis[maxn];
                         void dfs( int cur ) {
-                            if( cur == n && isp[A[0]+A[n-1]] ) {                // 边界，第一和末尾
+                            if( cur == n && isp[A[0]+A[n-1]] ) {                // 已经处理了所有，除了第一个和最后一个（闭环）
                                 for( int i = 0; i < n; i++ ) {
                                     if( i != 0 ) { printf( " " ); }
                                     printf( "%d", A[i] );
@@ -5604,10 +5647,10 @@ A Bit of Logic -<
                                 printf( "\n" );
                             } else {
                                 for( int i = 2; i <= n; i++ ) {
-                                    if( !vis[i] && isp[i+A[cur-1]] ) {
+                                    if( !vis[i] && isp[i+A[cur-1]] ) {          // 这次我选 i，设置 cur 的位置
                                         A[cur] = i;
                                         vis[i] = 1;                             // visited
-                                        dfs( cur+1 );
+                                        dfs( cur+1 );                           // 递归，处理 cur+1 的位置
                                         vis[i] = 0;                             // change back
                                     }
                                 }
@@ -5635,6 +5678,9 @@ A Bit of Logic -<
                         1 6 5 2 3 4
                         ```
 
+                        因为是一个环，所以固定了第一个是 1。这样便没有重复输出。
+                        里面的 i 也是从 2 开始循环，所以不用担心 vis[1] 没有设定了。
+
                 -   困难的串 Krypton Factor -<
 
                     :   包含两个相邻的重复子串，称之为“容易的串”，否则，“困难的串”。
@@ -5659,7 +5705,7 @@ A Bit of Logic -<
                         // UVa129 Krypton Factor
                         #include <stdio.h>
                         int n, L, cnt;
-                        int S[100];
+                        int S;
 
                         int dfs( int cur ) {                                                // 返回 0 表示已经得到解，无须继续搜索
                             if( cnt++ == n ) {
@@ -5756,11 +5802,11 @@ A Bit of Logic -<
                         using namespace std;
 
                         const int maxn = 10;
-                        int id[256], letter[maxn];
+                        int id, letter[maxn];
 
                         int main() {
-                            char input[1000];
-                            while(scanf("%s", input) == 1 && input[0] != '#') {
+                            char input;
+                            while(scanf("%s", input) == 1 && input != '#') {
                                 // 计算结点个数并给字母编号
                                 int n = 0;
                                 for(char ch = 'A'; ch <= 'Z'; ch++)
@@ -5878,6 +5924,25 @@ A Bit of Logic -<
                         }
                         ```
 
+        -   背包问题九讲 -<
+
+            :   这部分来自崔添翼：[tianyicui/pack: 背包问题九讲](https://github.com/tianyicui/pack)。
+
+                0-1 背包 -<
+
+                :   有 N 件物品和一个容量为 V 的背包。放入第 i 件物品耗费的费用
+                    是 C~i~，得到的价值是 W~i~。求解将哪些物品装入背包可使价值
+                    总和最大。
+
+                    这是最基础的背包问题，特点是：每种物品仅有一件，可以选择放或不放。
+
+                    用子问题定义状态：即 `F[i,v]` 表示前 i 件物品恰放入一个容量为 v 的背包可以获得的最大价值。则其状态转移方程便是：
+
+                    ```
+                                    不放            放
+                    F[i,v] = max{ F[i−1,v], F[i−1,v−C_i ] + W_i }
+                    ```
+
         -   路径寻找问题 -<
 
             :   -   八数码问题 -<
@@ -5918,19 +5983,19 @@ A Bit of Logic -<
 
                         using namespace std;
 
-                        typedef int State[9];
+                        typedef int State;
                         const int maxstate = 100000;
 
                         State st[maxstate], goal;
-                        // int goal[9];
+                        // int goal;
                         int dist[maxstate];
 
                         const int dx[] = {  -1,  1,  0,  0  };
                         const int dy[] = {   0,  0, -1,  1  };
 
-                        int vis[362880], fact[9];
+                        int vis, fact;
                         void init_lookup_table() {                              // fact[i] = i!
-                            fact[0] = 1;
+                            fact = 1;
                             for( int i = 1; i < 9; ++i ) {
                                 fact[i] = fact[i-1] * i;
                             }
@@ -5972,7 +6037,7 @@ A Bit of Logic -<
                                     if( newx >= 0 && newx < 3 && newy >= 0 && newy < 3 ) {
                                         State &t = st[rear];
                                         // seems, both `&t' or `t' will work
-                                        memcpy( t, s, sizeof(s) );                      // type of t, s: int[9] is actually a int *
+                                        memcpy( t, s, sizeof(s) );                      // type of t, s: int is actually a int *
                                         t[newz] = s[z];
                                         t[z] = s[newz];
                                         dist[rear] = dist[front] + 1;
@@ -5987,7 +6052,7 @@ A Bit of Logic -<
                         }
 
                         int main() {
-                            for( int i = 0; i < 9; ++i ) { scanf( "%d", &st[1][i] ); }
+                            for( int i = 0; i < 9; ++i ) { scanf( "%d", &st[i] ); }
                             for( int i = 0; i < 9; ++i ) { scanf( "%d", &goal[i] ); }
                             int ans = bfs();
                             if( ans > 0 ) {
@@ -6033,14 +6098,14 @@ A Bit of Logic -<
                         using namespace std;
 
                         struct Node {
-                            int v[3], dist;
+                            int v, dist;
                             bool operator < (const Node& rhs) const {
                                 return dist > rhs.dist;
                             }
                         };
 
                         const int maxn = 200 + 5;
-                        int mark[maxn][maxn], dist[maxn][maxn], cap[3], ans[maxn];
+                        int mark[maxn][maxn], dist[maxn][maxn], cap, ans[maxn];
 
                         void update_ans(const Node& u) {
                             for(int i = 0; i < 3; i++) {
@@ -6050,7 +6115,7 @@ A Bit of Logic -<
                         }
 
                         void solve(int a, int b, int c, int d) {
-                            cap[0] = a; cap[1] = b; cap[2] = c;
+                            cap = a; cap = b; cap = c;
                             memset(ans, -1, sizeof(ans));
                             memset(mark, 0, sizeof(mark));
                             memset(dist, -1, sizeof(dist));
@@ -6058,14 +6123,14 @@ A Bit of Logic -<
 
                             Node start;
                             start.dist = 0;
-                            start.v[0] = 0; start.v[1] = 0; start.v[2] = c;
+                            start.v = 0; start.v = 0; start.v = c;
                             q.push(start);
 
-                            dist[0][0] = 0;
+                            dist = 0;
                             while(!q.empty()) {
                                 Node u = q.top(); q.pop();
-                                if(mark[u.v[0]][u.v[1]]) continue;
-                                mark[u.v[0]][u.v[1]] = 1;
+                                if(mark[u.v][u.v]) continue;
+                                mark[u.v][u.v] = 1;
                                 update_ans(u);
                                 if(ans[d] >= 0) break;
                                 for(int i = 0; i < 3; i++)
@@ -6077,7 +6142,7 @@ A Bit of Logic -<
                                         u2.dist = u.dist + amount;
                                         u2.v[i] -= amount;
                                         u2.v[j] += amount;
-                                        int& D = dist[u2.v[0]][u2.v[1]];
+                                        int& D = dist[u2.v][u2.v];
                                         if(D < 0 || u2.dist < D){
                                             D = u2.dist;
                                             q.push(u2);
@@ -6138,9 +6203,9 @@ A Bit of Logic -<
                             return (a<<16)|(b<<8)|c;
                         }
 
-                        int s[3], t[3];                                         // starting/ending position of each ghost
+                        int s, t;                                         // starting/ending position of each ghost
 
-                        int deg[maxn], G[maxn][5];                              // target cells for each move (including "no move")
+                        int deg[maxn], G[maxn];                              // target cells for each move (including "no move")
 
                         inline bool conflict( int a, int b, int a2, int b2 ) {
                             return a2 == b2 || (a2 == b && b2 == a);
@@ -6150,12 +6215,12 @@ A Bit of Logic -<
                         int bfs() {
                             queue<int> q;
                             memset( d, -1, sizeof(d) );
-                            q.push( ID( s[0], s[1], s[2] ) );                   // starting node
-                            d[s[0]][s[1]][s[2]] = 0;
+                            q.push( ID( s, s, s ) );                   // starting node
+                            d[s][s][s] = 0;
                             while( !q.empty(  ) ) {
                                 int u = q.front(); q.pop();
                                 int a = (u>>16)&0xff, b = (u>>8)&0xff, c = u&0xff;
-                                if( a == t[0] && b == t[1] && c == t[2] ) {     // solution found
+                                if( a == t && b == t && c == t ) {     // solution found
                                     return d[a][b][c];
                                 }
                                 for( int i = 0; i < deg[a]; i++ ) {
@@ -6181,7 +6246,7 @@ A Bit of Logic -<
                             int w, h, n;
 
                             while( scanf( "%d%d%d\n", &w, &h, &n ) == 3 && n ) {
-                                char maze[20][20];
+                                char maze;
                                 for( int i = 0; i < h; i++ ) {
                                     fgets(maze[i], 20, stdin);
                                 }
@@ -6216,8 +6281,8 @@ A Bit of Logic -<
                                 }
 
                                 // add fakes nodes so that in each case we have 3 ghosts. this makes the code shorter
-                                if( n <= 2 ) { deg[cnt] = 1; G[cnt][0] = cnt; s[2] = t[2] = cnt++; }
-                                if( n <= 1 ) { deg[cnt] = 1; G[cnt][0] = cnt; s[1] = t[1] = cnt++; }
+                                if( n <= 2 ) { deg[cnt] = 1; G[cnt] = cnt; s = t = cnt++; }
+                                if( n <= 1 ) { deg[cnt] = 1; G[cnt] = cnt; s = t = cnt++; }
 
                                 printf( "%d\n", bfs() );
                             }
@@ -6405,7 +6470,7 @@ A Bit of Logic -<
 
             :   -   **直接枚举**：效率不高。
 
-                -   **枚举子集和排列**：n 个元素的子集有 2^^n^^ 个，可用递归的方法枚举（增量法和位向量法），也可以用
+                -   **枚举子集和排列**：n 个元素的子集有 2^n^ 个，可用递归的方法枚举（增量法和位向量法），也可以用
                     二进制法枚举。递归法效率高，方便剪枝，缺点在于代码比较长。当 n <= 15 时，一般用二进制枚举。
 
                     n 个不同元素的全排列有 n! 个。除了用递归的方法枚举，还可以用 STL 的 next_permutation，它可以处理
@@ -6481,24 +6546,24 @@ A Bit of Logic -<
                            */
 
                         // lines E~H are computed with the help of rev[]
-                        int line[8][7]={
+                        int line={
                             { 0, 2, 6,11,15,20,22}, // A
                             { 1, 3, 8,12,17,21,23}, // B
                             {10, 9, 8, 7, 6, 5, 4}, // C
                             {19,18,17,16,15,14,13}, // D
                         };
 
-                        const int rev[8] = {5, 4, 7, 6, 1, 0, 3, 2}; // reverse lines of each line
+                        const int rev = {5, 4, 7, 6, 1, 0, 3, 2}; // reverse lines of each line
 
                         // center squares
-                        const int center[8] = {6, 7, 8, 11, 12, 15, 16, 17};
+                        const int center = {6, 7, 8, 11, 12, 15, 16, 17};
 
-                        int a[24];
-                        char ans[1000];
+                        int a;
+                        char ans;
 
                         bool is_final() {
                             for(int i = 0; i < 8; i++)
-                                if (a[center[i]] != a[center[0]]) return false;
+                                if (a[center[i]] != a[center]) return false;
                             return true;
                         }
 
@@ -6514,9 +6579,9 @@ A Bit of Logic -<
                         }
 
                         inline void move(int i) {
-                            int tmp = a[line[i][0]];
+                            int tmp = a[line[i]];
                             for(int j = 0; j < 6; j++) a[line[i][j]] = a[line[i][j+1]];
-                            a[line[i][6]] = tmp;
+                            a[line[i]] = tmp;
                         }
 
                         bool dfs(int d, int maxd) {
@@ -6539,7 +6604,7 @@ A Bit of Logic -<
                             for(int i = 4; i < 8; i++)
                                 for(int j = 0; j < 7; j++) line[i][j] = line[rev[i]][6-j];
 
-                            while(scanf("%d", &a[0]) == 1 && a[0]) {
+                            while(scanf("%d", &a) == 1 && a) {
                                 for(int i = 1; i < 24; i++) scanf("%d", &a[i]);
                                 for(int i = 0; i < 24; i++) if(!a[i]) return 0;
                                 if(is_final()) {
@@ -6548,7 +6613,7 @@ A Bit of Logic -<
                                     for(int maxd = 1; ; maxd++)
                                         if(dfs(0, maxd)) break;
                                 }
-                                printf("%d\n", a[6]);
+                                printf("%d\n", a);
                             }
                             return 0;
                         }
@@ -6572,7 +6637,7 @@ A Bit of Logic -<
                             if(a[d] == n) return true;
                             if(d == maxd) return false;
 
-                            int maxv = a[0];
+                            int maxv = a;
                             for(int i = 1; i <= d; i++) maxv = max(maxv, a[i]);
                             if((maxv << (maxd-d)) < n) return false;
 
@@ -6589,7 +6654,7 @@ A Bit of Logic -<
 
                         int solve(int n) {
                             if(n == 1) return 0;
-                            a[0] = 1;
+                            a = 1;
                             for(int maxd = 1; maxd < maxans; maxd++) {
                                 if(dfs(0, maxd)) return maxd;
                             }
@@ -6764,7 +6829,7 @@ A Bit of Logic -<
                         void generate() {
                             Polyomino s;
                             s.insert( Cell(0, 0) );
-                            poly[1].insert(s);
+                            poly.insert(s);
 
                             // generate
                             for( int n = 2; n <= maxn; n++ ) {
@@ -7329,7 +7394,7 @@ A Bit of Logic -<
                                 if(n == 1) { printf("1\n"); continue; }
 
                                 // g[i] is the length of longest increasing continuous subsequence ending at i
-                                g[0] = 1;
+                                g = 1;
                                 for(int i = 1; i < n; i++)
                                     if(a[i-1] < a[i]) g[i] = g[i-1] + 1;
                                     else g[i] = 1;
@@ -7341,7 +7406,7 @@ A Bit of Logic -<
                                     else f[i] = 1;
 
                                 s.clear();
-                                s.insert(Candidate(a[0], g[0]));
+                                s.insert(Candidate(a, g));
                                 int ans = 1;
                                 for(int i = 1; i < n; i++) {
                                     Candidate c(a[i], g[i]);
@@ -7394,7 +7459,7 @@ A Bit of Logic -<
                             while(T--) {
                                 scanf("%d%d%s", &n, &L, s+1);
 
-                                sum[0] = 0;
+                                sum = 0;
                                 for(int i = 1; i <= n; i++) sum[i] = sum[i-1] + s[i] - '0';
 
                                 int ansL = 1, ansR = L;
@@ -7798,7 +7863,7 @@ A Bit of Logic -<
 
                                 vector<int> win, lose; // teams that team 1 win/lose against.
                                 for(int i = 2; i <= n; i++)
-                                    if(table[1][i] == '1') win.push_back(i);
+                                    if(table[i] == '1') win.push_back(i);
                                     else lose.push_back(i);
 
                                 int nt = n;
@@ -7837,7 +7902,7 @@ A Bit of Logic -<
                                         printf("%d %d\n", final[i], final[i+1]);
                                         int keep = final[i];
                                         if(table[final[i+1]][keep] == '1') keep = final[i+1];
-                                        if(table[1][keep] == '1') win2.push_back(keep);
+                                        if(table[keep] == '1') win2.push_back(keep);
                                         else lose2.push_back(keep);
                                     }
                                     win = win2;
@@ -7868,7 +7933,7 @@ A Bit of Logic -<
                                 for(int i = 0; i < n; i++) scanf("%d", &p[i]);
                                 for(int i = 0; i < n; i++) scanf("%d", &s[i]);
 
-                                int ans = 0, level = s[0];
+                                int ans = 0, level = s;
                                 for(int i = 0; i < n; i++) {
                                     if(p[i] > level) level = p[i];
                                     if(s[i] < level) level = s[i];
@@ -7982,9 +8047,9 @@ A Bit of Logic -<
                         #include <queue>
                         using namespace std;
 
-                        const char name[4] = { 'U', 'R', 'D', 'L' };    //      |
-                        const int dx[4] = { -1, 0, 1, 0 };              //      |
-                        const int dy[4] = { 0, 1, 0, -1 };              //      V  rowsise: x
+                        const char name = { 'U', 'R', 'D', 'L' };    //      |
+                        const int dx = { -1, 0, 1, 0 };              //      |
+                        const int dy = { 0, 1, 0, -1 };              //      V  rowsise: x
 
                         typedef struct state_t {
                             int data;
@@ -8342,7 +8407,7 @@ A Bit of Logic -<
 
                 -   double DFS
 
-                -   A* Algorithm
+                -   `A*` Algorithm
 
                 -   Conclusion -<
 
@@ -8393,45 +8458,43 @@ A Bit of Logic -<
 
                         -   代码模板 -<
 
-                            :   广搜需要一个队列，用于一层一层扩展，一个hashset，用于判重，一棵树（只求长度时不需要），用于存储整棵树。
+                            :   广搜需要一个队列，用于一层一层扩展，一个
+                                hashset，用于判重，一棵树（只求长度时不需要），
+                                用于存储整棵树。
 
-                                对于队列，如果用纯 C，需要造一个队列轮子；如果用 C++，
-                                可以用 \fn{queue}，也可以把 \fn{vector}当做队列使用。当求长度时，有两种做法：
+                                对于队列，如果用纯 C，需要造一个队列轮子；如果
+                                用 C++，可以用 queue，也可以把 vector 当做队列
+                                使用。当求长度时，有两种做法：
 
-                                -   只用一个队列，但在状态结构体 \fn{state_t}里增加
-                                    一个整数字段 \fn{step}，表示走到当前状态用了多少
-                                    步，当碰到目标状态，直接输出 \fn{step}即可。这个
-                                    方案，可以很方便的变成 A*算法，把队列换成优先队
+                                -   只用一个队列，但在状态结构体 state_t 里增加
+                                    一个整数字段 step，表示走到当前状态用了多少
+                                    步，当碰到目标状态，直接输出 step 即可。这个
+                                    方案，可以很方便的变成 `A*` 算法，把队列换成优先队
                                     列即可。
-                                -   用两个队列，\fn{current, next}，分别表示当前层
-                                    次和下一层，另设一个全局整数 \fn{level}，表示层
+                                -   用两个队列，current, next，分别表示当前层
+                                    次和下一层，另设一个全局整数 level，表示层
                                     数（也即路径长度），当碰到目标状态，输出
-                                    \fn{level}即可。这个方案，状态可以少一个字段，
+                                    level 即可。这个方案，状态可以少一个字段，
                                     节省内存。
 
                                 对于 hashset，如果有完美哈希方案，用布尔数组
-                                (\fn{bool visited[STATE_MAX]}或 \fn{vector<bool>
-                                visited(STATE_MAX, false)}) 来表示；如果没有，可以用
-                                STL 里的 \fn{set}或 \fn{unordered_set}。
+                                (`bool visited[STATE_MAX]` 或 `vector<bool> visited(STATE_MAX, false)`)
+                                来表示；如果没有，可以用 STL 里的 set 或 unordered_set。
 
-                                对于树，如果用 STL，可以用 \fn{unordered_map<state_t,
-                                state_t > father}表示一颗树，代码非常简洁。如果能够
-                                预估状态总数的上限（设为 STATE_MAX），可以用数组
-                                (\fn{state_t nodes[STATE_MAX]})，即树的双亲表示法来
-                                表示树，效率更高，当然，需要写更多代码。
+                                对于树，如果用 STL，可以用
+                                `unordered_map<state_t, state_t> father` 表示一
+                                颗树，代码非常简洁。如果能够预估状态总数的上限
+                                （设为 STATE_MAX），可以用数组(`state_t
+                                nodes[STATE_MAX]`)，即树的双亲表示法来表示树，
+                                效率更高，当然，需要写更多代码。
 
                                 C++ template -<
 
                                 :   ```cpp
-                                    /**
-                                     * @brief 反向生成路径.
-                                     * @param[in] father 树
-                                     * @param[in] target 目标节点
-                                     * @return 从起点到 target 的路径
-                                     */
                                     template<typename state_t>
-                                    vector<state_t> gen_path(const unordered_map<state_t, state_t> &father,
-                                            const state_t &target) {
+                                    vector<state_t> gen_path( const unordered_map<state_t, state_t> &father,
+                                                              const state_t &target)
+                                    {
                                         vector<state_t> path;
                                         path.push_back(target);
 
@@ -8632,12 +8695,12 @@ A Bit of Logic -<
                     是，如果是树的话，会有很多重复计算，下面有相关的解释。 ](https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Fibonacci_dynamic_programming.svg/162px-Fibonacci_dynamic_programming.svg.png)
 
                 为避免重复计算，可将已经得到的子问题的解保存起来，当我们要解决
-                相同的子问题时，重用即可。该方法即所谓的缓存（memoization，而不
-                是存储 memorization，虽然这个词亦适合，姑且这么叫吧，这个单词太
-                难翻译了，简直就是可意会不可言传，其意义是没计算过则计算，计算
-                过则保存）。当我们确信将不会再需要某一解时，可以将其抛弃，以节
-                省空间。在某些情况下，我们甚至可以提前计算出那些将来会用到的子
-                问题的解。
+                相同的子问题时，重用即可。该方法即所谓的**缓存**
+                （**memoization**，而不是存储 memorization，虽然这个词亦适合，
+                姑且这么叫吧，这个单词太难翻译了，简直就是可意会不可言传，其意
+                义是没计算过则计算，计算过则保存）。当我们确信将不会再需要某一
+                解时，可以将其抛弃，以节省空间。在某些情况下，我们甚至可以提前
+                计算出那些将来会用到的子问题的解。
 
                 ```
                 var m := map(0 → 0, 1 → 1)
@@ -8647,7 +8710,7 @@ A Bit of Logic -<
                     return m[n]
                 ```
 
-                This technique of saving values that have already been calculated is called memoization;
+                This technique of **saving values that have already been calculated** is called 【memoization】;
 
                 refs and see also
 
@@ -8674,7 +8737,7 @@ A Bit of Logic -<
 
                 -   [动态规划的适用条件 - 和申的日志 - 网易博客](http://1985wanggang.blog.163.com/blog/static/776383320081052347452/)
 
-        -   动态规划算法的四个解题要素 -<
+        -   动态规划算法的四个解题要素 :hearts: -<
 
             :   作为 Sia 粉（Sia Furler），我把它记作 sfia。
 
@@ -8711,7 +8774,7 @@ A Bit of Logic -<
 
         -   leetcode 中几道动态规划题 -<
 
-            :   -   Triangle
+            :   -   Triangle -<
 
                     :   Given a triangle, find the minimum path sum from top to
                         bottom. Each step you may move to adjacent numbers on the
@@ -8721,7 +8784,7 @@ A Bit of Logic -<
 
                         ```
                         [
-                             [2],
+                             ,
                             [3,4],
                            [6,5,7],
                           [4,1,8,3]
@@ -8739,7 +8802,7 @@ A Bit of Logic -<
                         ```
                             类似于图像处理里的【直方图 vs. 累计直方图】，概率论里的【PDF，CDF】：
 
-                              [2],                                    [2]
+                              ,
                              [3,4],                            [ 5 =(2+3), 6 =(2+4) ]
                             [6,5,7],                      [ 11 =(5+6),  10 =(5+5 )   13 =(6+7) ]
                            [4,1,8,3]                  [   15         11        18          16       ]
@@ -8767,7 +8830,7 @@ A Bit of Logic -<
                                     t[i][j] += min(t[i+1][j], t[i+1][j+1]);
                                 }
                             }
-                            return triangle[0][0];
+                            return triangle;
                         }
                         ```
 
@@ -8775,7 +8838,7 @@ A Bit of Logic -<
 
                         -   [Triangle | LeetCode OJ](https://leetcode.com/problems/triangle/)
 
-                -   Maximum Subarray
+                -   Maximum Subarray -<
 
                     :    Find the contiguous subarray within an array
                         (containing at least one number) which has the largest sum.
@@ -8791,7 +8854,7 @@ A Bit of Logic -<
                         `S[n]` 为序列，`S[j]` 为第 j 个元素（1 based）。
                         设状态 `f[j]` 表示以 `S[j]` 结尾的最大连续子序列和，则状态转移方程如下：
 
-                        -   `f[j] = max( f[j-1]+S[j], S[j] ), j = 2..n, f[1] = S[1]`
+                        -   `f[j] = max( f[j-1]+S[j], S[j] ), j = 2..n, f = S`
                         -   `target = max{ f[j] }, j = 1..n`
 
                         代码：
@@ -8831,7 +8894,7 @@ A Bit of Logic -<
                                 public:
                                     int minPathSum( vector<vector<int>> &grid ) {
                                         const int m = grid.size();
-                                        const int n = grid[0].size();
+                                        const int n = grid.size();
                                         this->f = vector<vector<int>>( m, vector<int>(n, -1) );
                                         return dfs( grid, m-1, n-1 );
                                     }
@@ -8840,7 +8903,7 @@ A Bit of Logic -<
                                 private:
                                     int dfs( const vector<vector<int>> &grid, int x, int y ) {
                                         if( x < 0 || y < 0 )    { return INT_MAX; }
-                                        if( x == 0 && y == 0 )  { return grid[0][0]; }
+                                        if( x == 0 && y == 0 )  { return grid; }
                                         return min( getOrUpdate(grid, x-1, y), getOrUpdate(grid, x, y-1) ) + grid[x][y];
                                     }
                                     int getOrUpdate( const vector<vector<int>> &grid, int x, int y ) {
@@ -8863,14 +8926,14 @@ A Bit of Logic -<
                             :   ```cpp
                                 int minPathSum( vector<vector<int>> &grid ) {
                                     const int m = grid.size();
-                                    const int n = grid[0].size();
+                                    const int n = grid.size();
                                     int f[m][n];
-                                    f[0][0] = grid[0][0];
+                                    f = grid;
                                     for( int i = 1; i < m; ++i ) {
-                                        f[i][0] = f[i-1][0] + grid[i][0];
+                                        f[i] = f[i-1] + grid[i];
                                     }
                                     for( int j = 1; j < n; ++j ) {
-                                        f[0][j] = f[0][j-1] + grid[0][j];
+                                        f[j] = f[j-1] + grid[j];
                                     }
                                     for( int i = 1; i < m; ++i ) {
                                         for( int j = 1; j <n; ++j ) {
@@ -8886,14 +8949,14 @@ A Bit of Logic -<
                             :   ```cpp
                                 int minPathSum( vector<vector<int>> &grid ) {
                                     const int m = grid.size();
-                                    const int n = grid[0].size();
+                                    const int n = grid.size();
 
                                     int f[n];
                                     fill( f, f+n, INT_MAX );
-                                    f[0] = 0;
+                                    f = 0;
 
                                     for( int i = 0; i < m; ++i ) {
-                                        f[0] += grid[i][0];
+                                        f += grid[i];
                                         for( int j = 1; j < n; ++j ) {
                                             f[j] = min( f[j-1], f[j] ) + grid[i][j];
                                         }
@@ -8914,7 +8977,7 @@ A Bit of Logic -<
                 -   **序列型动态规划 30%**
                     -   state: f[i] 表示前 i 个位置 / 数字 / 字符, 第 i 个...
                     -   function: f[i] = f[j] ... j 是 i 之前的一个位置
-                    -   initialize: f[0]..
+                    -   initialize: f..
                     -   answer: f[n]..
                         -   一般 answer 是 f(n) 而不是 f(n-1)
                         -   因为对于 n 个字符, 包含前 0 个字符 (空串), 前 1 个字符...... 前 n 个字符。
@@ -8964,7 +9027,7 @@ A Bit of Logic -<
                             int maxLength = getMaxLength(dict);
                             boolean[] canSegment = new boolean[s.length() + 1];
 
-                            canSegment[0] = true;
+                            canSegment = true;
                             for (int i = 1; i <= s.length(); i++) {
                                 canSegment[i] = false;
                                 for (int lastWordLength = 1;
@@ -8988,7 +9051,7 @@ A Bit of Logic -<
 
                     -   state: f[i] 表示“前 i”个字符能否被完美切分
                     -   function: f[i] = OR{f[j] && j+1~i is a word}, 其中 j < i
-                    -   initialize: f[0] = true
+                    -   initialize: f = true
                     -   answer: f[n]
 
                     注意:切分位置的枚举->单词长度枚举 O(NL 2), N: 字符串长度, L: 最长的单词的长度
@@ -9001,7 +9064,7 @@ A Bit of Logic -<
 
                     :   -   state: f[i][j] 代表了第一个 sequence 的前 i 个数字 / 字符, 配上第二个 sequence 的前 j 个...
                         -   function: f[i][j] = 研究第 i 个和第 j 个的匹配关系
-                        -   initialize: f[i][0] 和 f[0][i]
+                        -   initialize: f[i] 和 f[i]
                         -   answer: f[n][m]
                         -   n = s1.length()
                         -   m = s2.length()
@@ -9013,7 +9076,7 @@ A Bit of Logic -<
                         :   -   http://www.lintcode.com/problem/longest-common-substring/
                             -   state: f[i][j] 表示前 i 个字符配上前 j 个字符的 LCS 的长度
                             -   function: f[i][j] = MAX(f[i-1][j], f[i][j-1], f[i-1][j-1] + 1) // A[i - 1] == B[j - 1] = MAX(f[i-1][j], f[i][j-1]) // A[i - 1] != B[j - 1]
-                            -   intialize: f[i][0] = 0 f[0][j] = 0
+                            -   intialize: f[i] = 0 f[j] = 0
                             -   answer: f[n][m]
 
                         求 Min, [Edit Distance 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/edit-distance/)
@@ -9022,7 +9085,7 @@ A Bit of Logic -<
 
                         :   -   state: f[i][j] 表示 S 的前 i 个字符中选取 T 的前 j 个字符, 有多少种方案
                             -   function: f[i][j] = f[i - 1][j] + f[i - 1][j - 1] // S[i-1] == T[j-1] = f[i - 1][j] // S[i-1] != T[j-1]
-                            -   initialize: f[i][0] = 1, f[0][j] = 0 (j > 0)
+                            -   initialize: f[i] = 1, f[j] = 0 (j > 0)
                             -   answer: f[n][m] (n = sizeof(S), m = sizeof(T))
 
                         求是否可行, [Interleaving String 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/interleaving-string/)
@@ -9060,11 +9123,21 @@ A Bit of Logic -<
 
     :scissors: 2016/08/14 上午 9:30:00 5. 动态规划 Dynamic Programming II -<
 
-    :   -   数字三角形
+    :   -   数字三角形（（略）见上面的 triangle）
 
         -   DAG 上的动态规划 -<
 
-            :   -   小结与应用举例 -<
+            :   -   啥是 DAG -<
+
+                    :   In mathematics and computer science, a **directed acyclic graph**
+                        (DAG, `/dæɡ/`), is a finite directed graph
+                        with no directed cycles.
+
+                        refs and see also
+
+                        -   [Directed acyclic graph - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Directed_acyclic_graph)
+
+                -   小结与应用举例 -<
 
                     :   -   9-1 UVa1025 A Spy in the Metro                          uva1025.cpp -<
 
@@ -9079,8 +9152,8 @@ A Bit of Logic -<
                                 const int maxt = 200 + 5;
                                 const int INF = 1000000000;
 
-                                // has_train[t][i][0]表示时刻t，在车站i是否有往右开的火车
-                                int t[maxn], has_train[maxt][maxn][2];
+                                // has_train[t][i]表示时刻t，在车站i是否有往右开的火车
+                                int t[maxn], has_train[maxt][maxn];
                                 int dp[maxt][maxn];
 
                                 int main() {
@@ -9095,7 +9168,7 @@ A Bit of Logic -<
                                         while(M1--) {
                                             cin >> d;
                                             for(int j = 1; j <= n-1; j++) {
-                                                if(d <= T) has_train[d][j][0] = 1;
+                                                if(d <= T) has_train[d][j] = 1;
                                                 d += t[j];
                                             }
                                         }
@@ -9103,7 +9176,7 @@ A Bit of Logic -<
                                         while(M2--) {
                                             cin >> d;
                                             for(int j = n-1; j >= 1; j--) {
-                                                if(d <= T) has_train[d][j+1][1] = 1;
+                                                if(d <= T) has_train[d][j+1] = 1;
                                                 d += t[j];
                                             }
                                         }
@@ -9115,16 +9188,16 @@ A Bit of Logic -<
                                         for(int i = T-1; i >= 0; i--)
                                             for(int j = 1; j <= n; j++) {
                                                 dp[i][j] = dp[i+1][j] + 1; // 等待一个单位
-                                                if(j < n && has_train[i][j][0] && i+t[j] <= T)
+                                                if(j < n && has_train[i][j] && i+t[j] <= T)
                                                     dp[i][j] = min(dp[i][j], dp[i+t[j]][j+1]); // 右
-                                                if(j > 1 && has_train[i][j][1] && i+t[j-1] <= T)
+                                                if(j > 1 && has_train[i][j] && i+t[j-1] <= T)
                                                     dp[i][j] = min(dp[i][j], dp[i+t[j-1]][j-1]); // 左
                                             }
 
                                         // 输出
                                         cout << "Case Number " << ++kase << ": ";
-                                        if(dp[0][1] >= INF) cout << "impossible\n";
-                                        else cout << dp[0][1] << "\n";
+                                        if(dp >= INF) cout << "impossible\n";
+                                        else cout << dp << "\n";
                                     }
                                     return 0;
                                 }
@@ -9144,7 +9217,7 @@ A Bit of Logic -<
                                 #define REP(i,n) for(int i = 0; i < (n); i++)
 
                                 const int maxn = 30 + 5;
-                                int n, blocks[maxn][3], d[maxn][3];
+                                int n, blocks[maxn], d[maxn];
 
                                 void get_dimensions(int* v, int b, int dim) {
                                     int idx = 0;
@@ -9155,11 +9228,11 @@ A Bit of Logic -<
                                     int& ans = d[i][j];
                                     if(ans > 0) return ans;
                                     ans = 0;
-                                    int v[2], v2[2];
+                                    int v, v2;
                                     get_dimensions(v, i, j);
                                     REP(a,n) REP(b,3) {
                                         get_dimensions(v2, a, b);
-                                        if(v2[0] < v[0] && v2[1] < v[1]) ans = max(ans, dp(a,b));
+                                        if(v2 < v && v2 < v) ans = max(ans, dp(a,b));
                                     }
                                     ans += blocks[i][j];
                                     return ans;
@@ -9208,7 +9281,7 @@ A Bit of Logic -<
                                                 if(i == n-1) d[i][j] = dist[i][n] + dist[j][n]; // 边界
                                                 else d[i][j] = min(dist[i][i+1] + d[i+1][j], dist[j][i+1] + d[i+1][i]);
                                             }
-                                        printf("%.2lf\n", dist[1][2] + d[2][1]);
+                                        printf("%.2lf\n", dist + d);
                                     }
                                     return 0;
                                 }
@@ -9243,9 +9316,9 @@ A Bit of Logic -<
                                             for(int i = 0; i < m; i++) {
                                                 if(j == n-1) d[i][j] = a[i][j];
                                                 else {
-                                                    int rows[3] = {i, i-1, i+1};
-                                                    if(i == 0) rows[1] = m-1;
-                                                    if(i == m-1) rows[2] = 0;
+                                                    int rows = {i, i-1, i+1};
+                                                    if(i == 0) rows = m-1;
+                                                    if(i == m-1) rows = 0;
                                                     sort(rows, rows+3);
                                                     d[i][j] = INF;
                                                     for(int k = 0; k < 3; k++) {
@@ -9257,7 +9330,7 @@ A Bit of Logic -<
                                             }
                                         }
                                         printf("%d", first+1);
-                                        for(int i = next[first][0], j = 1; j < n; i = next[i][j], j++) printf(" %d", i+1);
+                                        for(int i = next[first], j = 1; j < n; i = next[i][j], j++) printf(" %d", i+1);
                                         printf("\n%d\n", ans);
                                     }
                                     return 0;
@@ -9280,7 +9353,7 @@ A Bit of Logic -<
                                 const int INF = 1000000000;
 
                                 // d[i][j]: maximal number of songs from first i songs, whose total length is exactly j
-                                int n, t, len[maxn], d[2][maxn*180+678];
+                                int n, t, len[maxn], d[maxn*180+678];
 
                                 int main() {
                                     int T;
@@ -9289,8 +9362,8 @@ A Bit of Logic -<
                                         scanf("%d%d", &n, &t);
                                         for(int i = 1; i <= n; i++) scanf("%d", &len[i]);
 
-                                        for(int i = 0; i < t; i++) d[0][i] = -1;
-                                        d[0][0] = 0;
+                                        for(int i = 0; i < t; i++) d[i] = -1;
+                                        d = 0;
 
                                         int p = 1, ans = 0;
                                         for(int i = 1; i <= n; i++) {
@@ -9341,9 +9414,9 @@ A Bit of Logic -<
                                                 for(int i = 1; i <= n; i++)
                                                     cin >> lamp[i].v >> lamp[i].k >> lamp[i].c >> lamp[i].l;
                                                 sort(lamp+1, lamp+n+1);
-                                                s[0] = 0;
+                                                s = 0;
                                                 for(int i = 1; i <= n; i++) s[i] = s[i-1] + lamp[i].l;
-                                                d[0] = 0;
+                                                d = 0;
                                                 for(int i = 1; i <= n; i++) {
                                                     d[i] = s[i] * lamp[i].c + lamp[i].k; // 前i个灯泡全买类型i
                                                     for(int j = 1; j <= i; j++)
@@ -9388,7 +9461,7 @@ A Bit of Logic -<
                                             for(kase = 1; kase <= T; kase++) {
                                                 scanf("%s", s+1);
                                                 n = strlen(s+1);
-                                                d[0] = 0;
+                                                d = 0;
                                                 for(int i = 1; i <= n; i++) {
                                                     d[i] = i+1;
                                                     for(int j = 0; j < i; j++)
@@ -9415,8 +9488,8 @@ A Bit of Logic -<
                                         const int INF = 1000000000;
 
                                         char p[maxn], q[maxn]; // starts from position 1
-                                        int sp[26], sq[26], ep[26], eq[26]; // sp[i] start positions of character i in p
-                                        int d[2][maxn], c[2][maxn]; // c[i][j]: how many "incomplete" colors in the mixed sequence
+                                        int sp, sq, ep, eq; // sp[i] start positions of character i in p
+                                        int d[maxn], c[maxn]; // c[i][j]: how many "incomplete" colors in the mixed sequence
 
                                         int main() {
                                             int T;
@@ -9502,7 +9575,7 @@ A Bit of Logic -<
                                         int main() {
                                             while(scanf("%d%d", &L, &n) == 2 && L) {
                                                 for(int i = 1; i <= n; i++) scanf("%d", &a[i]);
-                                                a[0] = 0; a[n+1] = L;
+                                                a = 0; a[n+1] = L;
                                                 memset(vis, 0, sizeof(vis));
                                                 printf("The minimum cutting is %d.\n", dp(0, n+1));
                                             }
@@ -9694,7 +9767,7 @@ A Bit of Logic -<
                                                         }
                                                     }
                                                 }
-                                            return d[0][n-1];
+                                            return d[n-1];
                                         }
 
                                         int main() {
@@ -9773,7 +9846,7 @@ A Bit of Logic -<
 
                                         int cnt;
                                         vector<int> sons[maxn];
-                                        int n, d[maxn][2], f[maxn][2];
+                                        int n, d[maxn], f[maxn];
 
                                         map<string, int> dict;
                                         int ID(const string& s) {
@@ -9787,13 +9860,13 @@ A Bit of Logic -<
                                             for(int i = 0; i < sons[u].size(); i++) {
                                                 int v = sons[u][i];
                                                 if(k == 1) {
-                                                    d[u][1] += dp(v, 0);
-                                                    if(!f[v][0]) f[u][1] = 0;
+                                                    d[u] += dp(v, 0);
+                                                    if(!f[v]) f[u] = 0;
                                                 } else {
-                                                    d[u][0] += max(dp(v, 0), dp(v, 1));
-                                                    if(d[v][0] == d[v][1]) f[u][k] = 0;
-                                                    else if(d[v][0] > d[v][1] && !f[v][0]) f[u][k] = 0;
-                                                    else if(d[v][1] > d[v][0] && !f[v][1]) f[u][k] = 0;
+                                                    d[u] += max(dp(v, 0), dp(v, 1));
+                                                    if(d[v] == d[v]) f[u][k] = 0;
+                                                    else if(d[v] > d[v] && !f[v]) f[u][k] = 0;
+                                                    else if(d[v] > d[v] && !f[v]) f[u][k] = 0;
                                                 }
                                             }
                                             return d[u][k];
@@ -9813,8 +9886,8 @@ A Bit of Logic -<
                                                 }
                                                 printf("%d ", max(dp(0, 0), dp(0, 1)));
                                                 bool unique = false;
-                                                if(d[0][0] > d[0][1] && f[0][0]) unique = true;
-                                                if(d[0][1] > d[0][0] && f[0][1]) unique = true;
+                                                if(d > d && f) unique = true;
+                                                if(d > d && f) unique = true;
                                                 if(unique) printf("Yes\n"); else printf("No\n");
                                             }
                                             return 0;
@@ -9835,7 +9908,7 @@ A Bit of Logic -<
                                         const int INF = 1000000000;
 
                                         vector<int> G[maxn], vertices;
-                                        int p[maxn], d[maxn][3];
+                                        int p[maxn], d[maxn];
 
                                         // build a rooted tree and dfs sequence
                                         void dfs(int u, int fa) {
@@ -9861,23 +9934,23 @@ A Bit of Logic -<
                                                 dfs(0, -1);
                                                 for(int i = vertices.size()-1; i >= 0; i--) {
                                                     int u = vertices[i];
-                                                    d[u][0] = 1; d[u][1] = 0;
+                                                    d[u] = 1; d[u] = 0;
                                                     for(int j = 0; j < G[u].size(); j++) {
                                                         int v = G[u][j];
                                                         if(v == p[u]) continue;
-                                                        d[u][0] += min(d[v][0], d[v][1]); // u is server
-                                                        d[u][1] += d[v][2]; // u is not server, u's father is server
-                                                        if(d[u][0] > INF) d[u][0] = INF; // avoid overflow!
-                                                        if(d[u][1] > INF) d[u][1] = INF;
+                                                        d[u] += min(d[v], d[v]); // u is server
+                                                        d[u] += d[v]; // u is not server, u's father is server
+                                                        if(d[u] > INF) d[u] = INF; // avoid overflow!
+                                                        if(d[u] > INF) d[u] = INF;
                                                     }
-                                                    d[u][2] = INF;
+                                                    d[u] = INF;
                                                     for(int j = 0; j < G[u].size(); j++) {
                                                         int v = G[u][j];
                                                         if(v == p[u]) continue;
-                                                        d[u][2] = min(d[u][2], d[u][1] - d[v][2] + d[v][0]); // neither u or father is server
+                                                        d[u] = min(d[u], d[u] - d[v] + d[v]); // neither u or father is server
                                                     }
                                                 }
-                                                printf("%d\n", min(d[0][0], d[0][2]));
+                                                printf("%d\n", min(d, d));
                                                 scanf("%d", &n); // flag
                                             }
                                             return 0;
@@ -9990,7 +10063,7 @@ A Bit of Logic -<
                                             for(int s = 0; s < (1<<m); s++) {
                                                 for(int a = s; a; a = (a-1)&s)
                                                     cnt[s][a] = 0;
-                                                cnt[s][0] = 0;
+                                                cnt[s] = 0;
                                             }
                                             for(int i = 0; i < n; i++) {
                                                 int features = 0;
@@ -10032,7 +10105,7 @@ A Bit of Logic -<
 
                                         int m, n, s[maxn], k[maxn], kk;
                                         double c, price[maxn][maxm];
-                                        char name[maxn][10];
+                                        char name[maxn];
 
                                         double d[maxm][maxstate];
                                         int opt[maxm][maxstate], prev[maxm][maxstate];
@@ -10088,7 +10161,7 @@ A Bit of Logic -<
                                             for(int day = 0; day <= m; day++)
                                                 for(int s = 0; s < states.size(); s++) d[day][s] = -INF;
 
-                                            d[0][0] = c;
+                                            d = c;
                                             for(int day = 0; day < m; day++)
                                                 for(int s = 0; s < states.size(); s++) {
                                                     double v = d[day][s];
@@ -10102,7 +10175,7 @@ A Bit of Logic -<
                                                             update(day, s, sell_next[s][i], v + price[i][day], -i-1); // SELL
                                                     }
                                                 }
-                                            return d[m][0];
+                                            return d[m];
                                         }
 
                                         void print_ans(int day, int s) {
@@ -10154,12 +10227,12 @@ A Bit of Logic -<
 
                                         // d[i][a][b][s] means the minimal future energy when you already tapped i notes
                                         // your left foot at a, right foot at b, last foot is s
-                                        int d[maxn][4][4][3];
+                                        int d[maxn];
 
                                         // if the optimal strategy is to move foot f(0~2) to position t, action=f*4+t
-                                        int action[maxn][4][4][3];
+                                        int action[maxn];
 
-                                        char seq[maxn], pos[256], footch[] = ".LR";
+                                        char seq[maxn], pos, footch[] = ".LR";
 
                                         // energy needed to move a foot FOR THE SECOND TIME, from a to ta
                                         int energy(int a, int ta) {
@@ -10208,7 +10281,7 @@ A Bit of Logic -<
                                             pos['U'] = 0; pos['L'] = 1; pos['R'] = 2; pos['D'] = 3;
 
                                             while(scanf("%s", seq) == 1) {
-                                                if(seq[0] == '#') break;
+                                                if(seq == '#') break;
                                                 int n = strlen(seq);
                                                 memset(d, 0, sizeof(d));
                                                 for(int i = n-1; i >= 0; i--)
@@ -10229,7 +10302,7 @@ A Bit of Logic -<
                                                             }
 
                                                 // print solution
-                                                int a = LEFT, b = RIGHT, s = 0; // d[0][1][2][0] is out answer
+                                                int a = LEFT, b = RIGHT, s = 0; // d is out answer
                                                 for(int i = 0; i < n; i++) {
                                                     int f = action[i][a][b][s] / 4;
                                                     int t = action[i][a][b][s] % 4;
@@ -10259,7 +10332,7 @@ A Bit of Logic -<
                                         const int maxn = 100 + 5;
 
                                         int n, G[maxn][maxn], color[maxn], diff[maxn], cc;
-                                        vector<int> team[maxn][2]; // team[cc][c] is the list of people in connected-component cc, color c
+                                        vector<int> team[maxn]; // team[cc][c] is the list of people in connected-component cc, color c
 
                                         // returns false if not bipartite graph
                                         bool dfs(int u, int c) {
@@ -10279,10 +10352,10 @@ A Bit of Logic -<
                                             cc = 0; // current connected-component
                                             for(int i = 0; i < n; i++)
                                                 if(!color[i]) {
-                                                    team[cc][0].clear();
-                                                    team[cc][1].clear();
+                                                    team[cc].clear();
+                                                    team[cc].clear();
                                                     if(!dfs(i, 1)) return false;
-                                                    diff[cc] = team[cc][0].size() - team[cc][1].size();
+                                                    diff[cc] = team[cc].size() - team[cc].size();
                                                     cc++;
                                                 }
 
@@ -10314,7 +10387,7 @@ A Bit of Logic -<
 
                                         void dp() {
                                             memset(d, 0, sizeof(d));
-                                            d[0][0+n] = 1;
+                                            d[0+n] = 1;
                                             for(int i = 0; i < cc; i++)
                                                 for(int j = -n; j <= n; j++) if(d[i][j+n]) {
                                                     d[i+1][j+diff[i]+n] = 1;
@@ -10402,8 +10475,8 @@ A Bit of Logic -<
                                         } s[maxn];
 
                                         int kase, n;
-                                        int vis[maxn][maxn][2];
-                                        double v, x, d[maxn][maxn][2];
+                                        int vis[maxn][maxn];
+                                        double v, x, d[maxn][maxn];
                                         double psdt[maxn]; // prefix sum of dt
 
                                         // cost accumulated when walking from x1 and x2.
@@ -10439,11 +10512,11 @@ A Bit of Logic -<
                                                 }
                                                 sort(s+1, s+n+1); // in increasing order of position
 
-                                                psdt[0] = 0;
+                                                psdt = 0;
                                                 for(int i = 1; i <= n; i++)
                                                     psdt[i] = psdt[i-1] + s[i].dt;
 
-                                                s[0].x = -INF;
+                                                s.x = -INF;
                                                 s[n+1].x = INF;
                                                 double ans = INF;
                                                 for(int i = 1; i <= n+1; i++)
@@ -10499,7 +10572,7 @@ A Bit of Logic -<
                                                             }
                                                     }
 
-                                                if (p[n][0] < 0) printf("-1");
+                                                if (p[n] < 0) printf("-1");
                                                 else {
                                                     int i = n, j = 0;
                                                     for(int d = p[i][j]; d >= 0; d = p[i][j]){
@@ -10552,9 +10625,9 @@ A Bit of Logic -<
                                         };
 
                                         int n;
-                                        string s[maxn][2];
+                                        string s[maxn];
                                         int len[maxn];
-                                        int overlap[maxn][maxn][2][2];
+                                        int overlap[maxn][maxn];
 
                                         void init() {
                                             // read input
@@ -10575,7 +10648,7 @@ A Bit of Logic -<
                                                             tmp[j].rev.find(tmp[i].s) != string::npos) { need = false; break; }
                                                 }
                                                 if(need) {
-                                                    s[n2][0] = tmp[i].s; s[n2][1] = tmp[i].rev;
+                                                    s[n2] = tmp[i].s; s[n2] = tmp[i].rev;
                                                     len[n2] = tmp[i].s.length();
                                                     n2++;
                                                 }
@@ -10588,7 +10661,7 @@ A Bit of Logic -<
                                         }
 
                                         // d[s][i][x] is the minimal total length if we used set s and the last string is s[i][x]
-                                        int d[1<<maxn][maxn][2];
+                                        int d[1<<maxn][maxn];
 
                                         inline void update(int& x, int v) {
                                             if(x < 0 || v < x) x = v;
@@ -10597,7 +10670,7 @@ A Bit of Logic -<
                                         void solve() {
                                             // dp
                                             memset(d, -1, sizeof(d));
-                                            d[1][0][0] = len[0]; // always use string s[0][0] first
+                                            d = len; // always use string s first
                                             int full = (1<<n) - 1;
                                             for(int s = 1; s < full; s++) {
                                                 REP(i,n) REP(x,2) if(d[s][i][x] >= 0)
@@ -10610,7 +10683,7 @@ A Bit of Logic -<
                                             int ans = -1;
                                             REP(i,n) REP(x,2) {
                                                 if(d[full][i][x] < 0) continue;
-                                                update(ans, d[full][i][x]-overlap[i][0][x][0]);
+                                                update(ans, d[full][i][x]-overlap[i][x]);
                                             }
                                             if(ans <= 1) ans = 2; // problem said: at least two children
 
@@ -10651,8 +10724,8 @@ A Bit of Logic -<
                                         // So level 1's height is book 1's height
                                         // dp[i][j][k] is the minimal total heights of level 2 and 3 when we used i books, level 2 and 3's total widths are j and k,
                                         // level 1's width is (sumw[n] - j - k)
-                                        int dp[2][maxn*maxw][maxn*maxw];
-                                        int sumw[maxn]; // sum[i] is the sum of widths of first i books. sum[0] = 0.
+                                        int dp[maxn*maxw][maxn*maxw];
+                                        int sumw[maxn]; // sum[i] is the sum of widths of first i books. sum = 0.
 
                                         // increased height if you place a book with height h to a level with width w
                                         // if w == 0, that means the level if empty, so height is increased by h
@@ -10675,11 +10748,11 @@ A Bit of Logic -<
                                                     scanf("%d%d", &books[i].h, &books[i].w);
                                                 sort(books, books+n);
 
-                                                sumw[0] = 0;
+                                                sumw = 0;
                                                 for(int i = 1; i <= n; i++)
                                                     sumw[i] = sumw[i-1] + books[i-1].w;
 
-                                                dp[0][0][0] = 0;
+                                                dp = 0;
                                                 int t = 0;
                                                 for(int i = 0; i < n; i++) {
                                                     // Don't use memset. It's too slow
@@ -10699,7 +10772,7 @@ A Bit of Logic -<
                                                 for(int j = 1; j <= sumw[n]; j++) // each level has at least one book
                                                     for(int k = 1; k <= sumw[n]-j; k++) if(dp[t][j][k] >= 0) {
                                                         int w = max(max(j, k), sumw[n]-j-k);
-                                                        int h = books[0].h + dp[t][j][k];
+                                                        int h = books.h + dp[t][j][k];
                                                         ans = min(ans, w * h);
                                                     }
                                                 printf("%d\n", ans);
@@ -10724,7 +10797,7 @@ A Bit of Logic -<
                                         const int maxx = maxn*maxn*2;
                                         const LL  INF = (1LL << 60);
 
-                                        LL h[maxn], x[maxx], dp[2][maxx];
+                                        LL h[maxn], x[maxx], dp[maxx];
 
                                         int main () {
                                             int T;
@@ -10734,7 +10807,7 @@ A Bit of Logic -<
                                                 LL d;
                                                 cin >> n >> d;
                                                 for(int i = 0; i < n; i++) cin >> h[i];
-                                                if(abs(h[0] - h[n-1]) > (n-1)*d) {
+                                                if(abs(h - h[n-1]) > (n-1)*d) {
                                                     cout << "impossible\n";
                                                     continue;
                                                 }
@@ -10750,8 +10823,8 @@ A Bit of Logic -<
                                                 // dp
                                                 int t = 0;
                                                 for(int i = 0; i < nx; i++) {
-                                                    dp[0][i] = INF;
-                                                    if(x[i] == h[0]) dp[0][i] = 0;
+                                                    dp[i] = INF;
+                                                    if(x[i] == h) dp[i] = 0;
                                                 }
                                                 for(int i = 1; i < n; i++) {
                                                     int k = 0;
@@ -11022,9 +11095,9 @@ A Bit of Logic -<
                                                 memset(G, 0, sizeof(G));
                                                 int useful = 0;
                                                 for(int i = 0; i < m; i++) {
-                                                    char r1[9], r2[9];
+                                                    char r1, r2;
                                                     scanf("%s%s", r1, r2);
-                                                    u[i] = r1[0]-'L', v[i] = r2[0]-'L';
+                                                    u[i] = r1-'L', v[i] = r2-'L';
                                                     G[u[i]][v[i]] = 1;
                                                     useful |= (1<<u[i]);
                                                     useful |= (1<<v[i]);
@@ -11111,7 +11184,7 @@ A Bit of Logic -<
 
                                             // dp
                                             memset(f, 0, sizeof(f));
-                                            f[0][0] = 1;
+                                            f = 1;
                                             for(int i = 0; i <= zcnt; i++)
                                                 for(int j = 0; j <= ocnt; j++) {
                                                     if(can_receive_zero(i, j)) f[i+1][j] += f[i][j];
@@ -11205,7 +11278,7 @@ A Bit of Logic -<
                                                 for(int i = 0; i < tr[x].size(); i++) {
                                                     int target = tr[x][i].target;
                                                     int empty = tr[x][i].empty;
-                                                    if(dp[empty][0] == "" && (dp[target][len] == "-" || s < dp[target][len])) {
+                                                    if(dp[empty] == "" && (dp[target][len] == "-" || s < dp[target][len])) {
                                                         dp[target][len] = s;
                                                         q.push(Node(target, s));
                                                     }
@@ -11241,7 +11314,7 @@ A Bit of Logic -<
                                                 sym2id.clear();
                                                 ns = 0;
 
-                                                ID(""); // make sure sym[0] = ""
+                                                ID(""); // make sure sym = ""
                                                 for(int i = 0; i < maxs; i++) tr[i].clear();
 
                                                 for(int i = 0; i < n; i++) {
@@ -11257,7 +11330,7 @@ A Bit of Logic -<
                                                 for(int i = 0; i < ns; i++)
                                                     for(int j = 0; j <= L; j++)
                                                         dp[i][j] = "-"; // impossible
-                                                dp[0][0] = ""; // dp[i][j] means the first string with len j that symbol i can be transformed into
+                                                dp = ""; // dp[i][j] means the first string with len j that symbol i can be transformed into
 
                                                 for(int j = 0; j <= L; j++) {
                                                     for(int i = 0; i < ns; i++) {
@@ -11291,8 +11364,8 @@ A Bit of Logic -<
 
                                         int kase, n;
                                         int p[maxn], v[maxn];
-                                        int d[maxn][maxn][maxn][2];
-                                        int vis[maxn][maxn][maxn][2];
+                                        int d[maxn][maxn][maxn];
+                                        int vis[maxn][maxn][maxn];
 
                                         // already considered s~e, still need to delivery to cnt people.
                                         // pos = 0 means at s, pos = 1 means at e
@@ -11365,14 +11438,16 @@ A Bit of Logic -<
                     -   Nodes in a linked list must be read in order from the
                         beginning as linked lists are **inherently sequential
                         access**.
-                    -   Nodes are **stored incontiguously**, greatly increasing
-                        the time required to access individual elements within
-                        the list, especially with a CPU cache.
+                    -   Nodes are **stored incontiguously**（不连续地）,
+                        greatly increasing the time required to access
+                        individual elements within the list, especially with a
+                        CPU cache.
                     -   Difficulties arise in linked lists when it comes to
                         **reverse traversing**. For instance, singly linked
                         lists are cumbersome to navigate backwards and while
                         **doubly linked lists are somewhat easier to read,
-                        memory is wasted in allocating space for a back-pointer**.
+                        memory is wasted in allocating space for a
+                        back-pointer**.
 
                     ![A singly linked list whose nodes contain two fields: an
                         integer value and a link to the next node](https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Singly-linked-list.svg/408px-Singly-linked-list.svg.png)
@@ -11385,10 +11460,12 @@ A Bit of Logic -<
 
                 Sentinel nodes -<
 
-                :   In computer programming, a sentinel node is a specifically
-                    designated node used with linked lists and trees as a
+                :   In computer programming, a sentinel node is
+                    **a specifically designated （指定）node** used with linked lists and trees as a
                     **traversal path terminator**. This type of node does not hold
                     or reference any data managed by the data structure.
+
+                    traversal, `[trəˈvərs(ə)l]`
 
                     Sentinels are used as an alternative over using null as the
                     path terminator in order to get one or more of the
@@ -11592,7 +11669,7 @@ A Bit of Logic -<
 
                 ```
                 nums1 = [1, 3]
-                nums2 = [2]
+                nums2 =
                 ```
 
                 The median is 2.0
@@ -11629,7 +11706,7 @@ A Bit of Logic -<
 
                 :   DP.
 
-                    -   `f[j] = max( f[j-1]+S[j], S[j] ), j = 2..n, f[1] = S[1]`
+                    -   `f[j] = max( f[j-1]+S[j], S[j] ), j = 2..n, f = S`
                     -   `target = max{ f[j] }, j = 1..n`
 
                     代码：
@@ -11984,7 +12061,7 @@ A Bit of Logic -<
                                             char s1[MAX_WORD_LEN + 1], s2[MAX_WORD_LEN + 1];
                                             map<string, string> dict;
 
-                                            while ( fgets(line, MAX_WORD_LEN*2, stdin ) && (line[0] != 0 && line[0] != '\n') ) {
+                                            while ( fgets(line, MAX_WORD_LEN*2, stdin ) && (line != 0 && line != '\n') ) {
                                                 sscanf(line, "%s %s", s1, s2);
                                                 dict[s2] = s1;
                                             }
@@ -12095,10 +12172,10 @@ A Bit of Logic -<
 
                                     end ← count - 1
                                     while end > 0 do
-                                        // a[0] is the root and largest value. The
+                                        // a is the root and largest value. The
                                         // swap moves it in front of the sorted
                                         // elements.)
-                                        swap(a[end], a[0])
+                                        swap(a[end], a)
                                         // the heap size is reduced by one
                                         end ← end - 1
                                         // the swap ruined the heap property, so restore it
@@ -12158,14 +12235,14 @@ A Bit of Logic -<
                                 ---------
 
                                 3   9   6   8   5   1   4   2   7           9   8   6   7   5   1   4   2   3
-                                             [3]                                          9
+                                                                                       9
                                             /   \                                       /   \
                                            /      \                                    /      \
                                          9         6                                 8         6
                                         /  \       /  \                             /  \       /  \
                                       8     5     1    4                          7     5     1    4
                                      / \                                         / \
-                                    2    7                                      2    [3]
+                                    2    7                                      2
                                                         tmp = h[j]
 
                                     (i)         can go down?
@@ -12237,13 +12314,13 @@ A Bit of Logic -<
                                 }
 
                                 void heap_pop( heap_t *h ) {
-                                    h->elems[0] = h->elems[h->size - 1];
+                                    h->elems = h->elems[h->size - 1];
                                     --h->size;
                                     heap_sift_down( h, 0 );
                                 }
 
                                 int heap_top( const heap_t *h ) {
-                                    return h->elems[0];
+                                    return h->elems;
                                 }
                                 ```
 
@@ -12884,117 +12961,213 @@ A Bit of Logic -<
                 -   [并查集 (Union-Find) 算法介绍 - dm_vincent 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/dm_vincent/article/details/7655764)
                 -   [并查集(Disjoint Set)](http://www.roading.org//algorithm/introductiontoalgorithm/Disjoint_set.html)
 
-        -   Trie 树
-            -   Trie 树的相关运用
-            -   Trie tree -<
+        -   Trie 树 -<
 
-                :   -   trie_tree.c -<
+            :   -   Trie 理论知识 -<
 
-                        :   ```cpp
-                            #include <stdio.h>
-                            #include <string.h>
-                            #include <stdlib.h>
+                    :   In computer science, a trie(`/ˈtraɪ/`, as "try"), also called **digital
+                        tree** and sometimes **radix tree** or **prefix tree** (as they can be
+                        searched by prefixes), is a kind of search tree—an ordered tree data
+                        structure that is used to store a dynamic set or associative array where
+                        the keys are usually strings.  Unlike a binary search tree, no node in the
+                        tree stores the key associated with that node; instead, its position in the
+                        tree defines the key with which it is associated. All the descendants of a
+                        node have a common prefix of the string associated with that node, and the
+                        root is associated with the empty string. Values are not necessarily
+                        associated with every node.  Rather, values tend only to be associated with
+                        leaves, and with some inner nodes that correspond to keys of interest. For
+                        the space-optimized presentation of prefix tree, see compact prefix tree.
 
-                            #define MAXN 10000
-                            #define CHAR_COUNT  10                      // 字符的种类，也即单个节点的子树的最大个数
-                            #define MAX_CODE_LEN 10
-                            #define MAX_NODE_COUNT  (MAXN * MAX_CODE_LEN + 1)  /** 字典树的最大节点个数. */
-                                               /* 如果没有指定 MAXN，则是 CHAR_COUNT^(MAX_CODE_LEN+1)-1 */
+                        ![A trie for keys "A","to", "tea", "ted", "ten", "i", "in", and "inn".](https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Trie_example.svg/375px-Trie_example.svg.png)
 
-                            typedef struct trie_node_t {
-                                struct trie_node_t* next[CHAR_COUNT];
-                                bool is_tail;                           // 当前字符是否位于某个串的尾部
-                            } trie_node_t;
+                        a trie has a number of advantages over binary search trees. A trie can
+                        also be used to replace a hash table, over which it has the following
+                        advantages:
 
-                            typedef struct trie_tree_t {
-                                trie_node_t *root;                      /** 树的根节点 */
-                                int size;
-                                trie_node_t nodes[MAX_NODE_COUNT];
-                            } trie_tree_t;
+                        -   Looking up data in a trie is **faster in the worst case**, O(m) time (where m
+                            is the length of a search string), compared to an imperfect hash table. An
+                            imperfect hash table can have **key collisions**. A key collision is the hash
+                            function mapping of different keys to the same position in a hash table.
+                            The worst-case lookup speed in an imperfect hash table is O(N) time, but
+                            far more typically is O(1), with O(m) time spent evaluating the hash.
+                        -   There are **no collisions** of different keys in a trie.
+                        -   Buckets in a trie, which are analogous to hash table buckets that store key
+                            collisions, are necessary only if a single key is associated with more than
+                            one value.
+                        -   There is **no need to provide a hash function or to change hash functions as
+                            more keys are added to a trie**.
+                        -   A trie can provide an alphabetical ordering of the entries by key.
 
-                            trie_tree_t* trie_tree_create(void) {
-                                trie_tree_t *tree = (trie_tree_t*)malloc(sizeof(trie_tree_t));
-                                tree->root = &(tree->nodes[0]);
-                                memset(tree->nodes, 0, sizeof(tree->nodes));
-                                tree->size = 1;
-                                return tree;
-                            }
+                        Tries do have some drawbacks as well:
 
-                            void trie_tree_destroy(trie_tree_t *tree) {
-                                free(tree);
-                                tree = NULL;                            // not necessary
-                            }
+                        -   Tries can be **slower in some cases than hash tables for looking up data**,
+                            especially if the data is directly accessed on a hard disk drive or some
+                            other secondary storage device where the random-access time is high
+                            compared to main memory.
+                        -   Some keys, such as floating point numbers, can lead to **long chains and
+                            prefixes that are not particularly meaningful**. Nevertheless, a bitwise trie
+                            can handle standard IEEE single and double format floating point numbers.
+                        -   Some tries can **require more space** than a hash table, as memory may be
+                            allocated for each character in the search string, rather than a single
+                            chunk of memory for the whole entry, as in most hash tables.
 
-                            void trie_tree_clear(trie_tree_t *tree) {
-                                memset(tree->nodes, 0, sizeof(tree->nodes));
-                                tree->size = 1;                         // 清空时一定要注意这一步！
-                            }
+                        Suffix tree -<
 
-                            bool trie_tree_insert(trie_tree_t *tree, char *word) {
-                                int i;
-                                trie_node_t *p = tree->root;
-                                while (*word) {
-                                    int curword = *word - '0';
-                                    if (p->next[curword] == NULL) {
-                                        p->next[curword] = &(tree->nodes[tree->size++]);
-                                    }
-                                    p = p->next[curword];
-                                    if (p->is_tail) {
-                                        return false;                   // 某串是当前串的前缀
-                                    }
-                                    ++word;
-                                }
+                        :   In computer science, a suffix tree (also called PAT tree or, in an
+                            earlier form, position tree) is a compressed trie containing all the
+                            suffixes of the given text as their keys and positions in the text as
+                            their values. Suffix trees allow particularly fast implementations of
+                            many important string operations.
 
-                                p->is_tail = true;                      // 标记当前串已是结尾
+                        doubly chained tree -<
 
-                                // 判断当前串是否是某个串的前缀
-                                for (i = 0; i < CHAR_COUNT; i++) {
-                                    if (p->next[i] != NULL) {
-                                        return false;
-                                    }
-                                }
-                                return true;
-                            }
+                        :   ![A trie implemented as a doubly chained tree: vertical arrows are child
+                                pointers, dashed horizontal arrows are next pointers. The set of
+                                strings stored in this trie is {baby, bad, bank, box, dad, dance}. The
+                                lists are sorted to allow traversal in lexicographic
+                                order.](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Pointer_implementation_of_a_trie.svg/330px-Pointer_implementation_of_a_trie.svg.png)
+
+                            **Every multi-way or k-ary tree structure studied in computer science
+                            admits a representation as a binary tree**, which goes by various names
+                            including 【child-sibling representation】, 【left-child, right-sibling binary tree】,
+                            【doubly chained tree】 or 【filial-heir chain】(`['fɪlɪəl]`).
+
+                            ![6-ary tree represented as a binary tree](https://en.wikipedia.org/wiki/File:N-ary_to_binary.svg)
+
+                            The process of converting from a **k-ary tree** to an **LC-RS binary tree** is sometimes called the 【Knuth transform】.
+
+                            ```
+                                   1                       1                          1
+                                  /|\                     /                          /
+                                 / | \                   /                          2
+                                /  |  \                 /                          / \
+                               2   3   4               2---3---4                  5   3
+                              / \      |              /       /                    \   \
+                             5   6     7             5---6   7                      6   4
+                                      / \                   /                          /
+                                     8   9                 8---9                      7
+                                                                                     /
+                                                                                    8
+                                                                                     \
+                                                                                      9
                             ```
 
-                    -   immediate decodebility -<
+                        refs and see also
 
-                        :   POJ 1056 IMMEDIATE DECODABILITY, <http://poj.org/problem?id=1056>
+                        -   [Trie - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Trie)
+                        -   [Suffix tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Suffix_tree)
+                        -   [Left-child right-sibling binary tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Left-child_right-sibling_binary_tree)
 
-                            ```cpp
-                            #include "trie_tree.c"
+                -   Trie 树的相关运用
+                -   Trie tree -<
 
-                            int main() {
-                                int T = 0;
-                                char line[MAX_NODE_COUNT];
-                                trie_tree_t *trie_tree = trie_tree_create();
-                                bool islegal = true;
+                    :   -   trie_tree.c -<
 
-                                while ( scanf("%s", line) != EOF ) {
-                                    if (strcmp(line, "9") == 0) {
-                                        if (islegal) {
-                                            printf("Set %d is immediately decodable\n", ++T);
+                            :   ```cpp
+                                #include <stdio.h>
+                                #include <string.h>
+                                #include <stdlib.h>
+
+                                #define MAXN 10000
+                                #define CHAR_COUNT  10                      // 字符的种类，也即单个节点的子树的最大个数
+                                #define MAX_CODE_LEN 10
+                                #define MAX_NODE_COUNT  (MAXN * MAX_CODE_LEN + 1)  /** 字典树的最大节点个数. */
+                                                   /* 如果没有指定 MAXN，则是 CHAR_COUNT^(MAX_CODE_LEN+1)-1 */
+
+                                typedef struct trie_node_t {
+                                    struct trie_node_t* next[CHAR_COUNT];
+                                    bool is_tail;                           // 当前字符是否位于某个串的尾部
+                                } trie_node_t;
+
+                                typedef struct trie_tree_t {
+                                    trie_node_t *root;                      /** 树的根节点 */
+                                    int size;
+                                    trie_node_t nodes[MAX_NODE_COUNT];
+                                } trie_tree_t;
+
+                                trie_tree_t* trie_tree_create(void) {
+                                    trie_tree_t *tree = (trie_tree_t*)malloc(sizeof(trie_tree_t));
+                                    tree->root = &(tree->nodes);
+                                    memset(tree->nodes, 0, sizeof(tree->nodes));
+                                    tree->size = 1;
+                                    return tree;
+                                }
+
+                                void trie_tree_destroy(trie_tree_t *tree) {
+                                    free(tree);
+                                    tree = NULL;                            // not necessary
+                                }
+
+                                void trie_tree_clear(trie_tree_t *tree) {
+                                    memset(tree->nodes, 0, sizeof(tree->nodes));
+                                    tree->size = 1;                         // 清空时一定要注意这一步！
+                                }
+
+                                bool trie_tree_insert(trie_tree_t *tree, char *word) {
+                                    int i;
+                                    trie_node_t *p = tree->root;
+                                    while (*word) {
+                                        int curword = *word - '0';
+                                        if (p->next[curword] == NULL) {
+                                            p->next[curword] = &(tree->nodes[tree->size++]);
+                                        }
+                                        p = p->next[curword];
+                                        if (p->is_tail) {
+                                            return false;                   // 某串是当前串的前缀
+                                        }
+                                        ++word;
+                                    }
+
+                                    p->is_tail = true;                      // 标记当前串已是结尾
+
+                                    // 判断当前串是否是某个串的前缀
+                                    for (i = 0; i < CHAR_COUNT; i++) {
+                                        if (p->next[i] != NULL) {
+                                            return false;
+                                        }
+                                    }
+                                    return true;
+                                }
+                                ```
+
+                        -   immediate decodebility -<
+
+                            :   POJ 1056 IMMEDIATE DECODABILITY, <http://poj.org/problem?id=1056>
+
+                                ```cpp
+                                #include "trie_tree.c"
+
+                                int main() {
+                                    int T = 0;
+                                    char line[MAX_NODE_COUNT];
+                                    trie_tree_t *trie_tree = trie_tree_create();
+                                    bool islegal = true;
+
+                                    while ( scanf("%s", line) != EOF ) {
+                                        if (strcmp(line, "9") == 0) {
+                                            if (islegal) {
+                                                printf("Set %d is immediately decodable\n", ++T);
+                                            } else {
+                                                printf("Set %d is not immediately decodable\n", ++T);
+                                            }
+                                            trie_tree_clear(trie_tree);
+                                            islegal = true;
                                         } else {
-                                            printf("Set %d is not immediately decodable\n", ++T);
-                                        }
-                                        trie_tree_clear(trie_tree);
-                                        islegal = true;
-                                    } else {
-                                        if (islegal) {
-                                            islegal = trie_tree_insert(trie_tree, line);
+                                            if (islegal) {
+                                                islegal = trie_tree_insert(trie_tree, line);
+                                            }
                                         }
                                     }
+                                    trie_tree_destroy(trie_tree);
+                                    return 0;
                                 }
-                                trie_tree_destroy(trie_tree);
-                                return 0;
-                            }
-                            ```
+                                ```
 
-                            ```bash
-                            $ cat input.txt | ./a.out
-                            Set 1 is immediately decodable
-                            Set 2 is not immediately decodable
-                            ```
+                                ```bash
+                                $ cat input.txt | ./a.out
+                                Set 1 is immediately decodable
+                                Set 2 is not immediately decodable
+                                ```
 
         -   扫描线算法
             -   1. 扫描线的常规题目
@@ -13072,7 +13245,7 @@ A Bit of Logic -<
                                 for (i = 1; i <= n; i++) scanf("%d", &A[i]);
 
                                 init();
-                                // 建立以 tree[1] 为根结点，区间为 A[1,n] 的线段树
+                                // 建立以 tree 为根结点，区间为 A[1,n] 的线段树
                                 build(1, 1, n);
 
                                 while (q--) {
@@ -13213,9 +13386,9 @@ A Bit of Logic -<
                                 int j = 0; /* 剩余队列的虚拟编号 */
                                 for (i = 1; i <= n; i++) {
                                     j += m;
-                                    if (j > node[1].count)
-                                        j %= node[1].count;
-                                    if (j == 0) j = node[1].count;
+                                    if (j > node.count)
+                                        j %= node.count;
+                                    if (j == 0) j = node.count;
                                     const int k = remove(1, j);
                                     j = get_count(1, k);
                                 }
@@ -13317,7 +13490,7 @@ A Bit of Logic -<
 
                 int main() {
                     for(int n = 2; n <= 1000; n++) {
-                        f[n][0] = 0; f[n][1] = 1;
+                        f[n] = 0; f[n] = 1;
                         for(int i = 2; ; i++) {
                             f[n][i] = (f[n][i-1] + f[n][i-2]) % n;
                             if(f[n][i-1] == 0 && f[n][i] == 1) {
@@ -13497,7 +13670,7 @@ A Bit of Logic -<
                             int b = a - c;
                             if(c == (a ^ b)) cnt[a]++;
                         }
-                    sum[0] = 0;
+                    sum = 0;
                     for(int i = 1; i <= M; i++) sum[i] = sum[i-1] + cnt[i];
                 }
 
@@ -13563,7 +13736,7 @@ A Bit of Logic -<
                             if(!bad[k]) ans.push_back(k+1); // 编号从1开始
                         cout << ans.size() << "\n";
                         if(!ans.empty()) {
-                            cout << ans[0];
+                            cout << ans;
                             for(int i = 1; i < ans.size(); i++) cout << " " << ans[i];
                         }
                         cout << "\n";
@@ -13583,7 +13756,7 @@ A Bit of Logic -<
                 int phi[maxn+1], phi_psum[maxn+1];
 
                 void phi_table(int n) {
-                    phi[1] = 0;
+                    phi = 0;
                     for(int i = 2; i <= n; i++) if(phi[i] == 0)
                         for(int j = i; j <= n; j += i) {
                             if(phi[j] == 0) phi[j] = j;
@@ -13594,7 +13767,7 @@ A Bit of Logic -<
                 int main(){
                     int n;
                     phi_table(maxn);
-                    phi_psum[0] = 0;
+                    phi_psum = 0;
                     for(int i = 1; i <= maxn; i++)
                         phi_psum[i] = phi_psum[i-1] + phi[i];
                     while(scanf("%d", &n) == 1 && n)
@@ -13613,7 +13786,7 @@ A Bit of Logic -<
                 using namespace std;
 
                 int k, cnt;
-                char p[2][6][9], ans[9];
+                char p, ans;
 
                 // return true if already found
                 bool dfs(int col) {
@@ -13625,13 +13798,13 @@ A Bit of Logic -<
                         }
                         return false;
                     }
-                    bool vis[2][26];
+                    bool vis;
                     memset(vis, 0, sizeof(vis));
                     for(int i = 0; i < 2; i++)
                         for(int j = 0; j < 6; j++)
                             vis[i][p[i][j][col] - 'A'] = true;
                     for(int i = 0; i < 26; i++)
-                        if(vis[0][i] && vis[1][i]) {
+                        if(vis[i] && vis[i]) {
                             ans[col] = 'A' + i;
                             if(dfs(col+1)) return true;
                         }
@@ -13661,7 +13834,7 @@ A Bit of Logic -<
                 #include<cstdio>
                 #include<cstring>
                 int main() {
-                    char s[120];
+                    char s;
                     while(scanf("%s", s) == 1) {
                         int a = 0, b = 0, n = strlen(s);
                         for(int i = 0; i < n; i++) {
@@ -13743,7 +13916,7 @@ A Bit of Logic -<
                 using namespace std;
 
                 map<vector<int>, double> d;
-                char card[9][4][3];
+                char card;
 
                 // cnt is a vector of length 9, cnt[i] is the number of remaining cards in pile i.
                 // c is the sum of cnt. It is here to save time and code length :)
@@ -13754,7 +13927,7 @@ A Bit of Logic -<
                     int tot = 0;
                     for(int i = 0; i < 9; i++) if(cnt[i] > 0)
                         for(int j = i+1; j < 9; j++) if(cnt[j] > 0)
-                            if(card[i][cnt[i]-1][0] == card[j][cnt[j]-1][0]) {
+                            if(card[i][cnt[i]-1] == card[j][cnt[j]-1]) {
                                 tot++;
                                 cnt[i]--; cnt[j]--;
                                 sum += dp(cnt, c-2);
@@ -13789,11 +13962,11 @@ A Bit of Logic -<
                 #include<iostream>
                 using namespace std;
 
-                int f[31], g[31];
+                int f, g;
 
                 int main() {
-                    f[0] = f[1] = f[2] = 0;
-                    g[0] = 1; g[1] = 2; g[2] = 4;
+                    f = f = f = 0;
+                    g = 1; g = 2; g = 4;
                     for(int n = 3; n <= 30; n++) {
                         f[n] = 1 << (n-3);
                         for(int i = 2; i <= n-2; i++)
@@ -13821,7 +13994,7 @@ A Bit of Logic -<
                 // 递推出所有组合数
                 void init() {
                     for(int i = 0; i <= maxn; i++) {
-                        C[i][0] = C[i][i] = 1;
+                        C[i] = C[i][i] = 1;
                         for(int j = 1; j < i; j++)
                             C[i][j] = (C[i-1][j] + C[i-1][j-1]) % MOD;
                     }
@@ -13829,7 +14002,7 @@ A Bit of Logic -<
 
                 int main() {
                     init();
-                    f[0] = 1;
+                    f = 1;
                     for(int i = 1; i <= maxn; i++) {
                         f[i] = 0;
                         for(int j = 1; j <= i; j++) f[i] = (f[i] + C[i][j] * f[i-j]) % MOD;
@@ -13857,7 +14030,7 @@ A Bit of Logic -<
                 long long d[maxn+1][maxn+1][maxn+1];
 
                 int main() {
-                    d[1][1][1] = 1;
+                    d = 1;
                     for(int i = 2; i <= maxn; i++)
                         for(int j = 1; j <= i; j++)
                             for(int k = 1; k <= i; k++) {
@@ -13924,7 +14097,7 @@ A Bit of Logic -<
                 }
 
                 int main() {
-                    logF[0] = 0;
+                    logF = 0;
                     for(int i = 1; i <= maxn; i++)
                         logF[i] = logF[i-1] + log(i);
 
@@ -14046,7 +14219,7 @@ A Bit of Logic -<
                             double p1 = (p0-t)/(1-t);
                             d[i] = (double)(1<<i) * p1 + (1+p0)/2 * d[i+1] * (1-p1);
                         }
-                        printf("%.3lf\n", d[0]);
+                        printf("%.3lf\n", d);
                     }
                     return 0;
                 }
@@ -14098,8 +14271,8 @@ A Bit of Logic -<
                 using namespace std;
 
                 // cnt[i] is the number of occurrence of EVERY digit, among all i-digit numbers (leading zeros ALLOWED)
-                // for examples, there are 1000 3-digit numbers, each digit 0~9 has occurred 300 times, so cnt[3] = 300
-                int pow10[10], cnt[10];
+                // for examples, there are 1000 3-digit numbers, each digit 0~9 has occurred 300 times, so cnt = 300
+                int pow10, cnt;
 
                 // how many times digit d occurred in 0~n-1
                 // numbers in 0~4567 can be divided into the following patterns:
@@ -14108,7 +14281,7 @@ A Bit of Logic -<
                 // smaller digit 1: 40**, 41**, 42**, 43**, 44**
                 // smaller digit 2: 450*, 451*, ...
                 int f(int d, int n) {
-                    char s[10];
+                    char s;
                     sprintf(s, "%d", n);
                     int len = strlen(s);
                     int ans = 0;
@@ -14122,7 +14295,7 @@ A Bit of Logic -<
                         }
                     }
 
-                    int pre[10]; // pre[i] is the occurrence of digit d in s[0~i]
+                    int pre; // pre[i] is the occurrence of digit d in s[0~i]
                     for(int i = 0; i < len; i++) {
                         pre[i] = (s[i] - '0' == d ? 1 : 0);
                         if(i > 0) pre[i] += pre[i-1];
@@ -14143,7 +14316,7 @@ A Bit of Logic -<
                 }
 
                 int main() {
-                    pow10[0] = 1;
+                    pow10 = 1;
                     for(int i = 1; i <= 8; i++) {
                         pow10[i] = pow10[i-1] * 10;
                         cnt[i] = pow10[i-1] * i;
@@ -14192,7 +14365,7 @@ A Bit of Logic -<
                 #include<cstdio>
                 int main() {
                     int h, w;
-                    char s[999];
+                    char s;
                     while(scanf("%d%d", &h, &w) == 2) {
                         int ans = 0, c = 0;
                         while(h--) {
@@ -14267,7 +14440,7 @@ A Bit of Logic -<
                 int main() {
                     int n, m;
                     gen_primes(10000000);
-                    phifac[1] = phifac[2] = 1;
+                    phifac = phifac = 1;
                     for(int i = 3; i <= 10000000; i++)
                         phifac[i] = (long long)phifac[i-1] * (vis[i] ? i : i-1) % MOD;
 
@@ -14646,7 +14819,7 @@ A Bit of Logic -<
                             for(int i = 0; i < q; i++) if(mask & (1<<i)) {
                                 c += cost[i];
                                 for(int j = 1; j < subn[i].size(); j++) {
-                                    int u = findset(subn[i][j]), v = findset(subn[i][0]);
+                                    int u = findset(subn[i][j]), v = findset(subn[i]);
                                     if(u != v) { pa[u] = v; cnt--; }
                                 }
                             }
@@ -14692,7 +14865,7 @@ A Bit of Logic -<
                 }
 
                 int main() {
-                    char s1[99], s2[99];
+                    char s1, s2;
                     int kase = 0;
                     while(scanf("%d%d", &n, &m) == 2 && n) {
                         names.clear();
@@ -15413,7 +15586,7 @@ A Bit of Logic -<
                 Dinic g;
 
                 int w, h;
-                char pool[99][99];
+                char pool;
 
                 inline int ID(int i, int j) { return i*w+j; }
 
@@ -15425,11 +15598,11 @@ A Bit of Logic -<
                         for(int i = 0; i < h; i++) scanf("%s", pool[i]);
                         int cost = 0;
                         for(int i = 0; i < h; i++) {
-                            if(pool[i][0] == '.') { pool[i][0] = '#'; cost += f; }
+                            if(pool[i] == '.') { pool[i] = '#'; cost += f; }
                             if(pool[i][w-1] == '.') { pool[i][w-1] = '#'; cost += f; }
                         }
                         for(int i = 0; i < w; i++) {
-                            if(pool[0][i] == '.') { pool[0][i] = '#'; cost += f; }
+                            if(pool[i] == '.') { pool[i] = '#'; cost += f; }
                             if(pool[h-1][i] == '.') { pool[h-1][i] = '#'; cost += f; }
                         }
                         g.init(h*w+2);
@@ -15573,10 +15746,10 @@ A Bit of Logic -<
 
                         memset(diff, 0, sizeof(diff));
                         for(int i = 0; i < m; i++) {
-                            char dir[9];
+                            char dir;
                             scanf("%d%d%s", &u[i], &v[i], dir);
                             u[i]--; v[i]--;
-                            directed[i] = (dir[0] == 'D' ? 1 : 0);
+                            directed[i] = (dir == 'D' ? 1 : 0);
                             diff[u[i]]++; diff[v[i]]--;
                             if(!directed[i]) { id[i] = g.edges.size(); g.AddEdge(u[i], v[i], 1); }
                         }
@@ -15922,7 +16095,7 @@ A Bit of Logic -<
                                 next[i][c] = s+1;
                             }
                         }
-                        is_final[0] = 0; // dummy state is not final
+                        is_final = 0; // dummy state is not final
                     }
                 }A, B;
 
@@ -16126,7 +16299,7 @@ A Bit of Logic -<
                                     }
                             }
                         }
-                        ss = reachable[0];
+                        ss = reachable;
 
                         // merge transitions
                         for(int i = 0; i < n; i++) {
@@ -16259,7 +16432,7 @@ A Bit of Logic -<
                     void init() {
                         tot = 0;
                         root = last = newnode(0);
-                        node[0].pos = 0;
+                        node.pos = 0;
                     }
 
                     void add(int x,int len) {
@@ -16318,7 +16491,7 @@ A Bit of Logic -<
                         int ans = 0;
                         for(int i = 0; i < g.tot; i++)
                             cnt[i] = sum[i] = 0;
-                        cnt[0] = 1;
+                        cnt = 1;
                         for(int i = 0; i < g.tot; i++) {
                             int fa = topo[i];
                             DAWG::Node* u = &g.node[fa];
@@ -16552,7 +16725,7 @@ A Bit of Logic -<
             ostream& operator << (ostream &out, const BigInteger& x) {
                 out << x.s.back();
                 for(int i = x.s.size()-2; i >= 0; i--) {
-                    char buf[20];
+                    char buf;
                     sprintf(buf, "%08d", x.s[i]);
                     for(int j = 0; j < strlen(buf); j++) out << buf[j];
                 }
@@ -16619,27 +16792,27 @@ A Bit of Logic -<
 
                     deque<int> readyQ;
                     queue<int> blockQ;
-                    int n, quantum, c[5], var[26], ip[maxn];                        // ip[pid] 是程序 pid 的当前行号。所有程序都存在 prog 数组，更类似真实的情况，代码也更短
+                    int n, quantum, c, var, ip[maxn];                        // ip[pid] 是程序 pid 的当前行号。所有程序都存在 prog 数组，更类似真实的情况，代码也更短
                     bool locked;
-                    char prog[maxn][10];
+                    char prog[maxn];
 
                     void run(int pid) {
                         int q = quantum;
                         while(q > 0) {
                             char *p = prog[ip[pid]];
-                            switch(p[2]) {
+                            switch(p) {
                                 case '=':
-                                    var[p[0] - 'a'] = isdigit(p[5]) ? (p[4] - '0') * 10 + p[5] - '0' : p[4] - '0';
-                                    q -= c[0];
+                                    var[p - 'a'] = isdigit(p) ? (p - '0') * 10 + p - '0' : p - '0';
+                                    q -= c;
                                     break;
                                 case 'i': // print
-                                    printf("%d: %d\n", pid+1, var[p[6] - 'a']);
-                                    q -= c[1];
+                                    printf("%d: %d\n", pid+1, var[p - 'a']);
+                                    q -= c;
                                     break;
                                 case 'c': // lock
                                     if(locked) { blockQ.push(pid); return; }
                                     locked = true;
-                                    q -= c[2];
+                                    q -= c;
                                     break;
                                 case 'l': // unlock
                                     locked = false;
@@ -16647,7 +16820,7 @@ A Bit of Logic -<
                                         int pid2 = blockQ.front(); blockQ.pop();
                                         readyQ.push_front(pid2);
                                     }
-                                    q -= c[3];
+                                    q -= c;
                                     break;
                                 case 'd': // end
                                     return;
@@ -16661,14 +16834,14 @@ A Bit of Logic -<
                         int T;
                         scanf("%d", &T);
                         while(T--) {
-                            scanf("%d %d %d %d %d %d %d\n", &n, &c[0], &c[1], &c[2], &c[3], &c[4], &quantum);
+                            scanf("%d %d %d %d %d %d %d\n", &n, &c, &c, &c, &c, &c, &quantum);
                             memset(var, 0, sizeof(var));
 
                             int line = 0;
                             for(int i = 0; i < n; i++) {
                                 fgets(prog[line++], maxn, stdin);
                                 ip[i] = line - 1;
-                                while(prog[line - 1][2] != 'd')
+                                while(prog[line - 1] != 'd')
                                     fgets(prog[line++], maxn, stdin);
                                 readyQ.push_back(i);
                             }
@@ -16731,7 +16904,7 @@ A Bit of Logic -<
                     struct Matrix {
                         int a, b;
                         Matrix(int a=0, int b=0):a(a),b(b) {}
-                    } m[26];
+                    } m;
 
                     stack<Matrix> s;
 
@@ -16741,7 +16914,7 @@ A Bit of Logic -<
                         for(int i = 0; i < n; i++) {
                             string name;
                             cin >> name;
-                            int k = name[0] - 'A';
+                            int k = name - 'A';
                             cin >> m[k].a >> m[k].b;
                         }
                         string expr;
@@ -16779,9 +16952,9 @@ A Bit of Logic -<
 
                     int main() {
                         while(scanf("%s", s+1) == 1) {
-                            int n = strlen(s+1); // 输入保存在s[1], s[2]...中
+                            int n = strlen(s+1); // 输入保存在s, s...中
                             last = cur = 0;
-                            next[0] = 0;
+                            next = 0;
 
                             for(int i = 1; i <= n; i++) {
                                 char ch = s[i];
@@ -16794,7 +16967,7 @@ A Bit of Logic -<
                                     cur = i; // 移动光标
                                 }
                             }
-                            for(int i = next[0]; i != 0; i = next[i])
+                            for(int i = next; i != 0; i = next[i])
                                 printf("%c", s[i]);
                             printf("\n");
                         }
@@ -16825,7 +16998,7 @@ A Bit of Logic -<
                                 left[i] = i-1;
                                 right[i] = (i+1) % (n+1);
                             }
-                            right[0] = 1; left[0] = n;
+                            right = 1; left = n;
                             int op, X, Y, inv = 0;
 
                             while(m--) {
@@ -17228,9 +17401,9 @@ A Bit of Logic -<
                     const int maxn = 1000 + 5;
 
                     // 并查集
-                    int pa[256];
+                    int pa;
                     int findset(int x) { return pa[x] != x ? pa[x] = findset(pa[x]) : x; }
-                    int used[256], deg[256];                                // 是否出现过；度数
+                    int used, deg;                                // 是否出现过；度数
 
                     int main() {
                         int T;
@@ -17247,7 +17420,7 @@ A Bit of Logic -<
 
                             for(int i = 0; i < n; i++) {
                                 scanf("%s", word);
-                                char c1 = word[0], c2 = word[strlen(word)-1];
+                                char c1 = word, c2 = word[strlen(word)-1];
                                 deg[c1]++;
                                 deg[c2]--;
                                 used[c1] = used[c2] = 1;
@@ -17261,7 +17434,7 @@ A Bit of Logic -<
                                 else if(deg[ch] != 0) d.push_back(deg[ch]);
                             }
                             bool ok = false;
-                            if(cc == 1 && (d.empty() || (d.size() == 2 && (d[0] == 1 || d[0] == -1)))) ok = true;
+                            if(cc == 1 && (d.empty() || (d.size() == 2 && (d == 1 || d == -1)))) ok = true;
                             if(ok) printf("Ordering is possible.\n");
                             else printf("The door cannot be opened.\n");
                         }
@@ -17294,7 +17467,7 @@ A Bit of Logic -<
                 :   n 个点，m 条边（2<=n<=100000，1<=m<=200000）的无向图，每天
                     边上都涂有一种颜色。求从节点 1 到节点 n 的一条路径，使得经过的
                     边数尽量少，在此前提下，经过边的颜色序列的字典序最小。一对节点间可能有多条边，
-                    一条边，可能连接两个相同的结点。输入保证节点 1 可以达到节点 n。颜色为 1~10^^9^^ 的整数。
+                    一条边，可能连接两个相同的结点。输入保证节点 1 可以达到节点 n。颜色为 1~10^9^ 的整数。
 
                     ```cpp
                     // UVa1599 Idea Path
@@ -17351,12 +17524,12 @@ A Bit of Logic -<
                     // forward bfs to construct the path
                     void bfs() {
                         memset(vis, 0, sizeof(vis));
-                        vis[0] = true;
+                        vis = true;
                         ans.clear();
 
                         vector<int> next;
                         next.push_back(0);
-                        for(int i = 0; i < d[0]; i++) {
+                        for(int i = 0; i < d; i++) {
                             int min_color = INF;
                             for(int j = 0; j < next.size(); j++) {
                                 int u = next[j];
@@ -17386,7 +17559,7 @@ A Bit of Logic -<
                         }
 
                         printf("%d\n", ans.size());
-                        printf("%d", ans[0]);
+                        printf("%d", ans);
                         for(int i = 1; i < ans.size(); i++) printf(" %d", ans[i]);
                         printf("\n");
                     }
@@ -17681,7 +17854,7 @@ Programming Pearls -<
                                 }
 
                                 int main() {
-                                    char buf[100];
+                                    char buf;
                                     sprintf( buf, "%s", "I love Sia Furler." );
                                     printf( "before: %s\n", buf );
                                     solve( buf );
@@ -17828,11 +18001,48 @@ Programming Pearls -<
 
                         **一年有 pi * 10^7 秒。**
 
-                        pi×10^^7^^ = 2^^1.65^^×10×10^^6^^ = 2^^1.65+3.3+20^^ = 2^^24.95^^
+                        pi×10^7^ = 2^1.65^×10×10^6^ = 2^1.65+3.3+20^ = 2^24.95^
 
-                        一分钟 等于 60s（2^^5.9^^s），一小时 60^^2^^s（2^11.8^^^s），
-                        一天有 60^^2^^×24s（2^^11.8^^2^^4.6^^ = 2^^16.4^^）s。
-                        一年就有 2^^16.4×2^^8.5^^ = 2^^24.9^^。
+                        一分钟 等于 60s（2^5.9^s），一小时 60^2^s（2^11.8^s），
+                        一天有 60^2^×24s（2^11.8^2^4.6^ = 2^16.4^）s。
+                        一年就有 2^16.4×2^8.5^ = 2^24.9^。
+
+                        [Rule of thumb - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Rule_of_thumb)
+
+                        :   Statistical – Rule of 72: A rule of thumb for
+                            exponential growth at a constant rate. An
+                            approximation of the doubling time formula used in
+                            population growth, according to which the doubling
+                            time is roughly equal to 70 divided by the percent
+                            growth rate (using continuous compounding, the
+                            actual number would be about 69.31 or 100 times the
+                            natural logarithm of 2).  In terms of money, since
+                            most people use the annual effective interest rate
+                            (which is equivalent to annual compounding) for
+                            interest rates between 4% and 12%, the number that
+                            gives the most accurate result is actually 72.
+                            Therefore, one may divide 72 by the percent
+                            interest rate to determine the approximate amount
+                            of time it would take to double one's money in an
+                            investment. For example, at 8% interest, the
+                            investment will double in approximately 9 years
+                            (72/8 = 9).
+
+                            [Rule of 72 - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Rule_of_72) -<
+
+                            :   For instance, if you were to invest $100 with
+                                compounding interest at a rate of 9% per annum,
+                                the rule of 72 gives 72/9 = 8 years required
+                                for the investment to be worth $200; an exact
+                                calculation gives ln(2)/ln(1+.09) = 8.0432
+                                years.
+
+                                To determine the time for money's buying power
+                                to halve, financiers simply divide the
+                                rule-quantity by the inflation rate. Thus at
+                                3.5% inflation using the rule of 70, it should
+                                take approximately 70/3.5 = 20 years for the
+                                value of a unit of currency to halve.
 
                     安全系数
 
@@ -18012,7 +18222,7 @@ Beauty of Programming -<
         int main() {
             int A[] = { 1, 2, 1, 3, 8, 8, 3, 9, 0, 9 }; // 0!
             int x = 0;
-            for( int i =0; i < sizeof(A)/sizeof(A[0]); ++i ) {
+            for( int i =0; i < sizeof(A)/sizeof(A); ++i ) {
                 x ^= A[i]; // communitive rule, xor
             }
             printf( "the missing one is: %d\n", x );
@@ -18139,7 +18349,7 @@ Beauty of Programming -<
 
             const char* convert( char buf[], int value )
             {
-                static char digits[19] =
+                static char digits =
                 { '9', '8', '7', '6', '5', '4', '3', '2', '1', '0',
                     '1', '2', '3', '4', '5', '6', '7', '8', '9' };
                 static const char *const zero = digits + 9; // zero 指向 '0'
@@ -18162,7 +18372,7 @@ Beauty of Programming -<
             }
 
             int main() {
-                char buf[50];
+                char buf;
                 int num;
                 while( 1 == scanf( "%d", &num ) ) {
                     convert( buf, num );
@@ -18178,11 +18388,11 @@ Beauty of Programming -<
             const char* convert( char buf[], int value )
             {
                 if( value < 0 ) {
-                    buf[0] = '-';
+                    buf = '-';
                     return convert( buf+1, -value );
                 }
 
-                static char zero[10] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+                static char zero = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
                 char* p = buf;
                 do {
@@ -18223,7 +18433,7 @@ Beauty of Programming -<
                 const char *p1;
                 const char *p2;
                 const char *p1_advance = haystack;
-                for (p2 = &needle[1]; *p2; ++p2) {
+                for (p2 = &needle; *p2; ++p2) {
                     p1_advance++;   // advance p1_advance M-1 times
                 }
 
@@ -18419,41 +18629,41 @@ Milo Yip 的博客 :hearts: -<
 
             void main() {
                 // P. 241 Graph 3-12
-                NODE test1[9] = { 0 };
+                NODE test1 = { 0 };
                 Link(test1, 0, 1, 2);
                 Link(test1, 1, 3, 4);
                 Link(test1, 2, 5, 6);
                 Link(test1, 3, 7, -1);
                 Link(test1, 5, -1, 8);
-                cout << "test1: " << GetMaximumDistance(&test1[0]).nMaxDistance << endl;
+                cout << "test1: " << GetMaximumDistance(&test1).nMaxDistance << endl;
 
                 // P. 242 Graph 3-13 left
-                NODE test2[4] = { 0 };
+                NODE test2 = { 0 };
                 Link(test2, 0, 1, 2);
                 Link(test2, 1, 3, -1);
-                cout << "test2: " << GetMaximumDistance(&test2[0]).nMaxDistance << endl;
+                cout << "test2: " << GetMaximumDistance(&test2).nMaxDistance << endl;
 
                 // P. 242 Graph 3-13 right
-                NODE test3[9] = { 0 };
+                NODE test3 = { 0 };
                 Link(test3, 0, -1, 1);
                 Link(test3, 1, 2, 3);
                 Link(test3, 2, 4, -1);
                 Link(test3, 3, 5, 6);
                 Link(test3, 4, 7, -1);
                 Link(test3, 5, -1, 8);
-                cout << "test3: " << GetMaximumDistance(&test3[0]).nMaxDistance << endl;
+                cout << "test3: " << GetMaximumDistance(&test3).nMaxDistance << endl;
 
                 // P. 242 Graph 3-14
                 // Same as Graph 3-2, not test
 
                 // P. 243 Graph 3-15
-                NODE test4[9] = { 0 };
+                NODE test4 = { 0 };
                 Link(test4, 0, 1, 2);
                 Link(test4, 1, 3, 4);
                 Link(test4, 3, 5, 6);
                 Link(test4, 5, 7, -1);
                 Link(test4, 6, -1, 8);
-                cout << "test4: " << GetMaximumDistance(&test4[0]).nMaxDistance << endl;
+                cout << "test4: " << GetMaximumDistance(&test4).nMaxDistance << endl;
             }
             ```
 
@@ -18600,7 +18810,7 @@ Milo Yip 的博客 :hearts: -<
 
                 void main()
                 {
-                    Node test1[9] = { 0 };
+                    Node test1 = { 0 };
 
                     for (int i = 1; i < 9; i++)
                         test1[i].data = i;
@@ -18610,10 +18820,10 @@ Milo Yip 的博客 :hearts: -<
                     Link(test1, 3, 6, -1);
                     Link(test1, 5, 7, 8);
 
-                    PrintBFS(&test1[1]);
+                    PrintBFS(&test1);
                     cout << endl << endl;
 
-                    PrintNodeByLevel(&test1[1]);
+                    PrintNodeByLevel(&test1);
                     cout << endl;
                 ```
 
@@ -18673,7 +18883,7 @@ Milo Yip 的博客 :hearts: -<
 
             郑老师说他经过几次推敲，得到:
 
-            f(x) = (-1)^^x^^x + sign(x)
+            f(x) = (-1)^x^x + sign(x)
 
             ```cpp
             template<typename t>
@@ -19200,26 +19410,1102 @@ Code Reading -<
 
 [利用Trie树求多个字符串的最小编辑距离 - 时空霹雳的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/u010189459/article/details/34114465)
 
-[有哪些学习算法的网站推荐？ - 知乎](https://www.zhihu.com/question/20368410)
-
-:   所以, 倾情推荐:
-
-    http://oj.leetcode.com LeetCode Online Judge
-
-    只要每道题都可以保证3遍以内过, 所有湾区工作entry level随便挑. 涉及到的基本都是Linked List, DP, BST这样的简单数据结构或者算法题.
-
-    不难, 但是对于初学算法的人来说, 能熟练运用这些算法已经很不容易了. 可以说是非常不容易了. 因为太多的人眼高手低.
-
-    所以说, 还是做题最有效. 就算是你看了算法导论的前几页, 知道了什么是insertion sort, 不见得你写出来的代码就是对的. 不信的话, 打开Insertion Sort List, 试试能不能通过.
-
 [演算法筆記](http://www.csie.ntnu.edu.tw/~u91029/)
 
 [網誌 - BYVoid](https://www.byvoid.com/blog/tag/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)
 
-[用链表的目的是什么？省空间还是省时间？ - 知乎](https://www.zhihu.com/question/31082722)
+用链表的目的是什么？省空间还是省时间？ -<
 
-[数据结构与算法中，树一般会应用在哪些方面？为什么？ - 知乎](https://www.zhihu.com/question/20176446)
+:   链表的优点除了「插入删除不需要移动其他元素」之外，还在于它是一个局部化结构。
+    就是说当你拿到链表的一个 node 之后，不需要太多其它数据，就可以完成插入，删
+    除的操作。而其它的数据结构不行。比如说 array，你只拿到一个 item 是断不敢做
+    插入删除的。
 
-[如何从零写一个正则表达式引擎？ - 知乎](https://www.zhihu.com/question/27434493)
+    当然了，局部化这个好处只有 intrusive 链表才有，就是必须 prev/next 嵌入在数
+    据结构中。像 STL 和 Java 那种设计是失败了。
 
-:   http://whudoc.qiniudn.com/2016/regex.zip
+    refs and see also
+
+    -   [用链表的目的是什么？省空间还是省时间？ - 知乎](https://www.zhihu.com/question/31082722)
+
+数据结构与算法中，树一般会应用在哪些方面？为什么？ -<
+
+:   树的一个大类是自平衡二叉搜索树 (self-balanced BST), 变种特别多:
+
+    -  RB 树是每个节点是红色或者黑色, 颜色隔代遗传
+    -  AVL 树是每个节点包含平衡因子, 等于左高-右高
+    -  Splay 树是每个节点带个父节点的指针
+    -  Treap 是每个节点都带个随机的 priority number, parent priority >= child priority
+
+    ... (其实说白了都是为了方便平衡操作给节点附加一个字段)
+
+    自平衡二叉搜索树在面试中经常出现, 但做网页的互联网码农却很少用得上... 如果
+    是当 Map 用, 往往还不如直接上哈希表. 如果是当排序用, 不如直接用排序算法...
+    不过也有有用的时候, 例如查找一个数字的上下界.
+
+    树的另一个大类是 Trie, 特点是能保证字典序, 存储词典的空间压缩率高, 能做前缀
+    搜索. 在正则匹配, 数据压缩, 构建索引都可能用到. Trie 也有不少变种:
+
+    -   Double Array - trie 的一个经典实现 (这实现其实不算树, 也不适合处理非 ascii 字符的情况)
+    -   Patricia Trie (Radix-Tree) - 每个节点可以存一段字符串而不限于一个字符
+    -   Judy Array - 基于 256-ary radix tree, 用了 20 种压缩方式, 极其复杂...
+    -   Burst Trie - 如果一个子树足够小, 就用 binary 堆的方式存储, 不过压缩效果一般
+    -   HAT Trie - 压缩率高而且不容易出现 CPU cache miss, 查速接近哈希表而耗内存少得多. 节点可以是以下三种之一: Array Hash, 序列化的 Bucket, 传统 Trie node
+    -   MARISA Trie - 压缩率最高, 支持 mmap 载入, 也是用了很多压缩技巧的复杂实现, 就是构建比较花时间, 也不能动态更新
+
+    refs and see also
+
+    -   [数据结构与算法中，树一般会应用在哪些方面？为什么？ - 知乎](https://www.zhihu.com/question/20176446)
+
+如何从零写一个正则表达式引擎？ -<
+
+:   推荐代码: Henry Spencer's regexp engine
+    [regexp.old/regexp.c at master · garyhouston/regexp.old](https://github.com/garyhouston/regexp.old/blob/master/regexp.c)
+    是很多现代流行的正则引擎的始祖, 解释器实现, 很
+    多新 feature 能扩展得得进去, 也有混合 DFA 的优化
+
+    <http://whudoc.qiniudn.com/2016/regex.zip> -<
+
+    :   写了个 80 行的 C++ 模板版。注意啊，regex 的定义包括了 concatenation，
+        alternation（“|”），Kleene closure（“*”），还得有一个ε字符（可近似认为
+        “?”），expression 还要能嵌套（“(”“)”）。有些例子里缺了 alternation 和嵌套
+        那就不该叫 regex 了。
+
+        之所以这么短是因为压根没有 parsing，parsing 多无聊啊。直接构造 regex 的
+        AST，根本不去打 NFA 的主意。想加什么功能就直接加 type 就行了。
+
+        这个是 compile time regex，所以跑起来是 raw speed，很快。你要是要运行时
+        的regex，把那几个模板特化改为一个树状 variant 结构，在树上走就行了，算
+        法（包括那个 continuation 的 trick）都是一样的。
+
+        建 NFA 那套做法是 Ken Thompson 推出来的“标准”算法，但是就玩玩而已应该从
+        更简单的学起。学一下 CPS 变换又不会死。
+
+        另外把程序写短小紧凑的诀窍就是写成 FP style。我的 80 行中所有函数都只有
+        一个 return 语句。
+
+        ```cpp
+        template <typename Left, typename Right>
+        struct ConcatExpr;
+
+        template <typename Left, typename Right>
+        struct AltExpr;
+
+        template <typename SubExpr>
+        struct RepeatExpr;
+
+        template <char ch>
+        struct MatchExpr;
+
+        template <typename RegExpr>
+        struct MatchImpl;
+
+        struct EpsilonExpr;
+
+        template <typename SubExpr>
+        using OptionalExpr = AltExpr<SubExpr, EpsilonExpr>;
+
+        template <typename Left, typename Right>
+        struct MatchImpl<ConcatExpr<Left, Right>> {
+          template <typename Continuation>
+          static bool Apply(const char* target, Continuation cont) {
+            return MatchImpl<Left>::Apply(target, [cont](const char* rest) -> bool {
+              return MatchImpl<Right>::Apply(rest, cont);
+            });
+          }
+        };
+
+        template <typename Left, typename Right>
+        struct MatchImpl<AltExpr<Left, Right>> {
+          template <typename Continuation>
+          static bool Apply(const char* target, Continuation cont) {
+            return MatchImpl<Left>::Apply(target, cont) ||
+                   MatchImpl<Right>::Apply(target, cont);
+          }
+        };
+
+        template <typename SubExpr>
+        struct MatchImpl<RepeatExpr<SubExpr>> {
+          template <typename Continuation>
+          static bool Apply(const char* target, Continuation cont) {
+            return MatchImpl<SubExpr>::Apply(
+                       target,
+                       [target, cont](const char* rest) -> bool {
+                         return target < rest &&
+                             MatchImpl<RepeatExpr<SubExpr>>::Apply(rest, cont);
+                       }) ||
+                   cont(target);
+          }
+        };
+
+        template <char ch>
+        struct MatchImpl<MatchExpr<ch>> {
+          template <typename Continuation>
+          static bool Apply(const char* target, Continuation cont) {
+            return *target && *target == ch && cont(target + 1);
+          }
+        };
+
+        template <>
+        struct MatchImpl<EpsilonExpr> {
+          template <typename Continuation>
+          static bool Apply(const char* target, Continuation cont) {
+            return cont(target);
+          }
+        };
+
+        template <typename RegExpr>
+        bool RegexMatch(const char* target) {
+          return MatchImpl<RegExpr>::Apply(
+              target, [](const char* rest) -> bool { return *rest == '\0'; });
+        }
+
+        template <typename RegExpr>
+        bool RegexSearch(const char* target) {
+          return MatchImpl<RegExpr>::Apply(
+                     target, [](const char* rest) -> bool { return true; }) ||
+                 (*target && RegexSearch<RegExpr>(target + 1));
+        }
+
+        #include <cassert>
+
+        int main() {
+          assert((RegexMatch<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("ab")));
+          assert((RegexMatch<AltExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("a")));
+          assert((RegexMatch<AltExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("b")));
+          assert((RegexMatch<RepeatExpr<MatchExpr<'a'>>>("aaaaa")));
+          assert((RegexMatch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>(
+              "aaaaab")));
+          assert((
+              RegexMatch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>("b")));
+          assert((RegexSearch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>(
+              "aaaaabb")));
+          assert((RegexMatch<OptionalExpr<MatchExpr<'a'>>>("a")));
+          assert((RegexMatch<OptionalExpr<MatchExpr<'a'>>>("")));
+          assert((RegexMatch<OptionalExpr<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>>(
+              "ab")));
+          assert((RegexMatch<OptionalExpr<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>>(
+              "")));
+          assert((!RegexMatch<RepeatExpr<MatchExpr<'a'>>>("aaaaab")));
+          assert((RegexMatch<RepeatExpr<OptionalExpr<MatchExpr<'a'>>>>("")));
+
+          return 0;
+        }
+        ```
+
+    refs and see also
+
+    -   [如何从零写一个正则表达式引擎？ - 知乎](https://www.zhihu.com/question/27434493)
+
+[hiho 一下第 114 周《Image Encryption》题目分析 - hihoCoder](http://hihocoder.com/discuss/question/3663)
+
+Travelling salesman problem -<
+
+:   The travelling salesman problem (TSP) asks the following question: Given a
+    list of **cities** and the **distances** between each pair of cities, what is the
+    **shortest possible route that visits each city exactly once and returns to
+    the origin city**? It is an NP-hard problem in combinatorial optimization,
+    important in operations research and theoretical computer science.
+
+    ![Solution of a travelling salesman
+        problem](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/GLPK_solution_of_a_travelling_salesman_problem.svg/330px-GLPK_solution_of_a_travelling_salesman_problem.svg.png)
+
+    **TSP can be modelled as an undirected weighted graph**, such that cities are
+    the graph's vertices, paths are the graph's edges, and a path's distance is
+    the edge's length. It is a minimization problem starting and finishing at a
+    specified vertex after having visited each other vertex exactly once.
+    Often, the model is a complete graph (i.e. each pair of vertices is
+    connected by an edge). If no path exists between two cities, adding an
+    arbitrarily long edge will complete the graph without affecting the optimal
+    tour.
+
+    Exact algorithms
+
+    :   try all permutations (ordered combinations) -> brute force, O(n!)
+
+    Heuristic and approximation algorithms
+
+    :   NN 近邻法
+
+    refs and see also
+
+    -   [Travelling salesman problem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
+
+[Graph (abstract data type) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Graph_(abstract_data_type)) -<
+
+:   In computer science, a graph is an abstract data type that is meant to
+    implement the undirected graph and directed graph concepts from mathematics.
+
+    The basic operations provided by a graph data structure G usually include:
+
+    -   adjacent(G, x, y): tests whether there is an edge from the vertices x to y;
+    -   neighbors(G, x): lists all vertices y such that there is an edge from the vertices x to y;
+    -   add_vertex(G, x): adds the vertex x, if it is not there;
+    -   remove_vertex(G, x): removes the vertex x, if it is there;
+    -   add_edge(G, x, y): adds the edge from the vertices x to y, if it is not there;
+    -   remove_edge(G, x, y): removes the edge from the vertices x to y, if it is there;
+    -   get_vertex_value(G, x): returns the value associated with the vertex x;
+    -   set_vertex_value(G, x, v): sets the value associated with the vertex x to v.
+
+    Structures that associate values to the edges usually also provide:
+
+    -   get_edge_value(G, x, y): returns the value associated with the edge (x, y);
+    -   set_edge_value(G, x, y, v): sets the value associated with the edge (x, y) to v.
+
+    Adjacency List
+
+    :   Vertices are stored as records or objects, and every vertex stores
+        **a list of adjacent vertices**. This data structure allows the storage of
+        additional data on the vertices. Additional data can be stored if edges
+        are also stored as objects, in which case each vertex stores its
+        incident edges and each edge stores its incident vertices.
+
+    Adjancy Matrix
+
+    :   A two-dimensional matrix, in which the rows represent source vertices
+        and columns represent destination vertices. Data on edges and vertices
+        must be stored externally. Only the cost for one edge can be stored
+        between each pair of vertices.
+
+    Incidence matrix
+
+    :   A two-dimensional Boolean matrix, in which the rows represent the
+        vertices and columns represent the edges. The entries indicate whether
+        the vertex at a row is incident to the edge at a column.
+
+        ![An undirected graph.](https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Labeled_undirected_graph.svg/375px-Labeled_undirected_graph.svg.png)
+
+        For example the incidence matrix of the undirected graph shown on the
+        right is a matrix consisting of 4 rows (corresponding to the four
+        vertices, 1-4) and 4 columns (corresponding to the four edges, e1-e4):
+
+        ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/99f6e54a9f49d5a3ae4c25e396d8b7c153cdaa07)
+
+    ![](http://whudoc.qiniudn.com/2016/firefox_2016-09-06_11-26-02.png)
+
+    Adjacency lists are generally preferred because they efficiently represent
+    sparse graphs. An adjacency matrix is preferred if the graph is dense, that
+    is the number of edges |E| is close to the number of vertices squared,
+    |V|^2^, or if one must be able to quickly look up if there is an edge
+    connecting two vertices.
+
+    refs and see also
+
+    -   [Graphs in Computer Science](http://web.cecs.pdx.edu/~sheard/course/Cs163/Doc/Graphs.html)
+    -   [Adjacency list - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Adjacency_list)
+    -   [Adjacency matrix - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Adjacency_matrix)
+    -   [Incidence matrix - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Incidence_matrix)
+
+trees -<
+
+:   Spanning tree -<
+
+    :   In the mathematical field of graph theory, **a spanning tree T of an
+        undirected graph G is a subgraph that is a tree which includes all of the
+        vertices of G**. In general, a graph may have several spanning trees, but a
+        graph that is not connected will not contain a spanning tree (but see
+        Spanning forests below). If all of the edges of G are also edges of a
+        spanning tree T of G, then G is a tree and is identical to T
+        (that is, **a tree has a unique spanning tree and it is itself**).
+
+        Several pathfinding algorithms, including Dijkstra's algorithm and the `A*`
+        search algorithm, internally **build a spanning tree as an intermediate step in solving the problem**.
+
+        Definitions
+
+        :   A tree is a connected undirected graph with no cycles. It is a spanning
+            tree of a graph G if it spans G (that is, it includes every vertex of
+            G) and is a subgraph of G (every edge in the tree belongs to G). A
+            spanning tree of a connected graph G can also be defined as a maximal
+            set of edges of G that contains no cycle, or as a minimal set of edges
+            that connect all vertices.
+
+        minimal/minimum spanning tree
+
+        In some cases, it is easy to calculate t(G) directly:
+
+        -   If G is itself a tree, then t(G) = 1.
+        -   When G is the cycle graph Cn with n vertices, then t(G) = n.
+        -   For a complete graph with n vertices, Cayley's formula gives the number of spanning trees as n^n−2^.
+        -   If G is the complete bipartite graph K~p,q~, then t(G) = p^q-1^q^p-1^.
+        -   For the n-dimensional hypercube graph...
+
+        arbitrary tree?
+
+        see [Kirchhoff's theorem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem).
+
+        Prim's algorithm -<
+
+        :   In computer science, Prim's algorithm is a greedy algorithm that finds
+            a minimum spanning tree for a weighted undirected graph. This means it
+            finds a subset of the edges that forms a tree that includes every
+            vertex, where the total weight of all the edges in the tree is
+            minimized. The algorithm operates by building this tree one vertex at a
+            time, from an arbitrary starting vertex, at each step adding the
+            cheapest possible connection from the tree to another vertex.
+
+    Self-balancing binary search tree -<
+
+    :   In computer science, a self-balancing (or height-balanced) binary
+        search tree is any node-based binary search tree that automatically
+        keeps its height (maximal number of levels below the root) small in the
+        face of arbitrary item insertions and deletions.
+
+        The red–black tree, which is a type of self-balancing binary search
+        tree, was called symmetric binary B-tree and was renamed but can
+        still be confused with the generic concept of self-balancing binary
+        search tree because of the initials.
+
+    AVL tree -<
+
+    :   d(height(left), height(right)) = { -1, 0, 1 }, left-heavy, right-heavy, balanced.
+
+    Splay tree -<
+
+    :   A splay 展开 tree is a self-adjusting binary search tree with the additional
+        property that recently accessed elements are quick to access again. It
+        performs basic operations such as insertion, look-up and removal in
+        O(log n) amortized time. For many sequences of non-random operations,
+        splay trees perform better than other search trees, even when the
+        specific pattern of the sequence is unknown. The splay tree was
+        invented by Daniel Sleator and Robert Tarjan in 1985.
+
+        Advantages -<
+
+        :   Good performance for a splay tree depends on the fact that it is
+            **self-optimizing**, in that frequently accessed nodes will move nearer
+            to the root where they can be accessed more quickly. The worst-case
+            height—though unlikely—is O(n), with the average being O(log n).
+            Having frequently used nodes near the root is an advantage for many
+            practical applications (also see **Locality of reference**), and is
+            particularly useful for implementing caches and garbage collection
+            algorithms.
+
+            Advantages include:
+
+            -   Comparable performance: Average-case performance is as efficient as other trees.
+            -   Small memory footprint: Splay trees **do not need to store any bookkeeping data**.
+
+        Disadvantages -<
+
+        :   The most significant disadvantage of splay trees is that
+            **the height of a splay tree can be linear**. For example, this
+            will be the case after accessing all n elements in non-decreasing
+            order. Since the height of a tree corresponds to the worst-case
+            access time, this means that the actual cost of an operation can be
+            high. However the amortized access cost of this worst case is
+            logarithmic, O(log n).  Also, the expected access cost can be
+            reduced to O(log n) by using a randomized variant.
+
+            The representation of splay trees can **change even when they are
+            accessed in a 'read-only' manner** (i.e. by find operations). This
+            complicates the use of such splay trees in a multi-threaded
+            environment. Specifically, extra management is needed if multiple
+            threads are allowed to perform find operations concurrently. This
+            also makes them **unsuitable for general use in purely functional
+            programming**, although they can be used in limited ways to
+            implement priority queues even there.
+
+        ![zig](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Splay_tree_zig.svg/1064px-Splay_tree_zig.svg.png)
+
+        ![zig zig](https://upload.wikimedia.org/wikipedia/commons/f/fd/Zigzig.gif)
+
+        C++ 实现 -<
+
+        :   ```cpp
+            #include <functional>
+
+            #ifndef SPLAY_TREE
+            #define SPLAY_TREE
+
+            template< typename T, typename Comp = std::less< T > >
+            class splay_tree {
+            private:
+              Comp comp;
+              unsigned long p_size;
+
+              struct node {
+                node *left, *right;
+                node *parent;
+                T key;
+                node( const T& init = T( ) ) : left( 0 ), right( 0 ), parent( 0 ), key( init ) { }
+                ~node( ) {
+                  if( left ) delete left;
+                  if( right ) delete right;
+                  if( parent ) delete parent;
+                }
+              } *root;
+
+              void left_rotate( node *x ) {
+                node *y = x->right;
+                if(y) {
+                  x->right = y->left;
+                  if( y->left ) y->left->parent = x;
+                  y->parent = x->parent;
+                }
+
+                if( !x->parent ) root = y;
+                else if( x == x->parent->left ) x->parent->left = y;
+                else x->parent->right = y;
+                if(y) y->left = x;
+                x->parent = y;
+              }
+
+              void right_rotate( node *x ) {
+                node *y = x->left;
+                if(y) {
+                  x->left = y->right;
+                  if( y->right ) y->right->parent = x;
+                  y->parent = x->parent;
+                }
+                if( !x->parent ) root = y;
+                else if( x == x->parent->left ) x->parent->left = y;
+                else x->parent->right = y;
+                if(y) y->right = x;
+                x->parent = y;
+              }
+
+              void splay( node *x ) {
+                while( x->parent ) {
+                  if( !x->parent->parent ) {
+                    if( x->parent->left == x ) right_rotate( x->parent );
+                    else left_rotate( x->parent );
+                  } else if( x->parent->left == x && x->parent->parent->left == x->parent ) {
+                    right_rotate( x->parent->parent );
+                    right_rotate( x->parent );
+                  } else if( x->parent->right == x && x->parent->parent->right == x->parent ) {
+                    left_rotate( x->parent->parent );
+                    left_rotate( x->parent );
+                  } else if( x->parent->left == x && x->parent->parent->right == x->parent ) {
+                    right_rotate( x->parent );
+                    left_rotate( x->parent );
+                  } else {
+                    left_rotate( x->parent );
+                    right_rotate( x->parent );
+                  }
+                }
+              }
+
+              void replace( node *u, node *v ) {
+                if( !u->parent ) root = v;
+                else if( u == u->parent->left ) u->parent->left = v;
+                else u->parent->right = v;
+                if( v ) v->parent = u->parent;
+              }
+
+              node* subtree_minimum( node *u ) {
+                while( u->left ) u = u->left;
+                return u;
+              }
+
+              node* subtree_maximum( node *u ) {
+                while( u->right ) u = u->right;
+                return u;
+              }
+            public:
+              splay_tree( ) : root( 0 ), p_size( 0 ) { }
+
+              void insert( const T &key ) {
+                node *z = root;
+                node *p = 0;
+
+                while( z ) {
+                  p = z;
+                  if( comp( z->key, key ) ) z = z->right;
+                  else z = z->left;
+                }
+
+                z = new node( key );
+                z->parent = p;
+
+                if( !p ) root = z;
+                else if( comp( p->key, z->key ) ) p->right = z;
+                else p->left = z;
+
+                splay( z );
+                p_size++;
+              }
+
+              node* find( const T &key ) {
+                node *z = root;
+                while( z ) {
+                  if( comp( z->key, key ) ) z = z->right;
+                  else if( comp( key, z->key ) ) z = z->left;
+                  else return z;
+                }
+                return 0;
+              }
+
+              void erase( const T &key ) {
+                node *z = find( key );
+                if( !z ) return;
+
+                splay( z );
+
+                if( !z->left ) replace( z, z->right );
+                else if( !z->right ) replace( z, z->left );
+                else {
+                  node *y = subtree_minimum( z->right );
+                  if( y->parent != z ) {
+                    replace( y, y->right );
+                    y->right = z->right;
+                    y->right->parent = y;
+                  }
+                  replace( z, y );
+                  y->left = z->left;
+                  y->left->parent = y;
+                }
+
+                delete z;
+                p_size--;
+              }
+
+              const T& minimum( ) { return subtree_minimum( root )->key; }
+              const T& maximum( ) { return subtree_maximum( root )->key; }
+
+              bool empty( ) const { return root == 0; }
+              unsigned long size( ) const { return p_size; }
+            };
+
+            #endif // SPLAY_TREE
+            ```
+
+    B-tree -<
+
+    :   In computer science, a B-tree is a self-balancing tree data structure
+        that keeps data sorted and allows searches, sequential access,
+        insertions, and deletions in logarithmic time. The B-tree is a
+        generalization of a binary search tree in that a node can have more
+        than two children (Comer 1979, p. 123). Unlike self-balancing binary
+        search trees, the B-tree is **optimized for systems that read and write
+        large blocks of data**. B-trees are a good example of
+        **a data structure for external memory**. It is commonly used in databases and filesystems.
+
+        multi-way search tree
+          ~ A multiway tree is a tree that can have more than two children. A
+            multiway tree of order m (or an m-way tree) is one in which a tree
+            can have m children.
+
+        ![A B-tree (Bayer & McCreight 1972) of order 5 (Knuth 1998).](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/B-tree.svg/600px-B-tree.svg.png)
+
+        Etymology -<
+
+        :   >   The origin of "B-tree" has never been explained by the authors.
+            >   As we shall see, "balanced," "broad," or "bushy" might apply.
+            >   Others suggest that the "B" stands for Boeing. Because of his
+            >   contributions, however, it seems appropriate to think of
+            >   B-trees as "Bayer"-trees. (Comer 1979, p. 123 footnote 1)
+
+        Advantages of B-tree usage for databases -<
+
+        :   The B-tree uses all of the ideas described above. In particular, a B-tree:
+
+            -   keeps keys in sorted order for sequential traversing
+            -   uses a hierarchical index to minimize the number of disk reads
+            -   uses partially full blocks to speed insertions and deletions
+            -   keeps the index balanced with an elegant recursive algorithm
+
+            In addition, a B-tree minimizes waste by making sure the interior
+            nodes are at least half full. A B-tree can handle an arbitrary
+            number of insertions and deletions.
+
+        Disadvantages of B-trees -<
+
+        :   maximum key length cannot be changed without completely rebuilding
+            the database. This led to many database systems truncating full human
+            names to 70 characters.
+
+        According to Knuth's definition, **a B-tree of order m** is a tree which
+        satisfies the following properties:
+
+        -   Every node has at most m children.
+        -   Every non-leaf node (except root) has at least ⌈m/2⌉ (ceil of m/2) children.
+        -   The root has at least two children if it is not a leaf node.
+        -   A non-leaf node with k children contains k−1 keys.
+        -   All leaves appear in the same level
+
+        It can be shown (by induction for example) that a B-tree of height h
+        with all its nodes completely filled has n= mh+1−1 entries. Hence, the
+        best case height of a B-tree is: log~m~^n+1^.
+
+        ![(A B Tree insertion example with each iteration. The nodes of this B tree have at most 3 children (Knuth order 3).](https://en.wikipedia.org/wiki/File:B_tree_insertion_example.png)
+
+    Red–black tree
+
+    :   A red–black tree is a kind of self-balancing binary search tree. Each
+        node of the binary tree has an extra bit, and that bit is often
+        interpreted as the color (red or black) of the node. These color bits
+        are used to ensure the tree remains approximately balanced during
+        insertions and deletions.
+
+        Balance is preserved by painting each node of the tree with one of two
+        colors (typically called 'red' and 'black') in a way that satisfies
+        certain properties, which collectively constrain how unbalanced the
+        tree can become in the worst case. When the tree is modified, the new
+        tree is subsequently rearranged and repainted to restore the coloring
+        properties. The properties are designed in such a way that this
+        rearranging and recoloring can be performed efficiently.
+
+        The balancing of the tree is not perfect, but it is good enough to
+        allow it to guarantee searching in O(log n) time, where n is the total
+        number of elements in the tree. The insertion and deletion operations,
+        along with the tree rearrangement and recoloring, are also performed in
+        O(log n) time.
+
+        Tracking the color of each node requires only 1 bit of information per
+        node because there are only two colors. The tree does not contain any
+        other data specific to its being a red–black tree so its memory
+        footprint is almost identical to a classic (uncolored) binary search
+        tree. In many cases the additional bit of information can be stored at
+        no additional memory cost.
+
+        The leaf nodes of red–black trees do not contain data. These leaves
+        need not be explicit in computer memory—a null child pointer can encode
+        the fact that this child is a leaf—but it simplifies some algorithms
+        for operating on red–black trees if the leaves really are explicit
+        nodes. To save memory, sometimes a single sentinel node performs the
+        role of all leaf nodes; all references from internal nodes to leaf
+        nodes then point to the sentinel node.
+
+        ![An example of a red–black tree](https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Red-black_tree_example.svg/750px-Red-black_tree_example.svg.png)
+
+        properties
+
+        #.  A node is either red or black.
+        #.  The root is black. This rule is sometimes omitted. Since the root can
+            always be changed from red to black, but not necessarily vice versa, this
+            rule has little effect on analysis.
+        #.  All leaves (NIL) are black.
+        #.  If a node is red, then both its children are black.
+        #.  Every path from a given node to any of its descendant NIL nodes contains
+            the same number of black nodes. Some definitions: the number of black nodes
+            from the root to a node is the node's black depth; the uniform number of
+            black nodes in all paths from root to the leaves is called the black-height
+            of the red–black tree.
+
+        These constraints enforce a critical property of red–black trees: the
+        path from the root to the farthest leaf is no more than twice as long
+        as the path from the root to the nearest leaf. The result is that the
+        tree is roughly height-balanced. Since operations such as inserting,
+        deleting, and finding values require worst-case time proportional to
+        the height of the tree, this theoretical upper bound on the height
+        allows red–black trees to be efficient in the worst case, unlike
+        ordinary binary search trees.
+
+        ![The same red–black tree as in the example above, seen as a B-tree.](https://en.wikipedia.org/wiki/File:Red-black_tree_example_(B-tree_analogy).svg)
+
+        The red–black tree is then structurally equivalent to a B-tree of order
+        4, with a minimum fill factor of 33% of values per cluster with a
+        maximum capacity of 3 values.
+
+        This B-tree type is still more general than a red–black tree though, as
+        it allows ambiguity in a red–black tree conversion—multiple red–black
+        trees can be produced from an equivalent B-tree of order 4.
+
+        Insertion -<
+
+        :   RB-tree properties:
+
+            -   property 3 (all leaves are black) always holds.
+            -   property 4 (both children of every red node are black) is threatened only by adding a red node, repainting a black node red, or a rotation.
+            -   property 5 (all paths from any given node to its leaf nodes contain the same number of black nodes) is threatened only by adding a black node, repainting a red node black (or vice versa), or a rotation.
+
+            N: 当前 node，P：parent node，G：grandparent node，U：uncle node。 -<
+
+            :   ```cpp
+                struct node *grandparent(struct node *n)
+                {
+                    if ((n != NULL) && (n->parent != NULL))
+                        return n->parent->parent;
+                    else
+                        return NULL;
+                }
+
+                struct node *uncle(struct node *n)
+                {
+                    struct node *g = grandparent(n);
+                    if (g == NULL)
+                        return NULL; // No grandparent means no uncle
+                    if (n->parent == g->left)
+                        return g->right;
+                    else
+                        return g->left;
+                }
+
+                struct node *sibling(struct node *n)
+                {
+                    if ((n == NULL) || (n->parent == NULL))
+                        return NULL; // no parent means no sibling
+                    if (n == n->parent->left)
+                        return n->parent->right;
+                    else
+                        return n->parent->left;
+                }
+                ```
+
+            There are several cases of red–black tree insertion to handle:
+
+            1.  N is the root node, i.e., first node of red–black tree -<
+
+                :   ```cpp
+                    void insert_case1(struct node *n)
+                    {
+                        if (n->parent == NULL)
+                            n->color = BLACK;
+                        else
+                            insert_case2(n);
+                    }
+                    ```
+
+            2.  P is black -<
+
+                :   ```cpp
+                    void insert_case2(struct node *n)
+                    {
+                        if (n->parent->color == BLACK)
+                            return; /* Tree is still valid */
+                        else
+                            insert_case3(n);
+                    }
+                    ```
+
+                    The current node's parent P is black, so property 4 (both
+                    children of every red node are black) is not invalidated.
+                    In this case, the tree is still valid. Property 5 (all
+                    paths from any given node to its leaf nodes contain the
+                    same number of black nodes) is not threatened, because the
+                    current node N has two black leaf children, but because N
+                    is red, the paths through each of its children have the
+                    same number of black nodes as the path through the leaf it
+                    replaced, which was black, and so this property remains
+                    satisfied.
+
+                    Note: In the following cases it can be assumed that N has a
+                    grandparent node G, because its parent P is red, and if it
+                    were the root, it would be black. Thus, N also has an uncle
+                    node U, although it may be a leaf in cases 4 and 5.
+
+            3.  P & U are red -<
+
+                :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Red-black_tree_insert_case_3.svg/600px-Red-black_tree_insert_case_3.svg.png)
+
+                    ```cpp
+                    void insert_case3(struct node *n)
+                    {
+                        struct node *u = uncle(n), *g;
+
+                        if ((u != NULL) && (u->color == RED)) {
+                            n->parent->color = BLACK;
+                            u->color = BLACK;
+                            g = grandparent(n);
+                            g->color = RED;
+                            insert_case1(g);
+                        } else {
+                            insert_case4(n);
+                        }
+                    }
+                    ```
+
+
+                    Note: In the remaining cases, it is assumed that the parent
+                    node P is the left child of its parent. If it is the right
+                    child, left and right should be reversed throughout cases 4
+                    and 5. The code samples take care of this.
+
+            4.  N is added to right of left child of grandparent, or N is added to left of right child of grandparent (P is red and U is black) -<
+
+                :   ![](https://en.wikipedia.org/wiki/File:Red-black_tree_insert_case_4.svg)
+
+                    ```cpp
+                    void insert_case4(struct node *n)
+                    {
+                        struct node *g = grandparent(n);
+
+                        if ((n == n->parent->right) && (n->parent == g->left)) {
+                            rotate_left(n->parent);
+
+                            /*
+                             * rotate_left can be the below because of already having *g =  grandparent(n)
+                             *
+                             * struct node *saved_p=g->left, *saved_left_n=n->left;
+                             * g->left=n;
+                             * n->left=saved_p;
+                             * saved_p->right=saved_left_n;
+                             *
+                             * and modify the parent's nodes properly
+                             */
+
+                            n = n->left;
+
+                        } else if ((n == n->parent->left) && (n->parent == g->right)) {
+                            rotate_right(n->parent);
+
+                            /*
+                             * rotate_right can be the below to take advantage of already having *g =  grandparent(n)
+                             *
+                             * struct node *saved_p=g->right, *saved_right_n=n->right;
+                             * g->right=n;
+                             * n->right=saved_p;
+                             * saved_p->left=saved_right_n;
+                             *
+                             */
+
+                            n = n->right;
+                        }
+                        insert_case5(n);
+                    }
+                    ```
+
+            5.  N is added to left of left child of grandparent, or N is added to right of right child of grandparent (P is red and U is black) -<
+
+            :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Red-black_tree_insert_case_5.svg/600px-Red-black_tree_insert_case_5.svg.png)
+
+                ```cpp
+                void insert_case5(struct node *n)
+                {
+                    struct node *g = grandparent(n);
+
+                    n->parent->color = BLACK;
+                    g->color = RED;
+                    if (n == n->parent->left)
+                        rotate_right(g);
+                    else
+                        rotate_left(g);
+                }
+                ```
+
+            Note that inserting is actually in-place, since all the calls above use tail recursion.
+
+        Removal -<
+
+        :   todo.
+
+        可靠性、稳定性
+
+    k-d tree -<
+
+    :   In computer science, a k-d tree (short for k-dimensional tree) is a
+        space-partitioning data structure for organizing points in a
+        k-dimensional space. k-d trees are a useful data structure for several
+        applications, such as searches involving a multidimensional search key
+        (e.g. range searches and nearest neighbor searches). k-d trees are a
+        special case of binary space partitioning trees.
+
+        ![A 3-dimensional k-d tree. The first split (the red vertical plane)
+            cuts the root cell (white) into two subcells, each of which is then
+            split (by the green horizontal planes) into two subcells. Finally,
+            those four cells are split (by the four blue vertical planes) into
+            two subcells. Since there is no more splitting, the final eight are
+            called leaf cells.](https://en.wikipedia.org/wiki/File:3dtree.png)
+
+        The k-d tree is a **binary tree** in which every node is a
+        k-dimensional point. Every non-leaf node can be thought of as
+        implicitly generating a splitting hyperplane that divides the space
+        into two parts, known as half-spaces. Points to the left of this
+        hyperplane are represented by the left subtree of that node and points
+        right of the hyperplane are represented by the right subtree. The
+        hyperplane direction is chosen in the following way: every node in the
+        tree is associated with one of the k-dimensions, with the hyperplane
+        perpendicular to that dimension's axis. So, for example, if for a
+        particular split the "x" axis is chosen, all points in the subtree with
+        a smaller "x" value than the node will appear in the left subtree and
+        all points with larger "x" value will be in the right subtree. In such
+        a case, the hyperplane would be set by the x-value of the point, and
+        its normal would be the unit x-axis.
+
+        ![k-d tree decomposition for the point set (2,3), (5,4), (9,6), (4,7), (8,1), (7,2).](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Kdtree_2d.svg/555px-Kdtree_2d.svg.png)
+
+        ![The resulting k-d tree.](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tree_0001.svg/555px-Tree_0001.svg.png)
+
+    refs and see also
+
+    -   [k-d tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/K-d_tree)
+    -   [B-tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/B-tree)
+    -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+    -   [Spanning tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Spanning_tree)
+    -   [Self-balancing binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
+    -   [Splay tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Splay_tree)
+    -   [Binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Binary_search_tree)
+    -   [AVL tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/AVL_tree)
+    -   [Prim's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Prim%27s_algorithm)
+    -   [Mutli-way Trees](http://faculty.cs.niu.edu/~freedman/340/340notes/340multi.htm)
+
+Hash Function -<
+
+:   A hash function is any function that can be used to map data of arbitrary
+    size to data of fixed size. The values returned by a hash function are
+    called hash values, hash codes, hash sums, or simply hashes.
+
+    Perfect hashing
+
+    :   A hash function that is **injective**—that is, maps each valid input to a
+        different hash value—is said to be perfect. With such a function one
+        can directly locate the desired entry in a hash table, without any
+        additional searching.
+
+    refs and see also
+
+    -   [Hash function - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hash_function)
+
+Dijkstra's algorithm -<
+
+:   Dijkstra's algorithm is an algorithm for finding the shortest paths between
+    nodes in a graph, which may represent, for example, road networks. It was
+    conceived by computer scientist Edsger W. Dijkstra in 1956 and published
+    three years later.
+
+    ![Dijkstra's algorithm to find the shortest path between a and b. It picks
+        the unvisited vertex with the lowest distance, calculates the distance
+        through it to each unvisited neighbor, and updates the neighbor's
+        distance if smaller. Mark visited (set to red) when done with
+        neighbors.](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif)
+
+    ![](https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif)
+
+    ```
+     1  function Dijkstra(Graph, source):
+     2
+     3      create vertex set Q
+     4
+     5      for each vertex v in Graph:             // Initialization
+     6          dist[v] ← INFINITY                  // Unknown distance from source to v
+     7          prev[v] ← UNDEFINED                 // Previous node in optimal path from source
+     8          add v to Q                          // All nodes initially in Q (unvisited nodes)
+     9
+    10      dist[source] ← 0                        // Distance from source to source
+    11
+    12      while Q is not empty:
+    13          u ← vertex in Q with min dist[u]    // Source node will be selected first
+    14          remove u from Q
+    15
+    16          for each neighbor v of u:           // where v is still in Q.
+    17              alt ← dist[u] + length(u, v)
+    18              if alt < dist[v]:               // A shorter path to v has been found
+    19                  dist[v] ← alt
+    20                  prev[v] ← u
+    21
+    22      return dist[], prev[]
+    ```
+
+    If we are only interested in a shortest path between vertices source and
+    target, we can terminate the search after line 13 if u = target. Now we can
+    read the shortest path from source to target by reverse iteration:
+
+    ```
+     1  S ← empty sequence
+     2  u ← target
+     3  while prev[u] is defined:                  // Construct the shortest path with a stack S
+     4      insert u at the beginning of S         // Push the vertex onto the stack
+     5      u ← prev[u]                            // Traverse from target to source
+     6  insert u at the beginning of S             // Push the source onto the stack
+    ```
+
+    Using a priority queue
+
+    ```
+     1  function Dijkstra(Graph, source):
+     2      dist[source] ← 0                                // Initialization
+     3
+     4      create vertex set Q
+     5
+     6      for each vertex v in Graph:
+     7          if v ≠ source
+     8              dist[v] ← INFINITY                      // Unknown distance from source to v
+     9              prev[v] ← UNDEFINED                     // Predecessor of v
+    10
+    11         Q.add_with_priority(v, dist[v])
+    12
+    13
+    14      while Q is not empty:                           // The main loop
+    15          u ← Q.extract_min()                         // Remove and return best vertex
+    16          for each neighbor v of u:                   // only v that is still in Q
+    17              alt = dist[u] + length(u, v)
+    18              if alt < dist[v]
+    19                  dist[v] ← alt
+    20                  prev[v] ← u
+    21                  Q.decrease_priority(v, alt)
+    22
+    23     return dist[], prev[]
+    ```
+
+    refs and see also
+
+    -   [Dijkstra's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+
+`A*` search algorithm -<
+
+:   In computer science, `A*` (pronounced as "A star") is a computer algorithm
+    that is widely used in pathfinding and graph traversal, the process of
+    plotting an efficiently traversable path between multiple points, called
+    nodes. Noted for its performance and accuracy, it enjoys widespread use.
+    However, in practical travel-routing systems, it is generally outperformed
+    by algorithms which can pre-process the graph to attain better performance,
+    although other work has found `A*` to be superior to other approaches.
+
+    `A*` achieves better performance by using heuristics to guide its search.
+
+    `A*` selects the path that minimizes: f(n) = g(n) + h(n), n: node, g: cost dist, h: heuristic dist.
+
+    ![](https://upload.wikimedia.org/wikipedia/commons/5/5d/Astar_progress_animation.gif)
+
+    ![Key: green: start; blue: goal; orange: visited](https://en.wikipedia.org/wiki/File:AstarExampleEn.gif)
+
+    ```cpp
+    function A*(start, goal)
+        // The set of nodes already evaluated.
+        closedSet := {}
+        // The set of currently discovered nodes still to be evaluated.
+        // Initially, only the start node is known.
+        openSet := {start}
+        // For each node, which node it can most efficiently be reached from.
+        // If a node can be reached from many nodes, cameFrom will eventually contain the
+        // most efficient previous step.
+        cameFrom := the empty map
+
+        // For each node, the cost of getting from the start node to that node.
+        gScore := map with default value of Infinity
+        // The cost of going from start to start is zero.
+        gScore[start] := 0
+        // For each node, the total cost of getting from the start node to the goal
+        // by passing by that node. That value is partly known, partly heuristic.
+        fScore := map with default value of Infinity
+        // For the first node, that value is completely heuristic.
+        fScore[start] := heuristic_cost_estimate(start, goal)
+
+        while openSet is not empty
+            current := the node in openSet having the lowest fScore[] value
+            if current = goal
+                return reconstruct_path(cameFrom, current)
+
+            openSet.Remove(current)
+            closedSet.Add(current)
+            for each neighbor of current
+                if neighbor in closedSet
+                    continue        // Ignore the neighbor which is already evaluated.
+                // The distance from start to a neighbor
+                tentative_gScore := gScore[current] + dist_between(current, neighbor)
+                if neighbor not in openSet  // Discover a new node
+                    openSet.Add(neighbor)
+                else if tentative_gScore >= gScore[neighbor]
+                    continue        // This is not a better path.
+
+                // This path is the best until now. Record it!
+                cameFrom[neighbor] := current
+                gScore[neighbor] := tentative_gScore
+                fScore[neighbor] := gScore[neighbor] + heuristic_cost_estimate(neighbor, goal)
+
+        return failure
+
+    function reconstruct_path(cameFrom, current)
+        total_path := [current]
+        while current in cameFrom.Keys:
+            current := cameFrom[current]
+            total_path.append(current)
+        return total_path
+    ```
+
+    refs and see also
+
+    -   [`A*` search algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/A*_search_algorithm)
+
+[DSACPP, 数据结构（C++语言版）](http://dsa.cs.tsinghua.edu.cn/%7Edeng/ds/dsacpp/index.htm)
