@@ -81,6 +81,80 @@ Nina And Her Very Long Hair -<
 
 :   应届生招聘 9 月启动，敬请期待！
 
+    2017 微软校园招聘大陆、美国职位招聘9月6日启动，简历投递截至9月29日
+
+    ![](http://www.joinms.com/cn_c/imgW/page1_train_land-1.png)
+
+    华科，9 月 23 日。18：30 到 21：00。
+
+    9 月申请职位。
+
+    网申截止至 2016 年 9 月 29 日。
+
+    微软作为全球领先的软件、服务、设备和解决方案供应商，自 1975 年成立以来，一
+    直致力于帮助个人和企业用户全面发挥科技潜能。四十年来，微软始终引领技术创新
+    与变革，其卓越的软件、设备和服务能够帮助用户提升在生活和工作的方方面面，使
+    数以亿计的用户真正受益于科技。微软公司总部位于美国华盛顿州雷德蒙德市，在全
+    世界 190 个国家和地区建立分支机构，拥有超过 100,000 名员工。
+
+    我们建议你充分了解所有职位信息，恰当地选择你感兴趣的业务领域。每位同学可以
+    选择 3 个志愿。我们会根据你的第一志愿安排面试，如候选人未能满足第一志愿的职位
+    要求，我们会根据当时的职位空缺数量根据你的第二及第三志愿进行调剂。
+
+    申请提交之后，无法更改网申表信息。请大家在提交时认真检查，以免影响申请。同时，请大家尽早完成网申，以免错过后面的安排。
+
+    研发类职位考查的内容包括：技术能力、沟通能力、学习能力、理解能力、语言能力
+    等；主要形式为电话，网络或现场进行一对一技术面试。根据岗位需求不同，部分职
+    位可能会增设现场纸笔测试，英文听说读写测试及学术成果展示等环节。
+
+    校招团队将在笔试或面试结束后的两周之内，以电话、邮件或短信形式通知结果（通
+    过，不通过，待定）。得到待定通知的同学，我们将同时告知有确定结果的时间，或
+    者随时保持沟通以便让同学了解最新进展情况。
+
+    有任何疑问可以在应届生 BBS 的微软论坛
+    （<http://bbs.yingjiesheng.com/forum-228-1.html>）给 HR 留言，我们会尽快答复。
+
+    在线测试：9 月底到十月中旬。11 月到 12 月发放 offer。
+
+    微软应届生校园招聘，每年都在全国各大高校招聘数百名应届毕业生。
+
+    微软校园招聘项目，旨在为有全职求职意愿的同学，提供了解微软及加入微软（中国及全球）的最好平台和绝佳机会。
+
+    进入微软，你将有何获益与发展？
+
+    -   体验微软最前沿IT技术：第一时间接触微软最新产品，抢先一步掌握全球 IT 科技资讯；
+    -   与业内精英直接对话：与技术大牛们分享交流最新的行业动态，探讨微软最顶级的技术成果；
+    -   独家导师制度：不用担心进入微软后手足无措，我们将为每位新员工配备导师，你的日常学习和工作将由他（她）
+        悉心指导，他（她）将帮助你高效完成从校园人才到企业精英的转变。
+    -   良好的工作氛围与环境：与最聪明的人碰撞思维的火花，享受弹性工作时间及舒适的办公环境。
+
+    Software Engineer-ASG -<
+
+    :   Position：
+
+        Software Development Engineer is to work with project manager to
+        understand the customer and market requirements, architect and design
+        software systems, implement and ship online service product with high
+        quality assurance.
+
+        Qualifications：
+
+        -   Strongly passionate about software design and programming, capable
+            of learning quickly and continuously; strong interest and curiosity
+            in technology
+        -   Excellent analytical skills and problem solving skills, obsessed
+            with customers
+        -   Solid background on computer science or related areas. Candidate
+            with software development experience is preferred. Candidate with
+            certain level of specialty in computer science or software
+            engineering is preferred
+        -   Batcher or master degree in Computer Science or related engineering
+            areas is preferred
+        -   Willing to take challenges and initiatives, be a team player, and
+            with accountability
+        -   Able to work effectively in an environment where English is the
+            primary working language
+
     refs and see also
 
     -   [微软 2016 年校园招聘](http://www.joinms.com/cn_c/journey.htm)

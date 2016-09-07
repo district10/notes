@@ -19,8 +19,9 @@ endif
 
 all: $(DST) $(CSS)
 clone:
-	git clone --depth 1 https://github.com/district10/leetcode.git
-	git clone --depth 1 https://github.com/4ker/cracking-the-coding-interview.git
+	git clone --depth 1 https://github.com/4ker/LeetCode.git leetcode-maskray
+	# git clone --depth 1 https://github.com/4ker/cracking-the-coding-interview.git
+	# git clone --depth 1 https://github.com/district10/leetcode.git
 serve:
 	cd publish; python -m SimpleHTTPServer
 clean:

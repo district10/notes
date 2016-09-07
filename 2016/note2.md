@@ -1560,3 +1560,20 @@ title: Working Notes
 [我也来说说崔添翼_洹水泛舟_新浪博客](http://blog.sina.com.cn/s/blog_52f526870102wkcf.html)
 
 [直播世界的镜像之争 - 填坑笔记 - 知乎专栏](https://zhuanlan.zhihu.com/p/21357707)
+
+[2014，漫步](http://xiaohanyu.me/posts/2015-04-10-2014-summary/) -<
+
+:   说到底，我们只是不想因为金钱的缘故在自由方面向长辈妥协。我们的父母眼界过于
+    狭窄，总是想着要把子女留在自己身边，努力赚钱为子女准备房车、铺好一条在他们
+    看来金光闪闪的人生大道，同时也把自己后半生的幸福全部压在子女身上。
+
+    而这无形之中带给了我们相当大的心理压力。因此不到万不得已，我们不会向父母开口。
+
+    >   When you don't create things, you become defined by your tastes rather
+    >   than ability. Your tastes only narrow & exclude people. So create.
+    >
+    >   --why the luck stuff «http://whymirror.github.io/»
+
+    不知不觉已经远程工作两年多了。两年中，1/3 的时间工作赚钱，1/3 的时间阅读学
+    习，1/3 的时间打把撒欢——随心所欲创造一些玩具而已。
+

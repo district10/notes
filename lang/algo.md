@@ -19402,7 +19402,9 @@ Code Reading -<
 
 [ACM 题集以及各种总结大全！ - 枯槐树下乘凉 - 博客频道 - CSDN.NET](http://blog.csdn.net/kuhuaishuxia/article/details/52254209)
 
-[LeetCode solutions | MaskRay](http://maskray.me/blog/2014-06-29-leetcode-solutions)
+[LeetCode solutions | MaskRay](http://maskray.me/blog/2014-06-29-leetcode-solutions){.hearts}
+
+:   见 [4ker/LeetCode](https://github.com/4ker/LeetCode)。
 
 [《挑战程序设计竞赛(第2版)》-码农场](http://www.hankcs.com/tag/%e3%80%8a%e6%8c%91%e6%88%98%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e7%ab%9e%e8%b5%9b%e7%ac%ac2%e7%89%88%e3%80%8b/)
 
