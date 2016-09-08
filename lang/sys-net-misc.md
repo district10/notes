@@ -166,19 +166,19 @@ System & Network & MISC
             ```cpp
             #include <unistd.h>
 
-            int pipe(int pipefd[2]);
+            int pipe(int pipefd);
 
             #define _GNU_SOURCE             /* See feature_test_macros(7) */
             #include <fcntl.h>              /* Obtain O_* constant definitions */
             #include <unistd.h>
 
-            int pipe2(int pipefd[2], int flags);
+            int pipe2(int pipefd, int flags);
             ```
 
             pipe()  creates a pipe, a unidirectional data channel that can be used for
             interprocess communication.  The array pipefd is used to return two file
-            descrip‐tors referring to the ends of the pipe.  pipefd[0] refers to the read
-            end of the pipe.  pipefd[1] refers to the write end of the pipe.  Data written
+            descrip‐tors referring to the ends of the pipe.  pipefd refers to the read
+            end of the pipe.  pipefd refers to the write end of the pipe.  Data written
             to  the write end of the pipe is buffered by the kernel until it is read from
             the read end of the pipe.  For further details, see pipe(7).
 
@@ -210,12 +210,12 @@ System & Network & MISC
             int
             main(int argc, char *argv[])
             {
-                int pipefd[2];
+                int pipefd;
                 pid_t cpid;
                 char buf;
 
                 if (argc != 2) {
-                 fprintf(stderr, "Usage: %s <string>\n", argv[0]);
+                 fprintf(stderr, "Usage: %s <string>\n", argv);
                  exit(EXIT_FAILURE);
                 }
 
@@ -237,19 +237,19 @@ System & Network & MISC
                 }
 
                 if (cpid == 0) {    /* Child reads from pipe */
-                    close(pipefd[1]);          /* Close unused write end */
+                    close(pipefd);          /* Close unused write end */
 
-                    while (read(pipefd[0], &buf, 1) > 0)
+                    while (read(pipefd, &buf, 1) > 0)
                         write(STDOUT_FILENO, &buf, 1);
 
                     write(STDOUT_FILENO, "\n", 1);
-                    close(pipefd[0]);
+                    close(pipefd);
                     _exit(EXIT_SUCCESS);
 
-                } else {            /* Parent writes argv[1] to pipe */
-                    close(pipefd[0]);          /* Close unused read end */
-                    write(pipefd[1], argv[1], strlen(argv[1]));
-                    close(pipefd[1]);          /* Reader will see EOF */
+                } else {            /* Parent writes argv to pipe */
+                    close(pipefd);          /* Close unused read end */
+                    write(pipefd, argv, strlen(argv));
+                    close(pipefd);          /* Reader will see EOF */
                     wait(NULL);                /* Wait for child */
                     exit(EXIT_SUCCESS);
                 }
@@ -475,7 +475,7 @@ System & Network & MISC
         }
 
         int main() {
-            char buf[100];
+            char buf;
             sprintf( buf, "%s", "I love Sia Furler." );
             printf( "before: %s\n", buf );
             solve( buf );
@@ -2088,9 +2088,9 @@ System & Network & MISC
             tt.i = 0x0102;
             if(sizeof(short) == 2)
                 {
-                    if(tt.str[0] == 1 && tt.str[1] == 2)
+                    if(tt.str == 1 && tt.str == 2)
                         printf("大端字节序");
-                    else if(tt.str[0] = 2 && tt.str[1] == 1)
+                    else if(tt.str = 2 && tt.str == 1)
                         printf("小端字节序");
                     else
                         printf("结果未知");
@@ -2305,3 +2305,150 @@ TCP使用**滑动窗口机制**来实现流量控制，通过动态改变窗口�
 [Big O notation - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Big_O_notation#The_Knuth_definition)
 
 [Cayley's formula - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Cayley%27s_formula)
+
+[为什么交通信号灯需要红绿两色？](https://www.douban.com/note/573779938/)
+
+[软件测试 - 话题精华 - 知乎](https://www.zhihu.com/topic/19562409/top-answers) -<
+
+:   软件测试就是利用测试工具按照测试方案和流程对产品进行功能和性能测试，甚至根
+    据需要编写不同的测试工具，设计和维护测试系统，对测试方案可能出现的问题进行
+    分析和评估。执行测试用例后，需要跟踪故障，以确保开发的产品适合需求。
+
+    [冒烟测试_百度百科](http://baike.baidu.com/link?url=Art8EYJZ5cHWcDKFnxuyH8A4XhVAeWoMOgzoGcHE4dFLcMbgznKBWUjo0So3LceOZmeBlI5AVV0L8ijMVE-z_q) -<
+
+    :   这一术语源自硬件行业。对一个硬件或硬件组件进行更改或修复后，直接给设备加电。
+        如果没有冒烟，则该组件就通过了测试。在软件中，“冒烟测试”这一术语描述的是在
+        将代码更改嵌入到产品的源树中之前对这些更改进行验证的过程。在检查了代码后，
+        冒烟测试是确定和修复软件缺陷的最经济有效的方法。冒烟测试设计用于确认代码中
+        的更改会按预期运行，且不会破坏整个版本的稳定性。
+
+        In computer programming and software testing, smoke testing (also
+        confidence testing, sanity testing) is preliminary testing to reveal
+        simple failures severe enough to (for example) reject a prospective
+        software release. A smoke tester will select and run a subset of test cases
+        that cover the most important functionality of a component or system, to
+        ascertain if crucial functions of the software work correctly.:37
+        When used to determine if a computer program should be subjected to
+        further, more fine-grained testing, a smoke test may be called an intake
+        test.
+
+        sanity，`['sænəti]`，n. 明智；头脑清楚；精神健全；通情达理
+
+        For example, a smoke test may address basic questions like "Does the
+        program run?", "Does it open a window?", or "Does clicking the main button
+        do anything?" The process of smoke testing aims to determine whether the
+        application is so badly broken as to make further immediate testing
+        unnecessary. As the book Lessons Learned in Software Testing  puts it,
+        "smoke tests broadly cover product features in a limited time ... if key
+        features don't work or if key bugs haven't yet been fixed, your team won't
+        waste further time installing or testing".
+
+        Smoke tests frequently run quickly, often in the order of a few minutes,
+        giving the benefit of quicker feedback and faster turnaround than the
+        running of full test suites, which can take hours – or even days.
+
+        refs and see also
+
+        -   [Smoke testing (software) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Smoke_testing_(software))
+
+    是的，我想说，他妈的没接触到技术性的东西你不会自己去接触啊，
+
+    都二十好几的人了，还在等人把东西嚼碎了喂你嘴里？？？？？？？？
+
+    目前国内 QA 的工作面很广。web 上点鼠标的是 QA，linux 上写脚本的是 QA，编写
+    单元测试的是 QA，负责工具开发的是 QA，推广 TDD 或者敏捷的也是 QA。
+
+    根据 QA 的工作类型区分前途是比较合适的。
+
+    -   黑盒测试工程师
+
+    -   自动化测试工程师 -<
+
+        :   使用 qtp，selenium，watir，或者是其他的技术框架来自动化测试工作的。在
+            unix 上做自动化工作的，比如编写 shell 脚本，或者其他的脚本，也是属于此类。
+
+            因为自动化在回归阶段可以节省人力，可以有效的对产品的质量进行度量，并且
+            可以不断的累积，结合覆盖率统计，或者需求覆盖统计等手段，可以很好的保证
+            产品线的开发质量。所以自动化是很重要的技术。大公司一般都有这样的工作和
+            人员配备。
+
+            不过前端的自动化，和后端的自动化，仍旧有一些弊病。很多公司倾向于使用分
+            层自动化去解决不同层面的质量问题。这部分相对有点技术含量，大公司招人，
+            也是必考的内容。相对来说，有点前途。但是一旦自动化方案稳定了，那么这类
+            人也会面临职业发展困境。只不过目前自动化仍然在不断发展，这个问题暴露的
+            不是很隐蔽。这个领域的工程师将来会两极分化，一部分转向自动化工具的研发，
+            一部分转向自动化case的维护。
+
+    -   白盒测试工程师 -<
+
+        :   这部分人主要做代码分析，审核，编写必要的单元测试，并关注代码的各种覆盖率情况。
+
+    -   测试架构师 -<
+
+        :   负责规划辅助测试的各种工具和平台。基本上是全能的。并能对自动化，技
+            术改进和测试理论有很好的贡献。属于大牛级别。比如研究封装开源的框架，
+            或者开发新技术，来提高 QA 的测试效率和保证质量覆盖。 不过这个职位将来
+            会比较尴尬，可能会并到测试工具开发工程师中，或者在对应的工具开发团
+            队担任管理。这个职位，将来会死掉。企业不需要太多的 title。
+
+    -   性能测试工程师 -<
+
+        :   国内的黄金职业，技术相对专业，但是精通了基本可以一劳永逸。性能测试
+            的理论基本跟开发技术关联不大，所以还是很稳当的。
+
+    -   安全测试工程师 -<
+
+        :   严格来说不算 QA，虽然 QA 里面有做这个的，但是专业理论要求较高，跟开
+            发技术的关联性也不是太大，具备通用性，所以也是很黄金的。
+
+    -   测试管理 -<
+
+        :   去做 QA 的管理角色，比如带项目，QA 数据统计和分析。带团队等。自然也是很黄金的了。
+
+    对于大部分公司来说，职位并不是严格的，很多人可能是一职多能。
+
+    发展方向主要有以下几种
+
+    1.  走 QA 技术路线，测试分析，自动化，白盒，或者专心走性能测试，安全测试，测试规划等。
+    2.  走 RD 技术路线，转行做研发。这个例子也很多。开发肯定比 QA 更可靠。 已经有不少先例了。
+    3.  走管理路线。有管理爱好的，可以往这个方向发展。
+    4.  走业务路线。去做产品经理，规划产品设计。也是蛮不错的职位。
+    5.  开发测试工具，测试解决方案，提供测试服务。类似于 51testing 和博为峰这样的公司。
+
+    为什么微软叫 SDET 而不是 QA？**Software Development Engineer in Test**，SDET 中
+    文叫：软件测试开发工程师。主体还是 SDE，做的还是软件开发，只不过偏测试方面
+    的开发。这个不是专职的测试。Google、Amazon 中也有 SDET，但是大家都知道，真
+    正能保证软件质量的还是开发团队自己。
+
+    你需要很清楚的明白一点，对于任何一个公司，如果“产出性”的人多于“支持性”的
+    人，那么这个公司是往上走的，如果“支持性”的人多于“产出性”的人，那么这个公司
+    一定处于下坡路上。所谓“产出性”还是“支持性”，就看你的团队或是你的部门是“财务
+    中心 Finical Center ”还是一个“成本中心 Cost Center”了。
+
+    1 个好的工程师顶 10-100 个烂的工程师，1 个烂的工程师，可以很容易地创造 2-10
+    个工作机会。
+
+    软件测试的魅力何在？您为什么选择测试一行而不做开发？ -<
+
+    :   |   你让一场本该在用户面前发生的灾难，提前在自己面前发生了
+        |   会让你有一种救世主的感觉
+        |   拯救了这个用户，也拯救了这个软件，避免了他被卸载的命运
+        |
+        |   再进一步，你还改变了你的程序员兄弟被骂娘的命运
+        |   你改变了你的老板破产的命运
+        |   你改变了你的兄弟们失业的命运
+        |   这大约就是测试的魅力所在
+        |
+        |   为什么选择？
+        |   有的人喜欢创造世界，他们做了程序员
+        |   有的人喜欢拯救世界，他们做了测试员
+
+    代码是为了什么，当然是为了重复运行。如何保持 unit test 代码的稳定？主要靠好
+    的 API设计。API 切实正确切割了需求，那么在重构的时候 API 就基本不用变化，
+    unit test 也不用重写。以后你重构的时候，只要你的 unit test 覆盖的够好，基本
+    跑一遍就知道有没有改成傻逼。可以节省大量的时间。
+
+    所以那些专门写不需要维护的软件的人，讨厌测试，也是情有可原的。
+
+    [测试指南 - Rei](http://chloerei.com/2015/10/26/testing-guide/)
+

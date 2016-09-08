@@ -4950,6 +4950,170 @@ A Bit of Logic -<
 
                         如果确定了 n 的范围，比如 n <= 100，可以用全局 A，避免动态内存分配。
 
+                        leetcode 里面的题：[Next Permutation | LeetCode OJ](https://leetcode.com/problems/next-permutation/) -<
+
+                        :   ```
+                            处理步骤：
+                                                        ^ increase
+                                                         \
+                                                          \
+                                                           \
+                                    <-----------------------\
+                                        i   j   *   *   *   *
+
+                            Example
+
+                                        6   8   7   4   3   2
+                            step 1     [6]  8   7   4   3   2
+                            step 2      6   8  [7]  4   3   2
+                            step 3      7   8   6   4   3   2
+                            step 4      7  [8   6   4   3   2]
+                                        7   2   2   4   6   8
+
+                            1.  from right to left, find the first digit which violate the increase，这里是 6，称之为 PartitionNumber
+                            2.  from right to left, find the first digit which large than PartitionNumber（6）,
+                                call it ChangeNumber，这里是 7。
+                            3.  swap the PartitionNumber and ChangeNumber；
+                            4.  Reverse all the digit on the right of partition index。
+                            ```
+
+                            ```cpp
+                            // 这里的 ROF 是 for 倒过来，意思就是 i 从 b 到 a。
+                            #define ROF(i, a, b) for (int i = (b); --i >= (a); )
+
+                            class Solution {
+                            public:
+                                void nextPermutation(vector<int> &num) {
+                                    if (num.size() <= 1) return;
+                                    ROF(i, 0, num.size()-1)
+                                        if ( i+1 < num.size() && num[i] < num[i+1] ) {
+                                            int j = num.size();
+                                            while (! (num[i] < num[--j]));
+                                            swap(num[i], num[j]);
+                                            reverse(num.begin()+i+1, num.end());
+                                            return;
+                                        }
+                                    reverse(num.begin(), num.end());
+                                }
+                            };
+                            ```
+
+                            [Permutation Sequence | LeetCode OJ](https://leetcode.com/problems/permutation-sequence/) -<
+
+                            :   The set `[1,2,3,…,n]` contains a total of n! unique permutations. 输入 n 和 k，返回第 k 个序列。
+
+                                最无赖的解法：
+
+                                ```cpp
+                                class Solution {
+                                public:
+                                    string getPermutation(int n, int k) {
+                                        string s(n, '0');
+                                        for (int i = 0; i < n; ++i)
+                                            s[i] += i+1;
+                                        for (int i = 0; i < k-1; ++i)
+                                            next_permutation(s.begin(), s.end());
+                                        return s;
+                                    }
+                                };
+                                ```
+
+                                这个方法可以得到答案，但是……Status: Time Limit Exceeded……
+
+                                康托展开 -<
+
+                                ：  Cantor expansion
+
+                                    `X=a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[1]*0!`，
+                                    其中 `a[i]` 为当前未出现的元素中是排在第几个（从 0 开始）。这就是康托展开。康托展开可用代码实现。
+
+                                    refs and see also
+
+                                    -   [康托展开_百度百科](http://baike.baidu.com/link?url=UTLtFkZMM5RzyijXFpFAkwFSJ3PeZcsBj_48119xF7LgI0cr9jW92Y2vGkdPY9ibPxD53oPbG5YS1ZLenghvOK)
+                                    -   [全排列的编码与解码——康托展开 (附完整代码) - AC，∑ndless - 博客频道 - CSDN.NET](http://blog.csdn.net/synapse7/article/details/16901489)
+
+                                利用康托编码的思路，假设有 n 个不重复的元素，第 k 个排列是 a~1~, a~2~,
+                                a~3~, ..., a~n~，那么 a~1~ 是哪一个位置呢？我们把 a~1~去掉，那么剩下的排列
+                                为 a~2~, a~3~, ..., a~n~, 共计 n-1 个元素，n-1 个元素共有 (n-1)! 个排列，于
+                                是就可以知道 a~1~ = k / (n-1)!。
+
+                                同理，a~2~, a~3~, ..., a~n~ 的值推导如下：
+
+                                -   k~2~ = k%(n-1)!
+                                -   a~2~ = k~2~/(n-2)!
+                                -   ...
+                                -   k~n-1~ = k~n-2~%2!
+                                -   a~n-1~ = k~n-1~%1!
+                                -   a~n~ = 0
+
+                                ```cpp
+                                // 康托编码，时间复杂度O(n)，空间复杂度O(1)
+                                class Solution {
+                                public:
+                                    string getPermutation(int n, int k) {
+                                        string s(n, '0');
+                                        string result;
+                                        for (int i = 0; i < n; ++i)
+                                            s[i] += i + 1;
+                                        return kth_permutation(s, k);
+                                    }
+                                private:
+                                    int factorial(int n) {
+                                        int result = 1;
+                                        for (int i = 1; i <= n; ++i)
+                                            result *= i;
+                                        return result;
+                                    }
+
+                                    // seq 已排好序，是第一个排列
+                                    template<typename Sequence>
+                                    Sequence kth_permutation(const Sequence &seq, int k) {
+                                        const int n = seq.size();
+                                        Sequence S(seq);
+                                        Sequence result;
+
+                                        int base = factorial(n - 1);
+                                        --k;  // 康托编码从0开始
+
+                                        for (int i = n - 1; i > 0; k %= base, base /= i, --i) { // base/=i 实在太巧妙
+                                            auto a = next(S.begin(), k / base);
+                                            result.push_back(*a);
+                                            S.erase(a);     // 记得 erase 掉！
+                                        }
+
+                                        result.push_back(S[0]); // 最后一个
+                                        return result;
+                                    }
+                                };
+                                ```
+
+                                上面那个答案通过了。下面有个更简洁的。也通过了。
+
+                                ```cpp
+                                #define ROF(i, a, b) for (int i = (b); --i >= (a); )
+
+                                class Solution {
+                                public:
+                                    string getPermutation(int n, int k) {
+                                        //        f(0)  f(1)  2   3    4      5       6        7        8
+                                        int f[] = { 1,    1,  2,  6,  24,   120,    720,    5040,   40320   };
+                                        vector<bool> a(n, true);
+                                        string r;
+                                        k--;
+                                        ROF(i, 0, n) {
+                                            int t = k/f[i], j = 0;
+                                            k %= f[i];
+                                            while (! a[j]) j++;
+                                            while (t--)
+                                                while (! a[++j]);
+                                            a[j] = false;
+                                            r += '1'+j;
+                                        }
+                                        return r;
+                                    }
+                                };
+                                ```
+
                 -   生成可重集的排列 :hearts: -<
 
                     :   直接用 STL 里面的 next_permutation。
@@ -8991,6 +9155,29 @@ A Bit of Logic -<
 
         -   dp and memoization
 
+        -   [Longest Consecutive Sequence | LeetCode OJ](https://leetcode.com/problems/longest-consecutive-sequence/) -<
+
+            :   左右扩张。
+
+                ```cpp
+                class Solution {
+                public:
+                    int longestConsecutive(vector<int> &num) {
+                        int r = 0;
+                        unordered_set<int> s;
+                        for (auto i: num)
+                            s.insert(i);
+                        for (auto i: num) {
+                            int j = i, k = i+1;
+                            while (s.count(j-1)) s.erase(j--);
+                            while (s.count(k)) s.erase(k++);
+                            r = max(r, k-j);
+                        }
+                        return r;
+                    }
+                };
+                ```
+
         -   longest common subseq
 
         -   longest consequtive common subseq
@@ -11582,21 +11769,24 @@ A Bit of Logic -<
                     so, those two pointers meet together, that means there must be a cycle inside the list.
 
                     ```cpp
-                    bool hasCycle(ListNode *head) {
-                        if ( !head || !head->next ) { return false; }   // head->next?
-                        ListNode *fast, *slow;
-                        fast = slow = head;
-                        do {
+                    bool hasLoop(Node *head) {
+                        Node *slow = head, *fast = head;
+                        while (slow && fast && fast->next) {
                             slow = slow->next;
-                            fast = fast->next? fast->next->next : NULL;
-                        } while( fast && fast->next && fast != slow );
-                        return fast == slow? true : false;
+                            fast = fast->next->next;
+                            if (slow == fast)
+                                return true;
+                        }
+                        return false;
                     }
                     ```
+
+                    This elegant algorithm is known as Floyd’s cycle finding algorithm, also called the Tortoise and hare algorithm.
 
                     refs and see also
 
                     -   [Linked List Cycle | LeetCode OJ](https://leetcode.com/problems/linked-list-cycle/)
+                    -   [Detecting a Loop in a Singly Linked List – LeetCode](http://articles.leetcode.com/detecting-loop-in-singly-linked-list/)
 
                 Linked List Cycle II -<
 
@@ -11684,14 +11874,56 @@ A Bit of Logic -<
                 The median is (2 + 3)/2 = 2.5
 
                 ```
-                double findMedianSortedArrays(int A[], int m, int B[], int n) {
-                if( m == 0 ) {  // 1    2   3   4
-                    return n%2 != 0 ?   B[n/2] : (B[n/2-1]+B[n/2])/2.0;
-                }
-                if( n == 0 ) {
-                    return findMedianSortedArrays( B, n, A, m);
-                }
-                ...
+                class Solution {
+                public:
+                    double findMedianSortedArrays(const vector<int>& A, const vector<int>& B) {
+                        const int m = A.size();
+                        const int n = B.size();
+                        int total = m + n;
+                        if (total & 0x1)
+                            return find_kth(A.begin(), m, B.begin(), n, total / 2 + 1);
+                        else
+                            return (find_kth(A.begin(), m, B.begin(), n, total / 2)
+                                    + find_kth(A.begin(), m, B.begin(), n, total / 2 + 1)) / 2.0;
+                    }
+
+                private:
+                    static int find_kth(std::vector<int>::const_iterator A, int m,
+                            std::vector<int>::const_iterator B, int n, int k) {
+                        //always assume that m is equal or smaller than n
+                        if (m > n) return find_kth(B, n, A, m, k);  // 0 <= m <= n
+                        if (m == 0) return *(B + k - 1);
+                        if (k == 1) return min(*A, *B);
+
+                        //divide k into two parts
+                        int ia = min(k / 2, m), ib = k - ia;
+                        if (*(A + ia - 1) < *(B + ib - 1))
+                            return find_kth(A + ia, m - ia, B, n, k - ia);
+                        else if (*(A + ia - 1) > *(B + ib - 1))
+                            return find_kth(A, m, B + ib, n - ib, k - ib);
+                        else
+                            return A[ia - 1];
+                    }
+                };
+                ```
+
+                ```cpp
+                class Solution {
+                public:
+                    double findMedianSortedArrays(vector<int> &a, vector<int> &b) {
+                        int m = a.size(), n = b.size(), i = 0, j = 0, k = m+n-1 >> 1;
+                        while (k > 0) {
+                            int p = k-1 >> 1;
+                            if (j+p >= n || i+p < m && a[i+p] < b[j+p])
+                                i += p+1;
+                            else
+                                j += p+1;
+                            k -= p+1;
+                        }
+                        int s = j >= n || i < m && a[i] < b[j] ? a[i++] : b[j++];
+                        return m+n & 1 ? s : (j >= n || i < m && a[i] < b[j] ? s+a[i] : s+b[j]) * 0.5;
+                    }
+                };
                 ```
 
                 TODO, leetcode tijie.
@@ -11699,6 +11931,69 @@ A Bit of Logic -<
                 refs and see also
 
                 -   [Median of Two Sorted Arrays | LeetCode OJ](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+
+        -   重复元素 -<
+
+            :   [Remove Duplicates from Sorted Array | LeetCode OJ](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) -<
+
+                :   不允许重复。
+
+                    ```cpp
+                    class Solution {
+                    public:
+                        int removeDuplicates(vector<int>& nums) {
+                            int j = 0;
+                            for (auto x: nums)
+                            if (!j || nums[j-1] != x)           // !j --> j == 0
+                                nums[j++] = x;
+                            return j;
+                        }
+                    };
+                    ```
+
+                    STL:
+
+                    ```cpp
+                    class Solution {
+                    public:
+                        int removeDuplicates( vector<int>& nums ) {
+                            return distance( nums.begin(), unique(nums.begin(), nums.end()) );
+                        }
+                    };
+                    ```
+
+                [Remove Duplicates from Sorted Array II | LeetCode OJ](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) -<
+
+                :   允许最多两次重复。
+
+                    ```cpp
+                    class Solution {
+                    public:
+                        int removeDuplicates(vector<int> &a) {
+                            int j = 0;
+                            for (auto x: a)
+                                if (j < 2 || a[j-1] != x || a[j-2] != x)
+                                    a[j++] = x;
+                            return j;
+                        }
+                    };
+                    ```
+
+                    ```cpp
+                    class Solution {
+                    public:
+                        int removeDuplicates(vector<int>& nums) {
+                            if (nums.size() <= 2) { return nums.size(); }
+                            int index = 2;
+                            for (int i = 2; i < nums.size(); i++){
+                                if (nums[i] != nums[index - 2])
+                                    nums[index++] = nums[i];
+                            }
+
+                            return index;
+                        }
+                    };
+                    ```
 
         -   子数组相关问题 SubArray -<
 
@@ -12604,9 +12899,256 @@ A Bit of Logic -<
         -   各类 IT 企业的面试算法难度及风格
         -   如何解决中等难度以上的算法题
         -   如何解决 follow  up 问题
-        -   Two sum
-            -   1. Two sum follow up I
-            -   2. Two sum follow up II - Triangle count
+        -   Two sum -<
+
+            :   排序再夹逼。但是返回的是 index！
+
+                ```cpp
+                class Solution {
+                public:
+                    vector<int> twoSum(vector<int> &nums, int target) {
+                        unordered_map<int, int> mapping;
+                        vector<int> result;
+                        for (int i = 0; i < nums.size(); i++) {
+                            mapping[nums[i]] = i;                                                   // 对应到 index
+                        }
+                        for (int i = 0; i < nums.size(); i++) {
+                            const int gap = target - nums[i];
+                            if (mapping.find(gap) != mapping.end() && mapping[gap] > i) {           // 对每个元素尝试找到匹配
+                                result.push_back(i + 1);
+                                result.push_back(mapping[gap] + 1);
+                                break;
+                            }
+                        }
+                        return result;
+                    }
+                };
+                ```
+
+                或者用一种巧妙地夹逼：
+
+                ```cpp
+                class Solution {
+                public:
+                    vector<int> twoSum(vector<int> &a, int s) {
+                        vector<int> r(a.size());
+                        iota(r.begin(), r.end(), 0);
+                        // 存储 index，然后把  index 排序。结果是 a[r[i]] 升序排列（for i = [0,n)）。
+                        sort(r.begin(), r.end(), [&](int x, int y) { return a[x] < a[y]; });
+                        for (size_t i = 0, j = a.size()-1; i < j; i++) {        // i 在左，j 在右，i 用 for 循环
+                            while (j > i+1 && a[r[i]]+a[r[j]] > s) j--;         // j 不断下调
+                            if (a[r[i]]+a[r[j]] == s) {
+                                int x = r[i], y = r[j];
+                                r.clear();  // 还用 r 来存输出结果……
+                                if (x > y) swap(x, y);
+                                r.push_back(x);
+                                r.push_back(y);
+                                break;
+                            }
+                        }
+                        return r;
+                    }
+                };
+                ```
+
+                ```cpp
+                class Solution {
+                public:
+                    vector<int> twoSum(vector<int> &nums, int target) {
+                        unordered_map<int, int> mapping;
+                        for (int i = 0; i < nums.size(); i++) {
+                            mapping[nums[i]] = i;
+                        }
+                        sort( nums.begin(), nums.end() );
+                        int lo = 0, hi = nums.size()-1;
+                        while( lo < hi ) {
+                            if( nums[lo]+nums[hi] == target ) {
+                                break;
+                            } else if( nums[lo]+nums[hi] < target) {
+                                ++lo;
+                            } else {
+                                --hi;
+                            }
+                        }
+
+                        vector<int> result;
+                        if( lo < hi ) {
+                            int x = mapping[nums[lo]];
+                            int y = mapping[nums[hi]];
+                            if( x > y ) { swap(x,y); }
+                            result.push_back( x );
+                            result.push_back( y );
+                        }
+                        return result;
+                    }
+                };
+                ```
+
+                我的这个版本居然错在了……一个蛋疼的例子：
+
+                ```
+                Input:      [0,4,3,0]
+                            0
+                Output:     [3,3]
+                Expected:   [0,3]
+                ```
+
+                -   1. Two sum follow up I -<
+
+                    :   如果 array 是排序好的呢？
+
+                        [Two Sum II - Input array is sorted | LeetCode OJ](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/) -<
+
+                        :   题设保证了有唯一解。
+
+                            ```
+                            class Solution {
+                            public:
+                                vector<int> twoSum(vector<int> &a, int target) {
+                                    int i = 0, j = a.size()-1;
+                                    while (i < j) {
+                                        if (a[i]+a[j] < target)
+                                            i++;
+                                        else if (a[i]+a[j] > target)
+                                            j--;
+                                        else
+                                            break;
+                                    }
+                                    return {i+1, j+1};
+                                }
+                            };
+                            ```
+
+                            吐槽：two sum 的题，把 index 改成了 zero-based，而这里，居然还是 one-based。
+
+                        [3Sum | LeetCode OJ](https://leetcode.com/problems/3sum/) -<
+
+                        :   可能有多组解。三个数合为 0。
+
+                            ```cpp
+                            class Solution {
+                            public:
+                                vector<vector<int> > threeSum(vector<int> &a) {
+                                    int n = a.size();
+                                    vector<vector<int>> r;
+                                    sort(a.begin(), a.end());
+                                    for (int i = 0; i < n; ) {
+                                        int j = i+1, k = n-1, s = -a[i], old;   // 对每个 i，夹逼尝试 j、k。
+                                        while (j < k) {
+                                            if (a[j]+a[k] < s) j++;
+                                            else if (a[j]+a[k] > s) k--;
+                                            else {
+                                                r.push_back(vector<int>{a[i], a[j], a[k]});
+                                                old = a[j];
+                                                while (++j < k && a[j] == old);
+                                                k--;
+                                            }
+                                        }
+                                        old = a[i];
+                                        while (++i < n && a[i] == old);
+                                    }
+                                    return r;
+                                }
+                            };
+                            ```
+
+                        [3Sum Closest | LeetCode OJ](https://leetcode.com/problems/3sum-closest/) -<
+
+                        :   和刚才的情况类似。
+
+                            ```cpp
+                            #define REP(i, n) for (int i = 0; i < (n); i++)
+
+                            class Solution {
+                            public:
+                                int threeSumClosest(vector<int> &a, int target) {
+                                    int n = a.size(), opt = INT_MAX, opts;
+                                    sort(a.begin(), a.end());
+                                    REP(i, n) {
+                                        int j = i+1, k = n-1, t = target-a[i];
+                                        while (j < k) {
+                                            if (a[j]+a[k] < t) {
+                                                if (t-a[j]-a[k] < opt) {
+                                                    opt = t-a[j]-a[k];
+                                                    opts = a[i]+a[j]+a[k];
+                                                }
+                                                j++;
+                                            } else if (a[j]+a[k] > t) {
+                                                if (a[j]+a[k]-t < opt) {
+                                                    opt = a[j]+a[k]-t;
+                                                    opts = a[i]+a[j]+a[k];
+                                                }
+                                                k--;
+                                            } else
+                                                return target;
+                                        }
+                                    }
+                                    return opts;
+                                }
+                            };
+                            ```
+
+                        [4Sum | LeetCode OJ](https://leetcode.com/problems/4sum/) -<
+
+                        :   ```cpp
+                            class Solution {
+                            public:
+                                vector<vector<int> > fourSum(vector<int> &a, int target) {
+                                    int n = a.size(), old;
+                                    multimap<int, int> m;
+                                    vector<vector<int>> r;
+                                    sort(a.begin(), a.end());
+                                    for (int i = 0; i < n; ) {
+                                        // a <= b < c <= d
+                                        for (int j = i+1; j < n; ) {
+                                            int t = target-a[i]-a[j];
+                                            auto it = m.equal_range(t);
+                                            for (; it.first != it.second; ++it.first) {
+                                                vector<int> b{it.first->second, t-it.first->second, a[i], a[j]};
+                                                r.push_back(b);
+                                            }
+                                            old = a[j];
+                                            while (++j < n && a[j] == old);
+                                        }
+                                        // a < b = b <= c
+                                        if (i+1 < n && a[i] == a[i+1]) {
+                                            for (int j = i+2; j < n; ) {
+                                                int t = target-a[i]*2-a[j];
+                                                auto it = lower_bound(a.begin(), a.begin()+i, t);
+                                                if (it != a.begin()+i && *it == t) {
+                                                    vector<int> b{*it, a[i], a[i], a[j]};
+                                                    r.push_back(b);
+                                                }
+                                                old = a[j];
+                                                while (++j < n && a[j] == old);
+                                            }
+                                        }
+                                        // a = a = a <= b
+                                        if (i+2 < n && a[i] == a[i+2]) {
+                                            int t = target-a[i]*3;
+                                            auto it = lower_bound(a.begin()+i+3, a.end(), t);
+                                            if (it != a.end() && *it == t) {
+                                                vector<int> b{a[i], a[i], a[i], t};
+                                                r.push_back(b);
+                                            }
+                                        }
+                                        old = a[i];
+                                        while (i+1 < n && a[i+1] == old)
+                                            i++;
+                                        for (int j = 0; j < i; ) {
+                                            m.insert(make_pair(a[j]+a[i], a[j]));
+                                            old = a[j];
+                                            while (++j < n && a[j] == old);
+                                        }
+                                        i++;
+                                    }
+                                    return r;
+                                }
+                            };
+                            ```
+
+                -   2. Two sum follow up II - Triangle count -<
+
         -   Kth largest element
             -   1. 第 k 大元素的三层递进面试考察.
             -   2. 如何通过一道题区分 3 类面试者
@@ -19402,10 +19944,6 @@ Code Reading -<
 
 [ACM 题集以及各种总结大全！ - 枯槐树下乘凉 - 博客频道 - CSDN.NET](http://blog.csdn.net/kuhuaishuxia/article/details/52254209)
 
-[LeetCode solutions | MaskRay](http://maskray.me/blog/2014-06-29-leetcode-solutions){.hearts}
-
-:   见 [4ker/LeetCode](https://github.com/4ker/LeetCode)。
-
 [《挑战程序设计竞赛(第2版)》-码农场](http://www.hankcs.com/tag/%e3%80%8a%e6%8c%91%e6%88%98%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e7%ab%9e%e8%b5%9b%e7%ac%ac2%e7%89%88%e3%80%8b/)
 
 [AVL树，红黑树，B树，B+树，Trie树都分别应用在哪些现实场景中？ - 知乎](https://www.zhihu.com/question/30527705)
@@ -20511,3 +21049,651 @@ Dijkstra's algorithm -<
     -   [`A*` search algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/A*_search_algorithm)
 
 [DSACPP, 数据结构（C++语言版）](http://dsa.cs.tsinghua.edu.cn/%7Edeng/ds/dsacpp/index.htm)
+
+[LeetCode solutions | MaskRay](http://maskray.me/blog/2014-06-29-leetcode-solutions){.hearts}
+
+:   见 [4ker/LeetCode](https://github.com/4ker/LeetCode)。
+
+    [http://tangzx.qiniudn.com/notes/leetcode-maskray/index.html](http://tangzx.qiniudn.com/notes/leetcode-maskray/index.html)
+
+[Trapping Rain Water | LeetCode OJ](https://leetcode.com/problems/trapping-rain-water/) -<
+
+:   ![](http://www.leetcode.com/wp-content/uploads/2012/08/rainwatertrap.png)
+
+    对于每个柱子，找到其左右两边最高的柱子，该柱子能容纳的面积就是 min(max_left, max_right) - height。所以，
+
+    -   从左往右扫描一遍，对于每个柱子，求取左边最大值；
+    -   从右往左扫描一遍，对于每个柱子，求最大右值；
+    -   再扫描一遍，把每个柱子的面积并累加。
+
+    也可以，
+
+    -   扫描一遍，找到最高的柱子，这个柱子将数组分为两半；
+    -   处理左边一半；
+    -   处理右边一半。
+
+    ```cpp
+    class Solution {
+    public:
+        int trap(vector<int> &h) {
+            int hl = 0, hr = 0, i = 0, j = h.size(), s = 0;
+            while (i < j) {
+                if (hl < hr) {
+                    s += max(min(hl, hr)-h[i], 0);
+                    hl = max(hl, h[i++]);
+                } else {
+                    s += max(min(hl, hr)-h[--j], 0);
+                    hr = max(hr, h[j]);
+                }
+            }
+            return s;
+        }
+    };
+    ```
+
+    ```cpp
+    class Solution {
+    public:
+        int trap(const vector<int>& A) {
+            if( n < 2 ) { return 0; }                               // 注意后面的 A[n-1] 一定要保证不越界啊！
+
+            const int n = A.size();
+            vector<int> max_left( n ), max_right( n );
+            max_left[0] = A[0]; max_right[n-1] = A[n-1];
+            for (int i = 1; i < n; i++ ) {
+                max_left[i] = max(max_left[i - 1], A[i-1]);
+                max_right[n-1-i] = max(max_right[n-i], A[n-i]);
+            }
+
+            int sum = 0;
+            for (int i = 0; i < n; i++) {
+                int height = min(max_left[i], max_right[i]);
+                if (height > A[i]) {
+                    sum += height - A[i];
+                }
+            }
+            return sum;
+        }
+    };
+    ```
+
+[Rotate Image | LeetCode OJ](https://leetcode.com/problems/rotate-image/) -<
+
+:   复制太慢！用两次翻折，如下图：
+
+    ```
+    先副对角线，在中线
+    1   2               4   2               3   1
+      /         -->      ---        --->
+    3   4               3   1               4   2
+    (i,j)
+    i=[0,n-1)       P(i,j)->P(n-1-j,n-1-i)
+    j=[0,n-1-i)
+
+    先中线，再主对角线
+    1   2               3   4               3   1
+     ---        -->       \         --->
+    3   4               1   2               4   2
+    ```
+
+    看来怎么翻折都是可以得。自己随意选择把。
+
+    ```cpp
+    // Rotate Image
+    #define REP(i, n) for (int i = 0; i < (n); i++)
+
+    class Solution {
+    public:
+        void rotate(vector<vector<int> > &a) {
+            int n = a.size();
+            REP(i, n-1)
+                REP(j, n-1-i)
+                swap(a[i][j], a[n-1-j][n-1-i]);
+            REP(i, n/2)
+                swap_ranges(a[i].begin(), a[i].end(), a[n-1-i].begin());
+        }
+    };
+    ```
+
+[Plus One | LeetCode OJ](https://leetcode.com/problems/plus-one/) -<
+
+:   ```cpp
+    class Solution {
+    public:
+        vector<int> plusOne(vector<int> &a) {
+            using namespace std::placeholders;
+            if (find_if(a.begin(), a.end(), bind(not_equal_to<int>(), _1, 9)) == a.end()) {
+                a.assign(a.size()+1, 0);
+                a[0] = 1;
+            } else {
+                int i = a.size();
+                while (++a[--i] >= 10)
+                    a[i] -= 10;
+            }
+            return a;
+        }
+    };
+    ```
+
+    ```cpp
+    class Solution {
+    public:
+        vector<int> plusOne(vector<int> &digits) {
+            add(digits, 1);
+            return digits;
+        }
+    private:
+        // 0 <= digit <= 9
+        void add(vector<int> &digits, int digit) {
+            int c = digit;  // carry, 进位
+
+            for (auto it = digits.rbegin(); it != digits.rend(); ++it) {
+                *it += c;
+                c = *it / 10;
+                *it %= 10;
+                if( !c ) { return; } // 没有 carry 就退出咯
+            }
+
+            if (c > 0) digits.insert(digits.begin(), 1);
+        }
+    };
+    ```
+
+[Gray Code | LeetCode OJ](https://leetcode.com/problems/gray-code/) -<
+
+:   The gray code is a binary numeral system where two successive values differ
+    in only one bit.
+
+    Given a non-negative integer n representing the total number of bits in the
+    code, print the sequence of gray code. A gray code sequence must begin with 0.
+
+    For example, given n = 2, return [0,1,3,2]. Its gray code sequence is:
+
+    ```
+    00 - 0
+    01 - 1
+    11 - 3
+    10 - 2
+    ```
+
+    自然二进制码转换为格雷码：g~0~ = b~0~, g~i~=b~i~ ^ b~i-1~
+
+    保留自然二进制码的最高位作为格雷码的最高位，格雷码次高位为二进制码的高位与
+    次高位异或，其余各位与次高位的求法类似。例如，将自然二进制码 1001，转换为格
+    雷码的过程是：保留最高位；然后将第 1 位的 1 和第 2 位的 0 异或，得到 1，作
+    为格雷码的第 2 位；将第 2 位的 0 和第 3 位的 0 异或，得到 0，作为格雷码的第
+    3 位；将第 3 位的 0 和第 4 位的 1 异或，得到 1，作为格雷码的第 4 位，最终，
+    格雷码为 1101。
+
+    格雷码有数学公式，整数 n 的格雷码是 n ^ (n/2)。
+
+    这题要求生成 n 比特的所有格雷码。
+
+    -   方法 1，最简单的方法，利用数学公式，对从 0..2^n-1^ 的所有整数，转化为格雷码。
+    -   方法 2，n 比特的格雷码，可以递归地从 n-1 比特的格雷码生成。
+
+    ![The first few steps of the reflect-and-prefix method.](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Binary-reflected_Gray_code_construction.svg/250px-Binary-reflected_Gray_code_construction.svg.png)
+
+    see more at [Gray code - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Gray_code).
+
+    ```cpp
+    #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
+    #define REP(i, n) FOR(i, 0, n)
+
+    class Solution {
+    public:
+        vector<int> grayCode(int n) {
+            vector<int> r;
+            REP(i, 1 << n)
+                r.push_back(i^i>>1);
+            return r;
+        }
+    };
+    ```
+
+    ```cpp
+    class Solution {
+    public:
+        vector<int> grayCode(int n) {
+            const size_t size = 1 << n;  // 2^n
+            vector<int> result( size );
+            for (size_t i = 0; i < size; ++i)
+                result[i] = binary_to_gray(i);
+            return result;
+        }
+    private:
+        static unsigned int binary_to_gray(unsigned int n) {
+            return n ^ (n >> 1);
+        }
+    };
+    ```
+
+    ```cpp
+    // reflect-and-prefix method
+    // 时间复杂度 O(2^n)，空间复杂度 O(1)
+    class Solution {
+    public:
+        vector<int> grayCode(int n) {
+            vector<int> result;
+            result.reserve(1<<n);
+            result.push_back(0);
+            for (int i = 0; i < n; i++) {
+                const int highest_bit = 1 << i;
+                for (int j = result.size() - 1; j >= 0; j--) // 要反着遍历，才能对称
+                    result.push_back(highest_bit | result[j]);
+            }
+            return result;
+        }
+    };
+    ```
+
+[Single Number | LeetCode OJ](https://leetcode.com/problems/single-number/) -<
+
+:   Given an array of integers, every element appears twice except for one. Find that single one.
+
+    偶数次异或等于 0。0 异或 x 等于 x。
+
+    ```cpp
+    class Solution {
+    public:
+        int singleNumber(vector<int> &a) {
+            return accumulate(a.begin(), a.end(), 0, bit_xor<int>());
+        }
+    };
+    ```
+
+    ```cpp
+    class Solution {
+    public:
+        int singleNumber(vector<int>& nums) {
+            int x = 0;
+            for (auto i : nums) {
+                x ^= i;
+            }
+            return x;
+        }
+    };
+    ```
+
+[Single Number II | LeetCode OJ](https://leetcode.com/problems/single-number-ii/) -<
+
+:   只有一次数只出现了一次，其余都是三次。
+
+    方法1：创建一个长度为 sizeof(int) 的数组 `count[sizeof(int)]`，`count[i]`
+    表示在 i 位出现的 1 的次数。如果 count[i] 是 3 的整数倍，则忽略；否则就把该
+    位取出来组成答案。
+
+    ```cpp
+    #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
+    #define REP(i, n) FOR(i, 0, n)
+    class Solution {
+    public:
+        int singleNumber(vector<int> &a) {
+            vector<int> c(32);
+            for (int x: a)
+                REP(j, 32)
+                    c[j] += x>>j & 1;
+            int r = 0;
+            REP(j, 32)
+                r |= ( c[j]%3 & 1 ) << j;
+            return r;
+        }
+    };
+    ```
+
+    方法 2：用 one 记录到当前处理的元素为止，二进制 1 出现“1 次”（mod 3 之后的1）
+    的有哪些二进制位；用 two 记录到当前计算的变量为止，二进制 1 出现“2 次”
+    （mod 3 之后的 2）的有哪些二进制位。当 one 和 two 中的某一位同时为 1 时表示
+    该二进制位上 1 出现了 3 次，此时需要清零。即**用二进制模拟三进制运算**。最
+    终 one 记录的是最终结果。
+
+    ```cpp
+    class Solution {
+    public:
+        int singleNumber(vector<int> &a) {
+            int one = 0, two = 0;
+            for (int x: a) {
+                one = (one ^ x) & ~ two;
+                two = (two ^ x) & ~ one;
+            }
+            return one;
+        }
+    };
+    ```
+
+[Add Two Numbers | LeetCode OJ](https://leetcode.com/problems/add-two-numbers/) -<
+
+:   ```cpp
+    // 时间复杂度O(m+n)，空间复杂度O(1)
+    class Solution {
+    public:
+        ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+            ListNode dummy(-1);                                 // 头节点
+            ListNode *prev = &dummy;
+            int carry = 0;
+            for (ListNode *pa = l1, *pb = l2;
+                 pa != nullptr || pb != nullptr;
+                 pa = pa == nullptr ? nullptr : pa->next,       // 这两个“下一步”不要太赞！
+                 pb = pb == nullptr ? nullptr : pb->next,
+                 prev = prev->next) {
+                int ai = pa == nullptr ? 0 : pa->val;
+                int bi = pb == nullptr ? 0 : pb->val;
+                int value = (ai + bi + carry) % 10;
+                carry = (ai + bi + carry) / 10;
+                prev->next = new ListNode(value);               // 尾插法
+            }
+            if (carry > 0)
+                prev->next = new ListNode(carry);
+            return dummy.next;
+        }
+    };
+    ```
+
+    ```cpp
+    class Solution {
+    public:
+        ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+            ListNode *r = NULL, *p = NULL;
+            int c = 0;
+            while (l1 || l2) {
+                if (l1) {
+                    c += l1->val;
+                    l1 = l1->next;
+                }
+                if (l2) {
+                    c += l2->val;
+                    l2 = l2->next;
+                }
+                auto x = new ListNode(c%10);
+                c /= 10;
+                if (! r)
+                    r = p = x;
+                else {
+                    p->next = x;
+                    p = p->next;
+                }
+            }
+            if (c)
+                p->next = new ListNode(c);
+            return r;
+        }
+    };
+    ```
+
+[Reverse Linked List | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list/) -<
+
+:   ```cpp
+    class Solution {
+    public:
+        ListNode* reverseList(ListNode* x) {
+            ListNode *y = 0, *t;    // 初始为 0
+            while (x) {
+                t = x->next;        // 保存起来
+                x->next = y;        // 颠倒方向，指向上一个头指针
+                y = x;              // 更新头指针
+                x = t;              // 下一步
+            }
+            return y;
+        }
+    };
+    ```
+
+[Reverse Linked List II | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list-ii/) :hearts: -<
+
+:   难在需要在指定范围内 reverse。
+
+    已经保证了：1 ≤ m ≤ n ≤ length of list。
+
+    Reverse a linked list from position m to n. Do it in-place and in one-pass.
+
+    For example:
+
+    ```
+    Given 1->2->3->4->5->NULL, m = 2 and n = 4,
+
+    return 1->4->3->2->5->NULL.
+    ```
+
+    ```cpp
+    // 迭代版，时间复杂度O(n)，空间复杂度O(1)
+    class Solution {
+    public:
+        ListNode *reverseBetween(ListNode *head, int m, int n) {
+            ListNode dummy(-1);
+            dummy.next = head;
+
+            ListNode *prev = &dummy;
+            for (int i = 0; i < m-1; ++i)
+                prev = prev->next;
+
+            ListNode* const head2 = prev;
+
+            prev = head2->next;
+            ListNode *cur = prev->next;
+            for (int i = m; i < n; ++i) {
+                prev->next = cur->next;
+                cur->next = head2->next;
+                head2->next = cur;              // 头插法
+                cur = prev->next;
+            }
+
+            return dummy.next;
+        }
+    };
+    ```
+
+    ```cpp
+    class Solution {
+    public:
+        ListNode *reverseBetween(ListNode *head, int m, int n) {
+            ListNode **p = &head;
+            n -= m-1;
+            while (--m)
+                p = &(*p)->next;
+            ListNode *q = *p, *r = q, *l = q, *t;
+            while (n--) {
+                t = q->next;
+                q->next = l;
+                l = q;
+                q = t;
+            }
+            *p = l;
+            r->next = q;
+            return head;
+        }
+    };
+    ```
+
+[LRU Cache | LeetCode OJ](https://leetcode.com/problems/lru-cache/) -<
+
+:   Design and implement a data structure for Least Recently Used (LRU) cache.
+    It should support the following operations: get and set.
+
+    `get(key)` - Get the value (will always be positive) of the key if the key
+    exists in the cache, otherwise return -1.
+
+    `set(key, value)` - Set or insert the value if the key is not already
+    present. When the cache reached its capacity, it should invalidate the
+    least recently used item before inserting a new item.
+
+    为了使查找、插入和删除都有较高的性能，我们使用一个双向链表(std::list)和一个
+    哈希表(std::unordered_map)，因为：
+
+    -   哈希表保存每个节点的地址，可以基本保证在$O(1)$时间内查找节点
+    -   双向链表插入和删除效率高，单向链表插入和删除时，还要查找节点的前驱节点
+
+    具体实现细节：
+
+    -   越靠近链表头部，表示节点上次访问距离现在时间最短，尾部的节点表示最近访问最少}
+    -   访问节点时，如果节点存在，把该节点交换到链表头部，同时更新 hash 表中该节点的地址}
+    -   插入节点时，如果 cache 的 size 达到了上限 capacity，则删除尾部节点，同
+        时要在 hash 表中删除对应的项；新节点插入链表头部}
+
+    ```cpp
+    class LRUCache {
+    public:
+        LRUCache(int capacity) : c(capacity) {}
+
+        void touch(int key) {
+            pair<int, int> x = *s[key];
+            a.erase(s[key]);
+            a.push_front(x);
+            s[x.first] = a.begin();
+        }
+
+        int get(int key) {
+            if (! s.count(key))
+                return -1;
+            touch(key);
+            return a.begin()->second;
+        }
+
+        void set(int key, int value) {
+            if (s.count(key)) {
+                touch(key);
+                a.begin()->second = value;
+            } else {
+                if (s.size() >= c) {
+                    s.erase(a.rbegin()->first);
+                    a.pop_back();
+                }
+                a.push_front(make_pair(key, value));
+                s[key] = a.begin();
+            }
+        }
+
+    private:
+        map<int, list<pair<int, int> >::iterator> s;
+        list<pair<int, int> > a;
+        int c;
+    };
+    ```
+
+[Valid Palindrome | LeetCode OJ](https://leetcode.com/problems/valid-palindrome/) -<
+
+:   这个很巧妙，移动到左侧。
+
+    ```cpp
+    class Solution {
+    public:
+        bool isPalindrome(string s) {
+            int i = 0, j = 0;
+            for (; i < s.size(); i++)
+                if (isalnum(s[i]))
+                    s[j++] = s[i];
+            for (i = 0; i < --j; i++)
+                if (tolower(s[i]) != tolower(s[j]))
+                    return false;
+            return true;
+        }
+    };
+    ```
+
+    这个不会修改 s（虽然是一个拷贝，无所谓修改）
+
+    ```cpp
+    class Solution {
+    public:
+        bool isPalindrome(string s) {
+            int left = 0, right = s.size()-1;
+            while( left < right ) {
+                while( !::isalnum(s[left])  && left+1 <= right ) { ++left; }
+                while( !::isalnum(s[right]) && right-1 >= left ) { --right; }
+                if( left <= right ) {
+                    if( ::tolower(s[left]) != ::tolower(s[right]) ) {
+                        return false;
+                    }
+                    ++left;
+                    --right;
+                }
+            }
+            return true;
+        }
+    };
+    ```
+
+[Add Binary | LeetCode OJ](https://leetcode.com/problems/add-binary/) -<
+
+:   ```cpp
+    // 时间复杂度 O(n)，空间复杂度 O(1)
+    class Solution {
+    public:
+        string addBinary(string a, string b) {
+            const size_t n = max( a.size(), b.size() );
+            string result;
+            result.reserve( n+1 );
+            result.resize( n );
+            reverse(a.begin(), a.end());
+            reverse(b.begin(), b.end());
+            int carry = 0;
+            for (size_t i = 0; i < n; i++) {
+                int ai = i < a.size() ? a[i] - '0' : 0;
+                int bi = i < b.size() ? b[i] - '0' : 0;
+                int val = (ai + bi + carry) % 2;
+                carry = (ai + bi + carry) / 2;
+                result[i] = val + '0';
+            }
+            if (carry == 1) {
+                result.push_back( '1' );
+            }
+            reverse( result.begin(), result.end() );
+            return result;
+        }
+    };
+    ```
+
+[Longest Palindromic Substring | LeetCode OJ](https://leetcode.com/problems/longest-palindromic-substring/) :hearts: -<
+
+:
+
+
+-   思路一：暴力枚举，以每个元素为中间元素，同时从左右出发，复杂度 O(n^2)。
+
+-   思路二：记忆化搜索，复杂度 O(n^2)。设 `f[i][j]` 表示 `[i,j]` 之间的最长回文子串，递推方程如下：
+
+    ```
+    f[i][j] = if (i == j) S[i]
+              if (S[i] == S[j] && f[i+1][j-1] == S[i+1][j-1]) S[i][j]
+              else max(f[i+1][j-1], f[i][j-1], f[i+1][j])
+    ```
+
+-   思路三：动规，复杂度 O(n^2)。设状态为 `f(i,j)`，表示区间 `[i,j]` 是否为回文串，则状态转移方程为
+
+    ```
+                        true                                        i=j
+    f(i,j)      =       S[i]=S[j]                                   j = i + 1
+                        S[i]=S[j] and f(i+1, j-1)                   j > i + 1
+    ```
+
+-   思路四：Manacher’s Algorithm, 复杂度 O(n)。详细见 [Longest Palindromic Substring Part II – LeetCode](http://articles.leetcode.com/longest-palindromic-substring-part-ii)。
+
+    ```cpp
+    // Longest Palindromic Substring
+    // Manacher's algorithm
+
+    #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
+    #define REP(i, n) FOR(i, 0, n)
+
+    class Solution {
+    public:
+        string longestPalindrome(string s) {
+            string a(2*s.size()+1, '.');
+            vector<int> z(2*s.size()+1);
+            REP(i, s.size())
+                a[2*i+1] = s[i];
+            for (int f, g = 0, i = 0; i < a.size(); i++)
+                if (i < g && z[2*f-i] != g-i)
+                    z[i] = min(z[2*f-i], g-i);
+                else {
+                    f = i;
+                    g = max(g, i);
+                    while (g < a.size() && 2*f-g >= 0 && a[g] == a[2*f-g]) g++;
+                    z[i] = g-f;
+                }
+            int x = max_element(z.begin(), z.end()) - z.begin();
+            return s.substr((x-z[x]+1)/2, z[x]-1);
+        }
+    };
+    ```
+
+C:\Users\tzx\Downloads\LM\leetcode-master\C++\leetcode-cpp.tex
