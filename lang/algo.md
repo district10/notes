@@ -20,8 +20,8 @@ ASCII table -<
                                 |
                                 |                                           aqaq @ grave
       0         16      32      |48     64      80     96       112
-                                |       阿      卡       琳      酱
-      NULL     DEL      SP           @       P       `       p           |   <-------------- 0
+                                |       阿      卡      琳      酱
+      NULL     DEL      SP      0       @       P       `       p           |   <-------------- 0
                          !      1       A       Q       a       q           |   <-------------- 1
                          "      2                                           |   <-------------- 2
                          .      .                                           |   <-------------- .
@@ -34,9 +34,11 @@ ASCII table -<
     ../../aoapc-book/aoapc-bac2nd/README.md
     ../../acm-cheat-sheet/C++/ACM-cheat-sheet.tex
 
-TODOs:
+TODOs & Notes:
 
--   rewrite UFS.c in C++: union, find, init.
+:   -   rewrite UFS.c in C++: union, find, init.
+
+    -   (left+right)/2 和 left + (right-left)/2 除了在负数的时候不同之外，后者还不会越界。
 
 ## 0.
 
@@ -3066,7 +3068,6 @@ A Bit of Logic -<
                                 -   Moris -<
 
                                     :   ```cpp
-                                        null
                                         ```
 
                                         ![红色是为了定位到某个节点，黑色线是为了
@@ -3141,10 +3142,49 @@ A Bit of Logic -<
                                             ||          [DFEBCA]    empty, reverse vec, return
                                             ```
 
-                                -   Moris -<
+                                -   Morris -<
 
                                     :   ```cpp
-                                        null
+                                        class Solution {
+                                            void reverse_right_chain(TreeNode *x, TreeNode *y) {
+                                                TreeNode *p = x, *q = x->right, *right;
+                                                while (p != y) {
+                                                    right = q->right;
+                                                    q->right = p;
+                                                    p = q;
+                                                    q = right;
+                                                }
+                                            }
+                                        public:
+                                            vector<int> postorderTraversal(TreeNode* root) {
+                                                vector<int> ret;
+                                                TreeNode aux(0), *p = &aux;
+                                                aux.left = root;
+                                                aux.right = NULL;
+                                                while (p) {
+                                                    TreeNode *q = p->left;
+                                                    if (q) {
+                                                        while (q->right && q->right != p) q = q->right;
+                                                        if (q->right == p) {
+                                                            reverse_right_chain(p->left, q);
+                                                            for (TreeNode *r = q; ; r = r->right) {
+                                                                ret.push_back(r->val);
+                                                                if (r == p->left) break;
+                                                            }
+                                                            reverse_right_chain(q, p->left);
+                                                            q->right = NULL;
+                                                        } else {
+                                                            q->right = p;
+                                                            p = p->left;
+                                                            continue;
+                                                        }
+                                                    }
+                                                    p = p->right;
+                                                }
+                                                return ret;
+                                            }
+                                        };
+
                                         ```
                 -   threaded tree -<
 
@@ -3274,7 +3314,7 @@ A Bit of Logic -<
                                                                                              G
                                 ```
 
-                        -   先序、中序字符串到后序字符串 -<
+                        -   先序、中序字符串到后序字符串 :hearts: -<
 
                             :   ```cpp
                                 #include <stdio.h>
@@ -3328,7 +3368,7 @@ A Bit of Logic -<
                                 post: GDBEFCA
                                 ```
 
-                        -   生成树 -<
+                        -   生成树，105. Construct Binary Tree from Preorder and Inorder Traversal :hearts: -<
 
                             :   ```cpp
                                 void rebuild( const char *pre, const char *in, int n, bt_node_t **root ) {
@@ -3348,6 +3388,65 @@ A Bit of Logic -<
                                              n - left_len - 1,  &((*root)->right) );
                                 }
                                 ```
+
+                                ```cpp
+                                // Construct Binary Tree from Preorder and Inorder Traversal
+
+                                // iterative
+                                class Solution {
+                                public:
+                                    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
+                                        if (preorder.empty()) return nullptr;
+                                        auto i = preorder.begin(), j = inorder.begin();
+                                        auto root = new TreeNode(*i++);
+                                        stack<TreeNode *> s;
+                                        s.push(root);
+                                        while (i != preorder.end()) {
+                                            auto x = s.top();
+                                            if (x->val != *j) {
+                                                x->left = new TreeNode(*i++);
+                                                x = x->left;
+                                                s.push(x);
+                                            } else {
+                                                s.pop();
+                                                ++j;
+                                                if (s.empty() || s.top()->val != *j) {
+                                                    x->right = new TreeNode(*i++);
+                                                    x = x->right;
+                                                    s.push(x);
+                                                }
+                                            }
+                                        }
+                                        return root;
+                                    }
+                                };
+                                ```
+
+                                ```cpp
+                                // recursive
+                                #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
+                                #define REP(i, n) FOR(i, 0, n)
+
+                                class Solution {
+                                public:
+                                    TreeNode *buildTree(vector<int> &preorder, vector<int> &inorder) {
+                                        return f(&preorder[0], &*preorder.end(), &inorder[0], &*inorder.end());
+                                    }
+                                    TreeNode *f(int *l, int *h, int *ll, int *hh) {
+                                        if (l == h)
+                                            return NULL;
+                                        auto r = new TreeNode(*l);
+                                        int *m = find(ll, hh, *l);
+                                        r->left = f(l+1, l+1+(m-ll), ll, m);
+                                        r->right = f(l+1+(m-ll), h, m+1, hh);
+                                        return r;
+                                    }
+                                };
+                                ```
+
+                                refs and see also
+
+                                -   [Construct Binary Tree from Preorder and Inorder Traversal | LeetCode OJ](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 
                         -   双亲表示法 -<
 
@@ -3676,6 +3775,7 @@ A Bit of Logic -<
                             return isValidBST( root, LLONG_MIN, LLONG_MAX );
                         }
 
+                        // 看是否在【界定】之内
                         bool isValidBST( TreeNode *root, long long min, long long max ) {
                             if( !root ) { return true; }
                             long long val = root->val;
@@ -3723,13 +3823,126 @@ A Bit of Logic -<
 
                         不用这种化归的偷懒策略，有两种思路：
 
-                        -   分治法，自顶向下 O(n^2)，O(logn)
-                        -   自底向上 O(n)，O(logn)
+                        -   分治法，自顶向下 O(n^2)，O(logn) -<
+
+                            :   ```cpp
+                                // 分治法，类似于 Convert Sorted Array to Binary Search Tree，
+                                // 自顶向下，时间复杂度O(n^2)，空间复杂度O(logn)
+                                class Solution {
+                                public:
+                                    TreeNode* sortedListToBST (ListNode* head) {
+                                        return sortedListToBST (head, listLength (head));
+                                    }
+
+                                    TreeNode* sortedListToBST (ListNode* head, int len) {
+                                        if (len == 0) return nullptr;
+                                        if (len == 1) return new TreeNode (head->val);
+
+                                        TreeNode* root = new TreeNode (nth_node (head, len / 2 + 1)->val);
+                                        root->left = sortedListToBST (head, len / 2);
+                                        root->right = sortedListToBST (nth_node (head, len / 2 + 2),
+                                                (len - 1) / 2);
+
+                                        return root;
+                                    }
+
+                                    int listLength (ListNode* node) {
+                                        int n = 0;
+
+                                        while(node) {
+                                            ++n;
+                                            node = node->next;
+                                        }
+
+                                        return n;
+                                    }
+
+                                    ListNode* nth_node (ListNode* node, int n) {
+                                        while (--n)
+                                            node = node->next;
+
+                                        return node;
+                                    }
+                                };
+                                ```
+
+                        -   自底向上 O(n)，O(logn) -<
+
+                            :   As usual, the best solution requires you
+                                **to think from another perspective**. In other words, we no
+                                longer create nodes in the tree using the top-down
+                                approach. We create nodes bottom-up, and 【assign them to its parents】.
+                                The bottom-up approach enables
+                                us to access the list in its order while creating
+                                nodes.
+
+                                Isn’t the bottom-up approach neat? Each time you
+                                are stucked with the top-down approach, give
+                                bottom-up a try. Although bottom-up approach is not
+                                the most natural way we think, it is extremely
+                                helpful in some cases. However, you should prefer
+                                top-down instead of bottom-up in general, since the
+                                latter is more difficult to verify in correctness.
+
+                                Below is the code for converting a singly linked
+                                list to a balanced BST. Please note that the
+                                algorithm requires the list’s length to be passed
+                                in as the function’s parameters. The list’s length
+                                could be found in O(N) time by traversing the
+                                entire list’s once. The recursive calls traverse
+                                the list and create tree’s nodes by the list’s
+                                order, which also takes O(N) time. Therefore, the
+                                overall run time complexity is still O(N).
+
+                                ```cpp
+                                BinaryTree* sortedListToBST(ListNode *& list, int start, int end) {
+                                    if (start > end) return NULL;
+                                    int mid = start + (end - start) / 2;        // same as (start+end)/2, avoids overflow
+                                    BinaryTree *leftChild = sortedListToBST(list, start, mid-1);
+                                    BinaryTree *parent = new BinaryTree(list->data);
+                                    parent->left = leftChild;
+                                    list = list->next;
+                                    parent->right = sortedListToBST(list, mid+1, end);
+                                    return parent;
+                                }
+
+                                BinaryTree* sortedListToBST(ListNode *head, int n) {
+                                    return sortedListToBST(head, 0, n-1);
+                                }
+                                ```
+
+                        这是什么解法呢？
+
+                        ```cpp
+                        // Convert Sorted List to Binary Search Tree
+                        class Solution {
+                            ListNode *l;
+                            TreeNode *f(int n) {
+                                if (! n) return 0;
+                                auto x = new TreeNode(0);
+                                x->left = f(n/2);
+                                x->val = l->val;
+                                l = l->next;
+                                x->right = f(n-n/2-1);
+                                return x;
+                            }
+                        public:
+                            TreeNode *sortedListToBST(ListNode *head) {
+                                l = head;
+                                int n = 0;
+                                while (head) {
+                                    head = head->next;
+                                    n++;
+                                }
+                                return f(n);
+                            }
+                        };
+                        ```
 
                         refs and see also
 
                         -   [Convert Sorted List to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/)
-                        -   [Convert Sorted List to Balanced Binary Search Tree (BST) – LeetCode](http://articles.leetcode.com/convert-sorted-list-to-balanced-binary/)
+                        -   [Convert Sorted List to Balanced Binary Search Tree (BST) – LeetCode](http://articles.leetcode.com/convert-sorted-list-to-balanced-binary)
 
         -   分治 Divide & Conquer -<
 
@@ -9243,7 +9456,191 @@ A Bit of Logic -<
 
                     注意:切分位置的枚举->单词长度枚举 O(NL 2), N: 字符串长度, L: 最长的单词的长度
 
-                [Palindrome Partitioning II 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/palindrome-partitioning-ii/)
+[Palindrome Partitioning | LeetCode OJ](https://leetcode.com/problems/palindrome-partitioning/) -<
+
+:   Given a string s, partition s such that every substring of the partition is a palindrome.
+
+    Return all possible palindrome partitioning of s.
+
+    For example, given s = "aab",
+    Return
+
+    ```
+    [
+      ["aa","b"],
+      ["a","a","b"]
+    ]
+    ```
+
+    深搜 1 -<
+
+    :   ```cpp
+        // 时间复杂度 O(2^n)，空间复杂度 O(n)
+        class Solution {
+        public:
+            vector<vector<string>> partition(string s) {
+                vector<vector<string>> result;
+                vector<string> path;  // 一个partition方案
+                dfs(s, path, result, 0, 1);
+                return result;
+            }
+
+            // prev 表示前一个隔板, start 表示当前隔板
+            void dfs(string &s, vector<string>& path,
+                    vector<vector<string>> &result, size_t prev, size_t start) {
+                if (start == s.size()) { // 最后一个隔板
+                    if (isPalindrome(s, prev, start - 1)) { // 必须使用
+                        path.push_back(s.substr(prev, start - prev));
+                        result.push_back(path);
+                        path.pop_back();
+                    }
+                    return;
+                }
+                // 不断开
+                dfs(s, path, result, prev, start + 1);
+                // 如果[prev, start-1] 是回文，则可以断开，也可以不断开（上一行已经做了）
+                if (isPalindrome(s, prev, start - 1)) {
+                    // 断开
+                    path.push_back(s.substr(prev, start - prev));
+                    dfs(s, path, result, start, start + 1);
+                    path.pop_back();
+                }
+            }
+
+            bool isPalindrome(const string &s, int start, int end) {
+                while (start < end && s[start] == s[end]) {
+                    ++start;
+                    --end;
+                }
+                return start >= end;
+            }
+        };
+        ```
+
+    深搜 2 -<
+
+    :   ```cpp
+        // 时间复杂度 O(2^n)，空间复杂度 O(n)
+        class Solution {
+        public:
+            vector<vector<string>> partition(string s) {
+                vector<vector<string>> result;
+                vector<string> path;  // 一个partition方案
+                dfs(s, path, result, 0, 1);
+                return result;
+            }
+
+            // prev 表示前一个隔板, start 表示当前隔板
+            void dfs(string &s, vector<string>& path,
+                    vector<vector<string>> &result, size_t prev, size_t start) {
+                if (start == s.size()) { // 最后一个隔板
+                    if (isPalindrome(s, prev, start - 1)) { // 必须使用
+                        path.push_back(s.substr(prev, start - prev));
+                        result.push_back(path);
+                        path.pop_back();
+                    }
+                    return;
+                }
+                // 不断开
+                dfs(s, path, result, prev, start + 1);
+                // 如果[prev, start-1] 是回文，则可以断开，也可以不断开（上一行已经做了）
+                if (isPalindrome(s, prev, start - 1)) {
+                    // 断开
+                    path.push_back(s.substr(prev, start - prev));
+                    dfs(s, path, result, start, start + 1);
+                    path.pop_back();
+                }
+            }
+
+            bool isPalindrome(const string &s, int start, int end) {
+                while (start < end && s[start] == s[end]) {
+                    ++start;
+                    --end;
+                }
+                return start >= end;
+            }
+        };
+        ```
+
+    动归 -<
+
+    :   ```cpp
+        // 动规，时间复杂度 O(n^2)，空间复杂度 O(1)
+        class Solution {
+        public:
+            vector<vector<string> > partition(string s) {
+                const int n = s.size();
+                bool p[n][n]; // whether s[i,j] is palindrome
+                fill_n(&p[0][0], n * n, false);
+                for (int i = n - 1; i >= 0; --i)
+                    for (int j = i; j < n; ++j)
+                        p[i][j] = s[i] == s[j] && ((j - i < 2) || p[i + 1][j - 1]);
+
+                vector<vector<string> > sub_palins[n]; // sub palindromes of s[0,i]
+                for (int i = n - 1; i >= 0; --i) {
+                    for (int j = i; j < n; ++j)
+                        if (p[i][j]) {
+                            const string palindrome = s.substr(i, j - i + 1);
+                            if (j + 1 < n) {
+                                for (auto v : sub_palins[j + 1]) {
+                                    v.insert(v.begin(), palindrome);
+                                    sub_palins[i].push_back(v);
+                                }
+                            } else {
+                                sub_palins[i].push_back(vector<string> { palindrome });
+                            }
+                        }
+                }
+                return sub_palins[0];
+            }
+        };
+        ```
+
+    动归 -<
+
+    :   ```cpp
+        // Palindrome Partitioning
+        #define ROF(i, a, b) for (int i = (b); --i >= (a); )
+        #define FOR(i, a, b) for (int i = (a); i < (b); i++)
+        #define REP(i, n) for (int i = 0; i < (n); i++)
+
+        class Solution {
+        private:
+            vector<vector<bool>> f;
+            vector<string> rr;
+            vector<vector<string>> r;
+            void g(string &s, int i) {
+                if (i == s.size())
+                    r.push_back(rr);
+                else
+                    REP(j, s.size())
+                        if (f[i][j]) {
+                            rr.push_back(s.substr(i, j-i+1));
+                            g(s, j+1);
+                            rr.pop_back();
+                        }
+            }
+        public:
+            vector<vector<string>> partition(string s) {
+                int n = s.size();
+                f.assign(n, vector<bool>(n));
+                ROF(i, 0, n) {
+                    f[i][i] = true;
+                    if (i+1 < n && s[i] == s[i+1])
+                        f[i][i+1] = true;
+                    FOR(j, i+2, n)
+                        f[i][j] = f[i+1][j-1] && s[i] == s[j];
+                }
+                r.clear();
+                g(s, 0);
+                return r;
+            }
+        };
+        ```
+
+    refs and see also
+
+    -   [Palindrome Partitioning II 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/palindrome-partitioning-ii/)
 
                 -   单序列动态规划（下） Sequnece DP
 
@@ -21050,650 +21447,1581 @@ Dijkstra's algorithm -<
 
 [DSACPP, 数据结构（C++语言版）](http://dsa.cs.tsinghua.edu.cn/%7Edeng/ds/dsacpp/index.htm)
 
-[LeetCode solutions | MaskRay](http://maskray.me/blog/2014-06-29-leetcode-solutions){.hearts}
+[LeetCode solutions | MaskRay](http://maskray.me/blog/2014-06-29-leetcode-solutions){.hearts} -<
 
 :   见 [4ker/LeetCode](https://github.com/4ker/LeetCode)。
 
     [http://tangzx.qiniudn.com/notes/leetcode-maskray/index.html](http://tangzx.qiniudn.com/notes/leetcode-maskray/index.html)
 
-[Trapping Rain Water | LeetCode OJ](https://leetcode.com/problems/trapping-rain-water/) -<
-
-:   ![](http://www.leetcode.com/wp-content/uploads/2012/08/rainwatertrap.png)
-
-    对于每个柱子，找到其左右两边最高的柱子，该柱子能容纳的面积就是 min(max_left, max_right) - height。所以，
-
-    -   从左往右扫描一遍，对于每个柱子，求取左边最大值；
-    -   从右往左扫描一遍，对于每个柱子，求最大右值；
-    -   再扫描一遍，把每个柱子的面积并累加。
-
-    也可以，
-
-    -   扫描一遍，找到最高的柱子，这个柱子将数组分为两半；
-    -   处理左边一半；
-    -   处理右边一半。
-
-    ```cpp
-    class Solution {
-    public:
-        int trap(vector<int> &h) {
-            int hl = 0, hr = 0, i = 0, j = h.size(), s = 0;
-            while (i < j) {
-                if (hl < hr) {
-                    s += max(min(hl, hr)-h[i], 0);
-                    hl = max(hl, h[i++]);
-                } else {
-                    s += max(min(hl, hr)-h[--j], 0);
-                    hr = max(hr, h[j]);
-                }
-            }
-            return s;
-        }
-    };
-    ```
-
-    ```cpp
-    class Solution {
-    public:
-        int trap(const vector<int>& A) {
-            if( n < 2 ) { return 0; }                               // 注意后面的 A[n-1] 一定要保证不越界啊！
-
-            const int n = A.size();
-            vector<int> max_left( n ), max_right( n );
-            max_left[0] = A[0]; max_right[n-1] = A[n-1];
-            for (int i = 1; i < n; i++ ) {
-                max_left[i] = max(max_left[i - 1], A[i-1]);
-                max_right[n-1-i] = max(max_right[n-i], A[n-i]);
-            }
-
-            int sum = 0;
-            for (int i = 0; i < n; i++) {
-                int height = min(max_left[i], max_right[i]);
-                if (height > A[i]) {
-                    sum += height - A[i];
-                }
-            }
-            return sum;
-        }
-    };
-    ```
-
-[Rotate Image | LeetCode OJ](https://leetcode.com/problems/rotate-image/) -<
-
-:   复制太慢！用两次翻折，如下图：
-
-    ```
-    先副对角线，在中线
-    1   2               4   2               3   1
-      /         -->      ---        --->
-    3   4               3   1               4   2
-    (i,j)
-    i=[0,n-1)       P(i,j)->P(n-1-j,n-1-i)
-    j=[0,n-1-i)
-
-    先中线，再主对角线
-    1   2               3   4               3   1
-     ---        -->       \         --->
-    3   4               1   2               4   2
-    ```
-
-    看来怎么翻折都是可以得。自己随意选择把。
-
-    ```cpp
-    // Rotate Image
-    #define REP(i, n) for (int i = 0; i < (n); i++)
-
-    class Solution {
-    public:
-        void rotate(vector<vector<int> > &a) {
-            int n = a.size();
-            REP(i, n-1)
-                REP(j, n-1-i)
-                swap(a[i][j], a[n-1-j][n-1-i]);
-            REP(i, n/2)
-                swap_ranges(a[i].begin(), a[i].end(), a[n-1-i].begin());
-        }
-    };
-    ```
-
-[Plus One | LeetCode OJ](https://leetcode.com/problems/plus-one/) -<
-
-:   ```cpp
-    class Solution {
-    public:
-        vector<int> plusOne(vector<int> &a) {
-            using namespace std::placeholders;
-            if (find_if(a.begin(), a.end(), bind(not_equal_to<int>(), _1, 9)) == a.end()) {
-                a.assign(a.size()+1, 0);
-                a[0] = 1;
-            } else {
-                int i = a.size();
-                while (++a[--i] >= 10)
-                    a[i] -= 10;
-            }
-            return a;
-        }
-    };
-    ```
-
-    ```cpp
-    class Solution {
-    public:
-        vector<int> plusOne(vector<int> &digits) {
-            add(digits, 1);
-            return digits;
-        }
-    private:
-        // 0 <= digit <= 9
-        void add(vector<int> &digits, int digit) {
-            int c = digit;  // carry, 进位
-
-            for (auto it = digits.rbegin(); it != digits.rend(); ++it) {
-                *it += c;
-                c = *it / 10;
-                *it %= 10;
-                if( !c ) { return; } // 没有 carry 就退出咯
-            }
-
-            if (c > 0) digits.insert(digits.begin(), 1);
-        }
-    };
-    ```
-
-[Gray Code | LeetCode OJ](https://leetcode.com/problems/gray-code/) -<
-
-:   The gray code is a binary numeral system where two successive values differ
-    in only one bit.
-
-    Given a non-negative integer n representing the total number of bits in the
-    code, print the sequence of gray code. A gray code sequence must begin with 0.
-
-    For example, given n = 2, return [0,1,3,2]. Its gray code sequence is:
-
-    ```
-    00 - 0
-    01 - 1
-    11 - 3
-    10 - 2
-    ```
-
-    自然二进制码转换为格雷码：g~0~ = b~0~, g~i~=b~i~ ^ b~i-1~
-
-    保留自然二进制码的最高位作为格雷码的最高位，格雷码次高位为二进制码的高位与
-    次高位异或，其余各位与次高位的求法类似。例如，将自然二进制码 1001，转换为格
-    雷码的过程是：保留最高位；然后将第 1 位的 1 和第 2 位的 0 异或，得到 1，作
-    为格雷码的第 2 位；将第 2 位的 0 和第 3 位的 0 异或，得到 0，作为格雷码的第
-    3 位；将第 3 位的 0 和第 4 位的 1 异或，得到 1，作为格雷码的第 4 位，最终，
-    格雷码为 1101。
-
-    格雷码有数学公式，整数 n 的格雷码是 n ^ (n/2)。
-
-    这题要求生成 n 比特的所有格雷码。
-
-    -   方法 1，最简单的方法，利用数学公式，对从 0..2^n-1^ 的所有整数，转化为格雷码。
-    -   方法 2，n 比特的格雷码，可以递归地从 n-1 比特的格雷码生成。
-
-    ![The first few steps of the reflect-and-prefix method.](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Binary-reflected_Gray_code_construction.svg/250px-Binary-reflected_Gray_code_construction.svg.png)
-
-    see more at [Gray code - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Gray_code).
-
-    ```cpp
-    #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
-    #define REP(i, n) FOR(i, 0, n)
-
-    class Solution {
-    public:
-        vector<int> grayCode(int n) {
-            vector<int> r;
-            REP(i, 1 << n)
-                r.push_back(i^i>>1);
-            return r;
-        }
-    };
-    ```
-
-    ```cpp
-    class Solution {
-    public:
-        vector<int> grayCode(int n) {
-            const size_t size = 1 << n;  // 2^n
-            vector<int> result( size );
-            for (size_t i = 0; i < size; ++i)
-                result[i] = binary_to_gray(i);
-            return result;
-        }
-    private:
-        static unsigned int binary_to_gray(unsigned int n) {
-            return n ^ (n >> 1);
-        }
-    };
-    ```
-
-    ```cpp
-    // reflect-and-prefix method
-    // 时间复杂度 O(2^n)，空间复杂度 O(1)
-    class Solution {
-    public:
-        vector<int> grayCode(int n) {
-            vector<int> result;
-            result.reserve(1<<n);
-            result.push_back(0);
-            for (int i = 0; i < n; i++) {
-                const int highest_bit = 1 << i;
-                for (int j = result.size() - 1; j >= 0; j--) // 要反着遍历，才能对称
-                    result.push_back(highest_bit | result[j]);
-            }
-            return result;
-        }
-    };
-    ```
-
-[Single Number | LeetCode OJ](https://leetcode.com/problems/single-number/) -<
-
-:   Given an array of integers, every element appears twice except for one. Find that single one.
-
-    偶数次异或等于 0。0 异或 x 等于 x。
-
-    ```cpp
-    class Solution {
-    public:
-        int singleNumber(vector<int> &a) {
-            return accumulate(a.begin(), a.end(), 0, bit_xor<int>());
-        }
-    };
-    ```
-
-    ```cpp
-    class Solution {
-    public:
-        int singleNumber(vector<int>& nums) {
-            int x = 0;
-            for (auto i : nums) {
-                x ^= i;
-            }
-            return x;
-        }
-    };
-    ```
-
-[Single Number II | LeetCode OJ](https://leetcode.com/problems/single-number-ii/) -<
-
-:   只有一次数只出现了一次，其余都是三次。
-
-    方法1：创建一个长度为 sizeof(int) 的数组 `count[sizeof(int)]`，`count[i]`
-    表示在 i 位出现的 1 的次数。如果 count[i] 是 3 的整数倍，则忽略；否则就把该
-    位取出来组成答案。
-
-    ```cpp
-    #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
-    #define REP(i, n) FOR(i, 0, n)
-    class Solution {
-    public:
-        int singleNumber(vector<int> &a) {
-            vector<int> c(32);
-            for (int x: a)
-                REP(j, 32)
-                    c[j] += x>>j & 1;
-            int r = 0;
-            REP(j, 32)
-                r |= ( c[j]%3 & 1 ) << j;
-            return r;
-        }
-    };
-    ```
-
-    方法 2：用 one 记录到当前处理的元素为止，二进制 1 出现“1 次”（mod 3 之后的1）
-    的有哪些二进制位；用 two 记录到当前计算的变量为止，二进制 1 出现“2 次”
-    （mod 3 之后的 2）的有哪些二进制位。当 one 和 two 中的某一位同时为 1 时表示
-    该二进制位上 1 出现了 3 次，此时需要清零。即**用二进制模拟三进制运算**。最
-    终 one 记录的是最终结果。
-
-    ```cpp
-    class Solution {
-    public:
-        int singleNumber(vector<int> &a) {
-            int one = 0, two = 0;
-            for (int x: a) {
-                one = (one ^ x) & ~ two;
-                two = (two ^ x) & ~ one;
-            }
-            return one;
-        }
-    };
-    ```
-
-[Add Two Numbers | LeetCode OJ](https://leetcode.com/problems/add-two-numbers/) -<
-
-:   ```cpp
-    // 时间复杂度O(m+n)，空间复杂度O(1)
-    class Solution {
-    public:
-        ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
-            ListNode dummy(-1);                                 // 头节点
-            ListNode *prev = &dummy;
-            int carry = 0;
-            for (ListNode *pa = l1, *pb = l2;
-                 pa != nullptr || pb != nullptr;
-                 pa = pa == nullptr ? nullptr : pa->next,       // 这两个“下一步”不要太赞！
-                 pb = pb == nullptr ? nullptr : pb->next,
-                 prev = prev->next) {
-                int ai = pa == nullptr ? 0 : pa->val;
-                int bi = pb == nullptr ? 0 : pb->val;
-                int value = (ai + bi + carry) % 10;
-                carry = (ai + bi + carry) / 10;
-                prev->next = new ListNode(value);               // 尾插法
-            }
-            if (carry > 0)
-                prev->next = new ListNode(carry);
-            return dummy.next;
-        }
-    };
-    ```
-
-    ```cpp
-    class Solution {
-    public:
-        ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
-            ListNode *r = NULL, *p = NULL;
-            int c = 0;
-            while (l1 || l2) {
-                if (l1) {
-                    c += l1->val;
-                    l1 = l1->next;
-                }
-                if (l2) {
-                    c += l2->val;
-                    l2 = l2->next;
-                }
-                auto x = new ListNode(c%10);
-                c /= 10;
-                if (! r)
-                    r = p = x;
-                else {
-                    p->next = x;
-                    p = p->next;
-                }
-            }
-            if (c)
-                p->next = new ListNode(c);
-            return r;
-        }
-    };
-    ```
-
-[Reverse Linked List | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list/) -<
-
-:   ```cpp
-    class Solution {
-    public:
-        ListNode* reverseList(ListNode* x) {
-            ListNode *y = 0, *t;    // 初始为 0
-            while (x) {
-                t = x->next;        // 保存起来
-                x->next = y;        // 颠倒方向，指向上一个头指针
-                y = x;              // 更新头指针
-                x = t;              // 下一步
-            }
-            return y;
-        }
-    };
-    ```
-
-[Reverse Linked List II | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list-ii/) :hearts: -<
-
-:   难在需要在指定范围内 reverse。
-
-    已经保证了：1 ≤ m ≤ n ≤ length of list。
-
-    Reverse a linked list from position m to n. Do it in-place and in one-pass.
-
-    For example:
-
-    ```
-    Given 1->2->3->4->5->NULL, m = 2 and n = 4,
-
-    return 1->4->3->2->5->NULL.
-    ```
-
-    ```cpp
-    // 迭代版，时间复杂度O(n)，空间复杂度O(1)
-    class Solution {
-    public:
-        ListNode *reverseBetween(ListNode *head, int m, int n) {
-            ListNode dummy(-1);
-            dummy.next = head;
-
-            ListNode *prev = &dummy;
-            for (int i = 0; i < m-1; ++i)
-                prev = prev->next;
-
-            ListNode* const head2 = prev;
-
-            prev = head2->next;
-            ListNode *cur = prev->next;
-            for (int i = m; i < n; ++i) {
-                prev->next = cur->next;
-                cur->next = head2->next;
-                head2->next = cur;              // 头插法
-                cur = prev->next;
-            }
-
-            return dummy.next;
-        }
-    };
-    ```
-
-    ```cpp
-    class Solution {
-    public:
-        ListNode *reverseBetween(ListNode *head, int m, int n) {
-            ListNode **p = &head;
-            n -= m-1;
-            while (--m)
-                p = &(*p)->next;
-            ListNode *q = *p, *r = q, *l = q, *t;
-            while (n--) {
-                t = q->next;
-                q->next = l;
-                l = q;
-                q = t;
-            }
-            *p = l;
-            r->next = q;
-            return head;
-        }
-    };
-    ```
-
-[LRU Cache | LeetCode OJ](https://leetcode.com/problems/lru-cache/) -<
-
-:   Design and implement a data structure for Least Recently Used (LRU) cache.
-    It should support the following operations: get and set.
-
-    `get(key)` - Get the value (will always be positive) of the key if the key
-    exists in the cache, otherwise return -1.
-
-    `set(key, value)` - Set or insert the value if the key is not already
-    present. When the cache reached its capacity, it should invalidate the
-    least recently used item before inserting a new item.
-
-    为了使查找、插入和删除都有较高的性能，我们使用一个双向链表(std::list)和一个
-    哈希表(std::unordered_map)，因为：
-
-    -   哈希表保存每个节点的地址，可以基本保证在$O(1)$时间内查找节点
-    -   双向链表插入和删除效率高，单向链表插入和删除时，还要查找节点的前驱节点
-
-    具体实现细节：
-
-    -   越靠近链表头部，表示节点上次访问距离现在时间最短，尾部的节点表示最近访问最少}
-    -   访问节点时，如果节点存在，把该节点交换到链表头部，同时更新 hash 表中该节点的地址}
-    -   插入节点时，如果 cache 的 size 达到了上限 capacity，则删除尾部节点，同
-        时要在 hash 表中删除对应的项；新节点插入链表头部}
-
-    ```cpp
-    class LRUCache {
-    public:
-        LRUCache(int capacity) : c(capacity) {}
-
-        void touch(int key) {
-            pair<int, int> x = *s[key];
-            a.erase(s[key]);
-            a.push_front(x);
-            s[x.first] = a.begin();
-        }
-
-        int get(int key) {
-            if (! s.count(key))
-                return -1;
-            touch(key);
-            return a.begin()->second;
-        }
-
-        void set(int key, int value) {
-            if (s.count(key)) {
-                touch(key);
-                a.begin()->second = value;
-            } else {
-                if (s.size() >= c) {
-                    s.erase(a.rbegin()->first);
-                    a.pop_back();
-                }
-                a.push_front(make_pair(key, value));
-                s[key] = a.begin();
-            }
-        }
-
-    private:
-        map<int, list<pair<int, int> >::iterator> s;
-        list<pair<int, int> > a;
-        int c;
-    };
-    ```
-
-[Valid Palindrome | LeetCode OJ](https://leetcode.com/problems/valid-palindrome/) -<
-
-:   这个很巧妙，移动到左侧。
-
-    ```cpp
-    class Solution {
-    public:
-        bool isPalindrome(string s) {
-            int i = 0, j = 0;
-            for (; i < s.size(); i++)
-                if (isalnum(s[i]))
-                    s[j++] = s[i];
-            for (i = 0; i < --j; i++)
-                if (tolower(s[i]) != tolower(s[j]))
-                    return false;
-            return true;
-        }
-    };
-    ```
-
-    这个不会修改 s（虽然是一个拷贝，无所谓修改）
-
-    ```cpp
-    class Solution {
-    public:
-        bool isPalindrome(string s) {
-            int left = 0, right = s.size()-1;
-            while( left < right ) {
-                while( !::isalnum(s[left])  && left+1 <= right ) { ++left; }
-                while( !::isalnum(s[right]) && right-1 >= left ) { --right; }
-                if( left <= right ) {
-                    if( ::tolower(s[left]) != ::tolower(s[right]) ) {
-                        return false;
+    [Trapping Rain Water | LeetCode OJ](https://leetcode.com/problems/trapping-rain-water/) -<
+
+    :   ![](http://www.leetcode.com/wp-content/uploads/2012/08/rainwatertrap.png)
+
+        对于每个柱子，找到其左右两边最高的柱子，该柱子能容纳的面积就是 min(max_left, max_right) - height。所以，
+
+        -   从左往右扫描一遍，对于每个柱子，求取左边最大值；
+        -   从右往左扫描一遍，对于每个柱子，求最大右值；
+        -   再扫描一遍，把每个柱子的面积并累加。
+
+        也可以，
+
+        -   扫描一遍，找到最高的柱子，这个柱子将数组分为两半；
+        -   处理左边一半；
+        -   处理右边一半。
+
+        ```cpp
+        class Solution {
+        public:
+            int trap(vector<int> &h) {
+                int hl = 0, hr = 0, i = 0, j = h.size(), s = 0;
+                while (i < j) {
+                    if (hl < hr) {
+                        s += max(min(hl, hr)-h[i], 0);
+                        hl = max(hl, h[i++]);
+                    } else {
+                        s += max(min(hl, hr)-h[--j], 0);
+                        hr = max(hr, h[j]);
                     }
-                    ++left;
-                    --right;
+                }
+                return s;
+            }
+        };
+        ```
+
+        ```cpp
+        class Solution {
+        public:
+            int trap(const vector<int>& A) {
+                if( n < 2 ) { return 0; }                               // 注意后面的 A[n-1] 一定要保证不越界啊！
+
+                const int n = A.size();
+                vector<int> max_left( n ), max_right( n );
+                max_left[0] = A[0]; max_right[n-1] = A[n-1];
+                for (int i = 1; i < n; i++ ) {
+                    max_left[i] = max(max_left[i - 1], A[i-1]);
+                    max_right[n-1-i] = max(max_right[n-i], A[n-i]);
+                }
+
+                int sum = 0;
+                for (int i = 0; i < n; i++) {
+                    int height = min(max_left[i], max_right[i]);
+                    if (height > A[i]) {
+                        sum += height - A[i];
+                    }
+                }
+                return sum;
+            }
+        };
+        ```
+
+    [Rotate Image | LeetCode OJ](https://leetcode.com/problems/rotate-image/) -<
+
+    :   复制太慢！用两次翻折，如下图：
+
+        ```
+        先副对角线，在中线
+        1   2               4   2               3   1
+          /         -->      ---        --->
+        3   4               3   1               4   2
+        (i,j)
+        i=[0,n-1)       P(i,j)->P(n-1-j,n-1-i)
+        j=[0,n-1-i)
+
+        先中线，再主对角线
+        1   2               3   4               3   1
+         ---        -->       \         --->
+        3   4               1   2               4   2
+        ```
+
+        看来怎么翻折都是可以得。自己随意选择把。
+
+        ```cpp
+        // Rotate Image
+        #define REP(i, n) for (int i = 0; i < (n); i++)
+
+        class Solution {
+        public:
+            void rotate(vector<vector<int> > &a) {
+                int n = a.size();
+                REP(i, n-1)
+                    REP(j, n-1-i)
+                    swap(a[i][j], a[n-1-j][n-1-i]);
+                REP(i, n/2)
+                    swap_ranges(a[i].begin(), a[i].end(), a[n-1-i].begin());
+            }
+        };
+        ```
+
+    [Plus One | LeetCode OJ](https://leetcode.com/problems/plus-one/) -<
+
+    :   ```cpp
+        class Solution {
+        public:
+            vector<int> plusOne(vector<int> &a) {
+                using namespace std::placeholders;
+                if (find_if(a.begin(), a.end(), bind(not_equal_to<int>(), _1, 9)) == a.end()) {
+                    a.assign(a.size()+1, 0);
+                    a[0] = 1;
+                } else {
+                    int i = a.size();
+                    while (++a[--i] >= 10)
+                        a[i] -= 10;
+                }
+                return a;
+            }
+        };
+        ```
+
+        ```cpp
+        class Solution {
+        public:
+            vector<int> plusOne(vector<int> &digits) {
+                add(digits, 1);
+                return digits;
+            }
+        private:
+            // 0 <= digit <= 9
+            void add(vector<int> &digits, int digit) {
+                int c = digit;  // carry, 进位
+
+                for (auto it = digits.rbegin(); it != digits.rend(); ++it) {
+                    *it += c;
+                    c = *it / 10;
+                    *it %= 10;
+                    if( !c ) { return; } // 没有 carry 就退出咯
+                }
+
+                if (c > 0) digits.insert(digits.begin(), 1);
+            }
+        };
+        ```
+
+    [Gray Code | LeetCode OJ](https://leetcode.com/problems/gray-code/) -<
+
+    :   The gray code is a binary numeral system where two successive values differ
+        in only one bit.
+
+        Given a non-negative integer n representing the total number of bits in the
+        code, print the sequence of gray code. A gray code sequence must begin with 0.
+
+        For example, given n = 2, return [0,1,3,2]. Its gray code sequence is:
+
+        ```
+        00 - 0
+        01 - 1
+        11 - 3
+        10 - 2
+        ```
+
+        自然二进制码转换为格雷码：g~0~ = b~0~, g~i~=b~i~ ^ b~i-1~
+
+        保留自然二进制码的最高位作为格雷码的最高位，格雷码次高位为二进制码的高位与
+        次高位异或，其余各位与次高位的求法类似。例如，将自然二进制码 1001，转换为格
+        雷码的过程是：保留最高位；然后将第 1 位的 1 和第 2 位的 0 异或，得到 1，作
+        为格雷码的第 2 位；将第 2 位的 0 和第 3 位的 0 异或，得到 0，作为格雷码的第
+        3 位；将第 3 位的 0 和第 4 位的 1 异或，得到 1，作为格雷码的第 4 位，最终，
+        格雷码为 1101。
+
+        格雷码有数学公式，整数 n 的格雷码是 n ^ (n/2)。
+
+        这题要求生成 n 比特的所有格雷码。
+
+        -   方法 1，最简单的方法，利用数学公式，对从 0..2^n-1^ 的所有整数，转化为格雷码。
+        -   方法 2，n 比特的格雷码，可以递归地从 n-1 比特的格雷码生成。
+
+        ![The first few steps of the reflect-and-prefix method.](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Binary-reflected_Gray_code_construction.svg/250px-Binary-reflected_Gray_code_construction.svg.png)
+
+        see more at [Gray code - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Gray_code).
+
+        ```cpp
+        #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
+        #define REP(i, n) FOR(i, 0, n)
+
+        class Solution {
+        public:
+            vector<int> grayCode(int n) {
+                vector<int> r;
+                REP(i, 1 << n)
+                    r.push_back(i^i>>1);
+                return r;
+            }
+        };
+        ```
+
+        ```cpp
+        class Solution {
+        public:
+            vector<int> grayCode(int n) {
+                const size_t size = 1 << n;  // 2^n
+                vector<int> result( size );
+                for (size_t i = 0; i < size; ++i)
+                    result[i] = binary_to_gray(i);
+                return result;
+            }
+        private:
+            static unsigned int binary_to_gray(unsigned int n) {
+                return n ^ (n >> 1);
+            }
+        };
+        ```
+
+        ```cpp
+        // reflect-and-prefix method
+        // 时间复杂度 O(2^n)，空间复杂度 O(1)
+        class Solution {
+        public:
+            vector<int> grayCode(int n) {
+                vector<int> result;
+                result.reserve(1<<n);
+                result.push_back(0);
+                for (int i = 0; i < n; i++) {
+                    const int highest_bit = 1 << i;
+                    for (int j = result.size() - 1; j >= 0; j--) // 要反着遍历，才能对称
+                        result.push_back(highest_bit | result[j]);
+                }
+                return result;
+            }
+        };
+        ```
+
+    [Single Number | LeetCode OJ](https://leetcode.com/problems/single-number/) -<
+
+    :   Given an array of integers, every element appears twice except for one. Find that single one.
+
+        偶数次异或等于 0。0 异或 x 等于 x。
+
+        ```cpp
+        class Solution {
+        public:
+            int singleNumber(vector<int> &a) {
+                return accumulate(a.begin(), a.end(), 0, bit_xor<int>());
+            }
+        };
+        ```
+
+        ```cpp
+        class Solution {
+        public:
+            int singleNumber(vector<int>& nums) {
+                int x = 0;
+                for (auto i : nums) {
+                    x ^= i;
+                }
+                return x;
+            }
+        };
+        ```
+
+    [Single Number II | LeetCode OJ](https://leetcode.com/problems/single-number-ii/) -<
+
+    :   只有一次数只出现了一次，其余都是三次。
+
+        方法1：创建一个长度为 sizeof(int) 的数组 `count[sizeof(int)]`，`count[i]`
+        表示在 i 位出现的 1 的次数。如果 count[i] 是 3 的整数倍，则忽略；否则就把该
+        位取出来组成答案。
+
+        ```cpp
+        #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
+        #define REP(i, n) FOR(i, 0, n)
+        class Solution {
+        public:
+            int singleNumber(vector<int> &a) {
+                vector<int> c(32);
+                for (int x: a)
+                    REP(j, 32)
+                        c[j] += x>>j & 1;
+                int r = 0;
+                REP(j, 32)
+                    r |= ( c[j]%3 & 1 ) << j;
+                return r;
+            }
+        };
+        ```
+
+        方法 2：用 one 记录到当前处理的元素为止，二进制 1 出现“1 次”（mod 3 之后的1）
+        的有哪些二进制位；用 two 记录到当前计算的变量为止，二进制 1 出现“2 次”
+        （mod 3 之后的 2）的有哪些二进制位。当 one 和 two 中的某一位同时为 1 时表示
+        该二进制位上 1 出现了 3 次，此时需要清零。即**用二进制模拟三进制运算**。最
+        终 one 记录的是最终结果。
+
+        ```cpp
+        class Solution {
+        public:
+            int singleNumber(vector<int> &a) {
+                int one = 0, two = 0;
+                for (int x: a) {
+                    one = (one ^ x) & ~ two;
+                    two = (two ^ x) & ~ one;
+                }
+                return one;
+            }
+        };
+        ```
+
+    [Add Two Numbers | LeetCode OJ](https://leetcode.com/problems/add-two-numbers/) -<
+
+    :   ```cpp
+        // 时间复杂度O(m+n)，空间复杂度O(1)
+        class Solution {
+        public:
+            ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+                ListNode dummy(-1);                                 // 头节点
+                ListNode *prev = &dummy;
+                int carry = 0;
+                for (ListNode *pa = l1, *pb = l2;
+                     pa != nullptr || pb != nullptr;
+                     pa = pa == nullptr ? nullptr : pa->next,       // 这两个“下一步”不要太赞！
+                     pb = pb == nullptr ? nullptr : pb->next,
+                     prev = prev->next) {
+                    int ai = pa == nullptr ? 0 : pa->val;
+                    int bi = pb == nullptr ? 0 : pb->val;
+                    int value = (ai + bi + carry) % 10;
+                    carry = (ai + bi + carry) / 10;
+                    prev->next = new ListNode(value);               // 尾插法
+                }
+                if (carry > 0)
+                    prev->next = new ListNode(carry);
+                return dummy.next;
+            }
+        };
+        ```
+
+        ```cpp
+        class Solution {
+        public:
+            ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
+                ListNode *r = NULL, *p = NULL;
+                int c = 0;
+                while (l1 || l2) {
+                    if (l1) {
+                        c += l1->val;
+                        l1 = l1->next;
+                    }
+                    if (l2) {
+                        c += l2->val;
+                        l2 = l2->next;
+                    }
+                    auto x = new ListNode(c%10);
+                    c /= 10;
+                    if (! r)
+                        r = p = x;
+                    else {
+                        p->next = x;
+                        p = p->next;
+                    }
+                }
+                if (c)
+                    p->next = new ListNode(c);
+                return r;
+            }
+        };
+        ```
+
+    [Reverse Linked List | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list/) -<
+
+    :   ```cpp
+        class Solution {
+        public:
+            ListNode* reverseList(ListNode* x) {
+                ListNode *y = 0, *t;    // 初始为 0
+                while (x) {
+                    t = x->next;        // 保存起来
+                    x->next = y;        // 颠倒方向，指向上一个头指针
+                    y = x;              // 更新头指针
+                    x = t;              // 下一步
+                }
+                return y;
+            }
+        };
+        ```
+
+    [Reverse Linked List II | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list-ii/) :hearts: -<
+
+    :   难在需要在指定范围内 reverse。
+
+        已经保证了：1 ≤ m ≤ n ≤ length of list。
+
+        Reverse a linked list from position m to n. Do it in-place and in one-pass.
+
+        For example:
+
+        ```
+        Given 1->2->3->4->5->NULL, m = 2 and n = 4,
+
+        return 1->4->3->2->5->NULL.
+        ```
+
+        ```cpp
+        // 迭代版，时间复杂度O(n)，空间复杂度O(1)
+        class Solution {
+        public:
+            ListNode *reverseBetween(ListNode *head, int m, int n) {
+                ListNode dummy(-1);
+                dummy.next = head;
+
+                ListNode *prev = &dummy;
+                for (int i = 0; i < m-1; ++i)
+                    prev = prev->next;
+
+                ListNode* const head2 = prev;
+
+                prev = head2->next;
+                ListNode *cur = prev->next;
+                for (int i = m; i < n; ++i) {
+                    prev->next = cur->next;
+                    cur->next = head2->next;
+                    head2->next = cur;              // 头插法
+                    cur = prev->next;
+                }
+
+                return dummy.next;
+            }
+        };
+        ```
+
+        ```cpp
+        class Solution {
+        public:
+            ListNode *reverseBetween(ListNode *head, int m, int n) {
+                ListNode **p = &head;
+                n -= m-1;
+                while (--m)
+                    p = &(*p)->next;
+                ListNode *q = *p, *r = q, *l = q, *t;
+                while (n--) {
+                    t = q->next;
+                    q->next = l;
+                    l = q;
+                    q = t;
+                }
+                *p = l;
+                r->next = q;
+                return head;
+            }
+        };
+        ```
+
+    [LRU Cache | LeetCode OJ](https://leetcode.com/problems/lru-cache/) -<
+
+    :   Design and implement a data structure for Least Recently Used (LRU) cache.
+        It should support the following operations: get and set.
+
+        `get(key)` - Get the value (will always be positive) of the key if the key
+        exists in the cache, otherwise return -1.
+
+        `set(key, value)` - Set or insert the value if the key is not already
+        present. When the cache reached its capacity, it should invalidate the
+        least recently used item before inserting a new item.
+
+        为了使查找、插入和删除都有较高的性能，我们使用一个双向链表(std::list)和一个
+        哈希表(std::unordered_map)，因为：
+
+        -   哈希表保存每个节点的地址，可以基本保证在$O(1)$时间内查找节点
+        -   双向链表插入和删除效率高，单向链表插入和删除时，还要查找节点的前驱节点
+
+        具体实现细节：
+
+        -   越靠近链表头部，表示节点上次访问距离现在时间最短，尾部的节点表示最近访问最少}
+        -   访问节点时，如果节点存在，把该节点交换到链表头部，同时更新 hash 表中该节点的地址}
+        -   插入节点时，如果 cache 的 size 达到了上限 capacity，则删除尾部节点，同
+            时要在 hash 表中删除对应的项；新节点插入链表头部}
+
+        ```cpp
+        class LRUCache {
+        public:
+            LRUCache(int capacity) : c(capacity) {}
+
+            void touch(int key) {
+                pair<int, int> x = *s[key];
+                a.erase(s[key]);
+                a.push_front(x);
+                s[x.first] = a.begin();
+            }
+
+            int get(int key) {
+                if (! s.count(key))
+                    return -1;
+                touch(key);
+                return a.begin()->second;
+            }
+
+            void set(int key, int value) {
+                if (s.count(key)) {
+                    touch(key);
+                    a.begin()->second = value;
+                } else {
+                    if (s.size() >= c) {
+                        s.erase(a.rbegin()->first);
+                        a.pop_back();
+                    }
+                    a.push_front(make_pair(key, value));
+                    s[key] = a.begin();
                 }
             }
-            return true;
-        }
-    };
-    ```
 
-[Add Binary | LeetCode OJ](https://leetcode.com/problems/add-binary/) -<
+        private:
+            map<int, list<pair<int, int> >::iterator> s;
+            list<pair<int, int> > a;
+            int c;
+        };
+        ```
 
-:   ```cpp
-    // 时间复杂度 O(n)，空间复杂度 O(1)
-    class Solution {
-    public:
-        string addBinary(string a, string b) {
-            const size_t n = max( a.size(), b.size() );
-            string result;
-            result.reserve( n+1 );
-            result.resize( n );
-            reverse(a.begin(), a.end());
-            reverse(b.begin(), b.end());
-            int carry = 0;
-            for (size_t i = 0; i < n; i++) {
-                int ai = i < a.size() ? a[i] - '0' : 0;
-                int bi = i < b.size() ? b[i] - '0' : 0;
-                int val = (ai + bi + carry) % 2;
-                carry = (ai + bi + carry) / 2;
-                result[i] = val + '0';
+    [Valid Palindrome | LeetCode OJ](https://leetcode.com/problems/valid-palindrome/) -<
+
+    :   这个很巧妙，移动到左侧。
+
+        ```cpp
+        class Solution {
+        public:
+            bool isPalindrome(string s) {
+                int i = 0, j = 0;
+                for (; i < s.size(); i++)
+                    if (isalnum(s[i]))
+                        s[j++] = s[i];
+                for (i = 0; i < --j; i++)
+                    if (tolower(s[i]) != tolower(s[j]))
+                        return false;
+                return true;
             }
-            if (carry == 1) {
-                result.push_back( '1' );
+        };
+        ```
+
+        这个不会修改 s（虽然是一个拷贝，无所谓修改）
+
+        ```cpp
+        class Solution {
+        public:
+            bool isPalindrome(string s) {
+                int left = 0, right = s.size()-1;
+                while( left < right ) {
+                    while( !::isalnum(s[left])  && left+1 <= right ) { ++left; }
+                    while( !::isalnum(s[right]) && right-1 >= left ) { --right; }
+                    if( left <= right ) {
+                        if( ::tolower(s[left]) != ::tolower(s[right]) ) {
+                            return false;
+                        }
+                        ++left;
+                        --right;
+                    }
+                }
+                return true;
             }
-            reverse( result.begin(), result.end() );
-            return result;
-        }
-    };
-    ```
+        };
+        ```
 
-[Longest Palindromic Substring | LeetCode OJ](https://leetcode.com/problems/longest-palindromic-substring/) :hearts: -<
+    [Add Binary | LeetCode OJ](https://leetcode.com/problems/add-binary/) -<
 
-:
+    :   ```cpp
+        // 时间复杂度 O(n)，空间复杂度 O(1)
+        class Solution {
+        public:
+            string addBinary(string a, string b) {
+                const size_t n = max( a.size(), b.size() );
+                string result;
+                result.reserve( n+1 );
+                result.resize( n );
+                reverse(a.begin(), a.end());
+                reverse(b.begin(), b.end());
+                int carry = 0;
+                for (size_t i = 0; i < n; i++) {
+                    int ai = i < a.size() ? a[i] - '0' : 0;
+                    int bi = i < b.size() ? b[i] - '0' : 0;
+                    int val = (ai + bi + carry) % 2;
+                    carry = (ai + bi + carry) / 2;
+                    result[i] = val + '0';
+                }
+                if (carry == 1) {
+                    result.push_back( '1' );
+                }
+                reverse( result.begin(), result.end() );
+                return result;
+            }
+        };
+        ```
 
+    [Longest Palindromic Substring | LeetCode OJ](https://leetcode.com/problems/longest-palindromic-substring/) :hearts: -<
 
--   思路一：暴力枚举，以每个元素为中间元素，同时从左右出发，复杂度 O(n^2)。
+    :   -   思路一：暴力枚举，以每个元素为中间元素，同时从左右出发，复杂度 O(n^2)。
 
--   思路二：记忆化搜索，复杂度 O(n^2)。设 `f[i][j]` 表示 `[i,j]` 之间的最长回文子串，递推方程如下：
+        -   思路二：记忆化搜索，复杂度 O(n^2)。设 `f[i][j]` 表示 `[i,j]` 之间的最长回文子串，递推方程如下：
 
-    ```
-    f[i][j] = if (i == j) S[i]
-              if (S[i] == S[j] && f[i+1][j-1] == S[i+1][j-1]) S[i][j]
-              else max(f[i+1][j-1], f[i][j-1], f[i+1][j])
-    ```
+            ```
+            f[i][j] = if (i == j) S[i]
+                      if (S[i] == S[j] && f[i+1][j-1] == S[i+1][j-1]) S[i][j]
+                      else max(f[i+1][j-1], f[i][j-1], f[i+1][j])
+            ```
 
--   思路三：动规，复杂度 O(n^2)。设状态为 `f(i,j)`，表示区间 `[i,j]` 是否为回文串，则状态转移方程为
+        -   思路三：动规，复杂度 O(n^2)。设状态为 `f(i,j)`，表示区间 `[i,j]` 是否为回文串，则状态转移方程为
 
-    ```
-                        true                                        i=j
-    f(i,j)      =       S[i]=S[j]                                   j = i + 1
-                        S[i]=S[j] and f(i+1, j-1)                   j > i + 1
-    ```
+            ```
+                                true                                        i=j
+            f(i,j)      =       S[i]=S[j]                                   j = i + 1
+                                S[i]=S[j] and f(i+1, j-1)                   j > i + 1
+            ```
 
--   思路四：Manacher’s Algorithm, 复杂度 O(n)。详细见 [Longest Palindromic Substring Part II – LeetCode](http://articles.leetcode.com/longest-palindromic-substring-part-ii)。
+        -   思路四：Manacher’s Algorithm, 复杂度 O(n)。详细见 [Longest Palindromic Substring Part II – LeetCode](http://articles.leetcode.com/longest-palindromic-substring-part-ii)。
+
+            ```cpp
+            // Longest Palindromic Substring
+            // Manacher's algorithm
+
+            #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
+            #define REP(i, n) FOR(i, 0, n)
+
+            class Solution {
+            public:
+                string longestPalindrome(string s) {
+                    string a(2*s.size()+1, '.');
+                    vector<int> z(2*s.size()+1);
+                    REP(i, s.size())
+                        a[2*i+1] = s[i];
+                    for (int f, g = 0, i = 0; i < a.size(); i++)
+                        if (i < g && z[2*f-i] != g-i)
+                            z[i] = min(z[2*f-i], g-i);
+                        else {
+                            f = i;
+                            g = max(g, i);
+                            while (g < a.size() && 2*f-g >= 0 && a[g] == a[2*f-g]) g++;
+                            z[i] = g-f;
+                        }
+                    int x = max_element(z.begin(), z.end()) - z.begin();
+                    return s.substr((x-z[x]+1)/2, z[x]-1);
+                }
+            };
+            ```
+
+    C:\Users\tzx\Downloads\LM\leetcode-master\C++\leetcode-cpp.tex
+
+    [Regular Expression Matching | LeetCode OJ](https://leetcode.com/problems/regular-expression-matching/) -<
+
+    :   ```cpp
+        // 递归版，时间复杂度 O(n)，空间复杂度 O(1)
+
+        class Solution {
+        public:
+            bool isMatch(const string& s, const string& p) {
+                return isMatch(s.c_str(), p.c_str());
+            }
+        private:
+            bool isMatch(const char *s, const char *p) {
+                if ( *p == '\0' ) { return *s == '\0'; }
+
+                // next char is not '*', then must match current character
+                if (*(p + 1) != '*') {
+                    if (*p == *s || (*p == '.' && *s != '\0'))
+                        return isMatch(s + 1, p + 1);
+                    else
+                        return false;
+                } else { // next char is '*'
+                    while (*p == *s || (*p == '.' && *s != '\0')) {
+                        if (isMatch(s, p + 2))
+                            return true;
+                        s++;
+                    }
+                    return isMatch(s, p + 2);
+                }
+            }
+        };
+        ```
+
+        ```cpp
+        // Regular Expression Matching
+        #define REP(i, n) for (int i = 0; i < (n); i++)
+
+        class Solution {
+        private:
+            struct State {
+                int c;
+                bool epsf, epsb;
+                State() : c(-2), epsf(false), epsb(false) {}
+            };
+        public:
+            bool isMatch(const char *s, const char *p) {
+                vector<State> states(1);
+                while (*p) {
+                    states.back().c = *p == '.' ? -1 : *p;
+                    states.emplace_back();
+                    if (*++p == '*') {
+                        states.back().epsb = true;
+                        states[states.size()-2].epsf = true;
+                        p++;
+                    }
+                }
+
+                vector<bool> f(states.size()), ff(states.size());
+                f[0] = true;
+                for (;; s++) {
+                    REP(i, states.size())
+                        if (f[i]) {
+                            if (states[i].epsf)
+                                f[i+1] = true;
+                            if (states[i].epsb)
+                                f[i-1] = true;
+                        }
+                    if (! *s) break;
+                    fill(ff.begin(), ff.end(), false);
+                    REP(i, states.size())
+                        if (f[i] && (states[i].c == -1 || states[i].c == *s))
+                            ff[i+1] = true;
+                    f.swap(ff);
+                }
+                return f.back();
+            }
+        };
+        ```
+
+        compile error.
+
+    [Longest Common Prefix | LeetCode OJ](https://leetcode.com/problems/longest-common-prefix/) -<
+
+    :
+
+    复杂度都是 O(n1+n2+...)
+
+    纵向扫描。
 
     ```cpp
-    // Longest Palindromic Substring
-    // Manacher's algorithm
-
+    // Longest Common Prefix
     #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
     #define REP(i, n) FOR(i, 0, n)
 
     class Solution {
     public:
-        string longestPalindrome(string s) {
-            string a(2*s.size()+1, '.');
-            vector<int> z(2*s.size()+1);
-            REP(i, s.size())
-                a[2*i+1] = s[i];
-            for (int f, g = 0, i = 0; i < a.size(); i++)
-                if (i < g && z[2*f-i] != g-i)
-                    z[i] = min(z[2*f-i], g-i);
-                else {
-                    f = i;
-                    g = max(g, i);
-                    while (g < a.size() && 2*f-g >= 0 && a[g] == a[2*f-g]) g++;
-                    z[i] = g-f;
-                }
-            int x = max_element(z.begin(), z.end()) - z.begin();
-            return s.substr((x-z[x]+1)/2, z[x]-1);
+        string longestCommonPrefix(vector<string> &strs) {
+            if (strs.empty()) return "";
+            int r = 0;
+            for(;;) {
+                char c = strs[0][r];
+                REP(i, strs.size())
+                    if (! strs[i][r] || strs[i][r] != c)
+                        return strs[0].substr(0, r);
+                r++;
+            }
         }
     };
     ```
 
-C:\Users\tzx\Downloads\LM\leetcode-master\C++\leetcode-cpp.tex
+    或者，横向扫描。
+
+    ```cpp
+    // 横向扫描，每个字符串与第 0 个字符串，从左到右比较，直到遇到一个不匹配，然后继续下一个字符串
+    class Solution {
+    public:
+        string longestCommonPrefix(vector<string> &strs) {
+            if (strs.empty()) return "";
+            int right_most = strs[0].size() - 1;
+            for (size_t i = 1; i < strs.size(); i++)
+                for (int j = 0; j <= right_most; j++)
+                    if (strs[i][j] != strs[0][j])                   // 不会越界，请参考string::[]的文档
+                        right_most = j - 1;
+
+            return strs[0].substr(0, right_most + 1);
+        }
+    };
+    ```
+
+    ```cpp
+    // Valid Parentheses
+    class Solution {
+    public:
+        bool isValid(string s) {
+            stack<char> st;
+            char cc;
+            for (auto c: s)
+                switch (c) {
+                case '(': case '[': case '{':
+                    st.push(c);
+                    break;
+                case ')': case ']': case '}':
+                    if (st.empty() || (cc = st.top(), st.pop(), cc+1 != c && cc+2 != c))
+                        return false;
+                }
+            return st.empty();
+        }
+    };
+    ```
+
+    [Recover Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/recover-binary-search-tree/) -<
+
+    :   Two elements of a binary search tree (BST) are swapped by mistake.
+
+        Recover the tree without changing its structure.
+
+        Note:
+
+        A solution using O(n) space is pretty straight forward. **Could you devise
+        (`[dɪ'vaɪz]`，想出) a constant space solution?**
+
+        O(n) 空间的解法是，开一个指针数组，中序遍历，将节点指针依次存放到数组里，然
+        后寻找两处逆向的位置，先从前往后找第一个逆序的位置，然后从后往前找第二个逆
+        序的位置，交换这两个指针的值。
+
+        中序遍历一般需要用到栈，空间也是 O(n) 的，如何才能不使用栈？Morris 中序遍历。
+
+        ```cpp
+        // Recover Binary Search Tree
+        // Morris in-order traversal
+
+        class Solution {
+        public:
+            void recoverTree(TreeNode *p) {
+                TreeNode *u = NULL, *v, *l= NULL;
+                while (p) {
+                    TreeNode *q = p->left;
+                    if (q) {
+                        while (q->right && q->right != p)
+                            q = q->right;
+                        if (! q->right) {
+                            q->right = p;
+                            p = p->left;
+                            continue;
+                        }
+                        q->right = NULL;
+                    }
+                    if (l && l->val > p->val)
+                        if (! u)
+                            u = l, v = p;
+                        else
+                            v = p;
+                    l = p;
+                    p = p->right;
+                }
+                swap(u->val, v->val);
+            }
+        };
+        ```
+
+    [Same Tree | LeetCode OJ](https://leetcode.com/problems/same-tree/) -<
+
+    :   ```cpp
+        class Solution {
+        public:
+            bool isSameTree(TreeNode *p, TreeNode *q) {
+                if (!p && !q) return true;
+                if (!p || !q) return false;
+                return p->val == q->val && isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
+            }
+        };
+        ```
+
+        迭代？那就用 stack，先 push 两个指针，然后每次取出两个，进行比较。
+
+    [Flatten Binary Tree to Linked List | LeetCode OJ](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/) -<
+
+    :   ```
+             1(root)
+            / \
+           2   5
+          / \   \
+         3   4   6
+
+             1(root)
+            / \
+        (x)2   5
+          / \   \
+         3   4   6
+
+             1(root)
+            /
+           2
+          / \
+         3   4(x)
+              \
+               5
+                \
+                 6
+
+             1
+              \
+               2(root)
+              / \
+             3   4
+                  \
+                   5
+                    \
+                     6
+
+             1
+              \
+               2(root)
+              /
+          (x)3
+              \
+               4
+                \
+                 5
+                  \
+                   6
+
+             1
+              \
+               2
+                \
+                 3
+                  \
+                   4
+                    \
+                     5
+                      \
+                       6
+        ```
+
+        ```cpp
+        // Flatten Binary Tree to Linked List
+        class Solution {
+        public:
+            void flatten(TreeNode *root) {
+                for (; root; root = root->right)
+                    if (root->left) {
+                        TreeNode *x = root->left;
+                        while (x->right) x = x->right;      // 找到衔接点
+                        x->right = root->right;             // 把 root 粘贴过来
+                        root->right = root->left;           // 左侧放到右侧
+                        root->left = NULL;                  // 左侧置空
+                    }
+            }
+        };
+        ```
+
+    [Minimum Depth of Binary Tree | LeetCode OJ](https://leetcode.com/problems/minimum-depth-of-binary-tree/) -<
+
+    :   ```cpp
+        // 递归版，时间复杂度O(n)，空间复杂度O(logn)
+        class Solution {
+        public:
+            int minDepth(const TreeNode *root) {
+                return minDepth(root, false);
+            }
+        private:
+            static int minDepth(const TreeNode *root, bool hasbrother) {
+                if (!root) return hasbrother ? INT_MAX : 0;
+
+                return 1 + min( minDepth(root->left, root->right ),
+                                minDepth(root->right, root->left ) );
+            }
+        };
+        ```
+
+        我没有看懂的迭代版：
+
+        ```cpp
+        // 迭代版，时间复杂度 O(n)，空间复杂度 O(logn)
+        class Solution {
+        public:
+            int minDepth(TreeNode* root) {
+                if ( !root ) { return 0; }
+
+                int result = INT_MAX;
+
+                stack<pair<TreeNode*, int>> s;
+                s.push(make_pair(root, 1));
+
+                while (!s.empty()) {
+                    auto node = s.top().first;
+                    auto depth = s.top().second;
+                    s.pop();
+
+                    if (node->left == nullptr && node->right == nullptr)
+                        result = min(result, depth);
+
+                    if (node->left && result > depth) // 深度控制，剪枝
+                        s.push(make_pair(node->left, depth + 1));
+
+                    if (node->right && result > depth) // 深度控制，剪枝
+                        s.push(make_pair(node->right, depth + 1));
+                }
+
+                return result;
+            }
+        };
+        ```
+
+    [Maximum Depth of Binary Tree | LeetCode OJ](https://leetcode.com/problems/maximum-depth-of-binary-tree/) -<
+
+    :   ```cpp
+        class Solution {
+        public:
+            int maxDepth(TreeNode* root) {
+                if( !root ) { return 0; }
+                return max( maxDepth(root->left), maxDepth(root->right) ) + 1;
+            }
+        };
+        ```
+    [Path Sum | LeetCode OJ](https://leetcode.com/problems/path-sum/) -<
+
+    :   ```cpp
+        // 时间复杂度 O(n)，空间复杂度 O(logn)
+        class Solution {
+        public:
+            bool hasPathSum(TreeNode *root, int sum) {
+                if ( !root ) { return false; }                              // 目标还没完成，就没路了。
+
+                if ( !root->left && !root->right ) {                        // 最后一次机会
+                    return sum == root->val;
+                }
+
+                return hasPathSum(  root->left, sum - root->val ) ||        // 交给下面的人来处理
+                       hasPathSum( root->right, sum - root->val );
+            }
+        };
+        ```
+
+    [Path Sum II | LeetCode OJ](https://leetcode.com/problems/path-sum-ii/) -<
+
+    :   ```cpp
+        // 时间复杂度 O(n)，空间复杂度 O(logn)
+        class Solution {
+        public:
+            vector<vector<int> > pathSum(TreeNode *root, int sum) {
+                vector<vector<int> > result;
+                vector<int> cur;                                                // 中间结果
+                pathSum(root, sum, cur, result);
+                return result;
+            }
+        private:
+            void pathSum(TreeNode *root, int gap, vector<int> &cur, vector<vector<int> > &result) {
+                if ( !root ) { return; }
+                cur.push_back( root->val );
+                if ( !root->left && !root->right && root->val == gap ) {
+                    result.push_back( cur );                            // 不可 return！！
+                }
+                pathSum( root->left,  gap - root->val, cur, result );   // 进去后会还原 cur
+                pathSum( root->right, gap - root->val, cur, result );   // 所以不懂担心上面的处理会影响到这里
+                cur.pop_back();
+            }
+        };
+        ```
+
+        这里的 `cur.pop_back()` 是必须的，除非你更改函数签名：
+
+        ```cpp
+        void pathSum(TreeNode *root, int gap, vector<int> cur, vector<vector<int> > &result) {
+        ```
+
+    [Merge Sorted Array | LeetCode OJ](https://leetcode.com/problems/merge-sorted-array/) -<
+
+    :   我的方法：
+
+        ```cpp
+        class Solution {
+        public:
+            void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+                vector<int> result(m+n);
+                int i = 0, j = 0, k = 0;
+                while( i < m && j < n ) {
+                    if ( nums1[i] < nums2[j] ) {
+                        result[k++] = nums1[i++];
+                    } else {
+                        result[k++] = nums2[j++];
+                    }
+                }
+                while( i < m ) { result[k++] = nums1[i++]; }
+                while( j < n ) { result[k++] = nums2[j++]; }
+                nums1.swap( result );
+            }
+        };
+        ```
+
+        Maskray 的：（没有用额外的空间！）
+
+        ```cpp
+        class Solution {
+        public:
+            void merge(vector<int> &a, int m, vector<int> &b, int n) {
+                vector<int> c(m+n);
+                for (int i = 0, j = 0; i < m || j < n; )
+                    if (j == n || i < m && a[i] < b[j]) {
+                        c[i+j] = a[i];
+                        ++i;
+                    } else {
+                        c[i+j] = b[j];
+                        ++j;
+                    }
+                a.swap(c);
+            }
+        };
+        ```
+
+        Soulmachine 的：
+
+        ```cpp
+        // 时间复杂度 O(m+n)，空间复杂度 O(1)
+        class Solution {
+        public:
+            void merge(vector<int>& A, int m, vector<int>& B, int n) {
+                int ia = m - 1, ib = n - 1, icur = m + n - 1;
+                while(ia >= 0 && ib >= 0) {
+                    A[icur--] = A[ia] >= B[ib] ? A[ia--] : B[ib--];
+                }
+                while(ib >= 0) {
+                    A[icur--] = B[ib--];
+                }
+            }
+        };
+        ```
+
+    [Merge Two Sorted Lists | LeetCode OJ](https://leetcode.com/problems/merge-two-sorted-lists/) -<
+
+    :   ```cpp
+        // 时间复杂度 O(min(m,n))，空间复杂度 O(1)
+        class Solution {
+        public:
+            ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
+                if ( !l1 ) { return l2; }
+                if ( !l2 ) { return l1; }
+                ListNode dummy(-1);
+                ListNode *p = &dummy;
+                for ( ; l1 && l2; p = p->next) {        // 还有节点可以拼接
+                    if ( l1->val < l2->val ) {
+                        p->next = l1;
+                        l1 = l1->next;
+                    } else {
+                        p->next = l2;
+                        l2 = l2->next;
+                    }
+                }
+                p->next = l1 ? l1 : l2;                 // 哪边还剩下？
+                return dummy.next;
+            }
+        };
+        ```
+
+    [First Missing Positive | LeetCode OJ](https://leetcode.com/problems/first-missing-positive/) -<
+
+    :   Given an unsorted integer array, find the first missing positive integer.
+
+        ```
+        For example,
+        Given [1,2,0] return 3,
+        and [3,4,-1,1] return 2.
+        ```
+
+        Your algorithm should run in O(n) time and uses constant space.
+
+        本质上是桶排序(bucket sort)，每当 `A[i]!= i+1` 的时候，将 `A[i]` 与 `A[A[i]-1]`
+        交换，直到无法交换为止，终止条件是 `A[i]== A[A[i]-1]`。
+
+        ```cpp
+        // First Missing Positive
+        #define REP(i, n) for (int i = 0; i < (n); i++)
+        class Solution {
+        public:
+            int firstMissingPositive(vector<int> &a) {
+                int n = a.size();
+                REP(i, n)
+                    while (0 < a[i] && a[i] <= n && a[a[i]-1] != a[i])  // a[i] 的位置不对
+                        swap(a[a[i]-1], a[i]);                          // 那我们把它放到正确的位置 a[i]-1
+                REP(i, n)
+                    if (a[i] != i+1)
+                        return i+1;
+                return n+1;
+            }
+        };
+        ```
+
+        其实所有的逻辑只是：
+
+        1.  `1 <= a[i] <= n` 的位置有没有正确摆放？（应该放在 `a[i]-1` 的位置）
+        2.  没有正确摆放的话（`a[i] != a[a[i]-1]`），那就放到正确的位置：`swap(a[a[i]-1], a[i])`
+        3.  这样之后，总还有元素没有正确被摆放
+
+            1.  可能是被抢了位置
+            2.  也可能是他们不在 1 <= n 的范围内
+
+        ```
+        1   2   0
+        置换
+        1   2   0
+        看是否匹配
+        1   2   ?
+                ^ 失配
+
+        3   4  -1   1
+        置换
+        -1  4   3   1
+        -1  1   3   4
+        -1  1   3   4
+        看是否匹配
+        -1  1   3   4
+        ^ 失配
+
+        1   3   5   4
+        1   5   3   4
+            ^
+
+        2   4   3   6   5   7
+        4   2   3   7   5   6
+        ^
+        ```
+
+    [Sort Colors | LeetCode OJ](https://leetcode.com/problems/sort-colors/) -<
+
+    :   Given an array with n objects colored red, white or blue, sort them so that
+        objects of the same color are adjacent, with the colors in the order red, white
+        and blue.
+
+        Here, we will use the integers 0, 1, and 2 to represent the color red, white,
+        and blue respectively.
+
+        Note:
+
+        You are not suppose to use the library's sort function for this problem.
+
+        如此简单，就是一个计数排序（counting sort），而已。
+
+        A rather straight forward solution is a two-pass algorithm using counting
+        sort.
+
+        First, iterate the array counting number of 0's, 1's, and 2's, then
+        overwrite array with total number of 0's, then 1's and followed by 2's.
+
+        ```cpp
+        class Solution {
+        public:
+            void sortColors(vector<int> &a) {
+                int c[3] = {};
+                for (auto x: a)
+                    c[x]++;
+                fill_n(a.begin(), c[0], 0);             //  for (int i = 0, index = 0; i < 3; i++)
+                fill_n(a.begin()+c[0], c[1], 1);        //      for (int j = 0; j < counts[i]; j++)
+                fill_n(a.begin()+c[0]+c[1], c[2], 2);   //          A[index++] = i;
+            }
+        };
+        ```
+
+        Follow up:
+
+        Could you come up with an one-pass algorithm using only constant space?
+
+        用 partition 的方法：
+
+        ```cpp
+        // red, white, blue
+        class Solution {
+        public:
+            void sortColors(vector<int> &a) {
+                for (int r = 0, w = 0, b = a.size(); w < b; )
+                    if (a[w] == 0)
+                        swap(a[r++], a[w++]);
+                    else if (a[w] == 2)
+                        swap(a[--b], a[w]);
+                    else
+                        w++;
+            }
+        };
+        ```
+
+    [Search for a Range | LeetCode OJ](https://leetcode.com/problems/search-for-a-range/) -<
+
+    :   ```cpp
+        // Search for a Range
+        class Solution {
+        public:
+            vector<int> searchRange(vector<int> &a, int target) {
+                int l = 0, m = a.size(), h = a.size();
+                while (l < m) {
+                    int x = l+m >> 1;
+                    if (a[x] < target) l = x+1;
+                    else m = x;
+                }
+                vector<int> r;
+                if (l == a.size() || a[l] != target) {
+                    r.push_back(-1);
+                    r.push_back(-1);
+                } else {
+                    while (m < h) {
+                        int x = m+h >> 1;
+                        if (a[x] <= target) m = x+1;
+                        else h = x;
+                    }
+                    r.push_back(l);
+                    r.push_back(m-1);
+                }
+                return r;
+            }
+        };
+        ```
+
+        用 STL：
+
+        ```cpp
+        // 时间复杂度 O(logn)，空间复杂度 O(1)
+        class Solution {
+        public:
+            vector<int> searchRange(vector<int>& nums, int target) {
+                const int l = distance(nums.begin(), lower_bound(nums.begin(), nums.end(), target));
+                const int u = distance(nums.begin(), prev(upper_bound(nums.begin(), nums.end(), target)));
+                if (nums[l] != target) // not found
+                    return vector<int> { -1, -1 };
+                else
+                    return vector<int> { l, u };
+            }
+        };
+        ```
+
+    [Search a 2D Matrix | LeetCode OJ](https://leetcode.com/problems/search-a-2d-matrix/) -<
+
+    :   ```cpp
+        class Solution {
+        public:
+            bool searchMatrix(vector<vector<int> > &a, int b) {
+                int m = a.size(), n = a[0].size(), l = 0, h = m*n-1;
+                while (l <= h) {
+                    int m = l+h >> 1;
+                    int &bb = a[m/n][m%n];
+                    if (bb < b) {
+                        l = m+1;
+                    } else if (bb > b){
+                        h = m-1;
+                    } else {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        };
+        ```
+
+        ```cpp
+        class Solution {
+        public:
+            bool searchMatrix(vector<vector<int> > &a, int b) {
+                int m = a.size(), n = a[0].size(), l = 0, h = m*n;
+                while (l < h) {
+                    int m = l+h >> 1;
+                    if (a[m/n][m%n] < b) {
+                        l = m+1;
+                    } else {
+                        h = m;
+                    }
+                }
+                return l < m*n && a[l/n][l%n] == b;
+            }
+        };
+        ```
+
+    [Word Ladder | LeetCode OJ](https://leetcode.com/problems/word-ladder/) -<
+
+    :   Given two words (beginWord and endWord), and a dictionary's word list, find
+        the length of shortest transformation sequence from beginWord to endWord,
+        such that:
+
+        -   Only one letter can be changed at a time
+        -   Each intermediate word must exist in the word list
+
+        For example,
+
+        ```
+        Given:
+        beginWord = "hit"
+        endWord = "cog"
+        wordList = ["hot","dot","dog","lot","log"]
+        ```
+
+        As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog",
+        return its length 5.
+
+        Note:
+
+        -   Return 0 if there is no such transformation sequence.
+        -   All words have the same length.
+        -   All words contain only lowercase alphabetic characters.
+
+        用单队列、双队列。
+
+        ```cpp
+        // Word Ladder
+        #define FOR(i, a, b) for (int i = (a); i < (b); i++)
+        #define REP(i, n) for (int i = 0; i < (n); i++)
+
+        class Solution {
+        public:
+            int ladderLength(string start, string end, unordered_set<string> &dict) {
+                unordered_map<string, int> d;
+                queue<string> q;
+                d[start] = 0;
+                dict.insert(end);
+                for (q.push(start); ! q.empty(); ) {
+                    string i = q.front();
+                    int dd = d[i];
+                    q.pop();
+                    REP(j, i.size()) {
+                        char cc = i[j];
+                        FOR(c, 'a', 'z'+1) {
+                            i[j] = c;
+                            if (dict.count(i)) {
+                                dict.erase(i);
+                                q.push(i);
+                                d[i] = dd+1;
+                            }
+                        }
+                        i[j] = cc;
+                    }
+                }
+                return d.count(end) ? d[end]+1 : 0;
+            }
+        };
+
+        /// hamming distance trick
+
+        class Solution {
+            bool hamming_one(const string &a, const string &b) {
+                int i = 0, j = a.size();
+                while (i < j && a[i] == b[i]) i++;
+                while (i < j && a[j-1] == b[j-1]) j--;
+                return i == j-1;
+            }
+        public:
+            int ladderLength(string start, string end, unordered_set<string> &dict) {
+                unordered_map<string, int> d;
+                unordered_map<string, vector<string>> left, right;
+                queue<string> q;
+                d[start] = 0;
+                dict.erase(start);
+                dict.insert(end);
+                int n = start.length();
+                for (auto &x: dict) {
+                    string l = x.substr(0, n/2), r = x.substr(n/2);
+                    left[l].push_back(r);
+                    right[r].push_back(l);
+                }
+                for (q.push(start); ! q.empty(); ) {
+                    string x = q.front(), l = x.substr(0, n/2), r = x.substr(n/2);
+                    int dd = d[x];
+                    q.pop();
+                    if (left.count(l))
+                        for (auto &y: left[l])
+                            if (hamming_one(r, y)) {
+                                string z = l+y;
+                                if (dict.count(z)) {
+                                    dict.erase(z);
+                                    q.push(z);
+                                    d[z] = dd+1;
+                                }
+                            }
+                    if (right.count(r))
+                        for (auto &y: right[r])
+                            if (hamming_one(l, y)) {
+                                string z = y+r;
+                                if (dict.count(z)) {
+                                    dict.erase(z);
+                                    q.push(z);
+                                    d[z] = dd+1;
+                                }
+                            }
+                }
+                return d.count(end) ? d[end]+1 : 0;
+            }
+        };
+
+        /// bidirectional BFS + hamming distance trick
+
+        class Solution {
+            bool hamming_one(const string &a, const string &b) {
+                int i = 0, j = a.size();
+                while (i < j && a[i] == b[i]) i++;
+                while (i < j && a[j-1] == b[j-1]) j--;
+                return i == j-1;
+            }
+        public:
+            int ladderLength(string start, string end, unordered_set<string> &dict) {
+                unordered_map<string, vector<string>> left, right;
+                int n = start.length(), d = 1;
+                dict.insert(start);
+                dict.insert(end);
+                for (auto &x: dict) {
+                    string l = x.substr(0, n/2), r = x.substr(n/2);
+                    left[l].push_back(r);
+                    right[r].push_back(l);
+                }
+                dict.erase(start);
+                dict.erase(end);
+                unordered_set<string> q0{start}, q1{end};
+                while (! q0.empty()) {
+                    if (q0.size() > q1.size()) {
+                        swap(q0, q1);
+                        continue;
+                    }
+                    d++;
+                    unordered_set<string> next;
+                    for (auto &x: q0) {
+                        string l = x.substr(0, n/2), r = x.substr(n/2);
+                        if (left.count(l))
+                            for (auto &y: left[l])
+                                if (hamming_one(r, y)) {
+                                    string z = l+y;
+                                    if (q1.count(z))
+                                        return d;
+                                    if (dict.count(z)) {
+                                        dict.erase(z);
+                                        next.insert(z);
+                                    }
+                                }
+                        if (right.count(r))
+                            for (auto &y: right[r])
+                                if (hamming_one(l, y)) {
+                                    string z = y+r;
+                                    if (q1.count(z))
+                                        return d;
+                                    if (dict.count(z)) {
+                                        dict.erase(z);
+                                        next.insert(z);
+                                    }
+                                }
+                    }
+                    q0.swap(next);
+                    q0.swap(q1);
+                }
+                return 0;
+            }
+        };
+        ```
+
+    [Word Ladder II | LeetCode OJ](https://leetcode.com/problems/word-ladder-ii/) -<
+
+    :   用单队列、双队列，或者图的广搜。
+
+    [Jump Game | LeetCode OJ](https://leetcode.com/problems/jump-game/) -<
+
+    :   Given an array of non-negative integers, you are initially positioned at
+        the first index of the array.
+
+        Each element in the array represents your maximum jump length at that position.
+
+        Determine if you are able to reach the last index.
+
+        For example:
+
+        ```
+        A = [2,3,1,1,4], return true.
+        A = [3,2,1,0,4], return false.
+        ```
+
+    [Edit Distance | LeetCode OJ](https://leetcode.com/problems/edit-distance/) -<
+
+    :   Given two words word1 and word2, find the minimum number of steps required
+        to convert word1 to word2. (each operation is counted as 1 step.)
+
+        You have the following 3 operations permitted on a word:
+
+        -   a) Insert a character
+        -   b) Delete a character
+        -   c) Replace a character
+
+        ```cpp
+        #define REP(i, n) for (int i = 0; i < (n); i++)
+
+        class Solution {
+        public:
+            int minDistance(string a, string b) {
+                vector<vector<int>> f(2, vector<int>(b.size()+1));
+                iota(f[0].begin(), f[0].end(), 0);
+                REP(i, a.size()) {
+                    f[i+1&1][0] = i+1;
+                    REP(j, b.size())
+                        f[i+1&1][j+1] = a[i] == b[j] ? f[i&1][j] : min(min(f[i&1][j], f[i&1][j+1]), f[i+1&1][j]) + 1;
+                }
+                return f[a.size()&1][b.size()];
+            }
+        };
+        ```

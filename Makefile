@@ -19,7 +19,9 @@ endif
 
 all: $(DST) $(CSS)
 clone:
-	git clone --depth 1 https://github.com/4ker/LeetCode.git leetcode-maskray
+	@echo clone some other repo
+	# 注意是 https 的链接，不是 git 的。
+	# git clone --depth 1 https://github.com/4ker/LeetCode.git leetcode-maskray
 	# git clone --depth 1 https://github.com/4ker/cracking-the-coding-interview.git
 	# git clone --depth 1 https://github.com/district10/leetcode.git
 serve:

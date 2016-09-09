@@ -8827,3 +8827,114 @@ if (p == nullptr) {
 refs and see also
 
 -   [C++中虚析构函数（virtual destructor）的函数名为什么可以不一样？ - 知乎](https://www.zhihu.com/question/36083262)
+
+[std::vector::emplace_back - cppreference.com](http://en.cppreference.com/w/cpp/container/vector/emplace_back)
+
+:
+    ```cpp
+    template< class... Args >                           (since C++11)
+    void emplace_back( Args&&... args );
+    template< class... Args >                           (until C++17)
+    reference emplace_back( Args&&... args );
+            (since C++17)
+    ```
+
+    Appends a new element to the end of the container. The element is
+    constructed through `std::allocator_traits::construct`, which typically
+    **uses placement-new to construct the element in-place at the location** provided by
+    the container. The arguments `args...` are forwarded to the constructor as `std::forward<Args>(args)...`.
+
+    If the new `size()` is greater than `capacity()` then all iterators and
+    references (including the past-the-end iterator) are invalidated. Otherwise
+    only the past-the-end iterator is invalidated.
+
+    The following code uses emplace_back to append an object of type President
+    to a std::vector. It demonstrates how emplace_back forwards parameters to
+    the President constructor and shows how using emplace_back avoids the extra
+    copy or move operation required when using `push_back`.
+
+    >   `emplace_back` avoids the extra copy or move operation required when using `push_back`.
+
+    ```cpp
+    #include <vector>
+    #include <string>
+    #include <iostream>
+
+    struct President
+    {
+        std::string name;
+        std::string country;
+        int year;
+
+        President(std::string p_name, std::string p_country, int p_year)
+            : name(std::move(p_name)), country(std::move(p_country)), year(p_year)
+        {
+            std::cout << "I am being constructed.\n";
+        }
+        President(President&& other)
+            : name(std::move(other.name)), country(std::move(other.country)), year(other.year)
+        {
+            std::cout << "I am being moved.\n";
+        }
+        President& operator=(const President& other) = default;
+    };
+
+    int main()
+    {
+        std::vector<President> elections;
+        std::cout << "emplace_back:\n";
+        elections.emplace_back("Nelson Mandela", "South Africa", 1994);
+
+        std::vector<President> reElections;
+        std::cout << "\npush_back:\n";
+        reElections.push_back(President("Franklin Delano Roosevelt", "the USA", 1936));
+
+        std::cout << "\nContents:\n";
+        for (President const& president: elections) {
+            std::cout << president.name << " was elected president of "
+                      << president.country << " in " << president.year << ".\n";
+        }
+        for (President const& president: reElections) {
+            std::cout << president.name << " was re-elected president of "
+                      << president.country << " in " << president.year << ".\n";
+        }
+    }
+    ```
+
+    ```
+    emplace_back:
+    I am being constructed.
+
+    push_back:
+    I am being constructed.
+    I am being moved.
+
+    Contents:
+    Nelson Mandela was elected president of South Africa in 1994.
+    Franklin Delano Roosevelt was re-elected president of the USA in 1936.
+    ```
+
+[std::make_pair - cppreference.com](http://en.cppreference.com/w/cpp/utility/pair/make_pair) -<
+
+:   ```cpp
+    Defined in header <utility>
+
+    template< class T1, class T2 >                      (until C++11)
+    std::pair<T1,T2> make_pair( T1 t, T2 u );
+    template< class T1, class T2 >                      (since C++11)
+    std::pair<V1,V2> make_pair( T1&& t, T2&& u );
+    template< class T1, class T2 >                      (until C++14)
+    constexpr std::pair<V1,V2> make_pair( T1&& t, T2&& u );
+    ```
+
+    Creates a `std::pair` object, deducing the target type from the types of
+    arguments.
+
+    The deduced types V1 and V2 are `std::decay<T1>::type` and
+    `std::decay<T2>::type` (the usual type transformations applied to arguments
+    of functions passed by value) unless application of `std::decay` results in
+    `std::reference_wrapper<X>` for some type X, in which case the deduced type is `X&`.
+
+    refs and see also
+
+    -   [c++ - Purpose of std::make_pair - Stack Overflow](http://stackoverflow.com/questions/9270563/purpose-of-stdmake-pair)
