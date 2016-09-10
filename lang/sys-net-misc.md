@@ -660,6 +660,19 @@ System & Network & MISC
         -   [阮一峰：utf-8 编码已经成为主流](http://www.ruanyifeng.com/blog/2008/05/growth_of_utf-8_on_the_web.html)
         -   [Endianness - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Endianness)
 
+-   [RapidJSON 代码剖析（三）：Unicode 的编码与解码 - Milo的编程 - 知乎专栏](https://zhuanlan.zhihu.com/p/20056322?refer=milocode) -<
+
+    :   UTF-8 成为现时互联网上最流行的格式，有几个原因：
+
+        -   它采用字节为编码单元，不会有字节序（endianness）的问题。
+        -   每个 ASCII 字符只需一个字节去储存。
+        -   如果程序原来是以字节方式储存字符，理论上不需要特别改动就能处理 UTF-8 的数据。
+
+        RapidJSON 希望尽量支持各种常用 UTF 编码，用四百多行代码实现了 5 种
+        Unicode 编码器／解码器，另外加上 ASCII 编码。本文会简单介绍它的实现方式。
+
+    [rapidjson/encodings.h at master · miloyip/rapidjson](https://github.com/miloyip/rapidjson/blob/master/include/rapidjson/encodings.h)
+
 -   [Hamming weight - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hamming_weight){.featured .heart} -<
 
     :   说一个故事，四五年前我为面试出了一条笔试题目，恰巧和本书的题目 2.1 很相似，
@@ -2452,3 +2465,187 @@ TCP使用**滑动窗口机制**来实现流量控制，通过动态改变窗口�
 
     [测试指南 - Rei](http://chloerei.com/2015/10/26/testing-guide/)
 
+[Memory hierarchy - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Memory_hierarchy)
+
+:
+
+    Typical memory hierarchy (access times and cache sizes are approximations
+    of typical values used as of 2013 for the purpose of discussion; actual
+    values and actual numbers of levels in the hierarchy vary):
+
+    -   CPU registers (8-256 registers)
+          ~ immediate access, with the speed of the inner most core of the processor
+    -   L1 CPU caches (32 KiB to 512 KiB)
+          ~ fast access, with the speed of the inner most memory bus owned exclusively by each core
+    -   L2 CPU caches (128 KiB to 24 MiB)
+          ~ slightly slower access, with the speed of the memory bus shared between twins of cores
+    -   L3 CPU caches (2 MiB to 32 MiB)
+          ~ even slower access, with the speed of the memory bus shared between
+            even more cores of the same processor
+    -   Main physical memory (RAM) (256 MiB to 64 GiB)
+          ~ slow access, the speed of which is limited by the spatial distances
+            and general hardware interfaces between the processor and the memory
+            modules on the motherboard
+    -   Disk (virtual memory, file system) (1 GiB to 256 TiB)
+          ~ very slow, due to the narrower (in bit width), physically much
+            longer data channel between the main board of the computer and the
+            disk devices, and due to the extraneous software protocol needed on
+            the top of the slow hardware interface
+    -   Remote Memory (such as other computers or the Internet) (Practically unlimited)
+          ~ speed varies from very slow to extremely slow
+
+[写给准备参加秋招的学弟学妹们~一定要来看哦~ - 671coder 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/liuqiyao_01/article/details/26567237)
+
+:   操作系统很重要吧，这个就不用说了，需要看的内容非常简单。大家把何昊老师出的
+    《程序员面试笔试宝典》这本书第八章到第十章全都看一遍就可以了，计算机网络 9.1、
+    9.3、9.4 是重点，操作系统部分 10.1 和 10.2 是重点，对于数据库，可能只需要记得简
+    单的语句就行了，然后范式、一些锁、主键外键、索引看一看记住就可以，事物是非
+    常重要的，必须掌握。
+
+    C++ 是个好东西，需要准备的东西比较多，推荐看一下《C++ Primer》和《effective c++》
+    想依靠 c++ 为门槛拿到不错的 offer 的话，这两本书打死也要看。最好边看边做笔记，
+    把重点画下来，或者写 blog，我在网上认识一个 sdust 大二的大牛 zxf，他整理的 blog
+    就非常棒，还被评为了 csdn 的专栏达人，链接在此。
+
+    [2.5 年, 从 0 到阿里 - 翡青的博客 - 博客频道 - CSDN.NET](http://blog.csdn.net/zjf280441589/article/details/45639523) -<
+
+    :   我的准备工作大致分为五方面内容: C++, Linux, 数据结构与算法, 计算机网络
+        (TCP/IP) 和操作系统. 如果一个本科生能够把这五方面的基础打得比较坚实再加上稍
+        稍一点儿运气, 拿下互联网的 offer 是不在话下的, 另外如果你实力够强的话, 那仅需
+        的一点儿运气也是不需要的, 在此我引用 671 学长的一句关于面试的经典: ”面试 = 运
+        气*(50-n)/100 + 实力*(50+n)/100, n=f(x),x 即实力,n 与 x 成正比关系, 这就意味着:
+        你实力越强, 对运气的依赖性越低, 所以实力才是非常重要的一个环节.”, 下面分别介
+        绍一下我所准备的五方面内容。
+
+        [CS 基础 - 翡青的博客 - 博客频道 - CSDN.NET](http://blog.csdn.net/zjf280441589/article/category/1854365)
+
+        :   -   TCP/IP入门(1) --链路层
+            -   ...
+
+        一面问得问题有: (1)TCP 三次握手过程, 与为啥需要采用三次握手; (2)TCP
+        TIME_WAIT 状态的原因; (3)C++ 虚函数机制 (C++ 对象模型); (4)C++ Static 关键字;
+        (5)Select/Poll/Epoll 的异同 (使用与内部实现方面); (6)C++ 迭代器失效问题
+        (iterator 原理); (7)map/set 容器的实现原理 (红黑树知识 +STL 容器内部原理);
+
+        [有道云笔记](http://note.youdao.com/share/?id=a8116f3fe5c94c7985b3384fa1b85e4b&type=notebook#/)
+
+[线性代数的妙用：怎样在Windows画图软件中实现28度旋转？ | Matrix67: The Aha Moments](http://www.matrix67.com/blog/archives/5453)
+
+[想学好计算机算法，是否需要重新学数学呢? - 知乎](https://www.zhihu.com/question/29475413)
+
+:   要学什么，就学什么。
+
+    要学算法，就学算法，遇到数学问题，就查，就问，不要分心。
+
+    要参加英文面试，就练习英文面试，别背单词，别练阅读，也不用管面试中说不到的话题。
+
+    要做什么，就准备什么。宁可简单粗暴，不要曲线救国。摊子铺大了，目标就模糊了，效率低，反馈慢，渐渐的就兜不回来了。
+
+[C++ 求余用的“%”有与它效率相同的其它算法吗？ - 知乎](https://www.zhihu.com/question/22747596) -<
+
+:   Grisu 是把浮点数转换为字符串的算法。在 Chrome 里执行这段 JavaScript 实际上就调用了 Grisu：
+
+    ```javascript
+    document.write(1/3); // 0.3333333333333333
+    ```
+
+    在许多书籍也会谈及，当除数为常数时，可以把除法变成乘以除数的倒数。现在的编译器
+    都会自动做这个优化。事实上，在上面的代码里，第二个除法（div /= 10）中的除数（10）
+    就是常数，编译器会自动把它优化成64位乘法及右移指令，例如 clang 在 x86-64 目标下：
+
+    refs and see also
+
+    -   [RapidJSON 代码剖析（四）：优化 Grisu - Milo的编程 - 知乎专栏](https://zhuanlan.zhihu.com/p/20092285)
+    -   [Labor of Division (Episode I)](http://ridiculousfish.com/blog/posts/labor-of-division-episode-i.html)
+
+[Branch table - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Branch_table)
+
+:   In computer programming, a branch table or jump table is a method of
+    transferring program control (branching) to another part of a program (or a
+    different program that may have been dynamically loaded) using a table of
+    branch or jump instructions. It is a form of multiway branch. The branch
+    table construction is commonly used when programming in assembly language
+    but may also be generated by a compiler, especially when implementing an
+    optimized switch statement where known, small ranges are involved with few
+    gaps.
+
+    ```cpp
+    #include <stdio.h>
+    #include <stdlib.h>
+
+    typedef void (*Handler)(void);    /* A pointer to a handler function */
+
+    /* The functions */
+    void func3 (void) { printf( "3\n" ); }
+    void func2 (void) { printf( "2\n" ); }
+    void func1 (void) { printf( "1\n" ); }
+    void func0 (void) { printf( "0\n" ); }
+
+    Handler jump_table[4] = {func0, func1, func2, func3};
+
+    int main (int argc, char **argv) {
+        int value;
+
+        /* Convert first argument to 0-3 integer (modulus) */
+        value = ((atoi(argv[1]) % 4) + 4) % 4;
+
+        /* Call appropriate function (func0 thru func3) */
+        jump_table[value]();
+
+        return 0;
+    }
+    ```
+
+[RapidJSON 代码剖析（一）：混合任意类型的堆栈 - Milo的编程 - 知乎专栏](https://zhuanlan.zhihu.com/p/20029820?refer=milocode)
+
+:   ```cpp
+    bool StartArray() {
+        new (stack_.template Push<ValueType>()) ValueType(kArrayType);
+        return true;
+    }
+    ```
+
+    这里其实用了两个可能较少接触的 C++ 特性。第一个是 placement new，第二个是
+    template disambiguator。
+
+    ```cpp
+    ValueType* v = stack_.Push<ValueType>(); // (1)
+    ```
+
+    这里 `Push<ValueType>` 是一个 dependent name，它依赖于 ValueType 的实际类型。
+    这里编译器不能确认 < 为小于运算符，还是模板的 <。为了避免歧义，需要加入
+    template 关键字。这是 C++ 标准的规定，缺少这个 template 关键字 gcc 和 clang
+    都会报错，而 vc 则会通过（C++ 标准也容许实现这样的编译器）。和这个语法相近的
+    还有 typename disambiguator。
+
+    ```cpp
+    class Stack {
+        Stack(Allocator* allocator, size_t stackCapacity);
+        ~Stack();
+        void Clear();
+        void ShrinkToFit();
+        template<typename T> T* Push(size_t count = 1);
+        template<typename T> T* Pop(size_t count);
+        template<typename T> T* Top();
+        template<typename T> T* Bottom();
+        Allocator& GetAllocator();
+        bool Empty() const;
+        size_t GetSize();
+        size_t GetCapacity();
+    };
+    ```
+
+    ```cpp
+    Stack s;
+    *s.Push<int>() = 1;
+    *s.Push<int>() = 2;
+    *s.Push<int>() = 3;
+    *s.Push<int>() = 4;
+    for (int i = 0; i < 2; i++) {
+        int* a = s.Pop<int>(2);
+        std::cout << a[0] << " " << a[1] << std::endl;
+    }
+    // 输出：
+    // 3 4
+    // 1 2
+    ```

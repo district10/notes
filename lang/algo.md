@@ -9456,191 +9456,191 @@ A Bit of Logic -<
 
                     注意:切分位置的枚举->单词长度枚举 O(NL 2), N: 字符串长度, L: 最长的单词的长度
 
-[Palindrome Partitioning | LeetCode OJ](https://leetcode.com/problems/palindrome-partitioning/) -<
+                    [Palindrome Partitioning | LeetCode OJ](https://leetcode.com/problems/palindrome-partitioning/) -<
 
-:   Given a string s, partition s such that every substring of the partition is a palindrome.
+                    :   Given a string s, partition s such that every substring of the partition is a palindrome.
 
-    Return all possible palindrome partitioning of s.
+                        Return all possible palindrome partitioning of s.
 
-    For example, given s = "aab",
-    Return
+                        For example, given s = "aab",
+                        Return
 
-    ```
-    [
-      ["aa","b"],
-      ["a","a","b"]
-    ]
-    ```
+                        ```
+                        [
+                          ["aa","b"],
+                          ["a","a","b"]
+                        ]
+                        ```
 
-    深搜 1 -<
+                        深搜 1 -<
 
-    :   ```cpp
-        // 时间复杂度 O(2^n)，空间复杂度 O(n)
-        class Solution {
-        public:
-            vector<vector<string>> partition(string s) {
-                vector<vector<string>> result;
-                vector<string> path;  // 一个partition方案
-                dfs(s, path, result, 0, 1);
-                return result;
-            }
-
-            // prev 表示前一个隔板, start 表示当前隔板
-            void dfs(string &s, vector<string>& path,
-                    vector<vector<string>> &result, size_t prev, size_t start) {
-                if (start == s.size()) { // 最后一个隔板
-                    if (isPalindrome(s, prev, start - 1)) { // 必须使用
-                        path.push_back(s.substr(prev, start - prev));
-                        result.push_back(path);
-                        path.pop_back();
-                    }
-                    return;
-                }
-                // 不断开
-                dfs(s, path, result, prev, start + 1);
-                // 如果[prev, start-1] 是回文，则可以断开，也可以不断开（上一行已经做了）
-                if (isPalindrome(s, prev, start - 1)) {
-                    // 断开
-                    path.push_back(s.substr(prev, start - prev));
-                    dfs(s, path, result, start, start + 1);
-                    path.pop_back();
-                }
-            }
-
-            bool isPalindrome(const string &s, int start, int end) {
-                while (start < end && s[start] == s[end]) {
-                    ++start;
-                    --end;
-                }
-                return start >= end;
-            }
-        };
-        ```
-
-    深搜 2 -<
-
-    :   ```cpp
-        // 时间复杂度 O(2^n)，空间复杂度 O(n)
-        class Solution {
-        public:
-            vector<vector<string>> partition(string s) {
-                vector<vector<string>> result;
-                vector<string> path;  // 一个partition方案
-                dfs(s, path, result, 0, 1);
-                return result;
-            }
-
-            // prev 表示前一个隔板, start 表示当前隔板
-            void dfs(string &s, vector<string>& path,
-                    vector<vector<string>> &result, size_t prev, size_t start) {
-                if (start == s.size()) { // 最后一个隔板
-                    if (isPalindrome(s, prev, start - 1)) { // 必须使用
-                        path.push_back(s.substr(prev, start - prev));
-                        result.push_back(path);
-                        path.pop_back();
-                    }
-                    return;
-                }
-                // 不断开
-                dfs(s, path, result, prev, start + 1);
-                // 如果[prev, start-1] 是回文，则可以断开，也可以不断开（上一行已经做了）
-                if (isPalindrome(s, prev, start - 1)) {
-                    // 断开
-                    path.push_back(s.substr(prev, start - prev));
-                    dfs(s, path, result, start, start + 1);
-                    path.pop_back();
-                }
-            }
-
-            bool isPalindrome(const string &s, int start, int end) {
-                while (start < end && s[start] == s[end]) {
-                    ++start;
-                    --end;
-                }
-                return start >= end;
-            }
-        };
-        ```
-
-    动归 -<
-
-    :   ```cpp
-        // 动规，时间复杂度 O(n^2)，空间复杂度 O(1)
-        class Solution {
-        public:
-            vector<vector<string> > partition(string s) {
-                const int n = s.size();
-                bool p[n][n]; // whether s[i,j] is palindrome
-                fill_n(&p[0][0], n * n, false);
-                for (int i = n - 1; i >= 0; --i)
-                    for (int j = i; j < n; ++j)
-                        p[i][j] = s[i] == s[j] && ((j - i < 2) || p[i + 1][j - 1]);
-
-                vector<vector<string> > sub_palins[n]; // sub palindromes of s[0,i]
-                for (int i = n - 1; i >= 0; --i) {
-                    for (int j = i; j < n; ++j)
-                        if (p[i][j]) {
-                            const string palindrome = s.substr(i, j - i + 1);
-                            if (j + 1 < n) {
-                                for (auto v : sub_palins[j + 1]) {
-                                    v.insert(v.begin(), palindrome);
-                                    sub_palins[i].push_back(v);
+                        :   ```cpp
+                            // 时间复杂度 O(2^n)，空间复杂度 O(n)
+                            class Solution {
+                            public:
+                                vector<vector<string>> partition(string s) {
+                                    vector<vector<string>> result;
+                                    vector<string> path;  // 一个partition方案
+                                    dfs(s, path, result, 0, 1);
+                                    return result;
                                 }
-                            } else {
-                                sub_palins[i].push_back(vector<string> { palindrome });
-                            }
-                        }
-                }
-                return sub_palins[0];
-            }
-        };
-        ```
 
-    动归 -<
+                                // prev 表示前一个隔板, start 表示当前隔板
+                                void dfs(string &s, vector<string>& path,
+                                        vector<vector<string>> &result, size_t prev, size_t start) {
+                                    if (start == s.size()) { // 最后一个隔板
+                                        if (isPalindrome(s, prev, start - 1)) { // 必须使用
+                                            path.push_back(s.substr(prev, start - prev));
+                                            result.push_back(path);
+                                            path.pop_back();
+                                        }
+                                        return;
+                                    }
+                                    // 不断开
+                                    dfs(s, path, result, prev, start + 1);
+                                    // 如果[prev, start-1] 是回文，则可以断开，也可以不断开（上一行已经做了）
+                                    if (isPalindrome(s, prev, start - 1)) {
+                                        // 断开
+                                        path.push_back(s.substr(prev, start - prev));
+                                        dfs(s, path, result, start, start + 1);
+                                        path.pop_back();
+                                    }
+                                }
 
-    :   ```cpp
-        // Palindrome Partitioning
-        #define ROF(i, a, b) for (int i = (b); --i >= (a); )
-        #define FOR(i, a, b) for (int i = (a); i < (b); i++)
-        #define REP(i, n) for (int i = 0; i < (n); i++)
+                                bool isPalindrome(const string &s, int start, int end) {
+                                    while (start < end && s[start] == s[end]) {
+                                        ++start;
+                                        --end;
+                                    }
+                                    return start >= end;
+                                }
+                            };
+                            ```
 
-        class Solution {
-        private:
-            vector<vector<bool>> f;
-            vector<string> rr;
-            vector<vector<string>> r;
-            void g(string &s, int i) {
-                if (i == s.size())
-                    r.push_back(rr);
-                else
-                    REP(j, s.size())
-                        if (f[i][j]) {
-                            rr.push_back(s.substr(i, j-i+1));
-                            g(s, j+1);
-                            rr.pop_back();
-                        }
-            }
-        public:
-            vector<vector<string>> partition(string s) {
-                int n = s.size();
-                f.assign(n, vector<bool>(n));
-                ROF(i, 0, n) {
-                    f[i][i] = true;
-                    if (i+1 < n && s[i] == s[i+1])
-                        f[i][i+1] = true;
-                    FOR(j, i+2, n)
-                        f[i][j] = f[i+1][j-1] && s[i] == s[j];
-                }
-                r.clear();
-                g(s, 0);
-                return r;
-            }
-        };
-        ```
+                        深搜 2 -<
 
-    refs and see also
+                        :   ```cpp
+                            // 时间复杂度 O(2^n)，空间复杂度 O(n)
+                            class Solution {
+                            public:
+                                vector<vector<string>> partition(string s) {
+                                    vector<vector<string>> result;
+                                    vector<string> path;  // 一个partition方案
+                                    dfs(s, path, result, 0, 1);
+                                    return result;
+                                }
 
-    -   [Palindrome Partitioning II 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/palindrome-partitioning-ii/)
+                                // prev 表示前一个隔板, start 表示当前隔板
+                                void dfs(string &s, vector<string>& path,
+                                        vector<vector<string>> &result, size_t prev, size_t start) {
+                                    if (start == s.size()) { // 最后一个隔板
+                                        if (isPalindrome(s, prev, start - 1)) { // 必须使用
+                                            path.push_back(s.substr(prev, start - prev));
+                                            result.push_back(path);
+                                            path.pop_back();
+                                        }
+                                        return;
+                                    }
+                                    // 不断开
+                                    dfs(s, path, result, prev, start + 1);
+                                    // 如果[prev, start-1] 是回文，则可以断开，也可以不断开（上一行已经做了）
+                                    if (isPalindrome(s, prev, start - 1)) {
+                                        // 断开
+                                        path.push_back(s.substr(prev, start - prev));
+                                        dfs(s, path, result, start, start + 1);
+                                        path.pop_back();
+                                    }
+                                }
+
+                                bool isPalindrome(const string &s, int start, int end) {
+                                    while (start < end && s[start] == s[end]) {
+                                        ++start;
+                                        --end;
+                                    }
+                                    return start >= end;
+                                }
+                            };
+                            ```
+
+                        动归 -<
+
+                        :   ```cpp
+                            // 动规，时间复杂度 O(n^2)，空间复杂度 O(1)
+                            class Solution {
+                            public:
+                                vector<vector<string> > partition(string s) {
+                                    const int n = s.size();
+                                    bool p[n][n]; // whether s[i,j] is palindrome
+                                    fill_n(&p[0][0], n * n, false);
+                                    for (int i = n - 1; i >= 0; --i)
+                                        for (int j = i; j < n; ++j)
+                                            p[i][j] = s[i] == s[j] && ((j - i < 2) || p[i + 1][j - 1]);
+
+                                    vector<vector<string> > sub_palins[n]; // sub palindromes of s[0,i]
+                                    for (int i = n - 1; i >= 0; --i) {
+                                        for (int j = i; j < n; ++j)
+                                            if (p[i][j]) {
+                                                const string palindrome = s.substr(i, j - i + 1);
+                                                if (j + 1 < n) {
+                                                    for (auto v : sub_palins[j + 1]) {
+                                                        v.insert(v.begin(), palindrome);
+                                                        sub_palins[i].push_back(v);
+                                                    }
+                                                } else {
+                                                    sub_palins[i].push_back(vector<string> { palindrome });
+                                                }
+                                            }
+                                    }
+                                    return sub_palins[0];
+                                }
+                            };
+                            ```
+
+                        动归 -<
+
+                        :   ```cpp
+                            // Palindrome Partitioning
+                            #define ROF(i, a, b) for (int i = (b); --i >= (a); )
+                            #define FOR(i, a, b) for (int i = (a); i < (b); i++)
+                            #define REP(i, n) for (int i = 0; i < (n); i++)
+
+                            class Solution {
+                            private:
+                                vector<vector<bool>> f;
+                                vector<string> rr;
+                                vector<vector<string>> r;
+                                void g(string &s, int i) {
+                                    if (i == s.size())
+                                        r.push_back(rr);
+                                    else
+                                        REP(j, s.size())
+                                            if (f[i][j]) {
+                                                rr.push_back(s.substr(i, j-i+1));
+                                                g(s, j+1);
+                                                rr.pop_back();
+                                            }
+                                }
+                            public:
+                                vector<vector<string>> partition(string s) {
+                                    int n = s.size();
+                                    f.assign(n, vector<bool>(n));
+                                    ROF(i, 0, n) {
+                                        f[i][i] = true;
+                                        if (i+1 < n && s[i] == s[i+1])
+                                            f[i][i+1] = true;
+                                        FOR(j, i+2, n)
+                                            f[i][j] = f[i+1][j-1] && s[i] == s[j];
+                                    }
+                                    r.clear();
+                                    g(s, 0);
+                                    return r;
+                                }
+                            };
+                            ```
+
+                        refs and see also
+
+                        -   [Palindrome Partitioning II 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/palindrome-partitioning-ii/)
 
                 -   单序列动态规划（下） Sequnece DP
 
@@ -14342,11 +14342,141 @@ A Bit of Logic -<
 
     :scissors: 2016/08/29 上午 7:00:00 数据结构 Data Structure (下) -<
 
-    :   -   Heap的深入理解和运用
-        -   Heap重要拓展：
-            -   1. 带删除的堆hash-heap
-            -   2. Trapping rain water
-            -   3. Building Outline
+    :   -   Heap 的深入理解和运用
+
+        -   Heap 重要拓展： -<
+
+            :   -   1. 带删除的堆 hash-heap
+                -   2. Trapping rain water -<
+
+                    :   [Trapping Rain Water | LeetCode OJ](https://leetcode.com/problems/trapping-rain-water/) -<
+
+                        :   ![](http://www.leetcode.com/wp-content/uploads/2012/08/rainwatertrap.png)
+
+                            对于每个柱子，找到其左右两边最高的柱子，该柱子能容纳的面积就是 min(max_left, max_right) - height。所以，
+
+                            -   从左往右扫描一遍，对于每个柱子，求取左边最大值；
+                            -   从右往左扫描一遍，对于每个柱子，求最大右值；
+                            -   再扫描一遍，把每个柱子的面积并累加。
+
+                            也可以，
+
+                            -   扫描一遍，找到最高的柱子，这个柱子将数组分为两半；
+                            -   处理左边一半；
+                            -   处理右边一半。
+
+                            ```cpp
+                            // 没看懂，TODO
+                            class Solution {
+                            public:
+                                int trap(vector<int> &h) {
+                                    int hl = 0, hr = 0, i = 0, j = h.size(), s = 0;
+                                    while (i < j) {
+                                        if (hl < hr) {
+                                            s += max(min(hl, hr)-h[i], 0);
+                                            hl = max(hl, h[i++]);
+                                        } else {
+                                            s += max(min(hl, hr)-h[--j], 0);
+                                            hr = max(hr, h[j]);
+                                        }
+                                    }
+                                    return s;
+                                }
+                            };
+                            ```
+
+                            ```cpp
+                            // 思路 1，时间复杂度 O(n)，空间复杂度 O(n)
+                            class Solution {
+                            public:
+                                int trap(const vector<int>& A) {
+                                    if( n < 2 ) { return 0; }                               // 注意后面的 A[n-1] 一定要保证不越界啊！
+
+                                    const int n = A.size();
+                                    vector<int> max_left( n ), max_right( n );
+                                    max_left[0] = A[0]; max_right[n-1] = A[n-1];
+                                    for (int i = 1; i < n; i++ ) {
+                                        max_left[i] = max(max_left[i - 1], A[i-1]);
+                                        max_right[n-1-i] = max(max_right[n-i], A[n-i]);
+                                    }
+
+                                    int sum = 0;
+                                    for (int i = 0; i < n; i++) {
+                                        int height = min(max_left[i], max_right[i]);
+                                        if (height > A[i]) {
+                                            sum += height - A[i];
+                                        }
+                                    }
+                                    return sum;
+                                }
+                            };
+                            ```
+
+                            最推荐这个做法：
+
+                            ```cpp
+                            // 思路 2，时间复杂度 O(n)，空间复杂度 O(1)
+                            class Solution {
+                            public:
+                                int trap(const vector<int>& A) {
+                                    const int n = A.size();
+                                    int max = 0;                                    // 最高的柱子，将数组分为两半
+                                    for (int i = 0; i < n; i++)
+                                        if (A[i] > A[max]) max = i;
+
+                                    int water = 0;
+                                    for (int i = 0, peak = 0; i < max; i++)         // 左侧，从左往右直到 max
+                                        if (A[i] > peak) peak = A[i];
+                                        else water += peak - A[i];
+                                    for (int i = n - 1, peak = 0; i > max; i--)      // 右侧，从右往左直到 max
+                                        if (A[i] > peak) peak = A[i];
+                                        else water += peak - A[i];
+                                    return water;
+                                }
+                            };
+                            ```
+
+                            第三种解法，用一个栈辅助，小于栈顶的元素压入，大于
+                            等于栈顶就把栈里所有小于或等于当前值的元素全部出栈
+                            处理掉。（不推荐）
+
+                            ```cpp
+                            // 用一个栈辅助，小于栈顶的元素压入，大于等于栈顶就把栈里所有小于或
+                            // 等于当前值的元素全部出栈处理掉，计算面积，最后把当前元素入栈
+                            // 时间复杂度O(n)，空间复杂度O(n)
+                            class Solution {
+                            public:
+                                int trap(const vector<int>& A) {
+                                    const int n = A.size();
+                                    stack<pair<int, int>> s;
+                                    int water = 0;
+
+                                    for (int i = 0; i < n; ++i) {
+                                        int height = 0;
+
+                                        while (!s.empty()) { // 将栈里比当前元素矮或等高的元素全部处理掉
+                                            int bar = s.top().first;
+                                            int pos = s.top().second;
+                                            // bar, height, A[i] 三者夹成的凹陷
+                                            water += (min(bar, A[i]) - height) * (i - pos - 1);
+                                            height = bar;
+
+                                            if (A[i] < bar) // 碰到了比当前元素高的，跳出循环
+                                                break;
+                                            else
+                                                s.pop(); // 弹出栈顶，因为该元素处理完了，不再需要了
+                                        }
+
+                                        s.push(make_pair(A[i], i));
+                                    }
+
+                                    return water;
+                                }
+                            };
+                            ```
+
+                -   3. Building Outline
+
         -   Median 问题拓展
         -   Sliding Windows问题总结
         -   双端队列Deque
@@ -17602,6 +17732,235 @@ A Bit of Logic -<
 
             :   ![In two dimensions, there are 4 orthants (called quadrants)](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Cartesian_coordinates_2D.svg/220px-Cartesian_coordinates_2D.svg.png)
 
+        [Rotate Image | LeetCode OJ](https://leetcode.com/problems/rotate-image/) -<
+
+        :   复制太慢！用两次翻折，如下图：
+
+            ```
+            先副对角线，在中线
+            1   2               4   2               3   1
+              /         -->      ---        --->
+            3   4               3   1               4   2
+            (i,j)
+            i=[0,n-1)       P(i,j)->P(n-1-j,n-1-i)
+            j=[0,n-1-i)
+
+            先中线，再主对角线
+            1   2               3   4               3   1
+             ---        -->       \         --->
+            3   4               1   2               4   2
+            ```
+
+            看来怎么翻折都是可以得。自己随意选择把。
+
+            ```cpp
+            // Rotate Image
+            #define REP(i, n) for (int i = 0; i < (n); i++)
+
+            class Solution {
+            public:
+                void rotate(vector<vector<int> > &a) {
+                    int n = a.size();
+                    REP(i, n-1)
+                        REP(j, n-1-i)
+                        swap(a[i][j], a[n-1-j][n-1-i]);
+                    REP(i, n/2)
+                        swap_ranges(a[i].begin(), a[i].end(), a[n-1-i].begin());
+                }
+            };
+            ```
+
+        [Gray Code | LeetCode OJ](https://leetcode.com/problems/gray-code/) -<
+
+        :   The gray code is a binary numeral system where two successive values differ
+            in only one bit.
+
+            Given a non-negative integer n representing the total number of bits in the
+            code, print the sequence of gray code. A gray code sequence must begin with 0.
+
+            For example, given n = 2, return [0,1,3,2]. Its gray code sequence is:
+
+            ```
+            00 - 0
+            01 - 1
+            11 - 3
+            10 - 2
+            ```
+
+            自然二进制码转换为格雷码：g~0~ = b~0~, g~i~=b~i~ ^ b~i-1~
+
+            保留自然二进制码的最高位作为格雷码的最高位，格雷码次高位为二进制码的高位与
+            次高位异或，其余各位与次高位的求法类似。例如，将自然二进制码 1001，转换为格
+            雷码的过程是：保留最高位；然后将第 1 位的 1 和第 2 位的 0 异或，得到 1，作
+            为格雷码的第 2 位；将第 2 位的 0 和第 3 位的 0 异或，得到 0，作为格雷码的第
+            3 位；将第 3 位的 0 和第 4 位的 1 异或，得到 1，作为格雷码的第 4 位，最终，
+            格雷码为 1101。
+
+            格雷码有数学公式，**整数 n 的格雷码是 n ^ (n/2)**。
+
+            这题要求生成 n 比特的所有格雷码。
+
+            -   方法 1，最简单的方法，利用数学公式，对从 0..2^n-1^ 的所有整数，转化为格雷码。
+            -   方法 2，n 比特的格雷码，可以递归地从 n-1 比特的格雷码生成。
+
+            For a given n, a gray code sequence is **not uniquely defined**. 首先，格雷
+            码不是唯一的。它是一个 sequence，有 2^n^ 个数字。每个数字，依次，只改变
+            一个 bit。
+
+            For example, `[0,2,3,1]` is also a valid gray code sequence according to the above definition.
+
+            For now, the judge is able to judge based on one instance of gray code sequence. Sorry about that.
+
+            see more at [Gray code - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Gray_code).
+
+            直接用公式：
+
+            ```cpp
+            // 时间复杂度 O(2^n)，空间复杂度 O(2^n)
+            #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)        // for,     [a, b)
+            #define REP(i, n) FOR(i, 0, n)                                      // repeat,  [0, n)
+
+            class Solution {
+            public:
+                vector<int> grayCode(int n) {
+                    int size = 1 << n;
+                    vector<int> r(size);
+                    REP(i, size)
+                        r[i] = i^i>>1;      // n ^ (n/2)
+                    return r;
+                }
+            };
+            ```
+
+            reflect and prefix 法：TODO
+
+            ![The first few steps of the reflect-and-prefix method.](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Binary-reflected_Gray_code_construction.svg/250px-Binary-reflected_Gray_code_construction.svg.png)
+
+            ```
+            带 * 的是每次新加入的元素。
+
+                    n=1     n=2     n=3
+               *0   0       00      000
+                   *1       01      001
+                           *11      011
+                           *10      010
+                                   *110
+                                   *111
+                                   *101
+                                   *100
+            ```
+
+            // reflect-and-prefix method
+            // 时间复杂度 O(2^n)，空间复杂度 O(1)
+            class Solution {
+            public:
+                vector<int> grayCode(int n) {
+                    vector<int> result;
+                    result.reserve(1<<n);
+                    result.push_back(0);
+                    for (int i = 0; i < n; i++) {
+                        const int highest_bit = 1 << i;
+                        for (int j = result.size() - 1; j >= 0; j--)        // 要反着遍历，才能对称，遍历完后，尺寸加倍
+                            result.push_back(highest_bit | result[j]);      // 把 0 调整成 1
+                    }
+                    return result;
+                }
+            };
+            ```
+
+        [Single Number | LeetCode OJ](https://leetcode.com/problems/single-number/) -<
+
+        :   Given an array of integers, every element appears twice except for one. Find that single one.
+
+            **偶数次异或等于 0。0 异或 x 等于 x。**（这个结论太重要！）
+
+            ```cpp
+            class Solution {
+            public:
+                int singleNumber(vector<int> &a) {
+                    return accumulate(a.begin(), a.end(), 0, bit_xor<int>());
+                }
+            };
+            ```
+
+            ```cpp
+            class Solution {
+            public:
+                int singleNumber(vector<int>& nums) {
+                    int x = 0;
+                    for (auto i : nums) {
+                        x ^= i;
+                    }
+                    return x;
+                }
+            };
+            ```
+
+        [Single Number II | LeetCode OJ](https://leetcode.com/problems/single-number-ii/) :hearts: -<
+
+        :   只有一次数只出现了一次，其余都是三次。
+
+            方法1：创建一个长度为 sizeof(int) 的数组 `count[sizeof(int)]`，`count[i]`
+            表示在 i 位出现的 1 的次数。如果 count[i] 是 3 的整数倍，则忽略；否则就把该
+            位取出来组成答案。
+
+            ```cpp
+            #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
+            #define REP(i, n) FOR(i, 0, n)
+            class Solution {
+            public:
+                int singleNumber(vector<int> &a) {
+                    vector<int> c(32);
+                    for (int x: a)
+                        REP(j, 32)
+                            c[j] += x>>j & 1;
+                    int r = 0;
+                    REP(j, 32)
+                        r |= ( c[j]%3 & 1 ) << j;
+                    return r;
+                }
+            };
+            ```
+
+            方法 2：用 one 记录到当前处理的元素为止，二进制 1 出现“1 次”（mod 3 之后的1）
+            的有哪些二进制位；用 two 记录到当前计算的变量为止，二进制 1 出现“2 次”
+            （mod 3 之后的 2）的有哪些二进制位。当 one 和 two 中的某一位同时为 1 时表示
+            该二进制位上 1 出现了 3 次，此时需要清零。即**用二进制模拟三进制运算**。最
+            终 one 记录的是最终结果。
+
+            （难以理解……）
+
+            ```cpp
+            class Solution {
+            public:
+                int singleNumber(vector<int> &a) {
+                    int one = 0, two = 0;
+                    for (int x: a) {
+                        one = (one ^ x) & ~ two;
+                        two = (two ^ x) & ~ one;
+                    }
+                    return one;
+                }
+            };
+            ```
+
+            ```
+            [1, 3, 3, 2, 1, 3, 1]                           one = (one ^ x) & ~ two;
+            x           one             two                 two = (two ^ x) & ~ one;
+                        0000,0000       0000,0000
+
+            0000,0001   0000,0001
+                        &
+                        1111,1111
+
+            0000,0001   1111,1111       0000,0001
+                                        &
+                                        0000,0000
+
+            0000,0001   1111,1111       0000,0001
+            3
+            ```
+
         Shift right -<
 
         :   from acm-cheatsheet/Functionalities
@@ -19503,9 +19862,350 @@ Beauty of Programming -<
             }
             ```
 
+        [nonstriater/Learn-Algorithms: 算法学习笔记](https://github.com/nonstriater/Learn-Algorithms)
+
         refs and see also
 
         -   [程序员编程艺术：第四章、现场编写类似 strstr/strcpy/strpbrk 的函数 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6417600)
+
+StackOverflow -<
+
+:   -   [logic - What is the optimal algorithm for the game 2048? - Stack Overflow](http://stackoverflow.com/questions/22342854/what-is-the-optimal-algorithm-for-the-game-2048)
+
+    -   [algorithm - What is a plain English explanation of "Big O" notation? - Stack Overflow](http://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation)
+
+    -   [c++ - Image Processing: Algorithm Improvement for 'Coca-Cola Can' Recognition - Stack Overflow](http://stackoverflow.com/questions/10168686/image-processing-algorithm-improvement-for-coca-cola-can-recognition) -<
+
+        :   signature scan lines.
+
+    -   [algorithm - What is tail recursion? - Stack Overflow](http://stackoverflow.com/questions/33923/what-is-tail-recursion) -<
+
+        :   ```python
+            def recsum(x):
+                if x == 1:
+                    return x
+                else:
+                    return x + recsum(x - 1)
+            ```
+
+            In traditional recursion, the typical model is that you
+            perform your recursive calls first, and then you take the
+            return value of the recursive call and calculate the
+            result. In this manner, you don't get the result of your
+            calculation until you have returned from every recursive
+            call.
+
+            In tail recursion, you perform your calculations first, and
+            then you execute the recursive call, passing the results of
+            your current step to the next recursive step. This results
+            in the last statement being in the form of "(return
+            (recursive-function params))" (I think that's the syntax
+            for Lisp). Basically, the return value of any given
+            recursive step is the same as the return value of the next
+            recursive call.
+
+            The consequence of this is that once you are ready to
+            perform your next recursive step, you don't need the
+            current stack frame any more. This allows for some
+            optimization. In fact, with an appropriately written
+            compiler, you should never have a stack overflow snicker
+            with a tail recursive call. Simply reuse the current stack
+            frame for the next recursive step. I'm pretty sure Lisp
+            does this.
+
+            >   An important point is that tail recursion is essentially equivalent to looping.
+
+    -   [algorithm - Easy interview question got harder: given numbers 1..100, find the missing number(s) - Stack Overflow](http://stackoverflow.com/questions/3492302/easy-interview-question-got-harder-given-numbers-1-100-find-the-missing-numbe){.hearts} -<
+
+        :   [Newton's identities - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Newton%27s_identities#Formulation_in_terms_of_symmetric_polynomials)
+
+    -   [search - Ukkonen's suffix tree algorithm in plain English? - Stack Overflow](http://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english)
+
+    -   [algorithm - Find an integer not among four billion given ones - Stack Overflow](http://stackoverflow.com/questions/7153659/find-an-integer-not-among-four-billion-given-ones) -<
+
+        :   >   Given an input file with four billion integers, provide
+            >   an algorithm to generate an integer which is not
+            >   contained in the file. Assume you have 1 GB memory.
+            >   Follow up with what you would do if you have only 10 MB of memory.
+
+            Assuming that "integer" means 32 bits
+
+            :   Having 10 MB of space is more than enough for you to count how many numbers
+                there are in the input file with any given 16-bit prefix, for all possible
+                16-bit prefixes in one pass through the input file. At least one of the
+                buckets will have be hit less than 2^16 times. Do a second pass to find of
+                which of the possible numbers in that bucket are used already.
+
+            If it means more than 32 bits, but still of bounded size
+
+            :   Do as above, ignoring all input numbers that happen to fall outside the
+                (signed or unsigned; your choice) 32-bit range.
+
+            If "integer" means mathematical integer
+
+            :   Read through the input once and keep track of the largest number length of
+                the longest number you've ever seen. When you're done, output the maximum
+                plus one a random number that has one more digit. (One of the numbers in
+                the file may be a bignum that takes more than 10 MB to represent exactly,
+                but if the input is a file, then you can at least represent the length of
+                anything that fits in it).
+
+            ```cpp
+            #define BITSPERWORD 32
+            #define SHIFT 5
+            #define MASK 0x1F
+            #define N 10000000
+            int a[1 + N/BITSPERWORD];
+
+            void set(int i) {        a[i>>SHIFT] |=  (1<<(i & MASK)); }
+            void clr(int i) {        a[i>>SHIFT] &= ~(1<<(i & MASK)); }
+            int  test(int i){ return a[i>>SHIFT] &   (1<<(i & MASK)); }
+            ```
+
+    -   [algorithm - What are the differences between NP, NP-Complete and NP-Hard? - Stack Overflow](http://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard) -<
+
+        :   Decision problem
+              ~ A problem with a yes or no answer.
+
+            Now, let us define those complexity classes.
+
+            P
+
+            :   P is a complexity class that represents the set of all decision problems
+                that can be solved in **polynomial time**. That is, given an instance of the
+                problem, the answer yes or no can be decided in polynomial time.
+
+                Example
+
+                Given a graph connected G, can its vertices be coloured using two colours so that no edge is monochromatic?
+
+                Algorithm: start with an arbitrary vertex, color it red and all of its
+                neighbours blue and continue. Stop when you run out of vertices or you are
+                forced to make an edge have both of its endpoints be the same color.
+
+            NP
+
+            :   NP is a complexity class that represents the set of all decision problems
+                for which the instances where the answer is "yes" have proofs that can be
+                verified in polynomial time.
+
+                This means that if someone gives us an instance of the problem and a
+                certificate (sometimes called a witness) to the answer being yes, we can
+                check that it is correct in polynomial time.
+
+                Example
+
+                Integer factorisation is in NP. This is the problem that given integers n
+                and m, is there an integer f with 1 < f < m, such that f divides n (f is a
+                small factor of n)?
+
+                This is a decision problem because the answers are yes or no. If someone
+                hands us an instance of the problem (so they hand us integers n and m) and
+                an integer f with 1 < f < m, and claim that f is a factor of n (the
+                certificate), we can check the answer in polynomial time by performing the
+                division n / f.
+
+            NP-Complete
+
+            :   NP-Complete is a complexity class which represents the set of all problems
+                X in NP for which it is possible to reduce any other NP problem Y to X in
+                polynomial time.
+
+                Intuitively this means that we can solve Y quickly if we know how to solve
+                X quickly. Precisely, Y is reducible to X, if there is a polynomial time
+                algorithm f to transform instances y of Y to instances x = f(y) of X in
+                polynomial time, with the property that the answer to y is yes, if and only
+                if the answer to f(y) is yes.
+
+                Example
+
+                3-SAT. This is the problem wherein we are given a conjunction (ANDs) of
+                3-clause disjunctions (ORs), statements of the form
+
+                ```
+                (x_v11 OR x_v21 OR x_v31) AND
+                (x_v12 OR x_v22 OR x_v32) AND
+                ...                       AND
+                (x_v1n OR x_v2n OR x_v3n)
+                ```
+
+                where each x_vij is a boolean variable or the negation of a variable from a
+                finite predefined list (x_1, x_2, ... x_n).
+
+                It can be shown that every NP problem can be reduced to 3-SAT. The proof of
+                this is technical and requires use of the technical definition of NP (based
+                on non-deterministic Turing machines). This is known as Cook's theorem.
+
+                What makes NP-complete problems important is that if a deterministic
+                polynomial time algorithm can be found to solve one of them,
+                **every NP problem is solvable in polynomial time** (one problem to rule them all).
+
+            NP-hard
+
+            P = NP
+
+            ```
+            ____________________________________________________________
+            | Problem Type | Verifiable in P time | Solvable in P time | Increasing Difficulty
+            |______________|______________________|____________________|           |
+            | P            |        Yes           |        Yes         |           |
+            | NP           |        Yes           |     Yes or No *    |           |
+            | NP-Complete  |        Yes           |      Unknown       |           |
+            | NP-Hard      |     Yes or No **     |      Unknown ***   |           |
+            |______________|______________________|____________________|           V
+            ```
+
+    -   [algorithm - Big O, how do you calculate/approximate it? - Stack Overflow](http://stackoverflow.com/questions/3255/big-o-how-do-you-calculate-approximate-it)
+
+    -   [algorithm - Calculate distance between two latitude-longitude points? (Haversine formula) - Stack Overflow](http://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula) -<
+
+        :   ```javascript
+            // This script [in Javascript] calculates great-circle distances between the
+            // two points – that is, the shortest distance over the earth’s surface – using
+            // the ‘Haversine’ formula.
+            function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+                var R = 6371; // Radius of the earth in km
+                var dLat = deg2rad(lat2-lat1);  // deg2rad below
+                var dLon = deg2rad(lon2-lon1);
+                var a =
+                    Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                    Math.sin(dLon/2) * Math.sin(dLon/2)
+                    ;
+                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+                var d = R * c; // Distance in km
+                return d;
+            }
+
+            function deg2rad(deg) {
+                return deg * (Math.PI/180)
+            }
+            ```
+
+            refs and see also
+
+            -   [Haversine formula - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Haversine_formula)+
+            -   [Calculate distance and bearing between two Latitude/Longitude points using haversine formula in JavaScript](http://www.movable-type.co.uk/scripts/latlong.html)
+
+    -   [routing - What algorithms compute directions from point A to point B on a map? - Stack Overflow](http://stackoverflow.com/questions/430142/what-algorithms-compute-directions-from-point-a-to-point-b-on-a-map)
+
+    -   [c# - How to check if a number is a power of 2 - Stack Overflow](http://stackoverflow.com/questions/600293/how-to-check-if-a-number-is-a-power-of-2) -<
+
+        :   `x & (x-1) == 0 ?`, as I expected.
+
+    -   [algorithm - How to code a URL shortener? - Stack Overflow](http://stackoverflow.com/questions/742013/how-to-code-a-url-shortener) -<
+
+        :   -   encode, bijective.
+            -   checksum
+
+    -   [Algorithm to return all combinations of k elements from n - Stack Overflow](http://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n) -<
+
+        :   chenshuo has a better solution.
+
+    -   [sql - What is the most efficient/elegant way to parse a flat table into a tree? - Stack Overflow](http://stackoverflow.com/questions/192220/what-is-the-most-efficient-elegant-way-to-parse-a-flat-table-into-a-tree)
+
+    -   [algorithm - How to find list of possible words from a letter matrix [Boggle Solver] - Stack Overflow](http://stackoverflow.com/questions/746082/how-to-find-list-of-possible-words-from-a-letter-matrix-boggle-solver)
+
+    -   [c++ - Most effective way for float and double comparison - Stack Overflow](http://stackoverflow.com/questions/17333/most-effective-way-for-float-and-double-comparison)
+
+    -   [algorithm - Getting the closest string match - Stack Overflow](http://stackoverflow.com/questions/5859561/getting-the-closest-string-match) -<
+
+        :   -   [Levenshtein distance - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Levenshtein_distance)
+
+
+    -   [c - Why doesn't GCC optimize a*a*a*a*a*a to (a*a*a)*(a*a*a)? - Stack Overflow](http://stackoverflow.com/questions/6430448/why-doesnt-gcc-optimize-aaaaaa-to-aaaaaa) -<
+
+        :   Because Floating Point Math is not Associative. The way
+            you group the operands in floating point multiplication
+            has an effect on the numerical accuracy of the answer.
+
+            As a result, most compilers are very conservative about
+            reordering floating point calculations unless they can
+            be sure that the answer will stay the same, or unless
+            you tell them you don't care about numerical accuracy.
+            For example: the `-fassociative-math` option of gcc which
+            allows gcc to reassociate floating point operations, or
+            even the `-ffast-math` option which allows even more
+            aggressive tradeoffs of accuracy against speed.
+
+            Another similar case: most compilers won't optimize a +
+            b + c + d to (a + b) + (c + d) (this is an optimization
+            since the second expression can be pipelined better)
+            and evaluate it as given (i.e. as (((a + b) + c) + d)).
+            This too is because of corner cases:
+
+            ```cpp
+            #include <stdio.h>
+
+            int main() {
+                float a = 1e35, b = 1e-5, c = -1e35, d = 1e-5;
+                printf("%e %e\n", a + b + c + d, (a + b) + (c + d)); // 1.000000e-05 0.000000e+00
+            }
+            ```
+
+            [What Every Computer Scientist Should Know About Floating-Point Arithmetic](http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html)
+
+    -   [c - Divide a number by 3 without using `*`, `/`, `+`, `-,` `%` operators - Stack Overflow](http://stackoverflow.com/questions/11694546/divide-a-number-by-3-without-using-operators) -<
+
+        :   ```cpp
+            // replaces the + operator
+            int add(int x, int y) {
+                while(x) {
+                    int t = (x & y) <<1;
+                    y ^= x;
+                    x = t;
+                }
+                return y;
+            }
+
+            int divideby3 (int num) {
+                int sum = 0;
+                while (num > 3) {
+                    sum = add(num >> 2, sum);
+                    num = add(num >> 2, num & 3);
+                }
+                if (num == 3)
+                    sum = add(sum, 1);
+                return sum;
+            }
+            ```
+
+            As Jim commented this works because:
+
+            -   n = 4 * a + b
+            -   n / 3 = a + (a + b) / 3
+            -   So sum += a, n = a + b, and iterate
+            -   When a == 0 (n < 4), sum += floor(n / 3); i.e. 1, if n == 3, else 0
+
+    -   [How do you set, clear and toggle a single bit in C/C++? - Stack Overflow](http://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit-in-c-c) -<
+
+        :   -   set a bit: `number |= 1 << x;`
+            -   clear a bit: `number &= ~(1 << x);`
+            -   toggle a bit: `number ^= 1 << x;`
+            -   checking a bit: `bit = (number >> x) & 1;`
+            -   changing the nth bit to x: `number ^= (-x ^ number) & (1 << n);`
+
+    -   [In C++ source, what is the effect of extern "C"? - Stack Overflow](http://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c)
+
+    -   [c - How to initialize all members of an array to the same value - Stack Overflow](http://stackoverflow.com/questions/201101/how-to-initialize-all-members-of-an-array-to-the-same-value) -<
+
+        :   refs and see also
+
+            -   [不要被别人的 memset(buf, -1, sizeof(buf)) 迷惑了 · Issue #2 · district10/notes · GitHub](https://github.com/district10/notes/issues/2)
+
+    -   [Why use apparently meaningless do-while and if-else statements in C/C++ macros? - Stack Overflow](http://stackoverflow.com/questions/154136/why-use-apparently-meaningless-do-while-and-if-else-statements-in-c-c-macros)
+
+    -   [c++ - std::next_permutation Implementation Explanation - Stack Overflow](http://stackoverflow.com/questions/11483060/stdnext-permutation-implementation-explanation)
+
+    -   [how to find the intersection of two std:set in C++? - Stack Overflow](http://stackoverflow.com/questions/13448064/how-to-find-the-intersection-of-two-stdset-in-c)
+
+    -   [c++ - Why are std::shuffle methods being deprecated in C++14? - Stack Overflow](http://stackoverflow.com/questions/22600100/why-are-stdshuffle-methods-being-deprecated-in-c14)
+
+    -   [c++ - Composability of STL algorithms - Stack Overflow](http://stackoverflow.com/questions/6743093/composability-of-stl-algorithms)
+
+    -   [C++ <algorithm> implementation explained - Stack Overflow](http://stackoverflow.com/questions/17663449/c-algorithm-implementation-explained)
+
+    -   [c++ - std::copy n elements or to the end - Stack Overflow](http://stackoverflow.com/questions/26119212/stdcopy-n-elements-or-to-the-end)
 
 Milo Yip 的博客 :hearts: -<
 
@@ -19900,346 +20600,7 @@ Milo Yip 的博客 :hearts: -<
             }
             ```
 
-StackOverflow -<
-
-:   -   [logic - What is the optimal algorithm for the game 2048? - Stack Overflow](http://stackoverflow.com/questions/22342854/what-is-the-optimal-algorithm-for-the-game-2048)
-
-    -   [algorithm - What is a plain English explanation of "Big O" notation? - Stack Overflow](http://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation)
-
-    -   [c++ - Image Processing: Algorithm Improvement for 'Coca-Cola Can' Recognition - Stack Overflow](http://stackoverflow.com/questions/10168686/image-processing-algorithm-improvement-for-coca-cola-can-recognition) -<
-
-        :   signature scan lines.
-
-    -   [algorithm - What is tail recursion? - Stack Overflow](http://stackoverflow.com/questions/33923/what-is-tail-recursion) -<
-
-        :   ```python
-            def recsum(x):
-                if x == 1:
-                    return x
-                else:
-                    return x + recsum(x - 1)
-            ```
-
-            In traditional recursion, the typical model is that you
-            perform your recursive calls first, and then you take the
-            return value of the recursive call and calculate the
-            result. In this manner, you don't get the result of your
-            calculation until you have returned from every recursive
-            call.
-
-            In tail recursion, you perform your calculations first, and
-            then you execute the recursive call, passing the results of
-            your current step to the next recursive step. This results
-            in the last statement being in the form of "(return
-            (recursive-function params))" (I think that's the syntax
-            for Lisp). Basically, the return value of any given
-            recursive step is the same as the return value of the next
-            recursive call.
-
-            The consequence of this is that once you are ready to
-            perform your next recursive step, you don't need the
-            current stack frame any more. This allows for some
-            optimization. In fact, with an appropriately written
-            compiler, you should never have a stack overflow snicker
-            with a tail recursive call. Simply reuse the current stack
-            frame for the next recursive step. I'm pretty sure Lisp
-            does this.
-
-            >   An important point is that tail recursion is essentially equivalent to looping.
-
-    -   [algorithm - Easy interview question got harder: given numbers 1..100, find the missing number(s) - Stack Overflow](http://stackoverflow.com/questions/3492302/easy-interview-question-got-harder-given-numbers-1-100-find-the-missing-numbe){.hearts} -<
-
-        :   [Newton's identities - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Newton%27s_identities#Formulation_in_terms_of_symmetric_polynomials)
-
-    -   [search - Ukkonen's suffix tree algorithm in plain English? - Stack Overflow](http://stackoverflow.com/questions/9452701/ukkonens-suffix-tree-algorithm-in-plain-english)
-
-    -   [algorithm - Find an integer not among four billion given ones - Stack Overflow](http://stackoverflow.com/questions/7153659/find-an-integer-not-among-four-billion-given-ones) -<
-
-        :   >   Given an input file with four billion integers, provide
-            >   an algorithm to generate an integer which is not
-            >   contained in the file. Assume you have 1 GB memory.
-            >   Follow up with what you would do if you have only 10 MB of memory.
-
-            Assuming that "integer" means 32 bits
-
-            :   Having 10 MB of space is more than enough for you to count how many numbers
-                there are in the input file with any given 16-bit prefix, for all possible
-                16-bit prefixes in one pass through the input file. At least one of the
-                buckets will have be hit less than 2^16 times. Do a second pass to find of
-                which of the possible numbers in that bucket are used already.
-
-            If it means more than 32 bits, but still of bounded size
-
-            :   Do as above, ignoring all input numbers that happen to fall outside the
-                (signed or unsigned; your choice) 32-bit range.
-
-            If "integer" means mathematical integer
-
-            :   Read through the input once and keep track of the largest number length of
-                the longest number you've ever seen. When you're done, output the maximum
-                plus one a random number that has one more digit. (One of the numbers in
-                the file may be a bignum that takes more than 10 MB to represent exactly,
-                but if the input is a file, then you can at least represent the length of
-                anything that fits in it).
-
-            ```cpp
-            #define BITSPERWORD 32
-            #define SHIFT 5
-            #define MASK 0x1F
-            #define N 10000000
-            int a[1 + N/BITSPERWORD];
-
-            void set(int i) {        a[i>>SHIFT] |=  (1<<(i & MASK)); }
-            void clr(int i) {        a[i>>SHIFT] &= ~(1<<(i & MASK)); }
-            int  test(int i){ return a[i>>SHIFT] &   (1<<(i & MASK)); }
-            ```
-
-    -   [algorithm - What are the differences between NP, NP-Complete and NP-Hard? - Stack Overflow](http://stackoverflow.com/questions/1857244/what-are-the-differences-between-np-np-complete-and-np-hard) -<
-
-        :   Decision problem
-              ~ A problem with a yes or no answer.
-
-            Now, let us define those complexity classes.
-
-            P
-
-            :   P is a complexity class that represents the set of all decision problems
-                that can be solved in **polynomial time**. That is, given an instance of the
-                problem, the answer yes or no can be decided in polynomial time.
-
-                Example
-
-                Given a graph connected G, can its vertices be coloured using two colours so that no edge is monochromatic?
-
-                Algorithm: start with an arbitrary vertex, color it red and all of its
-                neighbours blue and continue. Stop when you run out of vertices or you are
-                forced to make an edge have both of its endpoints be the same color.
-
-            NP
-
-            :   NP is a complexity class that represents the set of all decision problems
-                for which the instances where the answer is "yes" have proofs that can be
-                verified in polynomial time.
-
-                This means that if someone gives us an instance of the problem and a
-                certificate (sometimes called a witness) to the answer being yes, we can
-                check that it is correct in polynomial time.
-
-                Example
-
-                Integer factorisation is in NP. This is the problem that given integers n
-                and m, is there an integer f with 1 < f < m, such that f divides n (f is a
-                small factor of n)?
-
-                This is a decision problem because the answers are yes or no. If someone
-                hands us an instance of the problem (so they hand us integers n and m) and
-                an integer f with 1 < f < m, and claim that f is a factor of n (the
-                certificate), we can check the answer in polynomial time by performing the
-                division n / f.
-
-            NP-Complete
-
-            :   NP-Complete is a complexity class which represents the set of all problems
-                X in NP for which it is possible to reduce any other NP problem Y to X in
-                polynomial time.
-
-                Intuitively this means that we can solve Y quickly if we know how to solve
-                X quickly. Precisely, Y is reducible to X, if there is a polynomial time
-                algorithm f to transform instances y of Y to instances x = f(y) of X in
-                polynomial time, with the property that the answer to y is yes, if and only
-                if the answer to f(y) is yes.
-
-                Example
-
-                3-SAT. This is the problem wherein we are given a conjunction (ANDs) of
-                3-clause disjunctions (ORs), statements of the form
-
-                ```
-                (x_v11 OR x_v21 OR x_v31) AND
-                (x_v12 OR x_v22 OR x_v32) AND
-                ...                       AND
-                (x_v1n OR x_v2n OR x_v3n)
-                ```
-
-                where each x_vij is a boolean variable or the negation of a variable from a
-                finite predefined list (x_1, x_2, ... x_n).
-
-                It can be shown that every NP problem can be reduced to 3-SAT. The proof of
-                this is technical and requires use of the technical definition of NP (based
-                on non-deterministic Turing machines). This is known as Cook's theorem.
-
-                What makes NP-complete problems important is that if a deterministic
-                polynomial time algorithm can be found to solve one of them,
-                **every NP problem is solvable in polynomial time** (one problem to rule them all).
-
-            NP-hard
-
-            P = NP
-
-            ```
-            ____________________________________________________________
-            | Problem Type | Verifiable in P time | Solvable in P time | Increasing Difficulty
-            |______________|______________________|____________________|           |
-            | P            |        Yes           |        Yes         |           |
-            | NP           |        Yes           |     Yes or No *    |           |
-            | NP-Complete  |        Yes           |      Unknown       |           |
-            | NP-Hard      |     Yes or No **     |      Unknown ***   |           |
-            |______________|______________________|____________________|           V
-            ```
-
-    -   [algorithm - Big O, how do you calculate/approximate it? - Stack Overflow](http://stackoverflow.com/questions/3255/big-o-how-do-you-calculate-approximate-it)
-
-    -   [algorithm - Calculate distance between two latitude-longitude points? (Haversine formula) - Stack Overflow](http://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula) -<
-
-        :   ```javascript
-            // This script [in Javascript] calculates great-circle distances between the
-            // two points – that is, the shortest distance over the earth’s surface – using
-            // the ‘Haversine’ formula.
-            function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
-                var R = 6371; // Radius of the earth in km
-                var dLat = deg2rad(lat2-lat1);  // deg2rad below
-                var dLon = deg2rad(lon2-lon1);
-                var a =
-                    Math.sin(dLat/2) * Math.sin(dLat/2) +
-                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-                    Math.sin(dLon/2) * Math.sin(dLon/2)
-                    ;
-                var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-                var d = R * c; // Distance in km
-                return d;
-            }
-
-            function deg2rad(deg) {
-                return deg * (Math.PI/180)
-            }
-            ```
-
-            refs and see also
-
-            -   [Haversine formula - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Haversine_formula)+
-            -   [Calculate distance and bearing between two Latitude/Longitude points using haversine formula in JavaScript](http://www.movable-type.co.uk/scripts/latlong.html)
-
-    -   [routing - What algorithms compute directions from point A to point B on a map? - Stack Overflow](http://stackoverflow.com/questions/430142/what-algorithms-compute-directions-from-point-a-to-point-b-on-a-map)
-
-    -   [c# - How to check if a number is a power of 2 - Stack Overflow](http://stackoverflow.com/questions/600293/how-to-check-if-a-number-is-a-power-of-2) -<
-
-        :   `x & (x-1) == 0 ?`, as I expected.
-
-    -   [algorithm - How to code a URL shortener? - Stack Overflow](http://stackoverflow.com/questions/742013/how-to-code-a-url-shortener) -<
-
-        :   -   encode, bijective.
-            -   checksum
-
-    -   [Algorithm to return all combinations of k elements from n - Stack Overflow](http://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n) -<
-
-        :   chenshuo has a better solution.
-
-    -   [sql - What is the most efficient/elegant way to parse a flat table into a tree? - Stack Overflow](http://stackoverflow.com/questions/192220/what-is-the-most-efficient-elegant-way-to-parse-a-flat-table-into-a-tree)
-
-    -   [algorithm - How to find list of possible words from a letter matrix [Boggle Solver] - Stack Overflow](http://stackoverflow.com/questions/746082/how-to-find-list-of-possible-words-from-a-letter-matrix-boggle-solver)
-
-    -   [c++ - Most effective way for float and double comparison - Stack Overflow](http://stackoverflow.com/questions/17333/most-effective-way-for-float-and-double-comparison)
-
-    -   [algorithm - Getting the closest string match - Stack Overflow](http://stackoverflow.com/questions/5859561/getting-the-closest-string-match) -<
-
-        :   -   [Levenshtein distance - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Levenshtein_distance)
-
-
-    -   [c - Why doesn't GCC optimize a*a*a*a*a*a to (a*a*a)*(a*a*a)? - Stack Overflow](http://stackoverflow.com/questions/6430448/why-doesnt-gcc-optimize-aaaaaa-to-aaaaaa) -<
-
-        :   Because Floating Point Math is not Associative. The way
-            you group the operands in floating point multiplication
-            has an effect on the numerical accuracy of the answer.
-
-            As a result, most compilers are very conservative about
-            reordering floating point calculations unless they can
-            be sure that the answer will stay the same, or unless
-            you tell them you don't care about numerical accuracy.
-            For example: the `-fassociative-math` option of gcc which
-            allows gcc to reassociate floating point operations, or
-            even the `-ffast-math` option which allows even more
-            aggressive tradeoffs of accuracy against speed.
-
-            Another similar case: most compilers won't optimize a +
-            b + c + d to (a + b) + (c + d) (this is an optimization
-            since the second expression can be pipelined better)
-            and evaluate it as given (i.e. as (((a + b) + c) + d)).
-            This too is because of corner cases:
-
-            ```cpp
-            #include <stdio.h>
-
-            int main() {
-                float a = 1e35, b = 1e-5, c = -1e35, d = 1e-5;
-                printf("%e %e\n", a + b + c + d, (a + b) + (c + d)); // 1.000000e-05 0.000000e+00
-            }
-            ```
-
-            [What Every Computer Scientist Should Know About Floating-Point Arithmetic](http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html)
-
-    -   [c - Divide a number by 3 without using `*`, `/`, `+`, `-,` `%` operators - Stack Overflow](http://stackoverflow.com/questions/11694546/divide-a-number-by-3-without-using-operators) -<
-
-        :   ```cpp
-            // replaces the + operator
-            int add(int x, int y) {
-                while(x) {
-                    int t = (x & y) <<1;
-                    y ^= x;
-                    x = t;
-                }
-                return y;
-            }
-
-            int divideby3 (int num) {
-                int sum = 0;
-                while (num > 3) {
-                    sum = add(num >> 2, sum);
-                    num = add(num >> 2, num & 3);
-                }
-                if (num == 3)
-                    sum = add(sum, 1);
-                return sum;
-            }
-            ```
-
-            As Jim commented this works because:
-
-            -   n = 4 * a + b
-            -   n / 3 = a + (a + b) / 3
-            -   So sum += a, n = a + b, and iterate
-            -   When a == 0 (n < 4), sum += floor(n / 3); i.e. 1, if n == 3, else 0
-
-    -   [How do you set, clear and toggle a single bit in C/C++? - Stack Overflow](http://stackoverflow.com/questions/47981/how-do-you-set-clear-and-toggle-a-single-bit-in-c-c) -<
-
-        :   -   set a bit: `number |= 1 << x;`
-            -   clear a bit: `number &= ~(1 << x);`
-            -   toggle a bit: `number ^= 1 << x;`
-            -   checking a bit: `bit = (number >> x) & 1;`
-            -   changing the nth bit to x: `number ^= (-x ^ number) & (1 << n);`
-
-    -   [In C++ source, what is the effect of extern "C"? - Stack Overflow](http://stackoverflow.com/questions/1041866/in-c-source-what-is-the-effect-of-extern-c)
-
-    -   [c - How to initialize all members of an array to the same value - Stack Overflow](http://stackoverflow.com/questions/201101/how-to-initialize-all-members-of-an-array-to-the-same-value) -<
-
-        :   refs and see also
-
-            -   [不要被别人的 memset(buf, -1, sizeof(buf)) 迷惑了 · Issue #2 · district10/notes · GitHub](https://github.com/district10/notes/issues/2)
-
-    -   [Why use apparently meaningless do-while and if-else statements in C/C++ macros? - Stack Overflow](http://stackoverflow.com/questions/154136/why-use-apparently-meaningless-do-while-and-if-else-statements-in-c-c-macros)
-
-    -   [c++ - std::next_permutation Implementation Explanation - Stack Overflow](http://stackoverflow.com/questions/11483060/stdnext-permutation-implementation-explanation)
-
-    -   [how to find the intersection of two std:set in C++? - Stack Overflow](http://stackoverflow.com/questions/13448064/how-to-find-the-intersection-of-two-stdset-in-c)
-
-    -   [c++ - Why are std::shuffle methods being deprecated in C++14? - Stack Overflow](http://stackoverflow.com/questions/22600100/why-are-stdshuffle-methods-being-deprecated-in-c14)
-
-    -   [c++ - Composability of STL algorithms - Stack Overflow](http://stackoverflow.com/questions/6743093/composability-of-stl-algorithms)
-
-    -   [C++ <algorithm> implementation explained - Stack Overflow](http://stackoverflow.com/questions/17663449/c-algorithm-implementation-explained)
-
-    -   [c++ - std::copy n elements or to the end - Stack Overflow](http://stackoverflow.com/questions/26119212/stdcopy-n-elements-or-to-the-end)
-
-[Adoo's blog - Introduction to Algorithm -third edition](http://www.roading.org/category/introduction-to-algorithm-third-edition.html) -<
+Adoo's blog - Introduction to Algorithm -third edition -<
 
 :   [算法导论——平摊分析](http://www.roading.org//algorithm/introductiontoalgorithm/%e7%ae%97%e6%b3%95%e5%af%bc%e8%ae%ba%e5%b9%b3%e6%91%8a%e5%88%86%e6%9e%90.html)
 
@@ -20277,1175 +20638,2316 @@ StackOverflow -<
 
         [排序之插入排序与合并排序-C++实现](http://www.roading.org//algorithm/introductiontoalgorithm/%e6%8f%92%e5%85%a5%e6%8e%92%e5%ba%8f-insertionsort-c%e5%ae%9e%e7%8e%b0.html)
 
-    -   《DPV -- Algorithm》 -<
-
-        :   [算法之美（Algorithms）书评](https://book.douban.com/review/1325850/)
-
-            :   算法作为一门学问，有两条正交的线索。一个是算法处理的对象：数、矩阵、
-                集合、串 (strings)、排列 (permutations)、图 (graphs)、表达式
-                (formula)、分布(distributions)，等等。另一个是算法的设计思想：贪婪、
-                分治、动态规划、线性规划、局部搜索 (local search)，等等。这两条线索
-                几乎是相互独立的：同一个离散对象，例如图，稍有不同的问题，例如
-                single-source shortest path和all-pair shortest path，就可以用到不同
-                的设计思想，如贪婪和动态规划；而完全不同的离散对象上的问题，例如排
-                序和整数乘法，也许就会用到相同的思想，例如分治。
-
-    -   《The Algorithm Design Manual》 -<
-
-        :   [Skiena's Audio Lectures](http://www3.cs.stonybrook.edu/~algorith/video-lectures/)
-
-            [不愧对“手册”之名，即使通读过CLRS再读也有所收获（算法设计手册）书评](https://book.douban.com/review/6250350/)
-
-[Dijkstra's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
-
--   [Sorting algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
--   [Heap · Data Structure and Algorithm notes](http://algorithm.yuanbin.me/zh-hans/basics_data_structure/heap.html)
-
-[程序员面试、算法研究、编程艺术、红黑树、数据挖掘5大系列集锦 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/6543438) -<
-
-:   [横空出世，席卷互联网--评微软等公司数据结构+算法面试100题 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6015165)
-
-    [九月十月百度，迅雷，华为，阿里巴巴笔试面试六十题(第411~470题) - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/11921021)
-
-    [五大常用算法：分治、动态规划、贪心、回溯和分支界定 - yapian8的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/yapian8/article/details/28240973)
-
-    授人以鱼，不如授之以渔，何况自己都忘了，建议去看 sedgewick 的《算法》第四版平衡搜索树和红黑树部分，讲得非常清晰。
-
-    -   [Zenefits电面真题 & 解析 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20348386?refer=jiuzhang)
-    -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
-    -   [Sorting algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
-    -   [cirosantilli/algorithm-cheat: Algorithm tutorials and simple implementations with unit tests.](https://github.com/cirosantilli/algorithm-cheat)
-    -   [4ker/aoapc-book: Automatically exported from code.google.com/p/aoapc-book](https://github.com/4ker/aoapc-book)
-    -   [4ker/ppearls: Programming Pearls Prep work](https://github.com/4ker/ppearls)
-    -   [4ker/programming_pearls: the codes of "programming pearls(2nd edition)"](https://github.com/4ker/programming_pearls)
-
-    [红黑树并没有我们想象的那么难(上) - 捣乱小子](http://daoluan.net/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/25/rbtree-is-not-difficult.html)
-
-    [红黑树并没有我们想象的那么难(下) - 捣乱小子](http://daoluan.net/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/28/rbtree-is-not-difficult-2.html)
-
-    [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
-
-    [排序（一）归并、快排、优先队列等（图文详解） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237641)
-
-    [排序（二）键索引、桶排序、位示图、败者树等（图文详解--败者树） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237809)
-
-Code Reading -<
-
-:   [4ker/Lua-Source-Internal: Lua source internal](https://github.com/4ker/Lua-Source-Internal)
-
-    [libevent 源码深度剖析一 - sparkliang 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957667)
-
-    [libevent 源码深度剖析二 - sparkliang 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957744)
-
-    [daoluan/decode-memcached: memcached 源码剖析注释](https://github.com/daoluan/decode-memcached)
-
-[ACM 题集以及各种总结大全！ - 枯槐树下乘凉 - 博客频道 - CSDN.NET](http://blog.csdn.net/kuhuaishuxia/article/details/52254209)
-
-[《挑战程序设计竞赛(第2版)》-码农场](http://www.hankcs.com/tag/%e3%80%8a%e6%8c%91%e6%88%98%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e7%ab%9e%e8%b5%9b%e7%ac%ac2%e7%89%88%e3%80%8b/)
-
-[AVL树，红黑树，B树，B+树，Trie树都分别应用在哪些现实场景中？ - 知乎](https://www.zhihu.com/question/30527705)
-
-[利用Trie树求多个字符串的最小编辑距离 - 时空霹雳的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/u010189459/article/details/34114465)
-
-[演算法筆記](http://www.csie.ntnu.edu.tw/~u91029/)
-
-[網誌 - BYVoid](https://www.byvoid.com/blog/tag/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)
-
-用链表的目的是什么？省空间还是省时间？ -<
-
-:   链表的优点除了「插入删除不需要移动其他元素」之外，还在于它是一个局部化结构。
-    就是说当你拿到链表的一个 node 之后，不需要太多其它数据，就可以完成插入，删
-    除的操作。而其它的数据结构不行。比如说 array，你只拿到一个 item 是断不敢做
-    插入删除的。
-
-    当然了，局部化这个好处只有 intrusive 链表才有，就是必须 prev/next 嵌入在数
-    据结构中。像 STL 和 Java 那种设计是失败了。
-
     refs and see also
 
-    -   [用链表的目的是什么？省空间还是省时间？ - 知乎](https://www.zhihu.com/question/31082722)
+    -   [Adoo's blog - Introduction to Algorithm -third edition](http://www.roading.org/category/introduction-to-algorithm-third-edition.html) -<
 
-数据结构与算法中，树一般会应用在哪些方面？为什么？ -<
+Blog Posts -<
 
-:   树的一个大类是自平衡二叉搜索树 (self-balanced BST), 变种特别多:
+:   [Heap · Data Structure and Algorithm notes](http://algorithm.yuanbin.me/zh-hans/basics_data_structure/heap.html)
 
-    -  RB 树是每个节点是红色或者黑色, 颜色隔代遗传
-    -  AVL 树是每个节点包含平衡因子, 等于左高-右高
-    -  Splay 树是每个节点带个父节点的指针
-    -  Treap 是每个节点都带个随机的 priority number, parent priority >= child priority
-
-    ... (其实说白了都是为了方便平衡操作给节点附加一个字段)
+    《DPV -- Algorithm》 -<
 
-    自平衡二叉搜索树在面试中经常出现, 但做网页的互联网码农却很少用得上... 如果
-    是当 Map 用, 往往还不如直接上哈希表. 如果是当排序用, 不如直接用排序算法...
-    不过也有有用的时候, 例如查找一个数字的上下界.
-
-    树的另一个大类是 Trie, 特点是能保证字典序, 存储词典的空间压缩率高, 能做前缀
-    搜索. 在正则匹配, 数据压缩, 构建索引都可能用到. Trie 也有不少变种:
-
-    -   Double Array - trie 的一个经典实现 (这实现其实不算树, 也不适合处理非 ascii 字符的情况)
-    -   Patricia Trie (Radix-Tree) - 每个节点可以存一段字符串而不限于一个字符
-    -   Judy Array - 基于 256-ary radix tree, 用了 20 种压缩方式, 极其复杂...
-    -   Burst Trie - 如果一个子树足够小, 就用 binary 堆的方式存储, 不过压缩效果一般
-    -   HAT Trie - 压缩率高而且不容易出现 CPU cache miss, 查速接近哈希表而耗内存少得多. 节点可以是以下三种之一: Array Hash, 序列化的 Bucket, 传统 Trie node
-    -   MARISA Trie - 压缩率最高, 支持 mmap 载入, 也是用了很多压缩技巧的复杂实现, 就是构建比较花时间, 也不能动态更新
-
-    refs and see also
-
-    -   [数据结构与算法中，树一般会应用在哪些方面？为什么？ - 知乎](https://www.zhihu.com/question/20176446)
-
-如何从零写一个正则表达式引擎？ -<
-
-:   推荐代码: Henry Spencer's regexp engine
-    [regexp.old/regexp.c at master · garyhouston/regexp.old](https://github.com/garyhouston/regexp.old/blob/master/regexp.c)
-    是很多现代流行的正则引擎的始祖, 解释器实现, 很
-    多新 feature 能扩展得得进去, 也有混合 DFA 的优化
-
-    <http://whudoc.qiniudn.com/2016/regex.zip> -<
-
-    :   写了个 80 行的 C++ 模板版。注意啊，regex 的定义包括了 concatenation，
-        alternation（“|”），Kleene closure（“*”），还得有一个ε字符（可近似认为
-        “?”），expression 还要能嵌套（“(”“)”）。有些例子里缺了 alternation 和嵌套
-        那就不该叫 regex 了。
-
-        之所以这么短是因为压根没有 parsing，parsing 多无聊啊。直接构造 regex 的
-        AST，根本不去打 NFA 的主意。想加什么功能就直接加 type 就行了。
-
-        这个是 compile time regex，所以跑起来是 raw speed，很快。你要是要运行时
-        的regex，把那几个模板特化改为一个树状 variant 结构，在树上走就行了，算
-        法（包括那个 continuation 的 trick）都是一样的。
-
-        建 NFA 那套做法是 Ken Thompson 推出来的“标准”算法，但是就玩玩而已应该从
-        更简单的学起。学一下 CPS 变换又不会死。
-
-        另外把程序写短小紧凑的诀窍就是写成 FP style。我的 80 行中所有函数都只有
-        一个 return 语句。
-
-        ```cpp
-        template <typename Left, typename Right>
-        struct ConcatExpr;
-
-        template <typename Left, typename Right>
-        struct AltExpr;
-
-        template <typename SubExpr>
-        struct RepeatExpr;
-
-        template <char ch>
-        struct MatchExpr;
-
-        template <typename RegExpr>
-        struct MatchImpl;
-
-        struct EpsilonExpr;
-
-        template <typename SubExpr>
-        using OptionalExpr = AltExpr<SubExpr, EpsilonExpr>;
-
-        template <typename Left, typename Right>
-        struct MatchImpl<ConcatExpr<Left, Right>> {
-          template <typename Continuation>
-          static bool Apply(const char* target, Continuation cont) {
-            return MatchImpl<Left>::Apply(target, [cont](const char* rest) -> bool {
-              return MatchImpl<Right>::Apply(rest, cont);
-            });
-          }
-        };
-
-        template <typename Left, typename Right>
-        struct MatchImpl<AltExpr<Left, Right>> {
-          template <typename Continuation>
-          static bool Apply(const char* target, Continuation cont) {
-            return MatchImpl<Left>::Apply(target, cont) ||
-                   MatchImpl<Right>::Apply(target, cont);
-          }
-        };
-
-        template <typename SubExpr>
-        struct MatchImpl<RepeatExpr<SubExpr>> {
-          template <typename Continuation>
-          static bool Apply(const char* target, Continuation cont) {
-            return MatchImpl<SubExpr>::Apply(
-                       target,
-                       [target, cont](const char* rest) -> bool {
-                         return target < rest &&
-                             MatchImpl<RepeatExpr<SubExpr>>::Apply(rest, cont);
-                       }) ||
-                   cont(target);
-          }
-        };
-
-        template <char ch>
-        struct MatchImpl<MatchExpr<ch>> {
-          template <typename Continuation>
-          static bool Apply(const char* target, Continuation cont) {
-            return *target && *target == ch && cont(target + 1);
-          }
-        };
-
-        template <>
-        struct MatchImpl<EpsilonExpr> {
-          template <typename Continuation>
-          static bool Apply(const char* target, Continuation cont) {
-            return cont(target);
-          }
-        };
-
-        template <typename RegExpr>
-        bool RegexMatch(const char* target) {
-          return MatchImpl<RegExpr>::Apply(
-              target, [](const char* rest) -> bool { return *rest == '\0'; });
-        }
-
-        template <typename RegExpr>
-        bool RegexSearch(const char* target) {
-          return MatchImpl<RegExpr>::Apply(
-                     target, [](const char* rest) -> bool { return true; }) ||
-                 (*target && RegexSearch<RegExpr>(target + 1));
-        }
-
-        #include <cassert>
-
-        int main() {
-          assert((RegexMatch<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("ab")));
-          assert((RegexMatch<AltExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("a")));
-          assert((RegexMatch<AltExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("b")));
-          assert((RegexMatch<RepeatExpr<MatchExpr<'a'>>>("aaaaa")));
-          assert((RegexMatch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>(
-              "aaaaab")));
-          assert((
-              RegexMatch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>("b")));
-          assert((RegexSearch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>(
-              "aaaaabb")));
-          assert((RegexMatch<OptionalExpr<MatchExpr<'a'>>>("a")));
-          assert((RegexMatch<OptionalExpr<MatchExpr<'a'>>>("")));
-          assert((RegexMatch<OptionalExpr<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>>(
-              "ab")));
-          assert((RegexMatch<OptionalExpr<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>>(
-              "")));
-          assert((!RegexMatch<RepeatExpr<MatchExpr<'a'>>>("aaaaab")));
-          assert((RegexMatch<RepeatExpr<OptionalExpr<MatchExpr<'a'>>>>("")));
-
-          return 0;
-        }
-        ```
-
-    refs and see also
-
-    -   [如何从零写一个正则表达式引擎？ - 知乎](https://www.zhihu.com/question/27434493)
-
-[hiho 一下第 114 周《Image Encryption》题目分析 - hihoCoder](http://hihocoder.com/discuss/question/3663)
-
-Travelling salesman problem -<
-
-:   The travelling salesman problem (TSP) asks the following question: Given a
-    list of **cities** and the **distances** between each pair of cities, what is the
-    **shortest possible route that visits each city exactly once and returns to
-    the origin city**? It is an NP-hard problem in combinatorial optimization,
-    important in operations research and theoretical computer science.
-
-    ![Solution of a travelling salesman
-        problem](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/GLPK_solution_of_a_travelling_salesman_problem.svg/330px-GLPK_solution_of_a_travelling_salesman_problem.svg.png)
-
-    **TSP can be modelled as an undirected weighted graph**, such that cities are
-    the graph's vertices, paths are the graph's edges, and a path's distance is
-    the edge's length. It is a minimization problem starting and finishing at a
-    specified vertex after having visited each other vertex exactly once.
-    Often, the model is a complete graph (i.e. each pair of vertices is
-    connected by an edge). If no path exists between two cities, adding an
-    arbitrarily long edge will complete the graph without affecting the optimal
-    tour.
-
-    Exact algorithms
-
-    :   try all permutations (ordered combinations) -> brute force, O(n!)
-
-    Heuristic and approximation algorithms
-
-    :   NN 近邻法
-
-    refs and see also
-
-    -   [Travelling salesman problem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
-
-[Graph (abstract data type) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Graph_(abstract_data_type)) -<
-
-:   In computer science, a graph is an abstract data type that is meant to
-    implement the undirected graph and directed graph concepts from mathematics.
-
-    The basic operations provided by a graph data structure G usually include:
-
-    -   adjacent(G, x, y): tests whether there is an edge from the vertices x to y;
-    -   neighbors(G, x): lists all vertices y such that there is an edge from the vertices x to y;
-    -   add_vertex(G, x): adds the vertex x, if it is not there;
-    -   remove_vertex(G, x): removes the vertex x, if it is there;
-    -   add_edge(G, x, y): adds the edge from the vertices x to y, if it is not there;
-    -   remove_edge(G, x, y): removes the edge from the vertices x to y, if it is there;
-    -   get_vertex_value(G, x): returns the value associated with the vertex x;
-    -   set_vertex_value(G, x, v): sets the value associated with the vertex x to v.
-
-    Structures that associate values to the edges usually also provide:
-
-    -   get_edge_value(G, x, y): returns the value associated with the edge (x, y);
-    -   set_edge_value(G, x, y, v): sets the value associated with the edge (x, y) to v.
-
-    Adjacency List
-
-    :   Vertices are stored as records or objects, and every vertex stores
-        **a list of adjacent vertices**. This data structure allows the storage of
-        additional data on the vertices. Additional data can be stored if edges
-        are also stored as objects, in which case each vertex stores its
-        incident edges and each edge stores its incident vertices.
-
-    Adjancy Matrix
-
-    :   A two-dimensional matrix, in which the rows represent source vertices
-        and columns represent destination vertices. Data on edges and vertices
-        must be stored externally. Only the cost for one edge can be stored
-        between each pair of vertices.
-
-    Incidence matrix
-
-    :   A two-dimensional Boolean matrix, in which the rows represent the
-        vertices and columns represent the edges. The entries indicate whether
-        the vertex at a row is incident to the edge at a column.
-
-        ![An undirected graph.](https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Labeled_undirected_graph.svg/375px-Labeled_undirected_graph.svg.png)
-
-        For example the incidence matrix of the undirected graph shown on the
-        right is a matrix consisting of 4 rows (corresponding to the four
-        vertices, 1-4) and 4 columns (corresponding to the four edges, e1-e4):
-
-        ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/99f6e54a9f49d5a3ae4c25e396d8b7c153cdaa07)
-
-    ![](http://whudoc.qiniudn.com/2016/firefox_2016-09-06_11-26-02.png)
-
-    Adjacency lists are generally preferred because they efficiently represent
-    sparse graphs. An adjacency matrix is preferred if the graph is dense, that
-    is the number of edges |E| is close to the number of vertices squared,
-    |V|^2^, or if one must be able to quickly look up if there is an edge
-    connecting two vertices.
-
-    refs and see also
-
-    -   [Graphs in Computer Science](http://web.cecs.pdx.edu/~sheard/course/Cs163/Doc/Graphs.html)
-    -   [Adjacency list - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Adjacency_list)
-    -   [Adjacency matrix - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Adjacency_matrix)
-    -   [Incidence matrix - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Incidence_matrix)
-
-trees -<
-
-:   Spanning tree -<
-
-    :   In the mathematical field of graph theory, **a spanning tree T of an
-        undirected graph G is a subgraph that is a tree which includes all of the
-        vertices of G**. In general, a graph may have several spanning trees, but a
-        graph that is not connected will not contain a spanning tree (but see
-        Spanning forests below). If all of the edges of G are also edges of a
-        spanning tree T of G, then G is a tree and is identical to T
-        (that is, **a tree has a unique spanning tree and it is itself**).
-
-        Several pathfinding algorithms, including Dijkstra's algorithm and the `A*`
-        search algorithm, internally **build a spanning tree as an intermediate step in solving the problem**.
-
-        Definitions
-
-        :   A tree is a connected undirected graph with no cycles. It is a spanning
-            tree of a graph G if it spans G (that is, it includes every vertex of
-            G) and is a subgraph of G (every edge in the tree belongs to G). A
-            spanning tree of a connected graph G can also be defined as a maximal
-            set of edges of G that contains no cycle, or as a minimal set of edges
-            that connect all vertices.
-
-        minimal/minimum spanning tree
-
-        In some cases, it is easy to calculate t(G) directly:
-
-        -   If G is itself a tree, then t(G) = 1.
-        -   When G is the cycle graph Cn with n vertices, then t(G) = n.
-        -   For a complete graph with n vertices, Cayley's formula gives the number of spanning trees as n^n−2^.
-        -   If G is the complete bipartite graph K~p,q~, then t(G) = p^q-1^q^p-1^.
-        -   For the n-dimensional hypercube graph...
-
-        arbitrary tree?
-
-        see [Kirchhoff's theorem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem).
-
-        Prim's algorithm -<
-
-        :   In computer science, Prim's algorithm is a greedy algorithm that finds
-            a minimum spanning tree for a weighted undirected graph. This means it
-            finds a subset of the edges that forms a tree that includes every
-            vertex, where the total weight of all the edges in the tree is
-            minimized. The algorithm operates by building this tree one vertex at a
-            time, from an arbitrary starting vertex, at each step adding the
-            cheapest possible connection from the tree to another vertex.
-
-    Self-balancing binary search tree -<
-
-    :   In computer science, a self-balancing (or height-balanced) binary
-        search tree is any node-based binary search tree that automatically
-        keeps its height (maximal number of levels below the root) small in the
-        face of arbitrary item insertions and deletions.
-
-        The red–black tree, which is a type of self-balancing binary search
-        tree, was called symmetric binary B-tree and was renamed but can
-        still be confused with the generic concept of self-balancing binary
-        search tree because of the initials.
-
-    AVL tree -<
-
-    :   d(height(left), height(right)) = { -1, 0, 1 }, left-heavy, right-heavy, balanced.
-
-    Splay tree -<
-
-    :   A splay 展开 tree is a self-adjusting binary search tree with the additional
-        property that recently accessed elements are quick to access again. It
-        performs basic operations such as insertion, look-up and removal in
-        O(log n) amortized time. For many sequences of non-random operations,
-        splay trees perform better than other search trees, even when the
-        specific pattern of the sequence is unknown. The splay tree was
-        invented by Daniel Sleator and Robert Tarjan in 1985.
-
-        Advantages -<
-
-        :   Good performance for a splay tree depends on the fact that it is
-            **self-optimizing**, in that frequently accessed nodes will move nearer
-            to the root where they can be accessed more quickly. The worst-case
-            height—though unlikely—is O(n), with the average being O(log n).
-            Having frequently used nodes near the root is an advantage for many
-            practical applications (also see **Locality of reference**), and is
-            particularly useful for implementing caches and garbage collection
-            algorithms.
-
-            Advantages include:
-
-            -   Comparable performance: Average-case performance is as efficient as other trees.
-            -   Small memory footprint: Splay trees **do not need to store any bookkeeping data**.
-
-        Disadvantages -<
-
-        :   The most significant disadvantage of splay trees is that
-            **the height of a splay tree can be linear**. For example, this
-            will be the case after accessing all n elements in non-decreasing
-            order. Since the height of a tree corresponds to the worst-case
-            access time, this means that the actual cost of an operation can be
-            high. However the amortized access cost of this worst case is
-            logarithmic, O(log n).  Also, the expected access cost can be
-            reduced to O(log n) by using a randomized variant.
-
-            The representation of splay trees can **change even when they are
-            accessed in a 'read-only' manner** (i.e. by find operations). This
-            complicates the use of such splay trees in a multi-threaded
-            environment. Specifically, extra management is needed if multiple
-            threads are allowed to perform find operations concurrently. This
-            also makes them **unsuitable for general use in purely functional
-            programming**, although they can be used in limited ways to
-            implement priority queues even there.
-
-        ![zig](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Splay_tree_zig.svg/1064px-Splay_tree_zig.svg.png)
-
-        ![zig zig](https://upload.wikimedia.org/wikipedia/commons/f/fd/Zigzig.gif)
-
-        C++ 实现 -<
-
-        :   ```cpp
-            #include <functional>
-
-            #ifndef SPLAY_TREE
-            #define SPLAY_TREE
-
-            template< typename T, typename Comp = std::less< T > >
-            class splay_tree {
-            private:
-              Comp comp;
-              unsigned long p_size;
-
-              struct node {
-                node *left, *right;
-                node *parent;
-                T key;
-                node( const T& init = T( ) ) : left( 0 ), right( 0 ), parent( 0 ), key( init ) { }
-                ~node( ) {
-                  if( left ) delete left;
-                  if( right ) delete right;
-                  if( parent ) delete parent;
-                }
-              } *root;
-
-              void left_rotate( node *x ) {
-                node *y = x->right;
-                if(y) {
-                  x->right = y->left;
-                  if( y->left ) y->left->parent = x;
-                  y->parent = x->parent;
-                }
-
-                if( !x->parent ) root = y;
-                else if( x == x->parent->left ) x->parent->left = y;
-                else x->parent->right = y;
-                if(y) y->left = x;
-                x->parent = y;
-              }
-
-              void right_rotate( node *x ) {
-                node *y = x->left;
-                if(y) {
-                  x->left = y->right;
-                  if( y->right ) y->right->parent = x;
-                  y->parent = x->parent;
-                }
-                if( !x->parent ) root = y;
-                else if( x == x->parent->left ) x->parent->left = y;
-                else x->parent->right = y;
-                if(y) y->right = x;
-                x->parent = y;
-              }
-
-              void splay( node *x ) {
-                while( x->parent ) {
-                  if( !x->parent->parent ) {
-                    if( x->parent->left == x ) right_rotate( x->parent );
-                    else left_rotate( x->parent );
-                  } else if( x->parent->left == x && x->parent->parent->left == x->parent ) {
-                    right_rotate( x->parent->parent );
-                    right_rotate( x->parent );
-                  } else if( x->parent->right == x && x->parent->parent->right == x->parent ) {
-                    left_rotate( x->parent->parent );
-                    left_rotate( x->parent );
-                  } else if( x->parent->left == x && x->parent->parent->right == x->parent ) {
-                    right_rotate( x->parent );
-                    left_rotate( x->parent );
-                  } else {
-                    left_rotate( x->parent );
-                    right_rotate( x->parent );
-                  }
-                }
-              }
-
-              void replace( node *u, node *v ) {
-                if( !u->parent ) root = v;
-                else if( u == u->parent->left ) u->parent->left = v;
-                else u->parent->right = v;
-                if( v ) v->parent = u->parent;
-              }
-
-              node* subtree_minimum( node *u ) {
-                while( u->left ) u = u->left;
-                return u;
-              }
-
-              node* subtree_maximum( node *u ) {
-                while( u->right ) u = u->right;
-                return u;
-              }
-            public:
-              splay_tree( ) : root( 0 ), p_size( 0 ) { }
-
-              void insert( const T &key ) {
-                node *z = root;
-                node *p = 0;
-
-                while( z ) {
-                  p = z;
-                  if( comp( z->key, key ) ) z = z->right;
-                  else z = z->left;
-                }
-
-                z = new node( key );
-                z->parent = p;
-
-                if( !p ) root = z;
-                else if( comp( p->key, z->key ) ) p->right = z;
-                else p->left = z;
-
-                splay( z );
-                p_size++;
-              }
-
-              node* find( const T &key ) {
-                node *z = root;
-                while( z ) {
-                  if( comp( z->key, key ) ) z = z->right;
-                  else if( comp( key, z->key ) ) z = z->left;
-                  else return z;
-                }
-                return 0;
-              }
-
-              void erase( const T &key ) {
-                node *z = find( key );
-                if( !z ) return;
-
-                splay( z );
-
-                if( !z->left ) replace( z, z->right );
-                else if( !z->right ) replace( z, z->left );
-                else {
-                  node *y = subtree_minimum( z->right );
-                  if( y->parent != z ) {
-                    replace( y, y->right );
-                    y->right = z->right;
-                    y->right->parent = y;
-                  }
-                  replace( z, y );
-                  y->left = z->left;
-                  y->left->parent = y;
-                }
-
-                delete z;
-                p_size--;
-              }
-
-              const T& minimum( ) { return subtree_minimum( root )->key; }
-              const T& maximum( ) { return subtree_maximum( root )->key; }
-
-              bool empty( ) const { return root == 0; }
-              unsigned long size( ) const { return p_size; }
+    :   [算法之美（Algorithms）书评](https://book.douban.com/review/1325850/)
+
+        :   算法作为一门学问，有两条正交的线索。一个是算法处理的对象：数、矩阵、
+            集合、串 (strings)、排列 (permutations)、图 (graphs)、表达式
+            (formula)、分布(distributions)，等等。另一个是算法的设计思想：贪婪、
+            分治、动态规划、线性规划、局部搜索 (local search)，等等。这两条线索
+            几乎是相互独立的：同一个离散对象，例如图，稍有不同的问题，例如
+            single-source shortest path和all-pair shortest path，就可以用到不同
+            的设计思想，如贪婪和动态规划；而完全不同的离散对象上的问题，例如排
+            序和整数乘法，也许就会用到相同的思想，例如分治。
+
+    《The Algorithm Design Manual》 -<
+
+    :   [Skiena's Audio Lectures](http://www3.cs.stonybrook.edu/~algorith/video-lectures/)
+
+        [不愧对“手册”之名，即使通读过 CLRS 再读也有所收获（算法设计手册）书评](https://book.douban.com/review/6250350/)
+
+    [程序员面试、算法研究、编程艺术、红黑树、数据挖掘5大系列集锦 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/6543438) -<
+
+    :   [横空出世，席卷互联网--评微软等公司数据结构+算法面试100题 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6015165)
+
+        [九月十月百度，迅雷，华为，阿里巴巴笔试面试六十题(第411~470题) - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/11921021)
+
+        [五大常用算法：分治、动态规划、贪心、回溯和分支界定 - yapian8的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/yapian8/article/details/28240973)
+
+        授人以鱼，不如授之以渔，何况自己都忘了，建议去看 sedgewick 的《算法》第四版平衡搜索树和红黑树部分，讲得非常清晰。
+
+        -   [Zenefits电面真题 & 解析 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20348386?refer=jiuzhang)
+        -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+        -   [Sorting algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
+        -   [cirosantilli/algorithm-cheat: Algorithm tutorials and simple implementations with unit tests.](https://github.com/cirosantilli/algorithm-cheat)
+        -   [4ker/aoapc-book: Automatically exported from code.google.com/p/aoapc-book](https://github.com/4ker/aoapc-book)
+        -   [4ker/ppearls: Programming Pearls Prep work](https://github.com/4ker/ppearls)
+        -   [4ker/programming_pearls: the codes of "programming pearls(2nd edition)"](https://github.com/4ker/programming_pearls)
+
+        [红黑树并没有我们想象的那么难(上) - 捣乱小子](http://daoluan.net/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/25/rbtree-is-not-difficult.html)
+
+        [红黑树并没有我们想象的那么难(下) - 捣乱小子](http://daoluan.net/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/28/rbtree-is-not-difficult-2.html)
+
+        [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+
+        [排序（一）归并、快排、优先队列等（图文详解） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237641)
+
+        [排序（二）键索引、桶排序、位示图、败者树等（图文详解--败者树） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237809)
+
+    Code Reading -<
+
+    :   [4ker/Lua-Source-Internal: Lua source internal](https://github.com/4ker/Lua-Source-Internal)
+
+        [libevent 源码深度剖析一 - sparkliang 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957667)
+
+        [libevent 源码深度剖析二 - sparkliang 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957744)
+
+        [daoluan/decode-memcached: memcached 源码剖析注释](https://github.com/daoluan/decode-memcached)
+
+        [Redis 设计与实现 — Redis 设计与实现](http://redisbook.com/) :hearts: -<
+
+        :   What is Redis -<
+
+            :   Redis 是一个开源的使用 ANSI C 语言编写、支持网络、可基于内存亦
+                可持久化的日志型、Key-Value 数据库，并提供多种语言的 API。从
+                2010 年 3 月 15 日起，Redis 的开发工作由VMware 主持。从 2013 年
+                5 月开始，Redis 的开发由 Pivotal 赞助。
+
+                Redis 的优点如下：
+
+                -   丰富的数据结构和命令
+                -   默认就有持久化
+                -   事务
+                -   值有 512MB（memcached 最大是 1MB）
+
+                Memcached 的优点：
+
+                -   可以做集群
+
+                refs and see also
+
+                -   [Redis 和 Memcached 各有什么优缺点，主要的应用场景是什么样的？ - 知乎](https://www.zhihu.com/question/19829601)
+
+            第一部分：数据结构与对象 -<
+
+            :   简单动态字符串 -<
+
+                :   Redis 没有直接使用 C 语言传统的字符串表示（以空字符结尾的字符数
+                    组，以下简称 C 字符串）， 而是自己构建了一种名为简单动态字符串
+                    （**simple dynamic string，SDS**）的抽象类型， 并将 SDS 用作 Redis
+                    的默认字符串表示。
+
+                    ```cpp
+                    struct sdshdr {
+                        // 记录 buf 数组中已使用字节的数量
+                        // 等于 SDS 所保存字符串的长度
+                        int len;
+
+                        // 记录 buf 数组中未使用字节的数量
+                        int free;
+
+                        // 字节数组，用于保存字符串
+                        char buf[];
+                    };
+                    ```
+
+                    ----------------------------------------------------------------------------------------------------------------
+                    C 字符串                                                    SDS
+                    ----------------------------------------------              ----------------------------------------------------
+                    获取字符串长度的复杂度为 O(N) 。                            获取字符串长度的复杂度为 O(1) 。
+                    API 是不安全的，可能会造成缓冲区溢出。                      API 是安全的，不会造成缓冲区溢出。
+                    修改字符串长度 N 次必然需要执行 N 次内存重分配。            修改字符串长度 N 次最多需要执行 N 次内存重分配。
+                    只能保存文本数据。                                          可以保存文本或者二进制数据。
+                    可以使用所有 <string.h> 库中的函数。                        可以使用一部分 <string.h> 库中的函数。
+                    ----------------------------------------------------------------------------------------------------------------
+
+                    Redis 只会使用 C 字符串作为字面量， 在大多数情况下， Redis 使用 SDS （Simple Dynamic String，简单动态字符串）作为字符串表示。
+
+                    比起 C 字符串， SDS 具有以下优点：
+
+                    -   常数复杂度获取字符串长度。
+                    -   杜绝缓冲区溢出。
+                    -   减少修改字符串长度时所需的内存重分配次数。
+                    -   二进制安全。
+                    -   兼容部分 C 字符串函数。
+
+                    refs and see also
+
+                    -   [Null-terminated string - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Null-terminated_string)
+
+                链表 -<
+
+                :   ```cpp
+                    typedef struct list {
+                        // 表头节点
+                        listNode *head;
+
+                        // 表尾节点
+                        listNode *tail;
+
+                        // 链表所包含的节点数量
+                        unsigned long len;
+
+                        // 节点值复制函数
+                        void *(*dup)(void *ptr);
+
+                        // 节点值释放函数
+                        void (*free)(void *ptr);
+
+                        // 节点值对比函数
+                        int (*match)(void *ptr, void *key);
+                    } list;
+                    ```
+
+                    Redis 的链表实现的特性可以总结如下：
+
+                    -   双端： 链表节点带有 prev 和 next 指针， 获取某个节点的前置节点和后置节点的复杂度都是 O(1) 。
+                    -   无环： 表头节点的 prev 指针和表尾节点的 next 指针都指向 NULL ， **对链表的访问以 NULL 为终点**。
+                    -   带表头指针和表尾指针： 通过 list 结构的 head 指针和 tail 指针， 程序获取链表的表头节点和表尾节点的复杂度为 O(1) 。
+                    -   带链表长度计数器： 程序使用 list 结构的 len 属性来对 list 持有的链表节点进行计数， 程序获取链表中节点数量的复杂度为 O(1) 。
+                    -   多态： 链表节点使用 `void*` 指针来保存节点值， 并且可以通过 list 结构的 dup 、 free 、 match 三个属性为节点值设置类型特定函数， 所以链表可以用于保存各种不同类型的值。
+
+                    重点回顾
+
+                    -   链表被广泛用于实现 Redis 的各种功能， 比如列表键， 发布与订阅， 慢查询， 监视器， 等等。
+                    -   每个链表节点由一个 listNode 结构来表示， 每个节点都有一个指向前置节点和后置节点的指针， 所以 Redis 的链表实现是双端链表。
+                    -   每个链表使用一个 list 结构来表示， 这个结构带有表头节点指针、表尾节点指针、以及链表长度等信息。
+                    -   因为链表表头节点的前置节点和表尾节点的后置节点都指向 NULL ， 所以 Redis 的链表实现是无环链表。
+                    -   通过为链表设置不同的类型特定函数， Redis 的链表可以用于保存各种不同类型的值。
+
+                字典 -<
+
+                :   字典经常作为一种数据结构内置在很多高级编程语言里面， 但 Redis
+                    所使用的 C 语言并没有内置这种数据结构， 因此 Redis 构建了自己的
+                    字典实现。
+
+                    字典在 Redis 中的应用相当广泛， 比如 Redis 的数据库就是使用字典
+                    来作为底层实现的， 对数据库的增、删、查、改操作也是构建在对字典
+                    的操作之上的。
+
+                    字典的实现 -<
+
+                    :   Redis 的字典使用哈希表作为底层实现， 一个哈希表里面可以有多个哈
+                        希表节点， 而每个哈希表节点就保存了字典中的一个键值对。
+
+                        ```cpp
+                        // key-value
+                        typedef struct dictEntry {
+
+                            // 键
+                            void *key;
+
+                            // 值
+                            union {
+                                void *val;
+                                uint64_t u64;
+                                int64_t s64;
+                            } v;
+
+                            // 指向下个哈希表节点，形成链表
+                            struct dictEntry *next;
+
+                        } dictEntry;
+                        ```
+
+                        key 属性保存着键值对中的键， 而 v 属性则保存着键值对中的值，
+                        其中键值对的值可以是一个指针， 或者是一个 uint64_t 整数，
+                        又或者是一个 int64_t 整数。
+
+                        next 属性是指向另一个哈希表节点的指针， 这个指针可以将多个
+                        哈希值相同的键值对连接在一次， 以此来解决键冲突（collision）
+                        的问题。
+
+                        ```cpp
+                        // dict hash table
+                        typedef struct dictht {
+
+                            // 哈希表数组
+                            dictEntry **table;
+
+                            // 哈希表大小
+                            unsigned long size;
+
+                            // 哈希表大小掩码，用于计算索引值
+                            // 总是等于 size - 1
+                            unsigned long sizemask;
+
+                            // 该哈希表已有节点的数量
+                            unsigned long used;
+
+                        } dictht;
+
+                        // dict
+                        typedef struct dict {
+
+                            // 类型特定函数
+                            dictType *type;
+
+                            // 私有数据
+                            void *privdata;
+
+                            // 哈希表
+                            dictht ht[2];
+
+                            // rehash 索引
+                            // 当 rehash 不在进行时，值为 -1
+                            int rehashidx; /* rehashing not in progress if rehashidx == -1 */
+
+                        } dict;
+                        ```
+
+                        ![](http://redisbook.com/_images/graphviz-d2641d962325fd58bf15d9fffb4208f70251a999.png)
+
+                        ```cpp
+                        typedef struct dictType {
+
+                            // 计算哈希值的函数
+                            unsigned int (*hashFunction)(const void *key);
+
+                            // 复制键的函数
+                            void *(*keyDup)(void *privdata, const void *key);
+
+                            // 复制值的函数
+                            void *(*valDup)(void *privdata, const void *obj);
+
+                            // 对比键的函数
+                            int (*keyCompare)(void *privdata, const void *key1, const void *key2);
+
+                            // 销毁键的函数
+                            void (*keyDestructor)(void *privdata, void *key);
+
+                            // 销毁值的函数
+                            void (*valDestructor)(void *privdata, void *obj);
+
+                        } dictType;
+                        ```
+
+                    哈希算法 -<
+
+                    :   ```cpp
+                        # 使用字典设置的哈希函数，计算键 key 的哈希值
+                        hash = dict->type->hashFunction(key);
+
+                        # 使用哈希表的 sizemask 属性和哈希值，计算出索引值
+                        # 根据情况不同， ht[x] 可以是 ht[0] 或者 ht[1]
+                        index = hash & dict->ht[x].sizemask;
+                        ```
+
+                        Redis 使用 MurmurHash2 算法来计算键的哈希值。
+
+                        MurmurHash 算法最初由 Austin Appleby 于 2008 年发明， 这种
+                        算法的优点在于， 即使输入的键是有规律的， 算法仍能给出一个
+                        很好的随机分布性， 并且算法的计算速度也非常快。
+
+                    解决键冲突 -<
+
+                    :   Redis 的哈希表使用链地址法（separate chaining）来解决键冲突：
+                        每个哈希表节点都有一个 next 指针， 多个哈希表节点可以用
+                        next 指针构成一个单向链表， 被分配到同一个索引上的多个节点
+                        可以用这个单向链表连接起来， 这就解决了键冲突的问题。
+
+                        **因为 dictEntry 节点组成的链表没有指向链表表尾的指针， 所
+                        以为了速度考虑， 程序总是将新节点添加到链表的表头位置（复杂
+                        度为 O(1)）， 排在其他已有节点的前面。**
+
+                    rehash -<
+
+                    :   ![before](http://redisbook.com/_images/graphviz-93608325578e8e45848938ef420115bf2227639e.png)
+
+                        !["malloc" for `ht[1]`](http://redisbook.com/_images/graphviz-b68acb4d868ec7d79a44935ce08a159746ca58da.png)
+
+                        ![copy](http://redisbook.com/_images/graphviz-b68acb4d868ec7d79a44935ce08a159746ca58da.png)
+
+                        ![after](http://redisbook.com/_images/graphviz-fa28d986a72f1f48b83c7f959ea217b1f9527d3c.png)
+
+                        **哈希表的扩展与收缩**
+
+                        当以下条件中的任意一个被满足时， 程序会自动开始对哈希表执行扩展操作：
+
+                        -   服务器目前没有在执行 BGSAVE 命令或者 BGREWRITEAOF 命令，
+                            并且哈希表的负载因子大于等于 1（因为是链式，所以 load
+                            factor 可以大于 1）；
+                        -   服务器目前正在执行 BGSAVE 命令或者 BGREWRITEAOF 命令，
+                            并且哈希表的负载因子大于等于 5 ；
+
+                        其中哈希表的负载因子可以通过公式：
+
+                        ```
+                        # 负载因子 = 哈希表已保存节点数量 / 哈希表大小
+                        load_factor = ht[0].used / ht[0].size
+                        ```
+
+                    渐进式 rehash -<
+
+                    :   因此， 为了避免 rehash 对服务器性能造成影响， 服务器不是一
+                        次性将 `ht[0]` 里面的所有键值对全部 rehash 到 `ht[1]`， 而是分
+                        多次、渐进式地将 `ht[0]` 里面的键值对慢慢地 rehash 到 `ht[1]`。
+
+                        因为在进行渐进式 rehash 的过程中， 字典会同时使用 ht[0] 和
+                        ht[1] 两个哈希表， 所以在渐进式 rehash 进行期间， 字典的删
+                        除（delete）、查找（find）、更新（update）等操作会在两个哈
+                        希表上进行： 比如说， 要在字典里面查找一个键的话， 程序会先
+                        在 ht[0] 里面进行查找， 如果没找到的话， 就会继续到 ht[1]
+                        里面进行查找， 诸如此类。
+
+                        另外， 在渐进式 rehash 执行期间， 新添加到字典的键值对一律
+                        会被保存到 ht[1] 里面， 而 ht[0] 则不再进行任何添加操作：
+                        这一措施保证了 ht[0] 包含的键值对数量会只减不增， 并随着
+                        rehash 操作的执行而最终变成空表。
+
+                    重点回顾 -<
+
+                    :   -   字典被广泛用于实现 Redis 的各种功能， 其中包括数据库和
+                            哈希键。
+                        -   Redis 中的字典使用哈希表作为底层实现， 每个字典带有两个
+                            哈希表， 一个用于平时使用， 另一个仅在进行 rehash 时使用。
+                        -   当字典被用作数据库的底层实现， 或者哈希键的底层实现时，
+                            Redis 使用 MurmurHash2 算法来计算键的哈希值。
+                        -   哈希表使用链地址法来解决键冲突， 被分配到同一个索引上的
+                            多个键值对会连接成一个单向链表。
+                        -   在对哈希表进行扩展或者收缩操作时， 程序需要将现有哈希表
+                            包含的所有键值对 rehash 到新哈希表里面， 并且这个
+                            rehash 过程并不是一次性地完成的， 而是渐进式地完成的。
+
+                跳跃表 -<
+
+                :   跳跃表（skiplist）是一种有序数据结构， 它通过在每个节点中维
+                    持多个指向其他节点的指针， 从而达到快速访问节点的目的。
+
+                    跳跃表支持平均 O(log N) 最坏 O(N) 复杂度的节点查找， 还可以
+                    通过顺序性操作来批量处理节点。
+
+                    在大部分情况下， 跳跃表的效率可以和平衡树相媲美， 并且因为
+                    跳跃表的实现比平衡树要来得更为简单， 所以有不少程序都使用跳
+                    跃表来代替平衡树。
+
+                    Redis 使用跳跃表作为有序集合键的底层实现之一： 如果一个有序
+                    集合包含的元素数量比较多， 又或者有序集合中元素的成员
+                    （member）是比较长的字符串时， Redis 就会使用跳跃表来作为有
+                    序集合键的底层实现。
+
+                    和链表、字典等数据结构被广泛地应用在 Redis 内部不同， Redis
+                    只在两个地方用到了跳跃表， 一个是实现有序集合键， 另一个是
+                    在集群节点中用作内部数据结构， 除此之外， 跳跃表在 Redis 里
+                    面没有其他用途。
+
+                    重点回顾 -<
+
+                    :   -   跳跃表是有序集合的底层实现之一， 除此之外它在 Redis
+                            中没有其他应用。
+                        -   Redis 的跳跃表实现由 zskiplist 和 zskiplistNode 两
+                            个结构组成， 其中 zskiplist 用于保存跳跃表信息（比
+                            如表头节点、表尾节点、长度）， 而 zskiplistNode 则
+                            用于表示跳跃表节点。
+                        -   每个跳跃表节点的层高都是 1 至 32 之间的随机数。
+                        -   在同一个跳跃表中， 多个节点可以包含相同的分值， 但
+                            每个节点的成员对象必须是唯一的。
+                        -   跳跃表中的节点按照分值大小进行排序， 当分值相同时，
+                            节点按照成员对象的大小进行排序。
+
+                整数集合 -<
+
+                :   整数集合（intset）是集合键的底层实现之一： 当一个集合只包含
+                    整数值元素， 并且这个集合的元素数量不多时， Redis 就会使用
+                    整数集合作为集合键的底层实现。
+
+                    ```cpp
+                    typedef struct intset {
+
+                        // 编码方式
+                        uint32_t encoding;
+
+                        // 集合包含的元素数量
+                        uint32_t length;
+
+                        // 保存元素的数组
+                        int8_t contents[];
+
+                    } intset;
+                    ```
+
+                    每当我们要将一个新元素添加到整数集合里面， 并且新元素的类型
+                    比整数集合现有所有元素的类型都要长时， 整数集合需要先进行升
+                    级（upgrade）， 然后才能将新元素添加到整数集合里面。
+
+                    升级整数集合并添加新元素共分为三步进行：
+
+                    -   根据新元素的类型， 扩展整数集合底层数组的空间大小， 并
+                        为新元素分配空间。
+                    -   将底层数组现有的所有元素都转换成与新元素相同的类型， 并
+                        将类型转换后的元素放置到正确的位上， 而且在放置元素的过
+                        程中， 需要继续维持底层数组的有序性质不变。
+                    -   将新元素添加到底层数组里面。
+
+                    比如说， 如果我们一直只向整数集合添加 int16_t 类型的值， 那
+                    么整数集合的底层实现就会一直是 int16_t 类型的数组， 只有在
+                    我们要将 int32_t 类型或者 int64_t 类型的值添加到集合时， 程
+                    序才会对数组进行升级。
+
+                    整数集合不支持降级操作， 一旦对数组进行了升级， 编码就会一
+                    直保持升级后的状态。
+
+                    举个例子， 对于图 6-11 所示的整数集合来说， 即使我们将集合
+                    里唯一一个真正需要使用 int64_t 类型来保存的元素 4294967295
+                    删除了， 整数集合的编码仍然会维持 INTSET_ENC_INT64 ， 底层
+                    数组也仍然会是 int64_t 类型的，
+
+                    ```
+                    intsetNew           创建一个新的整数集合。  O(1)
+                    intsetAdd           将给定元素添加到整数集合里面。  O(N)
+                    intsetRemove        从整数集合中移除给定元素。  O(N)
+                    intsetFind          检查给定值是否存在于集合。  因为底层数组有序，查找可以通过二分查找法来进行， 所以复杂度为 O(log N) 。
+                    intsetRandom        从整数集合中随机返回一个元素。  O(1)
+                    intsetGet           取出底层数组在给定索引上的元素。    O(1)
+                    intsetLen           返回整数集合包含的元素个数。    O(1)
+                    intsetBlobLen       返回整数集合占用的内存字节数。  O(1)
+                    ```
+
+                    重点回顾
+
+                    -   整数集合是集合键的底层实现之一。
+                    -   整数集合的底层实现为数组， 这个数组以有序、无重复的方式保存集合元素， 在有需要时， 程序会根据新添加元素的类型， 改变这个数组的类型。
+                    -   升级操作为整数集合带来了操作上的灵活性， 并且尽可能地节约了内存。
+                    -   整数集合只支持升级操作， 不支持降级操作。
+
+
+                压缩列表 -<
+
+                :   压缩列表（ziplist）是列表键和哈希键的底层实现之一。
+
+                    当一个列表键只包含少量列表项， 并且每个列表项要么就是小整数
+                    值， 要么就是长度比较短的字符串， 那么 Redis 就会使用压缩列
+                    表来做列表键的底层实现。
+
+                    压缩列表的构成 -<
+
+                    :   压缩列表是 Redis 为了节约内存而开发的， 由一系列特殊编码的连续内存块组成的顺序型（sequential）数据结构。
+
+                        一个压缩列表可以包含任意多个节点（entry）， 每个节点可以保存一个字节数组或者一个整数值。
+
+                        图 7-1 展示了压缩列表的各个组成部分， 表 7-1 则记录了各个组成部分的类型、长度、以及用途。
+
+                        ![](http://redisbook.com/_images/graphviz-fe42f343a3f32f477efb5e895da547d476a7c97d.png)
+
+                        ![](http://redisbook.com/_images/graphviz-071fe5086440a360087904af9a5f78e8e02c2d8d.png)
+
+                        每个压缩列表节点都由 previous_entry_length 、 encoding 、 content 三个部分组成， 如图 7-4 所示。
+
+                        ![](http://redisbook.com/_images/graphviz-49750cc228ee403c4ef64ad1d2911154765bf3d3.png)
+
+                        压缩列表的从表尾向表头遍历操作就是使用这一原理实现的：
+                        只要我们拥有了一个指向某个节点起始地址的指针， 那么通过
+                        这个指针以及这个节点的 previous_entry_length 属性， 程
+                        序就可以一直向前一个节点回溯， 最终到达压缩列表的表头节
+                        点。
+
+                        ![](http://redisbook.com/_images/graphviz-cfb376f8015f3af9f59acd30dc71a35e90c6d763.png)
+
+                    连锁更新 -<
+
+                    :   因为连锁更新在最坏情况下需要对压缩列表执行 N 次空间重分配操作， 而每次空间重分配的最坏复杂度为 O(N) ， 所以连锁更新的最坏复杂度为 O(N^2) 。
+
+                        要注意的是， 尽管连锁更新的复杂度较高， 但它真正造成性能问题的几率是很低的：
+
+                        -   首先， 压缩列表里要恰好有多个连续的、长度介于 250 字节至 253 字节之间的节点， 连锁更新才有可能被引发， 在实际中， 这种情况并不多见；
+                        -   其次， 即使出现连锁更新， 但只要被更新的节点数量不多， 就不会对性能造成任何影响： 比如说， 对三五个节点进行连锁更新是绝对不会影响性能的；
+
+                        因为以上原因， ziplistPush 等命令的平均复杂度仅为 O(N) ， 在实际中， 我们可以放心地使用这些函数， 而不必担心连锁更新会影响压缩列表的性能。
+
+                    重点回顾 -<
+
+                    :   -   压缩列表是一种为节约内存而开发的顺序型数据结构。
+                        -   压缩列表被用作列表键和哈希键的底层实现之一。
+                        -   压缩列表可以包含多个节点，每个节点可以保存一个字节数组或者整数值。
+                        -   添加新节点到压缩列表， 或者从压缩列表中删除节点， 可能会引发连锁更新操作， 但这种操作出现的几率并不高。
+
+                对象
+
+            第二部分：单机数据库的实现 -<
+
+            :   数据库 -<
+
+                :   服务器中的数据库
+                    切换数据库
+                    数据库键空间
+                    设置键的生存时间或过期时间
+                    过期键删除策略
+                    Redis 的过期键删除策略
+                    AOF 、RDB 和复制功能对过期键的处理
+                    数据库通知
+                    重点回顾
+
+                RDB 持久化 -<
+
+                :   RDB 文件的创建与载入
+                    自动间隔性保存
+                    RDB 文件结构
+                    分析 RDB 文件
+                    重点回顾
+
+                AOF 持久化 -<
+
+                :   AOF 持久化的实现
+                    AOF 文件的载入与数据还原
+                    AOF 重写
+                    重点回顾
+
+                事件 -<
+
+                :   文件事件
+                    时间事件
+                    事件的调度与执行
+                    重点回顾
+                    参考资料
+
+                客户端 -<
+
+                :   客户端属性
+                    客户端的创建与关闭
+                    重点回顾
+
+                服务器 -<
+
+                :   命令请求的执行过程
+                    serverCron 函数
+                    初始化服务器
+                    重点回顾
+
+            第三部分：多机数据库的实现 -<
+
+            :   复制 -<
+
+                :   旧版复制功能的实现
+                    旧版复制功能的缺陷
+                    新版复制功能的实现
+                    部分重同步的实现
+                    PSYNC 命令的实现
+                    复制的实现
+                    心跳检测
+                    重点回顾
+
+                Sentinel -<
+
+                :   启动并初始化 Sentinel
+                    获取主服务器信息
+                    获取从服务器信息
+                    向主服务器和从服务器发送信息
+                    接收来自主服务器和从服务器的频道信息
+                    检测主观下线状态
+                    检查客观下线状态
+                    选举领头 Sentinel
+                    故障转移
+                    重点回顾
+                    参考资料
+
+                集群 -<
+
+                :   节点
+                    槽指派
+                    在集群中执行命令
+                    重新分片
+                    ASK 错误
+                    复制与故障转移
+                    消息
+                    重点回顾
+
+            第四部分：独立功能的实现 -<
+
+            :   发布与订阅 -<
+
+                :   频道的订阅与退订
+                    模式的订阅与退订
+                    发送消息
+                    查看订阅信息
+                    重点回顾
+                    参考资料
+
+                事务 -<
+
+                :   事务的实现
+                    WATCH 命令的实现
+                    事务的 ACID 性质
+                    重点回顾
+                    参考资料
+
+                Lua 脚本 -<
+
+                :   创建并修改 Lua 环境
+                    Lua 环境协作组件
+                    EVAL 命令的实现
+                    EVALSHA 命令的实现
+                    脚本管理命令的实现
+                    脚本复制
+                    重点回顾
+                    参考资料
+
+                排序 -<
+
+                :   SORT <key> 命令的实现
+                    ALPHA 选项的实现
+                    ASC 选项和 DESC 选项的实现
+                    BY 选项的实现
+                    带有 ALPHA 选项的 BY 选项的实现
+                    LIMIT 选项的实现
+                    GET 选项的实现
+                    STORE 选项的实现
+                    多个选项的执行顺序
+                    重点回顾
+
+                二进制位数组 -<
+
+                :   位数组的表示
+                    GETBIT 命令的实现
+                    SETBIT 命令的实现
+                    BITCOUNT 命令的实现
+                    BITOP 命令的实现
+                    重点回顾
+                    参考资料
+
+                慢查询日志 -<
+
+                :   慢查询记录的保存
+                    慢查询日志的阅览和删除
+                    添加新日志
+                    重点回顾
+
+                监视器 -<
+
+                :   成为监视器
+                    向监视器发送命令信息
+                    重点回顾
+
+    AVL 树，红黑树，B 树，B+ 树，Trie 树都分别应用在哪些现实场景中？ -<
+
+    :   AVL 树: 最早的平衡二叉树之一。应用相对其他数据结构比较少。windows 对进程地
+        址空间的管理用到了 AVL 树。AVL 是一种高度平衡的二叉树，所以通常的结果是，维
+        护这种高度平衡所付出的代价比从中获得的效率收益还大，故而实际的应用不多，更
+        多的地方是用追求局部而不是非常严格整体平衡的红黑树。当然，如果场景中对插入
+        删除不频繁，只是对查找特别有要求，AVL 还是优于红黑的。
+
+
+        红黑树: 平衡二叉树，广泛用在 C++ 的 STL 中。map 和 set 都是用红黑树实现的。
+        还有
+
+        -   著名的 linux 进程调度 Completely Fair Scheduler, 用红黑树管理进程控制块
+        -   epoll 在内核中的实现，用红黑树管理事件块
+        -   nginx 中，用红黑树管理 timer 等
+        -   Java 的 TreeMap 实现
+
+        B/B+ 树用在磁盘文件组织 数据索引和数据库索引
+
+        Trie 树：字典树，用在统计和排序大量字符串 (场景自己 yy = =)，trie 树的一个
+        典型应用是前缀匹配，比如下面这个很常见的场景，在我们输入时，搜索引擎会给予
+        提示，还有比如 IP 选路，也是前缀匹配，一定程度会用到 trie。
+
+        ---
+
+        红黑树，AVL 树简单来说都是用来搜索的呗。
+
+        AVL 树
+
+        :   平衡二叉树，一般是用平衡因子差值决定并通过旋转来实现，左右子树树高差不
+            超过 1，那么和红黑树比较它是严格的平衡二叉树，平衡条件非常严格（树高差只
+            有 1），只要插入或删除不满足上面的条件就要通过旋转来保持平衡。由于旋转是
+            非常耗费时间的。我们可以推出 AVL 树适合用于插入删除次数比较少，但查找多
+            的情况。
+
+        红黑树
+
+        :   平衡二叉树，通过对任何一条从根到叶子的简单路径上各个节点的颜色进行约束，
+            确保没有一条路径会比其他路径长 2 倍，因而是近似平衡的。所以相对于严格要求
+            平衡的 AVL 树来说，它的旋转保持平衡次数较少。用于搜索时，插入删除次数多的
+            情况下我们就用红黑树来取代 AVL。
+
+            （现在部分场景使用跳表来替换红黑树，可搜索“为啥 redis 使用跳表
+            (skiplist) 而不是使用 red-black？”）
+
+            [为啥 redis 使用跳表 (skiplist) 而不是使用 red-black？ - 知乎](https://www.zhihu.com/question/20202931) -<
+
+            :   在 server 端，对并发和性能有要求的情况下，如何选择合适的数据结构（这里是跳跃表和红黑树）。
+
+                如果单纯比较性能，跳跃表和红黑树可以说相差不大，但是加上并发的环境
+                就不一样了，如果要更新数据，跳跃表需要更新的部分就比较少，锁的东西
+                也就比较少，所以不同线程争锁的代价就相对少了，而红黑树有个平衡的过
+                程，牵涉到大量的节点，争锁的代价也就相对较高了。性能也就不如前者了。
+
+        B 树，B+ 树
+
+        :   它们特点是一样的，是多路查找树，一般用于数据库系统中，为什么，因为它们分支
+            多层数少呗，都知道磁盘 IO 是非常耗时的，而像大量数据存储在磁盘中所以我们要有
+            效的减少磁盘 IO 次数避免磁盘频繁的查找。
+
+            B+ 树是 B 树的变种树，有 n 棵子树的节点中含有 n 个关键字，每个关键字不保存
+            数据，只用来索引，数据都保存在叶子节点。是为文件系统而生的。
+
+        Trie 树
+
+        :   又名单词查找树，一种树形结构，常用来操作字符串。它是不同字符串的相同前缀只保存一份。
+            相对直接保存字符串肯定是节省空间的，但是它保存大量字符串时会很耗费内存
+            （是内存）。类似的有前缀树 (prefix tree)，后缀树 (suffix tree)，radix
+            tree(patricia tree, compact prefix tree)，crit-bit tree（解决耗费内存问
+            题），以及前面说的 double array trie。
+
+            简单的补充下我了解应用
+
+            -   前缀树：字符串快速检索，字符串排序，最长公共前缀，自动匹配前缀显示后缀。
+            -   后缀树：查找字符串 s1 在 s2 中，字符串 s1 在 s2 中出现的次数，字符串 s1,s2 最长公共部分，最长回文串。
+            -   radix tree：linux 内核，nginx。
+
+        refs and see also
+
+        -   [AVL 树，红黑树，B 树，B+ 树，Trie 树都分别应用在哪些现实场景中？ - 知乎](https://www.zhihu.com/question/30527705)
+
+    数据结构与算法中，树一般会应用在哪些方面？为什么？ -<
+
+    :   树的一个大类是自平衡二叉搜索树 (self-balanced BST), 变种特别多:
+
+        -  RB 树是每个节点是红色或者黑色, 颜色隔代遗传
+        -  AVL 树是每个节点包含平衡因子, 等于左高-右高
+        -  Splay 树是每个节点带个父节点的指针
+        -  Treap 是每个节点都带个随机的 priority number, parent priority >= child priority
+
+        ... (其实说白了都是为了方便平衡操作给节点附加一个字段)
+
+        自平衡二叉搜索树在面试中经常出现, 但做网页的互联网码农却很少用得上... 如果
+        是当 Map 用, 往往还不如直接上哈希表. 如果是当排序用, 不如直接用排序算法...
+        不过也有有用的时候, 例如查找一个数字的上下界.
+
+        树的另一个大类是 Trie, 特点是能保证字典序, 存储词典的空间压缩率高, 能做前缀
+        搜索. 在正则匹配, 数据压缩, 构建索引都可能用到. Trie 也有不少变种:
+
+        -   Double Array - trie 的一个经典实现 (这实现其实不算树, 也不适合处理非 ascii 字符的情况)
+        -   Patricia Trie (Radix-Tree) - 每个节点可以存一段字符串而不限于一个字符
+        -   Judy Array - 基于 256-ary radix tree, 用了 20 种压缩方式, 极其复杂...
+        -   Burst Trie - 如果一个子树足够小, 就用 binary 堆的方式存储, 不过压缩效果一般
+        -   HAT Trie - 压缩率高而且不容易出现 CPU cache miss, 查速接近哈希表而耗内存少得多. 节点可以是以下三种之一: Array Hash, 序列化的 Bucket, 传统 Trie node
+        -   MARISA Trie - 压缩率最高, 支持 mmap 载入, 也是用了很多压缩技巧的复杂实现, 就是构建比较花时间, 也不能动态更新
+
+        refs and see also
+
+        -   [数据结构与算法中，树一般会应用在哪些方面？为什么？ - 知乎](https://www.zhihu.com/question/20176446)
+
+    用链表的目的是什么？省空间还是省时间？ -<
+
+    :   链表的优点除了「插入删除不需要移动其他元素」之外，还在于它是一个局部化结构。
+        就是说当你拿到链表的一个 node 之后，不需要太多其它数据，就可以完成插入，删
+        除的操作。而其它的数据结构不行。比如说 array，你只拿到一个 item 是断不敢做
+        插入删除的。
+
+        当然了，局部化这个好处只有 intrusive（侵入的；打扰的）链表才有，就是必须 prev/next 嵌入在数
+        据结构中。像 STL 和 Java 那种设计是失败了。
+
+        refs and see also
+
+        -   [用链表的目的是什么？省空间还是省时间？ - 知乎](https://www.zhihu.com/question/31082722)
+
+    利用 Trie 树求多个字符串的最小编辑距离 -<
+
+    :   编辑距离 -<
+
+        :   1965 年，俄国科学家 Vladimir Levenshtein 给字符串相似度做出了一个明确的定义
+            叫做 Levenshtein 距离，我们通常叫它“编辑距离”。字符串 A 到 B 的编辑距离是指，
+            只用插入、删除和替换三种操作，最少需要多少步可以把 A 变成 B。例如，从 FAME
+            到 GATE 需要两步（两次替换），从 GAME 到 ACM 则需要三步（删除 G 和 E 再添加
+            C）。Levenshtein 给出了编辑距离的一般求法，就是大家都非常熟悉的经典**动态规划**问题。
+
+            Levenshtein 的定义可以是单词任意位置上的操作，似乎不遍历字典是不可能完成的。
+            现在很多软件都有拼写检查的功能，提出更正建议的速度是很快的。它们到底是怎么
+            做的呢？1973 年，Burkhard 和 Keller 提出的 BK 树有效地解决了这个问题。这个
+            数据结构强就强在，它初步解决了一个看似不可能的问题，而其原理非常简单。
+
+            首先，我们观察 Levenshtein 距离的性质。令 d(x,y) 表示字符串 x 到 y 的
+            Levenshtein 距离，那么显然：
+
+            1.  d(x,y) = 0 当且仅当 x=y  （Levenshtein 距离为 0 <==> 字符串相等）
+            2.  d(x,y) = d(y,x)     （从 x 变到 y 的最少步数就是从 y 变到 x 的最少步数）
+            3.  d(x,y) + d(y,z) >= d(x,z)  （从 x 变到 z 所需的步数不会超过 x 先变成 y 再变成 z 的步数）
+
+            最后这一个性质叫做三角形不等式。就好像一个三角形一样，两边之和必然大于第三
+            边。给某个集合内的元素定义一个二元的“距离函数”，如果这个距离函数同时满足上
+            面说的三个性质，我们就称它为“度量空间”。我们的三维空间就是一个典型的度量空
+            间，它的距离函数就是点对的直线距离。度量空间还有很多，比如 Manhattan 距离，
+            图论中的最短路，当然还有这里提到的 Levenshtein 距离。就好像并查集对所有等价
+            关系都适用一样，BK 树可以用于任何一个度量空间。
+
+            查询操作异常方便。如果我们需要返回与错误单词距离不超过 n 的单词，这个错误单
+            词与树根所对应的单词距离为 d，那么接下来我们只需要递归地考虑编号在 d-n 到
+            d+n 范围内的边所连接的子树。由于 n 通常很小，因此每次与某个节点进行比较时都
+            可以排除很多子树。
+
+            举个例子，假如我们输入一个 GAIE，程序发现它不在字典中。现在，我们想返回字典
+            中所有与 GAIE 距离为 1 的单词。我们首先将 GAIE 与树根进行比较，得到的距离
+            d=1。由于 Levenshtein 距离满足三角形不等式，因此现在所有离 GAME 距离超过 2
+            的单词全部可以排除了。比如，以 AIM 为根的子树到 GAME 的距离都是 3，而 GAME
+            和 GAIE 之间的距离是 1，那么 AIM 及其子树到 GAIE 的距离至少都是 2。于是，现
+            在程序只需要沿着标号范围在 1-1 到 1+1 里的边继续走下去。我们继续计算 GAIE
+            和 FAME 的距离，发现它为 2，于是继续沿标号在 1 和 3 之间的边前进。遍历结束
+            后回到 GAME 的第二个节点，发现 GAIE 和 GAIN 距离为 1，输出 GAIN 并继续沿编
+            号为 1 或 2 的边递归下去（那条编号为 4 的边连接的子树又被排除掉了）……
+
+            ![](http://www.matrix67.com/blogimage/200710223.gif)
+
+            实践表明，一次查询所遍历的节点不会超过所有节点的 5% 到 8%，两次查询则一般不
+            会 17-25%，效率远远超过暴力枚举。适当进行缓存，减小 Levenshtein 距离常数 n
+            可以使算法效率更高。
+
+            这篇文章真是够了，和 Matrix67 的几乎一模一样：
+            [字符串相似度之美（一）- SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20101194?refer=simons)。
+
+        Trie 树的实现 -<
+
+        :   由于多叉树不够灵活，同时对空间存在即大的浪费，因此本文利用二叉树实现一棵 Trie 树。
+
+             二叉树是这样的结构：节点的左孩子代表它的第一个孩子，节点的右孩子代表它的兄弟节点。
+
+            总体的思路是：
+
+            -   建立 10 万次的词典，单词长度 5-30
+            -   为这些单词建立 Trie 树，给定任意字符串，求所有与该字符串的编辑距离为 1 或者 2 的单词
+            -   同时用暴力匹配的方法求得符合要求的字符串，然后进行时间的比较。
+
+            ```cpp
+            #include <fstream>
+            #include <iostream>
+            #include <string>
+            #include <cstring>
+            #include <vector>
+            #include <algorithm>
+            #include <ctime>
+            #include <cstdlib>
+            #include <sys/time.h>
+
+            using namespace std;
+
+            const int X = 30;
+            const int Y = 30;
+            const int MAX = 30;
+
+            int edit_length(string &x, string &y);
+
+            // Trie树的节点定义
+            struct Node {
+                int length;
+                string word;
+                Node *left, *right;
+                Node() : length(0), word(""), left(0), right(0) { }
             };
 
-            #endif // SPLAY_TREE
+            // Trie 树的操作定义
+            class Trie {
+                private:
+                    Node* pRoot;
+                private:
+                    // 销毁 Trie 树
+                    void destory(Node* r) {
+                        if(!r) { return; }
+                        destory(r -> left);
+                        destory(r -> right);
+                        delete r;
+                        r = NULL;
+                    }
+                    void find( Node *pRoot, string &str, int limit_num, vector<string> &word_set );
+                public:
+                    Trie() {}
+                    ~Trie() { destroy(pRoot); }
+                    void insert(string str);
+                    void search(string &str, int limit_num, vector<string> &word_set);
+            };
+
+            // 插入单词，建立 Trie 树
+            void Trie::insert(string str){
+                if(pRoot != NULL){
+                    //如果trie树已经存在
+                    Node *pPre = pRoot;
+                    Node *pCur = pRoot -> left;
+                    while(1) {
+                        //计算该单词与当前节点的编辑距离
+                        string word = pPre -> word;
+                        int distance = edit_length(word, str);
+                        //若该单词已存在
+                        if(distance == 0) {
+                            break;
+                        }
+                        //若该单词不存在
+                        if(pCur == NULL) {
+                            //若首节点不存在，则创建首节点
+                            pCur = new Node();
+                            pCur -> length = distance;
+                            pCur -> word = str;
+                            pCur -> left = NULL;
+                            pCur -> right = NULL;
+
+                            pPre -> left = pCur;
+
+                            break;
+
+                        } else if (pCur != NULL && pCur -> length > distance) {
+                            //若首节点存在，并且首节点大于目标编辑距离，重建首节点
+                            Node *p = new Node();
+                            p -> length = distance;
+                            p -> word = str;
+                            p -> left = NULL;
+                            p -> right = pCur;
+
+                            pPre -> left = p;
+                            break;
+
+                        } else {
+                            //首节点存在，且首节点小于等于目标编辑距离
+                            while(pCur != NULL && pCur -> length < distance){
+                                pPre = pCur;
+                                pCur = pCur -> right;
+                            }
+                            if(pCur != NULL && pCur -> length == distance){
+                                //找到了目标节点
+                                pPre = pCur;
+                                pCur = pCur -> left;
+                            } else {
+                                //创建目标节点
+                                Node *p = new Node();
+                                p -> length = distance;
+                                p -> word = str;
+                                p -> left = NULL;
+                                p -> right = pCur;
+
+                                pPre -> right = p;
+                                break;
+                            }
+                        }
+                    }
+                } else {
+                    //如果Trie树还不存在，以该单词创建根节点
+                    pRoot = new Node();
+                    pRoot -> length = 0;
+                    pRoot -> word = str;
+                }
+            }
+
+            // 搜索与给定字符串的编辑距离小于给定值的所有字符串（内部调用）
+            void Trie::find(Node* pRoot, string &str, int limit_num, vector<string> &word_set) {
+
+                if(pRoot == NULL){
+                    cout << "kong" << endl;
+                    return;
+                }
+                string word = pRoot -> word;
+                int distance = edit_length(word, str);
+                if(distance < limit_num) {
+                    word_set.push_back(word);
+                }
+
+                //如果当前节点有孩子的话
+                Node *pCur = pRoot -> left;
+                while(pCur != NULL){
+                    if(pCur -> length < distance + limit_num &&
+                            pCur -> length > distance - limit_num &&
+                            pCur -> length > limit_num - distance){
+                        find(pCur, str, limit_num, word_set);
+                    }
+                    pCur = pCur -> right;
+                }
+            }
+
+
+            // 包装函数，搜索与给定字符串的编辑距离小于给定值的所有字符串（外部调用）
+            void Trie::search(string &str, int limit_num, vector<string> &word_set){
+                find(pRoot, str, limit_num, word_set);
+            }
+
+            // ---------------------------工具函数------------------------------
+            // 求两个字符串的最断编辑距离
+            int edit_length(string &x, string &y){
+                int xlen = x.length();
+                int ylen = y.length();
+                int edit[3][Y+1];
+                memset(edit, 0, sizeof(edit));
+
+                int i = 0;
+                int j = 0;
+                for(j = 0; j <= ylen; j++){
+                    edit[0][j] = j;
+                }
+                for(i = 1; i <= xlen; i++){
+                    edit[i%3][0] = edit[(i-1)%3][0] + 1;
+                    for(j = 1; j <= ylen; j++){
+                        if (x[i-1] == y[j-1]) {
+                            edit[i%3][j] = min(min(edit[i%3][j-1] + 1, edit[(i-1)%3][j] + 1),
+                                    edit[(i-1)%3][j-1]);
+                        } else {
+                            if(i >= 2 && j >= 2 && x[i-2] == y[j-1] && x[i-1] == y[j-2]){
+                                edit[i%3][j] = min(min(edit[i%3][j-1] + 1, edit[(i-1)%3][j] + 1),
+                                        min(edit[(i-1)%3][j-1] + 1, edit[(i-2)%3][j-2] + 1));
+                            } else {
+                                edit[i%3][j] = min(min(edit[i%3][j-1] + 1, edit[(i-1)%3][j] + 1),
+                                        edit[(i-1)%3][j-1] + 1);
+                            }
+                        }
+                    }
+                }
+                return edit[(i-1)%3][j-1];
+            }
+
+            //生成随机字符串
+            string rand_string(int len){
+                srand(time(NULL));
+                char a[MAX+1];
+                for(int i = 0; i < len; i++){
+                    a[i] = rand()%26 + 'a';
+                }
+                a[len] = '\0';
+                string str(a);
+                return str;
+            }
+
+            // 获取当前时间 (ms)
+            long getCurrentTime(){
+                struct timeval tv;
+                gettimeofday(&tv, NULL);
+                return tv.tv_sec*1000 + tv.tv_usec/1000;
+            }
+
+            //-----------------------------测试函数------------------------
+            //测试最短编辑距离函数
+            void Test_1(){
+                string a = "abcdef";
+                string b = "abcdef";
+                int max_len = edit_length(a, b);
+                cout << max_len << endl;
+            }
+
+            // 验证 Trie 树是否完整
+            void Test_2(){
+
+                //1.创建对象，打开文件
+                Trie trie;
+                string str;
+                ifstream fin;
+                fin.open("dict.txt");
+                if(!fin){
+                    cout << "打开文件失败！" << endl;
+                }
+
+                //2.建立Trie树
+                while(getline(fin, str, '\n')){
+                    trie.insert(str);
+                }
+                fin.close();
+
+                //3.验证Trie树的正确性
+                fin.open("dict.txt");
+                if(!fin){
+                    cout << "打开文件失败！" << endl;
+                }
+                while(getline(fin, str, '\n')){
+                    int count = 0;
+                    vector<string> word_set;
+                    trie.search(str, 1, word_set);
+                    cout << word_set.size() << "  " << str << endl;
+                }
+
+            }
+
+
+            //测试对于随机字符串搜索结果的正确性
+            void Test_3(){
+
+                //1.创建对象，打开文件
+                Trie trie;
+                string str;
+                ifstream fin;
+                fin.open("dict.txt");
+                if(!fin){
+                    cout << "打开文件失败！" << endl;
+                }
+
+                //2.建立Trie树
+                long time_1 = getCurrentTime();
+                while(getline(fin, str, '\n')){
+                    trie.insert(str);
+                }
+                long time_2 = getCurrentTime();
+                fin.close();
+
+                //3.产生随机字符串
+                string rand_str = rand_string(6);
+                //rand_str = "wdeuojyucsalslpd";
+                cout << "随机字符串为：" << rand_str << endl;
+
+                //4.利用Trie树计算结果
+                vector<string> word_set_1;
+                long time_3 = getCurrentTime();
+                trie.search(rand_str, 3, word_set_1);
+                long time_4 = getCurrentTime();
+
+                //5.利用暴力匹配计算结果
+                vector<string> word_set_2;
+                vector<string> word_dict;
+                fin.open("dict.txt");
+                if(!fin){
+                    cout << "打开文件失败！" << endl;
+                }
+                while(getline(fin, str, '\n')){
+                    word_dict.push_back(str);
+                }
+                int size = word_dict.size();
+                long time_5 = getCurrentTime();
+                for(int j = 0; j < size; j++){
+                    if(edit_length(word_dict[j], rand_str) < 3){
+                        word_set_2.push_back(word_dict[j]);
+                    }
+                }
+                long time_6 = getCurrentTime();
+                fin.close();
+
+                //6.结果比较
+                sort(word_set_1.begin(), word_set_1.end());
+                sort(word_set_2.begin(), word_set_2.end());
+
+                cout << "word_set_1的大小：" << word_set_1.size() << endl;
+                cout << "结果为：";
+                for(int i = 0; i < word_set_1.size(); i++){
+                    cout << "  " << word_set_1[i];
+                }
+                cout << endl;
+
+                cout << "word_set_2的大小：" << word_set_2.size() << endl;
+                cout << "结果为：";
+                for(int i = 0; i < word_set_2.size(); i++){
+                    cout << "  " << word_set_2[i];
+                }
+                cout << endl;
+
+                if(word_set_1 == word_set_2){
+                    cout << "验证正确" << endl;
+                } else {
+                    cout << "验证错误" << endl;
+                }
+
+                //7.时间比较
+                cout << "建立Trie树用时（ms）：" << time_2 - time_1 << endl;
+                cout << "Trie树搜索用时（ms）：" << time_4 - time_3 << endl;
+                cout << "暴力搜索用时（ms）："   << time_6 - time_5 << endl;
+                cout << "百分比：" << double(time_4 -time_3)/(time_6 - time_5) << endl;
+            }
+            int main(){
+
+                //Test_1();
+                //Test_2();
+                Test_3();
+            }
             ```
 
-    B-tree -<
+        refs and see also
 
-    :   In computer science, a B-tree is a self-balancing tree data structure
-        that keeps data sorted and allows searches, sequential access,
-        insertions, and deletions in logarithmic time. The B-tree is a
-        generalization of a binary search tree in that a node can have more
-        than two children (Comer 1979, p. 123). Unlike self-balancing binary
-        search trees, the B-tree is **optimized for systems that read and write
-        large blocks of data**. B-trees are a good example of
-        **a data structure for external memory**. It is commonly used in databases and filesystems.
+        -   [编辑距离、拼写检查与度量空间：一个有趣的数据结构 | Matrix67: The Aha Moments](http://www.matrix67.com/blog/archives/333)
+        -   [利用 Trie 树求多个字符串的最小编辑距离 - 时空霹雳的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/u010189459/article/details/34114465)
 
-        multi-way search tree
-          ~ A multiway tree is a tree that can have more than two children. A
-            multiway tree of order m (or an m-way tree) is one in which a tree
-            can have m children.
+    如何从零写一个正则表达式引擎？ -<
 
-        ![A B-tree (Bayer & McCreight 1972) of order 5 (Knuth 1998).](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/B-tree.svg/600px-B-tree.svg.png)
+    :   推荐代码: Henry Spencer's regexp engine
+        [regexp.old/regexp.c at master · garyhouston/regexp.old](https://github.com/garyhouston/regexp.old/blob/master/regexp.c)
+        是很多现代流行的正则引擎的始祖, 解释器实现, 很
+        多新 feature 能扩展得得进去, 也有混合 DFA 的优化
 
-        Etymology -<
+        <http://whudoc.qiniudn.com/2016/regex.zip> -<
 
-        :   >   The origin of "B-tree" has never been explained by the authors.
-            >   As we shall see, "balanced," "broad," or "bushy" might apply.
-            >   Others suggest that the "B" stands for Boeing. Because of his
-            >   contributions, however, it seems appropriate to think of
-            >   B-trees as "Bayer"-trees. (Comer 1979, p. 123 footnote 1)
+        :   写了个 80 行的 C++ 模板版。注意啊，regex 的定义包括了 concatenation，
+            alternation（“|”），Kleene closure（“*”），还得有一个ε字符（可近似认为
+            “?”），expression 还要能嵌套（“(”“)”）。有些例子里缺了 alternation 和嵌套
+            那就不该叫 regex 了。
 
-        Advantages of B-tree usage for databases -<
+            之所以这么短是因为压根没有 parsing，parsing 多无聊啊。直接构造 regex 的
+            AST，根本不去打 NFA 的主意。想加什么功能就直接加 type 就行了。
 
-        :   The B-tree uses all of the ideas described above. In particular, a B-tree:
+            这个是 compile time regex，所以跑起来是 raw speed，很快。你要是要运行时
+            的regex，把那几个模板特化改为一个树状 variant 结构，在树上走就行了，算
+            法（包括那个 continuation 的 trick）都是一样的。
 
-            -   keeps keys in sorted order for sequential traversing
-            -   uses a hierarchical index to minimize the number of disk reads
-            -   uses partially full blocks to speed insertions and deletions
-            -   keeps the index balanced with an elegant recursive algorithm
+            建 NFA 那套做法是 Ken Thompson 推出来的“标准”算法，但是就玩玩而已应该从
+            更简单的学起。学一下 CPS 变换又不会死。
 
-            In addition, a B-tree minimizes waste by making sure the interior
-            nodes are at least half full. A B-tree can handle an arbitrary
-            number of insertions and deletions.
+            另外把程序写短小紧凑的诀窍就是写成 FP style。我的 80 行中所有函数都只有
+            一个 return 语句。
 
-        Disadvantages of B-trees -<
+            ```cpp
+            template <typename Left, typename Right>
+            struct ConcatExpr;
 
-        :   maximum key length cannot be changed without completely rebuilding
-            the database. This led to many database systems truncating full human
-            names to 70 characters.
+            template <typename Left, typename Right>
+            struct AltExpr;
 
-        According to Knuth's definition, **a B-tree of order m** is a tree which
-        satisfies the following properties:
+            template <typename SubExpr>
+            struct RepeatExpr;
 
-        -   Every node has at most m children.
-        -   Every non-leaf node (except root) has at least ⌈m/2⌉ (ceil of m/2) children.
-        -   The root has at least two children if it is not a leaf node.
-        -   A non-leaf node with k children contains k−1 keys.
-        -   All leaves appear in the same level
+            template <char ch>
+            struct MatchExpr;
 
-        It can be shown (by induction for example) that a B-tree of height h
-        with all its nodes completely filled has n= mh+1−1 entries. Hence, the
-        best case height of a B-tree is: log~m~^n+1^.
+            template <typename RegExpr>
+            struct MatchImpl;
 
-        ![(A B Tree insertion example with each iteration. The nodes of this B tree have at most 3 children (Knuth order 3).](https://en.wikipedia.org/wiki/File:B_tree_insertion_example.png)
+            struct EpsilonExpr;
 
-    Red–black tree
+            template <typename SubExpr>
+            using OptionalExpr = AltExpr<SubExpr, EpsilonExpr>;
 
-    :   A red–black tree is a kind of self-balancing binary search tree. Each
-        node of the binary tree has an extra bit, and that bit is often
-        interpreted as the color (red or black) of the node. These color bits
-        are used to ensure the tree remains approximately balanced during
-        insertions and deletions.
+            template <typename Left, typename Right>
+            struct MatchImpl<ConcatExpr<Left, Right>> {
+              template <typename Continuation>
+              static bool Apply(const char* target, Continuation cont) {
+                return MatchImpl<Left>::Apply(target, [cont](const char* rest) -> bool {
+                  return MatchImpl<Right>::Apply(rest, cont);
+                });
+              }
+            };
 
-        Balance is preserved by painting each node of the tree with one of two
-        colors (typically called 'red' and 'black') in a way that satisfies
-        certain properties, which collectively constrain how unbalanced the
-        tree can become in the worst case. When the tree is modified, the new
-        tree is subsequently rearranged and repainted to restore the coloring
-        properties. The properties are designed in such a way that this
-        rearranging and recoloring can be performed efficiently.
+            template <typename Left, typename Right>
+            struct MatchImpl<AltExpr<Left, Right>> {
+              template <typename Continuation>
+              static bool Apply(const char* target, Continuation cont) {
+                return MatchImpl<Left>::Apply(target, cont) ||
+                       MatchImpl<Right>::Apply(target, cont);
+              }
+            };
 
-        The balancing of the tree is not perfect, but it is good enough to
-        allow it to guarantee searching in O(log n) time, where n is the total
-        number of elements in the tree. The insertion and deletion operations,
-        along with the tree rearrangement and recoloring, are also performed in
-        O(log n) time.
+            template <typename SubExpr>
+            struct MatchImpl<RepeatExpr<SubExpr>> {
+              template <typename Continuation>
+              static bool Apply(const char* target, Continuation cont) {
+                return MatchImpl<SubExpr>::Apply(
+                           target,
+                           [target, cont](const char* rest) -> bool {
+                             return target < rest &&
+                                 MatchImpl<RepeatExpr<SubExpr>>::Apply(rest, cont);
+                           }) ||
+                       cont(target);
+              }
+            };
 
-        Tracking the color of each node requires only 1 bit of information per
-        node because there are only two colors. The tree does not contain any
-        other data specific to its being a red–black tree so its memory
-        footprint is almost identical to a classic (uncolored) binary search
-        tree. In many cases the additional bit of information can be stored at
-        no additional memory cost.
+            template <char ch>
+            struct MatchImpl<MatchExpr<ch>> {
+              template <typename Continuation>
+              static bool Apply(const char* target, Continuation cont) {
+                return *target && *target == ch && cont(target + 1);
+              }
+            };
 
-        The leaf nodes of red–black trees do not contain data. These leaves
-        need not be explicit in computer memory—a null child pointer can encode
-        the fact that this child is a leaf—but it simplifies some algorithms
-        for operating on red–black trees if the leaves really are explicit
-        nodes. To save memory, sometimes a single sentinel node performs the
-        role of all leaf nodes; all references from internal nodes to leaf
-        nodes then point to the sentinel node.
+            template <>
+            struct MatchImpl<EpsilonExpr> {
+              template <typename Continuation>
+              static bool Apply(const char* target, Continuation cont) {
+                return cont(target);
+              }
+            };
 
-        ![An example of a red–black tree](https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Red-black_tree_example.svg/750px-Red-black_tree_example.svg.png)
+            template <typename RegExpr>
+            bool RegexMatch(const char* target) {
+              return MatchImpl<RegExpr>::Apply(
+                  target, [](const char* rest) -> bool { return *rest == '\0'; });
+            }
 
-        properties
+            template <typename RegExpr>
+            bool RegexSearch(const char* target) {
+              return MatchImpl<RegExpr>::Apply(
+                         target, [](const char* rest) -> bool { return true; }) ||
+                     (*target && RegexSearch<RegExpr>(target + 1));
+            }
 
-        #.  A node is either red or black.
-        #.  The root is black. This rule is sometimes omitted. Since the root can
-            always be changed from red to black, but not necessarily vice versa, this
-            rule has little effect on analysis.
-        #.  All leaves (NIL) are black.
-        #.  If a node is red, then both its children are black.
-        #.  Every path from a given node to any of its descendant NIL nodes contains
-            the same number of black nodes. Some definitions: the number of black nodes
-            from the root to a node is the node's black depth; the uniform number of
-            black nodes in all paths from root to the leaves is called the black-height
-            of the red–black tree.
+            #include <cassert>
 
-        These constraints enforce a critical property of red–black trees: the
-        path from the root to the farthest leaf is no more than twice as long
-        as the path from the root to the nearest leaf. The result is that the
-        tree is roughly height-balanced. Since operations such as inserting,
-        deleting, and finding values require worst-case time proportional to
-        the height of the tree, this theoretical upper bound on the height
-        allows red–black trees to be efficient in the worst case, unlike
-        ordinary binary search trees.
+            int main() {
+              assert((RegexMatch<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("ab")));
+              assert((RegexMatch<AltExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("a")));
+              assert((RegexMatch<AltExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("b")));
+              assert((RegexMatch<RepeatExpr<MatchExpr<'a'>>>("aaaaa")));
+              assert((RegexMatch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>(
+                  "aaaaab")));
+              assert((
+                  RegexMatch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>("b")));
+              assert((RegexSearch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>(
+                  "aaaaabb")));
+              assert((RegexMatch<OptionalExpr<MatchExpr<'a'>>>("a")));
+              assert((RegexMatch<OptionalExpr<MatchExpr<'a'>>>("")));
+              assert((RegexMatch<OptionalExpr<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>>(
+                  "ab")));
+              assert((RegexMatch<OptionalExpr<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>>(
+                  "")));
+              assert((!RegexMatch<RepeatExpr<MatchExpr<'a'>>>("aaaaab")));
+              assert((RegexMatch<RepeatExpr<OptionalExpr<MatchExpr<'a'>>>>("")));
 
-        ![The same red–black tree as in the example above, seen as a B-tree.](https://en.wikipedia.org/wiki/File:Red-black_tree_example_(B-tree_analogy).svg)
+              return 0;
+            }
+            ```
 
-        The red–black tree is then structurally equivalent to a B-tree of order
-        4, with a minimum fill factor of 33% of values per cluster with a
-        maximum capacity of 3 values.
+        Milo Yip 的正则代码 -<
 
-        This B-tree type is still more general than a red–black tree though, as
-        it allows ambiguity in a red–black tree conversion—multiple red–black
-        trees can be produced from an equivalent B-tree of order 4.
+        :   ```cpp
+            todo
+            ```
 
-        Insertion -<
+            [rapidjson/regex.h at regex · miloyip/rapidjson](https://github.com/miloyip/rapidjson/blob/regex/include/rapidjson/internal/regex.h)
 
-        :   RB-tree properties:
+        refs and see also
 
-            -   property 3 (all leaves are black) always holds.
-            -   property 4 (both children of every red node are black) is threatened only by adding a red node, repainting a black node red, or a rotation.
-            -   property 5 (all paths from any given node to its leaf nodes contain the same number of black nodes) is threatened only by adding a black node, repainting a red node black (or vice versa), or a rotation.
+        -   [如何从零写一个正则表达式引擎？ - 知乎](https://www.zhihu.com/question/27434493)
 
-            N: 当前 node，P：parent node，G：grandparent node，U：uncle node。 -<
+    Graph (abstract data type) -<
+
+    :   In computer science, a graph is an abstract data type that is meant to
+        implement the undirected graph and directed graph concepts from mathematics.
+
+        The basic operations provided by a graph data structure G usually include:
+
+        -   adjacent(G, x, y): tests whether there is an edge from the vertices x to y;
+        -   neighbors(G, x): lists all vertices y such that there is an edge from the vertices x to y;
+        -   add_vertex(G, x): adds the vertex x, if it is not there;
+        -   remove_vertex(G, x): removes the vertex x, if it is there;
+        -   add_edge(G, x, y): adds the edge from the vertices x to y, if it is not there;
+        -   remove_edge(G, x, y): removes the edge from the vertices x to y, if it is there;
+        -   get_vertex_value(G, x): returns the value associated with the vertex x;
+        -   set_vertex_value(G, x, v): sets the value associated with the vertex x to v.
+
+        Structures that associate values to the edges usually also provide:
+
+        -   get_edge_value(G, x, y): returns the value associated with the edge (x, y);
+        -   set_edge_value(G, x, y, v): sets the value associated with the edge (x, y) to v.
+
+        Adjacency List
+
+        :   Vertices are stored as records or objects, and every vertex stores
+            **a list of adjacent vertices**. This data structure allows the storage of
+            additional data on the vertices. Additional data can be stored if edges
+            are also stored as objects, in which case each vertex stores its
+            incident edges and each edge stores its incident vertices.
+
+        Adjancy Matrix
+
+        :   A two-dimensional matrix, in which the rows represent source vertices
+            and columns represent destination vertices. Data on edges and vertices
+            must be stored externally. Only the cost for one edge can be stored
+            between each pair of vertices.
+
+        Incidence matrix
+
+        :   A two-dimensional Boolean matrix, in which the rows represent the
+            vertices and columns represent the edges. The entries indicate whether
+            the vertex at a row is incident to the edge at a column.
+
+            ![An undirected graph.](https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Labeled_undirected_graph.svg/375px-Labeled_undirected_graph.svg.png)
+
+            For example the incidence matrix of the undirected graph shown on the
+            right is a matrix consisting of 4 rows (corresponding to the four
+            vertices, 1-4) and 4 columns (corresponding to the four edges, e1-e4):
+
+            ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/99f6e54a9f49d5a3ae4c25e396d8b7c153cdaa07)
+
+        ![](http://whudoc.qiniudn.com/2016/firefox_2016-09-06_11-26-02.png)
+
+        **Adjacency lists are generally preferred because they efficiently represent
+        sparse graphs. An adjacency matrix is preferred if the graph is dense, that
+        is the number of edges |E| is close to the number of vertices squared,
+        |V|^2^, or if one must be able to quickly look up if there is an edge
+        connecting two vertices.**
+
+        refs and see also
+
+        -   [Graphs in Computer Science](http://web.cecs.pdx.edu/~sheard/course/Cs163/Doc/Graphs.html)
+        -   [Adjacency list - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Adjacency_list)
+        -   [Adjacency matrix - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Adjacency_matrix)
+        -   [Incidence matrix - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Incidence_matrix)
+        -   [Graph (abstract data type) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Graph_(abstract_data_type))
+
+    trees -<
+
+    :   Spanning tree -<
+
+        :   In the mathematical field of graph theory, **a spanning tree T of an
+            undirected graph G is a subgraph that is a tree which includes all of the
+            vertices of G**. In general, a graph may have several spanning trees, but a
+            graph that is not connected will not contain a spanning tree (but see
+            Spanning forests below). If all of the edges of G are also edges of a
+            spanning tree T of G, then G is a tree and is identical to T
+            (that is, **a tree has a unique spanning tree and it is itself**).
+
+            Several pathfinding algorithms, including Dijkstra's algorithm and the `A*`
+            search algorithm, internally **build a spanning tree as an intermediate step in solving the problem**.
+
+            Definitions
+
+            :   **A tree is a connected undirected graph with no cycles**. It is a spanning
+                tree of a graph G if it spans G (that is, it includes every vertex of
+                G) and is a subgraph of G (every edge in the tree belongs to G). A
+                spanning tree of a connected graph G can also be defined as a maximal
+                set of edges of G that contains no cycle, or as a minimal set of edges
+                that connect all vertices.
+
+            minimal/minimum spanning tree
+
+            In some cases, it is easy to calculate t(G) directly:
+
+            -   If G is itself a tree, then t(G) = 1.
+            -   When G is the cycle graph Cn with n vertices, then t(G) = n.
+            -   For a complete graph with n vertices, Cayley's formula gives the number of spanning trees as n^n−2^.
+            -   If G is the complete bipartite graph K~p,q~, then t(G) = p^q-1^q^p-1^.
+            -   For the n-dimensional hypercube graph...
+
+            arbitrary tree?
+
+            see [Kirchhoff's theorem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem).
+
+            Prim's algorithm -<
+
+            :   In computer science, Prim's algorithm is **a greedy algorithm** that
+                **finds a minimum spanning tree for a weighted undirected graph**.
+                This means it finds a subset of the edges that forms a tree that includes every
+                vertex, where the total weight of all the edges in the tree is
+                minimized. The algorithm operates by building this tree one vertex at a
+                time, from an arbitrary starting vertex, at each step adding the
+                cheapest possible connection from the tree to another vertex.
+
+        Self-balancing binary search tree -<
+
+        :   In computer science, a self-balancing (or height-balanced) binary
+            search tree is any node-based binary search tree that automatically
+            keeps its height (maximal number of levels below the root) small in the
+            face of arbitrary item insertions and deletions.
+
+            The red–black tree, which is a type of self-balancing binary search
+            tree, was called symmetric binary B-tree and was renamed but can
+            still be confused with the generic concept of self-balancing binary
+            search tree because of the initials.
+
+        AVL tree -<
+
+        :   d(height(left), height(right)) = { -1, 0, 1 }, left-heavy, right-heavy, balanced.
+
+        Splay tree -<
+
+        :   A splay（展开） tree is a self-adjusting binary search tree with the additional
+            property that recently accessed elements are quick to access again. It
+            performs basic operations such as insertion, look-up and removal in
+            O(log n) amortized time. For many sequences of non-random operations,
+            splay trees perform better than other search trees, even when the
+            specific pattern of the sequence is unknown. The splay tree was
+            invented by Daniel Sleator and Robert Tarjan in 1985.
+
+            Advantages -<
+
+            :   Good performance for a splay tree depends on the fact that it is
+                **self-optimizing**, in that frequently accessed nodes will move nearer
+                to the root where they can be accessed more quickly. The worst-case
+                height—though unlikely—is O(n), with the average being O(log n).
+                Having frequently used nodes near the root is an advantage for many
+                practical applications (also see **Locality of reference**), and is
+                particularly useful for implementing caches and garbage collection
+                algorithms.
+
+                Locality of reference -<
+
+                :   In computer science, locality of reference, also known as the
+                    principle of locality, is a term for the phenomenon in which
+                    the same values, or related storage locations, are frequently
+                    accessed, depending on the memory access pattern. There are two
+                    basic types of reference locality – temporal and spatial
+                    locality. Temporal locality refers to the reuse of specific
+                    data, and/or resources, within a relatively small time
+                    duration. Spatial locality refers to the use of data elements
+                    within relatively close storage locations.  Sequential
+                    locality, a special case of spatial locality, occurs when data
+                    elements are arranged and accessed linearly, such as,
+                    traversing the elements in a one-dimensional array.
+
+                    Locality is merely one type of predictable behavior that occurs
+                    in computer systems. Systems that exhibit strong locality of
+                    reference are great candidates for performance optimization
+                    through the use of techniques such as the caching, prefetching
+                    for memory and advanced branch predictors at the pipelining
+                    stage of processor core.
+
+                    There are several different types of locality of reference:
+
+                    -   Temporal locality
+                    -   Spatial locality
+                    -   Memory locality
+                    -   Branch locality
+                    -   Equidistant locality
+
+                    refs and see also
+
+                    -   [Locality of reference - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Locality_of_reference)
+
+                Advantages include:
+
+                -   Comparable performance: Average-case performance is as efficient as other trees.
+                -   Small memory footprint: Splay trees **do not need to store any bookkeeping data**.
+
+            Disadvantages -<
+
+            :   The most significant disadvantage of splay trees is that
+                **the height of a splay tree can be linear**. For example, this
+                will be the case after accessing all n elements in non-decreasing
+                order. Since the height of a tree corresponds to the worst-case
+                access time, this means that the actual cost of an operation can be
+                high. However the amortized access cost of this worst case is
+                logarithmic, O(log n).  Also, the expected access cost can be
+                reduced to O(log n) by using a randomized variant.
+
+                The representation of splay trees can **change even when they are
+                accessed in a 'read-only' manner** (i.e. by find operations). This
+                complicates the use of such splay trees in a multi-threaded
+                environment. Specifically, extra management is needed if multiple
+                threads are allowed to perform find operations concurrently. This
+                also makes them **unsuitable for general use in purely functional
+                programming**, although they can be used in limited ways to
+                implement priority queues even there.
+
+            ![zig](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Splay_tree_zig.svg/1064px-Splay_tree_zig.svg.png)
+
+            ![zig zig](https://upload.wikimedia.org/wikipedia/commons/f/fd/Zigzig.gif)
+
+            C++ 实现 -<
 
             :   ```cpp
-                struct node *grandparent(struct node *n)
-                {
-                    if ((n != NULL) && (n->parent != NULL))
-                        return n->parent->parent;
-                    else
-                        return NULL;
-                }
+                #include <functional>
 
-                struct node *uncle(struct node *n)
-                {
-                    struct node *g = grandparent(n);
-                    if (g == NULL)
-                        return NULL; // No grandparent means no uncle
-                    if (n->parent == g->left)
-                        return g->right;
-                    else
-                        return g->left;
-                }
+                #ifndef SPLAY_TREE
+                #define SPLAY_TREE
 
-                struct node *sibling(struct node *n)
-                {
-                    if ((n == NULL) || (n->parent == NULL))
-                        return NULL; // no parent means no sibling
-                    if (n == n->parent->left)
-                        return n->parent->right;
-                    else
-                        return n->parent->left;
-                }
+                template< typename T, typename Comp = std::less< T > >
+                class splay_tree {
+                private:
+                  Comp comp;
+                  unsigned long p_size;
+
+                  struct node {
+                    node *left, *right;
+                    node *parent;
+                    T key;
+                    node( const T& init = T( ) ) : left( 0 ), right( 0 ), parent( 0 ), key( init ) { }
+                    ~node( ) {
+                      if( left ) delete left;
+                      if( right ) delete right;
+                      if( parent ) delete parent;
+                    }
+                  } *root;
+
+                  void left_rotate( node *x ) {
+                    node *y = x->right;
+                    if(y) {
+                      x->right = y->left;
+                      if( y->left ) y->left->parent = x;
+                      y->parent = x->parent;
+                    }
+
+                    if( !x->parent ) root = y;
+                    else if( x == x->parent->left ) x->parent->left = y;
+                    else x->parent->right = y;
+                    if(y) y->left = x;
+                    x->parent = y;
+                  }
+
+                  void right_rotate( node *x ) {
+                    node *y = x->left;
+                    if(y) {
+                      x->left = y->right;
+                      if( y->right ) y->right->parent = x;
+                      y->parent = x->parent;
+                    }
+                    if( !x->parent ) root = y;
+                    else if( x == x->parent->left ) x->parent->left = y;
+                    else x->parent->right = y;
+                    if(y) y->right = x;
+                    x->parent = y;
+                  }
+
+                  void splay( node *x ) {
+                    while( x->parent ) {
+                      if( !x->parent->parent ) {
+                        if( x->parent->left == x ) right_rotate( x->parent );
+                        else left_rotate( x->parent );
+                      } else if( x->parent->left == x && x->parent->parent->left == x->parent ) {
+                        right_rotate( x->parent->parent );
+                        right_rotate( x->parent );
+                      } else if( x->parent->right == x && x->parent->parent->right == x->parent ) {
+                        left_rotate( x->parent->parent );
+                        left_rotate( x->parent );
+                      } else if( x->parent->left == x && x->parent->parent->right == x->parent ) {
+                        right_rotate( x->parent );
+                        left_rotate( x->parent );
+                      } else {
+                        left_rotate( x->parent );
+                        right_rotate( x->parent );
+                      }
+                    }
+                  }
+
+                  void replace( node *u, node *v ) {
+                    if( !u->parent ) root = v;
+                    else if( u == u->parent->left ) u->parent->left = v;
+                    else u->parent->right = v;
+                    if( v ) v->parent = u->parent;
+                  }
+
+                  node* subtree_minimum( node *u ) {
+                    while( u->left ) u = u->left;
+                    return u;
+                  }
+
+                  node* subtree_maximum( node *u ) {
+                    while( u->right ) u = u->right;
+                    return u;
+                  }
+                public:
+                  splay_tree( ) : root( 0 ), p_size( 0 ) { }
+
+                  void insert( const T &key ) {
+                    node *z = root;
+                    node *p = 0;
+
+                    while( z ) {
+                      p = z;
+                      if( comp( z->key, key ) ) z = z->right;
+                      else z = z->left;
+                    }
+
+                    z = new node( key );
+                    z->parent = p;
+
+                    if( !p ) root = z;
+                    else if( comp( p->key, z->key ) ) p->right = z;
+                    else p->left = z;
+
+                    splay( z );
+                    p_size++;
+                  }
+
+                  node* find( const T &key ) {
+                    node *z = root;
+                    while( z ) {
+                      if( comp( z->key, key ) ) z = z->right;
+                      else if( comp( key, z->key ) ) z = z->left;
+                      else return z;
+                    }
+                    return 0;
+                  }
+
+                  void erase( const T &key ) {
+                    node *z = find( key );
+                    if( !z ) return;
+
+                    splay( z );
+
+                    if( !z->left ) replace( z, z->right );
+                    else if( !z->right ) replace( z, z->left );
+                    else {
+                      node *y = subtree_minimum( z->right );
+                      if( y->parent != z ) {
+                        replace( y, y->right );
+                        y->right = z->right;
+                        y->right->parent = y;
+                      }
+                      replace( z, y );
+                      y->left = z->left;
+                      y->left->parent = y;
+                    }
+
+                    delete z;
+                    p_size--;
+                  }
+
+                  const T& minimum( ) { return subtree_minimum( root )->key; }
+                  const T& maximum( ) { return subtree_maximum( root )->key; }
+
+                  bool empty( ) const { return root == 0; }
+                  unsigned long size( ) const { return p_size; }
+                };
+
+                #endif // SPLAY_TREE
                 ```
 
-            There are several cases of red–black tree insertion to handle:
+        B-tree -<
 
-            1.  N is the root node, i.e., first node of red–black tree -<
+        :   In computer science, a B-tree is a self-balancing tree data structure
+            that keeps data sorted and allows searches, sequential access,
+            insertions, and deletions in logarithmic time. The B-tree is a
+            generalization of a binary search tree in that a node can have more
+            than two children (Comer 1979, p. 123). Unlike self-balancing binary
+            search trees, the B-tree is **optimized for systems that read and write
+            large blocks of data**. B-trees are a good example of
+            **a data structure for external memory**. It is commonly used in databases and filesystems.
+
+            multi-way search tree
+              ~ A multiway tree is a tree that can have more than two children. A
+                multiway tree of order m (or an m-way tree) is one in which a tree
+                can have m children.
+
+            ![A B-tree (Bayer & McCreight 1972) of order 5 (Knuth 1998).](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/B-tree.svg/600px-B-tree.svg.png)
+
+            Etymology -<
+
+            :   >   The origin of "B-tree" has never been explained by the authors.
+                >   As we shall see, "balanced," "broad," or "bushy" might apply.
+                >   Others suggest that the "B" stands for Boeing. Because of his
+                >   contributions, however, it seems appropriate to think of
+                >   B-trees as "Bayer"-trees. (Comer 1979, p. 123 footnote 1)
+
+            Advantages of B-tree usage for databases -<
+
+            :   The B-tree uses all of the ideas described above. In particular, a B-tree:
+
+                -   keeps keys in sorted order for sequential traversing
+                -   uses a hierarchical index to minimize the number of disk reads
+                -   uses partially full blocks to speed insertions and deletions
+                -   keeps the index balanced with an elegant recursive algorithm
+
+                In addition, a B-tree minimizes waste by making sure the interior
+                nodes are at least half full. A B-tree can handle an arbitrary
+                number of insertions and deletions.
+
+            Disadvantages of B-trees -<
+
+            :   maximum key length cannot be changed without completely rebuilding
+                the database. This led to many database systems truncating full human
+                names to 70 characters.
+
+            According to Knuth's definition, **a B-tree of order m** is a tree which
+            satisfies the following properties:
+
+            -   Every node has at most m children.
+            -   Every non-leaf node (except root) has at least ⌈m/2⌉ (ceil of m/2) children.
+            -   The root has at least two children if it is not a leaf node.
+            -   A non-leaf node with k children contains k−1 keys.
+            -   All leaves appear in the same level
+
+            It can be shown (by induction for example) that a B-tree of height h
+            with all its nodes completely filled has n= mh+1−1 entries. Hence, the
+            best case height of a B-tree is: log~m~^n+1^.
+
+            ![(A B Tree insertion example with each iteration. The nodes of this B tree have at most 3 children (Knuth order 3).](https://en.wikipedia.org/wiki/File:B_tree_insertion_example.png)
+
+        Red–black tree -<
+
+        :   A red–black tree is a kind of self-balancing binary search tree. Each
+            node of the binary tree has an extra bit, and that bit is often
+            interpreted as the color (red or black) of the node. These color bits
+            are used to ensure the tree remains approximately balanced during
+            insertions and deletions.
+
+            Balance is preserved by painting each node of the tree with one of two
+            colors (typically called 'red' and 'black') in a way that satisfies
+            certain properties, which collectively constrain how unbalanced the
+            tree can become in the worst case. When the tree is modified, the new
+            tree is subsequently rearranged and repainted to restore the coloring
+            properties. The properties are designed in such a way that this
+            **rearranging and recoloring can be performed efficiently**.
+
+            The balancing of the tree is not perfect, but it is good enough to
+            allow it to guarantee **searching in O(log n) time**, where n is the total
+            number of elements in the tree. The insertion and deletion operations,
+            along with the tree rearrangement and recoloring, are also performed in
+            O(log n) time.
+
+            Tracking the color of each node requires only 1 bit of information per
+            node because there are only two colors. The tree does not contain any
+            other data specific to its being a red–black tree so its memory
+            footprint is almost identical to a classic (uncolored) binary search
+            tree. In many cases the additional bit of information can be stored at
+            no additional memory cost.
+
+            The leaf nodes of red–black trees do not contain data. These leaves
+            need not be explicit in computer memory—a null child pointer can encode
+            the fact that this child is a leaf—but it simplifies some algorithms
+            for operating on red–black trees if the leaves really are explicit
+            nodes. To save memory, sometimes a single sentinel node performs the
+            role of all leaf nodes; all references from internal nodes to leaf
+            nodes then point to the sentinel node.
+
+            ![An example of a red–black tree](https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Red-black_tree_example.svg/750px-Red-black_tree_example.svg.png)
+
+            properties
+
+            #.  A node is either red or black.
+            #.  **The root is black**. This rule is sometimes omitted. Since the root can
+                always be changed from red to black, but not necessarily vice versa, this
+                rule has little effect on analysis.
+            #.  **All leaves (NIL) are black.**
+            #.  **If a node is red, then both its children are black.**
+            #.  Every path from a given node to any of its descendant NIL nodes contains
+                **the same number of black nodes**. Some definitions: the number of black nodes
+                from the root to a node is the node's 【black depth; the uniform number of
+                black nodes in all paths from root to the leaves is called the 【black-height】
+                of the red–black tree.
+
+            These constraints enforce a critical property of red–black trees: the
+            path from the root to the farthest leaf is no more than twice as long
+            as the path from the root to the nearest leaf. The result is that the
+            tree is roughly height-balanced. Since operations such as inserting,
+            deleting, and finding values require worst-case time proportional to
+            the height of the tree, this theoretical upper bound on the height
+            allows red–black trees to be efficient in the worst case, unlike
+            ordinary binary search trees.
+
+            ![The same red–black tree as in the example above, seen as a
+                B-tree.](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Red-black_tree_example_%28B-tree_analogy%29.svg/640px-Red-black_tree_example_%28B-tree_analogy%29.svg.png)
+
+            The red–black tree is then structurally equivalent to a B-tree of order
+            4, with a minimum fill factor of 33% of values per cluster with a
+            maximum capacity of 3 values.
+
+            This B-tree type is still more general than a red–black tree though, as
+            it allows ambiguity in a red–black tree conversion—multiple red–black
+            trees can be produced from an equivalent B-tree of order 4.
+
+            Insertion -<
+
+            :   RB-tree properties:
+
+                -   property 3 (all leaves are black) always holds.
+                -   property 4 (both children of every red node are black) is threatened only by adding a red node, repainting a black node red, or a rotation.
+                -   property 5 (all paths from any given node to its leaf nodes contain the same number of black nodes) is threatened only by adding a black node, repainting a red node black (or vice versa), or a rotation.
+
+                N: 当前 node，P：parent node，G：grandparent node，U：uncle node。 -<
 
                 :   ```cpp
-                    void insert_case1(struct node *n)
+                    struct node *grandparent(struct node *n)
                     {
-                        if (n->parent == NULL)
-                            n->color = BLACK;
+                        if ((n != NULL) && (n->parent != NULL))
+                            return n->parent->parent;
                         else
-                            insert_case2(n);
+                            return NULL;
                     }
-                    ```
 
-            2.  P is black -<
-
-                :   ```cpp
-                    void insert_case2(struct node *n)
-                    {
-                        if (n->parent->color == BLACK)
-                            return; /* Tree is still valid */
-                        else
-                            insert_case3(n);
-                    }
-                    ```
-
-                    The current node's parent P is black, so property 4 (both
-                    children of every red node are black) is not invalidated.
-                    In this case, the tree is still valid. Property 5 (all
-                    paths from any given node to its leaf nodes contain the
-                    same number of black nodes) is not threatened, because the
-                    current node N has two black leaf children, but because N
-                    is red, the paths through each of its children have the
-                    same number of black nodes as the path through the leaf it
-                    replaced, which was black, and so this property remains
-                    satisfied.
-
-                    Note: In the following cases it can be assumed that N has a
-                    grandparent node G, because its parent P is red, and if it
-                    were the root, it would be black. Thus, N also has an uncle
-                    node U, although it may be a leaf in cases 4 and 5.
-
-            3.  P & U are red -<
-
-                :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Red-black_tree_insert_case_3.svg/600px-Red-black_tree_insert_case_3.svg.png)
-
-                    ```cpp
-                    void insert_case3(struct node *n)
-                    {
-                        struct node *u = uncle(n), *g;
-
-                        if ((u != NULL) && (u->color == RED)) {
-                            n->parent->color = BLACK;
-                            u->color = BLACK;
-                            g = grandparent(n);
-                            g->color = RED;
-                            insert_case1(g);
-                        } else {
-                            insert_case4(n);
-                        }
-                    }
-                    ```
-
-
-                    Note: In the remaining cases, it is assumed that the parent
-                    node P is the left child of its parent. If it is the right
-                    child, left and right should be reversed throughout cases 4
-                    and 5. The code samples take care of this.
-
-            4.  N is added to right of left child of grandparent, or N is added to left of right child of grandparent (P is red and U is black) -<
-
-                :   ![](https://en.wikipedia.org/wiki/File:Red-black_tree_insert_case_4.svg)
-
-                    ```cpp
-                    void insert_case4(struct node *n)
+                    struct node *uncle(struct node *n)
                     {
                         struct node *g = grandparent(n);
+                        if (g == NULL)
+                            return NULL; // No grandparent means no uncle
+                        if (n->parent == g->left)
+                            return g->right;
+                        else
+                            return g->left;
+                    }
 
-                        if ((n == n->parent->right) && (n->parent == g->left)) {
-                            rotate_left(n->parent);
-
-                            /*
-                             * rotate_left can be the below because of already having *g =  grandparent(n)
-                             *
-                             * struct node *saved_p=g->left, *saved_left_n=n->left;
-                             * g->left=n;
-                             * n->left=saved_p;
-                             * saved_p->right=saved_left_n;
-                             *
-                             * and modify the parent's nodes properly
-                             */
-
-                            n = n->left;
-
-                        } else if ((n == n->parent->left) && (n->parent == g->right)) {
-                            rotate_right(n->parent);
-
-                            /*
-                             * rotate_right can be the below to take advantage of already having *g =  grandparent(n)
-                             *
-                             * struct node *saved_p=g->right, *saved_right_n=n->right;
-                             * g->right=n;
-                             * n->right=saved_p;
-                             * saved_p->left=saved_right_n;
-                             *
-                             */
-
-                            n = n->right;
-                        }
-                        insert_case5(n);
+                    struct node *sibling(struct node *n)
+                    {
+                        if ((n == NULL) || (n->parent == NULL))
+                            return NULL; // no parent means no sibling
+                        if (n == n->parent->left)
+                            return n->parent->right;
+                        else
+                            return n->parent->left;
                     }
                     ```
 
-            5.  N is added to left of left child of grandparent, or N is added to right of right child of grandparent (P is red and U is black) -<
+                There are several cases of red–black tree insertion to handle:
 
-            :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Red-black_tree_insert_case_5.svg/600px-Red-black_tree_insert_case_5.svg.png)
+                1.  N is the root node, i.e., first node of red–black tree -<
 
-                ```cpp
-                void insert_case5(struct node *n)
-                {
-                    struct node *g = grandparent(n);
+                    :   ```cpp
+                        void insert_case1(struct node *n)
+                        {
+                            if (n->parent == NULL)
+                                n->color = BLACK;
+                            else
+                                insert_case2(n);
+                        }
+                        ```
 
-                    n->parent->color = BLACK;
-                    g->color = RED;
-                    if (n == n->parent->left)
-                        rotate_right(g);
-                    else
-                        rotate_left(g);
-                }
-                ```
+                2.  P is black -<
 
-            Note that inserting is actually in-place, since all the calls above use tail recursion.
+                    :   ```cpp
+                        void insert_case2(struct node *n)
+                        {
+                            if (n->parent->color == BLACK)
+                                return; /* Tree is still valid */
+                            else
+                                insert_case3(n);
+                        }
+                        ```
 
-        Removal -<
+                        The current node's parent P is black, so property 4 (both
+                        children of every red node are black) is not invalidated.
+                        In this case, the tree is still valid. Property 5 (all
+                        paths from any given node to its leaf nodes contain the
+                        same number of black nodes) is not threatened, because the
+                        current node N has two black leaf children, but because N
+                        is red, the paths through each of its children have the
+                        same number of black nodes as the path through the leaf it
+                        replaced, which was black, and so this property remains
+                        satisfied.
 
-        :   todo.
+                        Note: In the following cases it can be assumed that N has a
+                        grandparent node G, because its parent P is red, and if it
+                        were the root, it would be black. Thus, N also has an uncle
+                        node U, although it may be a leaf in cases 4 and 5.
 
-        可靠性、稳定性
+                3.  P & U are red -<
 
-    k-d tree -<
+                    :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Red-black_tree_insert_case_3.svg/600px-Red-black_tree_insert_case_3.svg.png)
 
-    :   In computer science, a k-d tree (short for k-dimensional tree) is a
-        space-partitioning data structure for organizing points in a
-        k-dimensional space. k-d trees are a useful data structure for several
-        applications, such as searches involving a multidimensional search key
-        (e.g. range searches and nearest neighbor searches). k-d trees are a
-        special case of binary space partitioning trees.
+                        ```cpp
+                        void insert_case3(struct node *n)
+                        {
+                            struct node *u = uncle(n), *g;
 
-        ![A 3-dimensional k-d tree. The first split (the red vertical plane)
-            cuts the root cell (white) into two subcells, each of which is then
-            split (by the green horizontal planes) into two subcells. Finally,
-            those four cells are split (by the four blue vertical planes) into
-            two subcells. Since there is no more splitting, the final eight are
-            called leaf cells.](https://en.wikipedia.org/wiki/File:3dtree.png)
+                            if ((u != NULL) && (u->color == RED)) {
+                                n->parent->color = BLACK;
+                                u->color = BLACK;
+                                g = grandparent(n);
+                                g->color = RED;
+                                insert_case1(g);
+                            } else {
+                                insert_case4(n);
+                            }
+                        }
+                        ```
 
-        The k-d tree is a **binary tree** in which every node is a
-        k-dimensional point. Every non-leaf node can be thought of as
-        implicitly generating a splitting hyperplane that divides the space
-        into two parts, known as half-spaces. Points to the left of this
-        hyperplane are represented by the left subtree of that node and points
-        right of the hyperplane are represented by the right subtree. The
-        hyperplane direction is chosen in the following way: every node in the
-        tree is associated with one of the k-dimensions, with the hyperplane
-        perpendicular to that dimension's axis. So, for example, if for a
-        particular split the "x" axis is chosen, all points in the subtree with
-        a smaller "x" value than the node will appear in the left subtree and
-        all points with larger "x" value will be in the right subtree. In such
-        a case, the hyperplane would be set by the x-value of the point, and
-        its normal would be the unit x-axis.
+                        Note: In the remaining cases, it is assumed that the parent
+                        node P is the left child of its parent. If it is the right
+                        child, left and right should be reversed throughout cases 4
+                        and 5. The code samples take care of this.
 
-        ![k-d tree decomposition for the point set (2,3), (5,4), (9,6), (4,7), (8,1), (7,2).](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Kdtree_2d.svg/555px-Kdtree_2d.svg.png)
+                4.  N is added to right of left child of grandparent, or N is added to left of right child of grandparent (P is red and U is black) -<
 
-        ![The resulting k-d tree.](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tree_0001.svg/555px-Tree_0001.svg.png)
+                    :   ![](https://en.wikipedia.org/wiki/File:Red-black_tree_insert_case_4.svg)
 
-    refs and see also
+                        ```cpp
+                        void insert_case4(struct node *n)
+                        {
+                            struct node *g = grandparent(n);
 
-    -   [k-d tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/K-d_tree)
-    -   [B-tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/B-tree)
-    -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
-    -   [Spanning tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Spanning_tree)
-    -   [Self-balancing binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
-    -   [Splay tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Splay_tree)
-    -   [Binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Binary_search_tree)
-    -   [AVL tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/AVL_tree)
-    -   [Prim's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Prim%27s_algorithm)
-    -   [Mutli-way Trees](http://faculty.cs.niu.edu/~freedman/340/340notes/340multi.htm)
+                            if ((n == n->parent->right) && (n->parent == g->left)) {
+                                rotate_left(n->parent);
 
-Hash Function -<
+                                /*
+                                 * rotate_left can be the below because of already having *g =  grandparent(n)
+                                 *
+                                 * struct node *saved_p=g->left, *saved_left_n=n->left;
+                                 * g->left=n;
+                                 * n->left=saved_p;
+                                 * saved_p->right=saved_left_n;
+                                 *
+                                 * and modify the parent's nodes properly
+                                 */
 
-:   A hash function is any function that can be used to map data of arbitrary
-    size to data of fixed size. The values returned by a hash function are
-    called hash values, hash codes, hash sums, or simply hashes.
+                                n = n->left;
 
-    Perfect hashing
+                            } else if ((n == n->parent->left) && (n->parent == g->right)) {
+                                rotate_right(n->parent);
 
-    :   A hash function that is **injective**—that is, maps each valid input to a
-        different hash value—is said to be perfect. With such a function one
-        can directly locate the desired entry in a hash table, without any
-        additional searching.
+                                /*
+                                 * rotate_right can be the below to take advantage of already having *g =  grandparent(n)
+                                 *
+                                 * struct node *saved_p=g->right, *saved_right_n=n->right;
+                                 * g->right=n;
+                                 * n->right=saved_p;
+                                 * saved_p->left=saved_right_n;
+                                 *
+                                 */
 
-    refs and see also
+                                n = n->right;
+                            }
+                            insert_case5(n);
+                        }
+                        ```
 
-    -   [Hash function - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hash_function)
+                5.  N is added to left of left child of grandparent, or N is added to right of right child of grandparent (P is red and U is black) -<
 
-Dijkstra's algorithm -<
+                    :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Red-black_tree_insert_case_5.svg/600px-Red-black_tree_insert_case_5.svg.png)
 
-:   Dijkstra's algorithm is an algorithm for finding the shortest paths between
-    nodes in a graph, which may represent, for example, road networks. It was
-    conceived by computer scientist Edsger W. Dijkstra in 1956 and published
-    three years later.
+                        ```cpp
+                        void insert_case5(struct node *n)
+                        {
+                            struct node *g = grandparent(n);
 
-    ![Dijkstra's algorithm to find the shortest path between a and b. It picks
-        the unvisited vertex with the lowest distance, calculates the distance
-        through it to each unvisited neighbor, and updates the neighbor's
-        distance if smaller. Mark visited (set to red) when done with
-        neighbors.](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif)
+                            n->parent->color = BLACK;
+                            g->color = RED;
+                            if (n == n->parent->left)
+                                rotate_right(g);
+                            else
+                                rotate_left(g);
+                        }
+                        ```
 
-    ![](https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif)
+                        Note that inserting is actually in-place, since all the calls above use tail recursion.
 
-    ```
-     1  function Dijkstra(Graph, source):
-     2
-     3      create vertex set Q
-     4
-     5      for each vertex v in Graph:             // Initialization
-     6          dist[v] ← INFINITY                  // Unknown distance from source to v
-     7          prev[v] ← UNDEFINED                 // Previous node in optimal path from source
-     8          add v to Q                          // All nodes initially in Q (unvisited nodes)
-     9
-    10      dist[source] ← 0                        // Distance from source to source
-    11
-    12      while Q is not empty:
-    13          u ← vertex in Q with min dist[u]    // Source node will be selected first
-    14          remove u from Q
-    15
-    16          for each neighbor v of u:           // where v is still in Q.
-    17              alt ← dist[u] + length(u, v)
-    18              if alt < dist[v]:               // A shorter path to v has been found
-    19                  dist[v] ← alt
-    20                  prev[v] ← u
-    21
-    22      return dist[], prev[]
-    ```
+            Removal -<
 
-    If we are only interested in a shortest path between vertices source and
-    target, we can terminate the search after line 13 if u = target. Now we can
-    read the shortest path from source to target by reverse iteration:
+            :   todo.
 
-    ```
-     1  S ← empty sequence
-     2  u ← target
-     3  while prev[u] is defined:                  // Construct the shortest path with a stack S
-     4      insert u at the beginning of S         // Push the vertex onto the stack
-     5      u ← prev[u]                            // Traverse from target to source
-     6  insert u at the beginning of S             // Push the source onto the stack
-    ```
+            可靠性、稳定性
 
-    Using a priority queue
+        k-d tree -<
 
-    ```
-     1  function Dijkstra(Graph, source):
-     2      dist[source] ← 0                                // Initialization
-     3
-     4      create vertex set Q
-     5
-     6      for each vertex v in Graph:
-     7          if v ≠ source
-     8              dist[v] ← INFINITY                      // Unknown distance from source to v
-     9              prev[v] ← UNDEFINED                     // Predecessor of v
-    10
-    11         Q.add_with_priority(v, dist[v])
-    12
-    13
-    14      while Q is not empty:                           // The main loop
-    15          u ← Q.extract_min()                         // Remove and return best vertex
-    16          for each neighbor v of u:                   // only v that is still in Q
-    17              alt = dist[u] + length(u, v)
-    18              if alt < dist[v]
-    19                  dist[v] ← alt
-    20                  prev[v] ← u
-    21                  Q.decrease_priority(v, alt)
-    22
-    23     return dist[], prev[]
-    ```
+        :   In computer science, a k-d tree (short for **k-dimensional tree**) is a
+            space-partitioning data structure for organizing points in a
+            k-dimensional space. k-d trees are a useful data structure for several
+            applications, such as searches involving a multidimensional search key
+            (e.g. range searches and nearest neighbor searches). k-d trees are a
+            special case of binary space partitioning trees.
 
-    refs and see also
+            ![A 3-dimensional k-d tree. The first split (the red vertical plane)
+                cuts the root cell (white) into two subcells, each of which is then
+                split (by the green horizontal planes) into two subcells. Finally,
+                those four cells are split (by the four blue vertical planes) into
+                two subcells. Since there is no more splitting, the final eight are
+                called leaf cells.](https://upload.wikimedia.org/wikipedia/commons/b/b6/3dtree.png)
 
-    -   [Dijkstra's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+            The k-d tree is a **binary tree** in which every node is a
+            k-dimensional point. Every non-leaf node can be thought of as
+            implicitly generating a splitting hyperplane that divides the space
+            into two parts, known as half-spaces. Points to the left of this
+            hyperplane are represented by the left subtree of that node and points
+            right of the hyperplane are represented by the right subtree. The
+            hyperplane direction is chosen in the following way: every node in the
+            tree is associated with one of the k-dimensions, with the hyperplane
+            perpendicular to that dimension's axis. So, for example, if for a
+            particular split the "x" axis is chosen, all points in the subtree with
+            a smaller "x" value than the node will appear in the left subtree and
+            all points with larger "x" value will be in the right subtree. In such
+            a case, the hyperplane would be set by the x-value of the point, and
+            its normal would be the unit x-axis.
 
-`A*` search algorithm -<
+            ![k-d tree decomposition for the point set (2,3), (5,4), (9,6), (4,7), (8,1), (7,2).](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Kdtree_2d.svg/555px-Kdtree_2d.svg.png)
 
-:   In computer science, `A*` (pronounced as "A star") is a computer algorithm
-    that is widely used in pathfinding and graph traversal, the process of
-    plotting an efficiently traversable path between multiple points, called
-    nodes. Noted for its performance and accuracy, it enjoys widespread use.
-    However, in practical travel-routing systems, it is generally outperformed
-    by algorithms which can pre-process the graph to attain better performance,
-    although other work has found `A*` to be superior to other approaches.
+            ![The resulting k-d tree.](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tree_0001.svg/555px-Tree_0001.svg.png)
 
-    `A*` achieves better performance by using heuristics to guide its search.
+        refs and see also
 
-    `A*` selects the path that minimizes: f(n) = g(n) + h(n), n: node, g: cost dist, h: heuristic dist.
+        -   [k-d tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/K-d_tree)
+        -   [B-tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/B-tree)
+        -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+        -   [Spanning tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Spanning_tree)
+        -   [Self-balancing binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
+        -   [Splay tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Splay_tree)
+        -   [Binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Binary_search_tree)
+        -   [AVL tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/AVL_tree)
+        -   [Prim's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Prim%27s_algorithm)
+        -   [Mutli-way Trees](http://faculty.cs.niu.edu/~freedman/340/340notes/340multi.htm)
 
-    ![](https://upload.wikimedia.org/wikipedia/commons/5/5d/Astar_progress_animation.gif)
+    Hash Function -<
 
-    ![Key: green: start; blue: goal; orange: visited](https://en.wikipedia.org/wiki/File:AstarExampleEn.gif)
+    :   A hash function is any function that can be used to map data of arbitrary
+        size to data of fixed size. The values returned by a hash function are
+        called hash values, hash codes, hash sums, or simply hashes.
 
-    ```cpp
-    function A*(start, goal)
-        // The set of nodes already evaluated.
-        closedSet := {}
-        // The set of currently discovered nodes still to be evaluated.
-        // Initially, only the start node is known.
-        openSet := {start}
-        // For each node, which node it can most efficiently be reached from.
-        // If a node can be reached from many nodes, cameFrom will eventually contain the
-        // most efficient previous step.
-        cameFrom := the empty map
+        Perfect hashing
 
-        // For each node, the cost of getting from the start node to that node.
-        gScore := map with default value of Infinity
-        // The cost of going from start to start is zero.
-        gScore[start] := 0
-        // For each node, the total cost of getting from the start node to the goal
-        // by passing by that node. That value is partly known, partly heuristic.
-        fScore := map with default value of Infinity
-        // For the first node, that value is completely heuristic.
-        fScore[start] := heuristic_cost_estimate(start, goal)
+        :   A hash function that is **injective**—that is, maps each valid input to a
+            different hash value—is said to be perfect. With such a function one
+            can directly locate the desired entry in a hash table, without any
+            additional searching.
 
-        while openSet is not empty
-            current := the node in openSet having the lowest fScore[] value
-            if current = goal
-                return reconstruct_path(cameFrom, current)
+        refs and see also
 
-            openSet.Remove(current)
-            closedSet.Add(current)
-            for each neighbor of current
-                if neighbor in closedSet
-                    continue        // Ignore the neighbor which is already evaluated.
-                // The distance from start to a neighbor
-                tentative_gScore := gScore[current] + dist_between(current, neighbor)
-                if neighbor not in openSet  // Discover a new node
-                    openSet.Add(neighbor)
-                else if tentative_gScore >= gScore[neighbor]
-                    continue        // This is not a better path.
+        -   [Hash function - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hash_function)
 
-                // This path is the best until now. Record it!
-                cameFrom[neighbor] := current
-                gScore[neighbor] := tentative_gScore
-                fScore[neighbor] := gScore[neighbor] + heuristic_cost_estimate(neighbor, goal)
+    Dijkstra's algorithm -<
 
-        return failure
+    :   Dijkstra's algorithm is an algorithm for finding the shortest paths between
+        nodes in a graph, which may represent, for example, road networks. It was
+        conceived by computer scientist Edsger W. Dijkstra in 1956 and published
+        three years later.
 
-    function reconstruct_path(cameFrom, current)
-        total_path := [current]
-        while current in cameFrom.Keys:
-            current := cameFrom[current]
-            total_path.append(current)
-        return total_path
-    ```
+        ![Dijkstra's algorithm to find the shortest path between a and b. It picks
+            the unvisited vertex with the lowest distance, calculates the distance
+            through it to each unvisited neighbor, and updates the neighbor's
+            distance if smaller. Mark visited (set to red) when done with
+            neighbors.](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif)
 
-    refs and see also
+        ![](https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif)
 
-    -   [`A*` search algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/A*_search_algorithm)
+        ```
+         1  function Dijkstra(Graph, source):
+         2
+         3      create vertex set Q
+         4
+         5      for each vertex v in Graph:             // Initialization
+         6          dist[v] ← INFINITY                  // Unknown distance from source to v
+         7          prev[v] ← UNDEFINED                 // Previous node in optimal path from source
+         8          add v to Q                          // All nodes initially in Q (unvisited nodes)
+         9
+        10      dist[source] ← 0                        // Distance from source to source
+        11
+        12      while Q is not empty:
+        13          u ← vertex in Q with min dist[u]    // Source node will be selected first
+        14          remove u from Q
+        15
+        16          for each neighbor v of u:           // where v is still in Q.
+        17              alt ← dist[u] + length(u, v)
+        18              if alt < dist[v]:               // A shorter path to v has been found
+        19                  dist[v] ← alt
+        20                  prev[v] ← u
+        21
+        22      return dist[], prev[]
+        ```
 
-[DSACPP, 数据结构（C++语言版）](http://dsa.cs.tsinghua.edu.cn/%7Edeng/ds/dsacpp/index.htm)
+        If we are only interested in a shortest path between vertices source and
+        target, we can terminate the search after line 13 if u = target. Now we can
+        read the shortest path from source to target by reverse iteration:
+
+        ```
+         1  S ← empty sequence
+         2  u ← target
+         3  while prev[u] is defined:                  // Construct the shortest path with a stack S
+         4      insert u at the beginning of S         // Push the vertex onto the stack
+         5      u ← prev[u]                            // Traverse from target to source
+         6  insert u at the beginning of S             // Push the source onto the stack
+        ```
+
+        Using a priority queue
+
+        ```
+         1  function Dijkstra(Graph, source):
+         2      dist[source] ← 0                                // Initialization
+         3
+         4      create vertex set Q
+         5
+         6      for each vertex v in Graph:
+         7          if v ≠ source
+         8              dist[v] ← INFINITY                      // Unknown distance from source to v
+         9              prev[v] ← UNDEFINED                     // Predecessor of v
+        10
+        11         Q.add_with_priority(v, dist[v])
+        12
+        13
+        14      while Q is not empty:                           // The main loop
+        15          u ← Q.extract_min()                         // Remove and return best vertex
+        16          for each neighbor v of u:                   // only v that is still in Q
+        17              alt = dist[u] + length(u, v)
+        18              if alt < dist[v]
+        19                  dist[v] ← alt
+        20                  prev[v] ← u
+        21                  Q.decrease_priority(v, alt)
+        22
+        23     return dist[], prev[]
+        ```
+
+        refs and see also
+
+        -   [Dijkstra's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+
+    `A*` search algorithm -<
+
+    :   In computer science, `A*` (pronounced as "A star") is a computer algorithm
+        that is widely used in pathfinding and graph traversal, the process of
+        plotting an efficiently traversable path between multiple points, called
+        nodes. Noted for its performance and accuracy, it enjoys widespread use.
+        However, in practical travel-routing systems, it is generally outperformed
+        by algorithms which can pre-process the graph to attain better performance,
+        although other work has found `A*` to be superior to other approaches.
+
+        `A*` achieves better performance by using heuristics to guide its search.
+
+        `A*` selects the path that minimizes: f(n) = g(n) + h(n), n: node, g: cost dist, h: heuristic dist.
+
+        ![](https://upload.wikimedia.org/wikipedia/commons/5/5d/Astar_progress_animation.gif)
+
+        ![Key: green: start; blue: goal; orange: visited](https://en.wikipedia.org/wiki/File:AstarExampleEn.gif)
+
+        ```cpp
+        function A*(start, goal)
+            // The set of nodes already evaluated.
+            closedSet := {}
+            // The set of currently discovered nodes still to be evaluated.
+            // Initially, only the start node is known.
+            openSet := {start}
+            // For each node, which node it can most efficiently be reached from.
+            // If a node can be reached from many nodes, cameFrom will eventually contain the
+            // most efficient previous step.
+            cameFrom := the empty map
+
+            // For each node, the cost of getting from the start node to that node.
+            gScore := map with default value of Infinity
+            // The cost of going from start to start is zero.
+            gScore[start] := 0
+            // For each node, the total cost of getting from the start node to the goal
+            // by passing by that node. That value is partly known, partly heuristic.
+            fScore := map with default value of Infinity
+            // For the first node, that value is completely heuristic.
+            fScore[start] := heuristic_cost_estimate(start, goal)
+
+            while openSet is not empty
+                current := the node in openSet having the lowest fScore[] value
+                if current = goal
+                    return reconstruct_path(cameFrom, current)
+
+                openSet.Remove(current)
+                closedSet.Add(current)
+                for each neighbor of current
+                    if neighbor in closedSet
+                        continue        // Ignore the neighbor which is already evaluated.
+                    // The distance from start to a neighbor
+                    tentative_gScore := gScore[current] + dist_between(current, neighbor)
+                    if neighbor not in openSet  // Discover a new node
+                        openSet.Add(neighbor)
+                    else if tentative_gScore >= gScore[neighbor]
+                        continue        // This is not a better path.
+
+                    // This path is the best until now. Record it!
+                    cameFrom[neighbor] := current
+                    gScore[neighbor] := tentative_gScore
+                    fScore[neighbor] := gScore[neighbor] + heuristic_cost_estimate(neighbor, goal)
+
+            return failure
+
+        function reconstruct_path(cameFrom, current)
+            total_path := [current]
+            while current in cameFrom.Keys:
+                current := cameFrom[current]
+                total_path.append(current)
+            return total_path
+        ```
+
+        refs and see also
+
+        -   [`A*` search algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/A*_search_algorithm)
+
+    Travelling salesman problem -<
+
+    :   The travelling salesman problem (TSP) asks the following question: Given a
+        list of **cities** and the **distances** between each pair of cities, what is the
+        **shortest possible route that visits each city exactly once and returns to
+        the origin city**? It is an NP-hard problem in combinatorial optimization,
+        important in operations research and theoretical computer science.
+
+        ![Solution of a travelling salesman
+            problem](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/GLPK_solution_of_a_travelling_salesman_problem.svg/330px-GLPK_solution_of_a_travelling_salesman_problem.svg.png)
+
+        **TSP can be modelled as an undirected weighted graph**, such that cities are
+        the graph's vertices, paths are the graph's edges, and a path's distance is
+        the edge's length. It is a minimization problem starting and finishing at a
+        specified vertex after having visited each other vertex exactly once.
+        Often, the model is a complete graph (i.e. each pair of vertices is
+        connected by an edge). If no path exists between two cities, adding an
+        arbitrarily long edge will complete the graph without affecting the optimal
+        tour.
+
+        Exact algorithms
+
+        :   try all permutations (ordered combinations) -> brute force, O(n!)
+
+        Heuristic and approximation algorithms
+
+        :   NN 近邻法
+
+        refs and see also
+
+        -   [Travelling salesman problem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
+
+    [ACM 题集以及各种总结大全！ - 枯槐树下乘凉 - 博客频道 - CSDN.NET](http://blog.csdn.net/kuhuaishuxia/article/details/52254209)
+
+    [《挑战程序设计竞赛(第2版)》-码农场](http://www.hankcs.com/tag/%e3%80%8a%e6%8c%91%e6%88%98%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e7%ab%9e%e8%b5%9b%e7%ac%ac2%e7%89%88%e3%80%8b/)
+
+    [演算法筆記](http://www.csie.ntnu.edu.tw/~u91029/)
+
+    [網誌 - BYVoid](https://www.byvoid.com/blog/tag/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)
+
+    [hiho 一下第 114 周《Image Encryption》题目分析 - hihoCoder](http://hihocoder.com/discuss/question/3663)
+
+    [DSACPP, 数据结构（C++语言版）](http://dsa.cs.tsinghua.edu.cn/%7Edeng/ds/dsacpp/index.htm)
+
+    [程序员如何快速准备面试中的算法 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/19131887)
+
+    shitshit
 
 [LeetCode solutions | MaskRay](http://maskray.me/blog/2014-06-29-leetcode-solutions){.hearts} -<
 
@@ -21453,315 +22955,13 @@ Dijkstra's algorithm -<
 
     [http://tangzx.qiniudn.com/notes/leetcode-maskray/index.html](http://tangzx.qiniudn.com/notes/leetcode-maskray/index.html)
 
-    [Trapping Rain Water | LeetCode OJ](https://leetcode.com/problems/trapping-rain-water/) -<
-
-    :   ![](http://www.leetcode.com/wp-content/uploads/2012/08/rainwatertrap.png)
-
-        对于每个柱子，找到其左右两边最高的柱子，该柱子能容纳的面积就是 min(max_left, max_right) - height。所以，
-
-        -   从左往右扫描一遍，对于每个柱子，求取左边最大值；
-        -   从右往左扫描一遍，对于每个柱子，求最大右值；
-        -   再扫描一遍，把每个柱子的面积并累加。
-
-        也可以，
-
-        -   扫描一遍，找到最高的柱子，这个柱子将数组分为两半；
-        -   处理左边一半；
-        -   处理右边一半。
-
-        ```cpp
-        class Solution {
-        public:
-            int trap(vector<int> &h) {
-                int hl = 0, hr = 0, i = 0, j = h.size(), s = 0;
-                while (i < j) {
-                    if (hl < hr) {
-                        s += max(min(hl, hr)-h[i], 0);
-                        hl = max(hl, h[i++]);
-                    } else {
-                        s += max(min(hl, hr)-h[--j], 0);
-                        hr = max(hr, h[j]);
-                    }
-                }
-                return s;
-            }
-        };
-        ```
-
-        ```cpp
-        class Solution {
-        public:
-            int trap(const vector<int>& A) {
-                if( n < 2 ) { return 0; }                               // 注意后面的 A[n-1] 一定要保证不越界啊！
-
-                const int n = A.size();
-                vector<int> max_left( n ), max_right( n );
-                max_left[0] = A[0]; max_right[n-1] = A[n-1];
-                for (int i = 1; i < n; i++ ) {
-                    max_left[i] = max(max_left[i - 1], A[i-1]);
-                    max_right[n-1-i] = max(max_right[n-i], A[n-i]);
-                }
-
-                int sum = 0;
-                for (int i = 0; i < n; i++) {
-                    int height = min(max_left[i], max_right[i]);
-                    if (height > A[i]) {
-                        sum += height - A[i];
-                    }
-                }
-                return sum;
-            }
-        };
-        ```
-
-    [Rotate Image | LeetCode OJ](https://leetcode.com/problems/rotate-image/) -<
-
-    :   复制太慢！用两次翻折，如下图：
-
-        ```
-        先副对角线，在中线
-        1   2               4   2               3   1
-          /         -->      ---        --->
-        3   4               3   1               4   2
-        (i,j)
-        i=[0,n-1)       P(i,j)->P(n-1-j,n-1-i)
-        j=[0,n-1-i)
-
-        先中线，再主对角线
-        1   2               3   4               3   1
-         ---        -->       \         --->
-        3   4               1   2               4   2
-        ```
-
-        看来怎么翻折都是可以得。自己随意选择把。
-
-        ```cpp
-        // Rotate Image
-        #define REP(i, n) for (int i = 0; i < (n); i++)
-
-        class Solution {
-        public:
-            void rotate(vector<vector<int> > &a) {
-                int n = a.size();
-                REP(i, n-1)
-                    REP(j, n-1-i)
-                    swap(a[i][j], a[n-1-j][n-1-i]);
-                REP(i, n/2)
-                    swap_ranges(a[i].begin(), a[i].end(), a[n-1-i].begin());
-            }
-        };
-        ```
-
-    [Plus One | LeetCode OJ](https://leetcode.com/problems/plus-one/) -<
-
-    :   ```cpp
-        class Solution {
-        public:
-            vector<int> plusOne(vector<int> &a) {
-                using namespace std::placeholders;
-                if (find_if(a.begin(), a.end(), bind(not_equal_to<int>(), _1, 9)) == a.end()) {
-                    a.assign(a.size()+1, 0);
-                    a[0] = 1;
-                } else {
-                    int i = a.size();
-                    while (++a[--i] >= 10)
-                        a[i] -= 10;
-                }
-                return a;
-            }
-        };
-        ```
-
-        ```cpp
-        class Solution {
-        public:
-            vector<int> plusOne(vector<int> &digits) {
-                add(digits, 1);
-                return digits;
-            }
-        private:
-            // 0 <= digit <= 9
-            void add(vector<int> &digits, int digit) {
-                int c = digit;  // carry, 进位
-
-                for (auto it = digits.rbegin(); it != digits.rend(); ++it) {
-                    *it += c;
-                    c = *it / 10;
-                    *it %= 10;
-                    if( !c ) { return; } // 没有 carry 就退出咯
-                }
-
-                if (c > 0) digits.insert(digits.begin(), 1);
-            }
-        };
-        ```
-
-    [Gray Code | LeetCode OJ](https://leetcode.com/problems/gray-code/) -<
-
-    :   The gray code is a binary numeral system where two successive values differ
-        in only one bit.
-
-        Given a non-negative integer n representing the total number of bits in the
-        code, print the sequence of gray code. A gray code sequence must begin with 0.
-
-        For example, given n = 2, return [0,1,3,2]. Its gray code sequence is:
-
-        ```
-        00 - 0
-        01 - 1
-        11 - 3
-        10 - 2
-        ```
-
-        自然二进制码转换为格雷码：g~0~ = b~0~, g~i~=b~i~ ^ b~i-1~
-
-        保留自然二进制码的最高位作为格雷码的最高位，格雷码次高位为二进制码的高位与
-        次高位异或，其余各位与次高位的求法类似。例如，将自然二进制码 1001，转换为格
-        雷码的过程是：保留最高位；然后将第 1 位的 1 和第 2 位的 0 异或，得到 1，作
-        为格雷码的第 2 位；将第 2 位的 0 和第 3 位的 0 异或，得到 0，作为格雷码的第
-        3 位；将第 3 位的 0 和第 4 位的 1 异或，得到 1，作为格雷码的第 4 位，最终，
-        格雷码为 1101。
-
-        格雷码有数学公式，整数 n 的格雷码是 n ^ (n/2)。
-
-        这题要求生成 n 比特的所有格雷码。
-
-        -   方法 1，最简单的方法，利用数学公式，对从 0..2^n-1^ 的所有整数，转化为格雷码。
-        -   方法 2，n 比特的格雷码，可以递归地从 n-1 比特的格雷码生成。
-
-        ![The first few steps of the reflect-and-prefix method.](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Binary-reflected_Gray_code_construction.svg/250px-Binary-reflected_Gray_code_construction.svg.png)
-
-        see more at [Gray code - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Gray_code).
-
-        ```cpp
-        #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
-        #define REP(i, n) FOR(i, 0, n)
-
-        class Solution {
-        public:
-            vector<int> grayCode(int n) {
-                vector<int> r;
-                REP(i, 1 << n)
-                    r.push_back(i^i>>1);
-                return r;
-            }
-        };
-        ```
-
-        ```cpp
-        class Solution {
-        public:
-            vector<int> grayCode(int n) {
-                const size_t size = 1 << n;  // 2^n
-                vector<int> result( size );
-                for (size_t i = 0; i < size; ++i)
-                    result[i] = binary_to_gray(i);
-                return result;
-            }
-        private:
-            static unsigned int binary_to_gray(unsigned int n) {
-                return n ^ (n >> 1);
-            }
-        };
-        ```
-
-        ```cpp
-        // reflect-and-prefix method
-        // 时间复杂度 O(2^n)，空间复杂度 O(1)
-        class Solution {
-        public:
-            vector<int> grayCode(int n) {
-                vector<int> result;
-                result.reserve(1<<n);
-                result.push_back(0);
-                for (int i = 0; i < n; i++) {
-                    const int highest_bit = 1 << i;
-                    for (int j = result.size() - 1; j >= 0; j--) // 要反着遍历，才能对称
-                        result.push_back(highest_bit | result[j]);
-                }
-                return result;
-            }
-        };
-        ```
-
-    [Single Number | LeetCode OJ](https://leetcode.com/problems/single-number/) -<
-
-    :   Given an array of integers, every element appears twice except for one. Find that single one.
-
-        偶数次异或等于 0。0 异或 x 等于 x。
-
-        ```cpp
-        class Solution {
-        public:
-            int singleNumber(vector<int> &a) {
-                return accumulate(a.begin(), a.end(), 0, bit_xor<int>());
-            }
-        };
-        ```
-
-        ```cpp
-        class Solution {
-        public:
-            int singleNumber(vector<int>& nums) {
-                int x = 0;
-                for (auto i : nums) {
-                    x ^= i;
-                }
-                return x;
-            }
-        };
-        ```
-
-    [Single Number II | LeetCode OJ](https://leetcode.com/problems/single-number-ii/) -<
-
-    :   只有一次数只出现了一次，其余都是三次。
-
-        方法1：创建一个长度为 sizeof(int) 的数组 `count[sizeof(int)]`，`count[i]`
-        表示在 i 位出现的 1 的次数。如果 count[i] 是 3 的整数倍，则忽略；否则就把该
-        位取出来组成答案。
-
-        ```cpp
-        #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
-        #define REP(i, n) FOR(i, 0, n)
-        class Solution {
-        public:
-            int singleNumber(vector<int> &a) {
-                vector<int> c(32);
-                for (int x: a)
-                    REP(j, 32)
-                        c[j] += x>>j & 1;
-                int r = 0;
-                REP(j, 32)
-                    r |= ( c[j]%3 & 1 ) << j;
-                return r;
-            }
-        };
-        ```
-
-        方法 2：用 one 记录到当前处理的元素为止，二进制 1 出现“1 次”（mod 3 之后的1）
-        的有哪些二进制位；用 two 记录到当前计算的变量为止，二进制 1 出现“2 次”
-        （mod 3 之后的 2）的有哪些二进制位。当 one 和 two 中的某一位同时为 1 时表示
-        该二进制位上 1 出现了 3 次，此时需要清零。即**用二进制模拟三进制运算**。最
-        终 one 记录的是最终结果。
-
-        ```cpp
-        class Solution {
-        public:
-            int singleNumber(vector<int> &a) {
-                int one = 0, two = 0;
-                for (int x: a) {
-                    one = (one ^ x) & ~ two;
-                    two = (two ^ x) & ~ one;
-                }
-                return one;
-            }
-        };
-        ```
-
     [Add Two Numbers | LeetCode OJ](https://leetcode.com/problems/add-two-numbers/) -<
 
-    :   ```cpp
-        // 时间复杂度O(m+n)，空间复杂度O(1)
+    :   -   Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+        -   Output: 7 -> 0 -> 8
+
+        ```cpp
+        // 时间复杂度 O(m+n)，空间复杂度 O(1)
         class Solution {
         public:
             ListNode *addTwoNumbers(ListNode *l1, ListNode *l2) {
@@ -21803,7 +23003,7 @@ Dijkstra's algorithm -<
                     }
                     auto x = new ListNode(c%10);
                     c /= 10;
-                    if (! r)
+                    if (! r)                    // 这里可以对比出上面的 dummy node 多么巧妙
                         r = p = x;
                     else {
                         p->next = x;
@@ -21817,7 +23017,89 @@ Dijkstra's algorithm -<
         };
         ```
 
-    [Reverse Linked List | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list/) -<
+        一个类似的题：
+
+        [Add Binary | LeetCode OJ](https://leetcode.com/problems/add-binary/) -<
+
+        :   ```cpp
+            // 时间复杂度 O(n)，空间复杂度 O(1)
+            class Solution {
+            public:
+                string addBinary(string a, string b) {
+                    const size_t n = max( a.size(), b.size() );
+                    string result;
+                    result.reserve( n+1 );
+                    result.resize( n );
+                    reverse(a.begin(), a.end());
+                    reverse(b.begin(), b.end());
+                    int carry = 0;
+                    for (size_t i = 0; i < n; i++) {
+                        int ai = i < a.size() ? a[i] - '0' : 0;
+                        int bi = i < b.size() ? b[i] - '0' : 0;
+                        int val = (ai + bi + carry) % 2;
+                        carry = (ai + bi + carry) / 2;
+                        result[i] = val + '0';
+                    }
+                    if (carry == 1) {
+                        result.push_back( '1' );
+                    }
+                    reverse( result.begin(), result.end() );
+                    return result;
+                }
+            };
+            ```
+
+            还有一个类似的题，这个可以提前退出（因为不是两个数相加）：
+
+            [Plus One | LeetCode OJ](https://leetcode.com/problems/plus-one/) -<
+
+            :   这个直观：
+
+                ```cpp
+                class Solution {
+                public:
+                    vector<int> plusOne(vector<int> &digits) {
+                        add(digits, 1);
+                        return digits;
+                    }
+                private:
+                    // 0 <= digit <= 9
+                    void add(vector<int> &digits, int digit) {
+                        int c = digit;  // carry, 进位
+
+                        for (auto it = digits.rbegin(); it != digits.rend(); ++it) {
+                            *it += c;
+                            c = *it / 10;
+                            *it %= 10;
+                            if( !c ) { return; } // 没有 carry 就退出咯
+                        }
+
+                        if (c > 0) digits.insert(digits.begin(), 1);
+                    }
+                };
+                ```
+
+                这个不太好理解：
+
+                ```cpp
+                class Solution {
+                public:
+                    vector<int> plusOne(vector<int> &a) {
+                        using namespace std::placeholders;
+                        if (find_if(a.begin(), a.end(), bind(not_equal_to<int>(), _1, 9)) == a.end()) {
+                            a.assign(a.size()+1, 0);
+                            a[0] = 1;
+                        } else {
+                            int i = a.size();
+                            while (++a[--i] >= 10)
+                                a[i] -= 10;
+                        }
+                        return a;
+                    }
+                };
+                ```
+
+    [Reverse Linked List | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list/) :hearts: -<
 
     :   ```cpp
         class Solution {
@@ -21825,7 +23107,7 @@ Dijkstra's algorithm -<
             ListNode* reverseList(ListNode* x) {
                 ListNode *y = 0, *t;    // 初始为 0
                 while (x) {
-                    t = x->next;        // 保存起来
+                    t = x->next;        // 保存后面可以执行的内容
                     x->next = y;        // 颠倒方向，指向上一个头指针
                     y = x;              // 更新头指针
                     x = t;              // 下一步
@@ -21835,7 +23117,7 @@ Dijkstra's algorithm -<
         };
         ```
 
-    [Reverse Linked List II | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list-ii/) :hearts: -<
+    [Reverse Linked List II | LeetCode OJ](https://leetcode.com/problems/reverse-linked-list-ii/) :hearts: :hearts: -<
 
     :   难在需要在指定范围内 reverse。
 
@@ -21847,12 +23129,45 @@ Dijkstra's algorithm -<
 
         ```
         Given 1->2->3->4->5->NULL, m = 2 and n = 4,
-
         return 1->4->3->2->5->NULL.
+
+        初始：
+            1   ->  2   ->  3   ->  4   ->  5   ->  NULL
+
+        操作：
+                +-------------------+
+                |                   |
+                |                   V
+            1 ->+   2   <-  3   <-  4       5   ->  NULL
+                    |                       ^
+                    |                       |
+                    +-----------------------+
+
+        结果：
+            1   ->  4   ->  3   ->  2   ->  5   ->  NULL
+
+        dummy.next = &1
+        prev = &dummy
+
+            1   ->  2   ->  3   ->  4   ->  5   ->  NULL
+            ^
+            |
+            prev, head2
+
+
+                    +-----------------------+
+                    |                       |
+                    |                       V
+            1   ->  2   ->  3   ->  4   ->  5   ->  NULL
+            ^       ^       ^       ^
+            |       |       |       |
+            head2   prev <- cur     |
+                    |               |
+                    +---------------+
         ```
 
         ```cpp
-        // 迭代版，时间复杂度O(n)，空间复杂度O(1)
+        // 迭代版，时间复杂度 O(n)，空间复杂度 O(1)
         class Solution {
         public:
             ListNode *reverseBetween(ListNode *head, int m, int n) {
@@ -21863,40 +23178,17 @@ Dijkstra's algorithm -<
                 for (int i = 0; i < m-1; ++i)
                     prev = prev->next;
 
-                ListNode* const head2 = prev;
-
-                prev = head2->next;
-                ListNode *cur = prev->next;
+                ListNode *head2 = prev;                 // head2 指向变化区域之前的一个元素
+                prev            = head2->next;
+                ListNode *cur   = prev->next;
                 for (int i = m; i < n; ++i) {
-                    prev->next = cur->next;
-                    cur->next = head2->next;
-                    head2->next = cur;              // 头插法
-                    cur = prev->next;
+                    prev->next = cur->next;             // 保存
+                    cur->next = head2->next;            // 这是保存了的”新“头，也就是上一个节点，第一次调用的时候，恰好是 &5
+                    head2->next = cur;                  // 头插法
+                    cur = prev->next;                   // 恢复
                 }
 
                 return dummy.next;
-            }
-        };
-        ```
-
-        ```cpp
-        class Solution {
-        public:
-            ListNode *reverseBetween(ListNode *head, int m, int n) {
-                ListNode **p = &head;
-                n -= m-1;
-                while (--m)
-                    p = &(*p)->next;
-                ListNode *q = *p, *r = q, *l = q, *t;
-                while (n--) {
-                    t = q->next;
-                    q->next = l;
-                    l = q;
-                    q = t;
-                }
-                *p = l;
-                r->next = q;
-                return head;
             }
         };
         ```
@@ -21913,10 +23205,10 @@ Dijkstra's algorithm -<
         present. When the cache reached its capacity, it should invalidate the
         least recently used item before inserting a new item.
 
-        为了使查找、插入和删除都有较高的性能，我们使用一个双向链表(std::list)和一个
-        哈希表(std::unordered_map)，因为：
+        为了使查找、插入和删除都有较高的性能，我们使用一个双向链表 (`std::list`) 和一个
+        哈希表 (`std::unordered_map`)，因为：
 
-        -   哈希表保存每个节点的地址，可以基本保证在$O(1)$时间内查找节点
+        -   哈希表保存每个节点的地址，可以基本保证在 O(1) 时间内查找节点
         -   双向链表插入和删除效率高，单向链表插入和删除时，还要查找节点的前驱节点
 
         具体实现细节：
@@ -21994,103 +23286,261 @@ Dijkstra's algorithm -<
             bool isPalindrome(string s) {
                 int left = 0, right = s.size()-1;
                 while( left < right ) {
-                    while( !::isalnum(s[left])  && left+1 <= right ) { ++left; }
+                    while( !::isalnum(s[left])  && left+1 <= right ) { ++left;  }
                     while( !::isalnum(s[right]) && right-1 >= left ) { --right; }
-                    if( left <= right ) {
+                    if( left < right ) {
                         if( ::tolower(s[left]) != ::tolower(s[right]) ) {
                             return false;
                         }
-                        ++left;
-                        --right;
                     }
+                    ++left;
+                    --right;
                 }
                 return true;
             }
         };
         ```
 
-    [Add Binary | LeetCode OJ](https://leetcode.com/problems/add-binary/) -<
-
-    :   ```cpp
-        // 时间复杂度 O(n)，空间复杂度 O(1)
-        class Solution {
-        public:
-            string addBinary(string a, string b) {
-                const size_t n = max( a.size(), b.size() );
-                string result;
-                result.reserve( n+1 );
-                result.resize( n );
-                reverse(a.begin(), a.end());
-                reverse(b.begin(), b.end());
-                int carry = 0;
-                for (size_t i = 0; i < n; i++) {
-                    int ai = i < a.size() ? a[i] - '0' : 0;
-                    int bi = i < b.size() ? b[i] - '0' : 0;
-                    int val = (ai + bi + carry) % 2;
-                    carry = (ai + bi + carry) / 2;
-                    result[i] = val + '0';
-                }
-                if (carry == 1) {
-                    result.push_back( '1' );
-                }
-                reverse( result.begin(), result.end() );
-                return result;
-            }
-        };
-        ```
-
     [Longest Palindromic Substring | LeetCode OJ](https://leetcode.com/problems/longest-palindromic-substring/) :hearts: -<
 
-    :   -   思路一：暴力枚举，以每个元素为中间元素，同时从左右出发，复杂度 O(n^2)。
+    :   先理解下啥是 Longest substring -<
 
-        -   思路二：记忆化搜索，复杂度 O(n^2)。设 `f[i][j]` 表示 `[i,j]` 之间的最长回文子串，递推方程如下：
+        :   Nil.
 
-            ```
-            f[i][j] = if (i == j) S[i]
-                      if (S[i] == S[j] && f[i+1][j-1] == S[i+1][j-1]) S[i][j]
-                      else max(f[i+1][j-1], f[i][j-1], f[i+1][j])
-            ```
+            refs and see also
 
-        -   思路三：动规，复杂度 O(n^2)。设状态为 `f(i,j)`，表示区间 `[i,j]` 是否为回文串，则状态转移方程为
+            -   [Longest common substring problem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Longest_common_substring_problem)
 
-            ```
-                                true                                        i=j
-            f(i,j)      =       S[i]=S[j]                                   j = i + 1
-                                S[i]=S[j] and f(i+1, j-1)                   j > i + 1
-            ```
+        **Difficulty: Medium**
 
-        -   思路四：Manacher’s Algorithm, 复杂度 O(n)。详细见 [Longest Palindromic Substring Part II – LeetCode](http://articles.leetcode.com/longest-palindromic-substring-part-ii)。
+        Given a string S, find the longest palindromic substring in S. You may
+        assume that the maximum length of S is 1000, and there exists one
+        unique longest palindromic substring.
 
-            ```cpp
-            // Longest Palindromic Substring
-            // Manacher's algorithm
+        -   思路一：暴力枚举，以每个元素为中间元素，同时从左右出发，复杂度 O(n^2) -<
 
-            #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
-            #define REP(i, n) FOR(i, 0, n)
+            :   这个效率并不低。
 
-            class Solution {
-            public:
-                string longestPalindrome(string s) {
-                    string a(2*s.size()+1, '.');
-                    vector<int> z(2*s.size()+1);
-                    REP(i, s.size())
-                        a[2*i+1] = s[i];
-                    for (int f, g = 0, i = 0; i < a.size(); i++)
-                        if (i < g && z[2*f-i] != g-i)
-                            z[i] = min(z[2*f-i], g-i);
-                        else {
-                            f = i;
-                            g = max(g, i);
-                            while (g < a.size() && 2*f-g >= 0 && a[g] == a[2*f-g]) g++;
-                            z[i] = g-f;
-                        }
-                    int x = max_element(z.begin(), z.end()) - z.begin();
-                    return s.substr((x-z[x]+1)/2, z[x]-1);
+        -   思路二：记忆化搜索，复杂度 O(n^2)。设 `f[i][j]` 表示 `[i,j]` 之间的最长回文子串 -<
+
+            :   递推方程如下：
+
+                ```
+                f[i][j] = if (i == j) S[i]
+                          if (S[i] == S[j] && f[i+1][j-1] == S[i+1][j-1]) S[i][j]
+                          else max(f[i+1][j-1], f[i][j-1], f[i+1][j])
+                ```
+
+                ```cpp
+                // 时间复杂度 O(n^2)，空间复杂度 O(n^2)
+                typedef string::const_iterator Iterator;
+
+                namespace std {
+                template<>
+                struct hash<pair<Iterator, Iterator>> {
+                    size_t operator()(pair<Iterator, Iterator> const& p) const {
+                        return ((size_t) &(*p.first)) ^ ((size_t) &(*p.second));
+                    }
+                };
                 }
-            };
-            ```
 
-    C:\Users\tzx\Downloads\LM\leetcode-master\C++\leetcode-cpp.tex
+                class Solution {
+                public:
+                    string longestPalindrome(string const& s) {
+                        cache.clear();
+                        return cachedLongestPalindrome(s.begin(), s.end());
+                    }
+
+                private:
+                    unordered_map<pair<Iterator, Iterator>, string> cache;
+
+                    string longestPalindrome(Iterator first, Iterator last) {
+                        size_t length = distance(first, last);
+
+                        if (length < 2) return string(first, last);
+
+                        auto s = cachedLongestPalindrome(next(first), prev(last));
+
+                        if (s.length() == length - 2 && *first == *prev(last))
+                            return string(first, last);
+
+                        auto s1 = cachedLongestPalindrome(next(first), last);
+                        auto s2 = cachedLongestPalindrome(first, prev(last));
+
+                        // return max(s, s1, s2)
+                        if (s.size() > s1.size()) return s.size() > s2.size() ? s : s2;
+                        else return s1.size() > s2.size() ? s1 : s2;
+                    }
+
+                    string cachedLongestPalindrome(Iterator first, Iterator last) {
+                        auto key = make_pair(first, last);
+                        auto pos = cache.find(key);
+
+                        if (pos != cache.end()) return pos->second;
+                        else return cache[key] = longestPalindrome(first, last);
+                    }
+                };
+                ```
+
+        -   思路三：动规，复杂度 O(n^2)。设状态为 `f(i,j)`，表示区间 `[i,j]` 是否为回文串 -<
+
+            :   则状态转移方程为
+
+                ```
+                                    true                                        i=j
+                f(i,j)      =       S[i]=S[j]                                   j = i + 1
+                                    S[i]=S[j] and f(i+1, j-1)                   j > i + 1
+                ```
+
+                ```cpp
+                // 动规，时间复杂度 O(n^2)，空间复杂度 O(n^2)
+                class Solution {
+                public:
+                    string longestPalindrome(const string& s) {
+                        const int n = s.size();
+                        bool f[n][n];
+                        fill_n(&f[0][0], n * n, false);
+                        size_t max_len = 1, start = 0;  // 最长回文子串的长度，起点
+
+                        for (size_t i = 0; i < s.size(); i++) {
+                            f[i][i] = true;
+                            for (size_t j = 0; j < i; j++) {            // 区间：[j, i]
+                                // 这个 f[j+1][i-1] 决定了 i 的遍历顺序，j 无所谓，因为上一层的都是计算过的
+                                f[j][i] = ( s[j] == s[i] && (i - j < 2 || f[j + 1][i - 1]) );
+                                if (f[j][i] && max_len < (i - j + 1)) {
+                                    max_len = i - j + 1;
+                                    start = j;
+                                }
+                            }
+                        }
+                        return s.substr(start, max_len);
+                    }
+                };
+                ```
+
+                Soulmachine 说用 vector 会超时 `vector<vector<bool> > f(n, vector<bool>(n, false));`，
+                估计是 `vector<bool>` 寻址效率太低导致。其实换成 `vector<vector<int>> f` 就好了。
+
+        -   思路四：Manacher’s Algorithm, 复杂度 O(n)。 -<
+
+            :   详细见 [Longest Palindromic Substring Part II – LeetCode](http://articles.leetcode.com/longest-palindromic-substring-part-ii)。
+                （下文有摘录。）
+
+                ```cpp
+                // Longest Palindromic Substring
+                // Manacher's algorithm
+
+                #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
+                #define REP(i, n) FOR(i, 0, n)
+
+                class Solution {
+                public:
+                    string longestPalindrome(string s) {
+                        string a(2*s.size()+1, '.');
+                        vector<int> z(2*s.size()+1);
+                        REP(i, s.size())
+                            a[2*i+1] = s[i];
+                        for (int f, g = 0, i = 0; i < a.size(); i++)
+                            if (i < g && z[2*f-i] != g-i)
+                                z[i] = min(z[2*f-i], g-i);
+                            else {
+                                f = i;
+                                g = max(g, i);
+                                while (g < a.size() && 2*f-g >= 0 && a[g] == a[2*f-g]) g++;
+                                z[i] = g-f;
+                            }
+                        int x = max_element(z.begin(), z.end()) - z.begin();
+                        return s.substr((x-z[x]+1)/2, z[x]-1);
+                    }
+                };
+                ```
+
+            LeetCode 上面的分析也挺有意思 -<
+
+            :   ```
+                Stated more formally below:
+                    Define P[ i, j ] ← true iff the substring Si … Sj is a palindrome, otherwise false.
+
+                Therefore,
+                    P[ i, j ] ← ( P[ i+1, j-1 ] and Si = Sj )
+
+                The base cases are:
+                    P[ i, i ] ← true
+                    P[ i, i+1 ] ← ( Si = Si+1 )
+                ```
+
+                This yields a straight forward DP solution, which we first
+                initialize the one and two letters palindromes, and work our
+                way up finding all three letters palindromes, and so on…
+
+                This gives us a run time complexity of O(N2) and uses O(N2)
+                space to store the table.
+
+                ```cpp
+                string longestPalindromeDP(string s) {
+                    int n = s.length();
+                    int longestBegin = 0;
+                    int maxLen = 1;
+                    bool table[1000][1000] = {false};
+                    for (int i = 0; i < n; i++) {
+                        table[i][i] = true;
+                    }
+                    for (int i = 0; i < n-1; i++) {
+                        if (s[i] == s[i+1]) {
+                            table[i][i+1] = true;
+                            longestBegin = i;
+                            maxLen = 2;
+                        }
+                    }
+                    for (int len = 3; len <= n; len++) {
+                        for (int i = 0; i < n-len+1; i++) {
+                            int j = i+len-1;
+                            if (s[i] == s[j] && table[i+1][j-1]) {
+                                table[i][j] = true;
+                                longestBegin = i;
+                                maxLen = len;
+                            }
+                        }
+                    }
+                    return s.substr(longestBegin, maxLen);
+                }
+                ```
+
+                或者，从中心像两边扩张。
+
+                ```cpp
+                string expandAroundCenter(string s, int c1, int c2) {
+                    int l = c1, r = c2;
+                    int n = s.length();
+                    while (l >= 0 && r <= n-1 && s[l] == s[r]) {
+                        l--;
+                        r++;
+                    }
+                    return s.substr(l+1, r-l-1);
+                }
+
+                string longestPalindromeSimple(string s) {
+                    int n = s.length();
+                    if (n == 0) return "";
+                    string longest = s.substr(0, 1);  // a single char itself is a palindrome
+                    for (int i = 0; i < n-1; i++) {
+                        string p1 = expandAroundCenter(s, i, i);
+                        if (p1.length() > longest.length())
+                            longest = p1;
+
+                        string p2 = expandAroundCenter(s, i, i+1);
+                        if (p2.length() > longest.length())
+                            longest = p2;
+                    }
+                    return longest;
+                }
+                ```
+
+                An O(N) Solution (Manacher’s Algorithm)，TODO
+
+        refs and see also
+
+        -   [Longest Palindromic Substring Part II – LeetCode](http://articles.leetcode.com/longest-palindromic-substring-part-ii)
 
     [Regular Expression Matching | LeetCode OJ](https://leetcode.com/problems/regular-expression-matching/) -<
 
@@ -22174,72 +23624,70 @@ Dijkstra's algorithm -<
 
     [Longest Common Prefix | LeetCode OJ](https://leetcode.com/problems/longest-common-prefix/) -<
 
-    :
+    :   复杂度都是 O(n1+n2+...)
 
-    复杂度都是 O(n1+n2+...)
+        纵向扫描。
 
-    纵向扫描。
+        ```cpp
+        // Longest Common Prefix
+        #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
+        #define REP(i, n) FOR(i, 0, n)
 
-    ```cpp
-    // Longest Common Prefix
-    #define FOR(i, a, b) for (decltype(b) i = (a); i < (b); i++)
-    #define REP(i, n) FOR(i, 0, n)
-
-    class Solution {
-    public:
-        string longestCommonPrefix(vector<string> &strs) {
-            if (strs.empty()) return "";
-            int r = 0;
-            for(;;) {
-                char c = strs[0][r];
-                REP(i, strs.size())
-                    if (! strs[i][r] || strs[i][r] != c)
-                        return strs[0].substr(0, r);
-                r++;
-            }
-        }
-    };
-    ```
-
-    或者，横向扫描。
-
-    ```cpp
-    // 横向扫描，每个字符串与第 0 个字符串，从左到右比较，直到遇到一个不匹配，然后继续下一个字符串
-    class Solution {
-    public:
-        string longestCommonPrefix(vector<string> &strs) {
-            if (strs.empty()) return "";
-            int right_most = strs[0].size() - 1;
-            for (size_t i = 1; i < strs.size(); i++)
-                for (int j = 0; j <= right_most; j++)
-                    if (strs[i][j] != strs[0][j])                   // 不会越界，请参考string::[]的文档
-                        right_most = j - 1;
-
-            return strs[0].substr(0, right_most + 1);
-        }
-    };
-    ```
-
-    ```cpp
-    // Valid Parentheses
-    class Solution {
-    public:
-        bool isValid(string s) {
-            stack<char> st;
-            char cc;
-            for (auto c: s)
-                switch (c) {
-                case '(': case '[': case '{':
-                    st.push(c);
-                    break;
-                case ')': case ']': case '}':
-                    if (st.empty() || (cc = st.top(), st.pop(), cc+1 != c && cc+2 != c))
-                        return false;
+        class Solution {
+        public:
+            string longestCommonPrefix(vector<string> &strs) {
+                if (strs.empty()) return "";
+                int r = 0;
+                for(;;) {
+                    char c = strs[0][r];
+                    REP(i, strs.size())
+                        if (! strs[i][r] || strs[i][r] != c)
+                            return strs[0].substr(0, r);
+                    r++;
                 }
-            return st.empty();
-        }
-    };
-    ```
+            }
+        };
+        ```
+
+        或者，横向扫描。
+
+        ```cpp
+        // 横向扫描，每个字符串与第 0 个字符串，从左到右比较，直到遇到一个不匹配，然后继续下一个字符串
+        class Solution {
+        public:
+            string longestCommonPrefix(vector<string> &strs) {
+                if (strs.empty()) return "";
+                int right_most = strs[0].size() - 1;
+                for (size_t i = 1; i < strs.size(); i++)
+                    for (int j = 0; j <= right_most; j++)
+                        if (strs[i][j] != strs[0][j])                   // 不会越界，请参考string::[]的文档
+                            right_most = j - 1;
+
+                return strs[0].substr(0, right_most + 1);
+            }
+        };
+        ```
+
+        ```cpp
+        // Valid Parentheses
+        class Solution {
+        public:
+            bool isValid(string s) {
+                stack<char> st;
+                char cc;
+                for (auto c: s)
+                    switch (c) {
+                    case '(': case '[': case '{':
+                        st.push(c);
+                        break;
+                    case ')': case ']': case '}':
+                        if (st.empty() || (cc = st.top(), st.pop(), cc+1 != c && cc+2 != c))
+                            return false;
+                    }
+                return st.empty();
+            }
+        };
+        ```
 
     [Recover Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/recover-binary-search-tree/) -<
 
@@ -23025,3 +24473,364 @@ Dijkstra's algorithm -<
             }
         };
         ```
+
+```
+C:\Users\tzx\Downloads\LM\leetcode-master\C++\leetcode-cpp.tex
+```
+
+[检测单链表中是否有环--快慢指针法 - Linloves - 博客频道 - CSDN.NET](http://blog.csdn.net/loveyou426/article/details/7927297)
+
+[横空出世，席卷互联网 -- 评微软等公司数据结构 + 算法面试 100 题 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6015165)
+
+:   ~~这个系列很乱，推荐先下载 PDF：[微软面试 100 题系列之 PDF 文档 [带目录 + 标签]by_July - 下载频道 - CSDN.NET](http://download.csdn.net/download/v_july_v/4583815)。~~
+
+    It sucks.
+
+[面试必会内容之——操作系统 - 671coder的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/liuqiyao_01/article/details/38962323)
+
+科学松鼠会 » 遗传算法：内存中的进化 -<
+
+:   简单地说，遗传算法是一种解决问题的方法。它**模拟大自然中种群在选择压力下的
+    演化，从而得到问题的一个近似解**。
+
+    其次，为了使扇贝的样子向Firefox图标靠近，我们要给它们加上一点选择压力，就是
+    文章开头故事中提到的那个人的行动：在每一代把最不像Firefox的扇贝淘汰出去，同
+    时也给新的个体留下生存的空间。怎么评价这个扇贝像不像Firefox呢？最直接的方法
+    就是一个一个像素比较，颜色相差得越多就越不像。这个评价的函数叫做“适应函数”，
+    它负责评价一个个体到底有多适应我们的要求。
+
+    好了，现在是万事俱备只欠东风了。定义好基因，写好繁衍、变异、评价适应性、淘
+    汰和终止的代码之后，只需要随机产生一个适当大小的种群，然后让它这样一代代的
+    繁衍、变异和淘汰下去，到最后终止我们就会获得一个惊喜的结果：（这回是完整的
+    了，图片下的数字表示这个扇贝是第几代中最好的）
+
+    ![](http://blufiles.storage.msn.com/y1p96zcjxuwxolgnU-4kYeJil49VAcoYd0ieRPXt9jLGTd7UOR8kUlNdb1ZAzScolGo?PARTNER=WRITER)
+
+    其实，通过微调参数和繁衍、变异、淘汰、终止的代码，我们有可能得到更有效的算
+    法。遗传算法只是一个框架，里边具体内容可以根据实际问题进行调整，这也是它能
+    在许多问题上派上用场的一个原因。像这样可以适应很多问题的算法还有模拟退火算
+    法、粒子群算法、蚁群算法、禁忌搜索等等，统称为元启发式算法（Meta-heuristic algorithms）。
+
+    Metaheuristic
+
+    :   TODO
+
+    遗传算法模拟一个人工种群的进化过程，通过选择 (Selection)、交叉 (Crossover)
+    以及变异 (Mutation) 等机制，在每次迭代中都保留一组候选个体，重复此过程，种
+    群经过若干代以后，理想情况下其适应度达到***近似最优***的状态。
+
+    refs and see also
+
+    -   [如何通俗易懂地解释遗传算法？有什么例子？ - 知乎](https://www.zhihu.com/question/23293449)
+    -   [科学松鼠会 » 遗传算法：内存中的进化](http://songshuhui.net/archives/10462)
+    -   [Metaheuristic - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Metaheuristic)
+
+    ---
+
+    [如何用简单易懂的例子解释隐马尔可夫模型？ - 知乎](https://www.zhihu.com/question/20962240)
+
+    [机器学习专家与统计学家观点上有哪些不同？ - 知乎](https://www.zhihu.com/question/29687860)
+
+    [奇异值的物理意义是什么？ - 知乎](https://www.zhihu.com/question/22237507)
+
+    :   [科学网—奇异值分解(SVD) --- 几何意义 - 余露的博文](http://blog.sciencenet.cn/blog-696950-699432.html)
+
+[SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/simons) -<
+
+:   [分班问题算法求解——动态规划 - SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20038650?refer=simons)
+
+    [倒刷 LeetCode——Valid Number - SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20042325?refer=simons) -<
+
+    :   使用确定有穷状态自动机 (DFA) 来解答此题必然是最优雅的，无论空间还是时间
+        复杂度都有不错的表现。如果不熟悉 DFA 的话也没关系，可以把本文当作入门教程来看。
+
+        所谓“确定有穷状态”，必然需要我们自己动手构造出所有状态来，如下所示：
+
+        -   0 初始无输入或者只有 space 的状态
+        -   1 输入了数字之后的状态
+        -   2 前面无数字，只输入了 dot 的状态
+        -   3 输入了 +/- 状态
+        -   4 前面有数字和有 dot 的状态
+        -   5 'e' or 'E'输入后的状态
+        -   6 输入 e 之后输入 +/- 的状态
+        -   7 输入 e 后输入数字的状态
+        -   8 前面有有效数输入之后，输入 space 的状态
+
+        ![](http://img.hb.aicdn.com/30ee1dcf092b0ff270d715558f7c84ccf79d4897b667-ZCBWYf_fw658)
+
+        在 9 种状态中，我们可以发现只有 1、4、7、8 四种状态是合法的，所以题目迎
+        刃而解，只要挨个遍历字符，通过判断遍历到最后一个字符时的状态即可确定该
+        字符串是否合法。
+
+        在编程中，我们可以简单地用一个邻接矩阵来存储上图转移关系，不了解的同学
+        请恶补图论相关基础知识。
+
+        ```python
+        class Solution:
+            # @param {string} s
+            # @return {boolean}
+            def isNumber(self, s):
+                INVALID=0; SPACE=1; SIGN=2; DIGIT=3; DOT=4; EXPONENT=5;
+                #0invalid,1space,2sign,3digit,4dot,5exponent,6num_inputs
+                transitionTable=[[-1, 0, 3, 1, 2, -1],      #0 no input or just spaces
+                                 [-1, 8, -1, 1, 4, 5],      #1 input is digits
+                                 [-1, -1, -1, 4, -1, -1],   #2 no digits in front just Dot
+                                 [-1, -1, -1, 1, 2, -1],    #3 sign
+                                 [-1, 8, -1, 4, -1, 5],     #4 digits and dot in front
+                                 [-1, -1, 6, 7, -1, -1],    #5 input 'e' or 'E'
+                                 [-1, -1, -1, 7, -1, -1],   #6 after 'e' input sign
+                                 [-1, 8, -1, 7, -1, -1],    #7 after 'e' input digits
+                                 [-1, 8, -1, -1, -1, -1]]   #8 after valid input input space
+                 state = 0
+                 for c in s:
+                    inputtype = INVALID
+
+                    if c == ' ': inputtype = SPACE
+                    elif c == '-' or c == '+': inputtype = SIGN
+                    elif c.isdigit(): inputtype = DIGIT
+                    elif c == '.': inputtype = DOT
+                    elif c.upper() == 'E': inputtype = EXPONENT
+
+                    state = transitionTable[state][inputtype]
+                    if state == -1: return False
+                    return state == 1 or state == 4 or state == 7 or state == 8
+        ```
+
+    [字符串相似度之美（二） - SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20102352?refer=simons)
+
+    [猴子摘香蕉一次可以摘 1 个或 2 个，总共 50 个，问有多少种摘法？ - SimonS 的回答 - 知乎](https://www.zhihu.com/question/29454855/answer/44437341)
+
+    [『啤酒与尿不湿』之关联规则 - SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20546361?refer=simons)
+
+[nonstriater/Learn-Algorithms: 算法学习笔记](https://github.com/nonstriater/Learn-Algorithms) -<
+
+:   二叉查找树
+
+    :   二叉查找树（Binary search tree），也叫`有序二叉树 (Ordered binary tree)`,
+        `排序二叉树 (Sorted binary tree)`。是指一个空树或者具有下列性质的二叉树：
+
+        1.  若任意节点的左子树不为空，则左子树上所有的节点值小于它的根节点值
+        2.  若任意节点的右子树不为空，则右子树上所有节点的值均大于它的根节点的值
+        3.  任意节点左右子树也为二叉查找树
+        4.  没有键值相等的节点
+
+        删除节点,需要重建排序树
+
+        -   删除节点是叶子节点（分支为0），结构不破坏
+        -   删除节点只有一个分支(分支为1)，结构也不破坏
+        -   删除节点有2个分支，此时删除节点
+            -   思路一： 选左子树的最大节点，或右子树最小节点替换
+
+    伸展树 (splay tree)
+
+    :   伸展树是一种自平衡的二叉排序树。为什么需要这些自平衡的二叉排序树？
+
+        n 个节点的完全二叉树，其查找，删除的复杂度都是 O(logN), 但是如果频繁的插入
+        删除，导致二叉树退化成一个 n 个节点的单链表，也就是`插入，查找复杂度趋于
+        `O(N)`，为了克服这个缺点，出现了很多二叉查找树的变形，如 AVL 树，红黑树，以
+        及接下来介绍的 伸展树 (splay tree)。
+
+    B 树
+
+    :   平衡查找树，一种多路查找树。
+
+        能保证数据插入和删除情况下，任然保持执行效率。
+
+        一个 M 阶的 B 树满足：
+
+        1.  每个节点最多 M 个子节点
+        2.  除跟节点和叶节点外，其它每个节点至少有 M/2 个孩子
+        3.  根节点至少 2 个节点
+        4.  所有叶节点在同一层，叶节点不包含任何关键字信息
+        5.  有 k 个关键字的页节点包含 k+1 个孩子
+
+        也就是说：根节点到每个叶节点的路径长度都是相同的。
+
+    B+ 树
+
+    :   mysql 索引使用 B+ 树的数据结构
+
+    赫夫曼编码 Huffman
+
+    :   这是一个经典的压缩算法。通过`字符出现的频率`，`优先级`，`二叉树`进行的压缩算法。
+
+        对一个字符串，计算每个字符出现的次数, 把这些字符放到优先队列（priority
+        queue）这这个 priority queue 转出二叉树
+
+        需要一个字符编码表来解码, 通过二叉树建立 huffman 编码和解码的字典表
+
+    字典树 trie (前缀树，单词查找树)
+
+    :   trie，又称为前缀树或字典树，是一种有序树，用于保存关联数组。
+
+        1.  除根节点不包含字符，每个节点都包含一个字符
+        2.  从根节点到某一个节点，路径上经过的字符连接起来，为该节点对应的字符串
+        3.  每个节点的所有子节点包含的字符都不相同（保证每个节点对应的字符串都不一样）
+
+        比如：
+
+        ```
+                            / \
+                           / | \
+                          t  a  i
+                        /  \     \
+                       o    e     n
+                           /|\    /
+                          a d n  n
+        ```
+
+        上面的 Trie 树，可以表示字符串集合{“a”, “to”, “tea”, “ted”, “ten”, “i”, “in”, “inn”} 。
+
+        trie 树把每个关键字保存在一条路径上，而不是一个节点中。两个有公共前缀的关键
+        字，在 Trie 树中前缀部分的路径相同，所以 Trie 树又叫做前缀树（Prefix Tree）。
+
+        子树用数组存储，浪费空间；如果系统中存在大量字符串，且这些字符串基本没有公
+        共前缀，trie树将消耗大量内存。如果用链表存储，查询时需要遍历链表，查询效率
+        有所降低
+
+        trie 树的增加和删除都比较麻烦，但索引本身就是写少读多，是否考虑添加删除的复
+        杂度上升，依靠具体场景决定。
+
+        它的优点是：
+
+        1.  插入和查询的效率很高，都是 O(m), 其中 m 是待插入 / 查询的字符串的长度
+        2.  Trie 树可以对关键字按字典序排序
+        3.  利用字符串的公共前缀来最大限度地减少无谓的字符串比较, 提高查询效率
+
+        缺点：
+
+        1.  trie 树比较费内存空间，在处理大数据时会内存吃紧
+        2.  当 hash 函数较好时，Hash 查询效率比 trie 更优
+
+        典型应用是：前缀查询,字符串查询，排序
+
+        -   用于统计，排序和保存大量的字符串（但不仅限于字符串）
+        -   经常被搜索引擎系统用于文本词频统计
+        -   排序大量字符串
+        -   用于索引结构
+        -   敏感词过滤
+
+        实际应用问题
+
+        1.  给你100000个长度不超过10的单词。对于每一个单词，我们要判断他出没出现过，如果出现了，求第一次出现在第几个位置
+
+            分析思路一：trie 树 ，找到这个字符串查询操作就可以了，如何知道出现的第一个位置呢？我们可以在 trie 树中加一个字段来记录当前字符串第一次出现的位置。
+
+        2.  已知 n 个由小写字母构成的平均长度为 10 的单词, 判断其中是否存在某个串为另一个串的前缀子串
+
+        3.  给出 N 个单词组成的熟词表，以及一篇全用小写英文书写的文章，请你按最早出现的顺序写出所有不在熟词表中的生词。
+
+            分析：trie 树查询单词的应用。先建立 N 个熟词的前缀树，然后按文章的单词一次查询。
+
+        4.  给出一个词典，其中的单词为不良单词。单词均为小写字母。再给出一段文本，文本的每一行也由小写字母构成。判断文本中是否含有任何不良单词。例如，若 rob 是不良单词，那么文本 problem 含有不良单词。
+
+            分析：先用不良单词建立 trie 树，然后过滤文本 (每个单词都在 trie 树上查询，查询的复杂度 O(1), 效率非常高)，这正是`敏感词过滤系统 (或垃圾评论系统)`的原理。
+
+        5.  给你 N 个互不相同的仅由一个单词构成的英文名，让你将它们按字典序从小到大排序输出
+
+            分析：这是 trie 树排序的典型应用，建立 N 个单词的 trie 树，然后线序遍历整个树，就可以达到效果。
+
+    后缀树（suffix tree）
+
+    :   后缀树的应用
+
+        可以解决很多字符串的问题
+
+        1.  查找字符串 S1 是否在字符串 S 中
+        2.  指定字符串 S1 在字符串 S 中出现的次数
+        3.  字符串 S 中的最长重复子串
+        4.  2 个字符串的最长公共部分
+
+    数据库系统中的算法 -<
+
+    :   最近开始读《数据库系统实现》这本书，所以就想到把数据库里面用到的数据结构和算法做一个梳理。就有了这些文字。
+
+        电梯算法
+
+        B 树索引
+
+        R 树索引
+
+        位图索引
+
+        一趟算法
+
+        二趟算法
+
+        基于排序
+
+        基于散列
+
+        连接树
+
+        动态规划
+
+        贪婪算法
+
+        分布式并行数据库中的任务分配算法
+
+        并行算法
+
+        数据挖掘
+
+        发现频繁项集的算法
+
+        发现近似商品的算法
+
+        PageRank
+
+        refs and see also
+
+        -   《数据库系统实现》
+        -   《redis 设计与实现》
+
+[huangz/note — huangz/note](http://note.huangz.me/) -<
+
+:   [算术 — huangz/note](http://note.huangz.me/algorithm/arithmetic/index.html) -<
+
+    :   [幂次定律 —— Power Law — huangz/note](http://note.huangz.me/algorithm/arithmetic/power-law.html) -<
+
+        :   如果某件事的发生频率和它的某个属性成幂关系，那么这个频率就可以称之为符合幂次定律。
+
+            幂次定律的表现是， 少数几个事件的发生频率占了整个发生频率的大部分， 而其余的大多数事件只占整个发生频率的一个小部分， 如图：
+
+            ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Long_tail.svg/450px-Long_tail.svg.png)
+
+            In statistics, a power law is a functional relationship between two quantities,
+            where a relative change in one quantity results in a
+            proportional relative change in the other quantity, independent of the
+            initial size of those quantities: one quantity varies as a power of
+            another. For instance, considering the area of a square in terms of the
+            length of its side, if the length is doubled, the area is multiplied by
+            a factor of four.
+
+            refs and see also
+
+            -   [Exponential backoff - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Exponential_backoff)
+
+        [指数补偿 —— Exponential backoff — huangz/note](http://note.huangz.me/algorithm/arithmetic/exponential-backoff.html) -<
+
+        :   指数补偿指的是，在执行事件时，通过反馈，逐渐降低某个过程的速率，从而最
+            终找到一个合适的速率（来处理事件）。
+
+            Exponential backoff is an algorithm that uses feedback to
+            multiplicatively decrease the rate of some process, in order to
+            gradually find an acceptable rate.
+
+            refs and see also
+
+            -   [Exponential backoff - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Exponential_backoff)
+
+        [将字符串解释为数字 —— Parse string to number — huangz/note](http://note.huangz.me/algorithm/arithmetic/parse-string-to-number.html) -<
+
+        :   就是 atoi。
+
+    [第一章： 计算系统简介 — huangz/note](http://note.huangz.me/system/csapp/chp1.html) :hearts:
+
+    [第 2 章：传输层：TCP 、 UDP 和 SCTP — huangz/note](http://note.huangz.me/network/unp/chp2.html)
+
+    [《UNIX 环境高级编程》笔记 — huangz/note](http://note.huangz.me/os/apue/index.html)
+
+[一道阿里笔试题，思路应该是怎样？ - 知乎](https://www.zhihu.com/question/50512830) -<
+
+:   [The-Art-Of-Programming-By-July/02.09.md at master · julycoding/The-Art-Of-Programming-By-July](https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/02.09.md)
