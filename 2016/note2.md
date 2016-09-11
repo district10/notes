@@ -1719,3 +1719,45 @@ title: Working Notes
 [怎么样让中国文化输出到全世界？ - 知乎](https://www.zhihu.com/question/49900813)
 
 [这个剑桥学霸，创业后做了个聚集 100 万人的技术社区 | 爱范儿](http://www.ifanr.com/687555)
+
+[小马哥终于扬眉吐气了，碾压百度，脚踩马云，越中国移动，终登顶 - 今日头条(TouTiao.com)](http://toutiao.com/a6326768234532012289/)
+
+[迷妹是什么意思？ - 知乎](https://www.zhihu.com/question/28905081)
+
+:   迷妹,就是粉丝的另外一种称呼。
+
+    狭义地来说,迷妹是指比较狂热的粉丝(大多因为外貌而喜欢从而忽略其他因素)
+
+    经济学家研究过一个短裙定律。女性裙子越短，经济势头越好。推论是，当你去餐厅，
+    看见女服务员一个个都比原来漂亮，就表示经济滑坡了。在经济往上走的时候，漂亮
+    姑娘很少会来饭店端盘子。
+
+[有哪些你看了以后大呼过瘾的编程书？ - 知乎](https://www.zhihu.com/question/50408698)
+
+[「登月无用，不如拿来改善民生」的说法有道理吗？ - 知乎](https://www.zhihu.com/question/22158238)
+
+[程序员们， 来说说站立式电脑桌吧？ - V2EX](https://www.v2ex.com/t/305014#reply30)
+
+[我就是讨厌人多 - 简书](http://www.jianshu.com/p/699557a122ba)
+
+:   你又有多少次，见到一堆人在饭局上讨论南海争端，一个比一个了解得多，这个人的
+    老乡是国防部的，那个人的舅是国务院的，什么党派纷争，什么政治矛盾一个比一个
+    懂。但是饭局散了还是互不联系？都是 bullshit，老子还他妈是彭丽媛的小情人呢。
+
+[ReportLab - Complete Hosted Solutions - ReportLab.com](http://www.reportlab.com/solutions/)
+
+[各大彩妆、护肤品牌英语怎么读？](http://mp.weixin.qq.com/s?__biz=MjM5OTMwMjYyMw==&mid=2651790425&idx=1&sn=3bba34d900d1b09544fb337aa7ec88c6&scene=0#wechat_redirect)
+
+[英语指导](http://mp.weixin.qq.com/s?__biz=MzI4MzExMDU1Nw==&mid=502374246&idx=1&sn=716b711a9fe05f3a7d0fa445dc6c5925&scene=18#wechat_redirect)
+
+:   [你是如何将词汇量提升到 2 万，甚至 3 万的？ - 知乎](https://www.zhihu.com/question/26814125)
+
+    [看加菲猫学英语汇总目录](http://mp.weixin.qq.com/s?__biz=MzI4MzExMDU1Nw==&mid=502373927&idx=1&sn=0132758c1f37c6f357b7d019e6fc8198&scene=18#wechat_redirect)
+
+[杰出的文学家、艺术家、科学家大多是男性，可以说明男性比女性优秀吗？ - 知乎](https://www.zhihu.com/question/20573941)
+
+[Learn TypeScript | Xcat Liu's Blog](http://blog.xcatliu.com/2016/01/29/learn-typescript/)
+
+[你最穷的时候是什么时候，是怎么熬过来的？ - 知乎](https://www.zhihu.com/question/46324613)
+
+打听了一下，各部门情况差不多，公司内忽悠、混子、老油条占比大于业界平均值，少数几个渴望技术，想把事情干好的人，最后都被逼得主动辞职了。

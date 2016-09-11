@@ -33,6 +33,7 @@ $body$
 <script src="$rootdir$jquery-3.0.0.min.js"></script>
 <script src="$rootdir$jquery.idTabs.min.js"></script>
 <script src="$rootdir$egg.min.js"></script>
+<script src="$rootdir$clipboard.min.js"></script>
 <script src="$rootdir$notes.js"></script>
 </body>
 </html>

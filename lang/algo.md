@@ -5198,14 +5198,16 @@ A Bit of Logic -<
                             public:
                                 void nextPermutation(vector<int> &num) {
                                     if (num.size() <= 1) return;
-                                    ROF(i, 0, num.size()-1)
+                                    // ROF(i, 0, num.size()-1) {
+                                    for( int i = num.size()-2; i >= 0; --i ) {
                                         if ( i+1 < num.size() && num[i] < num[i+1] ) {
                                             int j = num.size();
-                                            while (! (num[i] < num[--j]));
+                                            while (! (num[i] < num[--j]));  // num[i] < num[j]
                                             swap(num[i], num[j]);
                                             reverse(num.begin()+i+1, num.end());
                                             return;
                                         }
+                                    }
                                     reverse(num.begin(), num.end());
                                 }
                             };
@@ -5235,7 +5237,7 @@ A Bit of Logic -<
 
                                 康托展开 -<
 
-                                ：  Cantor expansion
+                                :   Cantor expansion
 
                                     `X=a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[1]*0!`，
                                     其中 `a[i]` 为当前未出现的元素中是排在第几个（从 0 开始）。这就是康托展开。康托展开可用代码实现。
@@ -5260,7 +5262,7 @@ A Bit of Logic -<
                                 -   a~n~ = 0
 
                                 ```cpp
-                                // 康托编码，时间复杂度O(n)，空间复杂度O(1)
+                                // 康托编码，时间复杂度 O(n)，空间复杂度 O(1)
                                 class Solution {
                                 public:
                                     string getPermutation(int n, int k) {
@@ -5278,23 +5280,22 @@ A Bit of Logic -<
                                         return result;
                                     }
 
-                                    // seq 已排好序，是第一个排列
-                                    template<typename Sequence>
+                                    template<typename Sequence>                                     // seq 已排好序，是第一个排列
                                     Sequence kth_permutation(const Sequence &seq, int k) {
                                         const int n = seq.size();
-                                        Sequence S(seq);
-                                        Sequence result;
+                                        Sequence S(seq), result;
+                                        result.reserve( n );
 
                                         int base = factorial(n - 1);
-                                        --k;  // 康托编码从0开始
+                                        --k;                                                        // 康托编码从 0 开始
 
-                                        for (int i = n - 1; i > 0; k %= base, base /= i, --i) { // base/=i 实在太巧妙
+                                        for (int i = n - 1; i > 0; k %= base, base /= i, --i ) {    // base/=i 实在太巧妙
                                             auto a = next(S.begin(), k / base);
                                             result.push_back(*a);
-                                            S.erase(a);     // 记得 erase 掉！
+                                            S.erase(a);                                             // 记得 erase 掉！
                                         }
 
-                                        result.push_back(S[0]); // 最后一个
+                                        result.push_back(S[0]);                                     // 最后一个
                                         return result;
                                     }
                                 };
@@ -5308,8 +5309,8 @@ A Bit of Logic -<
                                 class Solution {
                                 public:
                                     string getPermutation(int n, int k) {
-                                        //        f(0)  f(1)  2   3    4      5       6        7        8
-                                        int f[] = { 1,    1,  2,  6,  24,   120,    720,    5040,   40320   };
+                                        // factorial:   0     1   2   3    4      5       6        7        8
+                                        int f[] =     { 1,    1,  2,  6,  24,   120,    720,    5040,   40320   };
                                         vector<bool> a(n, true);
                                         string r;
                                         k--;
@@ -5343,7 +5344,7 @@ A Bit of Logic -<
                             bool next_permutation( BidirIt first, BidirIt last, Compare comp );
                             ```
 
-                            Possible implementation :hearts: -<
+                            Possible implementation :hearts: :hearts: -<
 
                             :   ```cpp
                                 template<class BidirIt>
@@ -12157,6 +12158,17 @@ A Bit of Logic -<
                                     ^       ^
                                     s       f=0
                     -----------------------------------------------
+                        2-> 3-> 5-> #
+
+                                    7-> 11  #
+                    -----------------------------------------------
+                    1   2   3   4
+                    f       f       f
+                    s   s   s
+
+                    1   2   3   4   5
+                    f       f       f   f
+                    s   s   s   s
                     ```
 
                 Linked List Cycle -<
@@ -19861,6 +19873,10 @@ Beauty of Programming -<
                     return(start);
             }
             ```
+
+    -   TODO: fib, fac -<
+
+        :   fibonacci. factorial.
 
         [nonstriater/Learn-Algorithms: 算法学习笔记](https://github.com/nonstriater/Learn-Algorithms)
 

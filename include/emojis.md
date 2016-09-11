@@ -1,870 +1,870 @@
-<span title=":+1:">:+1:</span>
-<span title=":-1:">:-1:</span>
-<span title=":100:">:100:</span>
-<span title=":1234:">:1234:</span>
-<span title=":8ball:">:8ball:</span>
-<span title=":a:">:a:</span>
-<span title=":ab:">:ab:</span>
-<span title=":abc:">:abc:</span>
-<span title=":abcd:">:abcd:</span>
-<span title=":accept:">:accept:</span>
-<span title=":aerial_tramway:">:aerial_tramway:</span>
-<span title=":airplane:">:airplane:</span>
-<span title=":alarm_clock:">:alarm_clock:</span>
-<span title=":alien:">:alien:</span>
-<span title=":ambulance:">:ambulance:</span>
-<span title=":anchor:">:anchor:</span>
-<span title=":angel:">:angel:</span>
-<span title=":anger:">:anger:</span>
-<span title=":angry:">:angry:</span>
-<span title=":anguished:">:anguished:</span>
-<span title=":ant:">:ant:</span>
-<span title=":apple:">:apple:</span>
-<span title=":aquarius:">:aquarius:</span>
-<span title=":aries:">:aries:</span>
-<span title=":arrow_backward:">:arrow_backward:</span>
-<span title=":arrow_double_down:">:arrow_double_down:</span>
-<span title=":arrow_double_up:">:arrow_double_up:</span>
-<span title=":arrow_down:">:arrow_down:</span>
-<span title=":arrow_down_small:">:arrow_down_small:</span>
-<span title=":arrow_forward:">:arrow_forward:</span>
-<span title=":arrow_heading_down:">:arrow_heading_down:</span>
-<span title=":arrow_heading_up:">:arrow_heading_up:</span>
-<span title=":arrow_left:">:arrow_left:</span>
-<span title=":arrow_lower_left:">:arrow_lower_left:</span>
-<span title=":arrow_lower_right:">:arrow_lower_right:</span>
-<span title=":arrow_right:">:arrow_right:</span>
-<span title=":arrow_right_hook:">:arrow_right_hook:</span>
-<span title=":arrow_up:">:arrow_up:</span>
-<span title=":arrow_up_down:">:arrow_up_down:</span>
-<span title=":arrow_up_small:">:arrow_up_small:</span>
-<span title=":arrow_upper_left:">:arrow_upper_left:</span>
-<span title=":arrow_upper_right:">:arrow_upper_right:</span>
-<span title=":arrows_clockwise:">:arrows_clockwise:</span>
-<span title=":arrows_counterclockwise:">:arrows_counterclockwise:</span>
-<span title=":art:">:art:</span>
-<span title=":articulated_lorry:">:articulated_lorry:</span>
-<span title=":astonished:">:astonished:</span>
-<span title=":athletic_shoe:">:athletic_shoe:</span>
-<span title=":atm:">:atm:</span>
-<span title=":b:">:b:</span>
-<span title=":baby:">:baby:</span>
-<span title=":baby_bottle:">:baby_bottle:</span>
-<span title=":baby_chick:">:baby_chick:</span>
-<span title=":baby_symbol:">:baby_symbol:</span>
-<span title=":back:">:back:</span>
-<span title=":baggage_claim:">:baggage_claim:</span>
-<span title=":balloon:">:balloon:</span>
-<span title=":ballot_box_with_check:">:ballot_box_with_check:</span>
-<span title=":bamboo:">:bamboo:</span>
-<span title=":banana:">:banana:</span>
-<span title=":bangbang:">:bangbang:</span>
-<span title=":bank:">:bank:</span>
-<span title=":bar_chart:">:bar_chart:</span>
-<span title=":barber:">:barber:</span>
-<span title=":baseball:">:baseball:</span>
-<span title=":basketball:">:basketball:</span>
-<span title=":bath:">:bath:</span>
-<span title=":bathtub:">:bathtub:</span>
-<span title=":battery:">:battery:</span>
-<span title=":bear:">:bear:</span>
-<span title=":bee:">:bee:</span>
-<span title=":beer:">:beer:</span>
-<span title=":beers:">:beers:</span>
-<span title=":beetle:">:beetle:</span>
-<span title=":beginner:">:beginner:</span>
-<span title=":bell:">:bell:</span>
-<span title=":bento:">:bento:</span>
-<span title=":bicyclist:">:bicyclist:</span>
-<span title=":bike:">:bike:</span>
-<span title=":bikini:">:bikini:</span>
-<span title=":bird:">:bird:</span>
-<span title=":birthday:">:birthday:</span>
-<span title=":black_circle:">:black_circle:</span>
-<span title=":black_joker:">:black_joker:</span>
-<span title=":black_large_square:">:black_large_square:</span>
-<span title=":black_medium_small_square:">:black_medium_small_square:</span>
-<span title=":black_medium_square:">:black_medium_square:</span>
-<span title=":black_nib:">:black_nib:</span>
-<span title=":black_small_square:">:black_small_square:</span>
-<span title=":black_square_button:">:black_square_button:</span>
-<span title=":blossom:">:blossom:</span>
-<span title=":blowfish:">:blowfish:</span>
-<span title=":blue_book:">:blue_book:</span>
-<span title=":blue_car:">:blue_car:</span>
-<span title=":blue_heart:">:blue_heart:</span>
-<span title=":blush:">:blush:</span>
-<span title=":boar:">:boar:</span>
-<span title=":boat:">:boat:</span>
-<span title=":bomb:">:bomb:</span>
-<span title=":book:">:book:</span>
-<span title=":bookmark:">:bookmark:</span>
-<span title=":bookmark_tabs:">:bookmark_tabs:</span>
-<span title=":books:">:books:</span>
-<span title=":boom:">:boom:</span>
-<span title=":boot:">:boot:</span>
-<span title=":bouquet:">:bouquet:</span>
-<span title=":bow:">:bow:</span>
-<span title=":bowling:">:bowling:</span>
-<span title=":boy:">:boy:</span>
-<span title=":bread:">:bread:</span>
-<span title=":bride_with_veil:">:bride_with_veil:</span>
-<span title=":bridge_at_night:">:bridge_at_night:</span>
-<span title=":briefcase:">:briefcase:</span>
-<span title=":broken_heart:">:broken_heart:</span>
-<span title=":bug:">:bug:</span>
-<span title=":bulb:">:bulb:</span>
-<span title=":bullettrain_front:">:bullettrain_front:</span>
-<span title=":bullettrain_side:">:bullettrain_side:</span>
-<span title=":bus:">:bus:</span>
-<span title=":busstop:">:busstop:</span>
-<span title=":bust_in_silhouette:">:bust_in_silhouette:</span>
-<span title=":busts_in_silhouette:">:busts_in_silhouette:</span>
-<span title=":cactus:">:cactus:</span>
-<span title=":cake:">:cake:</span>
-<span title=":calendar:">:calendar:</span>
-<span title=":calling:">:calling:</span>
-<span title=":camel:">:camel:</span>
-<span title=":camera:">:camera:</span>
-<span title=":cancer:">:cancer:</span>
-<span title=":candy:">:candy:</span>
-<span title=":capital_abcd:">:capital_abcd:</span>
-<span title=":capricorn:">:capricorn:</span>
-<span title=":car:">:car:</span>
-<span title=":card_index:">:card_index:</span>
-<span title=":carousel_horse:">:carousel_horse:</span>
-<span title=":cat:">:cat:</span>
-<span title=":cat2:">:cat2:</span>
-<span title=":cd:">:cd:</span>
-<span title=":chart:">:chart:</span>
-<span title=":chart_with_downwards_trend:">:chart_with_downwards_trend:</span>
-<span title=":chart_with_upwards_trend:">:chart_with_upwards_trend:</span>
-<span title=":checkered_flag:">:checkered_flag:</span>
-<span title=":cherries:">:cherries:</span>
-<span title=":cherry_blossom:">:cherry_blossom:</span>
-<span title=":chestnut:">:chestnut:</span>
-<span title=":chicken:">:chicken:</span>
-<span title=":children_crossing:">:children_crossing:</span>
-<span title=":chocolate_bar:">:chocolate_bar:</span>
-<span title=":christmas_tree:">:christmas_tree:</span>
-<span title=":church:">:church:</span>
-<span title=":cinema:">:cinema:</span>
-<span title=":circus_tent:">:circus_tent:</span>
-<span title=":city_sunrise:">:city_sunrise:</span>
-<span title=":city_sunset:">:city_sunset:</span>
-<span title=":cl:">:cl:</span>
-<span title=":clap:">:clap:</span>
-<span title=":clapper:">:clapper:</span>
-<span title=":clipboard:">:clipboard:</span>
-<span title=":clock1:">:clock1:</span>
-<span title=":clock10:">:clock10:</span>
-<span title=":clock1030:">:clock1030:</span>
-<span title=":clock11:">:clock11:</span>
-<span title=":clock1130:">:clock1130:</span>
-<span title=":clock12:">:clock12:</span>
-<span title=":clock1230:">:clock1230:</span>
-<span title=":clock130:">:clock130:</span>
-<span title=":clock2:">:clock2:</span>
-<span title=":clock230:">:clock230:</span>
-<span title=":clock3:">:clock3:</span>
-<span title=":clock330:">:clock330:</span>
-<span title=":clock4:">:clock4:</span>
-<span title=":clock430:">:clock430:</span>
-<span title=":clock5:">:clock5:</span>
-<span title=":clock530:">:clock530:</span>
-<span title=":clock6:">:clock6:</span>
-<span title=":clock630:">:clock630:</span>
-<span title=":clock7:">:clock7:</span>
-<span title=":clock730:">:clock730:</span>
-<span title=":clock8:">:clock8:</span>
-<span title=":clock830:">:clock830:</span>
-<span title=":clock9:">:clock9:</span>
-<span title=":clock930:">:clock930:</span>
-<span title=":closed_book:">:closed_book:</span>
-<span title=":closed_lock_with_key:">:closed_lock_with_key:</span>
-<span title=":closed_umbrella:">:closed_umbrella:</span>
-<span title=":cloud:">:cloud:</span>
-<span title=":clubs:">:clubs:</span>
-<span title=":cn:">:cn:</span>
-<span title=":cocktail:">:cocktail:</span>
-<span title=":coffee:">:coffee:</span>
-<span title=":cold_sweat:">:cold_sweat:</span>
-<span title=":collision:">:collision:</span>
-<span title=":computer:">:computer:</span>
-<span title=":confetti_ball:">:confetti_ball:</span>
-<span title=":confounded:">:confounded:</span>
-<span title=":confused:">:confused:</span>
-<span title=":congratulations:">:congratulations:</span>
-<span title=":construction:">:construction:</span>
-<span title=":construction_worker:">:construction_worker:</span>
-<span title=":convenience_store:">:convenience_store:</span>
-<span title=":cookie:">:cookie:</span>
-<span title=":cool:">:cool:</span>
-<span title=":cop:">:cop:</span>
-<span title=":copyright:">:copyright:</span>
-<span title=":corn:">:corn:</span>
-<span title=":couple:">:couple:</span>
-<span title=":couple_with_heart:">:couple_with_heart:</span>
-<span title=":couplekiss:">:couplekiss:</span>
-<span title=":cow:">:cow:</span>
-<span title=":cow2:">:cow2:</span>
-<span title=":credit_card:">:credit_card:</span>
-<span title=":crescent_moon:">:crescent_moon:</span>
-<span title=":crocodile:">:crocodile:</span>
-<span title=":crossed_flags:">:crossed_flags:</span>
-<span title=":crown:">:crown:</span>
-<span title=":cry:">:cry:</span>
-<span title=":crying_cat_face:">:crying_cat_face:</span>
-<span title=":crystal_ball:">:crystal_ball:</span>
-<span title=":cupid:">:cupid:</span>
-<span title=":curly_loop:">:curly_loop:</span>
-<span title=":currency_exchange:">:currency_exchange:</span>
-<span title=":curry:">:curry:</span>
-<span title=":custard:">:custard:</span>
-<span title=":customs:">:customs:</span>
-<span title=":cyclone:">:cyclone:</span>
-<span title=":dancer:">:dancer:</span>
-<span title=":dancers:">:dancers:</span>
-<span title=":dango:">:dango:</span>
-<span title=":dart:">:dart:</span>
-<span title=":dash:">:dash:</span>
-<span title=":date:">:date:</span>
-<span title=":de:">:de:</span>
-<span title=":deciduous_tree:">:deciduous_tree:</span>
-<span title=":department_store:">:department_store:</span>
-<span title=":diamond_shape_with_a_dot_inside:">:diamond_shape_with_a_dot_inside:</span>
-<span title=":diamonds:">:diamonds:</span>
-<span title=":disappointed:">:disappointed:</span>
-<span title=":disappointed_relieved:">:disappointed_relieved:</span>
-<span title=":dizzy:">:dizzy:</span>
-<span title=":dizzy_face:">:dizzy_face:</span>
-<span title=":do_not_litter:">:do_not_litter:</span>
-<span title=":dog:">:dog:</span>
-<span title=":dog2:">:dog2:</span>
-<span title=":dollar:">:dollar:</span>
-<span title=":dolls:">:dolls:</span>
-<span title=":dolphin:">:dolphin:</span>
-<span title=":door:">:door:</span>
-<span title=":doughnut:">:doughnut:</span>
-<span title=":dragon:">:dragon:</span>
-<span title=":dragon_face:">:dragon_face:</span>
-<span title=":dress:">:dress:</span>
-<span title=":dromedary_camel:">:dromedary_camel:</span>
-<span title=":droplet:">:droplet:</span>
-<span title=":dvd:">:dvd:</span>
-<span title=":e-mail:">:e-mail:</span>
-<span title=":ear:">:ear:</span>
-<span title=":ear_of_rice:">:ear_of_rice:</span>
-<span title=":earth_africa:">:earth_africa:</span>
-<span title=":earth_americas:">:earth_americas:</span>
-<span title=":earth_asia:">:earth_asia:</span>
-<span title=":egg:">:egg:</span>
-<span title=":eggplant:">:eggplant:</span>
-<span title=":eight:">:eight:</span>
-<span title=":eight_pointed_black_star:">:eight_pointed_black_star:</span>
-<span title=":eight_spoked_asterisk:">:eight_spoked_asterisk:</span>
-<span title=":electric_plug:">:electric_plug:</span>
-<span title=":elephant:">:elephant:</span>
-<span title=":email:">:email:</span>
-<span title=":end:">:end:</span>
-<span title=":envelope:">:envelope:</span>
-<span title=":envelope_with_arrow:">:envelope_with_arrow:</span>
-<span title=":es:">:es:</span>
-<span title=":euro:">:euro:</span>
-<span title=":european_castle:">:european_castle:</span>
-<span title=":european_post_office:">:european_post_office:</span>
-<span title=":evergreen_tree:">:evergreen_tree:</span>
-<span title=":exclamation:">:exclamation:</span>
-<span title=":expressionless:">:expressionless:</span>
-<span title=":eyeglasses:">:eyeglasses:</span>
-<span title=":eyes:">:eyes:</span>
-<span title=":facepunch:">:facepunch:</span>
-<span title=":factory:">:factory:</span>
-<span title=":fallen_leaf:">:fallen_leaf:</span>
-<span title=":family:">:family:</span>
-<span title=":fast_forward:">:fast_forward:</span>
-<span title=":fax:">:fax:</span>
-<span title=":fearful:">:fearful:</span>
-<span title=":feet:">:feet:</span>
-<span title=":ferris_wheel:">:ferris_wheel:</span>
-<span title=":file_folder:">:file_folder:</span>
-<span title=":fire:">:fire:</span>
-<span title=":fire_engine:">:fire_engine:</span>
-<span title=":fireworks:">:fireworks:</span>
-<span title=":first_quarter_moon:">:first_quarter_moon:</span>
-<span title=":first_quarter_moon_with_face:">:first_quarter_moon_with_face:</span>
-<span title=":fish:">:fish:</span>
-<span title=":fish_cake:">:fish_cake:</span>
-<span title=":fishing_pole_and_fish:">:fishing_pole_and_fish:</span>
-<span title=":fist:">:fist:</span>
-<span title=":five:">:five:</span>
-<span title=":flags:">:flags:</span>
-<span title=":flashlight:">:flashlight:</span>
-<span title=":flipper:">:flipper:</span>
-<span title=":floppy_disk:">:floppy_disk:</span>
-<span title=":flower_playing_cards:">:flower_playing_cards:</span>
-<span title=":flushed:">:flushed:</span>
-<span title=":foggy:">:foggy:</span>
-<span title=":football:">:football:</span>
-<span title=":footprints:">:footprints:</span>
-<span title=":fork_and_knife:">:fork_and_knife:</span>
-<span title=":fountain:">:fountain:</span>
-<span title=":four:">:four:</span>
-<span title=":four_leaf_clover:">:four_leaf_clover:</span>
-<span title=":fr:">:fr:</span>
-<span title=":free:">:free:</span>
-<span title=":fried_shrimp:">:fried_shrimp:</span>
-<span title=":fries:">:fries:</span>
-<span title=":frog:">:frog:</span>
-<span title=":frowning:">:frowning:</span>
-<span title=":fuelpump:">:fuelpump:</span>
-<span title=":full_moon:">:full_moon:</span>
-<span title=":full_moon_with_face:">:full_moon_with_face:</span>
-<span title=":game_die:">:game_die:</span>
-<span title=":gb:">:gb:</span>
-<span title=":gem:">:gem:</span>
-<span title=":gemini:">:gemini:</span>
-<span title=":ghost:">:ghost:</span>
-<span title=":gift:">:gift:</span>
-<span title=":gift_heart:">:gift_heart:</span>
-<span title=":girl:">:girl:</span>
-<span title=":globe_with_meridians:">:globe_with_meridians:</span>
-<span title=":goat:">:goat:</span>
-<span title=":golf:">:golf:</span>
-<span title=":grapes:">:grapes:</span>
-<span title=":green_apple:">:green_apple:</span>
-<span title=":green_book:">:green_book:</span>
-<span title=":green_heart:">:green_heart:</span>
-<span title=":grey_exclamation:">:grey_exclamation:</span>
-<span title=":grey_question:">:grey_question:</span>
-<span title=":grimacing:">:grimacing:</span>
-<span title=":grin:">:grin:</span>
-<span title=":grinning:">:grinning:</span>
-<span title=":guardsman:">:guardsman:</span>
-<span title=":guitar:">:guitar:</span>
-<span title=":gun:">:gun:</span>
-<span title=":haircut:">:haircut:</span>
-<span title=":hamburger:">:hamburger:</span>
-<span title=":hammer:">:hammer:</span>
-<span title=":hamster:">:hamster:</span>
-<span title=":hand:">:hand:</span>
-<span title=":handbag:">:handbag:</span>
-<span title=":hankey:">:hankey:</span>
-<span title=":hash:">:hash:</span>
-<span title=":hatched_chick:">:hatched_chick:</span>
-<span title=":hatching_chick:">:hatching_chick:</span>
-<span title=":headphones:">:headphones:</span>
-<span title=":hear_no_evil:">:hear_no_evil:</span>
-<span title=":heart:">:heart:</span>
-<span title=":heart_decoration:">:heart_decoration:</span>
-<span title=":heart_eyes:">:heart_eyes:</span>
-<span title=":heart_eyes_cat:">:heart_eyes_cat:</span>
-<span title=":heartbeat:">:heartbeat:</span>
-<span title=":heartpulse:">:heartpulse:</span>
-<span title=":hearts:">:hearts:</span>
-<span title=":heavy_check_mark:">:heavy_check_mark:</span>
-<span title=":heavy_division_sign:">:heavy_division_sign:</span>
-<span title=":heavy_dollar_sign:">:heavy_dollar_sign:</span>
-<span title=":heavy_exclamation_mark:">:heavy_exclamation_mark:</span>
-<span title=":heavy_minus_sign:">:heavy_minus_sign:</span>
-<span title=":heavy_multiplication_x:">:heavy_multiplication_x:</span>
-<span title=":heavy_plus_sign:">:heavy_plus_sign:</span>
-<span title=":helicopter:">:helicopter:</span>
-<span title=":herb:">:herb:</span>
-<span title=":hibiscus:">:hibiscus:</span>
-<span title=":high_brightness:">:high_brightness:</span>
-<span title=":high_heel:">:high_heel:</span>
-<span title=":hocho:">:hocho:</span>
-<span title=":honey_pot:">:honey_pot:</span>
-<span title=":honeybee:">:honeybee:</span>
-<span title=":horse:">:horse:</span>
-<span title=":horse_racing:">:horse_racing:</span>
-<span title=":hospital:">:hospital:</span>
-<span title=":hotel:">:hotel:</span>
-<span title=":hotsprings:">:hotsprings:</span>
-<span title=":hourglass:">:hourglass:</span>
-<span title=":hourglass_flowing_sand:">:hourglass_flowing_sand:</span>
-<span title=":house:">:house:</span>
-<span title=":house_with_garden:">:house_with_garden:</span>
-<span title=":hushed:">:hushed:</span>
-<span title=":ice_cream:">:ice_cream:</span>
-<span title=":icecream:">:icecream:</span>
-<span title=":id:">:id:</span>
-<span title=":ideograph_advantage:">:ideograph_advantage:</span>
-<span title=":imp:">:imp:</span>
-<span title=":inbox_tray:">:inbox_tray:</span>
-<span title=":incoming_envelope:">:incoming_envelope:</span>
-<span title=":information_desk_person:">:information_desk_person:</span>
-<span title=":information_source:">:information_source:</span>
-<span title=":innocent:">:innocent:</span>
-<span title=":interrobang:">:interrobang:</span>
-<span title=":iphone:">:iphone:</span>
-<span title=":it:">:it:</span>
-<span title=":izakaya_lantern:">:izakaya_lantern:</span>
-<span title=":jack_o_lantern:">:jack_o_lantern:</span>
-<span title=":japan:">:japan:</span>
-<span title=":japanese_castle:">:japanese_castle:</span>
-<span title=":japanese_goblin:">:japanese_goblin:</span>
-<span title=":japanese_ogre:">:japanese_ogre:</span>
-<span title=":jeans:">:jeans:</span>
-<span title=":joy:">:joy:</span>
-<span title=":joy_cat:">:joy_cat:</span>
-<span title=":jp:">:jp:</span>
-<span title=":key:">:key:</span>
-<span title=":keycap_ten:">:keycap_ten:</span>
-<span title=":kimono:">:kimono:</span>
-<span title=":kiss:">:kiss:</span>
-<span title=":kissing:">:kissing:</span>
-<span title=":kissing_cat:">:kissing_cat:</span>
-<span title=":kissing_closed_eyes:">:kissing_closed_eyes:</span>
-<span title=":kissing_heart:">:kissing_heart:</span>
-<span title=":kissing_smiling_eyes:">:kissing_smiling_eyes:</span>
-<span title=":knife:">:knife:</span>
-<span title=":koala:">:koala:</span>
-<span title=":koko:">:koko:</span>
-<span title=":kr:">:kr:</span>
-<span title=":lantern:">:lantern:</span>
-<span title=":large_blue_circle:">:large_blue_circle:</span>
-<span title=":large_blue_diamond:">:large_blue_diamond:</span>
-<span title=":large_orange_diamond:">:large_orange_diamond:</span>
-<span title=":last_quarter_moon:">:last_quarter_moon:</span>
-<span title=":last_quarter_moon_with_face:">:last_quarter_moon_with_face:</span>
-<span title=":laughing:">:laughing:</span>
-<span title=":leaves:">:leaves:</span>
-<span title=":ledger:">:ledger:</span>
-<span title=":left_luggage:">:left_luggage:</span>
-<span title=":left_right_arrow:">:left_right_arrow:</span>
-<span title=":leftwards_arrow_with_hook:">:leftwards_arrow_with_hook:</span>
-<span title=":lemon:">:lemon:</span>
-<span title=":leo:">:leo:</span>
-<span title=":leopard:">:leopard:</span>
-<span title=":libra:">:libra:</span>
-<span title=":light_rail:">:light_rail:</span>
-<span title=":link:">:link:</span>
-<span title=":lips:">:lips:</span>
-<span title=":lipstick:">:lipstick:</span>
-<span title=":lock:">:lock:</span>
-<span title=":lock_with_ink_pen:">:lock_with_ink_pen:</span>
-<span title=":lollipop:">:lollipop:</span>
-<span title=":loop:">:loop:</span>
-<span title=":loud_sound:">:loud_sound:</span>
-<span title=":loudspeaker:">:loudspeaker:</span>
-<span title=":love_hotel:">:love_hotel:</span>
-<span title=":love_letter:">:love_letter:</span>
-<span title=":low_brightness:">:low_brightness:</span>
-<span title=":m:">:m:</span>
-<span title=":mag:">:mag:</span>
-<span title=":mag_right:">:mag_right:</span>
-<span title=":mahjong:">:mahjong:</span>
-<span title=":mailbox:">:mailbox:</span>
-<span title=":mailbox_closed:">:mailbox_closed:</span>
-<span title=":mailbox_with_mail:">:mailbox_with_mail:</span>
-<span title=":mailbox_with_no_mail:">:mailbox_with_no_mail:</span>
-<span title=":man:">:man:</span>
-<span title=":man_with_gua_pi_mao:">:man_with_gua_pi_mao:</span>
-<span title=":man_with_turban:">:man_with_turban:</span>
-<span title=":mans_shoe:">:mans_shoe:</span>
-<span title=":maple_leaf:">:maple_leaf:</span>
-<span title=":mask:">:mask:</span>
-<span title=":massage:">:massage:</span>
-<span title=":meat_on_bone:">:meat_on_bone:</span>
-<span title=":mega:">:mega:</span>
-<span title=":melon:">:melon:</span>
-<span title=":memo:">:memo:</span>
-<span title=":mens:">:mens:</span>
-<span title=":metro:">:metro:</span>
-<span title=":microphone:">:microphone:</span>
-<span title=":microscope:">:microscope:</span>
-<span title=":milky_way:">:milky_way:</span>
-<span title=":minibus:">:minibus:</span>
-<span title=":minidisc:">:minidisc:</span>
-<span title=":mobile_phone_off:">:mobile_phone_off:</span>
-<span title=":money_with_wings:">:money_with_wings:</span>
-<span title=":moneybag:">:moneybag:</span>
-<span title=":monkey:">:monkey:</span>
-<span title=":monkey_face:">:monkey_face:</span>
-<span title=":monorail:">:monorail:</span>
-<span title=":moon:">:moon:</span>
-<span title=":mortar_board:">:mortar_board:</span>
-<span title=":mount_fuji:">:mount_fuji:</span>
-<span title=":mountain_bicyclist:">:mountain_bicyclist:</span>
-<span title=":mountain_cableway:">:mountain_cableway:</span>
-<span title=":mountain_railway:">:mountain_railway:</span>
-<span title=":mouse:">:mouse:</span>
-<span title=":mouse2:">:mouse2:</span>
-<span title=":movie_camera:">:movie_camera:</span>
-<span title=":moyai:">:moyai:</span>
-<span title=":muscle:">:muscle:</span>
-<span title=":mushroom:">:mushroom:</span>
-<span title=":musical_keyboard:">:musical_keyboard:</span>
-<span title=":musical_note:">:musical_note:</span>
-<span title=":musical_score:">:musical_score:</span>
-<span title=":mute:">:mute:</span>
-<span title=":nail_care:">:nail_care:</span>
-<span title=":name_badge:">:name_badge:</span>
-<span title=":necktie:">:necktie:</span>
-<span title=":negative_squared_cross_mark:">:negative_squared_cross_mark:</span>
-<span title=":neutral_face:">:neutral_face:</span>
-<span title=":new:">:new:</span>
-<span title=":new_moon:">:new_moon:</span>
-<span title=":new_moon_with_face:">:new_moon_with_face:</span>
-<span title=":newspaper:">:newspaper:</span>
-<span title=":ng:">:ng:</span>
-<span title=":night_with_stars:">:night_with_stars:</span>
-<span title=":nine:">:nine:</span>
-<span title=":no_bell:">:no_bell:</span>
-<span title=":no_bicycles:">:no_bicycles:</span>
-<span title=":no_entry:">:no_entry:</span>
-<span title=":no_entry_sign:">:no_entry_sign:</span>
-<span title=":no_good:">:no_good:</span>
-<span title=":no_mobile_phones:">:no_mobile_phones:</span>
-<span title=":no_mouth:">:no_mouth:</span>
-<span title=":no_pedestrians:">:no_pedestrians:</span>
-<span title=":no_smoking:">:no_smoking:</span>
-<span title=":non-potable_water:">:non-potable_water:</span>
-<span title=":nose:">:nose:</span>
-<span title=":notebook:">:notebook:</span>
-<span title=":notebook_with_decorative_cover:">:notebook_with_decorative_cover:</span>
-<span title=":notes:">:notes:</span>
-<span title=":nut_and_bolt:">:nut_and_bolt:</span>
-<span title=":o:">:o:</span>
-<span title=":o2:">:o2:</span>
-<span title=":ocean:">:ocean:</span>
-<span title=":octopus:">:octopus:</span>
-<span title=":oden:">:oden:</span>
-<span title=":office:">:office:</span>
-<span title=":ok:">:ok:</span>
-<span title=":ok_hand:">:ok_hand:</span>
-<span title=":ok_woman:">:ok_woman:</span>
-<span title=":older_man:">:older_man:</span>
-<span title=":older_woman:">:older_woman:</span>
-<span title=":on:">:on:</span>
-<span title=":oncoming_automobile:">:oncoming_automobile:</span>
-<span title=":oncoming_bus:">:oncoming_bus:</span>
-<span title=":oncoming_police_car:">:oncoming_police_car:</span>
-<span title=":oncoming_taxi:">:oncoming_taxi:</span>
-<span title=":one:">:one:</span>
-<span title=":open_book:">:open_book:</span>
-<span title=":open_file_folder:">:open_file_folder:</span>
-<span title=":open_hands:">:open_hands:</span>
-<span title=":open_mouth:">:open_mouth:</span>
-<span title=":ophiuchus:">:ophiuchus:</span>
-<span title=":orange_book:">:orange_book:</span>
-<span title=":outbox_tray:">:outbox_tray:</span>
-<span title=":ox:">:ox:</span>
-<span title=":package:">:package:</span>
-<span title=":page_facing_up:">:page_facing_up:</span>
-<span title=":page_with_curl:">:page_with_curl:</span>
-<span title=":pager:">:pager:</span>
-<span title=":palm_tree:">:palm_tree:</span>
-<span title=":panda_face:">:panda_face:</span>
-<span title=":paperclip:">:paperclip:</span>
-<span title=":parking:">:parking:</span>
-<span title=":part_alternation_mark:">:part_alternation_mark:</span>
-<span title=":partly_sunny:">:partly_sunny:</span>
-<span title=":passport_control:">:passport_control:</span>
-<span title=":paw_prints:">:paw_prints:</span>
-<span title=":peach:">:peach:</span>
-<span title=":pear:">:pear:</span>
-<span title=":pencil:">:pencil:</span>
-<span title=":pencil2:">:pencil2:</span>
-<span title=":penguin:">:penguin:</span>
-<span title=":pensive:">:pensive:</span>
-<span title=":performing_arts:">:performing_arts:</span>
-<span title=":persevere:">:persevere:</span>
-<span title=":person_frowning:">:person_frowning:</span>
-<span title=":person_with_blond_hair:">:person_with_blond_hair:</span>
-<span title=":person_with_pouting_face:">:person_with_pouting_face:</span>
-<span title=":phone:">:phone:</span>
-<span title=":pig:">:pig:</span>
-<span title=":pig2:">:pig2:</span>
-<span title=":pig_nose:">:pig_nose:</span>
-<span title=":pill:">:pill:</span>
-<span title=":pineapple:">:pineapple:</span>
-<span title=":pisces:">:pisces:</span>
-<span title=":pizza:">:pizza:</span>
-<span title=":point_down:">:point_down:</span>
-<span title=":point_left:">:point_left:</span>
-<span title=":point_right:">:point_right:</span>
-<span title=":point_up:">:point_up:</span>
-<span title=":point_up_2:">:point_up_2:</span>
-<span title=":police_car:">:police_car:</span>
-<span title=":poodle:">:poodle:</span>
-<span title=":poop:">:poop:</span>
-<span title=":post_office:">:post_office:</span>
-<span title=":postal_horn:">:postal_horn:</span>
-<span title=":postbox:">:postbox:</span>
-<span title=":potable_water:">:potable_water:</span>
-<span title=":pouch:">:pouch:</span>
-<span title=":poultry_leg:">:poultry_leg:</span>
-<span title=":pound:">:pound:</span>
-<span title=":pouting_cat:">:pouting_cat:</span>
-<span title=":pray:">:pray:</span>
-<span title=":princess:">:princess:</span>
-<span title=":punch:">:punch:</span>
-<span title=":purple_heart:">:purple_heart:</span>
-<span title=":purse:">:purse:</span>
-<span title=":pushpin:">:pushpin:</span>
-<span title=":put_litter_in_its_place:">:put_litter_in_its_place:</span>
-<span title=":question:">:question:</span>
-<span title=":rabbit:">:rabbit:</span>
-<span title=":rabbit2:">:rabbit2:</span>
-<span title=":racehorse:">:racehorse:</span>
-<span title=":radio:">:radio:</span>
-<span title=":radio_button:">:radio_button:</span>
-<span title=":rage:">:rage:</span>
-<span title=":railway_car:">:railway_car:</span>
-<span title=":rainbow:">:rainbow:</span>
-<span title=":raised_hand:">:raised_hand:</span>
-<span title=":raised_hands:">:raised_hands:</span>
-<span title=":raising_hand:">:raising_hand:</span>
-<span title=":ram:">:ram:</span>
-<span title=":ramen:">:ramen:</span>
-<span title=":rat:">:rat:</span>
-<span title=":recycle:">:recycle:</span>
-<span title=":red_car:">:red_car:</span>
-<span title=":red_circle:">:red_circle:</span>
-<span title=":registered:">:registered:</span>
-<span title=":relaxed:">:relaxed:</span>
-<span title=":relieved:">:relieved:</span>
-<span title=":repeat:">:repeat:</span>
-<span title=":repeat_one:">:repeat_one:</span>
-<span title=":restroom:">:restroom:</span>
-<span title=":revolving_hearts:">:revolving_hearts:</span>
-<span title=":rewind:">:rewind:</span>
-<span title=":ribbon:">:ribbon:</span>
-<span title=":rice:">:rice:</span>
-<span title=":rice_ball:">:rice_ball:</span>
-<span title=":rice_cracker:">:rice_cracker:</span>
-<span title=":rice_scene:">:rice_scene:</span>
-<span title=":ring:">:ring:</span>
-<span title=":rocket:">:rocket:</span>
-<span title=":roller_coaster:">:roller_coaster:</span>
-<span title=":rooster:">:rooster:</span>
-<span title=":rose:">:rose:</span>
-<span title=":rotating_light:">:rotating_light:</span>
-<span title=":round_pushpin:">:round_pushpin:</span>
-<span title=":rowboat:">:rowboat:</span>
-<span title=":ru:">:ru:</span>
-<span title=":rugby_football:">:rugby_football:</span>
-<span title=":runner:">:runner:</span>
-<span title=":running:">:running:</span>
-<span title=":running_shirt_with_sash:">:running_shirt_with_sash:</span>
-<span title=":sa:">:sa:</span>
-<span title=":sagittarius:">:sagittarius:</span>
-<span title=":sailboat:">:sailboat:</span>
-<span title=":sake:">:sake:</span>
-<span title=":sandal:">:sandal:</span>
-<span title=":santa:">:santa:</span>
-<span title=":satellite:">:satellite:</span>
-<span title=":satisfied:">:satisfied:</span>
-<span title=":saxophone:">:saxophone:</span>
-<span title=":school:">:school:</span>
-<span title=":school_satchel:">:school_satchel:</span>
-<span title=":scissors:">:scissors:</span>
-<span title=":scorpius:">:scorpius:</span>
-<span title=":scream:">:scream:</span>
-<span title=":scream_cat:">:scream_cat:</span>
-<span title=":scroll:">:scroll:</span>
-<span title=":seat:">:seat:</span>
-<span title=":secret:">:secret:</span>
-<span title=":see_no_evil:">:see_no_evil:</span>
-<span title=":seedling:">:seedling:</span>
-<span title=":seven:">:seven:</span>
-<span title=":shaved_ice:">:shaved_ice:</span>
-<span title=":sheep:">:sheep:</span>
-<span title=":shell:">:shell:</span>
-<span title=":ship:">:ship:</span>
-<span title=":shirt:">:shirt:</span>
-<span title=":shit:">:shit:</span>
-<span title=":shoe:">:shoe:</span>
-<span title=":shower:">:shower:</span>
-<span title=":signal_strength:">:signal_strength:</span>
-<span title=":six:">:six:</span>
-<span title=":six_pointed_star:">:six_pointed_star:</span>
-<span title=":ski:">:ski:</span>
-<span title=":skull:">:skull:</span>
-<span title=":sleeping:">:sleeping:</span>
-<span title=":sleepy:">:sleepy:</span>
-<span title=":slot_machine:">:slot_machine:</span>
-<span title=":small_blue_diamond:">:small_blue_diamond:</span>
-<span title=":small_orange_diamond:">:small_orange_diamond:</span>
-<span title=":small_red_triangle:">:small_red_triangle:</span>
-<span title=":small_red_triangle_down:">:small_red_triangle_down:</span>
-<span title=":smile:">:smile:</span>
-<span title=":smile_cat:">:smile_cat:</span>
-<span title=":smiley:">:smiley:</span>
-<span title=":smiley_cat:">:smiley_cat:</span>
-<span title=":smiling_imp:">:smiling_imp:</span>
-<span title=":smirk:">:smirk:</span>
-<span title=":smirk_cat:">:smirk_cat:</span>
-<span title=":smoking:">:smoking:</span>
-<span title=":snail:">:snail:</span>
-<span title=":snake:">:snake:</span>
-<span title=":snowboarder:">:snowboarder:</span>
-<span title=":snowflake:">:snowflake:</span>
-<span title=":snowman:">:snowman:</span>
-<span title=":sob:">:sob:</span>
-<span title=":soccer:">:soccer:</span>
-<span title=":soon:">:soon:</span>
-<span title=":sos:">:sos:</span>
-<span title=":sound:">:sound:</span>
-<span title=":space_invader:">:space_invader:</span>
-<span title=":spades:">:spades:</span>
-<span title=":spaghetti:">:spaghetti:</span>
-<span title=":sparkle:">:sparkle:</span>
-<span title=":sparkler:">:sparkler:</span>
-<span title=":sparkles:">:sparkles:</span>
-<span title=":sparkling_heart:">:sparkling_heart:</span>
-<span title=":speak_no_evil:">:speak_no_evil:</span>
-<span title=":speaker:">:speaker:</span>
-<span title=":speech_balloon:">:speech_balloon:</span>
-<span title=":speedboat:">:speedboat:</span>
-<span title=":star:">:star:</span>
-<span title=":star2:">:star2:</span>
-<span title=":stars:">:stars:</span>
-<span title=":station:">:station:</span>
-<span title=":statue_of_liberty:">:statue_of_liberty:</span>
-<span title=":steam_locomotive:">:steam_locomotive:</span>
-<span title=":stew:">:stew:</span>
-<span title=":straight_ruler:">:straight_ruler:</span>
-<span title=":strawberry:">:strawberry:</span>
-<span title=":stuck_out_tongue:">:stuck_out_tongue:</span>
-<span title=":stuck_out_tongue_closed_eyes:">:stuck_out_tongue_closed_eyes:</span>
-<span title=":stuck_out_tongue_winking_eye:">:stuck_out_tongue_winking_eye:</span>
-<span title=":sun_with_face:">:sun_with_face:</span>
-<span title=":sunflower:">:sunflower:</span>
-<span title=":sunglasses:">:sunglasses:</span>
-<span title=":sunny:">:sunny:</span>
-<span title=":sunrise:">:sunrise:</span>
-<span title=":sunrise_over_mountains:">:sunrise_over_mountains:</span>
-<span title=":surfer:">:surfer:</span>
-<span title=":sushi:">:sushi:</span>
-<span title=":suspension_railway:">:suspension_railway:</span>
-<span title=":sweat:">:sweat:</span>
-<span title=":sweat_drops:">:sweat_drops:</span>
-<span title=":sweat_smile:">:sweat_smile:</span>
-<span title=":sweet_potato:">:sweet_potato:</span>
-<span title=":swimmer:">:swimmer:</span>
-<span title=":symbols:">:symbols:</span>
-<span title=":syringe:">:syringe:</span>
-<span title=":tada:">:tada:</span>
-<span title=":tanabata_tree:">:tanabata_tree:</span>
-<span title=":tangerine:">:tangerine:</span>
-<span title=":taurus:">:taurus:</span>
-<span title=":taxi:">:taxi:</span>
-<span title=":tea:">:tea:</span>
-<span title=":telephone:">:telephone:</span>
-<span title=":telephone_receiver:">:telephone_receiver:</span>
-<span title=":telescope:">:telescope:</span>
-<span title=":tennis:">:tennis:</span>
-<span title=":tent:">:tent:</span>
-<span title=":thought_balloon:">:thought_balloon:</span>
-<span title=":three:">:three:</span>
-<span title=":thumbsdown:">:thumbsdown:</span>
-<span title=":thumbsup:">:thumbsup:</span>
-<span title=":ticket:">:ticket:</span>
-<span title=":tiger:">:tiger:</span>
-<span title=":tiger2:">:tiger2:</span>
-<span title=":tired_face:">:tired_face:</span>
-<span title=":tm:">:tm:</span>
-<span title=":toilet:">:toilet:</span>
-<span title=":tokyo_tower:">:tokyo_tower:</span>
-<span title=":tomato:">:tomato:</span>
-<span title=":tongue:">:tongue:</span>
-<span title=":top:">:top:</span>
-<span title=":tophat:">:tophat:</span>
-<span title=":tractor:">:tractor:</span>
-<span title=":traffic_light:">:traffic_light:</span>
-<span title=":train:">:train:</span>
-<span title=":train2:">:train2:</span>
-<span title=":tram:">:tram:</span>
-<span title=":triangular_flag_on_post:">:triangular_flag_on_post:</span>
-<span title=":triangular_ruler:">:triangular_ruler:</span>
-<span title=":trident:">:trident:</span>
-<span title=":triumph:">:triumph:</span>
-<span title=":trolleybus:">:trolleybus:</span>
-<span title=":trophy:">:trophy:</span>
-<span title=":tropical_drink:">:tropical_drink:</span>
-<span title=":tropical_fish:">:tropical_fish:</span>
-<span title=":truck:">:truck:</span>
-<span title=":trumpet:">:trumpet:</span>
-<span title=":tshirt:">:tshirt:</span>
-<span title=":tulip:">:tulip:</span>
-<span title=":turtle:">:turtle:</span>
-<span title=":tv:">:tv:</span>
-<span title=":twisted_rightwards_arrows:">:twisted_rightwards_arrows:</span>
-<span title=":two:">:two:</span>
-<span title=":two_hearts:">:two_hearts:</span>
-<span title=":two_men_holding_hands:">:two_men_holding_hands:</span>
-<span title=":two_women_holding_hands:">:two_women_holding_hands:</span>
-<span title=":u5272:">:u5272:</span>
-<span title=":u5408:">:u5408:</span>
-<span title=":u55b6:">:u55b6:</span>
-<span title=":u6307:">:u6307:</span>
-<span title=":u6708:">:u6708:</span>
-<span title=":u6709:">:u6709:</span>
-<span title=":u6e80:">:u6e80:</span>
-<span title=":u7121:">:u7121:</span>
-<span title=":u7533:">:u7533:</span>
-<span title=":u7981:">:u7981:</span>
-<span title=":u7a7a:">:u7a7a:</span>
-<span title=":uk:">:uk:</span>
-<span title=":umbrella:">:umbrella:</span>
-<span title=":unamused:">:unamused:</span>
-<span title=":underage:">:underage:</span>
-<span title=":unlock:">:unlock:</span>
-<span title=":up:">:up:</span>
-<span title=":us:">:us:</span>
-<span title=":v:">:v:</span>
-<span title=":vertical_traffic_light:">:vertical_traffic_light:</span>
-<span title=":vhs:">:vhs:</span>
-<span title=":vibration_mode:">:vibration_mode:</span>
-<span title=":video_camera:">:video_camera:</span>
-<span title=":video_game:">:video_game:</span>
-<span title=":violin:">:violin:</span>
-<span title=":virgo:">:virgo:</span>
-<span title=":volcano:">:volcano:</span>
-<span title=":vs:">:vs:</span>
-<span title=":walking:">:walking:</span>
-<span title=":waning_crescent_moon:">:waning_crescent_moon:</span>
-<span title=":waning_gibbous_moon:">:waning_gibbous_moon:</span>
-<span title=":warning:">:warning:</span>
-<span title=":watch:">:watch:</span>
-<span title=":water_buffalo:">:water_buffalo:</span>
-<span title=":watermelon:">:watermelon:</span>
-<span title=":wave:">:wave:</span>
-<span title=":wavy_dash:">:wavy_dash:</span>
-<span title=":waxing_crescent_moon:">:waxing_crescent_moon:</span>
-<span title=":waxing_gibbous_moon:">:waxing_gibbous_moon:</span>
-<span title=":wc:">:wc:</span>
-<span title=":weary:">:weary:</span>
-<span title=":wedding:">:wedding:</span>
-<span title=":whale:">:whale:</span>
-<span title=":whale2:">:whale2:</span>
-<span title=":wheelchair:">:wheelchair:</span>
-<span title=":white_check_mark:">:white_check_mark:</span>
-<span title=":white_circle:">:white_circle:</span>
-<span title=":white_flower:">:white_flower:</span>
-<span title=":white_large_square:">:white_large_square:</span>
-<span title=":white_medium_small_square:">:white_medium_small_square:</span>
-<span title=":white_medium_square:">:white_medium_square:</span>
-<span title=":white_small_square:">:white_small_square:</span>
-<span title=":white_square_button:">:white_square_button:</span>
-<span title=":wind_chime:">:wind_chime:</span>
-<span title=":wine_glass:">:wine_glass:</span>
-<span title=":wink:">:wink:</span>
-<span title=":wolf:">:wolf:</span>
-<span title=":woman:">:woman:</span>
-<span title=":womans_clothes:">:womans_clothes:</span>
-<span title=":womans_hat:">:womans_hat:</span>
-<span title=":womens:">:womens:</span>
-<span title=":worried:">:worried:</span>
-<span title=":wrench:">:wrench:</span>
-<span title=":x:">:x:</span>
-<span title=":yellow_heart:">:yellow_heart:</span>
-<span title=":yen:">:yen:</span>
-<span title=":yum:">:yum:</span>
-<span title=":zap:">:zap:</span>
-<span title=":zero:">:zero:</span>
-<span title=":zzz:">:zzz:</span>
+<span class="copyme" data-clipboard-text=":+1:" title=":+1:">:+1:</span>
+<span class="copyme" data-clipboard-text=":-1:" title=":-1:">:-1:</span>
+<span class="copyme" data-clipboard-text=":100:" title=":100:">:100:</span>
+<span class="copyme" data-clipboard-text=":1234:" title=":1234:">:1234:</span>
+<span class="copyme" data-clipboard-text=":8ball:" title=":8ball:">:8ball:</span>
+<span class="copyme" data-clipboard-text=":a:" title=":a:">:a:</span>
+<span class="copyme" data-clipboard-text=":ab:" title=":ab:">:ab:</span>
+<span class="copyme" data-clipboard-text=":abc:" title=":abc:">:abc:</span>
+<span class="copyme" data-clipboard-text=":abcd:" title=":abcd:">:abcd:</span>
+<span class="copyme" data-clipboard-text=":accept:" title=":accept:">:accept:</span>
+<span class="copyme" data-clipboard-text=":aerial_tramway:" title=":aerial_tramway:">:aerial_tramway:</span>
+<span class="copyme" data-clipboard-text=":airplane:" title=":airplane:">:airplane:</span>
+<span class="copyme" data-clipboard-text=":alarm_clock:" title=":alarm_clock:">:alarm_clock:</span>
+<span class="copyme" data-clipboard-text=":alien:" title=":alien:">:alien:</span>
+<span class="copyme" data-clipboard-text=":ambulance:" title=":ambulance:">:ambulance:</span>
+<span class="copyme" data-clipboard-text=":anchor:" title=":anchor:">:anchor:</span>
+<span class="copyme" data-clipboard-text=":angel:" title=":angel:">:angel:</span>
+<span class="copyme" data-clipboard-text=":anger:" title=":anger:">:anger:</span>
+<span class="copyme" data-clipboard-text=":angry:" title=":angry:">:angry:</span>
+<span class="copyme" data-clipboard-text=":anguished:" title=":anguished:">:anguished:</span>
+<span class="copyme" data-clipboard-text=":ant:" title=":ant:">:ant:</span>
+<span class="copyme" data-clipboard-text=":apple:" title=":apple:">:apple:</span>
+<span class="copyme" data-clipboard-text=":aquarius:" title=":aquarius:">:aquarius:</span>
+<span class="copyme" data-clipboard-text=":aries:" title=":aries:">:aries:</span>
+<span class="copyme" data-clipboard-text=":arrow_backward:" title=":arrow_backward:">:arrow_backward:</span>
+<span class="copyme" data-clipboard-text=":arrow_double_down:" title=":arrow_double_down:">:arrow_double_down:</span>
+<span class="copyme" data-clipboard-text=":arrow_double_up:" title=":arrow_double_up:">:arrow_double_up:</span>
+<span class="copyme" data-clipboard-text=":arrow_down:" title=":arrow_down:">:arrow_down:</span>
+<span class="copyme" data-clipboard-text=":arrow_down_small:" title=":arrow_down_small:">:arrow_down_small:</span>
+<span class="copyme" data-clipboard-text=":arrow_forward:" title=":arrow_forward:">:arrow_forward:</span>
+<span class="copyme" data-clipboard-text=":arrow_heading_down:" title=":arrow_heading_down:">:arrow_heading_down:</span>
+<span class="copyme" data-clipboard-text=":arrow_heading_up:" title=":arrow_heading_up:">:arrow_heading_up:</span>
+<span class="copyme" data-clipboard-text=":arrow_left:" title=":arrow_left:">:arrow_left:</span>
+<span class="copyme" data-clipboard-text=":arrow_lower_left:" title=":arrow_lower_left:">:arrow_lower_left:</span>
+<span class="copyme" data-clipboard-text=":arrow_lower_right:" title=":arrow_lower_right:">:arrow_lower_right:</span>
+<span class="copyme" data-clipboard-text=":arrow_right:" title=":arrow_right:">:arrow_right:</span>
+<span class="copyme" data-clipboard-text=":arrow_right_hook:" title=":arrow_right_hook:">:arrow_right_hook:</span>
+<span class="copyme" data-clipboard-text=":arrow_up:" title=":arrow_up:">:arrow_up:</span>
+<span class="copyme" data-clipboard-text=":arrow_up_down:" title=":arrow_up_down:">:arrow_up_down:</span>
+<span class="copyme" data-clipboard-text=":arrow_up_small:" title=":arrow_up_small:">:arrow_up_small:</span>
+<span class="copyme" data-clipboard-text=":arrow_upper_left:" title=":arrow_upper_left:">:arrow_upper_left:</span>
+<span class="copyme" data-clipboard-text=":arrow_upper_right:" title=":arrow_upper_right:">:arrow_upper_right:</span>
+<span class="copyme" data-clipboard-text=":arrows_clockwise:" title=":arrows_clockwise:">:arrows_clockwise:</span>
+<span class="copyme" data-clipboard-text=":arrows_counterclockwise:" title=":arrows_counterclockwise:">:arrows_counterclockwise:</span>
+<span class="copyme" data-clipboard-text=":art:" title=":art:">:art:</span>
+<span class="copyme" data-clipboard-text=":articulated_lorry:" title=":articulated_lorry:">:articulated_lorry:</span>
+<span class="copyme" data-clipboard-text=":astonished:" title=":astonished:">:astonished:</span>
+<span class="copyme" data-clipboard-text=":athletic_shoe:" title=":athletic_shoe:">:athletic_shoe:</span>
+<span class="copyme" data-clipboard-text=":atm:" title=":atm:">:atm:</span>
+<span class="copyme" data-clipboard-text=":b:" title=":b:">:b:</span>
+<span class="copyme" data-clipboard-text=":baby:" title=":baby:">:baby:</span>
+<span class="copyme" data-clipboard-text=":baby_bottle:" title=":baby_bottle:">:baby_bottle:</span>
+<span class="copyme" data-clipboard-text=":baby_chick:" title=":baby_chick:">:baby_chick:</span>
+<span class="copyme" data-clipboard-text=":baby_symbol:" title=":baby_symbol:">:baby_symbol:</span>
+<span class="copyme" data-clipboard-text=":back:" title=":back:">:back:</span>
+<span class="copyme" data-clipboard-text=":baggage_claim:" title=":baggage_claim:">:baggage_claim:</span>
+<span class="copyme" data-clipboard-text=":balloon:" title=":balloon:">:balloon:</span>
+<span class="copyme" data-clipboard-text=":ballot_box_with_check:" title=":ballot_box_with_check:">:ballot_box_with_check:</span>
+<span class="copyme" data-clipboard-text=":bamboo:" title=":bamboo:">:bamboo:</span>
+<span class="copyme" data-clipboard-text=":banana:" title=":banana:">:banana:</span>
+<span class="copyme" data-clipboard-text=":bangbang:" title=":bangbang:">:bangbang:</span>
+<span class="copyme" data-clipboard-text=":bank:" title=":bank:">:bank:</span>
+<span class="copyme" data-clipboard-text=":bar_chart:" title=":bar_chart:">:bar_chart:</span>
+<span class="copyme" data-clipboard-text=":barber:" title=":barber:">:barber:</span>
+<span class="copyme" data-clipboard-text=":baseball:" title=":baseball:">:baseball:</span>
+<span class="copyme" data-clipboard-text=":basketball:" title=":basketball:">:basketball:</span>
+<span class="copyme" data-clipboard-text=":bath:" title=":bath:">:bath:</span>
+<span class="copyme" data-clipboard-text=":bathtub:" title=":bathtub:">:bathtub:</span>
+<span class="copyme" data-clipboard-text=":battery:" title=":battery:">:battery:</span>
+<span class="copyme" data-clipboard-text=":bear:" title=":bear:">:bear:</span>
+<span class="copyme" data-clipboard-text=":bee:" title=":bee:">:bee:</span>
+<span class="copyme" data-clipboard-text=":beer:" title=":beer:">:beer:</span>
+<span class="copyme" data-clipboard-text=":beers:" title=":beers:">:beers:</span>
+<span class="copyme" data-clipboard-text=":beetle:" title=":beetle:">:beetle:</span>
+<span class="copyme" data-clipboard-text=":beginner:" title=":beginner:">:beginner:</span>
+<span class="copyme" data-clipboard-text=":bell:" title=":bell:">:bell:</span>
+<span class="copyme" data-clipboard-text=":bento:" title=":bento:">:bento:</span>
+<span class="copyme" data-clipboard-text=":bicyclist:" title=":bicyclist:">:bicyclist:</span>
+<span class="copyme" data-clipboard-text=":bike:" title=":bike:">:bike:</span>
+<span class="copyme" data-clipboard-text=":bikini:" title=":bikini:">:bikini:</span>
+<span class="copyme" data-clipboard-text=":bird:" title=":bird:">:bird:</span>
+<span class="copyme" data-clipboard-text=":birthday:" title=":birthday:">:birthday:</span>
+<span class="copyme" data-clipboard-text=":black_circle:" title=":black_circle:">:black_circle:</span>
+<span class="copyme" data-clipboard-text=":black_joker:" title=":black_joker:">:black_joker:</span>
+<span class="copyme" data-clipboard-text=":black_large_square:" title=":black_large_square:">:black_large_square:</span>
+<span class="copyme" data-clipboard-text=":black_medium_small_square:" title=":black_medium_small_square:">:black_medium_small_square:</span>
+<span class="copyme" data-clipboard-text=":black_medium_square:" title=":black_medium_square:">:black_medium_square:</span>
+<span class="copyme" data-clipboard-text=":black_nib:" title=":black_nib:">:black_nib:</span>
+<span class="copyme" data-clipboard-text=":black_small_square:" title=":black_small_square:">:black_small_square:</span>
+<span class="copyme" data-clipboard-text=":black_square_button:" title=":black_square_button:">:black_square_button:</span>
+<span class="copyme" data-clipboard-text=":blossom:" title=":blossom:">:blossom:</span>
+<span class="copyme" data-clipboard-text=":blowfish:" title=":blowfish:">:blowfish:</span>
+<span class="copyme" data-clipboard-text=":blue_book:" title=":blue_book:">:blue_book:</span>
+<span class="copyme" data-clipboard-text=":blue_car:" title=":blue_car:">:blue_car:</span>
+<span class="copyme" data-clipboard-text=":blue_heart:" title=":blue_heart:">:blue_heart:</span>
+<span class="copyme" data-clipboard-text=":blush:" title=":blush:">:blush:</span>
+<span class="copyme" data-clipboard-text=":boar:" title=":boar:">:boar:</span>
+<span class="copyme" data-clipboard-text=":boat:" title=":boat:">:boat:</span>
+<span class="copyme" data-clipboard-text=":bomb:" title=":bomb:">:bomb:</span>
+<span class="copyme" data-clipboard-text=":book:" title=":book:">:book:</span>
+<span class="copyme" data-clipboard-text=":bookmark:" title=":bookmark:">:bookmark:</span>
+<span class="copyme" data-clipboard-text=":bookmark_tabs:" title=":bookmark_tabs:">:bookmark_tabs:</span>
+<span class="copyme" data-clipboard-text=":books:" title=":books:">:books:</span>
+<span class="copyme" data-clipboard-text=":boom:" title=":boom:">:boom:</span>
+<span class="copyme" data-clipboard-text=":boot:" title=":boot:">:boot:</span>
+<span class="copyme" data-clipboard-text=":bouquet:" title=":bouquet:">:bouquet:</span>
+<span class="copyme" data-clipboard-text=":bow:" title=":bow:">:bow:</span>
+<span class="copyme" data-clipboard-text=":bowling:" title=":bowling:">:bowling:</span>
+<span class="copyme" data-clipboard-text=":boy:" title=":boy:">:boy:</span>
+<span class="copyme" data-clipboard-text=":bread:" title=":bread:">:bread:</span>
+<span class="copyme" data-clipboard-text=":bride_with_veil:" title=":bride_with_veil:">:bride_with_veil:</span>
+<span class="copyme" data-clipboard-text=":bridge_at_night:" title=":bridge_at_night:">:bridge_at_night:</span>
+<span class="copyme" data-clipboard-text=":briefcase:" title=":briefcase:">:briefcase:</span>
+<span class="copyme" data-clipboard-text=":broken_heart:" title=":broken_heart:">:broken_heart:</span>
+<span class="copyme" data-clipboard-text=":bug:" title=":bug:">:bug:</span>
+<span class="copyme" data-clipboard-text=":bulb:" title=":bulb:">:bulb:</span>
+<span class="copyme" data-clipboard-text=":bullettrain_front:" title=":bullettrain_front:">:bullettrain_front:</span>
+<span class="copyme" data-clipboard-text=":bullettrain_side:" title=":bullettrain_side:">:bullettrain_side:</span>
+<span class="copyme" data-clipboard-text=":bus:" title=":bus:">:bus:</span>
+<span class="copyme" data-clipboard-text=":busstop:" title=":busstop:">:busstop:</span>
+<span class="copyme" data-clipboard-text=":bust_in_silhouette:" title=":bust_in_silhouette:">:bust_in_silhouette:</span>
+<span class="copyme" data-clipboard-text=":busts_in_silhouette:" title=":busts_in_silhouette:">:busts_in_silhouette:</span>
+<span class="copyme" data-clipboard-text=":cactus:" title=":cactus:">:cactus:</span>
+<span class="copyme" data-clipboard-text=":cake:" title=":cake:">:cake:</span>
+<span class="copyme" data-clipboard-text=":calendar:" title=":calendar:">:calendar:</span>
+<span class="copyme" data-clipboard-text=":calling:" title=":calling:">:calling:</span>
+<span class="copyme" data-clipboard-text=":camel:" title=":camel:">:camel:</span>
+<span class="copyme" data-clipboard-text=":camera:" title=":camera:">:camera:</span>
+<span class="copyme" data-clipboard-text=":cancer:" title=":cancer:">:cancer:</span>
+<span class="copyme" data-clipboard-text=":candy:" title=":candy:">:candy:</span>
+<span class="copyme" data-clipboard-text=":capital_abcd:" title=":capital_abcd:">:capital_abcd:</span>
+<span class="copyme" data-clipboard-text=":capricorn:" title=":capricorn:">:capricorn:</span>
+<span class="copyme" data-clipboard-text=":car:" title=":car:">:car:</span>
+<span class="copyme" data-clipboard-text=":card_index:" title=":card_index:">:card_index:</span>
+<span class="copyme" data-clipboard-text=":carousel_horse:" title=":carousel_horse:">:carousel_horse:</span>
+<span class="copyme" data-clipboard-text=":cat:" title=":cat:">:cat:</span>
+<span class="copyme" data-clipboard-text=":cat2:" title=":cat2:">:cat2:</span>
+<span class="copyme" data-clipboard-text=":cd:" title=":cd:">:cd:</span>
+<span class="copyme" data-clipboard-text=":chart:" title=":chart:">:chart:</span>
+<span class="copyme" data-clipboard-text=":chart_with_downwards_trend:" title=":chart_with_downwards_trend:">:chart_with_downwards_trend:</span>
+<span class="copyme" data-clipboard-text=":chart_with_upwards_trend:" title=":chart_with_upwards_trend:">:chart_with_upwards_trend:</span>
+<span class="copyme" data-clipboard-text=":checkered_flag:" title=":checkered_flag:">:checkered_flag:</span>
+<span class="copyme" data-clipboard-text=":cherries:" title=":cherries:">:cherries:</span>
+<span class="copyme" data-clipboard-text=":cherry_blossom:" title=":cherry_blossom:">:cherry_blossom:</span>
+<span class="copyme" data-clipboard-text=":chestnut:" title=":chestnut:">:chestnut:</span>
+<span class="copyme" data-clipboard-text=":chicken:" title=":chicken:">:chicken:</span>
+<span class="copyme" data-clipboard-text=":children_crossing:" title=":children_crossing:">:children_crossing:</span>
+<span class="copyme" data-clipboard-text=":chocolate_bar:" title=":chocolate_bar:">:chocolate_bar:</span>
+<span class="copyme" data-clipboard-text=":christmas_tree:" title=":christmas_tree:">:christmas_tree:</span>
+<span class="copyme" data-clipboard-text=":church:" title=":church:">:church:</span>
+<span class="copyme" data-clipboard-text=":cinema:" title=":cinema:">:cinema:</span>
+<span class="copyme" data-clipboard-text=":circus_tent:" title=":circus_tent:">:circus_tent:</span>
+<span class="copyme" data-clipboard-text=":city_sunrise:" title=":city_sunrise:">:city_sunrise:</span>
+<span class="copyme" data-clipboard-text=":city_sunset:" title=":city_sunset:">:city_sunset:</span>
+<span class="copyme" data-clipboard-text=":cl:" title=":cl:">:cl:</span>
+<span class="copyme" data-clipboard-text=":clap:" title=":clap:">:clap:</span>
+<span class="copyme" data-clipboard-text=":clapper:" title=":clapper:">:clapper:</span>
+<span class="copyme" data-clipboard-text=":clipboard:" title=":clipboard:">:clipboard:</span>
+<span class="copyme" data-clipboard-text=":clock1:" title=":clock1:">:clock1:</span>
+<span class="copyme" data-clipboard-text=":clock10:" title=":clock10:">:clock10:</span>
+<span class="copyme" data-clipboard-text=":clock1030:" title=":clock1030:">:clock1030:</span>
+<span class="copyme" data-clipboard-text=":clock11:" title=":clock11:">:clock11:</span>
+<span class="copyme" data-clipboard-text=":clock1130:" title=":clock1130:">:clock1130:</span>
+<span class="copyme" data-clipboard-text=":clock12:" title=":clock12:">:clock12:</span>
+<span class="copyme" data-clipboard-text=":clock1230:" title=":clock1230:">:clock1230:</span>
+<span class="copyme" data-clipboard-text=":clock130:" title=":clock130:">:clock130:</span>
+<span class="copyme" data-clipboard-text=":clock2:" title=":clock2:">:clock2:</span>
+<span class="copyme" data-clipboard-text=":clock230:" title=":clock230:">:clock230:</span>
+<span class="copyme" data-clipboard-text=":clock3:" title=":clock3:">:clock3:</span>
+<span class="copyme" data-clipboard-text=":clock330:" title=":clock330:">:clock330:</span>
+<span class="copyme" data-clipboard-text=":clock4:" title=":clock4:">:clock4:</span>
+<span class="copyme" data-clipboard-text=":clock430:" title=":clock430:">:clock430:</span>
+<span class="copyme" data-clipboard-text=":clock5:" title=":clock5:">:clock5:</span>
+<span class="copyme" data-clipboard-text=":clock530:" title=":clock530:">:clock530:</span>
+<span class="copyme" data-clipboard-text=":clock6:" title=":clock6:">:clock6:</span>
+<span class="copyme" data-clipboard-text=":clock630:" title=":clock630:">:clock630:</span>
+<span class="copyme" data-clipboard-text=":clock7:" title=":clock7:">:clock7:</span>
+<span class="copyme" data-clipboard-text=":clock730:" title=":clock730:">:clock730:</span>
+<span class="copyme" data-clipboard-text=":clock8:" title=":clock8:">:clock8:</span>
+<span class="copyme" data-clipboard-text=":clock830:" title=":clock830:">:clock830:</span>
+<span class="copyme" data-clipboard-text=":clock9:" title=":clock9:">:clock9:</span>
+<span class="copyme" data-clipboard-text=":clock930:" title=":clock930:">:clock930:</span>
+<span class="copyme" data-clipboard-text=":closed_book:" title=":closed_book:">:closed_book:</span>
+<span class="copyme" data-clipboard-text=":closed_lock_with_key:" title=":closed_lock_with_key:">:closed_lock_with_key:</span>
+<span class="copyme" data-clipboard-text=":closed_umbrella:" title=":closed_umbrella:">:closed_umbrella:</span>
+<span class="copyme" data-clipboard-text=":cloud:" title=":cloud:">:cloud:</span>
+<span class="copyme" data-clipboard-text=":clubs:" title=":clubs:">:clubs:</span>
+<span class="copyme" data-clipboard-text=":cn:" title=":cn:">:cn:</span>
+<span class="copyme" data-clipboard-text=":cocktail:" title=":cocktail:">:cocktail:</span>
+<span class="copyme" data-clipboard-text=":coffee:" title=":coffee:">:coffee:</span>
+<span class="copyme" data-clipboard-text=":cold_sweat:" title=":cold_sweat:">:cold_sweat:</span>
+<span class="copyme" data-clipboard-text=":collision:" title=":collision:">:collision:</span>
+<span class="copyme" data-clipboard-text=":computer:" title=":computer:">:computer:</span>
+<span class="copyme" data-clipboard-text=":confetti_ball:" title=":confetti_ball:">:confetti_ball:</span>
+<span class="copyme" data-clipboard-text=":confounded:" title=":confounded:">:confounded:</span>
+<span class="copyme" data-clipboard-text=":confused:" title=":confused:">:confused:</span>
+<span class="copyme" data-clipboard-text=":congratulations:" title=":congratulations:">:congratulations:</span>
+<span class="copyme" data-clipboard-text=":construction:" title=":construction:">:construction:</span>
+<span class="copyme" data-clipboard-text=":construction_worker:" title=":construction_worker:">:construction_worker:</span>
+<span class="copyme" data-clipboard-text=":convenience_store:" title=":convenience_store:">:convenience_store:</span>
+<span class="copyme" data-clipboard-text=":cookie:" title=":cookie:">:cookie:</span>
+<span class="copyme" data-clipboard-text=":cool:" title=":cool:">:cool:</span>
+<span class="copyme" data-clipboard-text=":cop:" title=":cop:">:cop:</span>
+<span class="copyme" data-clipboard-text=":copyright:" title=":copyright:">:copyright:</span>
+<span class="copyme" data-clipboard-text=":corn:" title=":corn:">:corn:</span>
+<span class="copyme" data-clipboard-text=":couple:" title=":couple:">:couple:</span>
+<span class="copyme" data-clipboard-text=":couple_with_heart:" title=":couple_with_heart:">:couple_with_heart:</span>
+<span class="copyme" data-clipboard-text=":couplekiss:" title=":couplekiss:">:couplekiss:</span>
+<span class="copyme" data-clipboard-text=":cow:" title=":cow:">:cow:</span>
+<span class="copyme" data-clipboard-text=":cow2:" title=":cow2:">:cow2:</span>
+<span class="copyme" data-clipboard-text=":credit_card:" title=":credit_card:">:credit_card:</span>
+<span class="copyme" data-clipboard-text=":crescent_moon:" title=":crescent_moon:">:crescent_moon:</span>
+<span class="copyme" data-clipboard-text=":crocodile:" title=":crocodile:">:crocodile:</span>
+<span class="copyme" data-clipboard-text=":crossed_flags:" title=":crossed_flags:">:crossed_flags:</span>
+<span class="copyme" data-clipboard-text=":crown:" title=":crown:">:crown:</span>
+<span class="copyme" data-clipboard-text=":cry:" title=":cry:">:cry:</span>
+<span class="copyme" data-clipboard-text=":crying_cat_face:" title=":crying_cat_face:">:crying_cat_face:</span>
+<span class="copyme" data-clipboard-text=":crystal_ball:" title=":crystal_ball:">:crystal_ball:</span>
+<span class="copyme" data-clipboard-text=":cupid:" title=":cupid:">:cupid:</span>
+<span class="copyme" data-clipboard-text=":curly_loop:" title=":curly_loop:">:curly_loop:</span>
+<span class="copyme" data-clipboard-text=":currency_exchange:" title=":currency_exchange:">:currency_exchange:</span>
+<span class="copyme" data-clipboard-text=":curry:" title=":curry:">:curry:</span>
+<span class="copyme" data-clipboard-text=":custard:" title=":custard:">:custard:</span>
+<span class="copyme" data-clipboard-text=":customs:" title=":customs:">:customs:</span>
+<span class="copyme" data-clipboard-text=":cyclone:" title=":cyclone:">:cyclone:</span>
+<span class="copyme" data-clipboard-text=":dancer:" title=":dancer:">:dancer:</span>
+<span class="copyme" data-clipboard-text=":dancers:" title=":dancers:">:dancers:</span>
+<span class="copyme" data-clipboard-text=":dango:" title=":dango:">:dango:</span>
+<span class="copyme" data-clipboard-text=":dart:" title=":dart:">:dart:</span>
+<span class="copyme" data-clipboard-text=":dash:" title=":dash:">:dash:</span>
+<span class="copyme" data-clipboard-text=":date:" title=":date:">:date:</span>
+<span class="copyme" data-clipboard-text=":de:" title=":de:">:de:</span>
+<span class="copyme" data-clipboard-text=":deciduous_tree:" title=":deciduous_tree:">:deciduous_tree:</span>
+<span class="copyme" data-clipboard-text=":department_store:" title=":department_store:">:department_store:</span>
+<span class="copyme" data-clipboard-text=":diamond_shape_with_a_dot_inside:" title=":diamond_shape_with_a_dot_inside:">:diamond_shape_with_a_dot_inside:</span>
+<span class="copyme" data-clipboard-text=":diamonds:" title=":diamonds:">:diamonds:</span>
+<span class="copyme" data-clipboard-text=":disappointed:" title=":disappointed:">:disappointed:</span>
+<span class="copyme" data-clipboard-text=":disappointed_relieved:" title=":disappointed_relieved:">:disappointed_relieved:</span>
+<span class="copyme" data-clipboard-text=":dizzy:" title=":dizzy:">:dizzy:</span>
+<span class="copyme" data-clipboard-text=":dizzy_face:" title=":dizzy_face:">:dizzy_face:</span>
+<span class="copyme" data-clipboard-text=":do_not_litter:" title=":do_not_litter:">:do_not_litter:</span>
+<span class="copyme" data-clipboard-text=":dog:" title=":dog:">:dog:</span>
+<span class="copyme" data-clipboard-text=":dog2:" title=":dog2:">:dog2:</span>
+<span class="copyme" data-clipboard-text=":dollar:" title=":dollar:">:dollar:</span>
+<span class="copyme" data-clipboard-text=":dolls:" title=":dolls:">:dolls:</span>
+<span class="copyme" data-clipboard-text=":dolphin:" title=":dolphin:">:dolphin:</span>
+<span class="copyme" data-clipboard-text=":door:" title=":door:">:door:</span>
+<span class="copyme" data-clipboard-text=":doughnut:" title=":doughnut:">:doughnut:</span>
+<span class="copyme" data-clipboard-text=":dragon:" title=":dragon:">:dragon:</span>
+<span class="copyme" data-clipboard-text=":dragon_face:" title=":dragon_face:">:dragon_face:</span>
+<span class="copyme" data-clipboard-text=":dress:" title=":dress:">:dress:</span>
+<span class="copyme" data-clipboard-text=":dromedary_camel:" title=":dromedary_camel:">:dromedary_camel:</span>
+<span class="copyme" data-clipboard-text=":droplet:" title=":droplet:">:droplet:</span>
+<span class="copyme" data-clipboard-text=":dvd:" title=":dvd:">:dvd:</span>
+<span class="copyme" data-clipboard-text=":e-mail:" title=":e-mail:">:e-mail:</span>
+<span class="copyme" data-clipboard-text=":ear:" title=":ear:">:ear:</span>
+<span class="copyme" data-clipboard-text=":ear_of_rice:" title=":ear_of_rice:">:ear_of_rice:</span>
+<span class="copyme" data-clipboard-text=":earth_africa:" title=":earth_africa:">:earth_africa:</span>
+<span class="copyme" data-clipboard-text=":earth_americas:" title=":earth_americas:">:earth_americas:</span>
+<span class="copyme" data-clipboard-text=":earth_asia:" title=":earth_asia:">:earth_asia:</span>
+<span class="copyme" data-clipboard-text=":egg:" title=":egg:">:egg:</span>
+<span class="copyme" data-clipboard-text=":eggplant:" title=":eggplant:">:eggplant:</span>
+<span class="copyme" data-clipboard-text=":eight:" title=":eight:">:eight:</span>
+<span class="copyme" data-clipboard-text=":eight_pointed_black_star:" title=":eight_pointed_black_star:">:eight_pointed_black_star:</span>
+<span class="copyme" data-clipboard-text=":eight_spoked_asterisk:" title=":eight_spoked_asterisk:">:eight_spoked_asterisk:</span>
+<span class="copyme" data-clipboard-text=":electric_plug:" title=":electric_plug:">:electric_plug:</span>
+<span class="copyme" data-clipboard-text=":elephant:" title=":elephant:">:elephant:</span>
+<span class="copyme" data-clipboard-text=":email:" title=":email:">:email:</span>
+<span class="copyme" data-clipboard-text=":end:" title=":end:">:end:</span>
+<span class="copyme" data-clipboard-text=":envelope:" title=":envelope:">:envelope:</span>
+<span class="copyme" data-clipboard-text=":envelope_with_arrow:" title=":envelope_with_arrow:">:envelope_with_arrow:</span>
+<span class="copyme" data-clipboard-text=":es:" title=":es:">:es:</span>
+<span class="copyme" data-clipboard-text=":euro:" title=":euro:">:euro:</span>
+<span class="copyme" data-clipboard-text=":european_castle:" title=":european_castle:">:european_castle:</span>
+<span class="copyme" data-clipboard-text=":european_post_office:" title=":european_post_office:">:european_post_office:</span>
+<span class="copyme" data-clipboard-text=":evergreen_tree:" title=":evergreen_tree:">:evergreen_tree:</span>
+<span class="copyme" data-clipboard-text=":exclamation:" title=":exclamation:">:exclamation:</span>
+<span class="copyme" data-clipboard-text=":expressionless:" title=":expressionless:">:expressionless:</span>
+<span class="copyme" data-clipboard-text=":eyeglasses:" title=":eyeglasses:">:eyeglasses:</span>
+<span class="copyme" data-clipboard-text=":eyes:" title=":eyes:">:eyes:</span>
+<span class="copyme" data-clipboard-text=":facepunch:" title=":facepunch:">:facepunch:</span>
+<span class="copyme" data-clipboard-text=":factory:" title=":factory:">:factory:</span>
+<span class="copyme" data-clipboard-text=":fallen_leaf:" title=":fallen_leaf:">:fallen_leaf:</span>
+<span class="copyme" data-clipboard-text=":family:" title=":family:">:family:</span>
+<span class="copyme" data-clipboard-text=":fast_forward:" title=":fast_forward:">:fast_forward:</span>
+<span class="copyme" data-clipboard-text=":fax:" title=":fax:">:fax:</span>
+<span class="copyme" data-clipboard-text=":fearful:" title=":fearful:">:fearful:</span>
+<span class="copyme" data-clipboard-text=":feet:" title=":feet:">:feet:</span>
+<span class="copyme" data-clipboard-text=":ferris_wheel:" title=":ferris_wheel:">:ferris_wheel:</span>
+<span class="copyme" data-clipboard-text=":file_folder:" title=":file_folder:">:file_folder:</span>
+<span class="copyme" data-clipboard-text=":fire:" title=":fire:">:fire:</span>
+<span class="copyme" data-clipboard-text=":fire_engine:" title=":fire_engine:">:fire_engine:</span>
+<span class="copyme" data-clipboard-text=":fireworks:" title=":fireworks:">:fireworks:</span>
+<span class="copyme" data-clipboard-text=":first_quarter_moon:" title=":first_quarter_moon:">:first_quarter_moon:</span>
+<span class="copyme" data-clipboard-text=":first_quarter_moon_with_face:" title=":first_quarter_moon_with_face:">:first_quarter_moon_with_face:</span>
+<span class="copyme" data-clipboard-text=":fish:" title=":fish:">:fish:</span>
+<span class="copyme" data-clipboard-text=":fish_cake:" title=":fish_cake:">:fish_cake:</span>
+<span class="copyme" data-clipboard-text=":fishing_pole_and_fish:" title=":fishing_pole_and_fish:">:fishing_pole_and_fish:</span>
+<span class="copyme" data-clipboard-text=":fist:" title=":fist:">:fist:</span>
+<span class="copyme" data-clipboard-text=":five:" title=":five:">:five:</span>
+<span class="copyme" data-clipboard-text=":flags:" title=":flags:">:flags:</span>
+<span class="copyme" data-clipboard-text=":flashlight:" title=":flashlight:">:flashlight:</span>
+<span class="copyme" data-clipboard-text=":flipper:" title=":flipper:">:flipper:</span>
+<span class="copyme" data-clipboard-text=":floppy_disk:" title=":floppy_disk:">:floppy_disk:</span>
+<span class="copyme" data-clipboard-text=":flower_playing_cards:" title=":flower_playing_cards:">:flower_playing_cards:</span>
+<span class="copyme" data-clipboard-text=":flushed:" title=":flushed:">:flushed:</span>
+<span class="copyme" data-clipboard-text=":foggy:" title=":foggy:">:foggy:</span>
+<span class="copyme" data-clipboard-text=":football:" title=":football:">:football:</span>
+<span class="copyme" data-clipboard-text=":footprints:" title=":footprints:">:footprints:</span>
+<span class="copyme" data-clipboard-text=":fork_and_knife:" title=":fork_and_knife:">:fork_and_knife:</span>
+<span class="copyme" data-clipboard-text=":fountain:" title=":fountain:">:fountain:</span>
+<span class="copyme" data-clipboard-text=":four:" title=":four:">:four:</span>
+<span class="copyme" data-clipboard-text=":four_leaf_clover:" title=":four_leaf_clover:">:four_leaf_clover:</span>
+<span class="copyme" data-clipboard-text=":fr:" title=":fr:">:fr:</span>
+<span class="copyme" data-clipboard-text=":free:" title=":free:">:free:</span>
+<span class="copyme" data-clipboard-text=":fried_shrimp:" title=":fried_shrimp:">:fried_shrimp:</span>
+<span class="copyme" data-clipboard-text=":fries:" title=":fries:">:fries:</span>
+<span class="copyme" data-clipboard-text=":frog:" title=":frog:">:frog:</span>
+<span class="copyme" data-clipboard-text=":frowning:" title=":frowning:">:frowning:</span>
+<span class="copyme" data-clipboard-text=":fuelpump:" title=":fuelpump:">:fuelpump:</span>
+<span class="copyme" data-clipboard-text=":full_moon:" title=":full_moon:">:full_moon:</span>
+<span class="copyme" data-clipboard-text=":full_moon_with_face:" title=":full_moon_with_face:">:full_moon_with_face:</span>
+<span class="copyme" data-clipboard-text=":game_die:" title=":game_die:">:game_die:</span>
+<span class="copyme" data-clipboard-text=":gb:" title=":gb:">:gb:</span>
+<span class="copyme" data-clipboard-text=":gem:" title=":gem:">:gem:</span>
+<span class="copyme" data-clipboard-text=":gemini:" title=":gemini:">:gemini:</span>
+<span class="copyme" data-clipboard-text=":ghost:" title=":ghost:">:ghost:</span>
+<span class="copyme" data-clipboard-text=":gift:" title=":gift:">:gift:</span>
+<span class="copyme" data-clipboard-text=":gift_heart:" title=":gift_heart:">:gift_heart:</span>
+<span class="copyme" data-clipboard-text=":girl:" title=":girl:">:girl:</span>
+<span class="copyme" data-clipboard-text=":globe_with_meridians:" title=":globe_with_meridians:">:globe_with_meridians:</span>
+<span class="copyme" data-clipboard-text=":goat:" title=":goat:">:goat:</span>
+<span class="copyme" data-clipboard-text=":golf:" title=":golf:">:golf:</span>
+<span class="copyme" data-clipboard-text=":grapes:" title=":grapes:">:grapes:</span>
+<span class="copyme" data-clipboard-text=":green_apple:" title=":green_apple:">:green_apple:</span>
+<span class="copyme" data-clipboard-text=":green_book:" title=":green_book:">:green_book:</span>
+<span class="copyme" data-clipboard-text=":green_heart:" title=":green_heart:">:green_heart:</span>
+<span class="copyme" data-clipboard-text=":grey_exclamation:" title=":grey_exclamation:">:grey_exclamation:</span>
+<span class="copyme" data-clipboard-text=":grey_question:" title=":grey_question:">:grey_question:</span>
+<span class="copyme" data-clipboard-text=":grimacing:" title=":grimacing:">:grimacing:</span>
+<span class="copyme" data-clipboard-text=":grin:" title=":grin:">:grin:</span>
+<span class="copyme" data-clipboard-text=":grinning:" title=":grinning:">:grinning:</span>
+<span class="copyme" data-clipboard-text=":guardsman:" title=":guardsman:">:guardsman:</span>
+<span class="copyme" data-clipboard-text=":guitar:" title=":guitar:">:guitar:</span>
+<span class="copyme" data-clipboard-text=":gun:" title=":gun:">:gun:</span>
+<span class="copyme" data-clipboard-text=":haircut:" title=":haircut:">:haircut:</span>
+<span class="copyme" data-clipboard-text=":hamburger:" title=":hamburger:">:hamburger:</span>
+<span class="copyme" data-clipboard-text=":hammer:" title=":hammer:">:hammer:</span>
+<span class="copyme" data-clipboard-text=":hamster:" title=":hamster:">:hamster:</span>
+<span class="copyme" data-clipboard-text=":hand:" title=":hand:">:hand:</span>
+<span class="copyme" data-clipboard-text=":handbag:" title=":handbag:">:handbag:</span>
+<span class="copyme" data-clipboard-text=":hankey:" title=":hankey:">:hankey:</span>
+<span class="copyme" data-clipboard-text=":hash:" title=":hash:">:hash:</span>
+<span class="copyme" data-clipboard-text=":hatched_chick:" title=":hatched_chick:">:hatched_chick:</span>
+<span class="copyme" data-clipboard-text=":hatching_chick:" title=":hatching_chick:">:hatching_chick:</span>
+<span class="copyme" data-clipboard-text=":headphones:" title=":headphones:">:headphones:</span>
+<span class="copyme" data-clipboard-text=":hear_no_evil:" title=":hear_no_evil:">:hear_no_evil:</span>
+<span class="copyme" data-clipboard-text=":heart:" title=":heart:">:heart:</span>
+<span class="copyme" data-clipboard-text=":heart_decoration:" title=":heart_decoration:">:heart_decoration:</span>
+<span class="copyme" data-clipboard-text=":heart_eyes:" title=":heart_eyes:">:heart_eyes:</span>
+<span class="copyme" data-clipboard-text=":heart_eyes_cat:" title=":heart_eyes_cat:">:heart_eyes_cat:</span>
+<span class="copyme" data-clipboard-text=":heartbeat:" title=":heartbeat:">:heartbeat:</span>
+<span class="copyme" data-clipboard-text=":heartpulse:" title=":heartpulse:">:heartpulse:</span>
+<span class="copyme" data-clipboard-text=":hearts:" title=":hearts:">:hearts:</span>
+<span class="copyme" data-clipboard-text=":heavy_check_mark:" title=":heavy_check_mark:">:heavy_check_mark:</span>
+<span class="copyme" data-clipboard-text=":heavy_division_sign:" title=":heavy_division_sign:">:heavy_division_sign:</span>
+<span class="copyme" data-clipboard-text=":heavy_dollar_sign:" title=":heavy_dollar_sign:">:heavy_dollar_sign:</span>
+<span class="copyme" data-clipboard-text=":heavy_exclamation_mark:" title=":heavy_exclamation_mark:">:heavy_exclamation_mark:</span>
+<span class="copyme" data-clipboard-text=":heavy_minus_sign:" title=":heavy_minus_sign:">:heavy_minus_sign:</span>
+<span class="copyme" data-clipboard-text=":heavy_multiplication_x:" title=":heavy_multiplication_x:">:heavy_multiplication_x:</span>
+<span class="copyme" data-clipboard-text=":heavy_plus_sign:" title=":heavy_plus_sign:">:heavy_plus_sign:</span>
+<span class="copyme" data-clipboard-text=":helicopter:" title=":helicopter:">:helicopter:</span>
+<span class="copyme" data-clipboard-text=":herb:" title=":herb:">:herb:</span>
+<span class="copyme" data-clipboard-text=":hibiscus:" title=":hibiscus:">:hibiscus:</span>
+<span class="copyme" data-clipboard-text=":high_brightness:" title=":high_brightness:">:high_brightness:</span>
+<span class="copyme" data-clipboard-text=":high_heel:" title=":high_heel:">:high_heel:</span>
+<span class="copyme" data-clipboard-text=":hocho:" title=":hocho:">:hocho:</span>
+<span class="copyme" data-clipboard-text=":honey_pot:" title=":honey_pot:">:honey_pot:</span>
+<span class="copyme" data-clipboard-text=":honeybee:" title=":honeybee:">:honeybee:</span>
+<span class="copyme" data-clipboard-text=":horse:" title=":horse:">:horse:</span>
+<span class="copyme" data-clipboard-text=":horse_racing:" title=":horse_racing:">:horse_racing:</span>
+<span class="copyme" data-clipboard-text=":hospital:" title=":hospital:">:hospital:</span>
+<span class="copyme" data-clipboard-text=":hotel:" title=":hotel:">:hotel:</span>
+<span class="copyme" data-clipboard-text=":hotsprings:" title=":hotsprings:">:hotsprings:</span>
+<span class="copyme" data-clipboard-text=":hourglass:" title=":hourglass:">:hourglass:</span>
+<span class="copyme" data-clipboard-text=":hourglass_flowing_sand:" title=":hourglass_flowing_sand:">:hourglass_flowing_sand:</span>
+<span class="copyme" data-clipboard-text=":house:" title=":house:">:house:</span>
+<span class="copyme" data-clipboard-text=":house_with_garden:" title=":house_with_garden:">:house_with_garden:</span>
+<span class="copyme" data-clipboard-text=":hushed:" title=":hushed:">:hushed:</span>
+<span class="copyme" data-clipboard-text=":ice_cream:" title=":ice_cream:">:ice_cream:</span>
+<span class="copyme" data-clipboard-text=":icecream:" title=":icecream:">:icecream:</span>
+<span class="copyme" data-clipboard-text=":id:" title=":id:">:id:</span>
+<span class="copyme" data-clipboard-text=":ideograph_advantage:" title=":ideograph_advantage:">:ideograph_advantage:</span>
+<span class="copyme" data-clipboard-text=":imp:" title=":imp:">:imp:</span>
+<span class="copyme" data-clipboard-text=":inbox_tray:" title=":inbox_tray:">:inbox_tray:</span>
+<span class="copyme" data-clipboard-text=":incoming_envelope:" title=":incoming_envelope:">:incoming_envelope:</span>
+<span class="copyme" data-clipboard-text=":information_desk_person:" title=":information_desk_person:">:information_desk_person:</span>
+<span class="copyme" data-clipboard-text=":information_source:" title=":information_source:">:information_source:</span>
+<span class="copyme" data-clipboard-text=":innocent:" title=":innocent:">:innocent:</span>
+<span class="copyme" data-clipboard-text=":interrobang:" title=":interrobang:">:interrobang:</span>
+<span class="copyme" data-clipboard-text=":iphone:" title=":iphone:">:iphone:</span>
+<span class="copyme" data-clipboard-text=":it:" title=":it:">:it:</span>
+<span class="copyme" data-clipboard-text=":izakaya_lantern:" title=":izakaya_lantern:">:izakaya_lantern:</span>
+<span class="copyme" data-clipboard-text=":jack_o_lantern:" title=":jack_o_lantern:">:jack_o_lantern:</span>
+<span class="copyme" data-clipboard-text=":japan:" title=":japan:">:japan:</span>
+<span class="copyme" data-clipboard-text=":japanese_castle:" title=":japanese_castle:">:japanese_castle:</span>
+<span class="copyme" data-clipboard-text=":japanese_goblin:" title=":japanese_goblin:">:japanese_goblin:</span>
+<span class="copyme" data-clipboard-text=":japanese_ogre:" title=":japanese_ogre:">:japanese_ogre:</span>
+<span class="copyme" data-clipboard-text=":jeans:" title=":jeans:">:jeans:</span>
+<span class="copyme" data-clipboard-text=":joy:" title=":joy:">:joy:</span>
+<span class="copyme" data-clipboard-text=":joy_cat:" title=":joy_cat:">:joy_cat:</span>
+<span class="copyme" data-clipboard-text=":jp:" title=":jp:">:jp:</span>
+<span class="copyme" data-clipboard-text=":key:" title=":key:">:key:</span>
+<span class="copyme" data-clipboard-text=":keycap_ten:" title=":keycap_ten:">:keycap_ten:</span>
+<span class="copyme" data-clipboard-text=":kimono:" title=":kimono:">:kimono:</span>
+<span class="copyme" data-clipboard-text=":kiss:" title=":kiss:">:kiss:</span>
+<span class="copyme" data-clipboard-text=":kissing:" title=":kissing:">:kissing:</span>
+<span class="copyme" data-clipboard-text=":kissing_cat:" title=":kissing_cat:">:kissing_cat:</span>
+<span class="copyme" data-clipboard-text=":kissing_closed_eyes:" title=":kissing_closed_eyes:">:kissing_closed_eyes:</span>
+<span class="copyme" data-clipboard-text=":kissing_heart:" title=":kissing_heart:">:kissing_heart:</span>
+<span class="copyme" data-clipboard-text=":kissing_smiling_eyes:" title=":kissing_smiling_eyes:">:kissing_smiling_eyes:</span>
+<span class="copyme" data-clipboard-text=":knife:" title=":knife:">:knife:</span>
+<span class="copyme" data-clipboard-text=":koala:" title=":koala:">:koala:</span>
+<span class="copyme" data-clipboard-text=":koko:" title=":koko:">:koko:</span>
+<span class="copyme" data-clipboard-text=":kr:" title=":kr:">:kr:</span>
+<span class="copyme" data-clipboard-text=":lantern:" title=":lantern:">:lantern:</span>
+<span class="copyme" data-clipboard-text=":large_blue_circle:" title=":large_blue_circle:">:large_blue_circle:</span>
+<span class="copyme" data-clipboard-text=":large_blue_diamond:" title=":large_blue_diamond:">:large_blue_diamond:</span>
+<span class="copyme" data-clipboard-text=":large_orange_diamond:" title=":large_orange_diamond:">:large_orange_diamond:</span>
+<span class="copyme" data-clipboard-text=":last_quarter_moon:" title=":last_quarter_moon:">:last_quarter_moon:</span>
+<span class="copyme" data-clipboard-text=":last_quarter_moon_with_face:" title=":last_quarter_moon_with_face:">:last_quarter_moon_with_face:</span>
+<span class="copyme" data-clipboard-text=":laughing:" title=":laughing:">:laughing:</span>
+<span class="copyme" data-clipboard-text=":leaves:" title=":leaves:">:leaves:</span>
+<span class="copyme" data-clipboard-text=":ledger:" title=":ledger:">:ledger:</span>
+<span class="copyme" data-clipboard-text=":left_luggage:" title=":left_luggage:">:left_luggage:</span>
+<span class="copyme" data-clipboard-text=":left_right_arrow:" title=":left_right_arrow:">:left_right_arrow:</span>
+<span class="copyme" data-clipboard-text=":leftwards_arrow_with_hook:" title=":leftwards_arrow_with_hook:">:leftwards_arrow_with_hook:</span>
+<span class="copyme" data-clipboard-text=":lemon:" title=":lemon:">:lemon:</span>
+<span class="copyme" data-clipboard-text=":leo:" title=":leo:">:leo:</span>
+<span class="copyme" data-clipboard-text=":leopard:" title=":leopard:">:leopard:</span>
+<span class="copyme" data-clipboard-text=":libra:" title=":libra:">:libra:</span>
+<span class="copyme" data-clipboard-text=":light_rail:" title=":light_rail:">:light_rail:</span>
+<span class="copyme" data-clipboard-text=":link:" title=":link:">:link:</span>
+<span class="copyme" data-clipboard-text=":lips:" title=":lips:">:lips:</span>
+<span class="copyme" data-clipboard-text=":lipstick:" title=":lipstick:">:lipstick:</span>
+<span class="copyme" data-clipboard-text=":lock:" title=":lock:">:lock:</span>
+<span class="copyme" data-clipboard-text=":lock_with_ink_pen:" title=":lock_with_ink_pen:">:lock_with_ink_pen:</span>
+<span class="copyme" data-clipboard-text=":lollipop:" title=":lollipop:">:lollipop:</span>
+<span class="copyme" data-clipboard-text=":loop:" title=":loop:">:loop:</span>
+<span class="copyme" data-clipboard-text=":loud_sound:" title=":loud_sound:">:loud_sound:</span>
+<span class="copyme" data-clipboard-text=":loudspeaker:" title=":loudspeaker:">:loudspeaker:</span>
+<span class="copyme" data-clipboard-text=":love_hotel:" title=":love_hotel:">:love_hotel:</span>
+<span class="copyme" data-clipboard-text=":love_letter:" title=":love_letter:">:love_letter:</span>
+<span class="copyme" data-clipboard-text=":low_brightness:" title=":low_brightness:">:low_brightness:</span>
+<span class="copyme" data-clipboard-text=":m:" title=":m:">:m:</span>
+<span class="copyme" data-clipboard-text=":mag:" title=":mag:">:mag:</span>
+<span class="copyme" data-clipboard-text=":mag_right:" title=":mag_right:">:mag_right:</span>
+<span class="copyme" data-clipboard-text=":mahjong:" title=":mahjong:">:mahjong:</span>
+<span class="copyme" data-clipboard-text=":mailbox:" title=":mailbox:">:mailbox:</span>
+<span class="copyme" data-clipboard-text=":mailbox_closed:" title=":mailbox_closed:">:mailbox_closed:</span>
+<span class="copyme" data-clipboard-text=":mailbox_with_mail:" title=":mailbox_with_mail:">:mailbox_with_mail:</span>
+<span class="copyme" data-clipboard-text=":mailbox_with_no_mail:" title=":mailbox_with_no_mail:">:mailbox_with_no_mail:</span>
+<span class="copyme" data-clipboard-text=":man:" title=":man:">:man:</span>
+<span class="copyme" data-clipboard-text=":man_with_gua_pi_mao:" title=":man_with_gua_pi_mao:">:man_with_gua_pi_mao:</span>
+<span class="copyme" data-clipboard-text=":man_with_turban:" title=":man_with_turban:">:man_with_turban:</span>
+<span class="copyme" data-clipboard-text=":mans_shoe:" title=":mans_shoe:">:mans_shoe:</span>
+<span class="copyme" data-clipboard-text=":maple_leaf:" title=":maple_leaf:">:maple_leaf:</span>
+<span class="copyme" data-clipboard-text=":mask:" title=":mask:">:mask:</span>
+<span class="copyme" data-clipboard-text=":massage:" title=":massage:">:massage:</span>
+<span class="copyme" data-clipboard-text=":meat_on_bone:" title=":meat_on_bone:">:meat_on_bone:</span>
+<span class="copyme" data-clipboard-text=":mega:" title=":mega:">:mega:</span>
+<span class="copyme" data-clipboard-text=":melon:" title=":melon:">:melon:</span>
+<span class="copyme" data-clipboard-text=":memo:" title=":memo:">:memo:</span>
+<span class="copyme" data-clipboard-text=":mens:" title=":mens:">:mens:</span>
+<span class="copyme" data-clipboard-text=":metro:" title=":metro:">:metro:</span>
+<span class="copyme" data-clipboard-text=":microphone:" title=":microphone:">:microphone:</span>
+<span class="copyme" data-clipboard-text=":microscope:" title=":microscope:">:microscope:</span>
+<span class="copyme" data-clipboard-text=":milky_way:" title=":milky_way:">:milky_way:</span>
+<span class="copyme" data-clipboard-text=":minibus:" title=":minibus:">:minibus:</span>
+<span class="copyme" data-clipboard-text=":minidisc:" title=":minidisc:">:minidisc:</span>
+<span class="copyme" data-clipboard-text=":mobile_phone_off:" title=":mobile_phone_off:">:mobile_phone_off:</span>
+<span class="copyme" data-clipboard-text=":money_with_wings:" title=":money_with_wings:">:money_with_wings:</span>
+<span class="copyme" data-clipboard-text=":moneybag:" title=":moneybag:">:moneybag:</span>
+<span class="copyme" data-clipboard-text=":monkey:" title=":monkey:">:monkey:</span>
+<span class="copyme" data-clipboard-text=":monkey_face:" title=":monkey_face:">:monkey_face:</span>
+<span class="copyme" data-clipboard-text=":monorail:" title=":monorail:">:monorail:</span>
+<span class="copyme" data-clipboard-text=":moon:" title=":moon:">:moon:</span>
+<span class="copyme" data-clipboard-text=":mortar_board:" title=":mortar_board:">:mortar_board:</span>
+<span class="copyme" data-clipboard-text=":mount_fuji:" title=":mount_fuji:">:mount_fuji:</span>
+<span class="copyme" data-clipboard-text=":mountain_bicyclist:" title=":mountain_bicyclist:">:mountain_bicyclist:</span>
+<span class="copyme" data-clipboard-text=":mountain_cableway:" title=":mountain_cableway:">:mountain_cableway:</span>
+<span class="copyme" data-clipboard-text=":mountain_railway:" title=":mountain_railway:">:mountain_railway:</span>
+<span class="copyme" data-clipboard-text=":mouse:" title=":mouse:">:mouse:</span>
+<span class="copyme" data-clipboard-text=":mouse2:" title=":mouse2:">:mouse2:</span>
+<span class="copyme" data-clipboard-text=":movie_camera:" title=":movie_camera:">:movie_camera:</span>
+<span class="copyme" data-clipboard-text=":moyai:" title=":moyai:">:moyai:</span>
+<span class="copyme" data-clipboard-text=":muscle:" title=":muscle:">:muscle:</span>
+<span class="copyme" data-clipboard-text=":mushroom:" title=":mushroom:">:mushroom:</span>
+<span class="copyme" data-clipboard-text=":musical_keyboard:" title=":musical_keyboard:">:musical_keyboard:</span>
+<span class="copyme" data-clipboard-text=":musical_note:" title=":musical_note:">:musical_note:</span>
+<span class="copyme" data-clipboard-text=":musical_score:" title=":musical_score:">:musical_score:</span>
+<span class="copyme" data-clipboard-text=":mute:" title=":mute:">:mute:</span>
+<span class="copyme" data-clipboard-text=":nail_care:" title=":nail_care:">:nail_care:</span>
+<span class="copyme" data-clipboard-text=":name_badge:" title=":name_badge:">:name_badge:</span>
+<span class="copyme" data-clipboard-text=":necktie:" title=":necktie:">:necktie:</span>
+<span class="copyme" data-clipboard-text=":negative_squared_cross_mark:" title=":negative_squared_cross_mark:">:negative_squared_cross_mark:</span>
+<span class="copyme" data-clipboard-text=":neutral_face:" title=":neutral_face:">:neutral_face:</span>
+<span class="copyme" data-clipboard-text=":new:" title=":new:">:new:</span>
+<span class="copyme" data-clipboard-text=":new_moon:" title=":new_moon:">:new_moon:</span>
+<span class="copyme" data-clipboard-text=":new_moon_with_face:" title=":new_moon_with_face:">:new_moon_with_face:</span>
+<span class="copyme" data-clipboard-text=":newspaper:" title=":newspaper:">:newspaper:</span>
+<span class="copyme" data-clipboard-text=":ng:" title=":ng:">:ng:</span>
+<span class="copyme" data-clipboard-text=":night_with_stars:" title=":night_with_stars:">:night_with_stars:</span>
+<span class="copyme" data-clipboard-text=":nine:" title=":nine:">:nine:</span>
+<span class="copyme" data-clipboard-text=":no_bell:" title=":no_bell:">:no_bell:</span>
+<span class="copyme" data-clipboard-text=":no_bicycles:" title=":no_bicycles:">:no_bicycles:</span>
+<span class="copyme" data-clipboard-text=":no_entry:" title=":no_entry:">:no_entry:</span>
+<span class="copyme" data-clipboard-text=":no_entry_sign:" title=":no_entry_sign:">:no_entry_sign:</span>
+<span class="copyme" data-clipboard-text=":no_good:" title=":no_good:">:no_good:</span>
+<span class="copyme" data-clipboard-text=":no_mobile_phones:" title=":no_mobile_phones:">:no_mobile_phones:</span>
+<span class="copyme" data-clipboard-text=":no_mouth:" title=":no_mouth:">:no_mouth:</span>
+<span class="copyme" data-clipboard-text=":no_pedestrians:" title=":no_pedestrians:">:no_pedestrians:</span>
+<span class="copyme" data-clipboard-text=":no_smoking:" title=":no_smoking:">:no_smoking:</span>
+<span class="copyme" data-clipboard-text=":non-potable_water:" title=":non-potable_water:">:non-potable_water:</span>
+<span class="copyme" data-clipboard-text=":nose:" title=":nose:">:nose:</span>
+<span class="copyme" data-clipboard-text=":notebook:" title=":notebook:">:notebook:</span>
+<span class="copyme" data-clipboard-text=":notebook_with_decorative_cover:" title=":notebook_with_decorative_cover:">:notebook_with_decorative_cover:</span>
+<span class="copyme" data-clipboard-text=":notes:" title=":notes:">:notes:</span>
+<span class="copyme" data-clipboard-text=":nut_and_bolt:" title=":nut_and_bolt:">:nut_and_bolt:</span>
+<span class="copyme" data-clipboard-text=":o:" title=":o:">:o:</span>
+<span class="copyme" data-clipboard-text=":o2:" title=":o2:">:o2:</span>
+<span class="copyme" data-clipboard-text=":ocean:" title=":ocean:">:ocean:</span>
+<span class="copyme" data-clipboard-text=":octopus:" title=":octopus:">:octopus:</span>
+<span class="copyme" data-clipboard-text=":oden:" title=":oden:">:oden:</span>
+<span class="copyme" data-clipboard-text=":office:" title=":office:">:office:</span>
+<span class="copyme" data-clipboard-text=":ok:" title=":ok:">:ok:</span>
+<span class="copyme" data-clipboard-text=":ok_hand:" title=":ok_hand:">:ok_hand:</span>
+<span class="copyme" data-clipboard-text=":ok_woman:" title=":ok_woman:">:ok_woman:</span>
+<span class="copyme" data-clipboard-text=":older_man:" title=":older_man:">:older_man:</span>
+<span class="copyme" data-clipboard-text=":older_woman:" title=":older_woman:">:older_woman:</span>
+<span class="copyme" data-clipboard-text=":on:" title=":on:">:on:</span>
+<span class="copyme" data-clipboard-text=":oncoming_automobile:" title=":oncoming_automobile:">:oncoming_automobile:</span>
+<span class="copyme" data-clipboard-text=":oncoming_bus:" title=":oncoming_bus:">:oncoming_bus:</span>
+<span class="copyme" data-clipboard-text=":oncoming_police_car:" title=":oncoming_police_car:">:oncoming_police_car:</span>
+<span class="copyme" data-clipboard-text=":oncoming_taxi:" title=":oncoming_taxi:">:oncoming_taxi:</span>
+<span class="copyme" data-clipboard-text=":one:" title=":one:">:one:</span>
+<span class="copyme" data-clipboard-text=":open_book:" title=":open_book:">:open_book:</span>
+<span class="copyme" data-clipboard-text=":open_file_folder:" title=":open_file_folder:">:open_file_folder:</span>
+<span class="copyme" data-clipboard-text=":open_hands:" title=":open_hands:">:open_hands:</span>
+<span class="copyme" data-clipboard-text=":open_mouth:" title=":open_mouth:">:open_mouth:</span>
+<span class="copyme" data-clipboard-text=":ophiuchus:" title=":ophiuchus:">:ophiuchus:</span>
+<span class="copyme" data-clipboard-text=":orange_book:" title=":orange_book:">:orange_book:</span>
+<span class="copyme" data-clipboard-text=":outbox_tray:" title=":outbox_tray:">:outbox_tray:</span>
+<span class="copyme" data-clipboard-text=":ox:" title=":ox:">:ox:</span>
+<span class="copyme" data-clipboard-text=":package:" title=":package:">:package:</span>
+<span class="copyme" data-clipboard-text=":page_facing_up:" title=":page_facing_up:">:page_facing_up:</span>
+<span class="copyme" data-clipboard-text=":page_with_curl:" title=":page_with_curl:">:page_with_curl:</span>
+<span class="copyme" data-clipboard-text=":pager:" title=":pager:">:pager:</span>
+<span class="copyme" data-clipboard-text=":palm_tree:" title=":palm_tree:">:palm_tree:</span>
+<span class="copyme" data-clipboard-text=":panda_face:" title=":panda_face:">:panda_face:</span>
+<span class="copyme" data-clipboard-text=":paperclip:" title=":paperclip:">:paperclip:</span>
+<span class="copyme" data-clipboard-text=":parking:" title=":parking:">:parking:</span>
+<span class="copyme" data-clipboard-text=":part_alternation_mark:" title=":part_alternation_mark:">:part_alternation_mark:</span>
+<span class="copyme" data-clipboard-text=":partly_sunny:" title=":partly_sunny:">:partly_sunny:</span>
+<span class="copyme" data-clipboard-text=":passport_control:" title=":passport_control:">:passport_control:</span>
+<span class="copyme" data-clipboard-text=":paw_prints:" title=":paw_prints:">:paw_prints:</span>
+<span class="copyme" data-clipboard-text=":peach:" title=":peach:">:peach:</span>
+<span class="copyme" data-clipboard-text=":pear:" title=":pear:">:pear:</span>
+<span class="copyme" data-clipboard-text=":pencil:" title=":pencil:">:pencil:</span>
+<span class="copyme" data-clipboard-text=":pencil2:" title=":pencil2:">:pencil2:</span>
+<span class="copyme" data-clipboard-text=":penguin:" title=":penguin:">:penguin:</span>
+<span class="copyme" data-clipboard-text=":pensive:" title=":pensive:">:pensive:</span>
+<span class="copyme" data-clipboard-text=":performing_arts:" title=":performing_arts:">:performing_arts:</span>
+<span class="copyme" data-clipboard-text=":persevere:" title=":persevere:">:persevere:</span>
+<span class="copyme" data-clipboard-text=":person_frowning:" title=":person_frowning:">:person_frowning:</span>
+<span class="copyme" data-clipboard-text=":person_with_blond_hair:" title=":person_with_blond_hair:">:person_with_blond_hair:</span>
+<span class="copyme" data-clipboard-text=":person_with_pouting_face:" title=":person_with_pouting_face:">:person_with_pouting_face:</span>
+<span class="copyme" data-clipboard-text=":phone:" title=":phone:">:phone:</span>
+<span class="copyme" data-clipboard-text=":pig:" title=":pig:">:pig:</span>
+<span class="copyme" data-clipboard-text=":pig2:" title=":pig2:">:pig2:</span>
+<span class="copyme" data-clipboard-text=":pig_nose:" title=":pig_nose:">:pig_nose:</span>
+<span class="copyme" data-clipboard-text=":pill:" title=":pill:">:pill:</span>
+<span class="copyme" data-clipboard-text=":pineapple:" title=":pineapple:">:pineapple:</span>
+<span class="copyme" data-clipboard-text=":pisces:" title=":pisces:">:pisces:</span>
+<span class="copyme" data-clipboard-text=":pizza:" title=":pizza:">:pizza:</span>
+<span class="copyme" data-clipboard-text=":point_down:" title=":point_down:">:point_down:</span>
+<span class="copyme" data-clipboard-text=":point_left:" title=":point_left:">:point_left:</span>
+<span class="copyme" data-clipboard-text=":point_right:" title=":point_right:">:point_right:</span>
+<span class="copyme" data-clipboard-text=":point_up:" title=":point_up:">:point_up:</span>
+<span class="copyme" data-clipboard-text=":point_up_2:" title=":point_up_2:">:point_up_2:</span>
+<span class="copyme" data-clipboard-text=":police_car:" title=":police_car:">:police_car:</span>
+<span class="copyme" data-clipboard-text=":poodle:" title=":poodle:">:poodle:</span>
+<span class="copyme" data-clipboard-text=":poop:" title=":poop:">:poop:</span>
+<span class="copyme" data-clipboard-text=":post_office:" title=":post_office:">:post_office:</span>
+<span class="copyme" data-clipboard-text=":postal_horn:" title=":postal_horn:">:postal_horn:</span>
+<span class="copyme" data-clipboard-text=":postbox:" title=":postbox:">:postbox:</span>
+<span class="copyme" data-clipboard-text=":potable_water:" title=":potable_water:">:potable_water:</span>
+<span class="copyme" data-clipboard-text=":pouch:" title=":pouch:">:pouch:</span>
+<span class="copyme" data-clipboard-text=":poultry_leg:" title=":poultry_leg:">:poultry_leg:</span>
+<span class="copyme" data-clipboard-text=":pound:" title=":pound:">:pound:</span>
+<span class="copyme" data-clipboard-text=":pouting_cat:" title=":pouting_cat:">:pouting_cat:</span>
+<span class="copyme" data-clipboard-text=":pray:" title=":pray:">:pray:</span>
+<span class="copyme" data-clipboard-text=":princess:" title=":princess:">:princess:</span>
+<span class="copyme" data-clipboard-text=":punch:" title=":punch:">:punch:</span>
+<span class="copyme" data-clipboard-text=":purple_heart:" title=":purple_heart:">:purple_heart:</span>
+<span class="copyme" data-clipboard-text=":purse:" title=":purse:">:purse:</span>
+<span class="copyme" data-clipboard-text=":pushpin:" title=":pushpin:">:pushpin:</span>
+<span class="copyme" data-clipboard-text=":put_litter_in_its_place:" title=":put_litter_in_its_place:">:put_litter_in_its_place:</span>
+<span class="copyme" data-clipboard-text=":question:" title=":question:">:question:</span>
+<span class="copyme" data-clipboard-text=":rabbit:" title=":rabbit:">:rabbit:</span>
+<span class="copyme" data-clipboard-text=":rabbit2:" title=":rabbit2:">:rabbit2:</span>
+<span class="copyme" data-clipboard-text=":racehorse:" title=":racehorse:">:racehorse:</span>
+<span class="copyme" data-clipboard-text=":radio:" title=":radio:">:radio:</span>
+<span class="copyme" data-clipboard-text=":radio_button:" title=":radio_button:">:radio_button:</span>
+<span class="copyme" data-clipboard-text=":rage:" title=":rage:">:rage:</span>
+<span class="copyme" data-clipboard-text=":railway_car:" title=":railway_car:">:railway_car:</span>
+<span class="copyme" data-clipboard-text=":rainbow:" title=":rainbow:">:rainbow:</span>
+<span class="copyme" data-clipboard-text=":raised_hand:" title=":raised_hand:">:raised_hand:</span>
+<span class="copyme" data-clipboard-text=":raised_hands:" title=":raised_hands:">:raised_hands:</span>
+<span class="copyme" data-clipboard-text=":raising_hand:" title=":raising_hand:">:raising_hand:</span>
+<span class="copyme" data-clipboard-text=":ram:" title=":ram:">:ram:</span>
+<span class="copyme" data-clipboard-text=":ramen:" title=":ramen:">:ramen:</span>
+<span class="copyme" data-clipboard-text=":rat:" title=":rat:">:rat:</span>
+<span class="copyme" data-clipboard-text=":recycle:" title=":recycle:">:recycle:</span>
+<span class="copyme" data-clipboard-text=":red_car:" title=":red_car:">:red_car:</span>
+<span class="copyme" data-clipboard-text=":red_circle:" title=":red_circle:">:red_circle:</span>
+<span class="copyme" data-clipboard-text=":registered:" title=":registered:">:registered:</span>
+<span class="copyme" data-clipboard-text=":relaxed:" title=":relaxed:">:relaxed:</span>
+<span class="copyme" data-clipboard-text=":relieved:" title=":relieved:">:relieved:</span>
+<span class="copyme" data-clipboard-text=":repeat:" title=":repeat:">:repeat:</span>
+<span class="copyme" data-clipboard-text=":repeat_one:" title=":repeat_one:">:repeat_one:</span>
+<span class="copyme" data-clipboard-text=":restroom:" title=":restroom:">:restroom:</span>
+<span class="copyme" data-clipboard-text=":revolving_hearts:" title=":revolving_hearts:">:revolving_hearts:</span>
+<span class="copyme" data-clipboard-text=":rewind:" title=":rewind:">:rewind:</span>
+<span class="copyme" data-clipboard-text=":ribbon:" title=":ribbon:">:ribbon:</span>
+<span class="copyme" data-clipboard-text=":rice:" title=":rice:">:rice:</span>
+<span class="copyme" data-clipboard-text=":rice_ball:" title=":rice_ball:">:rice_ball:</span>
+<span class="copyme" data-clipboard-text=":rice_cracker:" title=":rice_cracker:">:rice_cracker:</span>
+<span class="copyme" data-clipboard-text=":rice_scene:" title=":rice_scene:">:rice_scene:</span>
+<span class="copyme" data-clipboard-text=":ring:" title=":ring:">:ring:</span>
+<span class="copyme" data-clipboard-text=":rocket:" title=":rocket:">:rocket:</span>
+<span class="copyme" data-clipboard-text=":roller_coaster:" title=":roller_coaster:">:roller_coaster:</span>
+<span class="copyme" data-clipboard-text=":rooster:" title=":rooster:">:rooster:</span>
+<span class="copyme" data-clipboard-text=":rose:" title=":rose:">:rose:</span>
+<span class="copyme" data-clipboard-text=":rotating_light:" title=":rotating_light:">:rotating_light:</span>
+<span class="copyme" data-clipboard-text=":round_pushpin:" title=":round_pushpin:">:round_pushpin:</span>
+<span class="copyme" data-clipboard-text=":rowboat:" title=":rowboat:">:rowboat:</span>
+<span class="copyme" data-clipboard-text=":ru:" title=":ru:">:ru:</span>
+<span class="copyme" data-clipboard-text=":rugby_football:" title=":rugby_football:">:rugby_football:</span>
+<span class="copyme" data-clipboard-text=":runner:" title=":runner:">:runner:</span>
+<span class="copyme" data-clipboard-text=":running:" title=":running:">:running:</span>
+<span class="copyme" data-clipboard-text=":running_shirt_with_sash:" title=":running_shirt_with_sash:">:running_shirt_with_sash:</span>
+<span class="copyme" data-clipboard-text=":sa:" title=":sa:">:sa:</span>
+<span class="copyme" data-clipboard-text=":sagittarius:" title=":sagittarius:">:sagittarius:</span>
+<span class="copyme" data-clipboard-text=":sailboat:" title=":sailboat:">:sailboat:</span>
+<span class="copyme" data-clipboard-text=":sake:" title=":sake:">:sake:</span>
+<span class="copyme" data-clipboard-text=":sandal:" title=":sandal:">:sandal:</span>
+<span class="copyme" data-clipboard-text=":santa:" title=":santa:">:santa:</span>
+<span class="copyme" data-clipboard-text=":satellite:" title=":satellite:">:satellite:</span>
+<span class="copyme" data-clipboard-text=":satisfied:" title=":satisfied:">:satisfied:</span>
+<span class="copyme" data-clipboard-text=":saxophone:" title=":saxophone:">:saxophone:</span>
+<span class="copyme" data-clipboard-text=":school:" title=":school:">:school:</span>
+<span class="copyme" data-clipboard-text=":school_satchel:" title=":school_satchel:">:school_satchel:</span>
+<span class="copyme" data-clipboard-text=":scissors:" title=":scissors:">:scissors:</span>
+<span class="copyme" data-clipboard-text=":scorpius:" title=":scorpius:">:scorpius:</span>
+<span class="copyme" data-clipboard-text=":scream:" title=":scream:">:scream:</span>
+<span class="copyme" data-clipboard-text=":scream_cat:" title=":scream_cat:">:scream_cat:</span>
+<span class="copyme" data-clipboard-text=":scroll:" title=":scroll:">:scroll:</span>
+<span class="copyme" data-clipboard-text=":seat:" title=":seat:">:seat:</span>
+<span class="copyme" data-clipboard-text=":secret:" title=":secret:">:secret:</span>
+<span class="copyme" data-clipboard-text=":see_no_evil:" title=":see_no_evil:">:see_no_evil:</span>
+<span class="copyme" data-clipboard-text=":seedling:" title=":seedling:">:seedling:</span>
+<span class="copyme" data-clipboard-text=":seven:" title=":seven:">:seven:</span>
+<span class="copyme" data-clipboard-text=":shaved_ice:" title=":shaved_ice:">:shaved_ice:</span>
+<span class="copyme" data-clipboard-text=":sheep:" title=":sheep:">:sheep:</span>
+<span class="copyme" data-clipboard-text=":shell:" title=":shell:">:shell:</span>
+<span class="copyme" data-clipboard-text=":ship:" title=":ship:">:ship:</span>
+<span class="copyme" data-clipboard-text=":shirt:" title=":shirt:">:shirt:</span>
+<span class="copyme" data-clipboard-text=":shit:" title=":shit:">:shit:</span>
+<span class="copyme" data-clipboard-text=":shoe:" title=":shoe:">:shoe:</span>
+<span class="copyme" data-clipboard-text=":shower:" title=":shower:">:shower:</span>
+<span class="copyme" data-clipboard-text=":signal_strength:" title=":signal_strength:">:signal_strength:</span>
+<span class="copyme" data-clipboard-text=":six:" title=":six:">:six:</span>
+<span class="copyme" data-clipboard-text=":six_pointed_star:" title=":six_pointed_star:">:six_pointed_star:</span>
+<span class="copyme" data-clipboard-text=":ski:" title=":ski:">:ski:</span>
+<span class="copyme" data-clipboard-text=":skull:" title=":skull:">:skull:</span>
+<span class="copyme" data-clipboard-text=":sleeping:" title=":sleeping:">:sleeping:</span>
+<span class="copyme" data-clipboard-text=":sleepy:" title=":sleepy:">:sleepy:</span>
+<span class="copyme" data-clipboard-text=":slot_machine:" title=":slot_machine:">:slot_machine:</span>
+<span class="copyme" data-clipboard-text=":small_blue_diamond:" title=":small_blue_diamond:">:small_blue_diamond:</span>
+<span class="copyme" data-clipboard-text=":small_orange_diamond:" title=":small_orange_diamond:">:small_orange_diamond:</span>
+<span class="copyme" data-clipboard-text=":small_red_triangle:" title=":small_red_triangle:">:small_red_triangle:</span>
+<span class="copyme" data-clipboard-text=":small_red_triangle_down:" title=":small_red_triangle_down:">:small_red_triangle_down:</span>
+<span class="copyme" data-clipboard-text=":smile:" title=":smile:">:smile:</span>
+<span class="copyme" data-clipboard-text=":smile_cat:" title=":smile_cat:">:smile_cat:</span>
+<span class="copyme" data-clipboard-text=":smiley:" title=":smiley:">:smiley:</span>
+<span class="copyme" data-clipboard-text=":smiley_cat:" title=":smiley_cat:">:smiley_cat:</span>
+<span class="copyme" data-clipboard-text=":smiling_imp:" title=":smiling_imp:">:smiling_imp:</span>
+<span class="copyme" data-clipboard-text=":smirk:" title=":smirk:">:smirk:</span>
+<span class="copyme" data-clipboard-text=":smirk_cat:" title=":smirk_cat:">:smirk_cat:</span>
+<span class="copyme" data-clipboard-text=":smoking:" title=":smoking:">:smoking:</span>
+<span class="copyme" data-clipboard-text=":snail:" title=":snail:">:snail:</span>
+<span class="copyme" data-clipboard-text=":snake:" title=":snake:">:snake:</span>
+<span class="copyme" data-clipboard-text=":snowboarder:" title=":snowboarder:">:snowboarder:</span>
+<span class="copyme" data-clipboard-text=":snowflake:" title=":snowflake:">:snowflake:</span>
+<span class="copyme" data-clipboard-text=":snowman:" title=":snowman:">:snowman:</span>
+<span class="copyme" data-clipboard-text=":sob:" title=":sob:">:sob:</span>
+<span class="copyme" data-clipboard-text=":soccer:" title=":soccer:">:soccer:</span>
+<span class="copyme" data-clipboard-text=":soon:" title=":soon:">:soon:</span>
+<span class="copyme" data-clipboard-text=":sos:" title=":sos:">:sos:</span>
+<span class="copyme" data-clipboard-text=":sound:" title=":sound:">:sound:</span>
+<span class="copyme" data-clipboard-text=":space_invader:" title=":space_invader:">:space_invader:</span>
+<span class="copyme" data-clipboard-text=":spades:" title=":spades:">:spades:</span>
+<span class="copyme" data-clipboard-text=":spaghetti:" title=":spaghetti:">:spaghetti:</span>
+<span class="copyme" data-clipboard-text=":sparkle:" title=":sparkle:">:sparkle:</span>
+<span class="copyme" data-clipboard-text=":sparkler:" title=":sparkler:">:sparkler:</span>
+<span class="copyme" data-clipboard-text=":sparkles:" title=":sparkles:">:sparkles:</span>
+<span class="copyme" data-clipboard-text=":sparkling_heart:" title=":sparkling_heart:">:sparkling_heart:</span>
+<span class="copyme" data-clipboard-text=":speak_no_evil:" title=":speak_no_evil:">:speak_no_evil:</span>
+<span class="copyme" data-clipboard-text=":speaker:" title=":speaker:">:speaker:</span>
+<span class="copyme" data-clipboard-text=":speech_balloon:" title=":speech_balloon:">:speech_balloon:</span>
+<span class="copyme" data-clipboard-text=":speedboat:" title=":speedboat:">:speedboat:</span>
+<span class="copyme" data-clipboard-text=":star:" title=":star:">:star:</span>
+<span class="copyme" data-clipboard-text=":star2:" title=":star2:">:star2:</span>
+<span class="copyme" data-clipboard-text=":stars:" title=":stars:">:stars:</span>
+<span class="copyme" data-clipboard-text=":station:" title=":station:">:station:</span>
+<span class="copyme" data-clipboard-text=":statue_of_liberty:" title=":statue_of_liberty:">:statue_of_liberty:</span>
+<span class="copyme" data-clipboard-text=":steam_locomotive:" title=":steam_locomotive:">:steam_locomotive:</span>
+<span class="copyme" data-clipboard-text=":stew:" title=":stew:">:stew:</span>
+<span class="copyme" data-clipboard-text=":straight_ruler:" title=":straight_ruler:">:straight_ruler:</span>
+<span class="copyme" data-clipboard-text=":strawberry:" title=":strawberry:">:strawberry:</span>
+<span class="copyme" data-clipboard-text=":stuck_out_tongue:" title=":stuck_out_tongue:">:stuck_out_tongue:</span>
+<span class="copyme" data-clipboard-text=":stuck_out_tongue_closed_eyes:" title=":stuck_out_tongue_closed_eyes:">:stuck_out_tongue_closed_eyes:</span>
+<span class="copyme" data-clipboard-text=":stuck_out_tongue_winking_eye:" title=":stuck_out_tongue_winking_eye:">:stuck_out_tongue_winking_eye:</span>
+<span class="copyme" data-clipboard-text=":sun_with_face:" title=":sun_with_face:">:sun_with_face:</span>
+<span class="copyme" data-clipboard-text=":sunflower:" title=":sunflower:">:sunflower:</span>
+<span class="copyme" data-clipboard-text=":sunglasses:" title=":sunglasses:">:sunglasses:</span>
+<span class="copyme" data-clipboard-text=":sunny:" title=":sunny:">:sunny:</span>
+<span class="copyme" data-clipboard-text=":sunrise:" title=":sunrise:">:sunrise:</span>
+<span class="copyme" data-clipboard-text=":sunrise_over_mountains:" title=":sunrise_over_mountains:">:sunrise_over_mountains:</span>
+<span class="copyme" data-clipboard-text=":surfer:" title=":surfer:">:surfer:</span>
+<span class="copyme" data-clipboard-text=":sushi:" title=":sushi:">:sushi:</span>
+<span class="copyme" data-clipboard-text=":suspension_railway:" title=":suspension_railway:">:suspension_railway:</span>
+<span class="copyme" data-clipboard-text=":sweat:" title=":sweat:">:sweat:</span>
+<span class="copyme" data-clipboard-text=":sweat_drops:" title=":sweat_drops:">:sweat_drops:</span>
+<span class="copyme" data-clipboard-text=":sweat_smile:" title=":sweat_smile:">:sweat_smile:</span>
+<span class="copyme" data-clipboard-text=":sweet_potato:" title=":sweet_potato:">:sweet_potato:</span>
+<span class="copyme" data-clipboard-text=":swimmer:" title=":swimmer:">:swimmer:</span>
+<span class="copyme" data-clipboard-text=":symbols:" title=":symbols:">:symbols:</span>
+<span class="copyme" data-clipboard-text=":syringe:" title=":syringe:">:syringe:</span>
+<span class="copyme" data-clipboard-text=":tada:" title=":tada:">:tada:</span>
+<span class="copyme" data-clipboard-text=":tanabata_tree:" title=":tanabata_tree:">:tanabata_tree:</span>
+<span class="copyme" data-clipboard-text=":tangerine:" title=":tangerine:">:tangerine:</span>
+<span class="copyme" data-clipboard-text=":taurus:" title=":taurus:">:taurus:</span>
+<span class="copyme" data-clipboard-text=":taxi:" title=":taxi:">:taxi:</span>
+<span class="copyme" data-clipboard-text=":tea:" title=":tea:">:tea:</span>
+<span class="copyme" data-clipboard-text=":telephone:" title=":telephone:">:telephone:</span>
+<span class="copyme" data-clipboard-text=":telephone_receiver:" title=":telephone_receiver:">:telephone_receiver:</span>
+<span class="copyme" data-clipboard-text=":telescope:" title=":telescope:">:telescope:</span>
+<span class="copyme" data-clipboard-text=":tennis:" title=":tennis:">:tennis:</span>
+<span class="copyme" data-clipboard-text=":tent:" title=":tent:">:tent:</span>
+<span class="copyme" data-clipboard-text=":thought_balloon:" title=":thought_balloon:">:thought_balloon:</span>
+<span class="copyme" data-clipboard-text=":three:" title=":three:">:three:</span>
+<span class="copyme" data-clipboard-text=":thumbsdown:" title=":thumbsdown:">:thumbsdown:</span>
+<span class="copyme" data-clipboard-text=":thumbsup:" title=":thumbsup:">:thumbsup:</span>
+<span class="copyme" data-clipboard-text=":ticket:" title=":ticket:">:ticket:</span>
+<span class="copyme" data-clipboard-text=":tiger:" title=":tiger:">:tiger:</span>
+<span class="copyme" data-clipboard-text=":tiger2:" title=":tiger2:">:tiger2:</span>
+<span class="copyme" data-clipboard-text=":tired_face:" title=":tired_face:">:tired_face:</span>
+<span class="copyme" data-clipboard-text=":tm:" title=":tm:">:tm:</span>
+<span class="copyme" data-clipboard-text=":toilet:" title=":toilet:">:toilet:</span>
+<span class="copyme" data-clipboard-text=":tokyo_tower:" title=":tokyo_tower:">:tokyo_tower:</span>
+<span class="copyme" data-clipboard-text=":tomato:" title=":tomato:">:tomato:</span>
+<span class="copyme" data-clipboard-text=":tongue:" title=":tongue:">:tongue:</span>
+<span class="copyme" data-clipboard-text=":top:" title=":top:">:top:</span>
+<span class="copyme" data-clipboard-text=":tophat:" title=":tophat:">:tophat:</span>
+<span class="copyme" data-clipboard-text=":tractor:" title=":tractor:">:tractor:</span>
+<span class="copyme" data-clipboard-text=":traffic_light:" title=":traffic_light:">:traffic_light:</span>
+<span class="copyme" data-clipboard-text=":train:" title=":train:">:train:</span>
+<span class="copyme" data-clipboard-text=":train2:" title=":train2:">:train2:</span>
+<span class="copyme" data-clipboard-text=":tram:" title=":tram:">:tram:</span>
+<span class="copyme" data-clipboard-text=":triangular_flag_on_post:" title=":triangular_flag_on_post:">:triangular_flag_on_post:</span>
+<span class="copyme" data-clipboard-text=":triangular_ruler:" title=":triangular_ruler:">:triangular_ruler:</span>
+<span class="copyme" data-clipboard-text=":trident:" title=":trident:">:trident:</span>
+<span class="copyme" data-clipboard-text=":triumph:" title=":triumph:">:triumph:</span>
+<span class="copyme" data-clipboard-text=":trolleybus:" title=":trolleybus:">:trolleybus:</span>
+<span class="copyme" data-clipboard-text=":trophy:" title=":trophy:">:trophy:</span>
+<span class="copyme" data-clipboard-text=":tropical_drink:" title=":tropical_drink:">:tropical_drink:</span>
+<span class="copyme" data-clipboard-text=":tropical_fish:" title=":tropical_fish:">:tropical_fish:</span>
+<span class="copyme" data-clipboard-text=":truck:" title=":truck:">:truck:</span>
+<span class="copyme" data-clipboard-text=":trumpet:" title=":trumpet:">:trumpet:</span>
+<span class="copyme" data-clipboard-text=":tshirt:" title=":tshirt:">:tshirt:</span>
+<span class="copyme" data-clipboard-text=":tulip:" title=":tulip:">:tulip:</span>
+<span class="copyme" data-clipboard-text=":turtle:" title=":turtle:">:turtle:</span>
+<span class="copyme" data-clipboard-text=":tv:" title=":tv:">:tv:</span>
+<span class="copyme" data-clipboard-text=":twisted_rightwards_arrows:" title=":twisted_rightwards_arrows:">:twisted_rightwards_arrows:</span>
+<span class="copyme" data-clipboard-text=":two:" title=":two:">:two:</span>
+<span class="copyme" data-clipboard-text=":two_hearts:" title=":two_hearts:">:two_hearts:</span>
+<span class="copyme" data-clipboard-text=":two_men_holding_hands:" title=":two_men_holding_hands:">:two_men_holding_hands:</span>
+<span class="copyme" data-clipboard-text=":two_women_holding_hands:" title=":two_women_holding_hands:">:two_women_holding_hands:</span>
+<span class="copyme" data-clipboard-text=":u5272:" title=":u5272:">:u5272:</span>
+<span class="copyme" data-clipboard-text=":u5408:" title=":u5408:">:u5408:</span>
+<span class="copyme" data-clipboard-text=":u55b6:" title=":u55b6:">:u55b6:</span>
+<span class="copyme" data-clipboard-text=":u6307:" title=":u6307:">:u6307:</span>
+<span class="copyme" data-clipboard-text=":u6708:" title=":u6708:">:u6708:</span>
+<span class="copyme" data-clipboard-text=":u6709:" title=":u6709:">:u6709:</span>
+<span class="copyme" data-clipboard-text=":u6e80:" title=":u6e80:">:u6e80:</span>
+<span class="copyme" data-clipboard-text=":u7121:" title=":u7121:">:u7121:</span>
+<span class="copyme" data-clipboard-text=":u7533:" title=":u7533:">:u7533:</span>
+<span class="copyme" data-clipboard-text=":u7981:" title=":u7981:">:u7981:</span>
+<span class="copyme" data-clipboard-text=":u7a7a:" title=":u7a7a:">:u7a7a:</span>
+<span class="copyme" data-clipboard-text=":uk:" title=":uk:">:uk:</span>
+<span class="copyme" data-clipboard-text=":umbrella:" title=":umbrella:">:umbrella:</span>
+<span class="copyme" data-clipboard-text=":unamused:" title=":unamused:">:unamused:</span>
+<span class="copyme" data-clipboard-text=":underage:" title=":underage:">:underage:</span>
+<span class="copyme" data-clipboard-text=":unlock:" title=":unlock:">:unlock:</span>
+<span class="copyme" data-clipboard-text=":up:" title=":up:">:up:</span>
+<span class="copyme" data-clipboard-text=":us:" title=":us:">:us:</span>
+<span class="copyme" data-clipboard-text=":v:" title=":v:">:v:</span>
+<span class="copyme" data-clipboard-text=":vertical_traffic_light:" title=":vertical_traffic_light:">:vertical_traffic_light:</span>
+<span class="copyme" data-clipboard-text=":vhs:" title=":vhs:">:vhs:</span>
+<span class="copyme" data-clipboard-text=":vibration_mode:" title=":vibration_mode:">:vibration_mode:</span>
+<span class="copyme" data-clipboard-text=":video_camera:" title=":video_camera:">:video_camera:</span>
+<span class="copyme" data-clipboard-text=":video_game:" title=":video_game:">:video_game:</span>
+<span class="copyme" data-clipboard-text=":violin:" title=":violin:">:violin:</span>
+<span class="copyme" data-clipboard-text=":virgo:" title=":virgo:">:virgo:</span>
+<span class="copyme" data-clipboard-text=":volcano:" title=":volcano:">:volcano:</span>
+<span class="copyme" data-clipboard-text=":vs:" title=":vs:">:vs:</span>
+<span class="copyme" data-clipboard-text=":walking:" title=":walking:">:walking:</span>
+<span class="copyme" data-clipboard-text=":waning_crescent_moon:" title=":waning_crescent_moon:">:waning_crescent_moon:</span>
+<span class="copyme" data-clipboard-text=":waning_gibbous_moon:" title=":waning_gibbous_moon:">:waning_gibbous_moon:</span>
+<span class="copyme" data-clipboard-text=":warning:" title=":warning:">:warning:</span>
+<span class="copyme" data-clipboard-text=":watch:" title=":watch:">:watch:</span>
+<span class="copyme" data-clipboard-text=":water_buffalo:" title=":water_buffalo:">:water_buffalo:</span>
+<span class="copyme" data-clipboard-text=":watermelon:" title=":watermelon:">:watermelon:</span>
+<span class="copyme" data-clipboard-text=":wave:" title=":wave:">:wave:</span>
+<span class="copyme" data-clipboard-text=":wavy_dash:" title=":wavy_dash:">:wavy_dash:</span>
+<span class="copyme" data-clipboard-text=":waxing_crescent_moon:" title=":waxing_crescent_moon:">:waxing_crescent_moon:</span>
+<span class="copyme" data-clipboard-text=":waxing_gibbous_moon:" title=":waxing_gibbous_moon:">:waxing_gibbous_moon:</span>
+<span class="copyme" data-clipboard-text=":wc:" title=":wc:">:wc:</span>
+<span class="copyme" data-clipboard-text=":weary:" title=":weary:">:weary:</span>
+<span class="copyme" data-clipboard-text=":wedding:" title=":wedding:">:wedding:</span>
+<span class="copyme" data-clipboard-text=":whale:" title=":whale:">:whale:</span>
+<span class="copyme" data-clipboard-text=":whale2:" title=":whale2:">:whale2:</span>
+<span class="copyme" data-clipboard-text=":wheelchair:" title=":wheelchair:">:wheelchair:</span>
+<span class="copyme" data-clipboard-text=":white_check_mark:" title=":white_check_mark:">:white_check_mark:</span>
+<span class="copyme" data-clipboard-text=":white_circle:" title=":white_circle:">:white_circle:</span>
+<span class="copyme" data-clipboard-text=":white_flower:" title=":white_flower:">:white_flower:</span>
+<span class="copyme" data-clipboard-text=":white_large_square:" title=":white_large_square:">:white_large_square:</span>
+<span class="copyme" data-clipboard-text=":white_medium_small_square:" title=":white_medium_small_square:">:white_medium_small_square:</span>
+<span class="copyme" data-clipboard-text=":white_medium_square:" title=":white_medium_square:">:white_medium_square:</span>
+<span class="copyme" data-clipboard-text=":white_small_square:" title=":white_small_square:">:white_small_square:</span>
+<span class="copyme" data-clipboard-text=":white_square_button:" title=":white_square_button:">:white_square_button:</span>
+<span class="copyme" data-clipboard-text=":wind_chime:" title=":wind_chime:">:wind_chime:</span>
+<span class="copyme" data-clipboard-text=":wine_glass:" title=":wine_glass:">:wine_glass:</span>
+<span class="copyme" data-clipboard-text=":wink:" title=":wink:">:wink:</span>
+<span class="copyme" data-clipboard-text=":wolf:" title=":wolf:">:wolf:</span>
+<span class="copyme" data-clipboard-text=":woman:" title=":woman:">:woman:</span>
+<span class="copyme" data-clipboard-text=":womans_clothes:" title=":womans_clothes:">:womans_clothes:</span>
+<span class="copyme" data-clipboard-text=":womans_hat:" title=":womans_hat:">:womans_hat:</span>
+<span class="copyme" data-clipboard-text=":womens:" title=":womens:">:womens:</span>
+<span class="copyme" data-clipboard-text=":worried:" title=":worried:">:worried:</span>
+<span class="copyme" data-clipboard-text=":wrench:" title=":wrench:">:wrench:</span>
+<span class="copyme" data-clipboard-text=":x:" title=":x:">:x:</span>
+<span class="copyme" data-clipboard-text=":yellow_heart:" title=":yellow_heart:">:yellow_heart:</span>
+<span class="copyme" data-clipboard-text=":yen:" title=":yen:">:yen:</span>
+<span class="copyme" data-clipboard-text=":yum:" title=":yum:">:yum:</span>
+<span class="copyme" data-clipboard-text=":zap:" title=":zap:">:zap:</span>
+<span class="copyme" data-clipboard-text=":zero:" title=":zero:">:zero:</span>
+<span class="copyme" data-clipboard-text=":zzz:" title=":zzz:">:zzz:</span>

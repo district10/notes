@@ -1340,6 +1340,63 @@ C++ 简介 | Intro
         }
         ```
 
+-   stringstream -<
+
+    :   ```cpp
+        #include <iostream>
+        #include <iomanip>
+        #include <sstream>
+
+        int main()
+        {
+            std::string input = "41 3.14 false hello world";
+            std::istringstream stream(input);
+            int n;
+            double f;
+            bool b;
+
+            stream >> n >> f >> std::boolalpha >> b;
+            std::cout << "n = " << n << '\n'
+                      << "f = " << f << '\n'
+                      << "b = " << std::boolalpha << b << '\n';
+
+            // extract the rest using the streambuf overload
+            stream >> std::cout.rdbuf();
+            std::cout << '\n';
+        }
+        ```
+
+        ```
+        n = 41
+        f = 3.14
+        b = false
+        hello world
+        ```
+
+        ```cpp
+        #include <bitset>
+        #include <iostream>
+        #include <sstream>
+
+        int main()
+        {
+            std::string bit_string = "001101";
+            std::istringstream bit_stream(bit_string);
+
+            std::bitset<3> b1;
+            bit_stream >> b1; // reads "001", stream still holds "101"
+            std::cout << b1 << '\n';
+
+            std::bitset<8> b2;
+            bit_stream >> b2; // reads "101", populates the 8-bit set as "00000101"
+            std::cout << b2 << '\n';
+        }
+        ```
+
+        refs and see also
+
+        -   [std::basic_istringstream - cppreference.com](http://en.cppreference.com/w/cpp/io/basic_istringstream)
+
 -   std::equal_range -<
 
     :   **Returns a range containing all elements equivalent to value in the range
@@ -8938,3 +8995,7 @@ refs and see also
     refs and see also
 
     -   [c++ - Purpose of std::make_pair - Stack Overflow](http://stackoverflow.com/questions/9270563/purpose-of-stdmake-pair)
+
+[<<Effective C++>>读书笔记(三) - zyfforlinux - 博客频道 - CSDN.NET](http://blog.csdn.net/zhangyifei216/article/details/50933104)
+
+

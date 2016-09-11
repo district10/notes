@@ -1277,3 +1277,61 @@ MISC -<
 
 [侯捷网站](http://jjhou.boolan.com/)
 
+[2016各大IT公司待遇](http://mp.weixin.qq.com/s?__biz=MjM5NDYxMzk1Nw==&mid=2652259986&idx=4&sn=547ab5c5dd700cbe6a7b9a1e493457d7&scene=4#wechat_redirect)
+
+[【本周最热】网易笔试真题大汇总，告诉你历年来考了什么](http://mp.weixin.qq.com/s?__biz=MjM5NDYxMzk1Nw==&mid=2652260087&idx=3&sn=babb07756ad975fa3095c87692bd7134&scene=4#wechat_redirect)
+
+[【笔试经验】那些年在编程题中踩过的坑，考前必看！](http://mp.weixin.qq.com/s?__biz=MjM5NDYxMzk1Nw==&mid=2652260160&idx=2&sn=8b7eef97be7e84ff5ccea0c3a1dfc7c3&scene=4#wechat_redirect) -<
+
+:   -   即使只有一个 case，也弄成可以处理多个 case 的情况
+    -   注意 clear 容器
+    -   注意浏览器插件（比如 VimFX，笔试前最好关闭它）
+    -   网速不要差，迅雷不要开
+
+[(●—●) | 2017校招_牛客网](http://www.nowcoder.com/activity/campus2017)
+
+[(●—●) | 讨论区_百度阿里腾讯谷歌小米笔试面试分享_牛客网](http://www.nowcoder.com/discuss?order=4&type=0)
+
+[【本周最热】近期最全校招笔试时间表](http://mp.weixin.qq.com/s?__biz=MjM5NDYxMzk1Nw==&mid=2652260160&idx=1&sn=182690b22e316840b254108038b35564&scene=4#wechat_redirect)
+
+[问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/796/) -<
+
+:   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/788/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/751/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/747/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/749/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/344/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1439/#)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/794/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/760/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1861/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1861/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1914/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1945/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/778/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/733/)
+
+    [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1878/)
+
+[吴军新书《智能时代：大数据与智能革命重新定义未来》发布会](http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2651985980&idx=4&sn=030eb76575a6a4d61ba886e2071c4510&scene=0#wechat_redirect)
+
+[浮点数的二进制表示 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html)
+
+[VICE 报道 ｜ 黑客入侵你手机的一万种玩法 | VICE 中国](http://www.vice.cn/read/the-vice-report-tapped-all-the-ways-your-phone-can-be-hacked)
+
+[怎样能得到 Google 的面试机会？具备哪些素质才能获得 Offer？ - 知乎](https://www.zhihu.com/question/20441001)
+
+[关于IT类秋招的一些常识和时间表是什么？ - dorothy 的回答 - 知乎](https://www.zhihu.com/question/48546822/answer/111411710)
