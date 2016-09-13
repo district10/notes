@@ -1300,575 +1300,6 @@ MISC -<
 
 [【本周最热】近期最全校招笔试时间表](http://mp.weixin.qq.com/s?__biz=MjM5NDYxMzk1Nw==&mid=2652260160&idx=1&sn=182690b22e316840b254108038b35564&scene=4#wechat_redirect)
 
-[问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖 IT 企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/796/) -<
-
-:   概率论问题 :hearts: -<
-
-    :   假设有一个硬币，抛出字（背面）和花（正面）的概率都是0.5，而且每次抛硬币
-        与前次结果无关。现在做一个游戏，连续地抛这个硬币，直到连续出现两次字为
-        止，问平均要抛多少次才能结束游戏？注意，一旦连续抛出两个“字”向上游戏就
-        结束了，不用继续抛。
-
-        假设连续抛 2 次正面的期望为 E
-
-        ```
-        E = 0.5 * 0.5 * 2     (第一次抛了正， 第二次也抛了正，则抛两次结束了，次数是两次)
-          + 0.5 * 0.5 * (E + 2)（第一次抛了正， 第二次抛了反，前面无效了，从头开始，那么再出现两个正面，次数是 E+2）
-          + 0.5 * (E + 1)      (第一次抛了反， 前面无效了，从头开始，那么再出现两个正面次数是 E+1）
-        ```
-
-        E = 6
-
-        同理可以推算连续三个正面，连续反正，正反，等等所有情况都可以计算。
-
-        >   谢谢助教，
-        >
-        >   比如三个正面应该就是这四种情况分析了把？(反正以遇到反就要从头开始弄了)
-        >
-        >   -   1) 正正正
-        >   -   2) 正正反 + E
-        >   -   3) 正反 + E
-        >   -   4) 反 + E
-
-        同理算一样连续三个正面的期望 E
-
-        ```
-        E = 0.5 * 0.5 * 0.5 * 3
-          + 0.5 * 0.5 * 0.5 * (E + 3)
-          + 0.5 * 0.5 + (E + 2)
-          + 0.5 * (E + 1)
-        ```
-
-        得到 E = 14，三个连续正面的期望是 14 次。
-
-        refs and see also
-
-        -   [抛硬币 直到连续出现两次字为止 - VergiL Wang的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/wangran51/article/details/8882088)
-        -   [概率论问题](http://www.jiuzhang.com/qa/2125/){.hearts}
-
-    怎么找中小公司校招的职位？  -<
-
-    :   大公司可以去他们网站投，不过那些不知名的中小公司的校招职位怎么找呢？Indeed 之类的上面搜什么关键词？
-
-        >   angellist
-
-    【置顶】 为什么不需要学习贪心法 -<
-
-    :   因此，贪心法可以说，是一种“目光短浅”的算法。一般在算法问题中，可以使用
-        贪心算法的问题，其贪心策略往往都比较复杂，一般人是想不到的。而你容易想
-        到的那些贪心策略，往往都是错的。
-
-        面试基本不会考 -<
-
-        :   贪心法的问题，面试基本不会考，因为等同于考智力题或者是背诵题。一个面试官想
-            要自己凭空创造出一个面试题是使用贪心算法的，是非常困难的。（参见 LintCode 上
-            的贪心算法的题目所占比例可知）。既然如此，如果面试中被问到了贪心算法，那么
-            一定是一道经典的贪心问题，这类问题，我们可以称之为背诵题。因为大多数同学
-            （除了智商很高，或者有算法竞赛经历的那一批），是不可能在面试的时候想得出解
-            法的。
-
-            举几个例子：Gas Station (http://www.lintcode.com/en/problem/gas-station/)，
-            这个题的做法是，从任意站点出发，走一圈，找到这一圈里剩余Gas最少的那一站，然
-            后从这一站出发走一圈，如果在这一站出发可以顺利走完全程，那么就可以行，否则
-            就不可行。像这样的算法，是需要进行数学证明来证明其正确性的，面试官是没有能
-            力出这样的面试题的。
-
-            从另外一个角度来说，贪心算法的题，对于程序的实现能力要求并不高，也违背了公
-            司通过算法题面试主要是希望考察大家的程序实现能力这一点。所以面试官和公司也
-            都不倾向于将贪心算法作为面试的算法问题。
-
-        没有通用性 -<
-
-        :   二分法，动态规划算法，分治算法，搜索算法等等，很多的算法都是具有通用性的。
-            也就是说，在题目 A 里，你用了这个算法，在其他的题目 B 里，你可能完全可以用一样
-            的算法和思路去解决。
-
-            而贪心法，他不是“一个算法”，而是“一类算法”的统称。所以基本的情况就是，你在
-            题目A里用了某个贪心算法解决了这个问题，然后这个题中用到的贪心法，永远也找不
-            到第二个题用类似的方法来解决。
-
-        贪心是动态规划的子集么? -<
-
-        :   只要问题的解决方案有最优子结构，并且无后效性就可以认为是动态规划。
-
-            但是你这样问并没有什么意义，因为动态规划真正的目的还是依赖空间换时间，而贪心策略不是。
-
-            举个简单的例子来说，求单源最短路的 Dijkstra 算法，你可以认为它是一个贪心算
-            法，因为根据定义（Di 表示源点到节点 i 的最短路长度）：
-
-            Dj = min{ Dj, Di+ Matrix[i][j] }
-
-            它每次迭代都很无脑地选一条最近的路出发，所以认为是一个贪心策略。但是它又有
-            效地将重叠的最优子结构问题用一个辅助数组 D 存储了起来，并且没有后效性，所以
-            也是一个动态规划算法。
-
-        如何理解动态规划？ -<
-
-        :   TODO
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2100/)
-        -   [（无权限）几个必须“背诵”的贪心算法题](http://www.jiuzhang.com/qa/2099/)
-        -   [贪心是动态规划的子集么? - 知乎](https://www.zhihu.com/question/34414760)
-        -   [如何理解动态规划？ - 知乎](https://www.zhihu.com/question/39948290)
-        -   [第10讲 贪心算法的例子_图文_百度文库](http://wenku.baidu.com/view/f20777a7b0717fd5370cdc05.html)
-        -   [贪心算法如何体现在霍夫曼编码中？ - 知乎](https://www.zhihu.com/question/22112710?sort=created)
-        -   [【算法学习笔记】25.贪心法 均分纸牌问题的分析 - 雨尘之林 - 博客园](http://www.cnblogs.com/yuchenlin/p/4382027.html)
-        -   [均分纸牌问题为什么可以用贪心法得到全局最优解？ - 知乎](https://www.zhihu.com/question/27883948)
-        -   [贪心算法及几个经典例子 - a925907195的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/a925907195/article/details/41314549)
-
-    resume 上需要写 objective 吗  -<
-
-    :   听九章的讲座说要写，但是九章给的简历里又没有 objective。是不是转专业的必需写？
-
-        **要。**
-
-    多个面试经验贴汇总 -<
-
-    :   -   第一档次: Dropbox, Square, Pinterest, Facebook, LinkedIn, Google, Twitter, Apple
-        -   第二档次: Zynga, Yelp, Netflix, Skype, VMWare, Salesforce, Groupon, Paypal, Evernote, Box.net, Quora, A9.com, 126Lab, Palantir
-        -   第三档次: Oracle, EMC, eBay, Intuit, NetApp, NetSuite, Yahoo, Adobe, Autodesk, Symantec, Riverbed, Quantcast, Concur, Aster Data, Citrix, EA等
-
-            算上湾区以外公司， Amazon, Micriosoft 可以排在第二档次 Expedia,
-            RedHat, RackSpace, Akamai, Bloomberg 等可以排在第三档次。
-
-            Dropbox 创始人 Drew Houston 在 2013 年 MIT 的毕业典礼上讲的很好：
-            “世界上只有一个好莱坞，一个硅谷，如果你想待在业界最好的圈子，那就搬
-            家！”我被他说服，投简历的时候瞄准了 FLGT(业界最火的四家公司，
-            Facebook, LinkedIn, Google, Twitter) 和一众火爆的初创公司。
-
-            最近细读未来公司 LinkedIn 的创始人 Reid Hoffman 的新书 The Start-up
-            of You，里面讲到求职三片拼图：你的资源 / 能力（your assets），你的
-            志向 / 价值观（your aspirations/values) 和市场现实（market
-            reality），共同组成你的核心竞争力。所以我去尝试互联网大公司，十投八
-            中，但是其他的努力很多都浪费了，如果当时早就看了这本书多好。关于这
-            本书和它的作者，以后会写另一篇文章详述，这里先隆重推荐给大家。
-
-        最后来一点干货吧，给本专业的人看 -<
-
-        :   Google 题目： -<
-
-            :   1. MST of a all connected graph. Need to use Fibo heap to reduce complexity.
-                2. Game of Life, one transition (sub O(n^2) solution).
-                3. String compressor that turns 123abkkkkc to 123ab5xkc. Decompressor is already written and must remain unchanged. (messy code)
-                4. Youtube mash design, how to do a video version of Mark’s FaceMash.
-
-                题全都没见过，rej
-
-            Facebook 题目： -<
-
-            :   电话
-
-                1. Big Integer multiplication. (Optimization required, how to do 8 digits*8 digits, etc).
-                2. Binary tree level order traversal. (leetcode original)
-                3. 也是 leetcode 原题，不记得了
-
-                Onsite
-
-                1. Given 1->a, 2->b … 26->z. 126 -> az or lf or abf (bfs/dfs not accepted, need to use DP or some tricky method)
-                2. Binary tree serialization/de-serialization (这道题pinterest也问了）
-                3. Permutation with duplicate
-                4. Range maximum query, pre-processing in O(n) and query in O(1)
-
-                题答少了一道，rej
-
-        其他重要题目和技巧：
-
-        :   2Sum 3Sum, rotate LinkedList, minimum path sum, combinations
-
-            注重练习 tree 的 recursion 搜索, dp, greedy, two/three pointers, stack.
-            谷歌的题是很难刷到的，要靠运气，其他很多公司（尤其是亚马逊为首）都可以
-            靠刷题大幅提高胜算。 资源：leetcode.com, geeksforgeeks.com,
-            glassdoor.com, CC150
-
-            BTW，今年几家的硕士 package 都差不多，大约是 115k base + 160-170k （RSU
-            股票分4 年 + signing + reloc)，如果没有 competing offer 比较难negotiate。
-            我的 O 家offer 是 114k base + 4000 股期权分四年 + 15k signing + 10k
-            reloc，在等 LinkedIn发 official offer 之前，成功的想办法把 deadline 延
-            长了两次，变成 Standing offer，如果不这么干，他们是愿意涨一点 base 的。
-
-            按照我个人的理解，学生被大公司分两类，第一类是“名校 GPA3.8 以上”的，第
-            二类是else。作为 else 的代表，我不得不说，GPA3.8 以上真的很难，第一类们
-            确实确实有特权先被考虑，但本文正是献给广大 else 们的。
-
-            面试这个东西，其实是没法准备的，全靠经验。我没有哪个问题在第一次被问的
-            时候就能答的很完美，我相信谁也不能。从去年 6 月跟人家介绍自己都要磕磕巴
-            巴，到现在基本我虐面试官，大大小小的电面一百来次，onsite 十来次，磨厚的
-            不只是嘴皮，还有脸皮。其实面试的最高奥义就是厚着脸皮吹牛逼，并用丰富的
-            吹牛逼经验保证不被拆穿即可。当然了，知识还是要有一些，毕竟是技术职位，
-            而且要对 Coding 有一腔热情。当然了，还要习惯每天吃 subway。
-
-            在这里我想说一说老中，我所说的老中是指现在 40-50 岁，30 多岁的时候从国
-            内直接跳槽过来的中国软工，错了，是 我们这儿 软工。我去 qualcomm 和
-            amazon onsite 都是栽到了老中手里。我现在也不明白为什么只有中国人看不上
-            中国人，而人家阿三都是只帮阿三。我在 qualcomm 最后一个面的老中问我，有
-            没有学过 OS，我说我自学的。他说你没有做过那些 project 也说你学过？我说
-            你可以问啊，看看我会不会。结果这 B 问了我一堆我回来 google 都查不到的鬼
-            问题，还问我 how to simulate garbage collector in C? 看我不会又得意洋洋
-            的反问我，你没学过 OS 还想找 SWE 的工作? 我就说我的课都是 application
-            level 的。他操着浓重的不知哪的方言腔说了一句让我一辈子都忘不了的话：If
-            I wanna build a applicaiton, I will go to hign school and ask them "Who
-            wanna do some funny stuff?". Why I hire you? 我擦，我当时真想一口大浓痰
-            吐他脸上然后大骂我去你大爷的。但是我还是忍住了，虽然我从他眼睛里也能看
-            到我眼里冒出的火光。Amazon 也是一样的，在其他面试官都被我折服之后，他又
-            问我为什么 EE 的不好好学 EE，CS 的基础课你都没学过云云.... 我当时以为我
-            面的可以，因为他的题被我做完了，我还挑了他一个错误。事后我感觉挑他的错
-            这一下让他决定毙我的，要不然，就是和我竞争的人过于 NB 了。
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/788/)
-
-    美团 2015 校招面经 - 软件研发岗 (拿到 offer) -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/751/)
-
-    Linkedin 面经合集 -<
-
-    :   面经 1 -<
-
-        :   然后就是开始做题，两个题目。
-
-            第一个是两个单词最短距离，在版上看到很多人都说过这个题目，应该是L家经常面的。
-            本来以为只要实现一个函数，哪里知道是实现两个函数，第一个是做求最短距离的准
-            备工作，实现类的初始化；第二个才是真正的求最短距离的函数。写第二个函数的时
-            候，还忘记判断单词是否在字典中出现过，幸好面试官有提醒。
-
-            第二题就是 leetcode 上的全排列，没有重复元素的。
-
-        面经 2 -<
-
-        :   第二题也比较常见,CC150 原题, 找俩字符串在一段文字中最近的距离:
-
-            直接用 CC150 解法, 用两个 index 比较得出 Math.abs(index1-index2), update 最小距
-            离. 写好后提示要是 cat dog cloud dog dog dog......, 即后面有 million 个 dog, 是
-            否不用比较整个文章. 回答说用 map 提早存储每个单词的 index, 然后在 map 中找到单
-            词比较, 在讨论后最坏情况下复杂度也是 O(n).
-
-            由于没有时间写代码了所以这样结速了.
-
-        面经 3 -<
-
-        :   就一道题，经典的求minimum word distance. 但是一开始有挺多有关ML的细节题
-
-            实现 BlockingQueue 的 take() 和 put()
-
-            ```cpp
-            public interface BlockingQueue<T>
-            {
-                /** Retrieve and remove the head of the queue, waiting if no elements
-                are present. */
-
-                T take();
-
-                /** Add the given element to the end of the queue, waiting if necessary
-                for space to become available. */
-                void put (T obj);
-            }
-            ```
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/747/)
-
-    Google 15 Fall SDE I 实习生电面 -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/749/)
-
-    G 家面经题，矩阵最小 -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/344/)
-
-    Compress String :hearts: -<
-
-    :   给一个 string，要求压缩后最短。比如说对于 aaaa，`4[a]` 肯定要比 `2[aa]` 要
-        好。我除了暴力枚举 substring 以外想不到任何其他方法，请问助教有没有其他想法？
-
-        本问题可以简化成 S = a[substring], 求最大的a。
-
-        如果学过 KMP 算法的，求出 S 的 next 数组。
-
-        ```cpp
-        n = len(S)
-            j = next[n]
-        while   n % (n - j) != 0:
-                j = next[j]
-
-            a = n / (n - j)
-        ```
-
-        这是由 next 数组的性质决定的，可以先学一下 KMP 算法。
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1439/#)
-
-    无实习开源经验 GPA 不高的小硕的 FLAGBR Offer 经  -<
-
-    :   拿了 FLAGR 的 offer，B 家主动 cancel 了 onsite。非常幸运，面了的公司都
-        拿了 offer，最终去了最喜欢的 F 家，多要了一点 sign on，因为穷的太久了，
-        急需点钱来玩。对于package 来说，基本都是标准 package，开始的时候 F 最多，
-        后来 G 给加了不少，最终拒绝G 的时候还要再给加，感觉 G 很喜欢抢 F 的人啊！
-        钱多钱少不太看重，反正也不准备长期做码农。自己感觉的 hiring bar 的排序：
-        facebook=linkedin>google>amazon, 当然，难度是随着时间改变的，招人多的时
-        候容易，不怎么招人的时候就很难。
-
-        Facebook
-
-        签了 offer，就不透露题了，总之感觉 facebook 的 bar 最高，面试题的难度不
-        同人差别很大，题目简单不一定就有 offer，题目难也未必没 offer，不好说。
-
-        ```
-        第一题：贪心
-
-            Given a number, can you remove k digits from the number so that the new
-            formatted number is smallest possible.
-            input: n = 1432219, k = 3
-            output: 1219
-
-        第二题：DP
-
-            BT(binary tree), want to find the LIS(largest independent set) of the BT
-            LIS: if the current node is in the set, then its chilren should not be in
-            the set. So that the set has the largest number of nodes.
-
-        电面2：
-
-            第一题：Median of Two Sorted Arrays
-            第二题：DP，一个二维数组，元素是 0 或 1，找出最大的由 1 构成的"X"形状
-
-        onsite:
-
-        1. print all subsets
-           system design(N topics, publishers, subscribers, scalability, distributed)
-           the most frequent urls in the past minute, hour, day
-        2. manager interview
-           code review
-        3. shortest path between two nodes of a tree(no parent pointer)
-        4. machine learning(不懂)
-        5. machine learning(不懂)
-
-        Rocket Fuel是自己投的，因为在网上看到code challenge挺有意思。onsite的时候了
-        解到他家最近要搬进新楼里，应该招人很多，大家可以试一试，题目不简单
-
-        Google:
-
-        电面：
-        remove duplicate lines of a file(what if the file is very large which could
-        not be held in the main memory)
-
-        开关灯问题
-        Trapping Rain Water(leetcode)
-        sometimes a program works, sometimes it does not. Possible reasons
-
-        onsite:
-        1. clone directed graph(recursive, non-recursive)
-           longest common suffix of two linked list
-           data structure design
-        2. how many (m, n) pairs such that m*m+n*n<N
-           线索化二叉树
-        3. 判断一个点是否在一个凸多边形内, O(n), O(logn)
-        4. group items(BFS)
-           MapReduce(filter a collection of documents, the words which occur more
-        than 5000 times)
-
-        google 面的不好，因为实在是太累了，幸运的是还是给 offer 了。
-
-        linkedin
-
-        电面 1：
-
-        第一题：给一个 words list, 输入两个单词，找出这两个单词在 list 中的最近距离 (先
-        写了一个没有预处理的，又写了一个预处理建 index 的)
-        ['green', 'blue', 'orange', 'purple', 'green']  f.distance(list, 'blue', ' green') # output 1
-
-        第二题：类似 binary search 的一题，要注意 boundary case
-
-        电面2：
-
-        binary tree level order traversal, 写了三种方法。。。(BFS 用 arraylist，类似 DFS，BFS 用 queue)
-
-        onsite:
-        1. romanToInt, intToRoman,
-           N points, m nearst ones
-        2. 双向链表，每个node可能都有父节点和子节点，每个父子节点又是一个链表。把它拍扁，顺序随意，O(1)空间复杂度
-           edit distance
-        3. system deisign: design amazon product page
-        4. project presentation
-        5. group fit
-
-        LinkedIn 很不错，食堂很好吃，并没有传说中的那么多印度人，国人挺多的。听 hr 说
-        linkedin 今年要扩大技术团队，大家可以投一下
-        ```
-
-        找工作经验：
-
-        -   不要把战线拉的太长，2 个月最好，时间久了就没有激情了，效果反倒不好。准备的时候要全力以赴，concentration
-        -   安排面试最好不要把所有公司放在同一周，实在是太累了，最好是两个 onsite 之间间隔两天
-        -   对于男生来说，准备面试无聊的时候可以做做俯卧撑和卷腹，即使拿不到 offer 还能练出胸肌和腹肌~
-        -   CC150 随便看看就行了，leetcode 要“好好”做 (融会贯通)，面试一家公司之前看看相应的面经，足够了
-        -   如果不是搞 acm 的，leetcode 至少要刷一遍再去面 flag。刷几遍不关键，关键是要有提高
-        -   提高两方面：
-            1.  coding 能力：会做的题能写出 bug free，简洁可读性好的代码
-            2.  算法，解决问题的能力：没见过的题，一步一步想到面试官想要的方法
-        -   coding 能力：写的程序越短越好，思路清楚，容易看懂；可以写多个函数，可读性好
-            很多，写起来也容易；争取一遍写完就 OK，不要改来改去；我感觉 coding 能力的重
-            要性被大家严重低估了，很多人只关心算法，其实能把程序写的干净漂亮才是最关键的。
-        -   算法，解决问题的能力：即使见过的题也要一点一点的分析，面试官看重的是分析和
-            交流的过程，而不是最终的 solution；不要只知道多做题，要多思考，这个和高考一
-            样，翻来覆去就是几种类型的题，按照类型来做，很快就熟练了
-        -   和面试官聊的开心很关键，要表现出积极，乐观，阳光，热爱生活，让面试官 enjoy
-            面试过程，喜欢和你一起工作
-        -   不要抱怨，不要给自己找借口
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/794/)
-
-    Facebook onsite 面经 -<
-
-    :   第一轮 -<
-
-        :   老印，上来一道题，讲了半天我才弄明白。类似手机按键，比如手机按键上 2 对应
-            ‘abc’, 然后根据‘abc’的顺序，打出 a 要按一下键，b 要按两下键，c 要按三下键。给你
-            两个数组: `keySize[]` 每个 element 代表能存放的最多 character，`frequency[]` 每个
-            element 代表每个 character 出现的频率。要算出最少的按键次数。
-
-            Follow up 1: 怎么能提高效率。
-
-            Follup up 2: 如果要求 character 放在按键上的顺序是 order 的，类似于手机 shang 的字母按键，这样最少按键次数是多少。
-
-        第二轮 -<
-
-        :   还是个烙印： 第一题：rotated sorted array search. 让后要求 cut branch。 第二
-            题： sort an array contains only 3 element，类似 leetcode 的 sort colors。
-            follow up: what if there are N element? 没想出来， hint 是可以使用 extra memery。
-
-        第三轮 -<
-
-        :   简历问题为主，问了一道 code： check the first bad version.
-
-            结果还是跪了。问题应该出在第一轮面试上，code 写了好久才写出来，follow up 也没答上。其实题目也不算很难，大家好运吧。
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/760/)
-
-    微软 ots，已挂，求分析一道题 -<
-
-    :   最近做微软的 OTS，一共三道题。
-
-        1.  给你一个时钟，返回一个 palindrome 的时间。比如 1:01，12:21
-        2.  排序 2d 数列，返回负数的数量。
-        3.  碰到一题算是系统设计题吧。只有两三句话：用熟悉的语言写一个 email 的 api 服
-            务。写出实现的场景以及需要用到哪些参数。
-
-        已挂，估计是挂在第三题。前两题都做过差不多的。第三题不是很懂题目要我做什么，因
-        为是在线面试，没法和面试官交流。不是很清楚需要写什么。。。求大家一起讨论下。我
-        用java写了个几个接口。然后今天接到通知面试挂了。不是很清楚应该怎么做这种题。我
-        当时代码大概如下
-
-        比如 我实现了 get email 的 api，但不知道具体 api 里面该写些什么。需要连数据库还是啥的？
-
-        ```cpp
-        class user {
-            int userID;
-            String userName;
-        }
-
-        class email {
-            int emailID;
-            String emailAddress;
-            String subject;
-            Date timestamp;
-            String content;
-            int from_userID;
-            int to_userID;
-        }
-
-        public List getEmail (int userID) {
-            return db.getEmail(userID)
-        }
-
-        public List getEmail (int userID, Date startDate, Date endDate) {
-            return db.getEmail(userID, startDate, endDate);
-        }
-
-        public List getEmail (int userID, int getEmailNum) {
-            return db.getEmail(userID, getEmailNum);
-        }
-        ```
-
-        自己看着感觉都不怎么符合要求。能有人指点一下正确写法改如何写吗？谢谢了！
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1861/)
-
-    第一堂课 Design Twitter -<
-
-    :   存在 NoSQL DB 的 Tweet 是每一个 Tweet 对应一行吗，还是每个用户对应一行？
-        这样的话 row key 是什么呢？是 user_id？如果是，然后 column key 是 tweet
-        id，因而可以支持范围查找？如果是范围查找的话，timeline 的请求为什么需要
-        n 次的 DB 访问时间（mentioned in p41 in the slides）？
-
-        每个用户一行，然后有无限列。
-
-        ```
-        row_key = user_id
-        column_key 可以是tweet_id，也可以是一堆数据的组合，比如tweet_id + timestamp。
-        column_key 可以支持范围查找。
-        ```
-
-        P41 这里说的是，当你需要构建一个 NewsFeed 的时候（你关注的 N 个好友的所
-        有新鲜事汇总），需要 N 次 DB 请求去分别请求每个好友的最近 100 条 tweets
-        然后再归并到一起。请求某一个用户的 timeline 是一次 Query，请求 N 个用户，
-        就是 N 次。这里的 N 说的是你的好友个数。
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1914/)
-
-    应届生国内找国外工作求职网站有哪些 -<
-
-    :   我是一名国内的应届硕士毕业生，九月要开始投简历了。问一下，想直接找国外工作
-        的话，有哪些好的网站可以推荐？目前只看到了 google 有正式的全球招聘途径，其
-        它公司的如何能看到？linkedin 等上面的职位是不是都是针对有在美国工作资格的才
-        能申请？
-
-        <http://stackoverflow.com/jobs?med=site-ui&ref=jobs-tab>
-
-        谢谢啦，请问 VISA SPONSOR 是不是指可以提供抽签证的机会？
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1945/)
-
-    yahoo 面试经验 -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/778/)
-
-    腾讯面经，拿到 offer -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/733/)
-
-    东邪老师第二节课 Friendship 相关的问题 -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1878/)
-
 [吴军新书《智能时代：大数据与智能革命重新定义未来》发布会](http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2651985980&idx=4&sn=030eb76575a6a4d61ba886e2071c4510&scene=0#wechat_redirect)
 
 [浮点数的二进制表示 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2010/06/ieee_floating-point_representation.html)
@@ -1888,3 +1319,354 @@ MISC -<
         [北京数字绿土科技有限公司招聘_就业信息_空间网](http://newspace.rsgis.whu.edu.cn/show.php?contentid=4245)
 
 [唐志雄 | 领英](http://www.linkedin.com/in/%E5%BF%97%E9%9B%84-%E5%94%90-a6115b129)
+
+[再论排序的本质 · Jan Fan](https://janfan.github.io/chinese/2014/11/08/sorting-and-cybernetics.html)
+
+[字符串匹配算法统一论 · Jan Fan](https://janfan.github.io/chinese/2014/11/16/string-algorithm.html)
+
+关于简历 -<
+
+:   -   将你觉得最吸引人的地方写在最前面。
+
+        除了你的个人特点是重要信息外，你的手机号，邮箱，毕业院校，专业以及毕业
+        时间这些也都是非常重要的，一定要写在简历最上面。
+
+    -   总之，不要写任何虚假或夸大的信息，即使你最终骗得过面试官，进了某公司，
+        如果能力不够，在最初的试用期内，也很可能因为能力不足而被开掉。
+
+    -   尽量避免主观表述，少一点语义模糊的形容词，除非是大公司大牛，已经有成果
+        撑腰，否则慎用「熟悉… …」、「使用过… …」
+
+    -   多一点表意清楚，语气肯定的数量词、名词、成果描述。一定要将自己的优势和
+        期望明晰地表达出来，便于招聘方能对候选人有更准确的定位：
+
+    -   介绍技术：最近几份工作经历中所参与过的产品、项目、角色
+
+        -   在工作中做的项目的技术细节
+        -   克服过的技术难点与细节
+        -   感兴趣的技术
+        -   在程序马拉松上参加的项目或者是业余的个人项目（+link）
+        -   如果领导过技术团队，写下带的团队的规模与管理风格
+
+    -   介绍自己：过往有特点经历、擅长的方向、对互联网的理解、职业发展规划
+
+    -   简历有啥格式要求吗？如何包装简历？
+
+        -   **格式**：简历一般建议朴素为主，一页 A4 纸、黑白。
+        -   **包装**：一般建议“求同存异”，简历上尽可能写与求职职位相关的技术和项目
+            背景，因为 HR 经常用关键词筛简历呢。另外，转专业的童鞋，可能没有太
+            多的 CS 相关经验，怎么办呢，建议尽量还是找一些沾点边的项目小做一下，
+            哪怕是沾一点点边，也可以在简历中去体现哦。
+
+    -   其次还因为应届生的简历多是海投，HR 很难有时间一个个仔细看，所以简历尽量简洁
+
+    -   文档的名字，绝对不要写只写简历，或者 CV 二字，令人牙痒痒。。。
+
+        正确的标题名应该是简单的：`某某大学-姓名-应征职位`
+
+    -   除非招聘启事里面提出对相貌有要求，否则最好不要放照片，除非你对自己的精气神有自信
+
+    -   中英文简历要求格式完全相同，简历的中英文内容最好能够逐字的一一对应
+
+    -   按照上图，我们来分步骤来详解每一步的英文该如何撰写
+
+        -   标题，你首先要写上 CV，或者 Resume 二字，最好用小二号字体，加黑，当
+            然上面的图没加，LZ 忘了
+        -   Personal Information 这个还可以写成是 Personal Profile，不过都无所
+            谓，需要注意的是开头字母都要大写，加黑加粗
+        -   我个人认为只要写三样就够了，Name，Gender，Contact，右边你可以放照片
+            Name 的写法，学生和在职人士不同，在职人士最好直接写英文名，比如 Sam
+            Liu, Richard Ding, 英文很多人在职场一般中文名大家都不知道，就直呼英
+            文名的但是学生，最好写本名，张三写 San Zhang，张三屌就写 Sandiao
+            Zhang, 注意开头字母大写
+        -   Contact 要写上两个，手机 +email 地址
+
+    -   Career Objective：写上你的求职职位，Marketing Assistant 啦，Sales Rep 啊
+        等等，按照招聘启事来，如果没有，那么不写也可以，这个我没在简历模板上加，
+        大家自己加上去吧
+
+    -   Educaiton 教育背景，最顶端要写日期，不用写月份，年份就够了，XX 年 to XX
+        年足以，空开几行，用黑体字写上自己的大学名称，开头字母都要大写。时间和
+        学校名都要加粗，后面的时间和工作经历，社团经历等也都要加粗
+
+    -   个人建议每个人首先做一份 General 的简历
+
+        :   什么叫 General 的简历呢，就是把自己在校经历全部都写好，长度大概在
+            2-3 页左右，然后投递具体的职位的时候，把相关的经历一条条复制过去，
+            慢慢筛选，这样就可以成为一份 1 页左右的相配简历。通过这种做法，可以
+            减少大量时间，根据自己的目标职位，如市场，销售，咨询，金融等等，看
+            到不同的简历，有针对性的对自己的经历进行删改
+
+            所以就是先编好一份原生态的简历，包含自己所有的经历，然后上网查看招
+            聘启事和 JD，来做出不同的 3-4 份针对性简历。
+
+    -   Dec 2003 或者 Dec, 2012 标点加不加都可以
+
+    -   实习、经历成绩
+
+        -   Responsible for XXXXXXXX 总体的职责
+        -   Assited the Store Manager on sale promotion, team management and inventory management
+        -   In charge of XXXXXXXXXXX
+        -   成绩：300% promotion on revenue comparing to last year
+
+        experience 中要注重体现你给团队或者项目带来了什么，如
+
+        ```
+        reduce 50% workload
+        enhance XX
+        ```
+
+    -   不写与你投的职位无关的经验
+
+        不要写跟你投的职位无关的经验，特别是富有中国特色的一些奖励等：
+
+        如，CET4, CET6,  三好学生，国家一等奖学金
+
+        证明是好学生的最简单粗暴的办法，就是你来自一个很牛 X 的学校，有很高的 GPA
+
+    -   Skill：一般的 skill 就分成语言能力（四六级）和 IT 能力两类
+
+        写 skill 栏时，只需简洁罗列出你有哪些 skills：
+
+        ```
+        Skills: Java, C++, etc
+        ```
+
+        想要突出你哪方面的技能，证明你在哪些方面有经验，建议通过 experienc/project 去详细展开。
+
+        技术
+
+        必须有的：语言和平台，这里特别注意一下，不要随便写「精通」，每次有人看到写精通C++我都会问他一些Boost源码的东西，你要是没信心回答就不要说精通。这里我列一下大概的对照：
+
+        -   了解：知道这个玩意是干嘛的，能大概写点排序什么的出来。
+        -   熟悉：写过一两万行以上的代码，完整做过项目，看过至少一本最经典的技术书籍。
+        -   精通：写过一二十万行以上的代码，完整的做过很多项目，看过一些语言或者标准库的源码，能理解语言的底层构架，有能力去给别人讲这门语言。
+
+        另外在这个地方最好能看到你的 Github 地址或者博客地址。
+
+    -   简历上的 experience/project 一定要熟悉
+
+        :   HR 或面官，一般假设你放在简历上的项目和经验，应该是最突出、最能表现你自
+            己的。而如果在实际面试中，当问到你这些项目和经验时，你答得磕磕绊绊，那
+            么就很难不让人怀疑你是不是抱大腿或者瞎编的经验。所以，一旦是放到简历上
+            的项目，一定要非常熟悉。哪怕面官追问你任何一个细节，你都必须做到对答如
+            流。如果时间已经久远，一定要拿出来再重新熟悉一下或者再做一下。因为有可
+            能面官就会问你，你当时这个项目为啥用 XX 技术，而不用 XX 技术呢？
+
+            **列出你的工作中有价值的细节（有哪些技术上的困难等）**
+
+    -   那么我们应该如何精简简历呢 ? 简单说来就是一个字：删！
+
+    -   self evaluation 或者 career highlights 都是工作 5 年以上的人写的，比如
+        说成功的项目啦，多少年的资深经验啦，在哪个领域内的独到心得啦等等，一般
+        应届生，没有写的必要
+
+        不要写 self-assement，如：
+
+        -   I am self-driven and hard-working, balabala
+        -   keen interest in coding, never tired of algorithm research, a good learner, etc
+
+        无论你写得多么天花乱坠，都没有人信。想要让人知道你有这些方面的品质，建
+        议具体写到简历中的项目和经验中。比如，你想表现自己对 big data 的兴趣，
+        你可以通过你的 experience 中有很多关于 big data 的内容去展示。或者，放
+        到面试时，通过跟面官的沟通去表现你对计算机的热情等等。
+
+        这些感人肺腑的个人评价我向来直接无视——我为什么要相信你呢？引用 Linus 的话，
+        **Talk is cheap, show me the code**。如果要说明你是一个热爱编程的开发者，那
+        么请出你的 Github 页面或优秀的个人作品；如果要说明你热爱学习，请给出你读
+        过的书或写过的书评。总之，使用客观事实，而非主观描述。
+
+    -   **一定要把英文 CV 和中文 CV 放一个 Word 文档里面，绝对不要放两个不同的文档！！！！！！！！！**
+
+    -   **稀释你的简历含金量，还会给人极不专业的感觉**
+
+    -   精通和 Proficient 是非常 Strong 的词汇，在简历上写精通类词汇也许会帮你
+        得到面试机会，但你要面对难度更高的面试——招聘者会通过更高难度的问题来确
+        认你真的是精通，而不是在嘴遁。
+
+        但如果你真的精通某项技术，那就自信的写上精通，然后用项目经历和面试中的
+        表现说服招聘者，这样往往有助于你拿到 Strong Offer。
+
+    -   >   Controlling complexity is the essence of computer programming.
+        >
+        >   --- Brian Kernighan
+
+        控制复杂度使程序设计的根本（essense），所以绝大多数 IT 公司在招聘时都会
+        把应对复杂度（Handle complexity）放在职位描述里面——你如果能把难题搞定，
+        那么简单题也不在话下。如果你做过的项目足够复杂，那么就证明你能扛得住复
+        杂度，是个好备胎备选（Candidate）。
+
+    -   如果你的大学成绩或排名还不错，那么请把它放在教育背景中，例如：
+
+        ```
+        2009 ~ 2013    学士    大连理工大学    软件工程    GPA: 3.8/4.0，排名：3/153
+        ```
+
+        就不错。
+
+        ~~lucida 如此牛逼 ==~~
+
+        但如果你的成绩一般（80% 一下）或排名一般（前 20% 开外），那么就不要提它们（我就是这么做的，-_–#）
+
+        ~~原来不是你 ==~~
+
+    -   英文简历
+
+        :
+            海外求职需要英文简历，而英文简历需要专业的英语——阅读你简历的人很有
+            可能只懂英文，如果你的英文太糟糕那么他/她很可能会无视你的技术而直接
+            把你筛掉。
+
+            -   不要出现拼写错误
+            -   不要使用全角字符
+            -   使用正确的词汇
+            -   使用简洁的句子
+                -   “during the development period”应该是“during the
+                    development”：因为“development”本身已经包含“过程（period）”
+                    的意思。
+                -   “implemented xxx successfully”应当是“implemented xxx”：既然
+                    使用了过去式，那么你已经把它实现（implement）了，那自然就是
+                    “成功”实现。如果想要强调“成功”，那么可以用“accomplished
+                    xxx”。
+            -   避免中式英语
+            -   使用一致的时态
+                -   对于个人评价：使用现代式
+                -   对于项目经历：使用过去式
+            -   考虑提供缩写词的解释
+            -   使用 Bullets 组织长段
+
+    -   考虑提供开发社区账号
+
+    -   不要写课程列表
+
+    -   要把简历内容【复制到邮件中】，再搞个附件
+
+        "没有正文只有附件，令人无从下手" 那是很糟糕的体验！
+
+    -   不要使用 gmail 和 QQ 邮箱
+        -   gmail 是因为在国内速度蛮，且容易瘫痪，很多时候 HR 会回邮件，但是邮件发不出去
+        -   QQ 邮箱嘛，一打开就是火星文或者个人签名，始终跟 business 和 professional 不沾边。。。（我用自定义邮箱名 ==）
+
+            用 QQ 邮箱发送求职简历，如果用户连起码的在设置中显示自己的姓名都没
+            做更改的话，我们很难意识到这是一封真正的求职邮件。我们看到的就是一
+            连串数字 @qq.com，没有人名。即便后面注上“求职应聘”的字样，第
+            一时间我们也不会认为这是一封严肃的求职邮件，通常我们会选择忽略。
+
+    -   一个高的 GPA，可以帮助 HR 简单粗暴地定位你是个好学生。因此，如果不写
+        GPA 的话，HR 容易默认你 GPA 很低，不然为啥你不敢写呢。基本上>=3.0 的
+        GPA 就可以写在简历中（这个……其实，看你应聘的岗了，你要看自己在大多数求职者中大概算不算高。不高的话别写，不然像个傻逼 ==）
+
+    -   应届生如何使用 linkedin 来找工作
+
+        :   TODO
+
+            说老实话这种办法成功率不高，但是如果认真执着的跟 HR 沟通，加上你英
+            文很好的话，也还是会有机会的。我身边就有人在 Linkedin 上面找过工作。
+
+    -   部分面试官会问你对上一家公司或上一任老大、同事等的印象，请不要吐槽或给
+        负面评价，尽量说优点。不要问为什么。
+
+        如果去大公司面试，比较合适的离职原因是公司的发展赶不上自身的发展速度，
+        上升空间有限。如果去创业公司，则可以说对公司产品有兴趣，或喜欢小团队的
+        氛围。
+
+        一般有个 1 年以上的工作经验后，多半会被问到职业规划。通常说来，在选择的
+        技术方向上继续深入 2-3 年是不错的选择，也是不错的回答。当然如果是 5 年
+        以上工作经验了，大概面临纯技术方向或技术管理方向的选择吧，我也不清楚哒~
+
+    -   从企业的角度看，招人无非从这几个点来衡量：
+
+        -   职业能力；——企业现在可以获得的价值，一般是对等交易，程序员则表现为技术实力
+        -   学习能力;——企业未来可以获得的价值，也就是企业投资的增值
+        -   职业态度；——工作中是否积极主动，是否维护企业的利益等
+        -   沟通能力和性格。——团队协作
+        -   是否可以长期留在公司。——降低企业招人的损耗
+
+        职场中一个人的核心竞争力也是如此，所以不管是写简历还是面试，都是围绕以上几个点展开的。
+
+    -   版面整洁、干净，也是加分项。
+
+    -   最后，看了 10,000 份简历的心得：
+
+        -   HR/技术负责人更喜欢看到一份显示「职业上升趋势」的简历；
+        -   牛人讲结果，普通人讲过程。
+
+    -   只需要记住一个原则：跟简历关键词有关的，多写，认真写。跟简历关键词无关的，少写或者不写。
+
+    -   vczh：你要明白，简历上写的，就是你要面试官问的。你把那些书都看透了，可
+        以写。如果你只是走马观花，最后就会被认为是诚信问题。
+
+        面试的诀窍在于，把面试官引导到你熟悉的领域上来，让面试围绕着你做过的东西展开。
+
+    -   不要使用不必要的条目名称 -<
+
+        :   条目名称（Column name）这个词很拗口，我举一个例子：“姓名：张大锤”和
+            “电话：135-9112-7890”里的“姓名”和“电话”就是条目名称。
+
+            绝大多数的条目名称都是不必要的——“张大锤”一看就是一个名字，
+            “135-9112-7890”一看就是一个手机号码。这种条目信息会让简历变得拖沓啰
+            嗦，请务必删除它们。
+
+            此外，请牢记“个人简历”是简历上最大的废话——这当然是一封简历，不用你
+            提醒。可笑的是很多所谓的“500强简历模板”还把“个人简历”作为简历抬头
+            （Header）。
+
+    -   例如：把 8618601007070 改为 (+86) 186-0100-7070
+
+    一些简历示例：
+
+    -   [Resume](http://ming.today/resume)
+
+    refs and see also
+
+    -   [技术简历的七要七不要](http://mp.weixin.qq.com/s?__biz=MzA5MzE4MjgyMw==&mid=400574044&idx=3&sn=0c6071ae7d16a68bee235ea8be564a8d&scene=19#wechat_redirect)
+    -   [如何写好英文简历 · 长度](http://daily.zhihu.com/story/1178)
+    -   [应届生如何写好英文简历](https://www.douban.com/note/232964592/)
+    -   [IT 简历模板大放送 | 《如何写好技术简历》讲座精华总结](http://mp.weixin.qq.com/s?__biz=MzA5MzE4MjgyMw==&mid=401329250&idx=1&sn=30cadb3ae0d27998eaff71288a9be7ff&scene=21#wechat_redirect)
+    -   [如何写面向互联网公司的求职简历 | 唐巧的技术博客](http://blog.devtang.com/2013/12/22/how-to-write-resume-for-it-company/)
+    -   [用人单位拒绝聘用使用 QQ 邮箱发应聘邮件的求职者，这一行为是否合理？ - 骆轶航的回答 - 知乎](https://www.zhihu.com/question/21649995/answer/18879801)
+    -   [禅与写简历的艺术 - 第七章](http://www.zoomfeng.com/blog/shan-yu-xie-jian-li-de-yi-zhu.html)
+    -   [程序员简历应该怎么写？ - 知乎](https://www.zhihu.com/question/25002833)
+    -   [应聘互联网公司的简历应该是怎么样的？ - 知乎](https://www.zhihu.com/question/23631182)
+    -   [应届生应聘程序员，简历上能写书单吗？最好有哪些信息？ - 知乎](https://www.zhihu.com/question/24887072)
+    -   [精益技术简历之道——改善技术简历的47条原则 - Lucida](http://lucida.me/blog/lean-technical-resume/){.hearts}
+    -   [英文简历咨询服务 - 文章](http://www.weibo.com/p/1001603769729557894059)
+    -   [关于程序员求职简历 - Mingdong's blog](https://mdluo.github.io/blog/about-resume/)
+
+[计算机应届生简历中，「贪吃蛇，俄罗斯方块」等小项目有必要写到简历中吗？ - 知乎](https://www.zhihu.com/question/36280350) -<
+
+:   其实真没什么。
+    给面试官充分展示你实际水平就行了，本科生的东西low点没什么，根本不用在意。
+
+    其实大部分本科生搞得看起来高大上的所谓 XX 杯、XXX 大赛，还有神秘兮兮的什么军工
+    项目、什么“尖端科技”，基本上都是包装起来的泡沫，实现难度十有八九还真不如贪
+    吃蛇、俄罗斯方块（前提是自己写的没有抄代码）等等。
+
+    之前面试过一个研究生，X 航做硬件的，看简历特别高大上，各种国家级牛逼项目，什
+    么尖端科技研究，竟然还给航天器做过东西。在某高大上研究所实习的时候还设计过
+    什么火箭分离器，给我看他的打样的时候，还神秘兮兮特别强调这是保密的，不能拍
+    照。
+
+    我当时作为一个小本怀着无比崇敬的心情，仔细看了会那个东西。卧槽！不就是个 51
+    控制个继电器么？还没加保险管！火箭上用这个？
+
+    卧槽！这哥们电路板正面铺 VCC，背面铺地，大电流竟然还没有隔离！你是设计电容
+    器么？？？研究生都只能做成这样了？这种竟然还敢投打样？军工部门如果真的是这
+    水平，还需要。。。保密么？估计火箭应该发射不出去了。说出去都没人信。
+
+    这种学生还不止一个，我一天就见了三个这样的。
+
+    我相信正规大公司的面试官肯定比我见多识广了，一定会了解你的真实水准的。
+
+h1b 申请日期是多久？
+
+  ~ 每年 4 月 15 日结束
+
+如果只有国内的实习经历，在美国找 full-time 的 CS 工作是不是比较困难?
+
+  ~ 是比较难，但是并不是没有可能，也不是没有机会，多投简历，总会有机会的，成功例子还是很多的
+
+在哪里可以看程序员的工资。
+
+  ~ paysa 比较准确, glassdoor 数据比较多
+

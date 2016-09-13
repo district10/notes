@@ -335,7 +335,7 @@ System & Network & MISC
             descriptor may be reused, there are some obscure race conditions that may
             cause unintended side effects.
 
--   [为什么函数调用要用栈实现？ - 知乎](https://www.zhihu.com/question/34499262) -<
+-   为什么函数调用要用栈实现？ -<
 
     :   函数调用通常过程是：
 
@@ -419,7 +419,11 @@ System & Network & MISC
             比如我们经常会看到的 stack overflow (这里不仅仅是指上千的嵌套调用),
             方便实现同时有成百上千个子任务存在的语言.
 
--   [为什么用 od 命令查看 Java 字节码不是大端存储？ - 知乎](https://www.zhihu.com/question/46978823) -<
+    refs and see also
+
+    -   [为什么函数调用要用栈实现？ - 知乎](https://www.zhihu.com/question/34499262)
+
+-   为什么用 od 命令查看 Java 字节码不是大端存储？ -<
 
     :   >   I love Macross Delta.
 
@@ -483,7 +487,11 @@ System & Network & MISC
         }
         ```
 
--   [堆、栈的地址高低？ 栈的增长方向？ - 知乎](https://www.zhihu.com/question/36103513) -<
+    refs and see also
+
+    -   [为什么用 od 命令查看 Java 字节码不是大端存储？ - 知乎](https://www.zhihu.com/question/46978823)
+
+-   堆、栈的地址高低？ 栈的增长方向？ -<
 
     :   进程地址空间的分布取决于操作系统，栈向什么方向增长取决于操作系统与 CPU 的组合。
         不要把别的操作系统的实现方式套用到 Windows 上。
@@ -531,7 +539,7 @@ System & Network & MISC
 
         -   [Anatomy of a Program in Memory - Gustavo Duarte](http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory/)
 
--   [字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html){.heart} -<
+-   字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志 -<
 
     :   **ASCII, 0--127**
 
@@ -657,10 +665,11 @@ System & Network & MISC
 
         refs and see also
 
+        -   [字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html){.heart}
         -   [阮一峰：utf-8 编码已经成为主流](http://www.ruanyifeng.com/blog/2008/05/growth_of_utf-8_on_the_web.html)
         -   [Endianness - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Endianness)
 
--   [RapidJSON 代码剖析（三）：Unicode 的编码与解码 - Milo的编程 - 知乎专栏](https://zhuanlan.zhihu.com/p/20056322?refer=milocode) -<
+-   RapidJSON 代码剖析（三）：Unicode 的编码与解码 - Milo 的编程 -<
 
     :   UTF-8 成为现时互联网上最流行的格式，有几个原因：
 
@@ -673,7 +682,12 @@ System & Network & MISC
 
     [rapidjson/encodings.h at master · miloyip/rapidjson](https://github.com/miloyip/rapidjson/blob/master/include/rapidjson/encodings.h)
 
--   [Hamming weight - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hamming_weight){.featured .heart} -<
+    refs and see also
+
+    -   [RapidJSON 代码剖析（三）：Unicode 的编码与解码 - Milo 的编程 - 知乎专栏](https://zhuanlan.zhihu.com/p/20056322?refer=milocode)
+    -   [堆、栈的地址高低？ 栈的增长方向？ - 知乎](https://www.zhihu.com/question/36103513)
+
+-   Hamming weight -<
 
     :   说一个故事，四五年前我为面试出了一条笔试题目，恰巧和本书的题目 2.1 很相似，
         计算一个无号整数 (我要求 32-bit，书中的是 8-bit) 在二进制中 1 的个数。当时
@@ -843,7 +857,8 @@ System & Network & MISC
 
         refs and see also
 
-          - [迟来的书评和感想──给喜爱编程的朋友 (评论: 编程之美)](https://book.douban.com/review/3010762/)
+        -   [Hamming weight - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hamming_weight){.featured .heart}
+        -   [迟来的书评和感想──给喜爱编程的朋友 (评论: 编程之美)](https://book.douban.com/review/3010762/)
 
 -   Dynamic cast -<
 
@@ -934,13 +949,13 @@ System & Network & MISC
 
         a **`type qualifier`** is not allowed on a static member function.
 
--   [Good Old & Dirty printf() Debugging in a Non-console C/C++ Application or DLL - CodeProject](http://www.codeproject.com/Tips/227809/Good-old-dirty-printf-debugging-in-a-non-console-C) -<
+-   Good Old & Dirty printf() Debugging in a Non-console C/C++ Application or DLL -<
 
     :   `#define Debug(fmtstr, ...) printf(fmtstr, ##__VA_ARGS__)`{.cpp}
 
         <http://www.cnblogs.com/xianqingzh/archive/2011/07/08/2101510.html>
 
-        [《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks)
+        [《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks) -<
 
         :   `freopen`{.c}
 
@@ -1068,9 +1083,12 @@ System & Network & MISC
                 QString result;
                 QTextStream(&result) << "pi = " << 3.14;
                 // result == "pi = 3.14"
-                ```
 
--   [Jeff Dean facts: How a Google programmer became the Chuck Norris of the Internet.](http://www.slate.com/articles/technology/doers/2013/01/jeff_dean_facts_how_a_google_programmer_became_the_chuck_norris_of_the_internet.single.html){.featured .heart} -<
+    refs and see also
+
+    -   [Good Old & Dirty printf() Debugging in a Non-console C/C++ Application or DLL - CodeProject](http://www.codeproject.com/Tips/227809/Good-old-dirty-printf-debugging-in-a-non-console-C)
+
+-   Jeff Dean facts: How a Google programmer became the Chuck Norris of the Internet -<
 
     :   `32,768`, ` 65,536`, `4,294,967,296`
 
@@ -1317,6 +1335,9 @@ System & Network & MISC
         2^10        =     2^2.8 * 2^3.5 * 2^3.7
           10        =       2.8 +   3.5 +   3.7
         ```
+    refs and see also
+
+    -   [Jeff Dean facts: How a Google programmer became the Chuck Norris of the Internet.](http://www.slate.com/articles/technology/doers/2013/01/jeff_dean_facts_how_a_google_programmer_became_the_chuck_norris_of_the_internet.single.html){.featured .heart}
 
 [^SI]: The SI prefixes (metric prefix) are standardized for use in the
     International System of Units (SI) by the International Bureau of Weights
@@ -2787,3 +2808,142 @@ TCP使用**滑动窗口机制**来实现流量控制，通过动态改变窗口�
     知识量不够，想法自然受到局限。经验不够难免要采坑。一步一步提升自己才是正经事儿。
 
     ![](http://img.hb.aicdn.com/7374ae79e9144aa2c2e5769c9315a4a400cb47f7ea0e-oKONR6_fw658)
+
+(●—●) | 牛客网 -<
+
+:   -   [(●—●) | 用不带头结点的单链表存储队列,其队头指针指向队头结点,队尾指针指向队尾结点,则在进行出队操作时()_牛客网](http://www.nowcoder.com/questionTerminal/62b7eb9e9ea846c295f12e7f5bdcb96b) -<
+
+        :   当队列中只有一个元素时，出队后需要清空对头和队尾指针。
+
+    -   [(●—●) | 以下与数据的存储结构无关的术语是()_牛客网](http://www.nowcoder.com/questionTerminal/1324dd72390541898b804aaa3b23b319) -<
+
+        :   栈可以是顺序存储，也可以是链式存储，与存储结构无关。循环队列是队列的
+            顺序存储结构，链表是线性表的链式存储结构，用散列法存储的线性表叫散列表，
+            都与存储结构有关
+
+            存储结构是数据的逻辑结构用计算机语言的实现，常见的存储结构有： 顺序存储，
+            链式存储 ， 索引存储 ，以及 散列存储 。其中散列所形成的存储结构叫 散
+            列表（又叫哈希表） ，因此哈希表也是一种存储结构。栈只是一种抽象数据类型，
+            是一种逻辑结构，栈逻辑结构对应的顺序存储结构为顺序栈，对应的链式存储结
+            构为链栈，循环队列是顺序存储结构，链表是线性表的链式存储结构
+
+    -   [(●—●) | integer-to-roman_leetcode笔试题_牛客网](http://www.nowcoder.com/questionTerminal/0636c3db0de6437a8a86e58f46aa5c90) -<
+
+        :   ```cpp
+            class Solution {
+            public:
+                string intToRoman(int num) {
+                    static const char *x[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+                    static const char *x0[] = { "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
+                    static const char *x00[] = { "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
+                    static const char *x000[] = { "M", "MM", "MMM" };
+
+                    if( num >= 1000 ) {
+                        return string(x000[num/1000-1]) + intToRoman(num%1000);
+                    } else if( num >= 100 ) {
+                        return string(x00[num/100-1]) + intToRoman(num%100);
+                    } else if( num >= 10 ) {
+                        return string(x0[num/10-1]) + intToRoman(num%10);
+                    } else if( num >= 1 ) {
+                        return string(x[num-1]);
+                    }
+
+                    return string(); // num == 0
+                }
+            };
+            ```
+
+            ```cpp
+            string result;
+            while( num != 0 ) {
+                if( num >= 1000 ) {
+                    result += string(x000[num/1000-1]);
+                    num %= 1000;
+                } else if( num >= 100 ) {
+                    result += string(x00[num/100-1]);
+                    num %= 100;
+                } else if( num >= 10 ) {
+                    result += string(x0[num/10-1]);
+                    num %= 10;
+                } else if( num >= 1 ) {
+                    result += string(x[num-1]);
+                    break;
+                }
+            }
+
+            return result;
+            ```
+    -   [(●—●) | minimum-depth-of-binary-tree_牛客网](http://www.nowcoder.com/questionTerminal/e08819cfdeb34985a8de9c4e6562e724) -<
+
+        :   ```cpp
+            class Solution {
+            public:
+                int run(TreeNode *root) {
+                    return minDepth( root, false );
+                }
+            private:
+                int minDepth( TreeNode *root, bool hasbrother ) {
+                    if( !root ) { return hasbrother ? INT_MAX : 0; }
+                    return 1 + min( minDepth( root->left, root->right ),
+                                    minDepth( root->right, root->left ) );
+                }
+            };
+            ```
+
+    -   [(●—●) | (●—●) | 类A是类B的友元,类C是类A的公有派生类,忽略特殊情况则下列说法正确的是()_牛客网](http://www.nowcoder.com/questionTerminal/f1491d455d28443e9c1a0c01ddb9d6ab) -<
+
+        :   类 A 是类 B 的友元, 类 C 是类 A 的公有派生类, 忽略特殊情况则下列说法正确的是 ()
+
+            -   类 B 是类 A 的友元
+            -   类 C 不是类 B 的友元
+            -   类 C 是类 B 的友元
+            -   类 B 不是类 A 的友元
+
+            BD
+
+            |   友元关系是单向的，不是对称，不能传递。
+            |   关于传递性，有人比喻：父亲的朋友不一定是儿子的朋友。
+            |   那关于对称性，是不是：他把她当朋友，她却不把他当朋友？✧(≖ ◡ ≖✿)
+
+    -   [(●—●) | evaluate-reverse-polish-notation_leetcode笔试题_牛客网](http://www.nowcoder.com/questionTerminal/22f9d7dd89374b6c8289e44237c70447?toCommentId=165743)
+
+    -   [(●—●) | max-points-on-a-line_leetcode笔试题_牛客网](http://www.nowcoder.com/questionTerminal/bfc691e0100441cdb8ec153f32540be2){.hearts}
+
+    -   [(●—●) | 顺时针打印矩阵_牛客网](http://www.nowcoder.com/questionTerminal/9b4c81a02cd34f76be2659fa0d54342a?toCommentId=229527) -<
+
+        :   ```cpp
+            #include <iostream>
+            #include <algorithm>
+            #include <iterator>
+            #include <vector>
+            using namespace std;
+
+            class Solution {
+            public:
+                vector<int> printMatrix(vector<vector<int> > &matrix) {
+                    int row = matrix.size(), col = matrix[0].size();
+                    int lr = col, ud = row-1;
+                    vector<int> ret( row*col );
+                    int i = 0, j = -1, k = 0;
+                    while( k < row*col ) {
+                        if( lr > 0 && k < row*col ) { for( int m = 0; m < lr; ++m ) { ret[k++] = matrix[i][++j]; } --lr; } // right
+                        if( ud > 0 && k < row*col ) { for( int m = 0; m < ud; ++m ) { ret[k++] = matrix[++i][j]; } --ud; } // down
+                        if( lr > 0 && k < row*col ) { for( int m = 0; m < lr; ++m ) { ret[k++] = matrix[i][--j]; } --lr; } // left
+                        if( ud > 0 && k < row*col ) { for( int m = 0; m < ud; ++m ) { ret[k++] = matrix[--i][j]; } --ud; } // up
+                    }
+                    return ret;
+                }
+            };
+
+            int main() {
+                vector<vector<int> > matrix = {
+                    {1, 2, 3, 4},
+                    {5, 6, 7, 8},
+                    {9, 10, 11, 12},
+                    {13, 14, 15, 16}
+                };
+                Solution sol;
+                vector<int> ret = sol.printMatrix( matrix );
+                copy( ret.begin(), ret.end(), ostream_iterator<int>(cout, " ")); puts("");
+            }
+            ```

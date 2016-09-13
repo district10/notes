@@ -273,7 +273,7 @@ C++ 简介 | Intro
         std::ifstream file( filename.c_str(), ifstream::in );
         // 或者：std::ifstream file; file.open( filename.c_str(), ifstream::in );
 
-        if ( !file ) ) { exit(-1); }
+        if ( !file ) { exit(-1); }
         // 或者：if ( !file.is_open() ) { exit(-1); }
 
         string line;
@@ -1081,8 +1081,10 @@ C++ 简介 | Intro
         int main()
         {
             std::string s = "Hello, world";
+
+            // 一样的：std::string::reverse_iterator r = s.rbegin();
             std::reverse_iterator<std::string::iterator> r = s.rbegin();
-            r = 'O'; // replaces 'o' with 'O'
+            *r = 'O'; // replaces 'o' with 'O'
             r += 7; // iterator now points at 'O'
             std::string rev(r, s.rend());
             std::cout << rev << '\n'; // "OlleH"

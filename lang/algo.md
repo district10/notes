@@ -34,6 +34,32 @@ ASCII table -<
     ../../aoapc-book/aoapc-bac2nd/README.md
     ../../acm-cheat-sheet/C++/ACM-cheat-sheet.tex
 
+Cheatsheet -<
+
+:   ```cpp
+    @include <-=include/algo-cheat.cpp=
+    ```
+
+FAQ -<
+
+:   刷题刷到什么程度可以去面试了呢？
+      ~ lintcode 70% 题目刷两遍， 60% 题目做到 bug free，就比较好啦。
+
+    前端工程师 / 数据科学家需要刷题么？
+      ~ 当然需要啦，60% 考算法，40% 考相关背景技术或项目经验。
+
+    在哪里可以找到面经?
+      ~ glassdoor, 一亩三分地，themianjing.com, mitbbs，等等。
+
+    先刷题还是先看面经捏？
+      ~ 一般建议先刷一点题目，然后再去看面经。这样轻松一点，遇到会的题目就跳过，
+        不会的题目好好想一想，时间允许还可以实现一下。如果时间很紧张了，建议一边
+        刷题一边看面经。
+
+    哪里可以投简历？找内推？
+      ~ -   投简历： indeed，monster, hired.com, linkedin, readyforce.com，以及各大公司官网。
+        -   找内推： mitbbs，一亩三分地, linkedin
+
 TODOs & Notes:
 
 :   -   rewrite UFS.c in C++: union, find, init.
@@ -4259,7 +4285,7 @@ A Bit of Logic -<
                                     if( tmp < A[mid] ) {
                                         right = mid - 1;
                                     } else {
-                                        left = mid + 1;
+                                        left = mid + 1;     // 大于或者等于，都向右倾斜
                                     }
                                 }
                                 for( j = i - 1; j >= left; --j ) {
@@ -24955,3 +24981,856 @@ C:\Users\tzx\Downloads\LM\leetcode-master\C++\leetcode-cpp.tex
 
 :   [The-Art-Of-Programming-By-July/02.09.md at master · julycoding/The-Art-Of-Programming-By-July](https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/02.09.md)
 
+[Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne](http://algs4.cs.princeton.edu/home/) -<
+
+:   >   essential information that every serious programmer needs to know about
+    >   algorithms and data structures
+
+[Leetcode: Palindrome Partitioning II - Avril - 博客园](http://www.cnblogs.com/avril/p/3293449.html)
+
+Best Time to Buy and Sell Stock IV 问题
+
+问答 | 九章算法 -<
+
+:   refs and see also
+
+    -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖 IT 企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/796/)
+
+    概率论问题 :hearts: -<
+
+    :   假设有一个硬币，抛出字（背面）和花（正面）的概率都是0.5，而且每次抛硬币
+        与前次结果无关。现在做一个游戏，连续地抛这个硬币，直到连续出现两次字为
+        止，问平均要抛多少次才能结束游戏？注意，一旦连续抛出两个“字”向上游戏就
+        结束了，不用继续抛。
+
+        假设连续抛 2 次正面的期望为 E
+
+        ```
+        E = 0.5 * 0.5 * 2     (第一次抛了正， 第二次也抛了正，则抛两次结束了，次数是两次)
+          + 0.5 * 0.5 * (E + 2)（第一次抛了正， 第二次抛了反，前面无效了，从头开始，那么再出现两个正面，次数是 E+2）
+          + 0.5 * (E + 1)      (第一次抛了反， 前面无效了，从头开始，那么再出现两个正面次数是 E+1）
+        ```
+
+        E = 6
+
+        同理可以推算连续三个正面，连续反正，正反，等等所有情况都可以计算。
+
+        >   谢谢助教，
+        >
+        >   比如三个正面应该就是这四种情况分析了把？(反正以遇到反就要从头开始弄了)
+        >
+        >   -   1) 正正正
+        >   -   2) 正正反 + E
+        >   -   3) 正反 + E
+        >   -   4) 反 + E
+
+        同理算一样连续三个正面的期望 E
+
+        ```
+        E = 0.5 * 0.5 * 0.5 * 3
+          + 0.5 * 0.5 * 0.5 * (E + 3)
+          + 0.5 * 0.5 + (E + 2)
+          + 0.5 * (E + 1)
+        ```
+
+        得到 E = 14，三个连续正面的期望是 14 次。
+
+        refs and see also
+
+        -   [抛硬币 直到连续出现两次字为止 - VergiL Wang的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/wangran51/article/details/8882088)
+        -   [概率论问题](http://www.jiuzhang.com/qa/2125/){.hearts}
+
+    怎么找中小公司校招的职位？  -<
+
+    :   大公司可以去他们网站投，不过那些不知名的中小公司的校招职位怎么找呢？Indeed 之类的上面搜什么关键词？
+
+        >   angellist
+
+    【置顶】 为什么不需要学习贪心法 -<
+
+    :   因此，贪心法可以说，是一种“目光短浅”的算法。一般在算法问题中，可以使用
+        贪心算法的问题，其贪心策略往往都比较复杂，一般人是想不到的。而你容易想
+        到的那些贪心策略，往往都是错的。
+
+        面试基本不会考 -<
+
+        :   贪心法的问题，面试基本不会考，因为等同于考智力题或者是背诵题。一个面试官想
+            要自己凭空创造出一个面试题是使用贪心算法的，是非常困难的。（参见 LintCode 上
+            的贪心算法的题目所占比例可知）。既然如此，如果面试中被问到了贪心算法，那么
+            一定是一道经典的贪心问题，这类问题，我们可以称之为背诵题。因为大多数同学
+            （除了智商很高，或者有算法竞赛经历的那一批），是不可能在面试的时候想得出解
+            法的。
+
+            举几个例子：Gas Station (http://www.lintcode.com/en/problem/gas-station/)，
+            这个题的做法是，从任意站点出发，走一圈，找到这一圈里剩余Gas最少的那一站，然
+            后从这一站出发走一圈，如果在这一站出发可以顺利走完全程，那么就可以行，否则
+            就不可行。像这样的算法，是需要进行数学证明来证明其正确性的，面试官是没有能
+            力出这样的面试题的。
+
+            从另外一个角度来说，贪心算法的题，对于程序的实现能力要求并不高，也违背了公
+            司通过算法题面试主要是希望考察大家的程序实现能力这一点。所以面试官和公司也
+            都不倾向于将贪心算法作为面试的算法问题。
+
+        没有通用性 -<
+
+        :   二分法，动态规划算法，分治算法，搜索算法等等，很多的算法都是具有通用性的。
+            也就是说，在题目 A 里，你用了这个算法，在其他的题目 B 里，你可能完全可以用一样
+            的算法和思路去解决。
+
+            而贪心法，他不是“一个算法”，而是“一类算法”的统称。所以基本的情况就是，你在
+            题目A里用了某个贪心算法解决了这个问题，然后这个题中用到的贪心法，永远也找不
+            到第二个题用类似的方法来解决。
+
+        贪心是动态规划的子集么? -<
+
+        :   只要问题的解决方案有最优子结构，并且无后效性就可以认为是动态规划。
+
+            但是你这样问并没有什么意义，因为动态规划真正的目的还是依赖空间换时间，而贪心策略不是。
+
+            举个简单的例子来说，求单源最短路的 Dijkstra 算法，你可以认为它是一个贪心算
+            法，因为根据定义（Di 表示源点到节点 i 的最短路长度）：
+
+            Dj = min{ Dj, Di+ Matrix[i][j] }
+
+            它每次迭代都很无脑地选一条最近的路出发，所以认为是一个贪心策略。但是它又有
+            效地将重叠的最优子结构问题用一个辅助数组 D 存储了起来，并且没有后效性，所以
+            也是一个动态规划算法。
+
+        如何理解动态规划？ -<
+
+        :   TODO
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2100/)
+        -   [（无权限）几个必须“背诵”的贪心算法题](http://www.jiuzhang.com/qa/2099/)
+        -   [贪心是动态规划的子集么? - 知乎](https://www.zhihu.com/question/34414760)
+        -   [如何理解动态规划？ - 知乎](https://www.zhihu.com/question/39948290)
+        -   [第10讲 贪心算法的例子_图文_百度文库](http://wenku.baidu.com/view/f20777a7b0717fd5370cdc05.html)
+        -   [贪心算法如何体现在霍夫曼编码中？ - 知乎](https://www.zhihu.com/question/22112710?sort=created)
+        -   [【算法学习笔记】25.贪心法 均分纸牌问题的分析 - 雨尘之林 - 博客园](http://www.cnblogs.com/yuchenlin/p/4382027.html)
+        -   [均分纸牌问题为什么可以用贪心法得到全局最优解？ - 知乎](https://www.zhihu.com/question/27883948)
+        -   [贪心算法及几个经典例子 - a925907195的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/a925907195/article/details/41314549)
+
+    resume 上需要写 objective 吗  -<
+
+    :   听九章的讲座说要写，但是九章给的简历里又没有 objective。是不是转专业的必需写？
+
+        **要。**
+
+    多个面试经验贴汇总 -<
+
+    :   -   第一档次: Dropbox, Square, Pinterest, Facebook, LinkedIn, Google, Twitter, Apple
+        -   第二档次: Zynga, Yelp, Netflix, Skype, VMWare, Salesforce, Groupon, Paypal, Evernote, Box.net, Quora, A9.com, 126Lab, Palantir
+        -   第三档次: Oracle, EMC, eBay, Intuit, NetApp, NetSuite, Yahoo, Adobe, Autodesk, Symantec, Riverbed, Quantcast, Concur, Aster Data, Citrix, EA等
+
+            算上湾区以外公司， Amazon, Micriosoft 可以排在第二档次 Expedia,
+            RedHat, RackSpace, Akamai, Bloomberg 等可以排在第三档次。
+
+            Dropbox 创始人 Drew Houston 在 2013 年 MIT 的毕业典礼上讲的很好：
+            “世界上只有一个好莱坞，一个硅谷，如果你想待在业界最好的圈子，那就搬
+            家！”我被他说服，投简历的时候瞄准了 FLGT(业界最火的四家公司，
+            Facebook, LinkedIn, Google, Twitter) 和一众火爆的初创公司。
+
+            最近细读未来公司 LinkedIn 的创始人 Reid Hoffman 的新书 The Start-up
+            of You，里面讲到求职三片拼图：你的资源 / 能力（your assets），你的
+            志向 / 价值观（your aspirations/values) 和市场现实（market
+            reality），共同组成你的核心竞争力。所以我去尝试互联网大公司，十投八
+            中，但是其他的努力很多都浪费了，如果当时早就看了这本书多好。关于这
+            本书和它的作者，以后会写另一篇文章详述，这里先隆重推荐给大家。
+
+        最后来一点干货吧，给本专业的人看 -<
+
+        :   Google 题目： -<
+
+            :   1. MST of a all connected graph. Need to use Fibo heap to reduce complexity.
+                2. Game of Life, one transition (sub O(n^2) solution).
+                3. String compressor that turns 123abkkkkc to 123ab5xkc. Decompressor is already written and must remain unchanged. (messy code)
+                4. Youtube mash design, how to do a video version of Mark’s FaceMash.
+
+                题全都没见过，rej
+
+            Facebook 题目： -<
+
+            :   电话
+
+                1. Big Integer multiplication. (Optimization required, how to do 8 digits*8 digits, etc).
+                2. Binary tree level order traversal. (leetcode original)
+                3. 也是 leetcode 原题，不记得了
+
+                Onsite
+
+                1. Given 1->a, 2->b … 26->z. 126 -> az or lf or abf (bfs/dfs not accepted, need to use DP or some tricky method)
+                2. Binary tree serialization/de-serialization (这道题pinterest也问了）
+                3. Permutation with duplicate
+                4. Range maximum query, pre-processing in O(n) and query in O(1)
+
+                题答少了一道，rej
+
+        其他重要题目和技巧：
+
+        :   2Sum 3Sum, rotate LinkedList, minimum path sum, combinations
+
+            注重练习 tree 的 recursion 搜索, dp, greedy, two/three pointers, stack.
+            谷歌的题是很难刷到的，要靠运气，其他很多公司（尤其是亚马逊为首）都可以
+            靠刷题大幅提高胜算。 资源：leetcode.com, geeksforgeeks.com,
+            glassdoor.com, CC150
+
+            BTW，今年几家的硕士 package 都差不多，大约是 115k base + 160-170k （RSU
+            股票分4 年 + signing + reloc)，如果没有 competing offer 比较难negotiate。
+            我的 O 家offer 是 114k base + 4000 股期权分四年 + 15k signing + 10k
+            reloc，在等 LinkedIn发 official offer 之前，成功的想办法把 deadline 延
+            长了两次，变成 Standing offer，如果不这么干，他们是愿意涨一点 base 的。
+
+            按照我个人的理解，学生被大公司分两类，第一类是“名校 GPA3.8 以上”的，第
+            二类是else。作为 else 的代表，我不得不说，GPA3.8 以上真的很难，第一类们
+            确实确实有特权先被考虑，但本文正是献给广大 else 们的。
+
+            面试这个东西，其实是没法准备的，全靠经验。我没有哪个问题在第一次被问的
+            时候就能答的很完美，我相信谁也不能。从去年 6 月跟人家介绍自己都要磕磕巴
+            巴，到现在基本我虐面试官，大大小小的电面一百来次，onsite 十来次，磨厚的
+            不只是嘴皮，还有脸皮。其实面试的最高奥义就是厚着脸皮吹牛逼，并用丰富的
+            吹牛逼经验保证不被拆穿即可。当然了，知识还是要有一些，毕竟是技术职位，
+            而且要对 Coding 有一腔热情。当然了，还要习惯每天吃 subway。
+
+            在这里我想说一说老中，我所说的老中是指现在 40-50 岁，30 多岁的时候从国
+            内直接跳槽过来的中国软工，错了，是 我们这儿 软工。我去 qualcomm 和
+            amazon onsite 都是栽到了老中手里。我现在也不明白为什么只有中国人看不上
+            中国人，而人家阿三都是只帮阿三。我在 qualcomm 最后一个面的老中问我，有
+            没有学过 OS，我说我自学的。他说你没有做过那些 project 也说你学过？我说
+            你可以问啊，看看我会不会。结果这 B 问了我一堆我回来 google 都查不到的鬼
+            问题，还问我 how to simulate garbage collector in C? 看我不会又得意洋洋
+            的反问我，你没学过 OS 还想找 SWE 的工作? 我就说我的课都是 application
+            level 的。他操着浓重的不知哪的方言腔说了一句让我一辈子都忘不了的话：If
+            I wanna build a applicaiton, I will go to hign school and ask them "Who
+            wanna do some funny stuff?". Why I hire you? 我擦，我当时真想一口大浓痰
+            吐他脸上然后大骂我去你大爷的。但是我还是忍住了，虽然我从他眼睛里也能看
+            到我眼里冒出的火光。Amazon 也是一样的，在其他面试官都被我折服之后，他又
+            问我为什么 EE 的不好好学 EE，CS 的基础课你都没学过云云.... 我当时以为我
+            面的可以，因为他的题被我做完了，我还挑了他一个错误。事后我感觉挑他的错
+            这一下让他决定毙我的，要不然，就是和我竞争的人过于 NB 了。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/788/)
+
+    美团 2015 校招面经 - 软件研发岗 (拿到 offer) -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/751/)
+
+    Linkedin 面经合集 -<
+
+    :   面经 1 -<
+
+        :   然后就是开始做题，两个题目。
+
+            第一个是两个单词最短距离，在版上看到很多人都说过这个题目，应该是L家经常面的。
+            本来以为只要实现一个函数，哪里知道是实现两个函数，第一个是做求最短距离的准
+            备工作，实现类的初始化；第二个才是真正的求最短距离的函数。写第二个函数的时
+            候，还忘记判断单词是否在字典中出现过，幸好面试官有提醒。
+
+            第二题就是 leetcode 上的全排列，没有重复元素的。
+
+        面经 2 -<
+
+        :   第二题也比较常见,CC150 原题, 找俩字符串在一段文字中最近的距离:
+
+            直接用 CC150 解法, 用两个 index 比较得出 Math.abs(index1-index2), update 最小距
+            离. 写好后提示要是 cat dog cloud dog dog dog......, 即后面有 million 个 dog, 是
+            否不用比较整个文章. 回答说用 map 提早存储每个单词的 index, 然后在 map 中找到单
+            词比较, 在讨论后最坏情况下复杂度也是 O(n).
+
+            由于没有时间写代码了所以这样结速了.
+
+        面经 3 -<
+
+        :   就一道题，经典的求minimum word distance. 但是一开始有挺多有关ML的细节题
+
+            实现 BlockingQueue 的 take() 和 put()
+
+            ```cpp
+            public interface BlockingQueue<T>
+            {
+                /** Retrieve and remove the head of the queue, waiting if no elements
+                are present. */
+
+                T take();
+
+                /** Add the given element to the end of the queue, waiting if necessary
+                for space to become available. */
+                void put (T obj);
+            }
+            ```
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/747/)
+
+    Google 15 Fall SDE I 实习生电面 -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/749/)
+
+    G 家面经题，矩阵最小 -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/344/)
+
+    Compress String :hearts: -<
+
+    :   给一个 string，要求压缩后最短。比如说对于 aaaa，`4[a]` 肯定要比 `2[aa]` 要
+        好。我除了暴力枚举 substring 以外想不到任何其他方法，请问助教有没有其他想法？
+
+        本问题可以简化成 S = a[substring], 求最大的a。
+
+        如果学过 KMP 算法的，求出 S 的 next 数组。
+
+        ```cpp
+        n = len(S)
+            j = next[n]
+        while   n % (n - j) != 0:
+                j = next[j]
+
+            a = n / (n - j)
+        ```
+
+        这是由 next 数组的性质决定的，可以先学一下 KMP 算法。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1439/#)
+
+    无实习开源经验 GPA 不高的小硕的 FLAGBR Offer 经  -<
+
+    :   拿了 FLAGR 的 offer，B 家主动 cancel 了 onsite。非常幸运，面了的公司都
+        拿了 offer，最终去了最喜欢的 F 家，多要了一点 sign on，因为穷的太久了，
+        急需点钱来玩。对于package 来说，基本都是标准 package，开始的时候 F 最多，
+        后来 G 给加了不少，最终拒绝G 的时候还要再给加，感觉 G 很喜欢抢 F 的人啊！
+        钱多钱少不太看重，反正也不准备长期做码农。自己感觉的 hiring bar 的排序：
+        facebook=linkedin>google>amazon, 当然，难度是随着时间改变的，招人多的时
+        候容易，不怎么招人的时候就很难。
+
+        Facebook
+
+        签了 offer，就不透露题了，总之感觉 facebook 的 bar 最高，面试题的难度不
+        同人差别很大，题目简单不一定就有 offer，题目难也未必没 offer，不好说。
+
+        ```
+        第一题：贪心
+
+            Given a number, can you remove k digits from the number so that the new
+            formatted number is smallest possible.
+            input: n = 1432219, k = 3
+            output: 1219
+
+        第二题：DP
+
+            BT(binary tree), want to find the LIS(largest independent set) of the BT
+            LIS: if the current node is in the set, then its chilren should not be in
+            the set. So that the set has the largest number of nodes.
+
+        电面2：
+
+            第一题：Median of Two Sorted Arrays
+            第二题：DP，一个二维数组，元素是 0 或 1，找出最大的由 1 构成的"X"形状
+
+        onsite:
+
+        1. print all subsets
+           system design(N topics, publishers, subscribers, scalability, distributed)
+           the most frequent urls in the past minute, hour, day
+        2. manager interview
+           code review
+        3. shortest path between two nodes of a tree(no parent pointer)
+        4. machine learning(不懂)
+        5. machine learning(不懂)
+
+        Rocket Fuel是自己投的，因为在网上看到code challenge挺有意思。onsite的时候了
+        解到他家最近要搬进新楼里，应该招人很多，大家可以试一试，题目不简单
+
+        Google:
+
+        电面：
+        remove duplicate lines of a file(what if the file is very large which could
+        not be held in the main memory)
+
+        开关灯问题
+        Trapping Rain Water(leetcode)
+        sometimes a program works, sometimes it does not. Possible reasons
+
+        onsite:
+        1. clone directed graph(recursive, non-recursive)
+           longest common suffix of two linked list
+           data structure design
+        2. how many (m, n) pairs such that m*m+n*n<N
+           线索化二叉树
+        3. 判断一个点是否在一个凸多边形内, O(n), O(logn)
+        4. group items(BFS)
+           MapReduce(filter a collection of documents, the words which occur more
+        than 5000 times)
+
+        google 面的不好，因为实在是太累了，幸运的是还是给 offer 了。
+
+        linkedin
+
+        电面 1：
+
+        第一题：给一个 words list, 输入两个单词，找出这两个单词在 list 中的最近距离 (先
+        写了一个没有预处理的，又写了一个预处理建 index 的)
+        ['green', 'blue', 'orange', 'purple', 'green']  f.distance(list, 'blue', ' green') # output 1
+
+        第二题：类似 binary search 的一题，要注意 boundary case
+
+        电面2：
+
+        binary tree level order traversal, 写了三种方法。。。(BFS 用 arraylist，类似 DFS，BFS 用 queue)
+
+        onsite:
+        1. romanToInt, intToRoman,
+           N points, m nearst ones
+        2. 双向链表，每个node可能都有父节点和子节点，每个父子节点又是一个链表。把它拍扁，顺序随意，O(1)空间复杂度
+           edit distance
+        3. system deisign: design amazon product page
+        4. project presentation
+        5. group fit
+
+        LinkedIn 很不错，食堂很好吃，并没有传说中的那么多印度人，国人挺多的。听 hr 说
+        linkedin 今年要扩大技术团队，大家可以投一下
+        ```
+
+        找工作经验：
+
+        -   不要把战线拉的太长，2 个月最好，时间久了就没有激情了，效果反倒不好。准备的时候要全力以赴，concentration
+        -   安排面试最好不要把所有公司放在同一周，实在是太累了，最好是两个 onsite 之间间隔两天
+        -   对于男生来说，准备面试无聊的时候可以做做俯卧撑和卷腹，即使拿不到 offer 还能练出胸肌和腹肌~
+        -   CC150 随便看看就行了，leetcode 要“好好”做 (融会贯通)，面试一家公司之前看看相应的面经，足够了
+        -   如果不是搞 acm 的，leetcode 至少要刷一遍再去面 flag。刷几遍不关键，关键是要有提高
+        -   提高两方面：
+            1.  coding 能力：会做的题能写出 bug free，简洁可读性好的代码
+            2.  算法，解决问题的能力：没见过的题，一步一步想到面试官想要的方法
+        -   coding 能力：写的程序越短越好，思路清楚，容易看懂；可以写多个函数，可读性好
+            很多，写起来也容易；争取一遍写完就 OK，不要改来改去；我感觉 coding 能力的重
+            要性被大家严重低估了，很多人只关心算法，其实能把程序写的干净漂亮才是最关键的。
+        -   算法，解决问题的能力：即使见过的题也要一点一点的分析，面试官看重的是分析和
+            交流的过程，而不是最终的 solution；不要只知道多做题，要多思考，这个和高考一
+            样，翻来覆去就是几种类型的题，按照类型来做，很快就熟练了
+        -   和面试官聊的开心很关键，要表现出积极，乐观，阳光，热爱生活，让面试官 enjoy
+            面试过程，喜欢和你一起工作
+        -   不要抱怨，不要给自己找借口
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/794/)
+
+    Facebook onsite 面经 -<
+
+    :   第一轮 -<
+
+        :   老印，上来一道题，讲了半天我才弄明白。类似手机按键，比如手机按键上 2 对应
+            ‘abc’, 然后根据‘abc’的顺序，打出 a 要按一下键，b 要按两下键，c 要按三下键。给你
+            两个数组: `keySize[]` 每个 element 代表能存放的最多 character，`frequency[]` 每个
+            element 代表每个 character 出现的频率。要算出最少的按键次数。
+
+            Follow up 1: 怎么能提高效率。
+
+            Follup up 2: 如果要求 character 放在按键上的顺序是 order 的，类似于手机 shang 的字母按键，这样最少按键次数是多少。
+
+        第二轮 -<
+
+        :   还是个烙印： 第一题：rotated sorted array search. 让后要求 cut branch。 第二
+            题： sort an array contains only 3 element，类似 leetcode 的 sort colors。
+            follow up: what if there are N element? 没想出来， hint 是可以使用 extra memery。
+
+        第三轮 -<
+
+        :   简历问题为主，问了一道 code： check the first bad version.
+
+            结果还是跪了。问题应该出在第一轮面试上，code 写了好久才写出来，follow up 也没答上。其实题目也不算很难，大家好运吧。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/760/)
+
+    微软 ots，已挂，求分析一道题 -<
+
+    :   最近做微软的 OTS，一共三道题。
+
+        1.  给你一个时钟，返回一个 palindrome 的时间。比如 1:01，12:21
+        2.  排序 2d 数列，返回负数的数量。
+        3.  碰到一题算是系统设计题吧。只有两三句话：用熟悉的语言写一个 email 的 api 服
+            务。写出实现的场景以及需要用到哪些参数。
+
+        已挂，估计是挂在第三题。前两题都做过差不多的。第三题不是很懂题目要我做什么，因
+        为是在线面试，没法和面试官交流。不是很清楚需要写什么。。。求大家一起讨论下。我
+        用java写了个几个接口。然后今天接到通知面试挂了。不是很清楚应该怎么做这种题。我
+        当时代码大概如下
+
+        比如 我实现了 get email 的 api，但不知道具体 api 里面该写些什么。需要连数据库还是啥的？
+
+        ```cpp
+        class user {
+            int userID;
+            String userName;
+        }
+
+        class email {
+            int emailID;
+            String emailAddress;
+            String subject;
+            Date timestamp;
+            String content;
+            int from_userID;
+            int to_userID;
+        }
+
+        public List getEmail (int userID) {
+            return db.getEmail(userID)
+        }
+
+        public List getEmail (int userID, Date startDate, Date endDate) {
+            return db.getEmail(userID, startDate, endDate);
+        }
+
+        public List getEmail (int userID, int getEmailNum) {
+            return db.getEmail(userID, getEmailNum);
+        }
+        ```
+
+        自己看着感觉都不怎么符合要求。能有人指点一下正确写法改如何写吗？谢谢了！
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1861/)
+
+    第一堂课 Design Twitter -<
+
+    :   存在 NoSQL DB 的 Tweet 是每一个 Tweet 对应一行吗，还是每个用户对应一行？
+        这样的话 row key 是什么呢？是 user_id？如果是，然后 column key 是 tweet
+        id，因而可以支持范围查找？如果是范围查找的话，timeline 的请求为什么需要
+        n 次的 DB 访问时间（mentioned in p41 in the slides）？
+
+        每个用户一行，然后有无限列。
+
+        ```
+        row_key = user_id
+        column_key 可以是tweet_id，也可以是一堆数据的组合，比如tweet_id + timestamp。
+        column_key 可以支持范围查找。
+        ```
+
+        P41 这里说的是，当你需要构建一个 NewsFeed 的时候（你关注的 N 个好友的所
+        有新鲜事汇总），需要 N 次 DB 请求去分别请求每个好友的最近 100 条 tweets
+        然后再归并到一起。请求某一个用户的 timeline 是一次 Query，请求 N 个用户，
+        就是 N 次。这里的 N 说的是你的好友个数。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1914/)
+
+    应届生国内找国外工作求职网站有哪些 -<
+
+    :   我是一名国内的应届硕士毕业生，九月要开始投简历了。问一下，想直接找国外工作
+        的话，有哪些好的网站可以推荐？目前只看到了 google 有正式的全球招聘途径，其
+        它公司的如何能看到？linkedin 等上面的职位是不是都是针对有在美国工作资格的才
+        能申请？
+
+        <http://stackoverflow.com/jobs?med=site-ui&ref=jobs-tab>
+
+        谢谢啦，请问 VISA SPONSOR 是不是指可以提供抽签证的机会？
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1945/)
+
+    yahoo 面试经验 -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/778/)
+
+    腾讯面经，拿到 offer -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/733/)
+
+    东邪老师第二节课 Friendship 相关的问题 -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1878/)
+
+    剩下不到一個月時間 interview 請問怎麼準備? -<
+
+    :   已經刷題一陣子. 但是一些比較難的和 graph, DP 都還不行, 有什麼好建議?
+
+        那就不要看 Graph 和 DP 这类考得很少的问题。多看 DFS / BFS 这类问题。
+
+    Uber 面试题 房屋窃贼 House Robber II :hearts: -<
+
+    :   小偷找到了一个新的偷盗地点，这个地区的房子组成了一个环，如果小偷同时偷
+        窃了两个直接相邻的房子，就会触发警报器。在不触发警报器的情况下，求小偷
+        可以抢到的最多的 money。
+
+        解题思路
+
+        :   本题是 House Robber 的 follow up。
+
+            House Robber-i 中房子排列成一个序列，用动态规划就可以，上过《九章算法强化班》的同学应该都已经会做啦。
+
+            按照课堂上讲过的动态规划四要素说说 dp 状态的定义：
+
+            -   df[i] 表示前 i 个房子能获得的最大价值，
+            -   dp[i] = max(dp[i-2] + nums[i], dp[i-1])。
+
+            而在本题中，房子难点在于排列成一个环。对于环上的问题，有一个小技巧就是就是拆环：**把环展成一条直线**。
+
+            本题中，可以先假设房子排成一条直线，从 0 到 n-1，那么我们如果用原来的动态规划算
+            法求得的最优解可能同时取到房子 0 和房子 n-1，而因为 0 和 n-1 在本题中是连在一起
+            的，不能同时取到。也就是说，我们要分两种情况：要么不偷房子 0（此时房子 n-1 是否
+            偷未知），要么不偷房子 n-1。基于这两种情况，我们对不含房子 0 的序列做一次动态规
+            划，对不含房子 n-1 的序列做一次动态规划，取较大值就可。
+
+            参考程序 <http://www.jiuzhang.com/solutions/house-robber-ii/>
+
+            面试官角度分析：本题是一个 follow up，在解决 robber-i 的情况下，对于环的特殊性给出解决方法，实现 O(n) 算法可以达到 hire。
+
+            LC 相关联系题：https://lintcode.com/problems/house-robber/
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1767/)
+
+    怎么准备多线程的问题 -<
+
+    :   最近好多朋友面试都被问到了线程的问题，比如让你写一个比较简单的字符
+        串处理的程序，可能涉及到哈希表之类的，然后紧接着问你如果多线程怎么
+        实现？或者问你线程如何才能安全。
+
+        因为关于线程只了解生产者消费者，平时工作中用的也不多，请问有关于最
+        近频繁出现的多线程问题应该怎么准备？有什么材料或者推荐么？
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1280/)
+
+    微软面经 -<
+
+    :   这家面试轮数较多，从学校开始，面了很多经典问题。数组里找最大和的序列，
+        何时买卖股票，两个链表是否有公共 Node，二分查找（数组很大，你需要考虑
+        sort 成本，什么时候 sort 才有意义， 比如你 query 的次数很多很多，那么一
+        次性sort 一下是有必要的），二位已排序矩阵中如何快速查找一个数，计算泰勒
+        展开，计算 `N*M` 矩阵的所有子矩阵。微软很注重写完 code 以后测试，一定要留
+        些时间给测试，一般来说白板上写的 code 小毛病都会有好几处，通过自己测试
+        是可以改过来的。
+
+        一些操作系统原理，我不会，选择不作答，感觉没甚影响。
+
+        我因为长时间不用 C++，可以说目前已经不会 C++，只会 JAVA，起初很虚，但是
+        后来微软对不编程语言要求很松，重要的是解释问题要解释得很清楚。所有面试
+        官都思路很清晰，【你解释不清楚，他会直接打断你，不要想着糊弄】。如果不
+        清楚，直接承认，这是我从已经拿到全职的朋友那儿听来的经验，算是微软的风格吧。
+
+        【时间复杂度，当然，每一步操作都会问你时间复杂度】，逃不掉的。对哈希表，
+        有一个面试官表现出明显的不喜欢，这时候我换思路了，虽然那道题目哈希表做
+        很容易，但是没办法，人家是面试官。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/796/)
+
+    面试时如何有条理的组织 test case 啊  -<
+
+    :   Test case 有以下几种
+
+        1.  边界数据，比如 n = 0 这些边界情况
+        2.  特殊数据，比如链表中我们删节点需要删除 head 的时候
+        3.  大数据，一般测试算法效率
+
+        面试的时候，我们只需要给出边界数据，特殊数据，和一些普通数据即可。
+
+    豆瓣面试题 :分段筒排: -<
+
+    :   给定 10G 个无符号整数 (32 位)，如何能够最快地在一台内存为 2G 的机器上找
+        到这些数据中的中位数 (比一半数据大，比另一半数据小)，这个感觉似曾相识，
+        又想不出是哪个方面的知识, 助教老师能否解答下？
+
+        这个是古董的不能在古董的题目了。常用做法就是【分段桶排】
+
+        更详细的可以看这个文章，我就不复制过来了。
+
+        <http://www.cnblogs.com/avril/archive/2012/04/20/2460805.html>
+
+        refs and see also
+
+        -   [10G 个整数找出中位数，内存限制为 2G - Avril - 博客园](http://www.cnblogs.com/avril/archive/2012/04/20/2460805.html)
+
+    leetcode 面试题 38 洗牌的技巧 -<
+
+    :   有一副扑克有 2n 张牌，用 `1,2,..2*n` 代表每一张牌，一次洗牌会把牌分成两堆，
+        1,2..n 和 n+1...2n。然后再交叉的洗在一起：n+1, 1, n+2, 2, … n, 2n。问按
+        照这种技巧洗牌，洗多少次能够洗回扑克最初的状态：1,2,...2n。
+
+        以 1 2 3 4 5 6 为例，洗一次之后为 4 1 5 2 6 3 。将两排数组对比看：
+
+        1   2   3   4   5   6
+        4   1   5   2   6   3
+
+        数字 1 的下面是 4，代表每一次洗牌后 1 这个位置的数会被 4 这个位置的数替代，接着
+        看数字 4，4 下面是 2，代表每一次洗牌后 4 这个位置的数会被 2 替代，再看 2，2 下
+        面是 1，2 这个位置的数字会被 1 替代。此时，1 4 2 形成一个环，代表这三个位置上的
+        数再每一次洗牌后，循环交替，并且在洗 3 次以后，各自回到最初的位置。用同样的方法
+        可以找到 3 5 6 是一个循环，循环节长度为 3。由此可以知道，在经过了 LCM(3,3)=3 次
+        洗牌后，所有数都回到原位，这里 LCM 是最小公倍数的意思。于是算法为，根据一次洗牌
+        的结果，找到所有的循环节，答案为所有循环节长度的最小公倍数。
+
+        面试官角度：
+
+        这个题目的考察点在于找规律。不过如果有一定置换群的理论基础的同学，是可以比较轻
+        松的解决这个问题的。有兴趣的同学可以查看离散数学的相关书籍中置换群的知识点。
+
+        1   2   3   4 | 5   6   7   8
+        5   1   6   2   6   3   8   4
+
+        1->5->6->3->6
+        2->1->5->6->3->6
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/877/)
+
+    leetcode 面试题 40 不用除法求积 -<
+
+    :   给定一个数组 `A[1..n]`，求数组 `B[1..n]`，使得 `B[i] = A[1] * A[2] .. * A[i-1] * A[i+1] .. * A[n]`。
+        要求不要使用除法，且在 O(n) 的时间内完成，使用 O(1) 的额外空间（不包含 B 数组所占空间）。
+
+        计算前缀乘积 `Prefix[i] = A[1] * A[2] .. A[i]`，计算后缀乘积
+        `Suffix[i] = A[i] * A[i+1] .. A[n]`，易知，`B[i] = Prefix[i - 1] * Suffix[i + 1]`。实际上无需实际
+        构造出 Prefix 和 Suffix 数组，利用 B 数组从左到右遍历一次得到 `Prefix[i]`，然后
+        从右到左遍历一次，计算出所要求的 B 数组。
+
+        面试官角度：
+
+        这种从前到后遍历和从后到前再遍历一次的方法（Foward-Backward-Traverse）
+        在很多题目中都有借鉴。如九章算法面试题31 子数组的最大差。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/875/)
+
+    Perfect Squares 这道题的思想及状态转移方程怎么想？ -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2126/)
+
+    关于 design Google suggestion sharding 的问题 -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1858/)
+
+    根据字符串表达式计算字符串 -<
+
+    :   yahoo onsite 题目，给出表达式，由数字和括号组成，数字表示括号里面的内容（可以是字符串或者另一个表达式）重复的次数，表达式和字符串可以混合，比如：
+
+        ```
+        3[abc] => abcabcabc
+        4[ac]dy => acacacacdy
+        3[2[ad]3[pf]]xyz => adadpfpfpfadadpfpfpfadadpfpfpfxyz
+        ```
+
+        尝试用了递归发现做不出来。。然后用 stack 解决了一部分 case，但是另一部分
+        case 不适用。。。求高人指点，万分感谢！
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2019/)
+
+        将一个字符串形式的十进制数转换成 7 进制的字符串 -<
+
+        :   例如: 十进制的 "123" 转为七进制的 "174"。
+
+            follow up: 如何修改使之可以满足任意进制间的转换。
+
+            ```
+            123 / 7 = 17(商).....4(余数)
+            17 / 7 = 2(商).....3(余数)
+            2 / 7 = 0(商).....2(余数)
+            ```
+
+            所以对应的 7 进制是 “234”， 2 * 49 + 3 * 7 + 4 = 123（10 进制）
+
+            同理79：
+
+            ```
+            79 / 7 = 11(商).....2(余数)
+            11 / 7= 1(商).....4(余数)
+            1 / 7 = 0(商).....1(余数)
+            ```
+
+            所以对应的 7 进制是 “142”， 1 * 49 + 4 * 7 + 2 = 79（10 进制）
+
+            所以 10 进制转换成 B 进制，就是除 B 取余倒序。
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1394/)
+
+    窗口类 two pointer -<
+
+    :   在课间中的窗口类 two pointer，minimum-size-subarray-sum 这道题中提到了窗口
+        类和 sliding windows 的区别，请问这个区别在哪？现在不记得上课怎么讲的了。。。
+
+    线段树 (Segment Tree、Binary Indexed Tree)、Trie、Union Find 这些特殊数据结构需要掌握到什么程度 -<
+
+    :   如题，线段树(Segment Tree、Binary Indexed Tree)、Trie、Union Find这些特殊数据结构需要掌握吗？如果需要的话，需要掌握到什么程度？会用、知道原理、会实现等等。
+
+        如果你上的是强化班你建议做一做 Ladder 里面线段树相关的题目。
+
+        LintCode 线段树的题目： http://www.lintcode.com/en/tag/segment-tree/
+
+        我觉得并不是太重要，首先线段树考的频率不高，如果一些高频算法你掌握的很好了，
+        学一下当然更好，不光光线段树的问题可以解决，其他很多问题也能用线段树优化，
+        肯定能为你面试加分。其他高频算法还没掌握好，建议可以放一放。
+
+        一般线段树用于解决与区间有关的问题，Lintcode 上如果做过了基础线段树题目还可以做其他的如：
+
+        -   http://www.lintcode.com/zh-cn/problem/interval-minimum-number/
+        -   http://www.lintcode.com/zh-cn/problem/interval-sum/
+        -   http://www.lintcode.com/zh-cn/problem/interval-sum-ii/
+        -   http://www.lintcode.com/zh-cn/problem/count-of-smaller-number/
+        -   http://www.lintcode.com/zh-cn/problem/count-of-smaller-number-before-itself/
+
+        我都找完之后才发现 Lintcode 的 Tags（标签）功能还是很好用的！
+
+    leetcode 面试题 29 子矩阵的最大公约数 -<
+
+    :   给定 `n*n` 的矩阵，需要查询任意子矩阵中所有数字的最大公约数。请给出一种设计思路，对矩阵进行预处理，加速查询。额外的空间复杂度要求 O(n^2) 以内。
+
+        构建二维线段树。预处理时间 O(n^2)，每次查询 O(log n)
+
+        面试官角度：
+
+        ```
+        这个题目需要具备一定的数据结构功底。线段树 (Interval Tree) 可以解决的问题是
+        那些满足结合律的运算。最大公约数是一个满足结合律的运算。所以有，
+        GCD(A,B,C,D) = GCD(GCD(A,B), GCD(C, D)) 。同样具备结合律的运算有
+        PI,SUM,XOR(积, 和, 异或)。线段树的基本思想是，将区间 [1,n] 查分为 [1, n/2],
+        [n/2+1,n] 这两个子区间，然后每个子区间继续做二分，直到区间长度为 1。在每个
+        区间上维护这个区间的运算结果（如 GCD,SUM)，需要查询某一段区间的结果时，将该
+        区间映射到线段树上的若干不相交的区间，将这些区间的结果合并起来则得到了答案。
+        可以证明任何一个区间可以映射到线段树上不超过 O(log n) 个区间。上面介绍的是
+        一维的线段树，对于二维的情况，可以采用四分或者横纵剖分的方法来构建线段树。
+        ```
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/886/)
+
+    MISC -<
+
+    -   此题的最优算法是贪心。在实际面试过程中，笔者认为只需要想到贪心算法，并给出算法框架，就可以达到【hire】的程度。能在短时间内完成程序，可以达到【strong hire】。
