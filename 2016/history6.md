@@ -755,6 +755,9 @@ title: 历史笔记 6
 
     -   [松下 Let's Note 秋冬产品线更新，迷你型 RZ 系列重出江湖](http://cn.engadget.com/2014/10/02/panasonic-lets-note-rz4-autumn-winter/)
     -   [Panasonic Let's note AX3（豆瓣）](https://dongxi.douban.com/show/1830665/)
+    -   [生まれ変わり進化を続けるRZシリーズ | パナソニック公式通販サイト - Panasonic Store](http://ec-club.panasonic.jp/pc/sp/rz_identity/)
+    -   [日本直邮 Panasonic/松下Lets note CF-RZ5超级本Core M-6Y54-淘宝网](https://item.taobao.com/item.htm?spm=a230r.1.14.16.lls8jy&id=523193284886&ns=1&abbucket=9#detail)
+    -   [日本直邮 Panasonic/松下Lets note CF-RZ5超级本Core M-6Y54（豆瓣）](https://dongxi.douban.com/show/4903146/)
 
 [vim - Paste in insert mode? - Stack Overflow](http://stackoverflow.com/questions/2861627/paste-in-insert-mode) -<
 

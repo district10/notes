@@ -2253,7 +2253,7 @@ A Bit of Logic -<
                                     string s, t, user1, mta1, user2, mta2;
                                     set<string> addr;
 
-                                    // 输入所有MTA，转化为地址列表
+                                    // 输入所有 MTA，转化为地址列表
                                     while(cin >> s && s != "*") {
                                         cin >> s >> k;
                                         while(k--) { cin >> t; addr.insert(t + "@" + s); }
@@ -25834,3 +25834,510 @@ Best Time to Buy and Sell Stock IV 问题
     MISC -<
 
     -   此题的最优算法是贪心。在实际面试过程中，笔者认为只需要想到贪心算法，并给出算法框架，就可以达到【hire】的程度。能在短时间内完成程序，可以达到【strong hire】。
+
+[LeetCode： 一些编程心得](https://www.douban.com/note/332117149/)
+
+:
+    LeetCode 对基础数据结构和基础算法是很好的训练和考查。
+
+    （1）涉及的重要数据结构：
+      ~ 数组（一维，多维），链表，栈，队列，二叉树，无向图，散列，。。。
+
+    （2）涉及的重要算法技术：
+      ~ 贪心，动态规划，分治（递归），回溯（剪枝），搜索（广搜，深搜），。。。
+
+    刷题后的一些体会（以下说法不绝对）：
+
+    -   1，一般来说，贪心的时间复杂度在 O(n)，空间复杂度是 O(1) 或 O(n) 。
+    -   2，动规需要记录表（标记数组），时间复杂度经常是 O(n^2)，空间复杂度也通
+        常是 O(n^2) 。
+    -   3，回溯很常见，重点是确定何时找到一个解、何时退出、越界时如何处理；通常
+        需要一个线性结构来保存前面的状态，以便回溯时使用。
+    -   4，如果贪心、动规等方法都行不通，通常就考虑搜索来解决。
+    -   5，线性时间复杂度一般通过贪心方法实现；有时候，需要借助 HASH 结构（如
+        unordered_map）。
+    -   6，利用好栈 (stack)！很多问题通过栈能够在 O(n) 时间内解决。
+    -   7，深度优先搜索一般是递归的，数据过大时，递归深度太大出现问题；广度优先
+        搜索一般借助队列，一般不需要递归。
+    -   8，初始化数组时，memset(address, value, n_bytes) (包含在 cstring.h) 是
+        针对“字节”赋值！所以除非是单字节元素，或者初值为 0 或者 -1，否则不要用
+        memset 初始化；使用 vector 比较方便。
+    -   9，必要时，使用 unordered_map, unordered_set 等 C++ 容器。
+    -   10，必要时，利用类变量简化传参。
+    -   11，动规的关键是找到转移方程；因此动规的子问题具有“累积”性质。
+    -   12，贪心不同于动规，贪心的子问题不是“累积性“，而是具有“决定性”。
+    -   13，写代码最重要的是思路清楚、可理解性，而不是纠结变量少、代码短等无关
+        紧要的问题。
+    -   14，由于单链表只能从前向后遍历，因此操作时经常需要保存所关心结点的前趋
+        结点。
+    -   15，处理链表要时刻注意检查空指针 NULL。
+    -   16，数组检索、定位快；链表插入、删除快（不需要移动数据）。
+    -   17，vector, string 的性质都倾向于数组；List 的性质倾向于链表。
+    -   18，二叉树问题的基础是遍历方法：前序 / 中序 / 后续，递归与非递归都很重
+        要。
+    -   19，关于二叉树的问题，有些是自顶向下的；也有些是自底向上的，如检查平衡
+        二叉树。通常这两类问题都可以通过递归、非递归两种方法解决。
+    -   20，二叉树非递归遍历：前序遍历最简单，当前结点没有左儿子时，栈顶就是下
+        一个结点；中序遍历需要先将当前结点（顶点）入栈，当前结点没有左儿子时，
+        访问栈顶，并且栈内结点的头一个非空右儿子是下一个结点；后序遍历最后访问
+        根结点，所以，顶点不仅要入栈，而且要记录是否访问了它的右儿子，只有访问
+        了顶点的右儿子之后才能访问它自己。
+    -   21，许多问题需要应用二叉树遍历方法，有些问题需要在结点入栈的同时保存当
+        前状态（如求最长路径）。
+    -   22，二叉树 Level 遍历的本质是广度优先搜索，需要利用队列。
+    -   23，关于”图“，LeetCode 只有一道遍历题目，需要到其他地方补充一下。
+    -   24，有些方法虽然 AC 了，但并不一定是最优美的。
+
+    （未完待续）
+
+    补充：多看一些经典算法的思路，着重理解算法本质还是很有必要的。毕竟，数据结
+    构+算法还是核心。
+
+[Solving Every Sudoku Puzzle](http://norvig.com/sudoku.html) -<
+
+:   ```
+     A1 A2 A3| A4 A5 A6| A7 A8 A9    4 . . |. . . |8 . 5     4 1 7 |3 6 9 |8 2 5
+     B1 B2 B3| B4 B5 B6| B7 B8 B9    . 3 . |. . . |. . .     6 3 2 |1 5 8 |9 4 7
+     C1 C2 C3| C4 C5 C6| C7 C8 C9    . . . |7 . . |. . .     9 5 8 |7 2 4 |3 1 6
+    ---------+---------+---------    ------+------+------    ------+------+------
+     D1 D2 D3| D4 D5 D6| D7 D8 D9    . 2 . |. . . |. 6 .     8 2 5 |4 3 7 |1 6 9
+     E1 E2 E3| E4 E5 E6| E7 E8 E9    . . . |. 8 . |4 . .     7 9 1 |5 8 6 |4 3 2
+     F1 F2 F3| F4 F5 F6| F7 F8 F9    . . . |. 1 . |. . .     3 4 6 |9 1 2 |7 5 8
+    ---------+---------+---------    ------+------+------    ------+------+------
+     G1 G2 G3| G4 G5 G6| G7 G8 G9    . . . |6 . 3 |. 7 .     2 8 9 |6 4 3 |5 7 1
+     H1 H2 H3| H4 H5 H6| H7 H8 H9    5 . . |2 . . |. . .     5 7 3 |2 9 1 |6 8 4
+     I1 I2 I3| I4 I5 I6| I7 I8 I9    1 . 4 |. . . |. . .     1 6 4 |8 7 5 |2 9 3
+    ```
+
+    ```python
+    "4.....8.5.3..........7......2.....6.....8.4......1.......6.3.7.5..2.....1.4......"
+
+    """
+    400000805
+    030000000
+    000700000
+    020000060
+    000080400
+    000010000
+    000603070
+    500200000
+    104000000"""
+
+    """
+    4 . . |. . . |8 . 5
+    . 3 . |. . . |. . .
+    . . . |7 . . |. . .
+    ------+------+------
+    . 2 . |. . . |. 6 .
+    . . . |. 8 . |4 . .
+    . . . |. 1 . |. . .
+    ------+------+------
+    . . . |6 . 3 |. 7 .
+    5 . . |2 . . |. . .
+    1 . 4 |. . . |. . .
+    """
+    ```
+
+    Constraint Propagation -<
+
+    :   The function parse_grid calls assign(values, s, d). We could implement this
+        as values[s] = d, but we can do more than just that. Those with experience
+        solving Sudoku puzzles know that there are two important strategies that we
+        can use to make progress towards filling in all the squares:
+
+        (1) If a square has only one possible value, then eliminate that value from
+            the square's peers.
+        (2) If a unit has only one possible place for a value, then put the value
+            there.
+
+        As an example of strategy (1) if we assign 7 to A1, yielding {'A1': '7',
+        'A2':'123456789', ...}, we see that A1 has only one value, and thus the 7
+        can be removed from its peer A2 (and all other peers), giving us {'A1':
+        '7', 'A2': '12345689', ...}. As an example of strategy (2), if it turns out
+        that none of A3 through A9 has a 3 as a possible value, then the 3 must
+        belong in A2, and we can update to {'A1': '7', 'A2':'3', ...}. These
+        updates to A2 may in turn cause further updates to its peers, and the peers
+        of those peers, and so on. This process is called constraint propagation.
+
+    Search -<
+
+    :   What is the search algorithm? Simple: first make sure we haven't already
+        found a solution or a contradiction, and if not, choose one unfilled square
+        and consider all its possible values. One at a time, try assigning the
+        square each value, and searching from the resulting position. In other
+        words, we search for a value d such that we can successfully search for a
+        solution from the result of assigning square s to d. If the search leads to
+        an failed position, go back and consider another value of d. This is a
+        recursive search, and we call it a depth-first search because we
+        (recursively) consider all possibilities under values[s] = d before we
+        consider a different value for s.
+
+    refs and see also
+
+    -   [pauek/norvig-sudoku: Norvig's Sudoku solver in C++](https://github.com/pauek/norvig-sudoku)
+
+C++ 实现的 B+ 树 -<
+
+:   refs and see also
+
+    -   [algorithm/bptree.c at master · ghostrong/algorithm](https://github.com/ghostrong/algorithm/blob/master/bptree.c)
+
+OJ 工具 -<
+
+:
+
+    getx.h
+
+    ```cpp
+    #include <iostream>
+    #include <string>
+
+    namespace oj {
+
+    using namespace std;
+
+    template<typename T>
+    T get(istream & is = cin) {
+        T val;
+        is >> val;
+        return val;
+    }
+
+    }
+    ```
+
+    link-list.h
+
+    ```cpp
+    template<typename T>
+    class LinkList {
+    public:
+        T val;
+        LinkList* next;
+        LinkList(T _val = 0): val(_val), next(NULL) {}
+    };
+
+    template<typename T>
+    ostream& operator<<(ostream& o, LinkList<T>* head){
+        while(head){
+            o<<head->val;
+            if(head->next) o<<"->";
+            head = head->next;
+        }
+        return o;
+    }
+    ```
+
+    pair.h
+
+    ```cpp
+    template<typename T1, class T2>
+    istream & operator>> (istream & is, pair<T1, T2>& p) {
+        T1 k;
+        T2 v;
+        is >> k >> v;
+        p.first = k;
+        p.second = v;
+        return is;
+    }
+
+    template<typename T1, typename T2>
+    ostream & operator<< (ostream & o, pair<T1, T2>& p) {
+        return o << '<' << p.first << "," << p.second << '>';
+    }
+    ```
+
+    set.h, map.h
+
+    ```cpp
+    #include<iostream>
+    #include<sstream>
+    #include <set>
+    #include <unordered_set>
+    using namespace std;
+
+    // set
+    template<typename T>
+    istream& operator>>(istream& is, set<T>& st){
+        string s; getline(is, s);
+        stringstream ss(s);
+        T v;
+        while(ss>>v){
+            st.insert(v);
+        }
+        return is;
+    }
+    template<typename T>
+    ostream& operator<<(ostream& o, set<T>& st){
+        size_t i = st.size() - 1;
+        typename set<T>::iterator it;
+        o<<"{";
+        for(it = st.begin(); it != st.end(); ++it, --i){
+            o<<*it;
+            if(i) o<<',';
+        }
+        return o<<"}";
+    }
+
+    // map
+    template<typename T1, typename T2>
+    istream & operator>>(istream & is, map<T1, T2>& m) {
+        string s;
+        getline(is, s);
+        stringstream ss(s);
+        T1 k;
+        T2 v;
+        while(ss >> k >> v){
+            m[k] = v;
+        }
+        return is;
+    }
+    template<typename T1, typename T2>
+    ostream& operator<<(ostream& o, const map<T1, T2>& c) {
+        o << "{";
+        for(auto pr : c) o << pr << ' ';
+        return o << "\b}";
+    }
+    ```
+
+    vector.h
+
+    ```cpp
+    template<typename T>
+    ostream & operator<< (ostream & o, const vector<T>& v){
+        o << "[";
+        for(int i=0; i<v.size(); ++i){
+            o << v[i];
+            if(i<v.size()-1) o<< ',';
+        }
+        return o << "]";
+    }
+
+    template<typename T>
+    istream & operator>>(istream & is, vector<T>& v){
+        string s; getline(is, s);
+        stringstream ss(s);
+        T tmp;
+        while(ss >> tmp){
+            v.push_back(tmp);
+        }
+        return is;
+    }
+    ```
+
+    refs and see also
+
+    -   [oj.h/lib at master · harttle/oj.h](https://github.com/harttle/oj.h/tree/master/lib)
+
+[微软 2015 校园招聘 Dec2 #2 Have Lunch Together | 天码营 - 新一代技术学习服务平台](https://www.tianmaying.com/tutorial/MS2015_Dec2_2)
+
+[LeetCode 题目总结/分类](https://www.douban.com/note/330562764/)
+
+:
+
+    注：此分类仅供大概参考，没有精雕细琢。有不同意见欢迎评论~
+    欢迎参考我的leetcode代码
+
+    利用堆栈：
+
+    -   http://oj.leetcode.com/problems/evaluate-reverse-polish-notation/
+    -   http://oj.leetcode.com/problems/longest-valid-parentheses/ （也可以用一维数组，贪心）
+    -   http://oj.leetcode.com/problems/valid-parentheses/
+    -   http://oj.leetcode.com/problems/largest-rectangle-in-histogram/
+    -   特别注意细节：http://oj.leetcode.com/problems/trapping-rain-water/
+
+    多种数据结构：
+
+    -   http://oj.leetcode.com/problems/lru-cache/
+    -   http://oj.leetcode.com/problems/substring-with-concatenation-of-all-words/ (注意遍历方法）
+    -   HASH：http://oj.leetcode.com/problems/longest-consecutive-sequence/
+
+    简单编程：
+
+    -   http://oj.leetcode.com/problems/longest-common-prefix/
+    -   http://oj.leetcode.com/problems/string-to-integer-atoi/ (分析，控制语句）
+
+    排序 & 查找：
+
+    -   二分查找：http://oj.leetcode.com/problems/search-a-2d-matrix/
+    -   二分查找进阶：http://oj.leetcode.com/problems/search-for-a-range/
+    -   二分查找应用：http://oj.leetcode.com/problems/sqrtx/
+    -   二分查找应用：http://oj.leetcode.com/problems/search-insert-position/
+    -   二分查找变种：http://oj.leetcode.com/problems/search-in-rotated-sorted-array/
+    -   二分查找变种：http://oj.leetcode.com/problems/search-in-rotated-sorted-array-ii/
+
+    简单数学：
+
+    -   http://oj.leetcode.com/problems/pascals-triangle/
+    -   http://oj.leetcode.com/problems/pascals-triangle-ii/
+    -   http://oj.leetcode.com/problems/powx-n/
+    -   http://oj.leetcode.com/problems/reverse-integer/
+    -   http://oj.leetcode.com/problems/plus-one/
+    -   http://oj.leetcode.com/problems/unique-paths/
+    -   http://oj.leetcode.com/problems/palindrome-number/
+    -   http://oj.leetcode.com/problems/permutation-sequence/
+    -   http://oj.leetcode.com/problems/merge-intervals/
+    -   http://oj.leetcode.com/problems/valid-number/
+    -   http://oj.leetcode.com/problems/climbing-stairs/
+    -   http://oj.leetcode.com/problems/roman-to-integer/
+    -   http://oj.leetcode.com/problems/integer-to-roman/
+    -   http://oj.leetcode.com/problems/divide-two-integers/
+    -   区间：http://oj.leetcode.com/problems/insert-interval/
+
+    大数的数学运算：
+
+    -   http://oj.leetcode.com/problems/add-binary/
+    -   http://oj.leetcode.com/problems/add-two-numbers/
+
+    数组：
+
+    -   http://oj.leetcode.com/problems/remove-element/
+    -   http://oj.leetcode.com/problems/merge-sorted-array/
+    -   http://oj.leetcode.com/problems/first-missing-positive/
+    -   http://oj.leetcode.com/problems/spiral-matrix/
+    -   http://oj.leetcode.com/problems/spiral-matrix-ii/
+    -   http://oj.leetcode.com/problems/rotate-image/
+    -   遍历技巧：http://oj.leetcode.com/problems/container-with-most-water/
+    -   http://oj.leetcode.com/problems/two-sum/
+    -   http://oj.leetcode.com/problems/3sum/
+    -   http://oj.leetcode.com/problems/3sum-closest/
+    -   http://oj.leetcode.com/problems/4sum/
+    -   http://oj.leetcode.com/problems/set-matrix-zeroes/
+    -   用好标记数组：http://oj.leetcode.com/problems/valid-sudoku/
+    -   http://oj.leetcode.com/problems/next-permutation/
+    -   http://oj.leetcode.com/problems/word-search/
+    -   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-array/
+    -   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
+    -   http://oj.leetcode.com/problems/sort-colors/
+
+    暴力方法/细节实现：
+
+    -   http://oj.leetcode.com/problems/max-points-on-a-line/
+
+    链表：
+
+    -   归并排序：http://oj.leetcode.com/problems/sort-list/
+    -   插入排序：http://oj.leetcode.com/problems/insertion-sort-list/
+    -   反转、插入：http://oj.leetcode.com/problems/reorder-list/
+    -   检测是否有环：http://oj.leetcode.com/problems/linked-list-cycle/
+    -   确定链表环的起点：http://oj.leetcode.com/problems/linked-list-cycle-ii/
+    -   Deep Copy 带有随机指针的链表：http://oj.leetcode.com/problems/copy-list-with-random-pointer/
+    -   链表细节：http://oj.leetcode.com/problems/rotate-list/
+    -   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-list/
+    -   删除细节：http://oj.leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
+    -   http://oj.leetcode.com/problems/partition-list/
+    -   http://oj.leetcode.com/problems/swap-nodes-in-pairs/
+    -   Merge 两个链表：http://oj.leetcode.com/problems/merge-two-sorted-lists/
+    -   Merge 多链表：http://oj.leetcode.com/problems/merge-k-sorted-lists/
+    -   细节：http://oj.leetcode.com/problems/reverse-nodes-in-k-group/
+    -   http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/
+    -   http://oj.leetcode.com/problems/reverse-linked-list-ii/
+
+    二叉树遍历：递归 & 非递归
+
+    -   http://oj.leetcode.com/problems/same-tree/
+    -   前序：http://oj.leetcode.com/problems/binary-tree-preorder-traversal/
+    -   中序：http://oj.leetcode.com/problems/binary-tree-inorder-traversal/
+    -   后序：http://oj.leetcode.com/problems/binary-tree-postorder-traversal/
+    -   遍历变种：http://oj.leetcode.com/problems/sum-root-to-leaf-numbers/
+    -   遍历变种：http://oj.leetcode.com/problems/path-sum/
+    -   遍历变种：http://oj.leetcode.com/problems/path-sum-ii/
+    -   遍历变种：http://oj.leetcode.com/problems/maximum-depth-of-binary-tree/
+    -   遍历变种：http://oj.leetcode.com/problems/minimum-depth-of-binary-tree/
+    -   重建二叉树：http://oj.leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+    -   重建二叉树：http://oj.leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
+    -   层次遍历变种：http://oj.leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
+    -   遍历变种：http://oj.leetcode.com/problems/symmetric-tree/
+    -   遍历应用：http://oj.leetcode.com/problems/binary-tree-maximum-path-sum/
+    -   遍历应用：http://oj.leetcode.com/problems/balanced-binary-tree/
+    -   遍历应用：http://oj.leetcode.com/problems/recover-binary-search-tree/
+    -   遍历应用：http://oj.leetcode.com/problems/flatten-binary-tree-to-linked-list/
+    -   level遍历：http://oj.leetcode.com/problems/binary-tree-level-order-traversal/
+    -   level 遍历：http://oj.leetcode.com/problems/binary-tree-level-order-traversal-ii/
+    -   level 遍历变种：http://oj.leetcode.com/problems/populating-next-right-pointers-in-each-node/
+    -   level 遍历变种：http://oj.leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
+
+    问题分析/智商/细节：
+
+    -   http://oj.leetcode.com/problems/single-number/
+    -   http://oj.leetcode.com/problems/single-number-ii/
+    -   http://oj.leetcode.com/problems/candy/ ？
+    -   http://oj.leetcode.com/problems/gas-station/
+
+    动态规划：
+
+    -   http://oj.leetcode.com/problems/triangle/ （最短路径）
+    -   http://oj.leetcode.com/problems/subsets/ （另一种形式）
+    -   http://oj.leetcode.com/problems/subsets-ii/
+    -   http://oj.leetcode.com/problems/edit-distance/ （经典）
+    -   http://oj.leetcode.com/problems/word-break/
+    -   http://oj.leetcode.com/problems/word-break-ii/
+    -   http://oj.leetcode.com/problems/unique-binary-search-trees/ （动态规划避免递归）
+    -   http://oj.leetcode.com/problems/unique-paths-ii/
+    -   http://oj.leetcode.com/problems/scramble-string/
+    -   http://oj.leetcode.com/problems/palindrome-partitioning/
+    -   http://oj.leetcode.com/problems/palindrome-partitioning-ii/
+    -   http://oj.leetcode.com/problems/interleaving-string/
+    -   http://oj.leetcode.com/problems/distinct-subsequences/
+    -   http://oj.leetcode.com/problems/decode-ways/
+    -   http://oj.leetcode.com/problems/gray-code/
+    -   http://oj.leetcode.com/problems/minimum-path-sum/
+
+    回溯：
+
+    -   http://oj.leetcode.com/problems/combinations/
+    -   http://oj.leetcode.com/problems/generate-parentheses/
+    -   http://oj.leetcode.com/problems/combination-sum/
+    -   http://oj.leetcode.com/problems/combination-sum-ii/
+    -   http://oj.leetcode.com/problems/sudoku-solver/
+    -   经典N皇后：http://oj.leetcode.com/problems/n-queens/
+    -   http://oj.leetcode.com/problems/n-queens-ii/
+    -   http://oj.leetcode.com/problems/letter-combinations-of-a-phone-number/
+
+    贪心：
+
+    -   http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock/
+    -   http://oj.leetcode.com/problems/jump-game/
+    -   http://oj.leetcode.com/problems/jump-game-ii/
+    -   http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+    -   http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
+    -   http://oj.leetcode.com/problems/maximum-subarray/
+    -   http://oj.leetcode.com/problems/minimum-window-substring/
+    -   http://oj.leetcode.com/problems/maximal-rectangle/
+    -   http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/
+
+    分治 & 递归：
+
+    -   http://oj.leetcode.com/problems/unique-binary-search-trees-ii/
+    -   http://oj.leetcode.com/problems/restore-ip-addresses/ （时间复杂度有限，递归满足）
+    -   http://oj.leetcode.com/problems/permutations/
+    -   http://oj.leetcode.com/problems/permutations-ii/
+    -   http://oj.leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
+    -   http://oj.leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
+    -   http://oj.leetcode.com/problems/median-of-two-sorted-arrays/
+    -   http://oj.leetcode.com/problems/validate-binary-search-tree/
+
+    字符串：
+
+    -   http://oj.leetcode.com/problems/count-and-say/
+    -   http://oj.leetcode.com/problems/implement-strstr/ （子串查找）
+    -   http://oj.leetcode.com/problems/anagrams/
+    -   http://oj.leetcode.com/problems/text-justification/ (细节）
+    -   http://oj.leetcode.com/problems/simplify-path/ （基础控制语句 if-else-for）
+    -   http://oj.leetcode.com/problems/multiply-strings/
+    -   http://oj.leetcode.com/problems/regular-expression-matching/
+    -   http://oj.leetcode.com/problems/wildcard-matching/
+    -   http://oj.leetcode.com/problems/longest-palindromic-substring/
+    -   http://oj.leetcode.com/problems/zigzag-conversion/
+    -   http://oj.leetcode.com/problems/length-of-last-word/
+    -   http://oj.leetcode.com/problems/valid-palindrome/
+
+    图：
+
+    -   深搜/广搜：http://oj.leetcode.com/problems/clone-graph/
+
+    搜索 & 遍历：
+
+    -   http://oj.leetcode.com/problems/word-ladder/
+    -   http://oj.leetcode.com/problems/word-ladder-ii/
+    -   广搜：http://oj.leetcode.com/problems/surrounded-regions/

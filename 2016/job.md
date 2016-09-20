@@ -69,6 +69,12 @@ Nina And Her Very Long Hair -<
 
     [Indeed 中国 | 招聘信息搜索引擎 | 天下职位，一网搜尽](http://cn.indeed.com/)
 
+    [武汉大学学生就业信息网 - 专场招聘](http://xsjy.whu.edu.cn/type_zplist/00001012309.html) -<
+
+    [就业信息_武汉大学遥感学院就业信息发布](http://newspace.rsgis.whu.edu.cn/list.php?catid=159) -<
+
+    -   [北京数字绿土科技有限公司招聘_就业信息_空间网](http://newspace.rsgis.whu.edu.cn/show.php?contentid=4245)
+
 [大型的校园招聘一年有几次，分别是什么时候？ - 职场 - 知乎](http://www.zhihu.com/question/19889357) -<
 
 :   一般，应届毕业生招聘可分为四个阶段。不同阶段，用人单位的组成有很大不同。
@@ -1293,6 +1299,7 @@ MISC -<
     -   注意 clear 容器
     -   注意浏览器插件（比如 VimFX，笔试前最好关闭它）
     -   网速不要差，迅雷不要开
+    -   把书签栏关了！不然手残点到就傻逼了
 
 [(●—●) | 2017校招_牛客网](http://www.nowcoder.com/activity/campus2017)
 
@@ -1309,14 +1316,6 @@ MISC -<
 [怎样能得到 Google 的面试机会？具备哪些素质才能获得 Offer？ - 知乎](https://www.zhihu.com/question/20441001)
 
 [关于IT类秋招的一些常识和时间表是什么？ - dorothy 的回答 - 知乎](https://www.zhihu.com/question/48546822/answer/111411710)
-
-[武汉大学学生就业信息网 - 专场招聘](http://xsjy.whu.edu.cn/type_zplist/00001012309.html) -<
-
-:   [就业信息_武汉大学遥感学院就业信息发布](http://newspace.rsgis.whu.edu.cn/list.php?catid=159) -<
-
-    :   [腾讯 (北京)2017 年测绘 &GIS 专场招聘_就业信息_空间网](http://newspace.rsgis.whu.edu.cn/show.php?contentid=4275)
-
-        [北京数字绿土科技有限公司招聘_就业信息_空间网](http://newspace.rsgis.whu.edu.cn/show.php?contentid=4245)
 
 [唐志雄 | 领英](http://www.linkedin.com/in/%E5%BF%97%E9%9B%84-%E5%94%90-a6115b129)
 
@@ -1670,3 +1669,169 @@ h1b 申请日期是多久？
 
   ~ paysa 比较准确, glassdoor 数据比较多
 
+
+```
+上传英文简历:添加（Max-Length：2MB, must be pdf type）
+上传中文简历:添加（最大2MB, 只能是 pdf 类型）
+```
+
+[干货，个人Skype面试技巧及准备细节分享-skype中国-微头条(wtoutiao.com)](http://www.wtoutiao.com/p/V53q7p.html)
+
+[CC150 上面重要的题目总结 - Step-BY-Step - 博客园](http://www.cnblogs.com/reynold-lei/p/3459332.html)
+
+[Google/Facebook Offer经验：肉身翻墙去美帝 | 天码营 - 新一代技术学习服务平台](https://course.tianmaying.com/american-dream-of-coders)
+
+:
+    从加州面试回来 1 周多，时差刚刚调整的差不多，觉得是时候把过去 8 个多月的肉
+    身翻墙经历好好总结一下了。
+
+    我总共投了三家硅谷公司：Linkedin, Google, Facebook，三家都收到了 offer。
+
+    整个面试下来，总体感觉国内码农挺有竞争力（否则美帝也不会千辛万苦每年从中国
+    印度贩运那么多码农过去）。从国内直接去美帝不是难于登天的事情，只要下定决心，
+    认真准备，每个码农都能有春天。（以下的介绍都是基于以上三家的面试经历）
+
+    专注：个人感觉这 8 个月的强度可能是有生以来学习最专注的一段时期，完全赶超高
+    三和大一的学习劲头。在 8 个月内，基本上将大学 CS 专业课程（算法数据结构，
+    C++, 操作系统，网络，等）重新学习并领悟，并在某些当今热门技术方向，迅速恶补
+    并赶上了技术前沿。
+
+
+    Google 三驾马车的 paper（MapReduce, BigTable, GFS）
+
+    -   对应 Hadoop,HDFS, HBase Cassandra, Dynamo paper (关注点：consistent hash, decentralized system design(gossip))
+    -   Memcached (distributed cache)
+    -   Redis (all-in-memory solution)
+    -   ZooKeeper (load balancer/configuration center/name service/distributed lock etc..)
+    -   Thrift(cross language interface and RPC)
+    -   Storm(realtime streaming processing, 应对类似统计过去 1 分钟的 count 一类的题目)
+
+    一些常见面试题目，mitbbs 上已经有高人进行了全面总结，我会转载贴在下面，我基本上是 follow 之。这里有一点补充：
+
+    tinyurl 一定要非常充分的准备。我在 F，L，G 三家面试时都被问到了这题。这题看
+    似简单，其实可以将上面讨论的大部分东西多装进来，可以讨论的地方很多。
+
+    这道题我觉得很有价值的文章：
+
+    -   http://n00tc0d3r.blogspot.jp/2013/09/big-data-tinyurl.html
+    -   http://www.hiredintech.com/app#system-design （讲 design 的框架，我引用了很多他的方法论，其中以 tinyurl 做例子，讲的很透彻）
+
+    其实针对一家的 design 准备过程，就是了解这家 technology stack 的过程。当你
+    熟悉之后，在 design 环节灵活使用这些系统设计的 idea 来回答面试官的提问，会
+    和面试官产生更多的认同感（可能他每天也在使用这些系统）。这比现场凭空想象，
+    两人各执一词互相挑战的氛围，要轻松有爱很多吧：）
+
+    另外一块需要充分准备的就是个人的 background project，这也是 design 环节可能
+    会涉及的。对于之前工作上做过的项目，一定要力求没有死角，理解全面深刻。更进
+    一步，能够从更高的角度去看这个项目。比如我在 Google 面试时，有一轮基本上大
+    部分时间在讨论我做过的一个项目。因为之前针对这个项目做了很多深入思考，比如
+    如何将这个项目的方案推广到更泛化的语义搜索。正好在那次面试中，面试官在讨论
+    清楚已有项目之后，就问到了这个问题，因为之前已经总结了一些思路，所以侃侃而
+    谈。后来才了解，面试官在 G 家也是做类似工作，我之前思考总结的那些 idea 也给
+    了他不少启发，可以说是英雄惜英雄，氛围很融洽：）。个人感觉，这几家公司都会
+    匹配和你简历背景非常吻合（大部分情况下）的面试官来和你聊，因此如果你对你简
+    历的上的东西不熟悉，理解不全面，不深刻，面试官是很容易发现的，但如果你能带
+    给他惊喜，那么恭喜你，你很有机会能拿到一个 strong hire.
+
+
+    glassdoor（www.glassdoor.com)
+      ~ glassdoor 更多的是了解一些面试流程，关于面试题目，很多人貌似不太愿意在
+        里面详述，不过因为电面没有 NDA，所以里面电面题目相对多一些。我准备 L 家时
+        基本上把 L 家的面经看完了，重题率还是挺高。
+
+    geeksforgeeks/stackoverflow
+      ~ 其实不用专门去这两个网站搜索，当你在 google 里搜索某个题目时，如果出现了这两
+        个网站的结果，通常是非常靠谱的。geeksforgeeks 会针对问题给出从 brute force 到最
+        优解的优化过程，并且给出详细的代码和注释。stackoverflow 里针对某些算法优化的讨
+        论结果是比较可信的（特别是支持率最高的回帖），容易找到最优解。
+
+    与其说去搞明白某一个高深机器学习框架（因为即使你明白，面试官不一定是那个领
+    域专家，你也不一定能表达明白），不如先认真学习概率和机器学习基础（在你和面
+    试官间寻找共同语言）。比如分类和回归问题，大家都知道 linear regression 可以
+    做回归，logistic regression 可以做分类，why？如果用 linear regression 做分
+    类可以吗？如果要解释清楚，不是能单从两个的值域有区别去说，应该从两个模型的
+    优化目标，即 error function 去看，这样你就会发现，如果用 linear regression
+    做分类，对于那些非常明显的分类正确的点，linear regression 居然还试图以二次
+    方去惩罚，这显然不是分类的初衷。将两个模型的 error function 画成图，一个是
+    U 型，一个是指数递减，一切就一目了然了。我在 L 家面试中，发现如果考察机器学
+    习，都是考察基本概念的理解，比如对 SVM 的 kernel 的看法，对于
+    regularization 的看法，对 lasso 和 ridge penalty 的看法，PCA 的讨论，
+    generative 和 discrimative model 的讨论，等等。我个人理解，机器学习有点像学
+    哲学，对于书面上的那些公式，可能有九重天的理解，如果仅仅照搬教材写出公式，
+    只是第一层。你能悟到第几层，能否从更高的角度去融会贯通，是面试官（特别是这
+    个领域很牛的专家）特别想看到的。这就需要先扎实的学习基础，然后多思考总结
+    （一般来说，面试现场灵光一现的情况比较少，还是需要提前积累总结）。
+
+    如果你打算以翻墙去美帝为第一目标，机会最大的两条路是：（1）在国内进入
+    Google, Microsoft 等外企，在中国工作一定年限后（法律上是 1 年，部分公司会延
+    长），通过 **L1 visa transfer 去总部工作**。（2）直接投美国公司，通过面试拿到
+    offer，并能在美国移民局下一年的 H1B（工作签证）抽签中拿到 H1B visa，然后去
+    美国工作。 这两条路各有利弊，可能需要根据个人情况进行选择：
+
+    L1 visa： 首先需要在国内待 1 年以上（Microsoft STCA 有一个不成文的规定，需
+    要工作满 3 年，才能 transfer），然后你需要利用出差机会，或者平时业务交流时，
+    跟美国team 建立联系，并且他们有意愿接纳你，这时通过公司内部 transfer 流程，
+    申请 L1 到美国工作。L1 不用抽签。L1 的另一个好处是，老婆跟你一起去美国后，
+    可以直接找工作（L2 visa)。但如果你失去 L1，那么她也失去 L2，必须停止工作并
+    且离境。L1 不好的一点是，你和为你办 L1 的公司死死的绑定在一起，一旦你想离开
+    公司，或者公司裁员，那么全家必须离开美国。并且，据说 L1 不能续签（有效期好
+    像是 4 年还是 5 年），一旦到期，如果你不能申请到绿卡，全家也必须离开美国。
+
+    H1B visa: 最大问题是，随着这两年美国经济复苏，企业开始大量招工，每年申请
+    H1B工作签证的人越来越多（特别是中国人和印度人），因此如果申请人数超过美国移
+    民局为各个国家设定的配额，那么大家必须采用随机抽签的方式决定。每年 4 月 1
+    日进行今年的抽签，如果抽中，在美国下个财年开始（10 月）时，你就可以去美国工
+    作了。H1B visa 的配偶和子女可以持 H4 一同前往美国，但不能工作。H1B 有效期是
+    5 年，到期之后可以续签。H1B 允许换工作，一般是你先找到下家，然后下家公司帮
+    你做 H1B transfer，办好以后就可以换公司了。H1B 2014 年中国人的抽签通过率据
+    说是 40% 左右。
+
+    H1B 最大的问题是从申请，抽签，到正式开始工作基本上需要大半年的周期，还不能
+    保证一定能抽中。因此，大部分美国公司并不愿意耗费如此大精力物力去招需要 H1B
+    的海外员工，如果他在本地就能招到合适的人。只有为数不多的大公司，比如 FLG，
+    财大气粗，码农需求量旺盛，才愿意这么干。如果你常去 mitbss，你会发现大家经常
+    在讨论“FLG”或者“FLAG'，这其实是 Facebook, Linkedin, Google, Amazon 的缩写。
+    这些公司都是湾区已经上市的互联网大公司，福利待遇好，工作稳定，工程师需求大，
+    每年都愿意招不少的 H1B 员工。因此，如果你打算走 H1B 的路，那么毫无疑问你应
+    该首先锁定类似 FLG 的大公司，等拿到 H1B 进入美帝，后面如果想去更有活力的中
+    小公司，会更容易。据说部分 pre IPO 的湾区 IT 公司也会少量招 H1B 员工，但一
+    般都是从 1 月份以后才会逐渐有 hire count。而对于 FLG 等大公司，基本上你可以
+    在前一年的下半年 9 月 -12 月，就可以开始投简历和进行面试了。选择大公司的另
+    外一个好处是，他们通常有所谓的backup plan。如果你接受 offer 但没能抽中 H1B，
+    那么大公司可能会将你安排到海外办公室工作一年，然后可以通过 L1 visa 回总部工
+    作。江湖上流传的有：Google 可以安排到澳大利亚，瑞士苏黎世，Facebook 可以安
+    排到英国。对于一些稍微小一点的公司，如果他没有海外的大规模办公室，最多只能
+    给你保留 offer 一年（来年再帮你抽一次）或者 offer 作废。
+
+    H1B 分普通和 advanced， 区别是，后者会有两次抽签机会。要求是后者必须是
+    master及其以上学历。遗憾的是，美国并不认可中国的 master 学历，所以默认国内
+    master 只能抽一次。然而，部分公司及其委托的律师事务所可能会拿着你的学历和工
+    作经历去美国学术机构去做 master degree 认证，这样就能抽两次。 综上可以看出，
+    如果你是国内码农（人在国内），没有 H1B visa，那么毫无疑问，你是所有在美帝找
+    工作的人里面（包括所有美帝 citizen，在美帝读书之后找工作的人士），难度系数
+    最高的之一。不仅能够面试的公司受限，面试的时间也受限，拿到 offer 之后是否能
+    去美帝还得看运气，拿到 H1B 后能够开始工作的时间也受限。 如果选择 H1B，就需
+    要按照它的时间表来安排自己的计划。一般来说，10 月到来年 1 月是比较理想的面
+    试时间，面试通常会持续1-2 个月（看各公司效率），之后 offer 还需要大概 1 个
+    月，如果有 offer 还需要准备 H1B visa 的相关材料，所有这一切必须在 4 月之前
+    搞定，所以不宜将面试时间安排的离 4 月太近。我的经历是，宜早不宜迟，这样 hr
+    和你都比较从容，部分公司在 offer 阶段会有team match 环节（比如 Google），如
+    果时间充裕，还有比较大的比较选择空间，否则只能先找个坑填进去了。面试时间定
+    下来，就可以根据自己情况，安排准备的时间，如果计划 3 个月的准备，那么就是从
+    7 月开始准备（这是比较通常的情况）。
+
+    refs and see also
+
+    -   [《打造Facebook》试读：第三节　Facebook工程师面试聊什么](https://book.douban.com/reading/23757677/)
+
+[春招即将火拼，最全IT招聘官网大汇集！](http://mp.weixin.qq.com/s?__biz=MzA5MzE4MjgyMw==&mid=401104900&idx=1&sn=8b5897c2bbc2144e01d44aa6d52cc83d&scene=19#wechat_redirect)
+
+[美国面试之旅——面试经验分享(zz)](https://www.douban.com/note/226604779/)
+
+[招聘 - 内容精选 - 知乎](https://www.zhihu.com/topic/19578758#2118)
+
+[就要去外企面试了，怎样快速提高自己的口语？ - 知乎](https://www.zhihu.com/question/20204156)
+
+[怎样出色完成 1 分钟左右的英语自我介绍？ - 知乎](https://www.zhihu.com/question/22394845)
+
+[最厉害的面试技巧都有哪些？ - 知乎](https://www.zhihu.com/question/34478434)

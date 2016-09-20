@@ -9000,4 +9000,31 @@ refs and see also
 
 [<<Effective C++>>读书笔记(三) - zyfforlinux - 博客频道 - CSDN.NET](http://blog.csdn.net/zhangyifei216/article/details/50933104)
 
+[如何在一个月内提高 C++ 水平? - 知乎](https://www.zhihu.com/question/50697955#answer-44416899) -<
 
+:   “哦！原来你说的是 Two phase name look up mechanism 啊！（停顿）对于这个
+    Question，虽然 C++ 11（读作“伊来闻”，不读“屎遗”，下同） standard 在 Draft
+    N3028（读作“瑟添臀添诶特”，不读“散蛋阿爸”，下同）时就已经 final decision 了，
+    C++17 上对于 Chapter 14，section 3.3.1 条款 5,7,15 上做了进一步调整，但是迄今
+    为止各家 compiler vendor 的 implementation 仍然 slighty difference。所以可能我们
+    在不同的 Compiler 上都是对的。我的答案是在 IBM XL C++ 13 上获得的，Linux Z（重
+    音） System on Power 8，not MSVC on Windows x64（读作“埃克斯碎克死天佛”，不
+    能读“插牛屎”），you know。（停顿）Our experience 可能不太一样。我刚刚仔细的
+    考虑过你的 Result，应该是 Make Sense 的。关于这个问题的进一步讨论，我想我们可
+    以参考一下 TCPL 的 275 页（随便报个页数就可以了，没人会真去查的）。”
+
+    注意，一定要用英语，一定要自信。说中文就说不知道，没看过。99.99%的面试官不
+    敢说自己没听懂。
+
+    所以总结一下，面试的时候你怎么样并不要紧，你只需要做到以下几点中的任意一条：
+
+    1.  让面试官觉得你懂
+    2.  和面试官的答案相同
+    3.  让面试官觉得他也不懂
+
+    这样就是一个成功的面试了。
+
+    |   至于你说进去以后怎么办，南郭先生的故事听过吗。
+    |   如果大家都牛逼，也就没人在乎你是不是屎。
+    |   如果大家都不牛逼，那一坨屎从道德上就不能嫌弃其他屎。
+    |   如果乐团拆分了，记住，不要去当乐手了，要提前转型，当乐团老板吧。

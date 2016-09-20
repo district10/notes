@@ -2947,3 +2947,9 @@ TCP使用**滑动窗口机制**来实现流量控制，通过动态改变窗口�
                 copy( ret.begin(), ret.end(), ostream_iterator<int>(cout, " ")); puts("");
             }
             ```
+
+Learn X in Y Minutes -<
+
+:   nice.
+
+    @include <-include/learnxinyminutes.md=
