@@ -1768,6 +1768,60 @@ C++ 简介 | Intro
         std::remove_if(A, A+n, ' ');
         ```
 
+        再举一个例子
+
+        ```cpp
+        #include <algorithm>
+        #include <iterator>
+        #include <vector>
+        #include <cstdio>
+
+        using namespace std;
+
+        struct S {
+            int x, y;
+            S(int x = 0, int y = 0) : x(x), y(y) { }
+        };
+
+        struct Comp {
+            int r, m;
+            Comp(int r = 0, int m = 3) : r(r), m(m) {}
+            bool operator()( const S &s) {
+                return s.x%m == r;
+            }
+        };
+
+        void print( vector<S> &s) {
+            for( auto i : s ) {
+                printf("%d ", i.x);
+                // printf("(%d, %d) ", i.x, i.y);
+            }
+            printf("\n");
+        }
+
+        int main()
+        {
+            vector<S> s(20, S());
+            for( int i = 0; i < s.size(); ++i ) {
+                s[i].x = s[i].y = i;
+            }
+            s.erase( remove_if( s.begin(), s.end(), Comp() ), s.end() );
+            print(s);
+            s.erase( remove_if( s.begin(), s.end(), Comp(1) ), s.end() );
+            print(s);
+            s.erase( remove_if( s.begin(), s.end(), Comp(0, 2) ), s.end() );
+            print(s);
+
+            return 0;
+        }
+        ```
+
+        ```
+        1 2 4 5 7 8 10 11 13 14 16 17 19
+        2 5 8 11 14 17
+        5 11 17
+        ```
+
         refs and see also
 
         -   [std::remove, std::remove_if - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/remove)
@@ -2266,6 +2320,40 @@ C++ 简介 | Intro
                 ```
                 1 2 3 4 5 6 7
                 ```
+-   binary_search -<
+
+    :   ```cpp
+        if (any_of(v.begin(), v.end(), bind2nd(equal_to<string>(), item)))
+           do_this();
+        else
+           do_that();
+        ```
+
+        refs and see also
+
+        -   [std::binary_search - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/binary_search)
+
+-   find -<
+
+    :   ```cpp
+        // vector
+        vector<int>::iterator result = find( v.begin( ), v.end( ), 3 );
+
+        // map
+        map.find(5) != map.end()
+        map.count(5)
+
+        // set
+        set.find(5) != set.end()
+        set.count(5)
+        ```
+
+        refs and see also
+
+        -   [c++ - How to find if an item is present in a std::vector? - Stack Overflow](http://stackoverflow.com/questions/571394/how-to-find-if-an-item-is-present-in-a-stdvector)
+        -   [std::map::find - cppreference.com](http://en.cppreference.com/w/cpp/container/map/find)
+        -   [std::set::count - cppreference.com](http://en.cppreference.com/w/cpp/container/set/count)
+        -   [std::map::count - cppreference.com](http://en.cppreference.com/w/cpp/container/map/count)
 
 -   MISC, unordered_map, find, unordered_multimap -<
 

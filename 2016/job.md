@@ -1835,3 +1835,16 @@ h1b 申请日期是多久？
 [怎样出色完成 1 分钟左右的英语自我介绍？ - 知乎](https://www.zhihu.com/question/22394845)
 
 [最厉害的面试技巧都有哪些？ - 知乎](https://www.zhihu.com/question/34478434)
+
+华为今年开始把本科和硕士生工资调成一样了。把往年本科生比研究生低 1000 调成了北上
+广深本研 12000，其他的 10000……总感觉这是某种导向，或者对国内研究生水平普通偏低的
+实际反抗，当然也可以理解为，是对第一学历的更尊重吧……
+
+去过投行的就知道，投行看的永远只是你的本科学校，说白了，人家压根就不 Care 你当
+前取得多少 stars，人家就看重你会不会学习....
+
+[微信——事实上的局域网 | 一天世界](https://blog.yitianshijie.net/2015/11/16/wechat-de-facto-lan/)
+
+[The Three Jugs Problem. Introduction and a story](http://www.cut-the-knot.org/ctk/Water.shtml)
+
+[Barycentric coordinates, three jugs application](http://www.cut-the-knot.org/triangle/glasses.shtml)

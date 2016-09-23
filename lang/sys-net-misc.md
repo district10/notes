@@ -2953,3 +2953,22 @@ Learn X in Y Minutes -<
 :   nice.
 
     @include <-include/learnxinyminutes.md=
+
+Words -<
+
+:   -   Augusta Ada Byron
+    -   Alonzo Church: 由人类或任何机器执行操纵符号的任何算法过程，都是可以由某个 TM 执行；
+    -   ```
+        SEEEEEEEEmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+         |-  8 -||------------- 32 -------------|
+        ```
+    -   regularity, 一致性
+    -   subordinant class / superclass
+    -   class hierarchy
+
+        ```java
+        System.out
+              .err
+              .exit
+        ```
+
