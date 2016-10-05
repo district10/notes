@@ -296,8 +296,59 @@ Nina And Her Very Long Hair -<
 
 :   **笔试部分**：我一直觉得国内公司的笔试都差不多一套模子的，大约是这样的。
 
-    -   **计算机组织结构**：如 RISC，CISC 的区别，指令周期等，参考书籍：深入理解计算机系
-        统，计算机组织与结构 (Stallings)
+    -   **计算机组织结构**
+
+        :   RISC，CISC 的区别，指令周期等，参考书籍：深入理解计算机系统，计算机组织与结构 (Stallings) -<
+
+            RISC, CISC -<
+
+            :   Complex instruction set computing, Complex instruction set
+                computing (**CISC /ˈsɪsk/**) is a processor design where single
+                instructions can execute several low-level operations (such as
+                a load from memory, an arithmetic operation, and a memory
+                store) or are capable of multi-step operations or addressing
+                modes within single instructions.
+
+                Reduced instruction set computing, or RISC (pronounced **'risk', /ɹɪsk/**),
+                is a CPU design strategy based on the insight that a
+                simplified instruction set provides higher performance when
+                combined with a microprocessor architecture capable of
+                executing those instructions using fewer microprocessor cycles
+                per instruction.[1] A computer based on this strategy is a
+                reduced instruction set computer, also called RISC. The
+                opposing architecture is called complex instruction set
+                computing (CISC).
+
+                RISC 的设计重点在于降低由硬件执行指令的复杂度，因为软件比硬件容
+                易提供更大的灵活性和更高的智能，因此 RISC 设计对编译器有更高的
+                要求；CISC 的设计则更侧重于硬件执行指令的功能，使 CISC 的指令变
+                得很复杂。总之 RISC 对编译器的要求高，CISC 强调硬件的复杂性，
+                CPU 的实现更复杂。
+
+                RISC 设计思想准则：
+
+                1． 指令集 ----RISC 处理器减少指令集的种类，通常一个周期一条指
+                    令，也就是说指令的周期是固定的，编译器或程序员通过几条指令完成
+                    一个复杂的操作；CISC 的指令长度通常不固定。
+                2． 流水线 ---- 流水线的本质就是 CPU 并行运行，只是并行运行不像
+                    FPGA 中的那么直接，它只是把一条指令分成几个更小的执行单元；CISC
+                    指令的执行需要调用一个微程序，明显没有 RISC 的指令吞吐量大。
+                3． 寄存器 ----RISC 的寄存器拥有更多的通用寄存器，寄存器操作较
+                    多，例如 ARM 具有 27 个寄存器，CISC 的寄存器都是用于特定目的的。
+                4． Load-store 结构 ---- 处理器只处理寄存器中的数据，这是因为访
+                    问存储器很耗时，同时对外部存储器的读写会影响其寿命；CISC 能够在
+                    存储器中直接运行
+                5． 寻址方式简化，不像 CISC 那样的复杂众多的寻址方式
+
+                refs and see also
+
+                -   [RISC与CISC比较 - 【小洲】 - 博客园](http://www.cnblogs.com/huangjingzhou/articles/2086622.html)
+                -   [Complex instruction set computing - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Complex_instruction_set_computing)
+                -   [Reduced instruction set computing - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Reduced_instruction_set_computing)
+
+            指令周期是执行一条指令所需要的时间，一般由若干个机器周期组成，是从取指令、分析指令到执行完所需的全部时间。
+
+
     -   **操作系统** ： 死锁的条件与算法，进程的状态，进程和线程的区别，内存换页算法，同
         步与互斥等，参考书籍：现代操作系统
     -   **计算机网络**：OSI 模型，三次握手，TCP 状态转换图等，参考书籍：计算机网络与 UNIX
