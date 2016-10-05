@@ -32,13 +32,15 @@ ASCII table -<
     ![](http://whudoc.qiniudn.com/ascii.png)
 
     ../../aoapc-book/aoapc-bac2nd/README.md
+    D:\tzx\git\aoapc-book\aoapc-bac2nd\README.md
     ../../acm-cheat-sheet/C++/ACM-cheat-sheet.tex
+    /home/tzx/Downloads/acm-cheat-sheet-master/C++/ACM-cheat-sheet.tex
+    C:\Users\tzx\Downloads\LM\leetcode-master\C++\leetcode-cpp.tex
+    ../../aoapc-book/aoapc-bac2nd/README.md
 
 TODOs & Notes:
 
-:   -   rewrite UFS.c in C++: union, find, init.
-
-    -   (left+right)/2 和 left + (right-left)/2 除了在负数的时候不同之外，后者还不会越界。
+:   -   (left+right)/2 和 left + (right-left)/2 除了在负数的时候不同之外，后者还不会越界。
 
 ## 0.
 
@@ -498,17 +500,14 @@ A Bit of Logic -<
             -   第 11 章，图论模型与算法
             -   第 12 章，高级专题
 
-    Lessons for Whom?
+    Lessons for Whom? -<
 
-    -   无算法基础，或算法基础薄弱，不系统
-    -   希望求职 Facebook, Google, Linkedin, Airbnb, Uber 等硅谷知名企业
-    -   面试经验少或无面试经验，不知道与面试官如何正确的沟通和展现自己
-    -   网上练习题目那么多，不知道该从哪些题开始准备
-    -   获取最新面试动向
-    -   认识一起找工作的其他小伙伴
-
-    D:\tzx\git\aoapc-book\aoapc-bac2nd\README.md
-    ../../aoapc-book/aoapc-bac2nd/README.md
+    :   -   无算法基础，或算法基础薄弱，不系统
+        -   希望求职 Facebook, Google, Linkedin, Airbnb, Uber 等硅谷知名企业
+        -   面试经验少或无面试经验，不知道与面试官如何正确的沟通和展现自己
+        -   网上练习题目那么多，不知道该从哪些题开始准备
+        -   获取最新面试动向
+        -   认识一起找工作的其他小伙伴
 
     :scissors: 2016/07/31 上午 9:30:00 1. Introducing Algorithm Interview && Coding Style【免费试听】 -<
 
@@ -3996,9 +3995,218 @@ A Bit of Logic -<
 
                     :   acm-cheat
 
-                -   schedule -<
+                        ```
+                        input:
 
-                    :   acm-cheat
+                            3
+                            1
+                            2
+                            3
+
+                        output:
+
+                            1
+                            5
+                            21
+                        ```
+
+                        本题的棋盘是 2^k^ x 2^k^，很容易想到用分治法。把棋盘切
+                        成4块，则每一块都是 2^k-1^ x 2^k-1^ 的。有黑格的
+                        那一块可以递归解决，但其他3块并没有黑格子，应该怎么办呢
+                        ？可以构造出一个黑格子，如图~\ref{fig:chessboard}所示，
+                        在中心放一个L型牌，其它3块也变成了子问题。递归边界不难
+                        得出，当$k=1$时1块L型牌就够了。
+
+                        本题只需要求总数，不需要求具体怎么摆放，因此简化很多。
+                        根据上面的思路，设$f(k)$表示棋盘是$2^k \times 2^k$时所
+                        需L型牌的总数，可得递推公式$f(k)=4f(k-1)+1$。
+
+                        注意，$2^100$是一个很大的数，本题需要处理大数，见\S \ref{sec:bigintmul}节。
+
+                        ```cpp
+                        #include<cstdio>
+                        #include<cstring>
+
+                        #define MAXK 100
+
+                        // 一个数组元素表示4个十进制位，即数组是万进制的
+                        #define BIGINT_MOD 10000
+                        #define MOD_LEN 4
+                        #define MAX_LEN (61/MOD_LEN+1)  // 整数的最大位数, 10^x > 4^100
+
+                        int  d[MAXK][MAX_LEN * 2];  // d[k-1] = f(k)
+
+                        // 大整数，用数组表示，低位在低地址
+                        void bigint_print(const int x[], const int n) {
+                            bool start_output = false;              // 用于跳过前导 0
+                            for( int i = n - 1; i >= 0; --i ) {
+                                if (start_output) {                 // 如果多余的0已经都跳过，则输出
+                                    printf( "%04d", x[i] );
+                                    continue;
+                                }
+                                if (x[i] > 0) {
+                                    printf("%d", x[i]);             // 本题输出比较坑爹，最高位数字有前导0
+                                    start_output = true;            // 碰到第一个非0的值，就说明多余的0已经都跳过
+                                }
+                            }
+
+                            if ( !start_output ) { printf("0"); }   // 当x全为0时
+                        }
+
+                        // 计算f(k) = 4f(k-1)+1，与大整数乘法很类似.
+                        void bigint_mul_small(const int x[], const int y, int z[]) {
+                            int i;
+                            for (i = 0; i < MAX_LEN * 2; i++) z[i] = 0;
+
+                            z[0] = 1;
+
+                            for (i = 0; i < MAX_LEN; i++) z[i] += x[i] * y;
+                            for (i = 0; i < MAX_LEN * 2; i++) {  // 统一处理进位问题
+                                if (z[i] >= BIGINT_MOD) {
+                                    z[i+1] += z[i] / BIGINT_MOD;
+                                    z[i] %= BIGINT_MOD;
+                                }
+                            }
+                        }
+
+                        int main() {
+                            int k, T;
+                            d[0][0] = 1;
+                            for (k = 2; k <= 100; k++) bigint_mul_small(d[k-2], 4, d[k-1]);
+
+                            scanf("%d", &T);
+                            while( T-- > 0 ) {
+                                scanf("%d", &k);
+                                bigint_print(d[k - 1], MAX_LEN * 2);
+                                printf("\n");
+                            }
+                            return 0;
+                        }
+                        ```
+
+                -   schedule :hearts: -<
+
+                    :   有 2^k^ 个运动员参加循环比赛，需要设计比赛日程表。要求如下：
+
+                        -   每个选手必须与其他n-1个选手各赛一次
+                        -   每个选手一天只能赛一次
+                        -   比赛一共进行n-1天
+
+                        按此要求设计一张比赛日程表，它有n行和n-1列，第i行第j列为第i个选手第j天遇到的对手。
+
+                        ```
+                        input:
+
+                            1 // 只有一个数k，0<k<9，且k为自然数。
+
+                        output:
+
+                            一张比赛日程表，它有n行和n-1列（不算第一列，第一列表示选手的编号），第i行第
+                            j列为第i个选手第j天遇到的对手。相邻的两个整数用空格隔开。
+
+                            1 2
+                            2 1
+                        ```
+
+                        分析
+
+                        根据分而治之的思想，可从其中一半选手(2^{k-1}位)的比赛日程，推导出全体选手的日程，最终细分到只有两位选手的比赛日程。
+
+                        所示是 k=3 时的一个可行解，它是由4块拼起来的。左上角是
+                        k=2时的一组解，左下角是由左上角每个数加4得到，而右上角
+                        、右下角分别由左下角、左上角复制得到。
+
+                        ```
+                        1   2   3   4 | 5   6   7   8
+                        2   1   4   3 | 6   5   8   7
+                        3   4   1   2 | 7   8   5   6
+                        4   3   2   1 | 8   7   6   5
+                        --------------+--------------
+                        5   6   7   8 | 1   2   3   4
+                        6   5   8   7 | 2   1   4   3
+                        7   8   5   6 | 3   4   1   2
+                        8   7   6   5 | 4   3   2   1
+                        ```
+
+                        ```cpp
+                        #include<stdio.h>
+                        #include<stdlib.h>
+
+                        #define MAXN 512   /* N=2^k, 0<k9 */
+                        short schedule[MAXN][MAXN];
+
+                        void dc(const int k) {
+                            int i, j, t;
+                            int n, n2; /* 当前的n，即将扩展的n */
+
+                            /* k=1，即两个人时，日程表可以直接写出 */
+                            n=2;
+                            schedule[0][0]=1; schedule[0][1]=2;
+                            schedule[1][0]=2; schedule[1][1]=1;
+
+                            // 迭代处理，依次处理2^2....2^k个选手的比赛日程
+                            for(t = 1; t < k; t++, n *= 2) {
+                                n2 = n * 2;
+                                //填左下角元素
+                                for(i = n; i < n2; i++)
+                                    for(j = 0; j < n; j++)
+                                        schedule[i][j] = schedule[i-n][j] + n;
+
+                                //将左下角元素抄到右上角
+                                for(i = 0; i < n; i++)
+                                    for(j = n; j < n2; j++)
+                                        schedule[i][j] = schedule[i+n][j-n];
+
+                                //将左上角元素抄到右下角
+                                for(i = n; i < n2; i++)
+                                    for(j = n;j < n2; j++)
+                                        schedule[i][j] = schedule[i-n][j-n];
+                            }
+                        }
+
+                        /* 另一个版本 */
+                        void dc2(const int k) {
+                            int i, j, r;
+                            int n;
+                            const int N = 1 << k;
+
+                            /* 第一列是选手的编号 */
+                            for(i = 0; i < N; i++) schedule[i][0] = i + 1;
+                            schedule[0][1] = 1;  /* 当 k=0时，只有一个人 */
+
+                            for (n = 2; n <= N; n *= 2) {  /* 方块大小, 2, 4, 8 */
+                                const int half = n / 2;
+                                for (r = 0; r < N; r += n) { /* 方块所在行 */
+                                    for (i = r; i <= r + half -1; i++) {  /* 左上角小方块的所有行 */
+                                        for (j = 0; j < half; j++) {  /* 左上角小方块的所有行 */
+                                            /* 右下角 <-- 左上角 */
+                                            schedule[i + half][j + half] = schedule[i][j];
+                                            /* 右上角 <-- 左下角 */
+                                            schedule[i][j + half] = schedule[i + half][j];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        int main(){
+                            int k, N;
+                            int i,j;
+
+                            scanf("%d",&k);
+                            N = 1 << k;
+
+                            dc(k);
+                            // dc2(k);
+
+                            // 输出日程表
+                            for(i = 0; i < N; i++) {
+                                for(j = 0; j < N; j++) printf("%d ", schedule[i][j]);
+                                printf("\n");
+                            }
+                            return 0;
+                        }
+                        ```
 
         refs and see also
 
@@ -5119,11 +5327,12 @@ A Bit of Logic -<
                         |-------- used -------------------------|-----not used--------|
                         ```
 
-                        buggy!!! TODO
-
                         ```cpp
-                        #include <stdio.h>
-                        #include <stdlib.h>
+                        #include <cstdio>
+                        #include <cstdlib>
+                        #include <vector>
+
+                        using namespace std;
 
                         // permutation P, set S
                         static void print_permutation_r( int n, int cur, int P[] ) {
@@ -5145,16 +5354,12 @@ A Bit of Logic -<
                             }
                         }
 
-                        void print_permutation( int n ) {
-                            int *P = (int *)malloc( n * sizeof(int) );
-                            print_permutation_r( n, 0, P );
-                            free( P );
-                        }
-
                         int main() {
                             int n;
+                            vector<int> P;
                             while( scanf( "%d", &n ) && n ) {
-                                print_permutation( n );
+                                P.resize(n);
+                                print_permutation_r( n, 0, &P[0] );
                             }
                         }
                         ```
@@ -5198,7 +5403,7 @@ A Bit of Logic -<
                             public:
                                 void nextPermutation(vector<int> &num) {
                                     if (num.size() <= 1) return;
-                                    ROF(i, 0, num.size()-1)
+                                    ROF(i, 0, num.size()-1) {
                                         if ( i+1 < num.size() && num[i] < num[i+1] ) {
                                             int j = num.size();
                                             while (! (num[i] < num[--j]));
@@ -5206,6 +5411,7 @@ A Bit of Logic -<
                                             reverse(num.begin()+i+1, num.end());
                                             return;
                                         }
+                                    }
                                     reverse(num.begin(), num.end());
                                 }
                             };
@@ -5286,7 +5492,7 @@ A Bit of Logic -<
                                         Sequence result;
 
                                         int base = factorial(n - 1);
-                                        --k;  // 康托编码从0开始
+                                        --k;                                                    // 康托编码从 0 开始
 
                                         for (int i = n - 1; i > 0; k %= base, base /= i, --i) { // base/=i 实在太巧妙
                                             auto a = next(S.begin(), k / base);
@@ -5316,7 +5522,7 @@ A Bit of Logic -<
                                         ROF(i, 0, n) {
                                             int t = k/f[i], j = 0;
                                             k %= f[i];
-                                            while (! a[j]) j++;
+                                            while (!a[j]) j++;
                                             while (t--)
                                                 while (! a[++j]);
                                             a[j] = false;
@@ -5349,9 +5555,9 @@ A Bit of Logic -<
                                 template<class BidirIt>
                                 bool next_permutation(BidirIt first, BidirIt last)
                                 {
-                                    if (first == last) return false;
+                                    if (first == last) return false;                // no element
                                     BidirIt i = last;
-                                    if (first == --i) return false;
+                                    if (first == --i) return false;                 // only one element
 
                                     while (true) {
                                         BidirIt i1, i2;
@@ -5361,13 +5567,13 @@ A Bit of Logic -<
                                             i2 = last;
                                             while (!(*i < *--i2))
                                                 ;
-                                            std::iter_swap(i, i2);
+                                            std::iter_swap(i, i2);                  // iter_swap?? TODO
                                             std::reverse(i1, last);
                                             return true;
                                         }
                                         if (i == first) {
                                             std::reverse(first, last);
-                                            return false;
+                                            return false;                           // great! termination.
                                         }
                                     }
                                 }
@@ -5409,7 +5615,7 @@ A Bit of Logic -<
                         5 4 2 2
                         ```
 
-                        当然，自己写也是可以得。:hearts: 【这个代码十分重要！！！】
+                        当然，自己写也是可以得。:hearts: 【这个代码十分重要！！！】:hearts:
 
                         ```cpp
                         #include <cstdio>
@@ -5420,10 +5626,9 @@ A Bit of Logic -<
                         int P[maxn], A[maxn];
 
                         // 输出数组 P 中元素的全排列。数组 P 中可能有重复元素
-                        void print_permutation( int n, int* P, int* A, int cur ) {
+                        void print_permutation( int n, int *P, int *A, int cur ) {
                             if( cur == n ) {
-                                for( int i = 0; i < n; i++ ) { printf( "%d ", A[i] ); }
-                                printf( "\n" );
+                                for( int i = 0; i < n; i++ ) { printf( "%d ", A[i] ); } printf( "\n" );
                             } else {
                                 for( int i = 0; i < n; i++ ) {
                                     if( i == 0 || P[i] != P[i-1] ) {
@@ -5629,7 +5834,7 @@ A Bit of Logic -<
                         0 1 2
                         ```
 
-                        ALL_BITS = (1<<n) -1，A 的补集就是 A^ALL_BITS。
+                        `ALL_BITS = (1<<n) -1`，A 的补集就是 `A^ALL_BITS`。
 
         -   回溯法 -<
 
@@ -5771,7 +5976,132 @@ A Bit of Logic -<
                                 ```
 
                                 标志位的编码无所谓，只要能检测标志、设置标志、移除标志，即可。
-                                这个在我的一个简历投递里说得还详细点：[应聘简答 for 创业公司求 Java 开发工程师，基于微信平台](../misc/yotouch.html)。
+
+                                这个在我的一个简历投递里说得还详细点：[应聘简答 for 创业公司求 Java 开发工程师，基于微信平台](../misc/yotouch.html)。 -<
+
+                                :   首先不能同行，那就直接用 `C[i]`（`i=[0,7)`，每个 i 都不一样）来存储每一行的列的位置。
+                                    比如 `C[2]=5` 代表皇后点位为 `(3, 6)`。
+
+                                    不能同列，可以用循环检测是否和其他皇后冲突。
+
+                                    不能同斜线，可以用循环检测是否和其他皇后冲突。两种情况：
+
+                                    -   `dx ==  dy`
+                                    -   `dx == -dy`
+
+                                    优化 1：把 8 皇后的放置看成一个过程，第一个皇后，随意放，第二个皇后，只要和第一个皇后不冲突，随意放，以此，
+                                    八个皇后都放上了，就是一个 valid 的情况。
+
+                                    这样冲突的判断不必要和**全部**其他皇后检测，只需要看**之前**的皇后。
+
+                                    优化 2：列、主对角线、副对角线编码，存起来，占了一个坑，就把那个坑标记好。
+
+                                    这样，就不用通过循环来判断是否冲突了。只要检测一个标志位。
+
+                                    这个标志位设计方案怎么都可以，比如像这样：
+
+                                    ```
+                                        主对角线                                            副对角线
+
+                                      y - x    ?dx == dy                                y + x    ? dx == -dy (dx+dy==0)
+                                          +----------------------------------> y            +-----------------------------------> y
+                                          |  0   1   2   3   4   5   6   7                  |  0   1   2   3   4   5   6   7
+                                          | -1   0   1   2   3   4   5   6                  |  1   2   3   4   5   6   7   8
+                                          | -2  -1   0   1   2   3   4   5                  |  2   3   4   5   6   7   8   9
+                                          | -3  -2  -1   0   1   2   3   4                  |  3   4   5   6   7   8   9  10
+                                          | -4  -3  -2  -1   0   1   2   3                  |  4   5   6   7   8   9  10  11
+                                          | -5  -4  -3  -2  -1   0   1   2                  |  5   6   7   8   9  10  11  12
+                                        x | -6  -5  -4  -3  -2  -1   0   1               x  |  6   7   8   9  10  11  12  13
+                                          | -7  -6  -5  -4  -3  -2  -1   0                  |  7   8   9  10  11  12  13  14
+                                          V                                                 V
+                                    ```
+
+                                    代码如下：
+
+                                    ```cpp
+                                    void search( int cur ) {
+                                        if( cur == n ) {
+                                            ++tot;
+                                            // 打印结果的代码放在这里
+                                        } else {
+                                            for( int i = 0; i < n; ++i ) {
+                                                // vis: visited, vis[0] -> col, vis[1] -> minor diag, vis[2] -> major diag
+                                                if( !vis[0][i] && !vis[1][cur+i] && !vis[2][cur-i+n] ) {
+                                                    C[cur] = i;
+                                                    // col         y-x=0           y+x=0
+                                                    vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 1;
+                                                    search( cur+1 );
+                                                    vis[0][i] = vis[1][cur+i] = vis[2][cur-i+n] = 0;    // 改回来
+                                                }
+                                            }
+                                        }
+                                    }
+                                    ```
+
+                                    其中 vis 是一个二维数组，`vis[0][i]` 表示第 i 列是否被占坑（1 是有人，0 是没人），
+                                    `vis[1][i]` 表示副对角线（上面右图），
+                                    `vis[2][i]` 表示主对角线（上面左图，因为 cur-i 可能为负（图中下三角部分），所以，要加上 n=8 ）。
+
+                                    如果想看看每个可能情况的放置，在上面 `// 打印结果的代码放在这里` 处加上：
+
+                                    ```cpp
+                                    printf( "solve #%d:", tot );
+                                    for( int i = 0; i < n; ++i ) {
+                                        printf( " %d", C[i] );
+                                    }
+                                    printf( "\n" );
+                                    ```
+
+                                    输出如下：
+
+                                    ```
+                                    solve #1: 0 4 7 5 2 6 1 3
+                                    solve #2: 0 5 7 2 6 3 1 4
+                                    solve #3: 0 6 3 5 7 1 4 2
+                                    solve #4: 0 6 4 7 1 3 5 2
+                                    ...
+                                    solve #89: 7 1 3 0 6 4 2 5
+                                    solve #90: 7 1 4 2 0 6 3 5
+                                    solve #91: 7 2 0 5 1 4 6 3
+                                    solve #92: 7 3 0 2 5 1 6 4
+                                    ```
+
+                                    或者，你要一个视觉化的表示，上面的代码可以这么来：
+
+                                    ```cpp
+                                    printf( "-- Solve #%03d --\n", tot );
+                                    for( int i = 0; i < n; ++i ) {
+                                        printf( "+-+-+-+-+-+-+-+-+\n" );
+                                        for( int j = 0; j < n; ++j ) {
+                                            printf( "|%c", C[i] == j ? 'X' : ' ' );
+                                        }
+                                        printf( "|\n" );
+                                    }
+                                    printf( "-----------------\n\n" );
+                                    ```
+
+                                    打印出来就是这样：（如果看得不够“方”，那是字宽和行高的问题，就怪不得我了）
+
+                                    ```
+                                    -- Solve #092 --
+                                    +-+-+-+-+-+-+-+-+
+                                    | | | | | | | |X|
+                                    +-+-+-+-+-+-+-+-+
+                                    | | | |X| | | | |
+                                    +-+-+-+-+-+-+-+-+
+                                    |X| | | | | | | |
+                                    +-+-+-+-+-+-+-+-+
+                                    | | |X| | | | | |
+                                    +-+-+-+-+-+-+-+-+
+                                    | | | | | |X| | |
+                                    +-+-+-+-+-+-+-+-+
+                                    | |X| | | | | | |
+                                    +-+-+-+-+-+-+-+-+
+                                    | | | | | | |X| |
+                                    +-+-+-+-+-+-+-+-+
+                                    | | | | |X| | | |
+                                    -----------------
+                                    ```
 
                                 ```cpp
                                 #include <cstdio>
@@ -6303,22 +6633,7 @@ A Bit of Logic -<
 
         -   背包问题九讲 -<
 
-            :   这部分来自崔添翼：[tianyicui/pack: 背包问题九讲](https://github.com/tianyicui/pack)。
-
-                0-1 背包 -<
-
-                :   有 N 件物品和一个容量为 V 的背包。放入第 i 件物品耗费的费用
-                    是 C~i~，得到的价值是 W~i~。求解将哪些物品装入背包可使价值
-                    总和最大。
-
-                    这是最基础的背包问题，特点是：每种物品仅有一件，可以选择放或不放。
-
-                    用子问题定义状态：即 `F[i,v]` 表示前 i 件物品恰放入一个容量为 v 的背包可以获得的最大价值。则其状态转移方程便是：
-
-                    ```
-                                    不放            放
-                    F[i,v] = max{ F[i−1,v], F[i−1,v−C_i ] + W_i }
-                    ```
+            :   see again.
 
         -   路径寻找问题 -<
 
@@ -7381,8 +7696,69 @@ A Bit of Logic -<
 
             :   -   背包相关问题
                 -   区间相关问题
-                -   Huffman 编码
-                -   Huffman 编码
+                -   Huffman 编码 :hearts: -<
+
+                    :   给定一个英文字符串，使用0和1对其进行编码，求最优前缀编码，使其所需要的比特数最少。
+
+                        题目很长，不过就是哈弗曼编码。
+
+                        ```cpp
+                        // 本题考查哈弗曼编码，但只需要统计哈弗曼编码后的总码长即可，
+                        // 没必要建哈弗曼树得出哈弗曼编码
+                        #include <stdio.h>
+                        #include <string.h>
+                        #include <queue>
+                        #include <functional>
+
+                        using namespace std;
+
+                        const int LINE_MAX = 256; // 一行最大字符数
+                        const int MAX_ASCII = 128; // ASCII码最大值
+
+                        int main() {
+                            char    s[LINE_MAX];
+                            int     count[MAX_ASCII] = {0}; // count[i]记录ASCII码为i的字符的出现次数
+                            int     sum;
+                            // 小根堆，队列头为最小元素
+                            priority_queue<int, vector<int>, greater<int> >    pq;
+
+                            while (scanf("%s", s) > 0) {
+                                sum = 0; // 清零
+                                const int len = strlen(s);
+
+                                if (strcmp(s,"END") == 0) {
+                                    break;
+                                }
+
+                                for (int i = 0; i < len; i++) {
+                                    count[s[i]]++;
+                                }
+
+                                for (int i = 0;i < MAX_ASCII; i++) {
+                                    if (count[i] > 0) {
+                                        pq.push(count[i]);
+                                        count[i] = 0;
+                                    }
+                                }
+                                while (pq.size() > 1) {
+                                    const int a = pq.top(); pq.pop();
+                                    const int b = pq.top(); pq.pop();
+                                    sum += a + b;
+                                    pq.push(a + b);
+                                }
+                                if (sum == 0) {
+                                    sum = len; // 此时pq中只有一个元素
+                                }
+
+                                while (!pq.empty()) { // clear
+                                    pq.pop();
+                                }
+                                // 注意精度设置
+                                printf("%d %d %.1f\n", 8 * len, sum, ((double)8 * len) / sum);
+                            }
+                            return 0;
+                        }
+                        ```
 
         -   算法设计与优化策略 -<
 
@@ -8944,13 +9320,403 @@ A Bit of Logic -<
 
         -   chap10. DFS -<
 
-            :   -   four coloring
-                -   all arrangements
-                -   eight queen (see aoapc-book)
-                -   restore IP addr
-                -   combination sum
-                -   combination sum ii
-                -   conclusion
+            :   -   four coloring -<
+
+                    :   给定 N (N <= 8) 个点的地图，以及地图上各点的相邻关系，
+                        请输出用 4 种颜色将地图涂色的所有方案数（要求相邻两点不
+                        能涂成相同的颜色）。
+
+                        数据中0代表不相邻，1代表相邻。
+
+                        输入
+                          ~ 第一行一个整数N，代表地图上有N个点。
+
+                        接下来N行，每行N个整数，每个整数是0或者1。第i行第j
+                        列的值代表了第i个点和第j个点之间是相邻的还是不相邻，相
+                        邻就是1，不相邻就是0。我们保证 `a[i][j] = a[j][i]`。
+
+                        输出
+                          ~ 染色的方案数
+
+                        ```
+                        input:
+
+                            8
+                            0 0 0 1 0 0 1 0
+                            0 0 0 0 0 1 0 1
+                            0 0 0 0 0 0 1 0
+                            1 0 0 0 0 0 0 0
+                            0 0 0 0 0 0 0 0
+                            0 1 0 0 0 0 0 0
+                            1 0 1 0 0 0 0 0
+                            0 1 0 0 0 0 0 0
+
+                        ouput:
+
+                            15552
+                        ```
+
+                        这是一道经典的题目。深搜。
+
+                        ```cpp
+                        #include <cstdio>
+                        #include <vector>
+
+                        using namespace std;
+
+                        // 深搜，给第cur个节点涂色.
+                        void dfs( vector<vector<int> > &table, vector<int> &history, int cur, int N, int &count ) {
+                            if ( cur == N ) {
+                                ++count;
+                                return;
+                            }
+
+                            for ( int c = 1; c < 5; ++c ) {                         // try all possibilities
+                                                                                    // if okay, then go inside
+                                int j;
+                                for ( j = 0; j < cur; ++j ) {
+                                    if ( table[cur][j] && c == history[j] ) {       // 相邻且同色
+                                        break;
+                                    }
+                                }
+                                if ( j == cur ) {                                   // you can also use `ok'
+                                    history[cur] = c;
+                                    dfs( table, history, cur+1, N, count );
+                                }
+                            }
+                        }
+
+                        int main() {
+                            int N;
+                            scanf( "%d", &N );
+                            vector<vector<int> > table(N, vector<int>(N));
+                            for ( int i = 0; i < N; ++i ) {
+                                for ( int j = 0; j < N; ++j ) {
+                                    scanf( "%d", &table[i][j] );
+                                }
+                            }
+
+                            int count = 0;
+                            vector<int> history(N);                 // 记录每个点的颜色，四种颜色用1234表示，0表示未染色
+                            dfs( table, history, 0, N, count );
+                            printf( "%d\n", count );
+                            return 0;
+                        }
+                        ```
+
+                -   all arrangements (null)
+
+                -   eight queen (null)
+
+                -   restore IP addr -<
+
+                    :   本题是 LeetCode Online Judge上的"Restore IP Addresses"。
+
+                        给定一个只包含数字的字符串，还原出所有合法的IP地址。
+
+                        例如：给定"25525511135"，返回 ["255.255.11.135", "255.255.111.35"]。 (顺序无关紧要)
+
+                        这题很明显分为四步，有层次，因此可以尝试用回溯法解决。
+
+                        ```cpp
+                        // LeetCode, Restore IP Addresses
+                        class Solution {
+                        public:
+                            vector<string> restoreIpAddresses(string s) {
+                                vector<string> result;
+                                string ip;                                  // 存放中间结果
+                                dfs( s, 0, 0, ip, result );
+                                return result;
+                            }
+
+                            void dfs( string s, int start, int step, string ip, vector<string> &result ) {
+                                if ( s.size() - start > (4 - step) * 3 ||
+                                     s.size() - start < (4 - step) ) { return; } // 非法结果，剪枝
+
+                                if (start == s.size() && step == 4) {            // 找到一个合法解
+                                    ip.resize(ip.size() - 1);
+                                    result.push_back(ip);
+                                    return;
+                                }
+
+                                int num = 0;
+                                for ( int i = start; i < start + 3; ++i ) {
+                                    num = num * 10 + (s[i] - '0');
+
+                                    if (num <= 255) {  // 当前结点合法，则继续往下递归
+                                        ip += s[i];
+                                        dfs( s, i+1, step+1, ip+'.', result );
+                                    }
+                                    if ( num == 0 ) break;  // 不允许前缀 0，但允许单个0
+                                }
+                            }
+                        };
+                        ```
+
+                -   combination sum -<
+
+                    :   本题是 LeetCode Online Judge上的"Combination Sum"。
+
+                        给定一个数的集合(C)和一个目标数(T)，找到C中所有不重复的组合，让这些被选出来的数加起来等于T。
+
+                        每一个数可以被选无数次。
+
+                        注意：
+
+                        -   所有的数（包括目标）都是正整数
+                        -   一个组合（$a_1,a_2,\cdot,a_k$）中的元素必须以非递减顺序排列
+                        -   一个组合不能与另一个组合重复
+
+                        例如，给定一组数2,3,6,7,和目标7，则答案是
+
+                        ```
+                        [7]
+                        [2, 2, 3]
+                        ```
+
+                        这题没有固定的步骤数，但是步骤也是有限的，因此可以尝试用回溯法。
+
+                        ```cpp
+                        class Solution {
+                        public:
+                            vector<vector<int> > combinationSum(vector<int> &nums, int target) {
+                                sort(nums.begin(), nums.end());
+                                vector<vector<int> > result; // 最终结果
+                                vector<int> intermediate; // 中间结果
+                                dfs(nums, target, 0, intermediate, result);
+                                return result;
+                            }
+
+                        private:
+                            void dfs(vector<int>& nums, int gap, int level, vector<int>& intermediate,
+                                    vector<vector<int> > &result) {
+                                if (gap == 0) {  // 找到一个合法解
+                                    result.push_back(intermediate);
+                                    return;
+                                }
+                                for (size_t i = level; i < nums.size(); i++) { // 扩展状态
+                                    if (gap < nums[i]) return; // 剪枝
+
+                                    intermediate.push_back(nums[i]); // 执行扩展动作
+                                    dfs(nums, gap - nums[i], i, intermediate, result);
+                                    intermediate.pop_back();  // 撤销动作
+                                }
+                            }
+                        };
+                        ```
+
+                -   combination sum ii -<
+
+                    :   本题与上一题唯一不同的是，每个数只能使用一次。
+
+                        ```cpp
+                        // LeetCode, Combination Sum II
+                        class Solution {
+                        public:
+                            vector<vector<int> > combinationSum2(vector<int> &nums, int target) {
+                                sort(nums.begin(), nums.end()); // 跟第 50 行配合，
+                                                                     // 确保每个元素最多只用一次
+                                vector<vector<int> > result;
+                                vector<int> intermediate;
+                                dfs(nums, target, 0, intermediate, result);
+                                return result;
+                            }
+                        private:
+                            // 使用nums[index, nums.size())之间的元素，能找到的所有可行解
+                            static void dfs(vector<int> &nums, int gap, int index,
+                                    vector<int> &intermediate, vector<vector<int> > &result) {
+                                if (gap == 0) {  //  找到一个合法解
+                                    result.push_back(intermediate);
+                                    return;
+                                }
+
+                                int previous = -1;
+                                for (size_t i = index; i < nums.size(); i++) {
+                                    // 如果上一轮循环没有选nums[i]，则本次循环就不能再选nums[i]，
+                                    // 确保nums[i]最多只用一次
+                                    if (previous == nums[i]) continue;
+
+                                    if (gap < nums[i]) return;  // 剪枝
+
+                                    previous = nums[i];
+
+                                    intermediate.push_back(nums[i]);
+                                    dfs(nums, gap - nums[i], i + 1, intermediate, result);
+                                    intermediate.pop_back();  // 恢复环境
+                                }
+                            }
+                        };
+                        ```
+
+                -   conclusion :hearts: -<
+
+                    :   输入数据
+                          ~ 如果是递归数据结构，如单链表，二叉树，集合，则百分
+                            之百可以用深搜；如果是非递归数据结构，如一维数组，二
+                            维数组，字符串，图，则概率小一些。
+
+                        状态转换图
+                          ~ 树或者图。
+
+                        求解目标
+                          ~ 必须要走到最深（例如对于树，必须要走到叶子节点）才能得到一个解，这种情况适合用深搜。
+
+                        思考的步骤
+
+                        :
+                        -   是求路径条数，还是路径本身（或动作序列）？深搜最常
+                            见的三个问题，求可行解的总数，求一个可行解，求所有
+                            可行解。
+
+                            -   如果是求路径本身，则要用一个数组\fn{path[]}存储路径。跟宽搜不同，宽搜虽
+                                然最终求的也是一条路径，但是需要存储扩展过程中的所有路径，在没找到答案
+                                之前所有路径都不能放弃；而深搜，在搜索过程中始终只有一条路径，因此用一
+                                个数组就足够了。
+                            -   如果是路径条数，则不需要存储路径。
+
+                        -   只要求一个解，还是要求所有解？如果只要求一个解，那找到一个就可以返回；如果
+                            要求所有解，找到了一个后，还要继续扩展，直到遍历完。广搜一般只要求一个解，
+                            因而不需要考虑这个问题（广搜当然也可以求所有解，这时需要扩展到所有叶子节点，
+                            相当于在内存中存储整个状态转换图，非常占内存，因此广搜不适合解这类问题）。
+
+                        -   如何表示状态？即一个状态需要存储哪些些必要的数据，才能够完整提供如何扩展到
+                            下一步状态的所有信息。跟广搜不同，深搜的惯用写法，不是把数据记录在状态
+                            struct 里，而是添加函数参数（有时为了节省递归堆栈，用全局变量），
+                            struct 里的字段与函数参数一一对应。
+
+                        -   如何扩展状态？这一步跟上一步相关。状态里记录的数据
+                            不同，扩展方法就不同。对于固定不变的数据结构（一般
+                            题目直接给出，作为输入数据），如二叉树，图等，扩展
+                            方法很简单，直接往下一层走，对于隐式图，要先在第1步
+                            里想清楚状态所带的数据，想清楚了这点，那如何扩展就
+                            很简单了。
+
+                        -   关于判重
+
+                            :   -   如果状态转换图是一棵树，则不需要判重，因为在遍
+                                    历过程中不可能重复。
+                                -   如果状态转换图是一个图，则需要判重，方法跟广搜
+                                    相同，见第 \S \ref{sec:bfs-template} 节。这里跟
+                                    第8步中的加缓存是相同的，如果有重叠子问题，则需
+                                    要判重，此时加缓存自然也是有效果的。
+
+                        -   终止条件是什么？
+                              ~ 终止条件是指到了不能扩展的末端节点。对于树，是叶子节点，对于图或隐式图，是出度为0的节点。
+
+                        -   收敛条件是什么？
+                              ~ 收敛条件是指找到了一个合法解的时刻。如果是正向
+                                深搜（父状态处理完了才进行递归，即父状态不依赖
+                                子状态，递归语句一定是在最后，尾递归），则是指
+                                是否达到目标状态；如果是逆向深搜（处理父状态时
+                                需要先知道子状态的结果，此时递归语句不在最后），
+                                则是指是否到达初始状态。
+
+                        由于很多时候终止条件和收敛条件是是合二为一的，因此很多
+                        人不区分这两种条件。仔细区分这两种条件，还是很有必要的。
+
+                        为了判断是否到了收敛条件，要在函数接口里用一个参数记录
+                        当前的位置（或距离目标还有多远）。如果是求一个解，直接
+                        返回这个解；如果是求所有解，要在这里收集解，即把第一步
+                        中表示路径的数组\fn{path[]}复制到解集合里。}
+
+                        -   如何加速？
+
+                            :   -   剪枝。深搜一定要好好考虑怎么剪枝，成本小收
+                                    益大，加几行代码，就能大大加速。这里没有通
+                                    用方法，只能具体问题具体分析，要充分观察，
+                                    充分利用各种信息来剪枝，在中间节点提前返回。
+                                -   缓存。如果子问题的解会被重复利用，可以考虑使用缓存。
+                                    -   前提条件：子问题的解会被重复利用，即子
+                                        问题之间的依赖关系是有向无环图(DAG)。如
+                                        果依赖关系是树状的（例如树，单链表），
+                                        没必要加缓存，因为子问题只会一层层往下
+                                        ，用一次就再也不会用到，加了缓存也没什
+                                        么加速效果。
+                                    -   具体实现：可以用数组或HashMap。维度简单
+                                        的，用数组；维度复杂的，用HashMap，C++
+                                        有\fn{map}，C++ 11以后有
+                                        \fn{unordered_map}，比\fn{map}快。
+
+                        拿到一个题目，当感觉它适合用深搜解决时，在心里面把上面8
+                        个问题默默回答一遍，代码基本上就能写出来了。对于树，不
+                        需要回答第5和第8个问题。如果读者对上面的经验总结看不懂
+                        或感觉“不实用”，很正常，因为这些经验总结是笔者做了很多
+                        深搜题后总结出来的，从思维的发展过程看，“经验总结”要晚
+                        于感性认识，所以这时候建议读者先做做后面的题目，积累一
+                        定的感性认识后，在回过头来看这一节的总结，相信会和笔者
+                        有共鸣。
+
+                        代码模板
+
+                        ```cpp
+                        //  @param[in] input 输入数据指针
+                        //  @param[inout] cur or gap 标记当前位置或距离目标的距离
+                        //  @param[out] path 当前路径，也是中间结果
+                        //  @param[out] result 存放最终结果
+                        //  @return 路径长度，如果是求路径本身，则不需要返回长度
+                        //
+                        void dfs(type *input, type *path, int cur or gap, type *result) {
+                            if (数据非法) return 0;   // 终止条件
+                            if (cur == input.size( or gap == 0)) { // 收敛条件
+                                将path放入result
+                            }
+
+                            if (可以剪枝) return;
+
+                            for(...) { // 执行所有可能的扩展动作
+                                执行动作，修改path
+                                dfs(input, step + 1 or gap--, result);
+                                恢复path
+                            }
+                        }
+                        ```
+
+                        深搜与回溯法的区别
+
+                        -   深搜(Depth-first search, DFS)的定义见
+                            \myurl{http://en.wikipedia.org/wiki/Depth_first_search}
+                            ，回溯法(backtracking)的定义见
+                            \myurl{http://en.wikipedia.org/wiki/Backtracking}
+                        -   回溯法 = 深搜 + 剪枝。一般大家用深搜时，或多或少会
+                            剪枝，因此深搜与回溯法没有什么不同，可以在它们之间
+                            画上一个等号。本书同时使用深搜和回溯法两个术语，但
+                            读者可以认为二者等价。
+                        -   深搜一般用递归(recursion)来实现，这样比较简洁。
+                        -   深搜能够在候选答案生成到一半时，就进行判断，抛弃不
+                            满足要求的答案，所以深搜比暴力搜索法要快。
+
+
+                        深搜与递归的区别
+
+                        -   深搜经常用递归(recursion)来实现，二者常常同时出现，
+                            导致很多人误以为他俩是一个东西。
+                        -   深搜，是逻辑意义上的算法，递归，是一种物理意义上的
+                            实现，它和迭代(iteration)是对应的。深搜，可以用递归
+                            来实现，也可以用栈来实现；而递归，一般总是用来实现
+                            深搜。可以说，\textbf{递归一定是深搜，深搜不一定用
+                            递归}。
+                        -   递归有两种加速策略，一种是\textbf{剪枝(prunning)}，
+                            对中间结果进行判断，提前返回；一种是\textbf{加缓存}
+                            （就变成了memoization，备忘录法），缓存中间结果，防
+                            止重复计算，用空间换时间。
+                        -   其实，递归+缓存，就是一种 memorization 。所谓
+                            \textbf{memorization}（翻译为备忘录法，见第 \S
+                            \ref{sec:dp-vs-memorization}节），就是"top-down
+                            with cache"（自顶向下+缓存），它是Donald Michie 在
+                            1968年创造的术语，表示一种优化技术，在top-down 形式
+                            的程序中，使用缓存来避免重复计算，从而达到加速的目
+                            的。
+                        -   memorization 不一定用递归}，就像深搜不一定用递归一
+                            样，可以在迭代(iterative)中使用 memorization 。
+                            \textbf{递归也不一定用 memorization}，可以用
+                            memorization来加速，但不是必须的。只有当递归使用了
+                            缓存，它才是 memorization 。
+
+                        >   既然递归一定是深搜，为什么很多书籍都同时使用这两个术语呢？在递归味道更浓的地方，
+                        >   一般用递归这个术语，在深搜更浓的场景下，用深搜这个术语，读者心里要弄清楚他俩
+                        >   大部分时候是一回事。在单链表、二叉树等递归数据结构上，递归的味道更浓，这时用递
+                        >   归这个术语；在图、隐士图等数据结构上，递归的比重不大，深搜的意图更浓，这时用深
+                        >   搜这个术语。
 
     :scissors: 2016/08/13 上午 9:30:00 4. 动态规划 Dynamic Programming I -<
 
@@ -9161,7 +9927,7 @@ A Bit of Logic -<
 
                         ```
                         [
-                             ,
+                             [2]
                             [3,4],
                            [6,5,7],
                           [4,1,8,3]
@@ -9179,7 +9945,7 @@ A Bit of Logic -<
                         ```
                             类似于图像处理里的【直方图 vs. 累计直方图】，概率论里的【PDF，CDF】：
 
-                              ,
+                              [2]                                      [2=2]
                              [3,4],                            [ 5 =(2+3), 6 =(2+4) ]
                             [6,5,7],                      [ 11 =(5+6),  10 =(5+5 )   13 =(6+7) ]
                            [4,1,8,3]                  [   15         11        18          16       ]
@@ -9247,6 +10013,8 @@ A Bit of Logic -<
                             return result;
                         }
                         ```
+
+                        感兴趣的读者请参考这篇博客，\myurl{http://www.cnblogs.com/gj-Acit/archive/2013/02/12/2910332.html}
 
                         refs and see also
 
@@ -9707,7 +10475,424 @@ A Bit of Logic -<
 
     :scissors: 2016/08/14 上午 9:30:00 5. 动态规划 Dynamic Programming II -<
 
-    :   -   数字三角形（（略）见上面的 triangle）
+    :   Theories +<
+
+        :   如果一个问题具有以下两个要素：
+
+            -   最优子结构(optimal substructure)
+            -   重叠子问题(overlap subproblem)
+
+            则可以用动态规划求最优解。
+
+            动态规划分为4个步骤：
+
+            -   描述最优解的结构。即抽象出一个状态来表示最优解。
+            -   递归的定义最优解的值。找出状态转移方程，然后递归的定义
+            -   计算最优解的值。典型的做法是自底向上，当然也可以自顶向下。
+            -   根据计算过程中得到的信息，构造出最优解。如果我们只需要最优解的值，不需要最
+                优解本身，则可以忽略第4步。当执行第4步时，我们需要在第3步的过程中维护一些额外的
+                信息，以便我们能方便的构造出最优解。
+
+            在第1步中，我们需要抽象出一个“状态”，在第2步中，我们要找出“状态转移方程”，然后才能
+            递归的定义最优解的值。第3步和第4步就是写代码实现了。
+
+            写代码实现时有两种方式，“递归(recursive)+自顶向下(top-down)+表格”和
+            “自底向上(bottom-up)+表格”。前者属于一种 memorization （翻译为备忘录法），后者才是正宗的动规。
+
+            动规用表格将各个子问题的最优解存起来，避免重复计算，是一种空间换时间。
+
+            **动规与贪心**
+
+            -   相同点：最优子结构。
+            -   不同点：
+                -   1、动规的子问题是重叠的，而贪心的子问题是不重叠的(disjoint subproblems)；
+                -   2、动规不具有贪心选择性质；
+                -   3、贪心的前进路线是一条线，而动规是一个DAG。
+
+            **分治和贪心**的相同点：disjoint subproblems。
+
+            **动规和备忘录法**的区别
+
+            -   动规(dynamic programming)一定是自底向上的，备忘录法(memorization)一定是自顶向下的。
+            -   动规不是lazy的， memorization 是lazy的，是按需(on-demand)计算的。
+                所以，如果所有的子问题至少会碰到一次，则动规有优势；
+                如果有些子问题在搜索过程中不会被碰到（即有剪枝），则 memorization 有优势。
+                更详细的解释请参考StackOverflow上的这个帖子 \myurl{http://t.cn/z80ZS6B} 。
+            -   备忘录法可以实现跟动规类似的功能，但它不是动规。两者的方向是反的，一个是自
+                顶向下，一个自底向上，我们应该区分开这两个概念。本书后面提到的动规，都是指
+                自底向上的动规。
+
+        -   Maximum Subarray (see again)
+
+        -   最大 M 子段和 -<
+
+            :   给定一个整数序列$S_1,S_2,\cdot,S_n(1 \leq n \leq 1,000,000, -32768 \leq S_i \leq 32768)$，定义函数$sum(i,j)=S_i+ ... +S_j(1 \leq i \leq j \leq n)$。
+
+                现给定一个正整数m，找出m对i和j，使得$sum(i_1,j_1)+sum(i_2,j_2)+ ... +sum(i_m,j_m)$最大。这就是\textbf{最大M子段和}(maximum m segments sum)。
+
+                ```
+                input:
+
+                    每个测试用例由两个正整数m和n开头，接着是n个整数。
+
+                    1 3 1 2 3
+                    2 6 -1 4 -2 3 -2 3
+
+                output:
+
+                    每行输出一个最大和。
+
+                    6
+                    8
+                ```
+
+                分析
+
+                设状态为d[i,j]，表示前j项分为i段的最大和，且第i段必须包含S[j]，则状态转移方程如下：
+
+                -   d[i,j] &=& \max\left\{d[i,j-1]+S[j],\max\left\{d[i-1,t]+S[j]\right\}\right\}, \text{ 其中 }i \leq j \leq n, i-1 \leq t < j \nonumber \\
+                -   target &=& \max\left\{d[m,j]\right\}, \text{ 其中 }m \leq j \leq n \nonumber
+
+                分为两种情况：
+
+                -   情况一，S[j]包含在第i段之中，$d[i,j-1]+S[j]$。
+                -   情况二，S[j]独立划分成为一段，$\max\left\{d[i-1,t]+S[j]\right\}$。
+
+                观察上述两种情况可知d[i,j]的值只和d[i,j-1]和d[i-1,t]这两个值相
+                关，因此不需要二维数组，可以用滚动数组，只需要两个一维数组，用
+                d[j]表示现阶段的最大值，即$d[i,j-1]+S[j]$，用prev[j]表示上一阶
+                段的最大值，即$\max\left\{d[i-1,t]+S[j]\right\}$。
+
+                ```cpp
+                #include <stdio.h>
+                #include <stdlib.h>
+                #include <limits.h>
+
+                // @brief 最大m段子序列和
+                // @param[in] S 数组
+                // @param[in] n 数组长度
+                // @param[in] m m段
+                // @return 最大m段子序列和
+                int mmss(int S[], int n, int m) {
+                    int max_sum, i, j;
+
+                    /* d[i]表示现阶段最大值，prev[i]表示上阶段最大值 */
+                    /* d[0], prev[0] 未使用 */
+                    int *d = (int*) calloc(n + 1, sizeof(int));
+                    int *prev = (int*) calloc(n + 1, sizeof(int));
+                    S--;  // 因为 j是从1开始，而S从0开始，这里要减一
+
+                    for (i = 1; i <= m; ++i) {
+                        max_sum = INT_MIN;
+                        for (j = i; j <= n; ++j) {
+                            // 状态转移方程
+                            if (d[j - 1] < prev[j - 1])
+                                d[j] = prev[j - 1] + S[j];
+                            else
+                                d[j] = d[j - 1] + S[j];
+
+                            prev[j - 1] = max_sum;  // 存放上阶段最大值
+                            if (max_sum < d[j])
+                                max_sum = d[j];  // 更新 max_sum
+                        }
+                        prev[j - 1] = max_sum;
+                    }
+
+                    free(d);
+                    free(prev);
+                    return max_sum;
+                }
+
+                int main() {
+                    int n, m, i, *S;
+                    while (scanf("%d%d", &m, &n) == 2) {
+                        S = (int*) malloc(sizeof(int) * n);
+                        for (i = 0; i < n; ++i)
+                            scanf("%d", &S[i]);
+                        printf("%d\n", mmss(S, n, m));
+                        free(S);
+                    }
+                    return 0;
+                }
+                ```
+
+        -   背包问题 -<
+
+            :   背包问题(Knapsack problem\footnote{Knapsack problem,
+                \myurl{http://en.wikipedia.org/wiki/Knapsack_problem}})
+
+                有很多种版本，常见的是以下三种：
+
+                -   0-1背包问题(0-1 knapsack problem)：每种物品只有一个
+                -   完全背包问题(UKP, unbounded knapsack problem)：每种物品都有无限个可用
+                -   多重背包问题(BKP, bounded knapsack problem)：第i种物品有c[i]个可用
+
+                背包问题是一种“多阶段决策问题”。
+
+                这部分来自崔添翼：[tianyicui/pack: 背包问题九讲](https://github.com/tianyicui/pack)。
+
+                -   0-1背包问题 -<
+
+                    :   有 N 件物品和一个容量为 V 的背包。放入第 i 件物品耗费的费用
+                        是 C~i~，得到的价值是 W~i~。求解将哪些物品装入背包可使价值
+                        总和最大。
+
+                        这是最基础的背包问题，特点是：每种物品仅有一件，可以选择放或不放。
+
+                        用子问题定义状态：即 `F[i,v]` 表示前 i 件物品恰放入一个容量为 v 的背包可以获得的最大价值。则其状态转移方程便是：
+
+                        ```
+                                        不放            放
+                        F[i,v] = max{ F[i−1,v], F[i−1,v−C_i ] + W_i }
+                        ```
+
+                        ---
+
+                        有$N$种物品，第$i$种物品的重量为$w_i$，价值为$v_i$，每种物品只有一个。背包能承受的重量为$W$。
+                        将哪些物品装入背包可使这些物品的总重量不超过背包容量，且价值总和最大？
+
+                        ```
+                        input:
+
+                            第1行包含一个整数T，表示有T组测试用例。
+                            每组测试用例有3行，第1行包含两个整数$N, W(N \leq 1000 , W \leq 1000)$分别表示
+                            物品的种数和背包的容量，第2行包含N个整数表示每种物品的价值，第3行包含N个整数表示每种物品的重量。
+
+                            1
+                            5 10
+                            1 2 3 4 5
+                            5 4 3 2 1
+
+                        output:
+
+                            每行一个整数，表示价值总和的最大值。
+
+                            14
+                        ```
+
+                        分析
+
+                        :   由于每种物品仅有一个，可以选择装或者不装。
+
+                        定义状态 f[i][j]，表示“把前i个物品装进容量为j的背包可以获得的最大价值”，
+                        则其状态转移方程便是：
+
+                        ```
+                        f[i][j]=\max\left\{f[i-1][j], f[i-1][j-w[i]+v[i]\right\}
+                        ```
+
+                        这个方程理解如下，把前i个物品装进容量为j的背包时，有两种情况：
+
+                        -   第i个不装进去，这时所得价值为：$f[i-1][j]$
+                        -   第i个装进去，这时所得价值为：$f[i-1][j-w[i]]+v[i]$
+
+                        动规过程的伪代码如下：
+
+                        ```
+                        f[0..N][0..W] = 0
+                        for i=1..N
+                            for j=0..W
+                                f[i][j]=max{f[i-1][j],f[i-1][j-w[i]]+v[i]};
+                        ```
+
+                        内循环从右向左也可以：
+
+                        ```
+                        f[0..N][0..W] = 0
+                        for i=1..N
+                            for j=W..0
+                                f[i][j]=max{f[i-1][j],f[i-1][j-w[i]]+v[i]};
+                        ```
+
+                        内循环从右向左时，可以把二维数组优化成一维数组。伪代码如下：
+
+                        ```
+                        for i=1..N
+                            for j=W..0
+                                d[j]=max{d[j],d[j-w[i]]+v[i]};
+                        ```
+
+                        为什么呢？举个例子，测试数据如下：
+
+                        ```
+                        1
+                        3 10
+                        4 5 6
+                        3 4 5
+                        ```
+
+                        f是从上到下、从右到左计算的，如图~\ref{fig:01knapsack}所示。
+
+                        当内循环是逆序时，且动规是用自底向上方式实现时，就可以保证同一行可以从右向左更新。
+
+                        设一维数组为d（又称为滚动数组\footnote{刘汝佳,算法竞赛入门经典，清华大学出版社，2009，第169页9.3.3节}），
+                        在更新d[j]之前，d[j]里保存的f[i-1][j]，更新之后，d[j]里保存的是f[i][j]。
+
+                        事实上，使用一维数组解0-1背包问题的程序在后面会被多次用到，所以这里抽象出一
+                        个处理单个物品的函数，以后的代码中直接调用不加说明。
+
+                        ```
+                        def ZeroOneKnapsack(d[], i)
+                            for j = W..w[i]
+                                d[j] = max(d[j], d[j-w[i]] + v[i])
+                        ```
+
+                        有了这个函数以后，0-1背包问题的伪代码就可以这样写：
+
+                        ```
+                        d[0..W] = 0
+                        for i = 1..N
+                            ZeroOneKnapsack(d[], i)
+                        ```
+
+                        -   版本1，自底向上 -<
+
+                            :   ```cpp
+                                #include <stdio.h>
+                                #include <string.h>
+
+                                #define MAXN 1000
+                                #define MAXW 1000
+
+                                int N, W;
+                                int w[MAXN+1], v[MAXN+1]; /* 0 没有用 */
+
+                                int f[MAXN + 1][MAXW + 1];
+
+                                void dp() {
+                                    int i, j;
+                                    memset(f, 0, sizeof(f)); /* 背包不一定要装满 */
+                                    for(i = 1; i <= N; ++i) {
+                                        /* for(j = W; j >= 0; --j) { /* 也可以 */
+                                        for(j = 0; j <= W; ++j) {
+                                            f[i][j] = f[i-1][j];
+                                            if(j >= w[i]) {
+                                                const int tmp = f[i-1][j-w[i]] + v[i];
+                                                if(tmp > f[i][j]) f[i][j] = tmp;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                int main() {
+                                    int i, T;
+                                    scanf("%d", &T);
+                                    while(T--) {
+                                        scanf("%d %d", &N, &W);
+                                        for(i = 1; i <= N; ++i) scanf("%d", &v[i]);
+                                        for(i = 1; i <= N; ++i) scanf("%d", &w[i]);
+
+                                        dp();
+                                        printf("%d\n", f[N][W]);
+                                    }
+                                    return 0;
+                                }
+                                ```
+
+                        -   版本2，自底向上，滚动数组 -<
+
+                            :   ```cpp
+                                #include <stdio.h>
+                                #include <string.h>
+
+                                #define MAXN 1000
+                                #define MAXW 1000
+
+                                int N, W;
+                                int w[MAXN], v[MAXN];
+
+                                int d[MAXW + 1]; /* 滚动数组 */
+
+                                /**
+                                 * @brief 0-1背包问题中，处理单个物品.
+                                 * @param[in] d 滚动数组
+                                 * @param[in] i 该物品的下标
+                                 * @return 无
+                                 */
+                                void zero_one_knapsack(int d[], const int i) {
+                                    int j;
+                                    for(j = W; j >= w[i]; --j) {
+                                        const int tmp = d[j - w[i]] + v[i];
+                                        if(tmp > d[j]) d[j] = tmp; /* 求最小用 <，求最大用 > */
+                                    }
+                                }
+
+                                void dp() {
+                                    int i;
+                                    memset(d, 0, sizeof(d)); /* 背包不一定要装满 */
+
+                                    for(i = 0; i < N; ++i) zero_one_knapsack(d, i);
+                                }
+
+                                int main() {
+                                    int i, T;
+                                    scanf("%d", &T);
+                                    while(T--) {
+                                        scanf("%d %d", &N, &W);
+                                        for(i = 0; i < N; ++i) scanf("%d", &v[i]);
+                                        for(i = 0; i < N; ++i) scanf("%d", &w[i]);
+
+                                        dp();
+                                        printf("%d\n", d[W]);
+                                    }
+                                    return 0;
+                                }
+                                ```
+
+                -   完全背包问题 -<
+
+                    :   TODO
+
+                -   多重背包问题 -<
+
+                    :   TODO
+
+        -   序列型动态规划 -<
+
+            :   对于所有动规题目，如果把状态转移图画出来，一定是一个有向无环图
+                (DAG)。再进一步细分类别，有序列型动态规划，棋盘型动态规划，树型
+                动态规划等等。
+
+                -   最长上升子序列
+                -   嵌套矩形
+                -   线段覆盖 2
+                -   硬币问题
+
+        -   区间型动态规划 -<
+
+            :   -   最优矩阵链乘
+                -   石子合并
+                -   矩阵取数游戏
+
+        -   棋盘型动态规划 -<
+
+            :   -   数字三角形（（略）见上面的 triangle）
+                -   过河卒
+                -   传纸条
+                -   骑士游历
+
+        -   划分型动态规划 -<
+
+            :   -   乘积最大
+                -   数的划分
+
+        -   树型动态规划 -<
+
+            -   没有上司的舞会
+            -   访问艺术馆
+
+        -   最大子矩形 -<
+
+            :   -   在一个给定的矩形网格中有一些障碍点，要找出网格内部不包含任何障碍点，且
+                    边界与坐标轴平行的最大子矩形。
+                -   遇到求矩形面积，一般把左上角设置为坐标原点，这与数学中的坐标系不同。
+
+                    解决方法参考“浅谈用极大化思想解决最大子矩形问题”，\myurl{http://wenku.baidu.com/view/728cd5126edb6f1aff001fbb.html}
+
+                    方法一是一种暴力枚举法，方法二是一种动规法。
+
+                    -   奶牛浴场
+                    -   最大全1子矩阵
 
         -   DAG 上的动态规划 -<
 
@@ -13016,7 +14201,7 @@ A Bit of Logic -<
                                 }
                                 ```
 
-                        -   Minimum N, (heap, priority_queue) -<
+                        -   Minimum N, (heap, priority_queue) :hearts: -<
 
                             :   ```cpp
                                 #include <cstdio>
@@ -13102,7 +14287,111 @@ A Bit of Logic -<
 
     :scissors: 2016/08/28 上午 9:30:00 9. 图与搜索 Graph & Search -<
 
-    :   -   图上的宽度优先搜索 Graph BFS
+    :   稠密图适合用邻接矩阵来表示 -<
+
+        :   ```cpp
+            // 顶点数最大值
+            const int MAX_NV = 100;
+
+            // 边的权值类型，可以为int, float, double.
+            typedef int graph_weight_t;
+            const graph_weight_t GRAPH_INF = INT_MAX;
+
+            // 图，用邻接矩阵(Adjacency Matrix).
+            struct graph_t {
+                int nv;                                         // 顶点数
+                int ne;                                         // 边数
+                graph_weight_t matrix[MAX_NV][MAX_NV];          // 邻接矩阵，存放边的信息，如权重等
+            };
+            ```
+
+        稀疏图适合用邻接表来表示 -<
+
+        :   ```cpp
+            // 边的权值类型，可以为int, float, double
+            typedef int graph_weight_t;
+
+            // 顶点的编号，可以为 char, int, string 等
+            typedef char graph_vertex_id_t;
+
+            // 图，用邻接表(Adjacency List).
+            struct graph_t {
+                int nv;                                         // 顶点数
+                int ne;                                         // 边数
+                map<
+                    graph_vertex_id_t,
+                    map<graph_vertex_id_t, graph_weight_t>
+                > matrix;                                       // 邻接表，存放边的信息，如权重等
+            };
+            ```
+
+        图的深搜 DFS -<
+
+        :   ```cpp
+            //  @brief 图的深度优先搜索代码框架，搜索边.
+            //  @param[in] g 图
+            //  @param[in] u 出发顶点
+            //  @param[in] visited 边的访问历史记录
+            //  @return 无
+            //  @remark 在使用的时候，为了降低递归的内存占用量，可以把
+            //  g, visited 抽出来作为全局变量
+            void dfs(const graph_t &g, int u, bool visited[][MAX_NV] ) {
+                for(int v = 0;  v < g.nv; v++) if(g.matrix[u][v] && !visited[u][v]) {
+                    visited[u][v] = visited[v][u] = true;   // 无向图用这句
+                    // visited[u][v] = true;                // 有向图用这句
+                    dfs(g, v, visited);
+                    // 这里写逻辑代码, printf("%d %d\n", u, v);
+                }
+            }
+            ```
+
+            ```cpp
+            //  @brief 图的深度优先搜索代码框架，搜索顶点.
+            //  @param[in] g 图
+            //  @param[in] u 出发顶点
+            //  @param[in] visited 顶点的访问历史记录
+            //  @return 无
+            //  @remark 在使用的时候，为了降低递归的内存占用量，可以把
+            //  g, visited 抽出来作为全局变量
+            void dfs(const graph_t &g, int u, bool visited[MAX_NV]) {
+                visited[u] = true;
+                for(int v = 0;  v < g.nv; v++) {
+                    if(g.matrix[u][v] && !visited[v]) {
+                        dfs(g, v, visited);
+                        // 这里写逻辑代码, printf("%d %d\n", u, v);
+                    }
+                }
+            }
+            ```
+
+            -   Satellite Photographs
+            -   John's trip
+            -   The Necklace
+
+        -   图上的宽度优先搜索 Graph BFS
+
+        -   最小生成树 -<
+
+            :   构造最小生成树(Minimum Spanning Tree, MST)有多种算法。其中多数
+                算法利用了最小生成树的一个性质（简称为MST性质）：假设$N=(V, E)$
+                是一个连通网，$U$是顶点集$V$的一个非空子集。若$(u, v)$是一条具
+                有最小权值的边，其中$u \in U, v \in V-U$，则必存在一颗包含边
+                $(u, v)$的最小生成树。
+
+                Prim算法和Kruskal算法是两个利用MST性质构造最小生成树的算法。它们都属于贪心法。
+
+                -   Prim算法
+                -   Kruskal算法
+                -   Highways
+                -   最优布线问题
+
+        -   最短路径 -<
+
+            :   -   单源最短路径——Dijkstra算法
+                -   每点最短路径——Floyd算法
+                -   HDU 2544 最短路
+                -   POJ 1125 Stockbroker Grapevine
+                -   POJ 1094 Sorting It All Out
 
         -   DFS of graph -<
 
@@ -13760,6 +15049,63 @@ A Bit of Logic -<
                             1
                             ```
 
+                            C++ Version:
+
+                            ```cpp
+                            #include <vector>
+                            #include <cstdio>
+
+                            using namespace std;
+
+                            struct UFS {
+                                explicit UFS( int n ) {
+                                    arr = vector<int>(n, -1);
+                                }
+                                int _find( int idx ) {
+                                    int oldidx = idx;
+                                    while( arr[idx] >= 0 ) { idx = arr[idx]; }
+                                    while( oldidx != idx ) {
+                                        int next = arr[oldidx];
+                                        arr[oldidx] = idx;
+                                        oldidx = next;
+                                    }
+                                    return idx;
+                                }
+                                void _union( int a, int b ) {
+                                    int ra = _find(a);
+                                    int rb = _find(b);
+                                    if( ra == rb ) { return; }  // !!!
+                                    arr[ra] += arr[rb];
+                                    arr[rb] = ra;
+                                }
+                                int _size( int a ) {
+                                    return -arr[_find(a)];
+                                }
+                                vector<int> arr;
+                            };
+
+                            int main() {
+                                int n, m, k;
+                                while( scanf("%d%d", &n, &m) && n > 0 ) {
+                                    UFS ufs(n);
+                                    while( m-- ) {
+                                        int x, y;                           // two students
+                                        int rx, ry;                         // x, y 所属的集合的根
+                                        scanf("%d", &k);
+
+                                        scanf("%d", &x); k--;
+                                        rx = ufs._find(x);
+                                        while( k-- ) {
+                                            scanf("%d", &y);
+                                            ufs._union( rx, y );
+                                        }
+                                    }
+                                    printf( "%d\n", ufs._size(0) );
+                                }
+                                return 0;
+                            }
+                            ```
+
                     -   食物链 -<
 
                         :   动物王国中有三类动物 A,B,C，这三类动物的食物链构成了有趣的环形。A 吃 B， B 吃 C，C 吃
@@ -13998,6 +15344,7 @@ A Bit of Logic -<
                         -   [Left-child right-sibling binary tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Left-child_right-sibling_binary_tree)
 
                 -   Trie 树的相关运用
+
                 -   Trie tree -<
 
                     :   -   trie_tree.c -<
@@ -14026,7 +15373,7 @@ A Bit of Logic -<
 
                                 trie_tree_t* trie_tree_create(void) {
                                     trie_tree_t *tree = (trie_tree_t*)malloc(sizeof(trie_tree_t));
-                                    tree->root = &(tree->nodes);
+                                    tree->root = tree->nodes;
                                     memset(tree->nodes, 0, sizeof(tree->nodes));
                                     tree->size = 1;
                                     return tree;
@@ -14073,6 +15420,53 @@ A Bit of Logic -<
 
                             :   POJ 1056 IMMEDIATE DECODABILITY, <http://poj.org/problem?id=1056>
 
+                                An encoding of a set of symbols is said to be
+                                immediately decodable if no code for one symbol
+                                is the prefix of a code for another symbol. We
+                                will assume for this problem that all codes are
+                                in binary, that no two codes within a set of
+                                codes are the same, that each code has at least
+                                one bit and no more than ten bits, and that
+                                each set has at least two codes and no more
+                                than eight.
+
+                                Examples: Assume an alphabet that has symbols `{A, B, C, D}`.
+
+                                The following code is immediately decodable:
+
+                                ```
+                                A:01 B:10 C:0010 D:0000
+                                ```
+
+                                but this one is not:
+
+                                ```
+                                A:01 B:10 C:010 D:0000 (Note that A is a prefix of C)
+                                ```
+
+                                输入
+
+                                Write a program that accepts as input a series
+                                of groups of records from standard input. Each
+                                record in a group contains a collection of
+                                zeroes and ones representing a binary code for
+                                a different symbol. Each group is followed by a
+                                single separator record containing a single 9;
+                                the separator records are not part of the
+                                group. Each group is independent of other
+                                groups; the codes in one group are not related
+                                to codes in any other group (that is, each
+                                group is to be processed independently).
+
+                                输出
+
+                                For each group, your program should determine
+                                whether the codes in that group are immediately
+                                decodable, and should print a single output
+                                line giving the group number and stating
+                                whether the group is, or is not, immediately
+                                decodable.
+
                                 ```cpp
                                 #include "trie_tree.c"
 
@@ -14102,11 +15496,247 @@ A Bit of Logic -<
                                 }
                                 ```
 
+                                ```
+                                01
+                                10
+                                0010
+                                0000
+                                9
+                                01
+                                10
+                                010
+                                0000
+                                9
+                                ```
+
                                 ```bash
                                 $ cat input.txt | ./a.out
                                 Set 1 is immediately decodable
                                 Set 2 is not immediately decodable
                                 ```
+
+                                compiled, and okay.
+
+                                C++ version:
+
+                                ```cpp
+                                #include <cstdio>
+                                #include <cstring>
+                                #include <cstdlib>
+                                #include <string>
+                                #include <vector>
+                                #include <iostream>
+                                #include <algorithm>
+
+                                using namespace std;
+
+                                struct TrieTree {
+
+                                    explicit TrieTree() { clear(); }
+
+                                    const static int CHARCOUNT = 10;
+                                    const static int NODECOUNT = 10*100;
+                                    struct TrieTreeNode {
+                                        bool isTail;
+                                        TrieTreeNode *next[CHARCOUNT];
+                                        TrieTreeNode() : isTail(false) { fill( next, next+CHARCOUNT, (TrieTreeNode *)0 ); }
+                                    } *root;
+                                    int size;
+                                    vector<TrieTreeNode> nodes;
+
+                                    void clear() {
+                                        size  = 1;
+                                        nodes = vector<TrieTreeNode>( NODECOUNT, TrieTreeNode() );
+                                        root  = &nodes[0];
+                                    }
+
+                                    bool insert( const string &word ) {
+                                        int n = word.size();
+                                        TrieTreeNode *p = root;
+                                        for( int i = 0; i < n; ++i ) {
+                                            int idx = word[i] - '0';
+                                            if( !p->next[idx] ) {
+                                                p->next[idx] = &nodes[size++];
+                                            }
+                                            p = p->next[idx];
+                                            if( p->isTail ) { return false; }
+                                        }
+                                        p->isTail = true;
+                                        for( int i = 0; i< CHARCOUNT; ++i ) {
+                                            if( p->next[i] ) {
+                                                return false;
+                                            }
+                                        }
+                                        return true;
+                                    }
+                                };
+
+                                int main() {
+
+                                    bool islegal = true;
+                                    TrieTree tt;
+                                    string line;
+                                    int T = 0;
+
+                                    while( getline( cin, line ) ) {
+                                        if( line == "9" ) {
+                                            printf( "Set %d is %simmediately decodable\n", ++T, islegal ? "" : "not " );
+                                            tt.clear();
+                                            islegal = true;
+                                        } else {
+                                            if (islegal) { islegal = tt.insert( line ); }
+                                        }
+                                    }
+                                    return 0;
+                                }
+                                ```
+
+                                TODO: `Node *next[CHARCOUNT]` -> `int
+                                next[CHARCOUNT]`, see Hardwood Species for *HOWTO*.
+
+                        -   Hardwood Species -<
+
+                            :   input -<
+
+                                :   ```
+                                    Red Alder
+                                    Ash
+                                    Aspen
+                                    Basswood
+                                    Ash
+                                    Beech
+                                    Yellow Birch
+                                    Ash
+                                    Cherry
+                                    Cottonwood
+                                    Ash
+                                    Cypress
+                                    Red Elm
+                                    Gum
+                                    Hackberry
+                                    White Oak
+                                    Hickory
+                                    Pecan
+                                    Hard Maple
+                                    White Oak
+                                    Soft Maple
+                                    Red Oak
+                                    Red Oak
+                                    White Oak
+                                    Poplan
+                                    Sassafras
+                                    Sycamore
+                                    Black Walnut
+                                    Will
+                                    ```
+
+                                output -<
+
+                                :   ```
+                                    Ash 13.7931
+                                    Aspen 3.4483
+                                    Basswood 3.4483
+                                    Beech 3.4483
+                                    Black Walnut 3.4483
+                                    Cherry 3.4483
+                                    Cottonwood 3.4483
+                                    Cypress 3.4483
+                                    Gum 3.4483
+                                    Hackberry 3.4483
+                                    Hard Maple 3.4483
+                                    Hickory 3.4483
+                                    Pecan 3.4483
+                                    Poplan 3.4483
+                                    Red Alder 3.4483
+                                    Red Elm 3.4483
+                                    Red Oak 6.8966
+                                    Sassafras 3.4483
+                                    Soft Maple 3.4483
+                                    Sycamore 3.4483
+                                    White Oak 10.3448
+                                    Willow 3.4483
+                                    Yellow Birch 3.4483
+                                    ```
+
+                                code.cpp -<
+
+                                :   ```cpp
+                                    #include <cstdio>
+                                    #include <cstring>
+                                    #include <cstdlib>
+                                    #include <string>
+                                    #include <vector>
+                                    #include <iostream>
+                                    #include <algorithm>
+
+                                    using namespace std;
+
+                                    struct TrieTree {
+
+                                        explicit TrieTree() { clear(); }
+
+                                        const static int CHARCOUNT = 128;                           // ascii code
+                                        const static int NODECOUNT = 128*100;
+                                        struct TrieTreeNode {
+                                            int next[CHARCOUNT];                                    // actually we can save count into next[0]
+                                            int count;
+                                            TrieTreeNode() : count(0) { fill( next, next+CHARCOUNT, 0 ); }
+                                        };
+
+                                        void insert( const string &word ) {
+                                            int n = word.size();
+                                            int p = 0;
+                                            for( int i = 0; i < n; ++i ) {
+                                                int idx = word[i];
+                                                if( !nodes[p].next[idx] ) {
+                                                    nodes[p].next[idx] = nodes.size();
+                                                    nodes.push_back( TrieTreeNode() );
+                                                }
+                                                p = nodes[p].next[idx];
+                                            }
+                                            ++nodes[p].count;
+                                        }
+
+                                        void dfs( int r, const int n ) {
+                                            if( nodes[r].count ) {
+                                                word[pos] = '\0';
+                                                printf( "%s %0.4f\n", word, ((float)nodes[r].count * 100) / n );
+                                            }
+                                            for( int i = 0; i < CHARCOUNT; ++i ) {
+                                                if( nodes[r].next[i] ) {
+                                                    word[pos] = i;
+                                                    ++pos;
+                                                    dfs( nodes[r].next[i], n );
+                                                    --pos;
+                                                }
+                                            }
+                                        }
+
+                                        void clear() {
+                                            nodes = vector<TrieTreeNode>( 1, TrieTreeNode() );
+                                        }
+                                        void reset() { pos = 0; }
+
+                                        vector<TrieTreeNode> nodes;
+                                        char word[50];
+                                        int pos;
+                                    };
+
+                                    int main() {
+
+                                        TrieTree tt;
+                                        string line;
+
+                                        int n = 0;
+                                        while( getline( cin, line ) ) {
+                                            tt.insert( line );
+                                            ++n;
+                                        }
+                                        tt.reset();
+                                        tt.dfs( 0, n );
+                                        return 0;
+                                    }
+                                    ```
 
         -   扫描线算法
             -   1. 扫描线的常规题目
@@ -14199,11 +15829,399 @@ A Bit of Logic -<
                             }
                             ```
 
-                            [algorithm - What are the differences between segment trees, interval trees, binary indexed trees and range trees? - Stack Overflow](http://stackoverflow.com/questions/17466218/what-are-the-differences-between-segment-trees-interval-trees-binary-indexed-t)
+                            input:
 
-                            [CSC378: Interval Trees](http://www.dgp.toronto.edu/people/JamesStewart/378notes/22intervals/)
+                            ```
+                            6   3
+                            1
+                            7
+                            3
+                            4
+                            2
+                            5
+                            1   5
+                            4   6
+                            2   2
+                            ```
 
-                    -   josephus problem -<
+                            C++ Version:
+
+                            ```cpp
+                            #include <cstdio>
+                            #include <vector>
+
+                            using namespace std;
+
+                            struct IntervalTree {
+                                struct Node {
+                                    int left, right, max, min;
+                                    Node( int l = 0, int r = 0, int ma = 0, int mi = 0 ) : left(l), right(r), max(ma), min(mi) {}
+                                };
+                                explicit IntervalTree( int n ) : n(n) {
+                                    arr     =   vector<int>( n+1 );
+                                    node    =   vector<Node>( 4*(n+1), Node() );
+                                }
+                                void build( int root, int left, int right ) {
+                                    Node &r = node[root];
+                                    r.left  = left;
+                                    r.right = right;
+                                    if( left == right ) {
+                                        r.max = r.min = arr[left];
+                                        return;
+                                    }
+                                    int mid = (left+right)/2;
+                                    build( 2*root,      left,       mid     );
+                                    build( 2*root+1,    mid+1,      right   );
+                                    r.max = max( node[2*root].max, node[2*root+1].max );
+                                    r.min = min( node[2*root].min, node[2*root+1].min );
+                                }
+                                void print() {
+                                    printf( "A: [ " );
+                                    for( int i = 1; i <= n; ++i ) {
+                                        printf( "%d ", arr[i] );
+                                    }
+                                    printf( "].\n" );
+                                    for( int i = 1; i <= 4*n; ++i ) {
+                                        Node &n = node[i];
+                                        if( !n.left || !n.right ) { continue; }
+                                        printf( "%d: [l: %d, r: %d, min: %d, max: %d]\n", i, n.left, n.right, n.min, n.max );
+                                    }
+                                }
+
+                                void query( int root, int left, int right, int &maxx, int &minx ) {
+                                    Node &r = node[root];
+                                    if( r.left == left && r.right == right ) {
+                                        maxx = max( maxx, r.max );
+                                        minx = min( minx, r.min );
+                                        return;
+                                    }
+                                    int mid = (r.left + r.right)/2;
+                                    if( left > mid ) {
+                                        query( 2*root+1,    left,   right,  maxx,   minx    );
+                                    } else if( right <= mid ) {
+                                        query( 2*root,      left,   right,  maxx,   minx    );
+                                    } else {
+                                        query( 2*root,      left,   mid,    maxx,   minx    );
+                                        query( 2*root+1,    mid+1,  right,  maxx,   minx    );
+                                    }
+                                }
+
+                                int n;
+                                vector<Node> node;
+                                vector<int> arr;
+                            };
+
+                            int main() {
+
+                                int n, q;
+                                while( 2 == scanf( "%d%d", &n, &q ) ) {
+
+                                    IntervalTree it(n);
+                                    for ( int i = 1; i <= n; ++i ) { scanf( "%d", &it.arr[i] ); }
+                                    it.build( 1, 1, n );
+                                    it.print();
+                                    while ( q-- ) {
+                                        int a, b;
+                                        scanf( "%d%d", &a, &b );
+                                        int maxx = -1, minx = 0x7FFFFFFF;
+                                        it.query( 1, a, b, maxx, minx );
+                                        printf("%d\n", maxx - minx );
+                                    }
+                                }
+
+                                return 0;
+                            }
+                            ```
+
+                            compile & run:
+
+                            ```bash
+                            # compile
+                            $ g++ main.cpp
+                            $ cat input.txt | ./a.out
+                            A: [ 1 7 3 4 2 5 ].
+                            1: [l: 1, r: 6, min: 1, max: 7]
+                            2: [l: 1, r: 3, min: 1, max: 7]
+                            3: [l: 4, r: 6, min: 2, max: 5]
+                            4: [l: 1, r: 2, min: 1, max: 7]
+                            5: [l: 3, r: 3, min: 3, max: 3]
+                            6: [l: 4, r: 5, min: 2, max: 4]
+                            7: [l: 6, r: 6, min: 5, max: 5]
+                            8: [l: 1, r: 1, min: 1, max: 1]
+                            9: [l: 2, r: 2, min: 7, max: 7]
+                            12: [l: 4, r: 4, min: 4, max: 4]
+                            13: [l: 5, r: 5, min: 2, max: 2]
+                            6
+                            3
+                            0
+                            ```
+
+                            refs and see also
+
+                            -   [algorithm - What are the differences between segment trees, interval trees, binary indexed trees and range trees? - Stack Overflow](http://stackoverflow.com/questions/17466218/what-are-the-differences-between-segment-trees-interval-trees-binary-indexed-t)
+                            -   [CSC378: Interval Trees](http://www.dgp.toronto.edu/people/JamesStewart/378notes/22intervals/)
+
+                    -   exercise 1 -<
+
+                        :   ```cpp
+                            #include <cstdio>
+                            #include <vector>
+
+                            using namespace std;
+
+                            struct IntervalTree {
+                                struct Node {
+                                    Node( int l = 0, int r = 0, int s = 0 ) : left(l), right(r), sum(s) {}
+                                    int left, right, sum;
+                                };
+                                explicit IntervalTree( int n ) : n(n) {
+                                    arr     =   vector<int>( n+1 );
+                                    node    =   vector<Node>( 4*(n+1), Node() );
+                                }
+                                void build( int root, int left, int right ) {
+                                    Node &r = node[root];
+                                    r.left  = left;
+                                    r.right = right;
+                                    if( left == right ) {
+                                        r.sum = arr[left];
+                                        return;
+                                    }
+                                    int mid = (left+right)/2;
+                                    build( 2*root,      left,       mid     );
+                                    build( 2*root+1,    mid+1,      right   );
+                                    r.sum = node[2*root].sum + node[2*root+1].sum;
+                                }
+
+                                void update( int root, int left, int right, int pos, int delta ) {
+                                    Node &r = node[root];
+                                    if( r.left > pos || r.right < pos ) { return; }
+                                    if( r.left == r.right ) {
+                                        r.sum += delta;
+                                        return;
+                                    }
+                                    int mid = (r.left+r.right)/2;
+                                    if( left > mid ) {
+                                        update( 2*root+1,   left,   right,  pos,    delta   );
+                                    } else if( right <= mid ) {
+                                        update( 2*root,     left,   right,  pos,    delta   );
+                                    } else {
+                                        update( 2*root,     left,   mid,    pos,    delta   );
+                                        update( 2*root+1,   mid+1,  right,  pos,    delta   );
+                                    }
+                                    r.sum = node[2*root].sum + node[2*root+1].sum;
+                                }
+
+                                int query( int root, int left, int right ) {
+                                    Node &r = node[root];
+                                    if( r.left == left && r.right == right ) {
+                                        return r.sum;
+                                    }
+                                    int mid = (r.left + r.right)/2;
+                                    if( left > mid ) {
+                                        return query( 2*root+1, left, right );
+                                    } else if( right <= mid ) {
+                                        return query( 2*root,   left, right );
+                                    } else {
+                                        return query( 2*root, left, mid ) + query( 2*root+1, mid+1, right );
+                                    }
+                                }
+
+                                int n;
+                                vector<Node> node;
+                                vector<int> arr;
+                            };
+
+                            int main() {
+
+                                int n, q;
+                                while( 1 == scanf( "%d", &n ) ) {
+
+                                    IntervalTree it(n);
+                                    for ( int i = 1; i <= n; ++i ) { scanf( "%d", &it.arr[i] ); }
+                                    it.build( 1, 1, n );
+
+                                    scanf( "%d", &q );
+                                    while ( q-- ) {
+                                        int cmd, a, b;
+                                        scanf( "%d %d %d", &cmd, &a, &b );
+                                        if( cmd == 2 ) {
+                                            printf( "%d\n", it.query(1,a,b) );
+                                        } else {
+                                            if( b ) {
+                                                it.update( 1, 1, n, a, b );
+                                            }
+                                        }
+                                    }
+                                }
+
+                                return 0;
+                            }
+                            ```
+
+                            input.txt:
+
+                            ```
+                            6
+                            4   5   6   2   1   3
+                            4
+                            1   3   5
+                            2   1   4
+                            1   1   9
+                            2   2   6
+                            ```
+
+                            ```bash
+                            $ g++ main.cpp
+                            $ cat input.txt | ./a.out
+                            22
+                            22
+                            ```
+
+                    -   A Simple Problem with Integers -<
+
+                        :   ```
+                            C   a   b   c           ->      A[i] += c, for i=[a..b]
+                            Q   a   b               ->      sum of A[a..b]
+                            ```
+
+                            ```cpp
+                            #include <cstdio>
+                            #include <vector>
+
+                            using namespace std;
+
+                            struct IntervalTree {
+                                struct Node {
+                                    Node( int l = 0, int r = 0, int s = 0, int i = 0 ) : left(l), right(r), sum(s), inc(i) {}
+                                    int left, right, sum, inc;                          // inc!
+                                };
+                                explicit IntervalTree( int n ) : n(n) {
+                                    arr     =   vector<int>( n+1 );
+                                    node    =   vector<Node>( 4*(n+1), Node() );
+                                }
+                                void build( int root, int left, int right ) {
+                                    Node &r = node[root];
+                                    r.left  = left;
+                                    r.right = right;
+                                    if( left == right ) {
+                                        r.sum = arr[left];
+                                        return;
+                                    }
+                                    int mid = (left+right)/2;
+                                    build( 2*root,      left,       mid     );
+                                    build( 2*root+1,    mid+1,      right   );
+                                    r.sum = node[2*root].sum + node[2*root+1].sum;
+                                }
+
+                                void update( int root, int left, int right, int delta ) {
+                                    Node &r = node[root];
+                                    if( r.left == left && r.right == right ) {
+                                        r.inc += delta;
+                                        r.sum += delta * (right-left+1);
+                                        return;
+                                    }
+
+                                    Node &nr = node[2*root+1];
+                                    Node &nl = node[2*root];
+
+                                    if( r.inc ) {
+                                        nr.inc += r.inc;
+                                        nl.inc += r.inc;
+                                        nr.sum += r.inc * (nr.right-nr.left+1);
+                                        nl.sum += r.inc * (nl.right-nl.left+1);
+                                        r.inc = 0;
+                                    }
+                                    int mid = (r.left+r.right)/2;
+                                    if( left > mid ) {
+                                        update( 2*root+1,   left,   right,  delta   );
+                                    } else if( right <= mid ) {
+                                        update( 2*root,     left,   right,  delta   );
+                                    } else {
+                                        update( 2*root,     left,   mid,    delta   );
+                                        update( 2*root+1,   mid+1,  right,  delta   );
+                                    }
+                                    r.sum = nr.sum + nl.sum;
+                                }
+
+                                int query( int root, int left, int right ) {
+                                    Node &r = node[root];
+                                    if( r.left == left && r.right == right ) {
+                                        return r.sum;
+                                    }
+
+                                    Node &nr = node[2*root+1];
+                                    Node &nl = node[2*root];
+
+                                    if( r.inc ) {
+                                        nr.inc += r.inc;
+                                        nl.inc += r.inc;
+                                        nr.sum += r.inc * (nr.right-nr.left+1);
+                                        nl.sum += r.inc * (nl.right-nl.left+1);
+                                        r.inc = 0;
+                                    }
+                                    int mid = (r.left + r.right)/2;
+                                    if( left > mid ) {
+                                        return query( 2*root+1, left, right );
+                                    } else if( right <= mid ) {
+                                        return query( 2*root,   left, right );
+                                    } else {
+                                        return query( 2*root, left, mid ) + query( 2*root+1, mid+1, right );
+                                    }
+                                }
+
+                                int n;
+                                vector<Node> node;
+                                vector<int> arr;
+                            };
+
+                            int main() {
+
+                                int n, q;
+                                while( 2 == scanf( "%d %d", &n, &q ) ) {
+
+                                    IntervalTree it(n);
+                                    for ( int i = 1; i <= n; ++i ) { scanf( "%d", &it.arr[i] ); }
+                                    it.build( 1, 1, n );
+
+                                    while ( q-- ) {
+                                        char buf[5];
+                                        scanf( "%s", buf );
+                                        int a, b, c;
+                                        if( buf[0] == 'Q' ) {
+                                            scanf( "%d %d", &a, &b );
+                                            printf( "%d\n", it.query(1,a,b) );
+                                        } else {
+                                            scanf( "%d %d %d", &a, &b, &c );
+                                            if( c ) { it.update(1, a, b, c ); }
+                                        }
+                                    }
+                                }
+
+                                return 0;
+                            }
+                            ```
+
+                            input.txt
+
+                            ```
+                            10  5
+                            1   2   3   4   5   6   7   8   9   10
+                            Q   4   4
+                            Q   1   10
+                            Q   2   4
+                            C   3   6   3
+                            Q   2   4
+                            ```
+
+                            ```bash
+                            $ cat input.txt | ./a.out
+                            4
+                            55
+                            9
+                            15
+                            ```
+
+                    -   josephus problem :hearts: -<
 
                         :   ```
                             N = 8 children, count M, 1 <= N, M <= 30000
@@ -14219,16 +16237,23 @@ A Bit of Logic -<
                             能模拟，效率很低。
 
                             现在考虑，每一轮都令所有剩下的人从左到右重新编号，
-                            例如 3 退出后，场上还剩下 1、2、4、5，则给 1 新编号 1，2
-                            新编号 2，4 新编号 3，5 新编号 4。不妨称这个编号为“剩余
-                            队列编号”。如下所示，括号内为原始编号：
+                            例如 3 退出后，场上还剩下 1、2、4、5，则给
 
                             ```
-                            1(1) 2(2) 3(3) 4(4) 5(5) --> 剩余队列编号 3 淘汰，对应原编号 3
-                            1(1) 2(2) 3(4) 4(5) --> 剩余队列编号 1 淘汰，对应原编号 1
-                            1(2) 2(4) 3(5) --> 剩余队列编号 3 淘汰，对应原编号 5
-                            1(2) 2(4) --> 剩余队列编号 1 淘汰，对应原编号 2
-                            1(4) --> 剩余队列编号 1 滔天，对应原编号 4
+                                1 新编号 1，
+                                2 新编号 2，
+                                4 新编号 3，
+                                5 新编号 4。
+                            ```
+
+                            不妨称这个编号为“剩余队列编号”。如下所示，括号内为原始编号：
+
+                            ```
+                            1(1) 2(2) 3(3) 4(4) 5(5)    --> 剩余队列编号 3 淘汰，对应原编号 3
+                            1(1) 2(2) 3(4) 4(5)         --> 剩余队列编号 1 淘汰，对应原编号 1
+                            1(2) 2(4) 3(5)              --> 剩余队列编号 3 淘汰，对应原编号 5
+                            1(2) 2(4)                   --> 剩余队列编号 1 淘汰，对应原编号 2
+                            1(4)                        --> 剩余队列编号 1 淘汰，对应原编号 4
                             ```
 
                             一个人在当前剩余队列中编号为 i，则说明他是从左到右
@@ -14236,101 +16261,87 @@ A Bit of Logic -<
                             段树维护原编号 [i..j] 内还有多少人没 有被淘汰，这样
                             每次选出被淘汰者后，在当前线段树中查找位置就可以了。
 
-                            例如我们有 5 个原编号，当前淘汰者在剩余队列中编号为 3
-                            ，先看左子树，即原编号 [1..3] 区间内，如果剩下的人不
-                            足 3 个，则说明当前剩余编号为 3 的 这个人原编号只能是在
-                            [4..5] 区间内，继续在 [4..5] 上搜索；如果 [1..3] 内剩下
-                            的人大于等于 3 个，则说明就在 [1..3] 内，也继续缩小范围
-                            查找，这样即可在 O(\log N) 时间内完成对应。问题得到
-                            圆满的解决。
+                            例如我们有 5 个原编号，当前淘汰者在剩余队列中编号为 3，
+                            先看左子树，即原编号 [1..3] 区间内，如果剩下的人不足 3 个，
+                            则说明当前剩余编号为 3 的 这个人原编号只能是在 [4..5] 区间内，
+                            继续在 [4..5] 上搜索；如果 [1..3] 内剩下的人大于等于 3 个，
+                            则说明就在 [1..3] 内，也继续缩小范围查找，这样即可在 O(log N)
+                            时间内完成对应。问题得到圆满的解决。
 
                             ```cpp
-                            #include <stdio.h>
-                            #include <string.h>
+                            #include <cstdio>
+                            #include <vector>
 
-                            #define L(a) ((a)<<1)
-                            #define R(a) (((a)<<1)+1)
-                            #define MAXN 30001
+                            using namespace std;
 
-                            typedef struct node_t {
-                                int left, right;
-                                int count; /* 区间内的元素个数 */
-                            } node_t;
-
-                            /* 完全二叉树，结点编号从 1 开始，层次从 1 开始.
-                             * 用一维数组存储完全二叉树，空间约为 4N，
-                             * 参考 http://comzyh.tk/blog/archives/479/
-                             */
-                            node_t node[MAXN * 4];
-
-                            void init() {
-                                memset(node, 0, sizeof(node));
-                            }
-
-                            /* 以 t 为根结点，为区间 [l,r] 建立线段树 */
-                            void build(int t, int l, int r) {
-                                node[t].left = l;
-                                node[t].right = r;
-                                node[t].count = r - l + 1;
-                                if (l == r) return;
-
-                                const int mid = (r + l) / 2;
-                                build(L(t), l, mid);
-                                build(R(t), mid + 1, r);
-                            }
-
-                            /**
-                             * @brief 输出i
-                             * @param[in] t 根节点
-                             * @param[in] i 剩余队列编号
-                             * @return 被删除的实际数字
-                             */
-                            int remove(int t, int i) {
-                                node[t].count--;
-                                if (node[t].left == node[t].right) {
-                                    printf("%d ", node[t].left);
-                                    return node[t].left;
+                            struct IntervalTree {
+                                struct Node {
+                                    Node( int l = 0, int r = 0, int c = 0 ) : left(l), right(r), count(c) {}
+                                    int left, right, count;
+                                };
+                                explicit IntervalTree( int n ) : n(n) {
+                                    node    =   vector<Node>( 4*(n+1), Node() );
                                 }
-                                if (node[L(t)].count >= i) return remove(L(t), i);
-                                else return remove(R(t), i - node[L(t)].count); /* 左子树人数不足，则在右子树查找 */
-                            }
+                                void build( int root, int left, int right ) {
+                                    Node &r = node[root];
+                                    r.left  = left;
+                                    r.right = right;
+                                    r.count = right-left+1;
+                                    if( left == right ) { return; }
+                                    int mid = (left+right)/2;
+                                    build( 2*root,      left,       mid     );
+                                    build( 2*root+1,    mid+1,      right   );
+                                }
 
-                            /**
-                             * @brief 返回 1到i内的活人数
-                             * @param[in] t 根节点
-                             * @param[in] i 原始队列的数字
-                             * @return 1到i内的活人数
-                             */
-                            int get_count(int t, int i) {
-                                if (node[t].right <= i) return node[t].count;
+                                int remove( int root, int i ) {
+                                    Node &n = node[root]; --n.count;
+                                    if( n.left == n.right ) {
+                                        return n.left;
+                                    }
+                                    if( node[2*root].count >= i ) {
+                                        return remove( 2*root, i );
+                                    } else {
+                                        return remove( 2*root+1, i-node[2*root].count );
+                                    }
+                                }
 
-                                const int mid = (node[t].left + node[t].right) / 2;
-                                int s = 0;
-                                if (i > mid) {
-                                    s += node[L(t)].count;
-                                    s += get_count(R(t), i);
-                                } else
-                                    s += get_count(L(t), i);
-                                return s;
-                            }
+                                int getCount( int root, int i ) {
+                                    if( node[root].right <= i ) { return node[root].count; }
+
+                                    int mid = (node[root].left+node[root].right)/2;
+                                    int s = 0;
+                                    if( i > mid ) {
+                                        s += node[2*root].count;
+                                        s += getCount( 2*root+1, i );
+                                    } else {
+                                        s += getCount( 2*root,   i );
+                                    }
+                                    return s;
+                                }
+
+                                int n;
+                                vector<Node> node;
+                            };
 
                             int main() {
+
                                 int n, m;
-                                scanf("%d%d", &n, &m);
+                                while( 2 == scanf( "%d %d", &n, &m ) ) {
 
-                                init();
-                                build(1, 1, n);
+                                    IntervalTree it(n);
+                                    it.build( 1, 1, n );
+                                    int i, j = 0, k;
+                                    for( i = 1; i <= n; ++i ) {
+                                        j += m;
+                                        if( j > it.node[1].count ) { j %= it.node[1].count; }
+                                        if( j == 0    )            { j  = it.node[1].count; }
+                                        k = it.remove(   1, j );
+                                        j = it.getCount( 1, k );
+                                        printf( "%d ", k );
+                                    }
 
-                                int i;
-                                int j = 0; /* 剩余队列的虚拟编号 */
-                                for (i = 1; i <= n; i++) {
-                                    j += m;
-                                    if (j > node.count)
-                                        j %= node.count;
-                                    if (j == 0) j = node.count;
-                                    const int k = remove(1, j);
-                                    j = get_count(1, k);
                                 }
+
                                 return 0;
                             }
                             ```
@@ -22947,6 +24958,15 @@ Blog Posts -<
 
     [程序员如何快速准备面试中的算法 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/19131887)
 
+    [检测单链表中是否有环--快慢指针法 - Linloves - 博客频道 - CSDN.NET](http://blog.csdn.net/loveyou426/article/details/7927297)
+
+    [横空出世，席卷互联网 -- 评微软等公司数据结构 + 算法面试 100 题 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6015165) -<
+
+    :   ~~这个系列很乱，推荐先下载 PDF：[微软面试 100 题系列之 PDF 文档 [带目录 +
+        标签]by_July - 下载频道 - CSDN.NET](http://download.csdn.net/download/v_july_v/4583815)。~~
+
+        It sucks.
+
     shitshit
 
 [LeetCode solutions | MaskRay](http://maskray.me/blog/2014-06-29-leetcode-solutions){.hearts} -<
@@ -24473,18 +26493,6 @@ Blog Posts -<
             }
         };
         ```
-
-```
-C:\Users\tzx\Downloads\LM\leetcode-master\C++\leetcode-cpp.tex
-```
-
-[检测单链表中是否有环--快慢指针法 - Linloves - 博客频道 - CSDN.NET](http://blog.csdn.net/loveyou426/article/details/7927297)
-
-[横空出世，席卷互联网 -- 评微软等公司数据结构 + 算法面试 100 题 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6015165)
-
-:   ~~这个系列很乱，推荐先下载 PDF：[微软面试 100 题系列之 PDF 文档 [带目录 + 标签]by_July - 下载频道 - CSDN.NET](http://download.csdn.net/download/v_july_v/4583815)。~~
-
-    It sucks.
 
 [面试必会内容之——操作系统 - 671coder的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/liuqiyao_01/article/details/38962323)
 
