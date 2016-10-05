@@ -295,3 +295,8 @@ egg
 $(".tabNav > ul").each(function(){
     $(this).idTabs($(this).parent().attr('target'));
 });
+
+new Clipboard('.copyme');
+// $('.copyme').on('click', function(event){ event.stopPropagation(); });
+
+// $('*').on('click', function(event){ console.log(event.target(); }); '<button class="btn" data-clipboard-snippet=""><img class="clippy" src="https://clipboardjs.com/assets/images/clippy.svg" alt="Copy to clipboard" width="13"></button>'

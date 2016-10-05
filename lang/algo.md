@@ -38,6 +38,32 @@ ASCII table -<
     C:\Users\tzx\Downloads\LM\leetcode-master\C++\leetcode-cpp.tex
     ../../aoapc-book/aoapc-bac2nd/README.md
 
+Cheatsheet -<
+
+:   ```cpp
+    @include <-=include/algo-cheat.cpp=
+    ```
+
+FAQ -<
+
+:   刷题刷到什么程度可以去面试了呢？
+      ~ lintcode 70% 题目刷两遍， 60% 题目做到 bug free，就比较好啦。
+
+    前端工程师 / 数据科学家需要刷题么？
+      ~ 当然需要啦，60% 考算法，40% 考相关背景技术或项目经验。
+
+    在哪里可以找到面经?
+      ~ glassdoor, 一亩三分地，themianjing.com, mitbbs，等等。
+
+    先刷题还是先看面经捏？
+      ~ 一般建议先刷一点题目，然后再去看面经。这样轻松一点，遇到会的题目就跳过，
+        不会的题目好好想一想，时间允许还可以实现一下。如果时间很紧张了，建议一边
+        刷题一边看面经。
+
+    哪里可以投简历？找内推？
+      ~ -   投简历： indeed，monster, hired.com, linkedin, readyforce.com，以及各大公司官网。
+        -   找内推： mitbbs，一亩三分地, linkedin
+
 TODOs & Notes:
 
 :   -   (left+right)/2 和 left + (right-left)/2 除了在负数的时候不同之外，后者还不会越界。
@@ -2226,7 +2252,7 @@ A Bit of Logic -<
                                     string s, t, user1, mta1, user2, mta2;
                                     set<string> addr;
 
-                                    // 输入所有MTA，转化为地址列表
+                                    // 输入所有 MTA，转化为地址列表
                                     while(cin >> s && s != "*") {
                                         cin >> s >> k;
                                         while(k--) { cin >> t; addr.insert(t + "@" + s); }
@@ -4467,7 +4493,7 @@ A Bit of Logic -<
                                     if( tmp < A[mid] ) {
                                         right = mid - 1;
                                     } else {
-                                        left = mid + 1;
+                                        left = mid + 1;     // 大于或者等于，都向右倾斜
                                     }
                                 }
                                 for( j = i - 1; j >= left; --j ) {
@@ -5403,10 +5429,11 @@ A Bit of Logic -<
                             public:
                                 void nextPermutation(vector<int> &num) {
                                     if (num.size() <= 1) return;
-                                    ROF(i, 0, num.size()-1) {
+                                    // ROF(i, 0, num.size()-1) {
+                                    for( int i = num.size()-2; i >= 0; --i ) {
                                         if ( i+1 < num.size() && num[i] < num[i+1] ) {
                                             int j = num.size();
-                                            while (! (num[i] < num[--j]));
+                                            while (! (num[i] < num[--j]));  // num[i] < num[j]
                                             swap(num[i], num[j]);
                                             reverse(num.begin()+i+1, num.end());
                                             return;
@@ -5441,7 +5468,7 @@ A Bit of Logic -<
 
                                 康托展开 -<
 
-                                ：  Cantor expansion
+                                :   Cantor expansion
 
                                     `X=a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[1]*0!`，
                                     其中 `a[i]` 为当前未出现的元素中是排在第几个（从 0 开始）。这就是康托展开。康托展开可用代码实现。
@@ -5466,7 +5493,7 @@ A Bit of Logic -<
                                 -   a~n~ = 0
 
                                 ```cpp
-                                // 康托编码，时间复杂度O(n)，空间复杂度O(1)
+                                // 康托编码，时间复杂度 O(n)，空间复杂度 O(1)
                                 class Solution {
                                 public:
                                     string getPermutation(int n, int k) {
@@ -5484,23 +5511,22 @@ A Bit of Logic -<
                                         return result;
                                     }
 
-                                    // seq 已排好序，是第一个排列
-                                    template<typename Sequence>
+                                    template<typename Sequence>                                     // seq 已排好序，是第一个排列
                                     Sequence kth_permutation(const Sequence &seq, int k) {
                                         const int n = seq.size();
-                                        Sequence S(seq);
-                                        Sequence result;
+                                        Sequence S(seq), result;
+                                        result.reserve( n );
 
                                         int base = factorial(n - 1);
-                                        --k;                                                    // 康托编码从 0 开始
+                                        --k;                                                        // 康托编码从 0 开始
 
-                                        for (int i = n - 1; i > 0; k %= base, base /= i, --i) { // base/=i 实在太巧妙
+                                        for (int i = n - 1; i > 0; k %= base, base /= i, --i ) {    // base/=i 实在太巧妙
                                             auto a = next(S.begin(), k / base);
                                             result.push_back(*a);
-                                            S.erase(a);     // 记得 erase 掉！
+                                            S.erase(a);                                             // 记得 erase 掉！
                                         }
 
-                                        result.push_back(S[0]); // 最后一个
+                                        result.push_back(S[0]);                                     // 最后一个
                                         return result;
                                     }
                                 };
@@ -5514,8 +5540,8 @@ A Bit of Logic -<
                                 class Solution {
                                 public:
                                     string getPermutation(int n, int k) {
-                                        //        f(0)  f(1)  2   3    4      5       6        7        8
-                                        int f[] = { 1,    1,  2,  6,  24,   120,    720,    5040,   40320   };
+                                        // factorial:   0     1   2   3    4      5       6        7        8
+                                        int f[] =     { 1,    1,  2,  6,  24,   120,    720,    5040,   40320   };
                                         vector<bool> a(n, true);
                                         string r;
                                         k--;
@@ -5549,7 +5575,7 @@ A Bit of Logic -<
                             bool next_permutation( BidirIt first, BidirIt last, Compare comp );
                             ```
 
-                            Possible implementation :hearts: -<
+                            Possible implementation :hearts: :hearts: -<
 
                             :   ```cpp
                                 template<class BidirIt>
@@ -9806,11 +9832,115 @@ A Bit of Logic -<
 
                 >   而不管之前这个状态是如何得到的
 
-                这个性质叫做**无后效性**。
+                这个性质叫做**无后效性**。（历史不对未来产生深远影响。）
+
+                ---
+
+                动态规划最重要的就是理解【最优原理】：如果一个决策的前面若干步骤已
+                经确定从而进入某种状态之后，后面的步骤从按照当前状态开始的最优
+                解必然是整体（包括该状态的情况下）的最优解，则该问题满足最优原
+                理。换句话说，在求解（整体问题）的最优解的时候，后面的步骤选择
+                只与当前状态有关，而【与如何到达这个状态的步骤无关】。
+
+                问题满足最优原理之后，我们可以把某个状态到目标的最优解记录下来，
+                这样当通过不同的步骤走到相同的状态的时候，就不需要重复搜索了，
+                有一些问题还可以推出递推公式进行求解。
+
+                设计动态规划算法的时候，最核心的就是如何【设计状态】，使得状态的可
+                能性尽量少，却又同时满足最优原理。例如，如果状态被设置为所有到
+                达该状态步骤组成，显然符合最有原理，但这就和原来的问题一样了，
+                并没有让问题更简单。
+
+                最后，动态规划算法和广度优先搜索解决的是同样的问题，解决问题的
+                方法的描述方式不同而已。
+
+                对动态规划（Dynamic Programming）的理解：从穷举开始
+
+                :   TODO
+
+                    《算法竞赛入门经典 (豆瓣)》中 LRJ 是按“穷举－分治－dp”来安排
+                    书本章节的，这并非偶然，要深入理解并灵活运用 dp 必须要先对穷
+                    举和分治有很好的基础。否则就会陷入 LRJ 指出的一种现象：
+
+                    >   “每次碰到新题自己都想不出来，但一看题解就懂”的尴尬情况。
+
+                动态规划 - 华科小涛
+
+                :   TODO
+
+                    最近在看算法导论：上面讲的不错：当问题具有最优子结构和重叠
+                    子问题时，可以考虑用动态规划算法。动态规划方法安排求解顺序，
+                    对每个子问题只求解一次，并将结果保存下来。如果随后再次需要
+                    此子问题的解，只需查找保存的结果，而不必重新计算。因此动态
+                    规划算法是付出额外的内存空间来节省计算时间，是典型的时空权
+                    衡的例子。
+
+                如何理解动态规划？ -<
+
+                :   ```
+                    贪心：                                  【每一步只选最优】
+                        A ------------- H/I ----------- P/Q -------- Z
+                                    min(H,I)          min(P,Q)
+
+                    穷举：                                  【把这些路都尝试一遍，才知道哪个最优】
+                        A --+-- H ----- P ------- Z
+                            |    \----- Q -------/
+                            |                   /
+                            \---I ----- R -----/
+                                 \----- S ----/
+
+                    动态规划：                              【暴力，但 A-H-Q 和 A-I-Q 保存一条就可以了】
+                                     -- P --
+                                    /       \
+                             -- H -+         \
+                            /       \         \
+                        A -+         -- Q -----+-- Z
+                            \       /          /
+                             -- I -+          /
+                                    \        /
+                                     -- R --
+                    ```
+
+                    最后用经典的 0-1 背包问题做个例子，巩固一下吧，这个任务是，我们从 N 个物品选若
+                    干塞到可以承受最大重量 W 的包包里面，要价值最大，因此就可以将任务分成 N 个步骤，
+                    每个步骤面对第 i 号物品，决策有两条：选，还是放弃，这里的状态，就是影响之后步
+                    骤决策的因素，在这里，就是“背包的剩余空间”
+
+                    比如，物品的重量是 1,2,3,4,5,6，W=12，从头决策，0 表示放弃，1 表示选，BFS 三次后有八种状态：
+
+                    |   000 剩12
+                    |   001 剩9
+                    |   ……（略）
+                    |   110 剩9
+                    |   ……（略）
+
+                    前三次步骤后，001 和 110 到达了同样的状态，都是剩余可装重量 9 的东西，这样
+                    在剩下的决策中，这俩分支走的路都是一样的，跟你之前是选了 001 还是 110 没有
+                    任何关系（无后效性），因此只要看 001 价值大，还是 110 价值大就可以了，8 个
+                    状态减少为 7 个，继续 BFS 下去，每一轮都合并同样状态，完成后，从最后一轮的
+                    所有状态中，找到价值最大的就 ok 了
+
+                    由于状态最多有 W+1 个，进行 N 轮，因此复杂度 O(NW)，书上说的状态迁移方程的办法其
+                    实跟这个过程很类似，不过对于有些题目，比起 BFS+ 状态合并，状态方程的分析可以
+                    做更好的优化，如引入单调队列什么的，但 BFS+ 状态合并可以让你得到一个没有追求
+                    极限但是也比较快的解决方案了，结合具体问题有时候更适合，比如根据问题的实际
+                    需求，搜索可以限界剪枝减少工作量，我在工作中就用过，替换了同事从 wiki 抄的 DP
+                    算法，效率能提升一些
+
+                    最后留个小题，是以前做考官时候经常用的一道面试题，印象中有
+                    算法基础的同学六七成都能立即说“用 DP”，然而一问状态转移就晕
+                    了 ^_^：在约定的规则下，以数字数组的形式输入一手斗地主的牌，
+                    设计算法计算这手牌最少几把可以出完注意这里只是用斗地主做个
+                    例子，不代表牌数限制为 20 张，可以看做是一个 N 个数字根据规
+                    则分组的问题，说斗地主是因为之前是做游戏行业的，而且面试时
+                    候这样说比较容易降低同学们的紧张度，同时也是一个暗示：大家
+                    都知道斗地主靠贪心法是得不到最优出牌顺序的吧，哈。。。
 
                 refs and see also
-
                 -   [什么是动态规划？动态规划的意义是什么？ - 知乎](https://www.zhihu.com/question/23995189)
+                -   [对动态规划（Dynamic Programming）的理解：从穷举开始 · Jan Fan](http://janfan.github.io/chinese/2015/01/21/dynamic-programming.html)
+                -   [动态规划 - 华科小涛 - 博客园](http://www.cnblogs.com/hust-ghtao/p/4150159.html)
+                -   [如何更好的掌握动态规划的思想？ - 知乎](https://www.zhihu.com/question/24347044)
 
         -   [Dynamic programming - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dynamic_programming) -<
 
@@ -13342,6 +13472,17 @@ A Bit of Logic -<
                                     ^       ^
                                     s       f=0
                     -----------------------------------------------
+                        2-> 3-> 5-> #
+
+                                    7-> 11  #
+                    -----------------------------------------------
+                    1   2   3   4
+                    f       f       f
+                    s   s   s
+
+                    1   2   3   4   5
+                    f       f       f   f
+                    s   s   s   s
                     ```
 
                 Linked List Cycle -<
@@ -21873,6 +22014,10 @@ Beauty of Programming -<
             }
             ```
 
+    -   TODO: fib, fac -<
+
+        :   fibonacci. factorial.
+
         [nonstriater/Learn-Algorithms: 算法学习笔记](https://github.com/nonstriater/Learn-Algorithms)
 
         refs and see also
@@ -26842,3 +26987,1364 @@ Blog Posts -<
 [一道阿里笔试题，思路应该是怎样？ - 知乎](https://www.zhihu.com/question/50512830) -<
 
 :   [The-Art-Of-Programming-By-July/02.09.md at master · julycoding/The-Art-Of-Programming-By-July](https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/02.09.md)
+
+[Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne](http://algs4.cs.princeton.edu/home/) -<
+
+:   >   essential information that every serious programmer needs to know about
+    >   algorithms and data structures
+
+[Leetcode: Palindrome Partitioning II - Avril - 博客园](http://www.cnblogs.com/avril/p/3293449.html)
+
+Best Time to Buy and Sell Stock IV 问题
+
+问答 | 九章算法 -<
+
+:   refs and see also
+
+    -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖 IT 企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/796/)
+
+    概率论问题 :hearts: -<
+
+    :   假设有一个硬币，抛出字（背面）和花（正面）的概率都是0.5，而且每次抛硬币
+        与前次结果无关。现在做一个游戏，连续地抛这个硬币，直到连续出现两次字为
+        止，问平均要抛多少次才能结束游戏？注意，一旦连续抛出两个“字”向上游戏就
+        结束了，不用继续抛。
+
+        假设连续抛 2 次正面的期望为 E
+
+        ```
+        E = 0.5 * 0.5 * 2     (第一次抛了正， 第二次也抛了正，则抛两次结束了，次数是两次)
+          + 0.5 * 0.5 * (E + 2)（第一次抛了正， 第二次抛了反，前面无效了，从头开始，那么再出现两个正面，次数是 E+2）
+          + 0.5 * (E + 1)      (第一次抛了反， 前面无效了，从头开始，那么再出现两个正面次数是 E+1）
+        ```
+
+        E = 6
+
+        同理可以推算连续三个正面，连续反正，正反，等等所有情况都可以计算。
+
+        >   谢谢助教，
+        >
+        >   比如三个正面应该就是这四种情况分析了把？(反正以遇到反就要从头开始弄了)
+        >
+        >   -   1) 正正正
+        >   -   2) 正正反 + E
+        >   -   3) 正反 + E
+        >   -   4) 反 + E
+
+        同理算一样连续三个正面的期望 E
+
+        ```
+        E = 0.5 * 0.5 * 0.5 * 3
+          + 0.5 * 0.5 * 0.5 * (E + 3)
+          + 0.5 * 0.5 + (E + 2)
+          + 0.5 * (E + 1)
+        ```
+
+        得到 E = 14，三个连续正面的期望是 14 次。
+
+        refs and see also
+
+        -   [抛硬币 直到连续出现两次字为止 - VergiL Wang的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/wangran51/article/details/8882088)
+        -   [概率论问题](http://www.jiuzhang.com/qa/2125/){.hearts}
+
+    怎么找中小公司校招的职位？  -<
+
+    :   大公司可以去他们网站投，不过那些不知名的中小公司的校招职位怎么找呢？Indeed 之类的上面搜什么关键词？
+
+        >   angellist
+
+    【置顶】 为什么不需要学习贪心法 -<
+
+    :   因此，贪心法可以说，是一种“目光短浅”的算法。一般在算法问题中，可以使用
+        贪心算法的问题，其贪心策略往往都比较复杂，一般人是想不到的。而你容易想
+        到的那些贪心策略，往往都是错的。
+
+        面试基本不会考 -<
+
+        :   贪心法的问题，面试基本不会考，因为等同于考智力题或者是背诵题。一个面试官想
+            要自己凭空创造出一个面试题是使用贪心算法的，是非常困难的。（参见 LintCode 上
+            的贪心算法的题目所占比例可知）。既然如此，如果面试中被问到了贪心算法，那么
+            一定是一道经典的贪心问题，这类问题，我们可以称之为背诵题。因为大多数同学
+            （除了智商很高，或者有算法竞赛经历的那一批），是不可能在面试的时候想得出解
+            法的。
+
+            举几个例子：Gas Station (http://www.lintcode.com/en/problem/gas-station/)，
+            这个题的做法是，从任意站点出发，走一圈，找到这一圈里剩余Gas最少的那一站，然
+            后从这一站出发走一圈，如果在这一站出发可以顺利走完全程，那么就可以行，否则
+            就不可行。像这样的算法，是需要进行数学证明来证明其正确性的，面试官是没有能
+            力出这样的面试题的。
+
+            从另外一个角度来说，贪心算法的题，对于程序的实现能力要求并不高，也违背了公
+            司通过算法题面试主要是希望考察大家的程序实现能力这一点。所以面试官和公司也
+            都不倾向于将贪心算法作为面试的算法问题。
+
+        没有通用性 -<
+
+        :   二分法，动态规划算法，分治算法，搜索算法等等，很多的算法都是具有通用性的。
+            也就是说，在题目 A 里，你用了这个算法，在其他的题目 B 里，你可能完全可以用一样
+            的算法和思路去解决。
+
+            而贪心法，他不是“一个算法”，而是“一类算法”的统称。所以基本的情况就是，你在
+            题目A里用了某个贪心算法解决了这个问题，然后这个题中用到的贪心法，永远也找不
+            到第二个题用类似的方法来解决。
+
+        贪心是动态规划的子集么? -<
+
+        :   只要问题的解决方案有最优子结构，并且无后效性就可以认为是动态规划。
+
+            但是你这样问并没有什么意义，因为动态规划真正的目的还是依赖空间换时间，而贪心策略不是。
+
+            举个简单的例子来说，求单源最短路的 Dijkstra 算法，你可以认为它是一个贪心算
+            法，因为根据定义（Di 表示源点到节点 i 的最短路长度）：
+
+            Dj = min{ Dj, Di+ Matrix[i][j] }
+
+            它每次迭代都很无脑地选一条最近的路出发，所以认为是一个贪心策略。但是它又有
+            效地将重叠的最优子结构问题用一个辅助数组 D 存储了起来，并且没有后效性，所以
+            也是一个动态规划算法。
+
+        如何理解动态规划？ -<
+
+        :   TODO
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2100/)
+        -   [（无权限）几个必须“背诵”的贪心算法题](http://www.jiuzhang.com/qa/2099/)
+        -   [贪心是动态规划的子集么? - 知乎](https://www.zhihu.com/question/34414760)
+        -   [如何理解动态规划？ - 知乎](https://www.zhihu.com/question/39948290)
+        -   [第10讲 贪心算法的例子_图文_百度文库](http://wenku.baidu.com/view/f20777a7b0717fd5370cdc05.html)
+        -   [贪心算法如何体现在霍夫曼编码中？ - 知乎](https://www.zhihu.com/question/22112710?sort=created)
+        -   [【算法学习笔记】25.贪心法 均分纸牌问题的分析 - 雨尘之林 - 博客园](http://www.cnblogs.com/yuchenlin/p/4382027.html)
+        -   [均分纸牌问题为什么可以用贪心法得到全局最优解？ - 知乎](https://www.zhihu.com/question/27883948)
+        -   [贪心算法及几个经典例子 - a925907195的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/a925907195/article/details/41314549)
+
+    resume 上需要写 objective 吗  -<
+
+    :   听九章的讲座说要写，但是九章给的简历里又没有 objective。是不是转专业的必需写？
+
+        **要。**
+
+    多个面试经验贴汇总 -<
+
+    :   -   第一档次: Dropbox, Square, Pinterest, Facebook, LinkedIn, Google, Twitter, Apple
+        -   第二档次: Zynga, Yelp, Netflix, Skype, VMWare, Salesforce, Groupon, Paypal, Evernote, Box.net, Quora, A9.com, 126Lab, Palantir
+        -   第三档次: Oracle, EMC, eBay, Intuit, NetApp, NetSuite, Yahoo, Adobe, Autodesk, Symantec, Riverbed, Quantcast, Concur, Aster Data, Citrix, EA等
+
+            算上湾区以外公司， Amazon, Micriosoft 可以排在第二档次 Expedia,
+            RedHat, RackSpace, Akamai, Bloomberg 等可以排在第三档次。
+
+            Dropbox 创始人 Drew Houston 在 2013 年 MIT 的毕业典礼上讲的很好：
+            “世界上只有一个好莱坞，一个硅谷，如果你想待在业界最好的圈子，那就搬
+            家！”我被他说服，投简历的时候瞄准了 FLGT(业界最火的四家公司，
+            Facebook, LinkedIn, Google, Twitter) 和一众火爆的初创公司。
+
+            最近细读未来公司 LinkedIn 的创始人 Reid Hoffman 的新书 The Start-up
+            of You，里面讲到求职三片拼图：你的资源 / 能力（your assets），你的
+            志向 / 价值观（your aspirations/values) 和市场现实（market
+            reality），共同组成你的核心竞争力。所以我去尝试互联网大公司，十投八
+            中，但是其他的努力很多都浪费了，如果当时早就看了这本书多好。关于这
+            本书和它的作者，以后会写另一篇文章详述，这里先隆重推荐给大家。
+
+        最后来一点干货吧，给本专业的人看 -<
+
+        :   Google 题目： -<
+
+            :   1. MST of a all connected graph. Need to use Fibo heap to reduce complexity.
+                2. Game of Life, one transition (sub O(n^2) solution).
+                3. String compressor that turns 123abkkkkc to 123ab5xkc. Decompressor is already written and must remain unchanged. (messy code)
+                4. Youtube mash design, how to do a video version of Mark’s FaceMash.
+
+                题全都没见过，rej
+
+            Facebook 题目： -<
+
+            :   电话
+
+                1. Big Integer multiplication. (Optimization required, how to do 8 digits*8 digits, etc).
+                2. Binary tree level order traversal. (leetcode original)
+                3. 也是 leetcode 原题，不记得了
+
+                Onsite
+
+                1. Given 1->a, 2->b … 26->z. 126 -> az or lf or abf (bfs/dfs not accepted, need to use DP or some tricky method)
+                2. Binary tree serialization/de-serialization (这道题pinterest也问了）
+                3. Permutation with duplicate
+                4. Range maximum query, pre-processing in O(n) and query in O(1)
+
+                题答少了一道，rej
+
+        其他重要题目和技巧：
+
+        :   2Sum 3Sum, rotate LinkedList, minimum path sum, combinations
+
+            注重练习 tree 的 recursion 搜索, dp, greedy, two/three pointers, stack.
+            谷歌的题是很难刷到的，要靠运气，其他很多公司（尤其是亚马逊为首）都可以
+            靠刷题大幅提高胜算。 资源：leetcode.com, geeksforgeeks.com,
+            glassdoor.com, CC150
+
+            BTW，今年几家的硕士 package 都差不多，大约是 115k base + 160-170k （RSU
+            股票分4 年 + signing + reloc)，如果没有 competing offer 比较难negotiate。
+            我的 O 家offer 是 114k base + 4000 股期权分四年 + 15k signing + 10k
+            reloc，在等 LinkedIn发 official offer 之前，成功的想办法把 deadline 延
+            长了两次，变成 Standing offer，如果不这么干，他们是愿意涨一点 base 的。
+
+            按照我个人的理解，学生被大公司分两类，第一类是“名校 GPA3.8 以上”的，第
+            二类是else。作为 else 的代表，我不得不说，GPA3.8 以上真的很难，第一类们
+            确实确实有特权先被考虑，但本文正是献给广大 else 们的。
+
+            面试这个东西，其实是没法准备的，全靠经验。我没有哪个问题在第一次被问的
+            时候就能答的很完美，我相信谁也不能。从去年 6 月跟人家介绍自己都要磕磕巴
+            巴，到现在基本我虐面试官，大大小小的电面一百来次，onsite 十来次，磨厚的
+            不只是嘴皮，还有脸皮。其实面试的最高奥义就是厚着脸皮吹牛逼，并用丰富的
+            吹牛逼经验保证不被拆穿即可。当然了，知识还是要有一些，毕竟是技术职位，
+            而且要对 Coding 有一腔热情。当然了，还要习惯每天吃 subway。
+
+            在这里我想说一说老中，我所说的老中是指现在 40-50 岁，30 多岁的时候从国
+            内直接跳槽过来的中国软工，错了，是 我们这儿 软工。我去 qualcomm 和
+            amazon onsite 都是栽到了老中手里。我现在也不明白为什么只有中国人看不上
+            中国人，而人家阿三都是只帮阿三。我在 qualcomm 最后一个面的老中问我，有
+            没有学过 OS，我说我自学的。他说你没有做过那些 project 也说你学过？我说
+            你可以问啊，看看我会不会。结果这 B 问了我一堆我回来 google 都查不到的鬼
+            问题，还问我 how to simulate garbage collector in C? 看我不会又得意洋洋
+            的反问我，你没学过 OS 还想找 SWE 的工作? 我就说我的课都是 application
+            level 的。他操着浓重的不知哪的方言腔说了一句让我一辈子都忘不了的话：If
+            I wanna build a applicaiton, I will go to hign school and ask them "Who
+            wanna do some funny stuff?". Why I hire you? 我擦，我当时真想一口大浓痰
+            吐他脸上然后大骂我去你大爷的。但是我还是忍住了，虽然我从他眼睛里也能看
+            到我眼里冒出的火光。Amazon 也是一样的，在其他面试官都被我折服之后，他又
+            问我为什么 EE 的不好好学 EE，CS 的基础课你都没学过云云.... 我当时以为我
+            面的可以，因为他的题被我做完了，我还挑了他一个错误。事后我感觉挑他的错
+            这一下让他决定毙我的，要不然，就是和我竞争的人过于 NB 了。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/788/)
+
+    美团 2015 校招面经 - 软件研发岗 (拿到 offer) -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/751/)
+
+    Linkedin 面经合集 -<
+
+    :   面经 1 -<
+
+        :   然后就是开始做题，两个题目。
+
+            第一个是两个单词最短距离，在版上看到很多人都说过这个题目，应该是L家经常面的。
+            本来以为只要实现一个函数，哪里知道是实现两个函数，第一个是做求最短距离的准
+            备工作，实现类的初始化；第二个才是真正的求最短距离的函数。写第二个函数的时
+            候，还忘记判断单词是否在字典中出现过，幸好面试官有提醒。
+
+            第二题就是 leetcode 上的全排列，没有重复元素的。
+
+        面经 2 -<
+
+        :   第二题也比较常见,CC150 原题, 找俩字符串在一段文字中最近的距离:
+
+            直接用 CC150 解法, 用两个 index 比较得出 Math.abs(index1-index2), update 最小距
+            离. 写好后提示要是 cat dog cloud dog dog dog......, 即后面有 million 个 dog, 是
+            否不用比较整个文章. 回答说用 map 提早存储每个单词的 index, 然后在 map 中找到单
+            词比较, 在讨论后最坏情况下复杂度也是 O(n).
+
+            由于没有时间写代码了所以这样结速了.
+
+        面经 3 -<
+
+        :   就一道题，经典的求minimum word distance. 但是一开始有挺多有关ML的细节题
+
+            实现 BlockingQueue 的 take() 和 put()
+
+            ```cpp
+            public interface BlockingQueue<T>
+            {
+                /** Retrieve and remove the head of the queue, waiting if no elements
+                are present. */
+
+                T take();
+
+                /** Add the given element to the end of the queue, waiting if necessary
+                for space to become available. */
+                void put (T obj);
+            }
+            ```
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/747/)
+
+    Google 15 Fall SDE I 实习生电面 -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/749/)
+
+    G 家面经题，矩阵最小 -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/344/)
+
+    Compress String :hearts: -<
+
+    :   给一个 string，要求压缩后最短。比如说对于 aaaa，`4[a]` 肯定要比 `2[aa]` 要
+        好。我除了暴力枚举 substring 以外想不到任何其他方法，请问助教有没有其他想法？
+
+        本问题可以简化成 S = a[substring], 求最大的a。
+
+        如果学过 KMP 算法的，求出 S 的 next 数组。
+
+        ```cpp
+        n = len(S)
+            j = next[n]
+        while   n % (n - j) != 0:
+                j = next[j]
+
+            a = n / (n - j)
+        ```
+
+        这是由 next 数组的性质决定的，可以先学一下 KMP 算法。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1439/#)
+
+    无实习开源经验 GPA 不高的小硕的 FLAGBR Offer 经  -<
+
+    :   拿了 FLAGR 的 offer，B 家主动 cancel 了 onsite。非常幸运，面了的公司都
+        拿了 offer，最终去了最喜欢的 F 家，多要了一点 sign on，因为穷的太久了，
+        急需点钱来玩。对于package 来说，基本都是标准 package，开始的时候 F 最多，
+        后来 G 给加了不少，最终拒绝G 的时候还要再给加，感觉 G 很喜欢抢 F 的人啊！
+        钱多钱少不太看重，反正也不准备长期做码农。自己感觉的 hiring bar 的排序：
+        facebook=linkedin>google>amazon, 当然，难度是随着时间改变的，招人多的时
+        候容易，不怎么招人的时候就很难。
+
+        Facebook
+
+        签了 offer，就不透露题了，总之感觉 facebook 的 bar 最高，面试题的难度不
+        同人差别很大，题目简单不一定就有 offer，题目难也未必没 offer，不好说。
+
+        ```
+        第一题：贪心
+
+            Given a number, can you remove k digits from the number so that the new
+            formatted number is smallest possible.
+            input: n = 1432219, k = 3
+            output: 1219
+
+        第二题：DP
+
+            BT(binary tree), want to find the LIS(largest independent set) of the BT
+            LIS: if the current node is in the set, then its chilren should not be in
+            the set. So that the set has the largest number of nodes.
+
+        电面2：
+
+            第一题：Median of Two Sorted Arrays
+            第二题：DP，一个二维数组，元素是 0 或 1，找出最大的由 1 构成的"X"形状
+
+        onsite:
+
+        1. print all subsets
+           system design(N topics, publishers, subscribers, scalability, distributed)
+           the most frequent urls in the past minute, hour, day
+        2. manager interview
+           code review
+        3. shortest path between two nodes of a tree(no parent pointer)
+        4. machine learning(不懂)
+        5. machine learning(不懂)
+
+        Rocket Fuel是自己投的，因为在网上看到code challenge挺有意思。onsite的时候了
+        解到他家最近要搬进新楼里，应该招人很多，大家可以试一试，题目不简单
+
+        Google:
+
+        电面：
+        remove duplicate lines of a file(what if the file is very large which could
+        not be held in the main memory)
+
+        开关灯问题
+        Trapping Rain Water(leetcode)
+        sometimes a program works, sometimes it does not. Possible reasons
+
+        onsite:
+        1. clone directed graph(recursive, non-recursive)
+           longest common suffix of two linked list
+           data structure design
+        2. how many (m, n) pairs such that m*m+n*n<N
+           线索化二叉树
+        3. 判断一个点是否在一个凸多边形内, O(n), O(logn)
+        4. group items(BFS)
+           MapReduce(filter a collection of documents, the words which occur more
+        than 5000 times)
+
+        google 面的不好，因为实在是太累了，幸运的是还是给 offer 了。
+
+        linkedin
+
+        电面 1：
+
+        第一题：给一个 words list, 输入两个单词，找出这两个单词在 list 中的最近距离 (先
+        写了一个没有预处理的，又写了一个预处理建 index 的)
+        ['green', 'blue', 'orange', 'purple', 'green']  f.distance(list, 'blue', ' green') # output 1
+
+        第二题：类似 binary search 的一题，要注意 boundary case
+
+        电面2：
+
+        binary tree level order traversal, 写了三种方法。。。(BFS 用 arraylist，类似 DFS，BFS 用 queue)
+
+        onsite:
+        1. romanToInt, intToRoman,
+           N points, m nearst ones
+        2. 双向链表，每个node可能都有父节点和子节点，每个父子节点又是一个链表。把它拍扁，顺序随意，O(1)空间复杂度
+           edit distance
+        3. system deisign: design amazon product page
+        4. project presentation
+        5. group fit
+
+        LinkedIn 很不错，食堂很好吃，并没有传说中的那么多印度人，国人挺多的。听 hr 说
+        linkedin 今年要扩大技术团队，大家可以投一下
+        ```
+
+        找工作经验：
+
+        -   不要把战线拉的太长，2 个月最好，时间久了就没有激情了，效果反倒不好。准备的时候要全力以赴，concentration
+        -   安排面试最好不要把所有公司放在同一周，实在是太累了，最好是两个 onsite 之间间隔两天
+        -   对于男生来说，准备面试无聊的时候可以做做俯卧撑和卷腹，即使拿不到 offer 还能练出胸肌和腹肌~
+        -   CC150 随便看看就行了，leetcode 要“好好”做 (融会贯通)，面试一家公司之前看看相应的面经，足够了
+        -   如果不是搞 acm 的，leetcode 至少要刷一遍再去面 flag。刷几遍不关键，关键是要有提高
+        -   提高两方面：
+            1.  coding 能力：会做的题能写出 bug free，简洁可读性好的代码
+            2.  算法，解决问题的能力：没见过的题，一步一步想到面试官想要的方法
+        -   coding 能力：写的程序越短越好，思路清楚，容易看懂；可以写多个函数，可读性好
+            很多，写起来也容易；争取一遍写完就 OK，不要改来改去；我感觉 coding 能力的重
+            要性被大家严重低估了，很多人只关心算法，其实能把程序写的干净漂亮才是最关键的。
+        -   算法，解决问题的能力：即使见过的题也要一点一点的分析，面试官看重的是分析和
+            交流的过程，而不是最终的 solution；不要只知道多做题，要多思考，这个和高考一
+            样，翻来覆去就是几种类型的题，按照类型来做，很快就熟练了
+        -   和面试官聊的开心很关键，要表现出积极，乐观，阳光，热爱生活，让面试官 enjoy
+            面试过程，喜欢和你一起工作
+        -   不要抱怨，不要给自己找借口
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/794/)
+
+    Facebook onsite 面经 -<
+
+    :   第一轮 -<
+
+        :   老印，上来一道题，讲了半天我才弄明白。类似手机按键，比如手机按键上 2 对应
+            ‘abc’, 然后根据‘abc’的顺序，打出 a 要按一下键，b 要按两下键，c 要按三下键。给你
+            两个数组: `keySize[]` 每个 element 代表能存放的最多 character，`frequency[]` 每个
+            element 代表每个 character 出现的频率。要算出最少的按键次数。
+
+            Follow up 1: 怎么能提高效率。
+
+            Follup up 2: 如果要求 character 放在按键上的顺序是 order 的，类似于手机 shang 的字母按键，这样最少按键次数是多少。
+
+        第二轮 -<
+
+        :   还是个烙印： 第一题：rotated sorted array search. 让后要求 cut branch。 第二
+            题： sort an array contains only 3 element，类似 leetcode 的 sort colors。
+            follow up: what if there are N element? 没想出来， hint 是可以使用 extra memery。
+
+        第三轮 -<
+
+        :   简历问题为主，问了一道 code： check the first bad version.
+
+            结果还是跪了。问题应该出在第一轮面试上，code 写了好久才写出来，follow up 也没答上。其实题目也不算很难，大家好运吧。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/760/)
+
+    微软 ots，已挂，求分析一道题 -<
+
+    :   最近做微软的 OTS，一共三道题。
+
+        1.  给你一个时钟，返回一个 palindrome 的时间。比如 1:01，12:21
+        2.  排序 2d 数列，返回负数的数量。
+        3.  碰到一题算是系统设计题吧。只有两三句话：用熟悉的语言写一个 email 的 api 服
+            务。写出实现的场景以及需要用到哪些参数。
+
+        已挂，估计是挂在第三题。前两题都做过差不多的。第三题不是很懂题目要我做什么，因
+        为是在线面试，没法和面试官交流。不是很清楚需要写什么。。。求大家一起讨论下。我
+        用java写了个几个接口。然后今天接到通知面试挂了。不是很清楚应该怎么做这种题。我
+        当时代码大概如下
+
+        比如 我实现了 get email 的 api，但不知道具体 api 里面该写些什么。需要连数据库还是啥的？
+
+        ```cpp
+        class user {
+            int userID;
+            String userName;
+        }
+
+        class email {
+            int emailID;
+            String emailAddress;
+            String subject;
+            Date timestamp;
+            String content;
+            int from_userID;
+            int to_userID;
+        }
+
+        public List getEmail (int userID) {
+            return db.getEmail(userID)
+        }
+
+        public List getEmail (int userID, Date startDate, Date endDate) {
+            return db.getEmail(userID, startDate, endDate);
+        }
+
+        public List getEmail (int userID, int getEmailNum) {
+            return db.getEmail(userID, getEmailNum);
+        }
+        ```
+
+        自己看着感觉都不怎么符合要求。能有人指点一下正确写法改如何写吗？谢谢了！
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1861/)
+
+    第一堂课 Design Twitter -<
+
+    :   存在 NoSQL DB 的 Tweet 是每一个 Tweet 对应一行吗，还是每个用户对应一行？
+        这样的话 row key 是什么呢？是 user_id？如果是，然后 column key 是 tweet
+        id，因而可以支持范围查找？如果是范围查找的话，timeline 的请求为什么需要
+        n 次的 DB 访问时间（mentioned in p41 in the slides）？
+
+        每个用户一行，然后有无限列。
+
+        ```
+        row_key = user_id
+        column_key 可以是tweet_id，也可以是一堆数据的组合，比如tweet_id + timestamp。
+        column_key 可以支持范围查找。
+        ```
+
+        P41 这里说的是，当你需要构建一个 NewsFeed 的时候（你关注的 N 个好友的所
+        有新鲜事汇总），需要 N 次 DB 请求去分别请求每个好友的最近 100 条 tweets
+        然后再归并到一起。请求某一个用户的 timeline 是一次 Query，请求 N 个用户，
+        就是 N 次。这里的 N 说的是你的好友个数。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1914/)
+
+    应届生国内找国外工作求职网站有哪些 -<
+
+    :   我是一名国内的应届硕士毕业生，九月要开始投简历了。问一下，想直接找国外工作
+        的话，有哪些好的网站可以推荐？目前只看到了 google 有正式的全球招聘途径，其
+        它公司的如何能看到？linkedin 等上面的职位是不是都是针对有在美国工作资格的才
+        能申请？
+
+        <http://stackoverflow.com/jobs?med=site-ui&ref=jobs-tab>
+
+        谢谢啦，请问 VISA SPONSOR 是不是指可以提供抽签证的机会？
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1945/)
+
+    yahoo 面试经验 -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/778/)
+
+    腾讯面经，拿到 offer -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/733/)
+
+    东邪老师第二节课 Friendship 相关的问题 -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1878/)
+
+    剩下不到一個月時間 interview 請問怎麼準備? -<
+
+    :   已經刷題一陣子. 但是一些比較難的和 graph, DP 都還不行, 有什麼好建議?
+
+        那就不要看 Graph 和 DP 这类考得很少的问题。多看 DFS / BFS 这类问题。
+
+    Uber 面试题 房屋窃贼 House Robber II :hearts: -<
+
+    :   小偷找到了一个新的偷盗地点，这个地区的房子组成了一个环，如果小偷同时偷
+        窃了两个直接相邻的房子，就会触发警报器。在不触发警报器的情况下，求小偷
+        可以抢到的最多的 money。
+
+        解题思路
+
+        :   本题是 House Robber 的 follow up。
+
+            House Robber-i 中房子排列成一个序列，用动态规划就可以，上过《九章算法强化班》的同学应该都已经会做啦。
+
+            按照课堂上讲过的动态规划四要素说说 dp 状态的定义：
+
+            -   df[i] 表示前 i 个房子能获得的最大价值，
+            -   dp[i] = max(dp[i-2] + nums[i], dp[i-1])。
+
+            而在本题中，房子难点在于排列成一个环。对于环上的问题，有一个小技巧就是就是拆环：**把环展成一条直线**。
+
+            本题中，可以先假设房子排成一条直线，从 0 到 n-1，那么我们如果用原来的动态规划算
+            法求得的最优解可能同时取到房子 0 和房子 n-1，而因为 0 和 n-1 在本题中是连在一起
+            的，不能同时取到。也就是说，我们要分两种情况：要么不偷房子 0（此时房子 n-1 是否
+            偷未知），要么不偷房子 n-1。基于这两种情况，我们对不含房子 0 的序列做一次动态规
+            划，对不含房子 n-1 的序列做一次动态规划，取较大值就可。
+
+            参考程序 <http://www.jiuzhang.com/solutions/house-robber-ii/>
+
+            面试官角度分析：本题是一个 follow up，在解决 robber-i 的情况下，对于环的特殊性给出解决方法，实现 O(n) 算法可以达到 hire。
+
+            LC 相关联系题：https://lintcode.com/problems/house-robber/
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1767/)
+
+    怎么准备多线程的问题 -<
+
+    :   最近好多朋友面试都被问到了线程的问题，比如让你写一个比较简单的字符
+        串处理的程序，可能涉及到哈希表之类的，然后紧接着问你如果多线程怎么
+        实现？或者问你线程如何才能安全。
+
+        因为关于线程只了解生产者消费者，平时工作中用的也不多，请问有关于最
+        近频繁出现的多线程问题应该怎么准备？有什么材料或者推荐么？
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1280/)
+
+    微软面经 -<
+
+    :   这家面试轮数较多，从学校开始，面了很多经典问题。数组里找最大和的序列，
+        何时买卖股票，两个链表是否有公共 Node，二分查找（数组很大，你需要考虑
+        sort 成本，什么时候 sort 才有意义， 比如你 query 的次数很多很多，那么一
+        次性sort 一下是有必要的），二位已排序矩阵中如何快速查找一个数，计算泰勒
+        展开，计算 `N*M` 矩阵的所有子矩阵。微软很注重写完 code 以后测试，一定要留
+        些时间给测试，一般来说白板上写的 code 小毛病都会有好几处，通过自己测试
+        是可以改过来的。
+
+        一些操作系统原理，我不会，选择不作答，感觉没甚影响。
+
+        我因为长时间不用 C++，可以说目前已经不会 C++，只会 JAVA，起初很虚，但是
+        后来微软对不编程语言要求很松，重要的是解释问题要解释得很清楚。所有面试
+        官都思路很清晰，【你解释不清楚，他会直接打断你，不要想着糊弄】。如果不
+        清楚，直接承认，这是我从已经拿到全职的朋友那儿听来的经验，算是微软的风格吧。
+
+        【时间复杂度，当然，每一步操作都会问你时间复杂度】，逃不掉的。对哈希表，
+        有一个面试官表现出明显的不喜欢，这时候我换思路了，虽然那道题目哈希表做
+        很容易，但是没办法，人家是面试官。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/796/)
+
+    面试时如何有条理的组织 test case 啊  -<
+
+    :   Test case 有以下几种
+
+        1.  边界数据，比如 n = 0 这些边界情况
+        2.  特殊数据，比如链表中我们删节点需要删除 head 的时候
+        3.  大数据，一般测试算法效率
+
+        面试的时候，我们只需要给出边界数据，特殊数据，和一些普通数据即可。
+
+    豆瓣面试题 :分段筒排: -<
+
+    :   给定 10G 个无符号整数 (32 位)，如何能够最快地在一台内存为 2G 的机器上找
+        到这些数据中的中位数 (比一半数据大，比另一半数据小)，这个感觉似曾相识，
+        又想不出是哪个方面的知识, 助教老师能否解答下？
+
+        这个是古董的不能在古董的题目了。常用做法就是【分段桶排】
+
+        更详细的可以看这个文章，我就不复制过来了。
+
+        <http://www.cnblogs.com/avril/archive/2012/04/20/2460805.html>
+
+        refs and see also
+
+        -   [10G 个整数找出中位数，内存限制为 2G - Avril - 博客园](http://www.cnblogs.com/avril/archive/2012/04/20/2460805.html)
+
+    leetcode 面试题 38 洗牌的技巧 -<
+
+    :   有一副扑克有 2n 张牌，用 `1,2,..2*n` 代表每一张牌，一次洗牌会把牌分成两堆，
+        1,2..n 和 n+1...2n。然后再交叉的洗在一起：n+1, 1, n+2, 2, … n, 2n。问按
+        照这种技巧洗牌，洗多少次能够洗回扑克最初的状态：1,2,...2n。
+
+        以 1 2 3 4 5 6 为例，洗一次之后为 4 1 5 2 6 3 。将两排数组对比看：
+
+        1   2   3   4   5   6
+        4   1   5   2   6   3
+
+        数字 1 的下面是 4，代表每一次洗牌后 1 这个位置的数会被 4 这个位置的数替代，接着
+        看数字 4，4 下面是 2，代表每一次洗牌后 4 这个位置的数会被 2 替代，再看 2，2 下
+        面是 1，2 这个位置的数字会被 1 替代。此时，1 4 2 形成一个环，代表这三个位置上的
+        数再每一次洗牌后，循环交替，并且在洗 3 次以后，各自回到最初的位置。用同样的方法
+        可以找到 3 5 6 是一个循环，循环节长度为 3。由此可以知道，在经过了 LCM(3,3)=3 次
+        洗牌后，所有数都回到原位，这里 LCM 是最小公倍数的意思。于是算法为，根据一次洗牌
+        的结果，找到所有的循环节，答案为所有循环节长度的最小公倍数。
+
+        面试官角度：
+
+        这个题目的考察点在于找规律。不过如果有一定置换群的理论基础的同学，是可以比较轻
+        松的解决这个问题的。有兴趣的同学可以查看离散数学的相关书籍中置换群的知识点。
+
+        1   2   3   4 | 5   6   7   8
+        5   1   6   2   6   3   8   4
+
+        1->5->6->3->6
+        2->1->5->6->3->6
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/877/)
+
+    leetcode 面试题 40 不用除法求积 -<
+
+    :   给定一个数组 `A[1..n]`，求数组 `B[1..n]`，使得 `B[i] = A[1] * A[2] .. * A[i-1] * A[i+1] .. * A[n]`。
+        要求不要使用除法，且在 O(n) 的时间内完成，使用 O(1) 的额外空间（不包含 B 数组所占空间）。
+
+        计算前缀乘积 `Prefix[i] = A[1] * A[2] .. A[i]`，计算后缀乘积
+        `Suffix[i] = A[i] * A[i+1] .. A[n]`，易知，`B[i] = Prefix[i - 1] * Suffix[i + 1]`。实际上无需实际
+        构造出 Prefix 和 Suffix 数组，利用 B 数组从左到右遍历一次得到 `Prefix[i]`，然后
+        从右到左遍历一次，计算出所要求的 B 数组。
+
+        面试官角度：
+
+        这种从前到后遍历和从后到前再遍历一次的方法（Foward-Backward-Traverse）
+        在很多题目中都有借鉴。如九章算法面试题31 子数组的最大差。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/875/)
+
+    Perfect Squares 这道题的思想及状态转移方程怎么想？ -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2126/)
+
+    关于 design Google suggestion sharding 的问题 -<
+
+    :   refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1858/)
+
+    根据字符串表达式计算字符串 -<
+
+    :   yahoo onsite 题目，给出表达式，由数字和括号组成，数字表示括号里面的内容（可以是字符串或者另一个表达式）重复的次数，表达式和字符串可以混合，比如：
+
+        ```
+        3[abc] => abcabcabc
+        4[ac]dy => acacacacdy
+        3[2[ad]3[pf]]xyz => adadpfpfpfadadpfpfpfadadpfpfpfxyz
+        ```
+
+        尝试用了递归发现做不出来。。然后用 stack 解决了一部分 case，但是另一部分
+        case 不适用。。。求高人指点，万分感谢！
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2019/)
+
+        将一个字符串形式的十进制数转换成 7 进制的字符串 -<
+
+        :   例如: 十进制的 "123" 转为七进制的 "174"。
+
+            follow up: 如何修改使之可以满足任意进制间的转换。
+
+            ```
+            123 / 7 = 17(商).....4(余数)
+            17 / 7 = 2(商).....3(余数)
+            2 / 7 = 0(商).....2(余数)
+            ```
+
+            所以对应的 7 进制是 “234”， 2 * 49 + 3 * 7 + 4 = 123（10 进制）
+
+            同理79：
+
+            ```
+            79 / 7 = 11(商).....2(余数)
+            11 / 7= 1(商).....4(余数)
+            1 / 7 = 0(商).....1(余数)
+            ```
+
+            所以对应的 7 进制是 “142”， 1 * 49 + 4 * 7 + 2 = 79（10 进制）
+
+            所以 10 进制转换成 B 进制，就是除 B 取余倒序。
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1394/)
+
+    窗口类 two pointer -<
+
+    :   在课间中的窗口类 two pointer，minimum-size-subarray-sum 这道题中提到了窗口
+        类和 sliding windows 的区别，请问这个区别在哪？现在不记得上课怎么讲的了。。。
+
+    线段树 (Segment Tree、Binary Indexed Tree)、Trie、Union Find 这些特殊数据结构需要掌握到什么程度 -<
+
+    :   如题，线段树(Segment Tree、Binary Indexed Tree)、Trie、Union Find这些特殊数据结构需要掌握吗？如果需要的话，需要掌握到什么程度？会用、知道原理、会实现等等。
+
+        如果你上的是强化班你建议做一做 Ladder 里面线段树相关的题目。
+
+        LintCode 线段树的题目： http://www.lintcode.com/en/tag/segment-tree/
+
+        我觉得并不是太重要，首先线段树考的频率不高，如果一些高频算法你掌握的很好了，
+        学一下当然更好，不光光线段树的问题可以解决，其他很多问题也能用线段树优化，
+        肯定能为你面试加分。其他高频算法还没掌握好，建议可以放一放。
+
+        一般线段树用于解决与区间有关的问题，Lintcode 上如果做过了基础线段树题目还可以做其他的如：
+
+        -   http://www.lintcode.com/zh-cn/problem/interval-minimum-number/
+        -   http://www.lintcode.com/zh-cn/problem/interval-sum/
+        -   http://www.lintcode.com/zh-cn/problem/interval-sum-ii/
+        -   http://www.lintcode.com/zh-cn/problem/count-of-smaller-number/
+        -   http://www.lintcode.com/zh-cn/problem/count-of-smaller-number-before-itself/
+
+        我都找完之后才发现 Lintcode 的 Tags（标签）功能还是很好用的！
+
+    leetcode 面试题 29 子矩阵的最大公约数 -<
+
+    :   给定 `n*n` 的矩阵，需要查询任意子矩阵中所有数字的最大公约数。请给出一种设计思路，对矩阵进行预处理，加速查询。额外的空间复杂度要求 O(n^2) 以内。
+
+        构建二维线段树。预处理时间 O(n^2)，每次查询 O(log n)
+
+        面试官角度：
+
+        ```
+        这个题目需要具备一定的数据结构功底。线段树 (Interval Tree) 可以解决的问题是
+        那些满足结合律的运算。最大公约数是一个满足结合律的运算。所以有，
+        GCD(A,B,C,D) = GCD(GCD(A,B), GCD(C, D)) 。同样具备结合律的运算有
+        PI,SUM,XOR(积, 和, 异或)。线段树的基本思想是，将区间 [1,n] 查分为 [1, n/2],
+        [n/2+1,n] 这两个子区间，然后每个子区间继续做二分，直到区间长度为 1。在每个
+        区间上维护这个区间的运算结果（如 GCD,SUM)，需要查询某一段区间的结果时，将该
+        区间映射到线段树上的若干不相交的区间，将这些区间的结果合并起来则得到了答案。
+        可以证明任何一个区间可以映射到线段树上不超过 O(log n) 个区间。上面介绍的是
+        一维的线段树，对于二维的情况，可以采用四分或者横纵剖分的方法来构建线段树。
+        ```
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/886/)
+
+    MISC -<
+
+    -   此题的最优算法是贪心。在实际面试过程中，笔者认为只需要想到贪心算法，并给出算法框架，就可以达到【hire】的程度。能在短时间内完成程序，可以达到【strong hire】。
+
+[LeetCode： 一些编程心得](https://www.douban.com/note/332117149/)
+
+:
+    LeetCode 对基础数据结构和基础算法是很好的训练和考查。
+
+    （1）涉及的重要数据结构：
+      ~ 数组（一维，多维），链表，栈，队列，二叉树，无向图，散列，。。。
+
+    （2）涉及的重要算法技术：
+      ~ 贪心，动态规划，分治（递归），回溯（剪枝），搜索（广搜，深搜），。。。
+
+    刷题后的一些体会（以下说法不绝对）：
+
+    -   1，一般来说，贪心的时间复杂度在 O(n)，空间复杂度是 O(1) 或 O(n) 。
+    -   2，动规需要记录表（标记数组），时间复杂度经常是 O(n^2)，空间复杂度也通
+        常是 O(n^2) 。
+    -   3，回溯很常见，重点是确定何时找到一个解、何时退出、越界时如何处理；通常
+        需要一个线性结构来保存前面的状态，以便回溯时使用。
+    -   4，如果贪心、动规等方法都行不通，通常就考虑搜索来解决。
+    -   5，线性时间复杂度一般通过贪心方法实现；有时候，需要借助 HASH 结构（如
+        unordered_map）。
+    -   6，利用好栈 (stack)！很多问题通过栈能够在 O(n) 时间内解决。
+    -   7，深度优先搜索一般是递归的，数据过大时，递归深度太大出现问题；广度优先
+        搜索一般借助队列，一般不需要递归。
+    -   8，初始化数组时，memset(address, value, n_bytes) (包含在 cstring.h) 是
+        针对“字节”赋值！所以除非是单字节元素，或者初值为 0 或者 -1，否则不要用
+        memset 初始化；使用 vector 比较方便。
+    -   9，必要时，使用 unordered_map, unordered_set 等 C++ 容器。
+    -   10，必要时，利用类变量简化传参。
+    -   11，动规的关键是找到转移方程；因此动规的子问题具有“累积”性质。
+    -   12，贪心不同于动规，贪心的子问题不是“累积性“，而是具有“决定性”。
+    -   13，写代码最重要的是思路清楚、可理解性，而不是纠结变量少、代码短等无关
+        紧要的问题。
+    -   14，由于单链表只能从前向后遍历，因此操作时经常需要保存所关心结点的前趋
+        结点。
+    -   15，处理链表要时刻注意检查空指针 NULL。
+    -   16，数组检索、定位快；链表插入、删除快（不需要移动数据）。
+    -   17，vector, string 的性质都倾向于数组；List 的性质倾向于链表。
+    -   18，二叉树问题的基础是遍历方法：前序 / 中序 / 后续，递归与非递归都很重
+        要。
+    -   19，关于二叉树的问题，有些是自顶向下的；也有些是自底向上的，如检查平衡
+        二叉树。通常这两类问题都可以通过递归、非递归两种方法解决。
+    -   20，二叉树非递归遍历：前序遍历最简单，当前结点没有左儿子时，栈顶就是下
+        一个结点；中序遍历需要先将当前结点（顶点）入栈，当前结点没有左儿子时，
+        访问栈顶，并且栈内结点的头一个非空右儿子是下一个结点；后序遍历最后访问
+        根结点，所以，顶点不仅要入栈，而且要记录是否访问了它的右儿子，只有访问
+        了顶点的右儿子之后才能访问它自己。
+    -   21，许多问题需要应用二叉树遍历方法，有些问题需要在结点入栈的同时保存当
+        前状态（如求最长路径）。
+    -   22，二叉树 Level 遍历的本质是广度优先搜索，需要利用队列。
+    -   23，关于”图“，LeetCode 只有一道遍历题目，需要到其他地方补充一下。
+    -   24，有些方法虽然 AC 了，但并不一定是最优美的。
+
+    （未完待续）
+
+    补充：多看一些经典算法的思路，着重理解算法本质还是很有必要的。毕竟，数据结
+    构+算法还是核心。
+
+[Solving Every Sudoku Puzzle](http://norvig.com/sudoku.html) -<
+
+:   ```
+     A1 A2 A3| A4 A5 A6| A7 A8 A9    4 . . |. . . |8 . 5     4 1 7 |3 6 9 |8 2 5
+     B1 B2 B3| B4 B5 B6| B7 B8 B9    . 3 . |. . . |. . .     6 3 2 |1 5 8 |9 4 7
+     C1 C2 C3| C4 C5 C6| C7 C8 C9    . . . |7 . . |. . .     9 5 8 |7 2 4 |3 1 6
+    ---------+---------+---------    ------+------+------    ------+------+------
+     D1 D2 D3| D4 D5 D6| D7 D8 D9    . 2 . |. . . |. 6 .     8 2 5 |4 3 7 |1 6 9
+     E1 E2 E3| E4 E5 E6| E7 E8 E9    . . . |. 8 . |4 . .     7 9 1 |5 8 6 |4 3 2
+     F1 F2 F3| F4 F5 F6| F7 F8 F9    . . . |. 1 . |. . .     3 4 6 |9 1 2 |7 5 8
+    ---------+---------+---------    ------+------+------    ------+------+------
+     G1 G2 G3| G4 G5 G6| G7 G8 G9    . . . |6 . 3 |. 7 .     2 8 9 |6 4 3 |5 7 1
+     H1 H2 H3| H4 H5 H6| H7 H8 H9    5 . . |2 . . |. . .     5 7 3 |2 9 1 |6 8 4
+     I1 I2 I3| I4 I5 I6| I7 I8 I9    1 . 4 |. . . |. . .     1 6 4 |8 7 5 |2 9 3
+    ```
+
+    ```python
+    "4.....8.5.3..........7......2.....6.....8.4......1.......6.3.7.5..2.....1.4......"
+
+    """
+    400000805
+    030000000
+    000700000
+    020000060
+    000080400
+    000010000
+    000603070
+    500200000
+    104000000"""
+
+    """
+    4 . . |. . . |8 . 5
+    . 3 . |. . . |. . .
+    . . . |7 . . |. . .
+    ------+------+------
+    . 2 . |. . . |. 6 .
+    . . . |. 8 . |4 . .
+    . . . |. 1 . |. . .
+    ------+------+------
+    . . . |6 . 3 |. 7 .
+    5 . . |2 . . |. . .
+    1 . 4 |. . . |. . .
+    """
+    ```
+
+    Constraint Propagation -<
+
+    :   The function parse_grid calls assign(values, s, d). We could implement this
+        as values[s] = d, but we can do more than just that. Those with experience
+        solving Sudoku puzzles know that there are two important strategies that we
+        can use to make progress towards filling in all the squares:
+
+        (1) If a square has only one possible value, then eliminate that value from
+            the square's peers.
+        (2) If a unit has only one possible place for a value, then put the value
+            there.
+
+        As an example of strategy (1) if we assign 7 to A1, yielding {'A1': '7',
+        'A2':'123456789', ...}, we see that A1 has only one value, and thus the 7
+        can be removed from its peer A2 (and all other peers), giving us {'A1':
+        '7', 'A2': '12345689', ...}. As an example of strategy (2), if it turns out
+        that none of A3 through A9 has a 3 as a possible value, then the 3 must
+        belong in A2, and we can update to {'A1': '7', 'A2':'3', ...}. These
+        updates to A2 may in turn cause further updates to its peers, and the peers
+        of those peers, and so on. This process is called constraint propagation.
+
+    Search -<
+
+    :   What is the search algorithm? Simple: first make sure we haven't already
+        found a solution or a contradiction, and if not, choose one unfilled square
+        and consider all its possible values. One at a time, try assigning the
+        square each value, and searching from the resulting position. In other
+        words, we search for a value d such that we can successfully search for a
+        solution from the result of assigning square s to d. If the search leads to
+        an failed position, go back and consider another value of d. This is a
+        recursive search, and we call it a depth-first search because we
+        (recursively) consider all possibilities under values[s] = d before we
+        consider a different value for s.
+
+    refs and see also
+
+    -   [pauek/norvig-sudoku: Norvig's Sudoku solver in C++](https://github.com/pauek/norvig-sudoku)
+
+C++ 实现的 B+ 树 -<
+
+:   refs and see also
+
+    -   [algorithm/bptree.c at master · ghostrong/algorithm](https://github.com/ghostrong/algorithm/blob/master/bptree.c)
+
+OJ 工具 -<
+
+:
+
+    getx.h
+
+    ```cpp
+    #include <iostream>
+    #include <string>
+
+    namespace oj {
+
+    using namespace std;
+
+    template<typename T>
+    T get(istream & is = cin) {
+        T val;
+        is >> val;
+        return val;
+    }
+
+    }
+    ```
+
+    link-list.h
+
+    ```cpp
+    template<typename T>
+    class LinkList {
+    public:
+        T val;
+        LinkList* next;
+        LinkList(T _val = 0): val(_val), next(NULL) {}
+    };
+
+    template<typename T>
+    ostream& operator<<(ostream& o, LinkList<T>* head){
+        while(head){
+            o<<head->val;
+            if(head->next) o<<"->";
+            head = head->next;
+        }
+        return o;
+    }
+    ```
+
+    pair.h
+
+    ```cpp
+    template<typename T1, class T2>
+    istream & operator>> (istream & is, pair<T1, T2>& p) {
+        T1 k;
+        T2 v;
+        is >> k >> v;
+        p.first = k;
+        p.second = v;
+        return is;
+    }
+
+    template<typename T1, typename T2>
+    ostream & operator<< (ostream & o, pair<T1, T2>& p) {
+        return o << '<' << p.first << "," << p.second << '>';
+    }
+    ```
+
+    set.h, map.h
+
+    ```cpp
+    #include<iostream>
+    #include<sstream>
+    #include <set>
+    #include <unordered_set>
+    using namespace std;
+
+    // set
+    template<typename T>
+    istream& operator>>(istream& is, set<T>& st){
+        string s; getline(is, s);
+        stringstream ss(s);
+        T v;
+        while(ss>>v){
+            st.insert(v);
+        }
+        return is;
+    }
+    template<typename T>
+    ostream& operator<<(ostream& o, set<T>& st){
+        size_t i = st.size() - 1;
+        typename set<T>::iterator it;
+        o<<"{";
+        for(it = st.begin(); it != st.end(); ++it, --i){
+            o<<*it;
+            if(i) o<<',';
+        }
+        return o<<"}";
+    }
+
+    // map
+    template<typename T1, typename T2>
+    istream & operator>>(istream & is, map<T1, T2>& m) {
+        string s;
+        getline(is, s);
+        stringstream ss(s);
+        T1 k;
+        T2 v;
+        while(ss >> k >> v){
+            m[k] = v;
+        }
+        return is;
+    }
+    template<typename T1, typename T2>
+    ostream& operator<<(ostream& o, const map<T1, T2>& c) {
+        o << "{";
+        for(auto pr : c) o << pr << ' ';
+        return o << "\b}";
+    }
+    ```
+
+    vector.h
+
+    ```cpp
+    template<typename T>
+    ostream & operator<< (ostream & o, const vector<T>& v){
+        o << "[";
+        for(int i=0; i<v.size(); ++i){
+            o << v[i];
+            if(i<v.size()-1) o<< ',';
+        }
+        return o << "]";
+    }
+
+    template<typename T>
+    istream & operator>>(istream & is, vector<T>& v){
+        string s; getline(is, s);
+        stringstream ss(s);
+        T tmp;
+        while(ss >> tmp){
+            v.push_back(tmp);
+        }
+        return is;
+    }
+    ```
+
+    refs and see also
+
+    -   [oj.h/lib at master · harttle/oj.h](https://github.com/harttle/oj.h/tree/master/lib)
+
+[微软 2015 校园招聘 Dec2 #2 Have Lunch Together | 天码营 - 新一代技术学习服务平台](https://www.tianmaying.com/tutorial/MS2015_Dec2_2)
+
+[LeetCode 题目总结/分类](https://www.douban.com/note/330562764/)
+
+:
+
+    注：此分类仅供大概参考，没有精雕细琢。有不同意见欢迎评论~
+    欢迎参考我的leetcode代码
+
+    利用堆栈：
+
+    -   http://oj.leetcode.com/problems/evaluate-reverse-polish-notation/
+    -   http://oj.leetcode.com/problems/longest-valid-parentheses/ （也可以用一维数组，贪心）
+    -   http://oj.leetcode.com/problems/valid-parentheses/
+    -   http://oj.leetcode.com/problems/largest-rectangle-in-histogram/
+    -   特别注意细节：http://oj.leetcode.com/problems/trapping-rain-water/
+
+    多种数据结构：
+
+    -   http://oj.leetcode.com/problems/lru-cache/
+    -   http://oj.leetcode.com/problems/substring-with-concatenation-of-all-words/ (注意遍历方法）
+    -   HASH：http://oj.leetcode.com/problems/longest-consecutive-sequence/
+
+    简单编程：
+
+    -   http://oj.leetcode.com/problems/longest-common-prefix/
+    -   http://oj.leetcode.com/problems/string-to-integer-atoi/ (分析，控制语句）
+
+    排序 & 查找：
+
+    -   二分查找：http://oj.leetcode.com/problems/search-a-2d-matrix/
+    -   二分查找进阶：http://oj.leetcode.com/problems/search-for-a-range/
+    -   二分查找应用：http://oj.leetcode.com/problems/sqrtx/
+    -   二分查找应用：http://oj.leetcode.com/problems/search-insert-position/
+    -   二分查找变种：http://oj.leetcode.com/problems/search-in-rotated-sorted-array/
+    -   二分查找变种：http://oj.leetcode.com/problems/search-in-rotated-sorted-array-ii/
+
+    简单数学：
+
+    -   http://oj.leetcode.com/problems/pascals-triangle/
+    -   http://oj.leetcode.com/problems/pascals-triangle-ii/
+    -   http://oj.leetcode.com/problems/powx-n/
+    -   http://oj.leetcode.com/problems/reverse-integer/
+    -   http://oj.leetcode.com/problems/plus-one/
+    -   http://oj.leetcode.com/problems/unique-paths/
+    -   http://oj.leetcode.com/problems/palindrome-number/
+    -   http://oj.leetcode.com/problems/permutation-sequence/
+    -   http://oj.leetcode.com/problems/merge-intervals/
+    -   http://oj.leetcode.com/problems/valid-number/
+    -   http://oj.leetcode.com/problems/climbing-stairs/
+    -   http://oj.leetcode.com/problems/roman-to-integer/
+    -   http://oj.leetcode.com/problems/integer-to-roman/
+    -   http://oj.leetcode.com/problems/divide-two-integers/
+    -   区间：http://oj.leetcode.com/problems/insert-interval/
+
+    大数的数学运算：
+
+    -   http://oj.leetcode.com/problems/add-binary/
+    -   http://oj.leetcode.com/problems/add-two-numbers/
+
+    数组：
+
+    -   http://oj.leetcode.com/problems/remove-element/
+    -   http://oj.leetcode.com/problems/merge-sorted-array/
+    -   http://oj.leetcode.com/problems/first-missing-positive/
+    -   http://oj.leetcode.com/problems/spiral-matrix/
+    -   http://oj.leetcode.com/problems/spiral-matrix-ii/
+    -   http://oj.leetcode.com/problems/rotate-image/
+    -   遍历技巧：http://oj.leetcode.com/problems/container-with-most-water/
+    -   http://oj.leetcode.com/problems/two-sum/
+    -   http://oj.leetcode.com/problems/3sum/
+    -   http://oj.leetcode.com/problems/3sum-closest/
+    -   http://oj.leetcode.com/problems/4sum/
+    -   http://oj.leetcode.com/problems/set-matrix-zeroes/
+    -   用好标记数组：http://oj.leetcode.com/problems/valid-sudoku/
+    -   http://oj.leetcode.com/problems/next-permutation/
+    -   http://oj.leetcode.com/problems/word-search/
+    -   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-array/
+    -   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
+    -   http://oj.leetcode.com/problems/sort-colors/
+
+    暴力方法/细节实现：
+
+    -   http://oj.leetcode.com/problems/max-points-on-a-line/
+
+    链表：
+
+    -   归并排序：http://oj.leetcode.com/problems/sort-list/
+    -   插入排序：http://oj.leetcode.com/problems/insertion-sort-list/
+    -   反转、插入：http://oj.leetcode.com/problems/reorder-list/
+    -   检测是否有环：http://oj.leetcode.com/problems/linked-list-cycle/
+    -   确定链表环的起点：http://oj.leetcode.com/problems/linked-list-cycle-ii/
+    -   Deep Copy 带有随机指针的链表：http://oj.leetcode.com/problems/copy-list-with-random-pointer/
+    -   链表细节：http://oj.leetcode.com/problems/rotate-list/
+    -   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-list/
+    -   删除细节：http://oj.leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
+    -   http://oj.leetcode.com/problems/partition-list/
+    -   http://oj.leetcode.com/problems/swap-nodes-in-pairs/
+    -   Merge 两个链表：http://oj.leetcode.com/problems/merge-two-sorted-lists/
+    -   Merge 多链表：http://oj.leetcode.com/problems/merge-k-sorted-lists/
+    -   细节：http://oj.leetcode.com/problems/reverse-nodes-in-k-group/
+    -   http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/
+    -   http://oj.leetcode.com/problems/reverse-linked-list-ii/
+
+    二叉树遍历：递归 & 非递归
+
+    -   http://oj.leetcode.com/problems/same-tree/
+    -   前序：http://oj.leetcode.com/problems/binary-tree-preorder-traversal/
+    -   中序：http://oj.leetcode.com/problems/binary-tree-inorder-traversal/
+    -   后序：http://oj.leetcode.com/problems/binary-tree-postorder-traversal/
+    -   遍历变种：http://oj.leetcode.com/problems/sum-root-to-leaf-numbers/
+    -   遍历变种：http://oj.leetcode.com/problems/path-sum/
+    -   遍历变种：http://oj.leetcode.com/problems/path-sum-ii/
+    -   遍历变种：http://oj.leetcode.com/problems/maximum-depth-of-binary-tree/
+    -   遍历变种：http://oj.leetcode.com/problems/minimum-depth-of-binary-tree/
+    -   重建二叉树：http://oj.leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+    -   重建二叉树：http://oj.leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
+    -   层次遍历变种：http://oj.leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
+    -   遍历变种：http://oj.leetcode.com/problems/symmetric-tree/
+    -   遍历应用：http://oj.leetcode.com/problems/binary-tree-maximum-path-sum/
+    -   遍历应用：http://oj.leetcode.com/problems/balanced-binary-tree/
+    -   遍历应用：http://oj.leetcode.com/problems/recover-binary-search-tree/
+    -   遍历应用：http://oj.leetcode.com/problems/flatten-binary-tree-to-linked-list/
+    -   level遍历：http://oj.leetcode.com/problems/binary-tree-level-order-traversal/
+    -   level 遍历：http://oj.leetcode.com/problems/binary-tree-level-order-traversal-ii/
+    -   level 遍历变种：http://oj.leetcode.com/problems/populating-next-right-pointers-in-each-node/
+    -   level 遍历变种：http://oj.leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
+
+    问题分析/智商/细节：
+
+    -   http://oj.leetcode.com/problems/single-number/
+    -   http://oj.leetcode.com/problems/single-number-ii/
+    -   http://oj.leetcode.com/problems/candy/ ？
+    -   http://oj.leetcode.com/problems/gas-station/
+
+    动态规划：
+
+    -   http://oj.leetcode.com/problems/triangle/ （最短路径）
+    -   http://oj.leetcode.com/problems/subsets/ （另一种形式）
+    -   http://oj.leetcode.com/problems/subsets-ii/
+    -   http://oj.leetcode.com/problems/edit-distance/ （经典）
+    -   http://oj.leetcode.com/problems/word-break/
+    -   http://oj.leetcode.com/problems/word-break-ii/
+    -   http://oj.leetcode.com/problems/unique-binary-search-trees/ （动态规划避免递归）
+    -   http://oj.leetcode.com/problems/unique-paths-ii/
+    -   http://oj.leetcode.com/problems/scramble-string/
+    -   http://oj.leetcode.com/problems/palindrome-partitioning/
+    -   http://oj.leetcode.com/problems/palindrome-partitioning-ii/
+    -   http://oj.leetcode.com/problems/interleaving-string/
+    -   http://oj.leetcode.com/problems/distinct-subsequences/
+    -   http://oj.leetcode.com/problems/decode-ways/
+    -   http://oj.leetcode.com/problems/gray-code/
+    -   http://oj.leetcode.com/problems/minimum-path-sum/
+
+    回溯：
+
+    -   http://oj.leetcode.com/problems/combinations/
+    -   http://oj.leetcode.com/problems/generate-parentheses/
+    -   http://oj.leetcode.com/problems/combination-sum/
+    -   http://oj.leetcode.com/problems/combination-sum-ii/
+    -   http://oj.leetcode.com/problems/sudoku-solver/
+    -   经典N皇后：http://oj.leetcode.com/problems/n-queens/
+    -   http://oj.leetcode.com/problems/n-queens-ii/
+    -   http://oj.leetcode.com/problems/letter-combinations-of-a-phone-number/
+
+    贪心：
+
+    -   http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock/
+    -   http://oj.leetcode.com/problems/jump-game/
+    -   http://oj.leetcode.com/problems/jump-game-ii/
+    -   http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+    -   http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
+    -   http://oj.leetcode.com/problems/maximum-subarray/
+    -   http://oj.leetcode.com/problems/minimum-window-substring/
+    -   http://oj.leetcode.com/problems/maximal-rectangle/
+    -   http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/
+
+    分治 & 递归：
+
+    -   http://oj.leetcode.com/problems/unique-binary-search-trees-ii/
+    -   http://oj.leetcode.com/problems/restore-ip-addresses/ （时间复杂度有限，递归满足）
+    -   http://oj.leetcode.com/problems/permutations/
+    -   http://oj.leetcode.com/problems/permutations-ii/
+    -   http://oj.leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
+    -   http://oj.leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
+    -   http://oj.leetcode.com/problems/median-of-two-sorted-arrays/
+    -   http://oj.leetcode.com/problems/validate-binary-search-tree/
+
+    字符串：
+
+    -   http://oj.leetcode.com/problems/count-and-say/
+    -   http://oj.leetcode.com/problems/implement-strstr/ （子串查找）
+    -   http://oj.leetcode.com/problems/anagrams/
+    -   http://oj.leetcode.com/problems/text-justification/ (细节）
+    -   http://oj.leetcode.com/problems/simplify-path/ （基础控制语句 if-else-for）
+    -   http://oj.leetcode.com/problems/multiply-strings/
+    -   http://oj.leetcode.com/problems/regular-expression-matching/
+    -   http://oj.leetcode.com/problems/wildcard-matching/
+    -   http://oj.leetcode.com/problems/longest-palindromic-substring/
+    -   http://oj.leetcode.com/problems/zigzag-conversion/
+    -   http://oj.leetcode.com/problems/length-of-last-word/
+    -   http://oj.leetcode.com/problems/valid-palindrome/
+
+    图：
+
+    -   深搜/广搜：http://oj.leetcode.com/problems/clone-graph/
+
+    搜索 & 遍历：
+
+    -   http://oj.leetcode.com/problems/word-ladder/
+    -   http://oj.leetcode.com/problems/word-ladder-ii/
+    -   广搜：http://oj.leetcode.com/problems/surrounded-regions/

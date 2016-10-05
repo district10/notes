@@ -335,7 +335,7 @@ System & Network & MISC
             descriptor may be reused, there are some obscure race conditions that may
             cause unintended side effects.
 
--   [为什么函数调用要用栈实现？ - 知乎](https://www.zhihu.com/question/34499262) -<
+-   为什么函数调用要用栈实现？ -<
 
     :   函数调用通常过程是：
 
@@ -419,7 +419,11 @@ System & Network & MISC
             比如我们经常会看到的 stack overflow (这里不仅仅是指上千的嵌套调用),
             方便实现同时有成百上千个子任务存在的语言.
 
--   [为什么用 od 命令查看 Java 字节码不是大端存储？ - 知乎](https://www.zhihu.com/question/46978823) -<
+    refs and see also
+
+    -   [为什么函数调用要用栈实现？ - 知乎](https://www.zhihu.com/question/34499262)
+
+-   为什么用 od 命令查看 Java 字节码不是大端存储？ -<
 
     :   >   I love Macross Delta.
 
@@ -483,7 +487,11 @@ System & Network & MISC
         }
         ```
 
--   [堆、栈的地址高低？ 栈的增长方向？ - 知乎](https://www.zhihu.com/question/36103513) -<
+    refs and see also
+
+    -   [为什么用 od 命令查看 Java 字节码不是大端存储？ - 知乎](https://www.zhihu.com/question/46978823)
+
+-   堆、栈的地址高低？ 栈的增长方向？ -<
 
     :   进程地址空间的分布取决于操作系统，栈向什么方向增长取决于操作系统与 CPU 的组合。
         不要把别的操作系统的实现方式套用到 Windows 上。
@@ -531,7 +539,7 @@ System & Network & MISC
 
         -   [Anatomy of a Program in Memory - Gustavo Duarte](http://duartes.org/gustavo/blog/post/anatomy-of-a-program-in-memory/)
 
--   [字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html){.heart} -<
+-   字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志 -<
 
     :   **ASCII, 0--127**
 
@@ -657,10 +665,11 @@ System & Network & MISC
 
         refs and see also
 
+        -   [字符编码笔记：ASCII，Unicode 和 UTF-8 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html){.heart}
         -   [阮一峰：utf-8 编码已经成为主流](http://www.ruanyifeng.com/blog/2008/05/growth_of_utf-8_on_the_web.html)
         -   [Endianness - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Endianness)
 
--   [RapidJSON 代码剖析（三）：Unicode 的编码与解码 - Milo的编程 - 知乎专栏](https://zhuanlan.zhihu.com/p/20056322?refer=milocode) -<
+-   RapidJSON 代码剖析（三）：Unicode 的编码与解码 - Milo 的编程 -<
 
     :   UTF-8 成为现时互联网上最流行的格式，有几个原因：
 
@@ -673,7 +682,12 @@ System & Network & MISC
 
     [rapidjson/encodings.h at master · miloyip/rapidjson](https://github.com/miloyip/rapidjson/blob/master/include/rapidjson/encodings.h)
 
--   [Hamming weight - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hamming_weight){.featured .heart} -<
+    refs and see also
+
+    -   [RapidJSON 代码剖析（三）：Unicode 的编码与解码 - Milo 的编程 - 知乎专栏](https://zhuanlan.zhihu.com/p/20056322?refer=milocode)
+    -   [堆、栈的地址高低？ 栈的增长方向？ - 知乎](https://www.zhihu.com/question/36103513)
+
+-   Hamming weight -<
 
     :   说一个故事，四五年前我为面试出了一条笔试题目，恰巧和本书的题目 2.1 很相似，
         计算一个无号整数 (我要求 32-bit，书中的是 8-bit) 在二进制中 1 的个数。当时
@@ -843,7 +857,8 @@ System & Network & MISC
 
         refs and see also
 
-          - [迟来的书评和感想──给喜爱编程的朋友 (评论: 编程之美)](https://book.douban.com/review/3010762/)
+        -   [Hamming weight - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hamming_weight){.featured .heart}
+        -   [迟来的书评和感想──给喜爱编程的朋友 (评论: 编程之美)](https://book.douban.com/review/3010762/)
 
 -   Dynamic cast -<
 
@@ -934,13 +949,13 @@ System & Network & MISC
 
         a **`type qualifier`** is not allowed on a static member function.
 
--   [Good Old & Dirty printf() Debugging in a Non-console C/C++ Application or DLL - CodeProject](http://www.codeproject.com/Tips/227809/Good-old-dirty-printf-debugging-in-a-non-console-C) -<
+-   Good Old & Dirty printf() Debugging in a Non-console C/C++ Application or DLL -<
 
     :   `#define Debug(fmtstr, ...) printf(fmtstr, ##__VA_ARGS__)`{.cpp}
 
         <http://www.cnblogs.com/xianqingzh/archive/2011/07/08/2101510.html>
 
-        [《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks)
+        [《Debug Hacks》和调试技巧 | MaskRay](http://maskray.me/blog/2013-07-25-debug-hacks) -<
 
         :   `freopen`{.c}
 
@@ -1068,9 +1083,12 @@ System & Network & MISC
                 QString result;
                 QTextStream(&result) << "pi = " << 3.14;
                 // result == "pi = 3.14"
-                ```
 
--   [Jeff Dean facts: How a Google programmer became the Chuck Norris of the Internet.](http://www.slate.com/articles/technology/doers/2013/01/jeff_dean_facts_how_a_google_programmer_became_the_chuck_norris_of_the_internet.single.html){.featured .heart} -<
+    refs and see also
+
+    -   [Good Old & Dirty printf() Debugging in a Non-console C/C++ Application or DLL - CodeProject](http://www.codeproject.com/Tips/227809/Good-old-dirty-printf-debugging-in-a-non-console-C)
+
+-   Jeff Dean facts: How a Google programmer became the Chuck Norris of the Internet -<
 
     :   `32,768`, ` 65,536`, `4,294,967,296`
 
@@ -1317,6 +1335,9 @@ System & Network & MISC
         2^10        =     2^2.8 * 2^3.5 * 2^3.7
           10        =       2.8 +   3.5 +   3.7
         ```
+    refs and see also
+
+    -   [Jeff Dean facts: How a Google programmer became the Chuck Norris of the Internet.](http://www.slate.com/articles/technology/doers/2013/01/jeff_dean_facts_how_a_google_programmer_became_the_chuck_norris_of_the_internet.single.html){.featured .heart}
 
 [^SI]: The SI prefixes (metric prefix) are standardized for use in the
     International System of Units (SI) by the International Bureau of Weights
@@ -2649,3 +2670,305 @@ TCP使用**滑动窗口机制**来实现流量控制，通过动态改变窗口�
     // 3 4
     // 1 2
     ```
+
+[<<Effective C++>>读书笔记(三) - zyfforlinux - 博客频道 - CSDN.NET](http://blog.csdn.net/zhangyifei216/article/details/50933104)
+
+[pocoproject/poco: POCO C++ Libraries - Cross-platform C++ libraries with a network/internet focus.](https://github.com/pocoproject/poco)
+
+[【报告】神经网络：技术发展与未来挑战（PDF下载）](http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2651986085&idx=2&sn=ef493ed2154c2c7889a76b12383729cc&scene=0#wechat_redirect)
+
+[统计 n! 中 0 的个数 - jxlincong 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/jxlincong/article/details/44889291)
+
+:   1024 的阶乘末尾有多少个 0，这个问题只要理清思想就很好解了。
+
+    有多少个 0 取决于有多少个 10 相乘，即 1024 拆成小单元后有多少个 10。由于 10
+    不是素数，所以直接用 10 进行计算的话会有很多问题，于是将 10 分解。
+
+    10 可以分解成 2x5,2 和 5 都是素数，由于每 2 个相邻的数中一定包含 2，所以只
+    要计算出有多少个 5 就可以了（2 会在 5 之后及时出现）。
+
+    于是解法如下：
+
+    -   是 5 的倍数的数有：1024 /5 = 204 个（说明 1024! 的展开式中的数，因式分解的因子中，至少有 1 个含有 5 的个数）
+    -   是 25 的倍数的数有：1024/ 25 = 40 个（1024! 的展开式中的数，因式分解的因子中，至少有 2 个含有 5 的个数）
+    -   是 125 的倍数的数有：1024/ 125 = 8 个（1024! 的展开式中的数，因式分解的因子中，至少有 3 个含有 5 的个数）
+    -   是 625 的倍数的数有：1024/ 625 = 1 个（1024! 的展开式中的数，因式分解的因子中，至少有 4 个含有 5 的个数）
+
+    所以 1024! 中总共有 204+40+8+1=253 个因子 5。即 1024！后有 253 个 0
+
+    算题思想：
+
+    -   （1）先找出有 1 个 5 的数
+    -   （2）然后找出有两个 5 的，2 个 5 的数虽然在第一步算过了，但是两个中剩下的那个 5 还可以形成 0
+    -   （3）之后就是找出有 3 个 5 的，4 个 5 的，直到 n 个 5（5 的 n 次方小于阶乘的数）
+
+[心智工具箱（4）：执行意图 - 阳志平的网志](http://www.yangzhiping.com/psy/implementation-intentions.html) -<
+
+:   [Peter Gollwitzer - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Peter_Gollwitzer#cite_note-12)
+
+    [Peter Gollwitzer](https://psych.nyu.edu/gollwitzer/)
+
+[(●—●) | 技术面之项目面试技巧大揭秘_牛客网](http://www.nowcoder.com/live/5) -<
+
+:   >   为什么项目经历差不多，大家的面试分数差别很多？面试官问项目时都在考察什
+    >   么？在项目经验弱的情况下，应届生应该如何回答面试官的问题，更能引导面试
+    >   节奏，让面试官更有参与感？
+
+    做项目
+
+    -   语言/框架
+    -   工具
+    -   协议/模式
+    -   产品/职位
+
+    在上面填上自己的内容！
+
+    几个可以在叙述中强调的点：
+
+    -   难度
+    -   造轮子
+    -   兴趣
+    -   创新
+
+    有没有人带？
+
+    如何找资料？
+
+    如何管理进度？
+
+    如何协调其他成员？
+
+    核心难点和结果？
+
+    扩展和深入？
+
+    面试官的关注点：
+
+    -   能力
+        -   你了解哪些部分
+        -   你深入了解哪些
+        -   你横向了解哪些
+    -   潜力
+        -   你怎么解决问题
+        -   你如何举一反三
+        -   你怎么优化项目
+        -   你如何快速学习
+
+    你的博客？如何搭建的？
+
+    注意，不要夸夸其谈。要真诚、有理有据。
+
+[冒泡 答过的问题 - 知乎](https://www.zhihu.com/people/xtlisk/answers?order_by=vote_num) -<
+
+:   第二个是二分查找算法的面试，由于面试很容易出这个题，这题很大难点又是在于二
+    分到最后的边界判断，所以给人出了这么个主意：
+
+    ```
+    while start < end:
+        if end - start < 5:
+            #顺序搜索
+        else:
+            mid = (start + end) / 2
+            #二分，略
+    ```
+
+    恩，就是问题规模小于一定量就改顺序查找，也是 O(lgN)，而且保证不会写错，如果
+    面试官问还可以跟他扯，说 5 个元素顺序 search 的话 cache 友好之类的，说不定
+    就忽悠成功啦
+
+    如何区别 fly 这个词是指飞行还是苍蝇？脱离具体场景并无意义，所以得看你这 32
+    个 1 是做有符号数补码还是无符号数补码解释
+
+    具体到题主这个问题，这样理解比较好，先不考虑具体存储限制：
+
+    |   补码，-1 是……111111111111111111111111111111111（32 个 1 前导无限个 1）
+    |   而 4294967295 是……011111111111111111111111111111111（32 个 1 前导无限个 0）
+    |   但是，计算机中存数字，只能存有限位数，所以有符号 32 位整数用最前面的位表示前导是无限个 1 还是无限个 0，表示范围是 -2^31~2^31-1
+    |   而无符号数默认是前导无限个 0，所以 32 位无符号整数表示范围是 0~2^32-1
+
+[为什么同样是解决一个问题，别人就能想出算法，而我却绞尽脑汁，百般尝试也不得其法？ - 知乎](https://www.zhihu.com/question/38331755) -<
+
+:   能上大学，大家智商之间都没有多大差距，关键字在于态度。他们问我的这些问题我
+    都碰到过，所以我可以一秒指出问题。练习越多，经验越丰富。层次越高，看问题越明白。
+    这都是大量的代码和阅读堆出来的。
+
+    为什么同样是解决一个问题，别人就能想出算法，而我却绞尽脑汁，百般尝试也不得其法？
+
+    为啥我就能三分钟解决而你要三十分钟？
+
+    无他，唯手熟尔。
+
+    记得早年学习 window 编程时，都推荐 windows 核心编程，于是买了本研究，发现好
+    难，很难读的下去。后来读完了 windows 程序设计上下册，回过头来再看，发现又好
+    简单。
+
+    这种情况多半是你的知识体系不完善，本身学识和经验就跟别人差好多。表现出来好
+    像是别人比你聪明，但很多时候并不是这样。
+
+    知识量不够，想法自然受到局限。经验不够难免要采坑。一步一步提升自己才是正经事儿。
+
+    ![](http://img.hb.aicdn.com/7374ae79e9144aa2c2e5769c9315a4a400cb47f7ea0e-oKONR6_fw658)
+
+(●—●) | 牛客网 -<
+
+:   -   [(●—●) | 用不带头结点的单链表存储队列,其队头指针指向队头结点,队尾指针指向队尾结点,则在进行出队操作时()_牛客网](http://www.nowcoder.com/questionTerminal/62b7eb9e9ea846c295f12e7f5bdcb96b) -<
+
+        :   当队列中只有一个元素时，出队后需要清空对头和队尾指针。
+
+    -   [(●—●) | 以下与数据的存储结构无关的术语是()_牛客网](http://www.nowcoder.com/questionTerminal/1324dd72390541898b804aaa3b23b319) -<
+
+        :   栈可以是顺序存储，也可以是链式存储，与存储结构无关。循环队列是队列的
+            顺序存储结构，链表是线性表的链式存储结构，用散列法存储的线性表叫散列表，
+            都与存储结构有关
+
+            存储结构是数据的逻辑结构用计算机语言的实现，常见的存储结构有： 顺序存储，
+            链式存储 ， 索引存储 ，以及 散列存储 。其中散列所形成的存储结构叫 散
+            列表（又叫哈希表） ，因此哈希表也是一种存储结构。栈只是一种抽象数据类型，
+            是一种逻辑结构，栈逻辑结构对应的顺序存储结构为顺序栈，对应的链式存储结
+            构为链栈，循环队列是顺序存储结构，链表是线性表的链式存储结构
+
+    -   [(●—●) | integer-to-roman_leetcode笔试题_牛客网](http://www.nowcoder.com/questionTerminal/0636c3db0de6437a8a86e58f46aa5c90) -<
+
+        :   ```cpp
+            class Solution {
+            public:
+                string intToRoman(int num) {
+                    static const char *x[] = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
+                    static const char *x0[] = { "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
+                    static const char *x00[] = { "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
+                    static const char *x000[] = { "M", "MM", "MMM" };
+
+                    if( num >= 1000 ) {
+                        return string(x000[num/1000-1]) + intToRoman(num%1000);
+                    } else if( num >= 100 ) {
+                        return string(x00[num/100-1]) + intToRoman(num%100);
+                    } else if( num >= 10 ) {
+                        return string(x0[num/10-1]) + intToRoman(num%10);
+                    } else if( num >= 1 ) {
+                        return string(x[num-1]);
+                    }
+
+                    return string(); // num == 0
+                }
+            };
+            ```
+
+            ```cpp
+            string result;
+            while( num != 0 ) {
+                if( num >= 1000 ) {
+                    result += string(x000[num/1000-1]);
+                    num %= 1000;
+                } else if( num >= 100 ) {
+                    result += string(x00[num/100-1]);
+                    num %= 100;
+                } else if( num >= 10 ) {
+                    result += string(x0[num/10-1]);
+                    num %= 10;
+                } else if( num >= 1 ) {
+                    result += string(x[num-1]);
+                    break;
+                }
+            }
+
+            return result;
+            ```
+    -   [(●—●) | minimum-depth-of-binary-tree_牛客网](http://www.nowcoder.com/questionTerminal/e08819cfdeb34985a8de9c4e6562e724) -<
+
+        :   ```cpp
+            class Solution {
+            public:
+                int run(TreeNode *root) {
+                    return minDepth( root, false );
+                }
+            private:
+                int minDepth( TreeNode *root, bool hasbrother ) {
+                    if( !root ) { return hasbrother ? INT_MAX : 0; }
+                    return 1 + min( minDepth( root->left, root->right ),
+                                    minDepth( root->right, root->left ) );
+                }
+            };
+            ```
+
+    -   [(●—●) | (●—●) | 类A是类B的友元,类C是类A的公有派生类,忽略特殊情况则下列说法正确的是()_牛客网](http://www.nowcoder.com/questionTerminal/f1491d455d28443e9c1a0c01ddb9d6ab) -<
+
+        :   类 A 是类 B 的友元, 类 C 是类 A 的公有派生类, 忽略特殊情况则下列说法正确的是 ()
+
+            -   类 B 是类 A 的友元
+            -   类 C 不是类 B 的友元
+            -   类 C 是类 B 的友元
+            -   类 B 不是类 A 的友元
+
+            BD
+
+            |   友元关系是单向的，不是对称，不能传递。
+            |   关于传递性，有人比喻：父亲的朋友不一定是儿子的朋友。
+            |   那关于对称性，是不是：他把她当朋友，她却不把他当朋友？✧(≖ ◡ ≖✿)
+
+    -   [(●—●) | evaluate-reverse-polish-notation_leetcode笔试题_牛客网](http://www.nowcoder.com/questionTerminal/22f9d7dd89374b6c8289e44237c70447?toCommentId=165743)
+
+    -   [(●—●) | max-points-on-a-line_leetcode笔试题_牛客网](http://www.nowcoder.com/questionTerminal/bfc691e0100441cdb8ec153f32540be2){.hearts}
+
+    -   [(●—●) | 顺时针打印矩阵_牛客网](http://www.nowcoder.com/questionTerminal/9b4c81a02cd34f76be2659fa0d54342a?toCommentId=229527) -<
+
+        :   ```cpp
+            #include <iostream>
+            #include <algorithm>
+            #include <iterator>
+            #include <vector>
+            using namespace std;
+
+            class Solution {
+            public:
+                vector<int> printMatrix(vector<vector<int> > &matrix) {
+                    int row = matrix.size(), col = matrix[0].size();
+                    int lr = col, ud = row-1;
+                    vector<int> ret( row*col );
+                    int i = 0, j = -1, k = 0;
+                    while( k < row*col ) {
+                        if( lr > 0 && k < row*col ) { for( int m = 0; m < lr; ++m ) { ret[k++] = matrix[i][++j]; } --lr; } // right
+                        if( ud > 0 && k < row*col ) { for( int m = 0; m < ud; ++m ) { ret[k++] = matrix[++i][j]; } --ud; } // down
+                        if( lr > 0 && k < row*col ) { for( int m = 0; m < lr; ++m ) { ret[k++] = matrix[i][--j]; } --lr; } // left
+                        if( ud > 0 && k < row*col ) { for( int m = 0; m < ud; ++m ) { ret[k++] = matrix[--i][j]; } --ud; } // up
+                    }
+                    return ret;
+                }
+            };
+
+            int main() {
+                vector<vector<int> > matrix = {
+                    {1, 2, 3, 4},
+                    {5, 6, 7, 8},
+                    {9, 10, 11, 12},
+                    {13, 14, 15, 16}
+                };
+                Solution sol;
+                vector<int> ret = sol.printMatrix( matrix );
+                copy( ret.begin(), ret.end(), ostream_iterator<int>(cout, " ")); puts("");
+            }
+            ```
+
+Learn X in Y Minutes -<
+
+:   nice.
+
+    @include <-include/learnxinyminutes.md=
+
+Words -<
+
+:   -   Augusta Ada Byron
+    -   Alonzo Church: 由人类或任何机器执行操纵符号的任何算法过程，都是可以由某个 TM 执行；
+    -   ```
+        SEEEEEEEEmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+         |-  8 -||------------- 32 -------------|
+        ```
+    -   regularity, 一致性
+    -   subordinant class / superclass
+    -   class hierarchy
+
+        ```java
+        System.out
+              .err
+              .exit
+        ```
+

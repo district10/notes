@@ -58,3 +58,9 @@ nothing special.
         ```
 
         为了访问速度，上面链接给的是我的备份，原站：[ASCIIFlow Infinity](http://asciiflow.com/)。
+
+-   Emojis
+
+    :   点击粘贴到剪切板
+
+        @include <-=include/emojis.md=

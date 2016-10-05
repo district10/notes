@@ -1547,6 +1547,12 @@ i3 window manager -<
     www                 CNAME                   district10.github.io.
     -----------         ----------------------  ---------------------
 
+    域名的 dns 管理在 dnspod，但是域名在 qcloud 管理（tangzhixiong.com）
+
+    tangzhixiong.com 到期时间 2017-12-26，55/年
+
+    dvorak4tzx.com 2018 年 04 月 27 日
+
 btSystem 源码文件目录 -<
 
 :   ```

@@ -273,7 +273,7 @@ C++ 简介 | Intro
         std::ifstream file( filename.c_str(), ifstream::in );
         // 或者：std::ifstream file; file.open( filename.c_str(), ifstream::in );
 
-        if ( !file ) ) { exit(-1); }
+        if ( !file ) { exit(-1); }
         // 或者：if ( !file.is_open() ) { exit(-1); }
 
         string line;
@@ -1081,8 +1081,10 @@ C++ 简介 | Intro
         int main()
         {
             std::string s = "Hello, world";
+
+            // 一样的：std::string::reverse_iterator r = s.rbegin();
             std::reverse_iterator<std::string::iterator> r = s.rbegin();
-            r = 'O'; // replaces 'o' with 'O'
+            *r = 'O'; // replaces 'o' with 'O'
             r += 7; // iterator now points at 'O'
             std::string rev(r, s.rend());
             std::cout << rev << '\n'; // "OlleH"
@@ -1339,6 +1341,63 @@ C++ 简介 | Intro
             std::cout << '\n';
         }
         ```
+
+-   stringstream -<
+
+    :   ```cpp
+        #include <iostream>
+        #include <iomanip>
+        #include <sstream>
+
+        int main()
+        {
+            std::string input = "41 3.14 false hello world";
+            std::istringstream stream(input);
+            int n;
+            double f;
+            bool b;
+
+            stream >> n >> f >> std::boolalpha >> b;
+            std::cout << "n = " << n << '\n'
+                      << "f = " << f << '\n'
+                      << "b = " << std::boolalpha << b << '\n';
+
+            // extract the rest using the streambuf overload
+            stream >> std::cout.rdbuf();
+            std::cout << '\n';
+        }
+        ```
+
+        ```
+        n = 41
+        f = 3.14
+        b = false
+        hello world
+        ```
+
+        ```cpp
+        #include <bitset>
+        #include <iostream>
+        #include <sstream>
+
+        int main()
+        {
+            std::string bit_string = "001101";
+            std::istringstream bit_stream(bit_string);
+
+            std::bitset<3> b1;
+            bit_stream >> b1; // reads "001", stream still holds "101"
+            std::cout << b1 << '\n';
+
+            std::bitset<8> b2;
+            bit_stream >> b2; // reads "101", populates the 8-bit set as "00000101"
+            std::cout << b2 << '\n';
+        }
+        ```
+
+        refs and see also
+
+        -   [std::basic_istringstream - cppreference.com](http://en.cppreference.com/w/cpp/io/basic_istringstream)
 
 -   std::equal_range -<
 
@@ -1707,6 +1766,60 @@ C++ 简介 | Intro
         const int n = 10;
         int A[n];
         std::remove_if(A, A+n, ' ');
+        ```
+
+        再举一个例子
+
+        ```cpp
+        #include <algorithm>
+        #include <iterator>
+        #include <vector>
+        #include <cstdio>
+
+        using namespace std;
+
+        struct S {
+            int x, y;
+            S(int x = 0, int y = 0) : x(x), y(y) { }
+        };
+
+        struct Comp {
+            int r, m;
+            Comp(int r = 0, int m = 3) : r(r), m(m) {}
+            bool operator()( const S &s) {
+                return s.x%m == r;
+            }
+        };
+
+        void print( vector<S> &s) {
+            for( auto i : s ) {
+                printf("%d ", i.x);
+                // printf("(%d, %d) ", i.x, i.y);
+            }
+            printf("\n");
+        }
+
+        int main()
+        {
+            vector<S> s(20, S());
+            for( int i = 0; i < s.size(); ++i ) {
+                s[i].x = s[i].y = i;
+            }
+            s.erase( remove_if( s.begin(), s.end(), Comp() ), s.end() );
+            print(s);
+            s.erase( remove_if( s.begin(), s.end(), Comp(1) ), s.end() );
+            print(s);
+            s.erase( remove_if( s.begin(), s.end(), Comp(0, 2) ), s.end() );
+            print(s);
+
+            return 0;
+        }
+        ```
+
+        ```
+        1 2 4 5 7 8 10 11 13 14 16 17 19
+        2 5 8 11 14 17
+        5 11 17
         ```
 
         refs and see also
@@ -2207,6 +2320,40 @@ C++ 简介 | Intro
                 ```
                 1 2 3 4 5 6 7
                 ```
+-   binary_search -<
+
+    :   ```cpp
+        if (any_of(v.begin(), v.end(), bind2nd(equal_to<string>(), item)))
+           do_this();
+        else
+           do_that();
+        ```
+
+        refs and see also
+
+        -   [std::binary_search - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/binary_search)
+
+-   find -<
+
+    :   ```cpp
+        // vector
+        vector<int>::iterator result = find( v.begin( ), v.end( ), 3 );
+
+        // map
+        map.find(5) != map.end()
+        map.count(5)
+
+        // set
+        set.find(5) != set.end()
+        set.count(5)
+        ```
+
+        refs and see also
+
+        -   [c++ - How to find if an item is present in a std::vector? - Stack Overflow](http://stackoverflow.com/questions/571394/how-to-find-if-an-item-is-present-in-a-stdvector)
+        -   [std::map::find - cppreference.com](http://en.cppreference.com/w/cpp/container/map/find)
+        -   [std::set::count - cppreference.com](http://en.cppreference.com/w/cpp/container/set/count)
+        -   [std::map::count - cppreference.com](http://en.cppreference.com/w/cpp/container/map/count)
 
 -   MISC, unordered_map, find, unordered_multimap -<
 
@@ -8938,3 +9085,34 @@ refs and see also
     refs and see also
 
     -   [c++ - Purpose of std::make_pair - Stack Overflow](http://stackoverflow.com/questions/9270563/purpose-of-stdmake-pair)
+
+[<<Effective C++>>读书笔记(三) - zyfforlinux - 博客频道 - CSDN.NET](http://blog.csdn.net/zhangyifei216/article/details/50933104)
+
+[如何在一个月内提高 C++ 水平? - 知乎](https://www.zhihu.com/question/50697955#answer-44416899) -<
+
+:   “哦！原来你说的是 Two phase name look up mechanism 啊！（停顿）对于这个
+    Question，虽然 C++ 11（读作“伊来闻”，不读“屎遗”，下同） standard 在 Draft
+    N3028（读作“瑟添臀添诶特”，不读“散蛋阿爸”，下同）时就已经 final decision 了，
+    C++17 上对于 Chapter 14，section 3.3.1 条款 5,7,15 上做了进一步调整，但是迄今
+    为止各家 compiler vendor 的 implementation 仍然 slighty difference。所以可能我们
+    在不同的 Compiler 上都是对的。我的答案是在 IBM XL C++ 13 上获得的，Linux Z（重
+    音） System on Power 8，not MSVC on Windows x64（读作“埃克斯碎克死天佛”，不
+    能读“插牛屎”），you know。（停顿）Our experience 可能不太一样。我刚刚仔细的
+    考虑过你的 Result，应该是 Make Sense 的。关于这个问题的进一步讨论，我想我们可
+    以参考一下 TCPL 的 275 页（随便报个页数就可以了，没人会真去查的）。”
+
+    注意，一定要用英语，一定要自信。说中文就说不知道，没看过。99.99%的面试官不
+    敢说自己没听懂。
+
+    所以总结一下，面试的时候你怎么样并不要紧，你只需要做到以下几点中的任意一条：
+
+    1.  让面试官觉得你懂
+    2.  和面试官的答案相同
+    3.  让面试官觉得他也不懂
+
+    这样就是一个成功的面试了。
+
+    |   至于你说进去以后怎么办，南郭先生的故事听过吗。
+    |   如果大家都牛逼，也就没人在乎你是不是屎。
+    |   如果大家都不牛逼，那一坨屎从道德上就不能嫌弃其他屎。
+    |   如果乐团拆分了，记住，不要去当乐手了，要提前转型，当乐团老板吧。
