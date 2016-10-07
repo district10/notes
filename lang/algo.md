@@ -9809,7 +9809,7 @@ A Bit of Logic -<
                                 for ( j = 0; j < cur; ++j ) {
                                     if ( table[cur][j] && c == history[j] ) {       // 相邻且同色
                                         break;
-                                     }
+                                    }
                                 }
                                 if ( j == cur ) {                                   // you can also use `ok'
                                     history[cur] = c;
@@ -10360,7 +10360,7 @@ A Bit of Logic -<
                 parametrized differently from the naive algorithm. For other
                 problems the optimal algorithm may not even be a memoized
                 recursive algorithm in any reasonably natural sense. An example
-                of such a problem is the Egg Dropping puzzle described below.
+                of such a problem is the **Egg Dropping puzzle** described below.
 
                 ![Figure 1. Finding the shortest path in a graph using optimal
                     substructure; a straight line indicates a single edge; a
@@ -10389,7 +10389,7 @@ A Bit of Logic -<
                     return m[n]
                 ```
 
-                This technique of **saving values that have already been calculated** is called 【memoization】;
+                This technique of **saving values that have already been calculated** is called **【memoization】**;
 
                 refs and see also
 
@@ -10404,7 +10404,7 @@ A Bit of Logic -<
             :   必须满足如下三点：
 
                 -   **最优化原理**：如果问题的最优解所包含的子问题的解也是最优的，
-                    就称该问题具有最优子结构（optimal substructure），即满足最优化原理。
+                    就称该问题具有最优子结构（**optimal substructure**），即满足最优化原理。
                 -   **无后效性**：即某阶段状态一旦确定，就不受这个状态以后决策的影
                     响。也就是说，某状态以后的过程不会影响以前的状态，只与当前
                     状态有关。
@@ -10430,7 +10430,9 @@ A Bit of Logic -<
                 -   答案 Answer
                       ~ 最大的那个状态是什么，终点
 
-        -   动规的两种实现方式：记忆化搜索 vs 循环递推
+        -   动规的两种实现方式：记忆化搜索 (top-down) *vs* 循环递推 (bottom-up) -<
+
+            :   TODO
 
         -   面试中动态规划的常见类型 -<
 
@@ -10510,7 +10512,7 @@ A Bit of Logic -<
                                     t[i][j] += min(t[i+1][j], t[i+1][j+1]);
                                 }
                             }
-                            return triangle;
+                            return triangle[0][0];
                         }
                         ```
 
@@ -10520,7 +10522,7 @@ A Bit of Logic -<
 
                 -   Maximum Subarray -<
 
-                    :    Find the contiguous subarray within an array
+                    :   Find the contiguous subarray within an array
                         (containing at least one number) which has the largest sum.
 
                         For example, given the array `[−2,1,−3,4,−1,2,1,−5,4]`,
@@ -10569,7 +10571,7 @@ A Bit of Logic -<
                         状态转移方程：
                         `f[i][j] = min(f[i-1][j], f[i][j-1]) + grid(i,j)`
 
-                        -   备忘录法 -<
+                        -   备忘录法 (top-down) -<
 
                             :   ```cpp
                                 class Solution {
@@ -10599,25 +10601,21 @@ A Bit of Logic -<
                                 };
                                 ```
 
-                                refs and see also
+                        -   动态规划 (bottom-up) -<
 
-                                -   [Minimum Path Sum | LeetCode OJ](https://leetcode.com/problems/minimum-path-sum/)
-
-                        -   动态规划 -<
-
-                            :   ??? works.?
+                            :   ??? works???
 
                                 ```cpp
                                 int minPathSum( vector<vector<int>> &grid ) {
                                     const int m = grid.size();
-                                    const int n = grid.size();
+                                    const int n = grid[0].size();
                                     int f[m][n];
-                                    f = grid;
+                                    f[0][0] = grid[0][0];
                                     for( int i = 1; i < m; ++i ) {
-                                        f[i] = f[i-1] + grid[i];
+                                        f[i][0] = f[i-1][0] + grid[i][0];
                                     }
                                     for( int j = 1; j < n; ++j ) {
-                                        f[j] = f[j-1] + grid[j];
+                                        f[0][j] = f[0][j-1] + grid[0][j];
                                     }
                                     for( int i = 1; i < m; ++i ) {
                                         for( int j = 1; j <n; ++j ) {
@@ -10638,8 +10636,8 @@ A Bit of Logic -<
                                     const int n = grid[0].size();
 
                                     int f[n];
-                                    fill( f, f+n, INT_MAX );
-                                    f[0] = 0;
+                                    fill( f, f+n, INT_MAX );                    // !!! important
+                                    f[0] = 0;                                   // not grid[0][0]
 
                                     for( int i = 0; i < m; ++i ) {
                                         f[0] += grid[i][0];
@@ -10650,6 +10648,10 @@ A Bit of Logic -<
                                     return f[n-1];
                                 }
                                 ```
+
+                        refs and see also
+
+                        -   [Minimum Path Sum | LeetCode OJ](https://leetcode.com/problems/minimum-path-sum/)
 
         -   面试中常见的动态规划类型 -<
 
@@ -10681,6 +10683,8 @@ A Bit of Logic -<
 
             :   左右扩张。
 
+                TODO
+
                 ```cpp
                 class Solution {
                 public:
@@ -10691,7 +10695,7 @@ A Bit of Logic -<
                             s.insert(i);
                         for (auto i: num) {
                             int j = i, k = i+1;
-                            while (s.count(j-1)) s.erase(j--);
+                            while (s.count(j-1)) s.erase(--j);  // j--?
                             while (s.count(k)) s.erase(k++);
                             r = max(r, k-j);
                         }
@@ -10714,7 +10718,7 @@ A Bit of Logic -<
 
         -   TODO -<
 
-            :   [Word Break 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/word-break/) -<
+            :   [Word Break 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/word-break/) :hearts: -<
 
                 :   Given a string s and a dictionary of words dict, determine if s can
                     be segmented into a space-separated sequence of one or more
@@ -10722,7 +10726,9 @@ A Bit of Logic -<
                     ["leet", "code"].  Return true because "leetcode" can be segmented
                     as "leet code".
 
-                    ```cpp
+                    java code:
+
+                    ```java
                     public class Solution {
                         private int getMaxLength(Set<String> dict) {
                             int maxLength = 0;
@@ -11025,25 +11031,25 @@ A Bit of Logic -<
         :   如果一个问题具有以下两个要素：
 
             -   最优子结构 (optimal substructure)
-            -   重叠子问题 (overlap subproblem)
             -   (无后效性)
+            -   重叠子问题 (overlapping subproblem), 该性质并不是动态规划适用的必要条件，但是如果没有这条性质，动态规划算法同其他算法相比就不具备优势
 
             则可以用动态规划求最优解。
 
-            动态规划分为4个步骤：
+            动态规划分为 4 个步骤：
 
-            -   描述最优解的结构。即抽象出一个状态来表示最优解。
-            -   递归的定义最优解的值。找出状态转移方程，然后递归的定义
-            -   计算最优解的值。典型的做法是自底向上，当然也可以自顶向下。
-            -   根据计算过程中得到的信息，构造出最优解。如果我们只需要最优解的值，不需要最
-                优解本身，则可以忽略第4步。当执行第4步时，我们需要在第3步的过程中维护一些额外的
+            1.  描述最优解的结构。即抽象出一个状态来表示最优解。
+            2.  递归的定义最优解的值。找出状态转移方程，然后递归的定义
+            3.  计算最优解的值。典型的做法是自底向上 (bottom-up, iteration)，当然也可以自顶向下 (top-down, memoization)。
+            4.  根据计算过程中得到的信息，构造出最优解。如果我们只需要最优解的值，不需要最
+                优解本身，则可以忽略第 4 步。当执行第 4 步时，我们需要在第 3 步的过程中维护一些额外的
                 信息，以便我们能方便的构造出最优解。
 
-            在第1步中，我们需要抽象出一个“状态”，在第2步中，我们要找出“状态转移方程”，然后才能
-            递归的定义最优解的值。第3步和第4步就是写代码实现了。
+            在第 1 步中，我们需要抽象出一个“状态”，在第 2 步中，我们要找出“状态转移方程”，然后才能
+            递归的定义最优解的值。第 3 步和第 4 步就是写代码实现了。
 
-            写代码实现时有两种方式，“递归(recursive)+自顶向下(top-down)+表格”和
-            “自底向上(bottom-up)+表格”。前者属于一种 memoization （翻译为备忘录法），后者才是正宗的动规。
+            写代码实现时有两种方式，“递归 (recursive)+ 自顶向下 (top-down)+ 表格”和
+            “自底向上 (bottom-up) + 表格”。前者属于一种 memoization （翻译为备忘录法），后者才是正宗的动规。
 
             动规用表格将各个子问题的最优解存起来，避免重复计算，是一种空间换时间。
 
@@ -11059,33 +11065,32 @@ A Bit of Logic -<
 
             **动规和备忘录法**的区别
 
-            -   动规 (dynamic programming)一定是自底向上的，备忘录法 (memoization) 一定是自顶向下的。
+            -   动规 (dynamic programming) 一定是自底向上的，备忘录法 (memoization) 一定是自顶向下的。
             -   动规不是 lazy 的， memoization 是 lazy 的，是按需 (on-demand) 计算的。
                 所以，如果所有的子问题至少会碰到一次，则动规有优势；
                 如果有些子问题在搜索过程中不会被碰到（即有剪枝），则 memorization 有优势。
-                更详细的解释请参考 StackOverflow 上的这个帖子 http://t.cn/z80ZS6B 。
+                更详细的解释请参考 StackOverflow 上的这个帖子 <http://t.cn/z80ZS6B>。
             -   备忘录法可以实现跟动规类似的功能，但它不是动规。两者的方向是反的，一个是自
                 顶向下，一个自底向上，我们应该区分开这两个概念。本书后面提到的动规，都是指
                 自底向上的动规。
 
         -   longest common subsequence -<
 
-            :   shitshit.
-
-                一个序列的子序列 (subsequence) 是指在该序列中删去若干（可以为0个）元素后得到的序列。
-                准确的说，若给定序列 X=(x~1~,x~2~, ..., x~m~)，则另一个序列 Z=(z~1~, z~2~, ..., z~k~)，
+            :   一个序列的子序列 (subsequence) 是指在该序列中删去若干（可以为 0 个）元素后得到的序列。
+                准确的说，若给定序列 X = (x~1~, x~2~, ..., x~m~)，则另一个序列 Z = (z~1~, z~2~, ..., z~k~)，
                 是 X 的子序列是指存在一个严格递增下标序列 (i~1~, i~2~, ..., i~k~) 使得对于
                 所有 j=1, 2, ..., k 有 z~j~=x~i_j~。
-                例如，序列 Z=(B,C,D,B) 是序列 X=(A,B,C,B,D,A,B) 的子序列，相应的递增下标序列为 (1,2,4,6)。
+                例如，序列 Z = (B, C, D, B) 是序列 X = (A, B, C, B, D, A, B) 的
+                子序列，相应的递增下标序列为 (1, 2, 4, 6)。
 
-                给定两个序列X和Y，求X和Y的最长公共子序列(longest common subsequence)。
+                给定两个序列 X 和 Y，求 X 和 Y 的最长公共子序列 (longest common subsequence)。
 
                 ```
                 输入
 
                     输入包括多组测试数据，每组数据占一行，包含两个字符串（字符
-                    串长度不超过200），代表两个序列。两个字符串之间由若干个空格
-                    隔开。
+                    串长度不超过 200），代表两个序列。两个字符串之间由若干个空
+                    格隔开。
 
                     abcfbc abfcab
                     programming contest
@@ -11096,21 +11101,27 @@ A Bit of Logic -<
 
                     对每组测试数据，输出最大公共子序列的长度，每组一行。
 
-                    4  "abcb"
-                    2  "on"
-                    0  ""
-                    4  "nice"
+                    4   "abcb"
+                    2   "on"
+                    0   ""
+                    4   "nice"
                 ```
 
                 最长公共子序列问题具有最优子结构性质。
 
-                if `X[m]` & `Y[n]` ---> `Z[k]`
+                ```
+                if X[m] & Y[n] ---> Z[k], and
 
-                -   x[m] == y[n], then z[k] = x[m] = y[n], X[m-1] & Y[n-1] ---> Z[k-1]
-                -   x[m] != y[n], z[k] != x[m], X[m-1] & Y[n] ---> Z[k]
-                -   x[m] != y[n], z[k] != y[m], X[m] & Y[n-1] ---> Z[k]
+                a)      x[m] == y[n], then
+                                                z[k] = x[m] = y[n], X[m-1] & Y[n-1] ---> Z[k-1]
+                b)      x[m] != y[n], and
+                    b1. z[k] != x[m], then
+                                                X[m-1] & Y[n] ---> Z[k]
+                    b2. z[k] != y[m], then
+                                                X[m] & Y[n-1] ---> Z[k]
+                ```
 
-                设状态为 d[i][j]，表示序列 X~i~ 和 Y~j~ 的最长公共子序列的长度。由最优子结构可得状态转移方程如下：
+                设状态为 `d[i][j]`，表示序列 X~i~ 和 Y~j~ 的最长公共子序列的长度。由最优子结构可得状态转移方程如下：
 
                 ```
                                 0                               i=0, or j=0
@@ -11118,7 +11129,7 @@ A Bit of Logic -<
                                 max{ d[i][j-1], d[i-1][j] }     i,j>0, x_i != y_i
                 ```
 
-                如果要打印出最长公共子序列，需要另设一个数组 p，p[i][j] 记录 d[i][j] 是由哪个子问题得到的。
+                如果要打印出最长公共子序列，需要另设一个数组 p，`p[i][j]` 记录 `d[i][j]` 是由哪个子问题得到的。
 
                 ```cpp
                 #include <cstdio>
@@ -11127,17 +11138,17 @@ A Bit of Logic -<
                 #define MAX 201                         // 字符串最大长度为200
 
                 char x[MAX], y[MAX];
-                int d[MAX][MAX];                        // d[i][j]表示序列Xi和Yj的最长公共子序列的长度
+                int d[MAX][MAX];                        // d[i][j] 表示序列 Xi 和 Yj 的最长公共子序列的长度
 
                 void lcs( const char *x, const int m, const char *y, const int n ) {
-                    for( int i = 0; i <= m; ++i ) { d[i][0] = 0; } // 边界初始化
+                    for( int i = 0; i <= m; ++i ) { d[i][0] = 0; }                          // 边界初始化
                     for( int j = 0; j <= n; ++j ) { d[0][j] = 0; }
                     for( int i = 1; i <= m; ++i ) {
                         for( int j = 1; j <= n; ++j ) {
                             if( x[i-1] == y[j-1] ) {
                                 d[i][j] = d[i-1][j-1] + 1;
                             } else {
-                                d[i][j] = d[i-1][j] > d[i][j-1] ? d[i-1][j] : d[i][j-1];
+                                d[i][j] = d[i-1][j] > d[i][j-1] ? d[i-1][j] : d[i][j-1];    // choose the bigger one
                             }
                         }
                     }
@@ -11151,7 +11162,7 @@ A Bit of Logic -<
                         const int lx = strlen(x);
                         const int ly = strlen(y);
                         lcs(x, lx, y, ly);
-                        printf ("%d  ", d[lx][ly] );
+                        printf ("%d\t", d[lx][ly] );
                         {
                             lcs_extend(x, lx, y, ly);
                             printf("\"");
@@ -11162,9 +11173,9 @@ A Bit of Logic -<
                     return 0;
                 }
 
-                int p[MAX][MAX];  // p[i][j]记录d[i][j]是由哪个子问题得到的
+                int p[MAX][MAX];  // p[i][j] 记录 d[i][j] 是由哪个子问题得到的
 
-                void lcs_extend(const char *x, const int m, const char *y, const int n) {
+                void lcs_extend( const char *x, const int m, const char *y, const int n ) {
                     memset( p, 0, sizeof(p) );                      // sizeof(p) == MAX*MAX*sizeof(int)
                     for( int i = 0; i <= m; ++i ) { d[i][0] = 0; }  // 边界初始化
                     for( int j = 0; j <= n; ++j ) { d[0][j] = 0; }
@@ -11186,7 +11197,7 @@ A Bit of Logic -<
                     }
                 }
 
-                void lcs_print(const char *x, const int m, const char *y, const int n) {
+                void lcs_print( const char *x, const int m, const char *y, const int n ) {
                     if ( !m || !n ) { return; }
                     if (p[m][n] == 1) {
                         lcs_print(x, m - 1, y, n - 1);
@@ -11208,9 +11219,9 @@ A Bit of Logic -<
             :   给定一个整数序列 S~1~, S~2~, ..., S~n~ (1 <= n <= 1,000,000, -32768 <= S~i~ <= 32768)，
                 定义函数 sum(i,j)= S~i~ + ... + S~j~ (1 <= i <= j <= n)。
 
-                现给定一个正整数m，找出m对i和j，使得
+                现给定一个正整数 m，找出 m 对 i 和 j，使得
                 sum(i~1~,j~1~) + sum(i~2~,j~2~) + ... + sum(i~m~,j~m~) 最大。这
-                就是 **最大M子段和 (maximum m segments sum)**。
+                就是 **最大 M 子段和 (maximum m segments sum)**。
 
                 ```
                 input:
@@ -11230,27 +11241,22 @@ A Bit of Logic -<
 
                 分析
 
-                设状态为d[i,j]，表示前j项分为i段的最大和，且第i段必须包含S[j]，则状态转移方程如下：
+                设状态为 `d[i,j]`，表示前 j 项分为 i 段的最大和，且第 i 段必须包含 `S[j]`，则状态转移方程如下：
 
                 ```
                 d[i,j] = max {
-                                    d[i,j-1] + S[j],
-                                    max{    d[i-1,t] + S[j] }
+                                    d[i,j-1] + S[j],                # S[j] 包含在第 i 段之中，d[i,j-1]+S[j]。
+                                    max{    d[i-1,t] + S[j] }       # S[j] 独立划分成为一段
                              },                                     i <= j <= n, i-1 <= t < j
                 target = max {      d[m,j]                  },      m <= j <= n
                 ```
 
-                分为两种情况：
-
-                -   情况一，S[j] 包含在第i段之中，d[i,j-1]+S[j]。
-                -   情况二，S[j]独立划分成为一段，max{    d[i-1,t] + S[j] }
-
-                观察上述两种情况可知d[i,j]的值只和d[i,j-1]和d[i-1,t]这两个值相
+                观察上述两种情况可知 `d[i,j]` 的值只和 `d[i,j-1]` 和 `d[i-1,t]` 这两个值相
                 关，因此不需要二维数组，可以用滚动数组，只需要两个一维数组，用
-                d[j]表示现阶段的最大值，即$d[i,j-1]+S[j]$，用prev[j]表示上一阶
-                段的最大值，即$\max\left\{d[i-1,t]+S[j]\right\}$。
+                `d[j]` 表示现阶段的最大值，即 `d[i,j-1] + S[j]`，用 `prev[j]` 表示上一阶
+                段的最大值，即 `max{ d[i-1,t] + S[j] }`。
 
-                TODO
+                TODO.
 
                 ```cpp
                 #include <stdio.h>
@@ -11311,9 +11317,9 @@ A Bit of Logic -<
 
                 有很多种版本，常见的是以下三种：
 
-                -   0-1背包问题(0-1 knapsack problem)：每种物品只有一个
-                -   完全背包问题(UKP, unbounded knapsack problem)：每种物品都有无限个可用
-                -   多重背包问题(BKP, bounded knapsack problem)：第 i 种物品有 `c[i]` 个可用
+                -   0-1 背包问题 (0-1 knapsack problem)：每种物品只有一个
+                -   完全背包问题 (UKP, unbounded knapsack problem)：每种物品都有无限个可用
+                -   多重背包问题 (BKP, bounded knapsack problem)：第 i 种物品有 `c[i]` 个可用
 
                 背包问题是一种“多阶段决策问题”。
 
@@ -11328,9 +11334,11 @@ A Bit of Logic -<
                         ```
                         input:
 
-                            第1行包含一个整数T，表示有T组测试用例。
-                            每组测试用例有3行，第1行包含两个整数 N, W (N <= 1000 , W <= 1000) 分别表示
-                            物品的种数和背包的容量，第2行包含N个整数表示每种物品的价值，第3行包含N个整数表示每种物品的重量。
+                            第 1 行包含一个整数 T，表示有 T 组测试用例。
+                            每组测试用例有 3 行，第 1 行包含两个整数 N, W (N <= 1000 , W <= 1000)
+                            分别表示物品的种数和背包的容量，第 2 行包含 N 个整
+                            数表示每种物品的价值，第 3 行包含 N 个整数表示每种
+                            物品的重量。
 
                             1
                             5 10
@@ -11346,11 +11354,11 @@ A Bit of Logic -<
 
                         这是最基础的背包问题，特点是：每种物品仅有一件，可以选择放或不放。
 
-                        用子问题定义状态：即 `F[i,v]` 表示前 i 件物品恰放入一个容量为 v 的背包可以获得的最大价值。则其状态转移方程便是：
+                        用子问题定义状态：即 `F[i,v]` 表示前 i 件物品放入一个容量为 v 的背包可以获得的最大价值。则其状态转移方程便是：
 
                         ```
-                                        不放            放
-                        F[i,v] = max{ F[i−1,v], F[i−1,v−C_i ] + W_i }
+                                                    不放                            放
+                        F[i,v] = max{           F[i−1, v],                  F[i−1, v−C_i] + W_i         }
                         ```
 
                         动规过程的伪代码如下：
@@ -11359,7 +11367,7 @@ A Bit of Logic -<
                         f[0..N][0..W] = 0
                         for i=1..N
                             for j=0..W
-                                f[i][j]=max{f[i-1][j],f[i-1][j-w[i]]+v[i]};
+                                f[i][j] = max{      f[i-1][j],      f[i-1][j-w[i]]+v[i]     };
                         ```
 
                         内循环从右向左也可以：
@@ -11368,7 +11376,7 @@ A Bit of Logic -<
                         f[0..N][0..W] = 0
                         for i=1..N
                             for j=W..0
-                                f[i][j]=max{f[i-1][j],f[i-1][j-w[i]]+v[i]};
+                                f[i][j] = max{      f[i-1][j],      f[i-1][j-w[i]]+v[i]     };
                         ```
 
                         内循环从右向左时，可以把二维数组优化成一维数组。伪代码如下：
@@ -11376,40 +11384,31 @@ A Bit of Logic -<
                         ```
                         for i=1..N
                             for j=W..0
-                                d[j]=max{d[j],d[j-w[i]]+v[i]};
+                                d[j]    = max{           d[j],           d[j-w[i]]+v[i]     };
+                             // f[i][j] = max{      f[i-1][j],      f[i-1][j-w[i]]+v[i]     };
+                             //                                             ^
+                             //                                             |
+                             //                                             +-- still valid, so we can
+                             //                                                 iterate from right to left
                         ```
 
-                        为什么呢？举个例子，测试数据如下：
+                        为什么呢？
 
-                        ```
-                        input:
+                        当内循环是逆序时，且动规是用自底向上方式实现时，就可以保证同一行**可以从右向左更新**。
 
-                            1
-                            3 10
-                            4 5 6
-                            3 4 5
+                        设一维数组为 d（又称为滚动数组，在更新 `d[j]` 之前，`d[j]` 里保存的 `f[i-1][j]`，更新之后，`d[j]` 里保存的是 `f[i][j]` )。
 
-                        output:
-
-                            11
-                        ```
-
-                        f 是从上到下、从右到左计算的，如图 fig:01knapsack 所示。
-
-                        当内循环是逆序时，且动规是用自底向上方式实现时，就可以保证同一行可以从右向左更新。
-
-                        设一维数组为 d（又称为滚动数组，在更新 d[j] 之前，d[j] 里保存的 f[i-1][j]，更新之后，d[j]里保存的是f[i][j] )。
-
-                        事实上，使用一维数组解0-1背包问题的程序在后面会被多次用到，所以这里抽象出一
-                        个处理单个物品的函数，以后的代码中直接调用不加说明。
+                        事实上，使用一维数组解 0-1 背包问题的程序在后面会被多次
+                        用到，所以这里抽象出一个处理单个物品的函数，以后的代码
+                        中直接调用不加说明。
 
                         ```
                         def ZeroOneKnapsack(d[], i)
                             for j = W..w[i]
-                                d[j] = max(d[j], d[j-w[i]] + v[i])
+                                d[j] = max( d[j], d[j-w[i]] + v[i] )
                         ```
 
-                        有了这个函数以后，0-1背包问题的伪代码就可以这样写：
+                        有了这个函数以后，0-1 背包问题的伪代码就可以这样写：
 
                         ```
                         d[0..W] = 0
@@ -11438,7 +11437,7 @@ A Bit of Logic -<
                                         for( int j = 0; j <= W; ++j ) {
                                             f[i][j] = f[i-1][j];
                                             if(j >= w[i]) {
-                                                int sum = f[i-1][j-w[i]] + v[i];
+                                                int sum = f[i-1][j-w[i]] + v[i];    // when i = 1, init f[0][i] to v[i]
                                                 if(sum > f[i][j]) f[i][j] = sum;
                                             }
                                         }
@@ -11473,6 +11472,7 @@ A Bit of Logic -<
 
                                 int d[MAXW + 1];
 
+                                // put ith object
                                 void zero_one_knapsack(int d[], const int i) {
                                     for( int j = W; j >= w[i]; --j ) {
                                         int sum = d[j - w[i]] + v[i];
@@ -11502,24 +11502,31 @@ A Bit of Logic -<
                                 }
                                 ```
 
+                                WORKS??
+
                                 9???
 
                 -   完全背包问题 -<
 
-                    :   给你一个储钱罐 (piggy bank)，往里面存硬币。存入的过程是不可逆的，要想把钱拿出来只能摔碎
-                        储钱罐。因此，你想知道里面是否有足够多的钱，把它摔碎是值得的。
+                    :   给你一个储钱罐 (piggy bank)，往里面存硬币。存入的过程是
+                        不可逆的，要想把钱拿出来只能摔碎储钱罐。因此，你想知道
+                        里面是否有足够多的钱，把它摔碎是值得的。
 
-                        你可以通过储钱罐的重量来推测里面至少有多少钱。已知储钱罐空的时候的重量和装了硬币后的重量，
-                        还有每种硬币的重量和面值，每种硬币的数量不限。求在最坏情况下，储钱罐里最少有多少钱。
+                        你可以通过储钱罐的重量来推测里面至少有多少钱。已知储钱
+                        罐空的时候的重量和装了硬币后的重量，还有每种硬币的重量
+                        和面值，每种硬币的数量不限。求在最坏情况下，储钱罐里最
+                        少有多少钱。
 
                         ```
                         输入
 
-                            第1行包含一个整数T，表示有T组测试用例。
-                            每组测试用例，第一行是两个整数E和F，分别表示空储钱罐的重量和装了硬币后的重量，以克(gram)为单位，
-                            储钱罐的重量不会超过10kg，即 1 <= E <= F <= 10000。第二行是一个整数
-                            N (1 <= N <= 500)，表示硬币的种类数目。接下来是 N 行，每行包含两个整数 v 和 w
-                            (1 <= v <= 50000, 1 <= w <= 10000$)，分别表示硬币的面值和重量。
+                            第 1 行包含一个整数 T，表示有 T 组测试用例。每组测
+                            试用例，第一行是两个整数 E 和 F，分别表示空储钱罐的
+                            重量和装了硬币后的重量，以克 (gram) 为单位，储钱罐
+                            的重量不会超过 10kg，即 1 <= E <= F <= 10000。第二
+                            行是一个整数N (1 <= N <= 500)，表示硬币的种类数目。
+                            接下来是 N 行，每行包含两个整数 v 和 w
+                            (1 <= v <= 50000, 1 <= w <= 10000)，分别表示硬币的面值和重量。
 
                             3
                             10 110
@@ -11537,26 +11544,28 @@ A Bit of Logic -<
 
                         输出
 
-                            每个案例打印一行。内容是"The minimum amount of money in the piggy-bank is X."，其中
-                            X表示储钱罐里最少有多少钱。如果不能精确地达到给定的重量，则打印"This is impossible."。
+                            每个案例打印一行。内容是 "The minimum amount of money in the piggy-bank is X."，
+                            其中 X 表示储钱罐里最少有多少钱。如果不能精确地达到给定的重量，则打印
+                            "This is impossible."。
 
                             The minimum amount of money in the piggy-bank is 60.
                             The minimum amount of money in the piggy-bank is 100.
                             This is impossible.
                         ```
 
-                        每种物品有无限个可用，这是完全背包问题。
+                        每种物品有无限个可用，这是**完全背包**问题。
 
-                        本题没有给出储钱罐的容量，但每个案例给出了，初始为空时的重量E和装了硬币后的重量F，
-                        因此可以把储钱罐看作一个容量为 F-E 的背包，背包必须要装满。
+                        本题没有给出储钱罐的容量，但每个案例给出了，初始为空时
+                        的重量 E 和装了硬币后的重量 F，因此可以把储钱罐看作一个
+                        容量为 F-E 的背包，背包必须要装满。
 
-                        这个问题非常类似于0-1背包问题，所不同的是每种物品有无限个。也就是从每种
-                        物品的角度考虑，与它相关的策略已并非取或不取两种，而是取0个、取1个、取2
-                        个……直至取 W/w[i] 个。
+                        这个问题非常类似于 0-1 背包问题，所不同的是每种物品有无
+                        限个。也就是从每种物品的角度考虑，与它相关的策略已并非
+                        取或不取两种，而是取 0 个、取 1 个、取 2 个……直至取 `W/w[i]` 个。
 
-                        一种好想好写的基本方法是转化为0-1背包问题：把第i种物品换成 W/w[i] 个0-1
-                        背包问题中的物品，则得到了物品数为 `sum(W/W[i])` 的0-1背包问题。
-                        时间复杂度是 `O(W*sum(W/W[i]))`
+                        一种好想好写的基本方法是转化为 0-1 背包问题：把第 i 种
+                        物品换成 `W/w[i]` 个 0-1 背包问题中的物品，则得到了物品
+                        数为 `sum(W/W[i])` 的 0-1 背包问题。时间复杂度是 `O(W*sum(W/W[i]))`
 
                         按照该思路，状态转移方程为：
 
@@ -11564,6 +11573,7 @@ A Bit of Logic -<
                         f[i][j] = max {
                                                 f[i-1][j-k*w[i]] + k*v[i]
                         },                                                                  0 <= k*w[i] <= j
+                                                                                            0 <= k      <= j/w[i]
                         ```
 
                         伪代码如下：
@@ -11572,7 +11582,7 @@ A Bit of Logic -<
                         for i = 1..N
                             for j = W..w[i]
                                 for k = 1..j/w[i]
-                                    d[j] = max{d[j], d[j-k*w[i]] + k*v[i]};
+                                    d[j] = max{ d[j], d[j-k*w[i]] + k*v[i] };
                         ```
 
                         也可以写成：
@@ -11583,15 +11593,14 @@ A Bit of Logic -<
                                 ZeroOneKnapsack(d[], w, v)
                         ```
 
-                        “拆分物品”还有更高效的拆分方法：
+                        “拆分物品”还有更高效的拆分方法： -<
 
-                        :   把第i种物品拆分成重量为 2^k*w[i]、价值为 2^k*v[i] 的
-                            若干物品，其中k取所有满足 `2^k*w[i] <= W` 的非负整数。这是二进制的思想，因为闭区间[1, W/w[i]]中
-                            的任何整数都可以表示为$1, 2, 4, ..., 2^k$中若干个的和。
+                        :   把第 i 种物品拆分成重量为 2^k^*`w[i]`、价值为 2^k*`v[i]` 的
+                            若干物品，其中 k 取所有满足 2^k^*`w[i]` <= W 的非负
+                            整数。这是二进制的思想，因为闭区间 `[1, W/w[i]]` 中
+                            的任何整数都可以表示为 1, 2, 4, ..., 2^k^ 中若干个的和。
 
-                            这样处理单个物品的复杂度由
-                            $O\left(\dfrac{W}{w[i]}\right)$降到了$O\left(\log
-                            \dfrac{W}{w[i]}\right)$，伪代码如下：
+                            这样处理单个物品的复杂度由 `O(W/w[i])` 降到了 `O(lg(W/w[i]))`，伪代码如下：
 
                             ```
                             def UnboundedKnapsack(d[], i)
@@ -11606,15 +11615,18 @@ A Bit of Logic -<
                             ```
                             for i = 1..N
                                 for j = 0..W
-                                    d[j] = max{d[j], d[j-w[i]] + v[i]};
+                                    d[j] = max{ d[j], d[j-w[i]] + v[i]  };
                             ```
 
-                            与0-1背包问题相比，仅有一行代码不同，这里内循环是顺序的，而0-1背包是逆序的（在使用滚动数组的情况下）。
+                            与 0-1 背包问题相比，仅有一行代码不同，这里内循环是
+                            顺序的，而 0-1 背包是逆序的（在使用滚动数组的情况下）。
 
-                            为什么这个算法可行呢？首先想想为什么0-1背包中内循环要逆序，逆序是为了保证每个物品只选一次，保证在
-                            “选择第i件物品”时，依赖的是一个没有选择第i件物品的子结果$f[i-1][j-w[i]]$。而现在完全背
-                            包的特点却是每种物品可选无限个，没有了每个物品只选一次的限制，所以就可以并且**必须采用j递增
-                            的顺序**循环。
+                            为什么这个算法可行呢？首先想想为什么 0-1 背包中内循
+                            环要逆序，逆序是为了保证每个物品只选一次，保证在“选
+                            择第 i 件物品”时，依赖的是一个没有选择第 i 件物品的
+                            子结果 `f[i-1][j-w[i]]`。而现在完全背包的特点却是每
+                            种物品可选无限个，没有了每个物品只选一次的限制，所
+                            以就可以并且**必须采用 j 递增的顺序**循环。
 
                             根据上面的伪代码，状态转移方程也可以写成这种形式：
 
@@ -11640,35 +11652,31 @@ A Bit of Logic -<
 
                         #define MAXN 500
                         #define MAXW 10000
-                         /* 无效值，不要用0x7FFFFFFF，执行加运算后会变成负数 */
-                        const int INF = 0x0FFFFFFF;
+
+                        const int INF = 0x0FFFFFFF;                     // 无效值，不要用 0x7FFFFFFF，执行加运算后会变成负数
 
                         int N, W;
                         int w[MAXN], v[MAXN];
+                        int d[MAXW + 1];
 
-                        int d[MAXW + 1]; /* 滚动数组 */
-
-                        /**
-                         * @brief 完全背包问题中，处理单个物品.
-                         * @param[in] d 滚动数组
-                         * @param[in] i 该物品的下标
-                         * @return 无
-                         */
+                        // @brief 完全背包问题中，处理单个物品.
+                        // @param[in] d 滚动数组
+                        // @param[in] i 该物品的下标
+                        // @return 无
                         void unbounded_knapsack(int d[], const int i) {
-                            int j;
-                            for(j = w[i]; j <= W; ++j) {
-                                const int tmp = d[j - w[i]] + v[i];
-                                if(tmp < d[j]) d[j] = tmp; /* 求最小用 <，求最大用 > */
+                            for( int j = w[i]; j <= W; ++j ) {
+                                int sum = d[j - w[i]] + v[i];
+                                if( sum < d[j] ) { d[j] = sum; }        // min!
+                                                                        // "求在最坏情况下，储钱罐里最少有多少钱。"
                             }
                         }
-                        /** c，物品的系数 */
+                        // c，物品的系数
                         void zero_one_knapsack(int d[], const int i, const int c) {
-                            int j;
                             const int neww = c * w[i];
                             const int newv = c * v[i];
-                            for(j = W; j >= neww; --j) {
+                            for( int j = W; j >= neww; --j) {
                                 const int tmp = d[j - neww] + newv;
-                                if(tmp < d[j]) d[j] = tmp;  /* 求最小用 <，求最大用 > */
+                                if(tmp < d[j]) d[j] = tmp;
                             }
                         }
 
@@ -11681,24 +11689,22 @@ A Bit of Logic -<
                         }
 
                         void dp() {
-                            int i;
-                            for(i = 0; i <= W; ++i) d[i] = INF; /* 背包要装满 */
+                            for( int i = 0; i <= W; ++i ) { d[i] = INF; }   // 背包要装满
                             d[0] = 0;
-
-                            for(i = 0; i < N; ++i) unbounded_knapsack(d, i);
+                            for( int i = 0; i <  N; ++i ) { unbounded_knapsack(d, i); }
                         }
 
                         int main() {
-                            int i, T;
-                            int E, F;
-
+                            int T;
                             scanf("%d", &T);
                             while(T--) {
+                                int E, F;
                                 scanf("%d %d", &E, &F);
                                 W = F - E;
                                 scanf("%d", &N);
-                                for(i = 0; i < N; ++i) scanf("%d %d", &v[i], &w[i]);
-
+                                for( int i = 0; i < N; ++i ) {
+                                    scanf("%d %d", &v[i], &w[i]);
+                                }
                                 dp();
                                 if(d[W] == INF) {
                                     printf("This is impossible.\n");
@@ -11710,7 +11716,7 @@ A Bit of Logic -<
                             return 0;
                         }
 
-                        /* 将第i种物品取0个，1个，...，W/w[i]个，该版本不能AC，会TLE */
+                        // 将第 i 种物品取 0 个，1 个，...，W/w[i] 个，该版本不能 AC，会 TLE
                         void unbounded_knapsack2(int d[], const int w, const int v) {
                             int j, k;
                             for(j = W; j >= w; --j) {
@@ -11722,7 +11728,7 @@ A Bit of Logic -<
                             }
                         }
 
-                        /* 将第i种物品取0个，1个，...，W/w[i]个，该版本不能AC，会TLE */
+                        // 将第 i 种物品取 0 个，1 个，...，W/w[i] 个，该版本不能 AC，会 TLE
                         void unbounded_knapsack3(int d[], const int w, const int v) {
                             int k;
                             const int K = W / w;
@@ -11734,19 +11740,20 @@ A Bit of Logic -<
 
                 -   多重背包问题 -<
 
-                    :   某地发生地震，为了挽救灾区同胞的生命，心系灾区同胞的你准备自己采购一些粮食
-                        支援灾区，现在假设你一共有资金W元，而市场有N种大米，每种大米都是袋装产品，
-                        其价格不等，并且只能整袋购买。
+                    :   某地发生地震，为了挽救灾区同胞的生命，心系灾区同胞的你
+                        准备自己采购一些粮食支援灾区，现在假设你一共有资金 W 元，
+                        而市场有 N 种大米，每种大米都是袋装产品，其价格不等，并且
+                        只能整袋购买。
 
                         请问：你用有限的资金最多能采购多少公斤粮食呢？
 
                         ```
                         输入
 
-                            第1行包含一个整数T，表示有T组测试用例。
-                            每组测试用例的第一行是两个整数W和N($1 <= W <= 100, 1 <= N <= 100$),分别表示经费的金
-                            额和大米的种类，然后是N行数据，每行包含3个整数w，v和c
-                            ($1 <= w <= 20,1 <= v <= 200,1 <= c <= 20$)，
+                            第 1 行包含一个整数 T，表示有 T 组测试用例。
+                            每组测试用例的第一行是两个整数 W 和 N(1 <= W <= 100, 1 <= N <= 100),
+                            分别表示经费的金额和大米的种类，然后是 N 行数据，
+                            每行包含 3 个整数 w，v 和 c (1 <= w <= 20,1 <= v <= 200,1 <= c <= 20)，
                             分别表示每袋的价格、每袋的重量以及对应种类大米的袋数。
 
                             1
@@ -11756,22 +11763,25 @@ A Bit of Logic -<
 
                         输出
 
-                            对于每组测试用例，输出能够购买大米的最大重量，你可以假设经费买不光所有的大米，
-                            并且经费你可以不用完。每个实例的输出占一行。
+                            对于每组测试用例，输出能够购买大米的最大重量，你可
+                            以假设经费买不光所有的大米，并且经费你可以不用完。
+                            每个实例的输出占一行。
 
                             400
                         ```
 
-                        第i种物品有 `c[i]` 个可用，这是多重背包问题。
+                        第 i 种物品有 `c[i]` 个可用，这是**多重背包**问题。
 
-                        与完全背包问题类似，也可以用“拆分物品”的思想把本问题转化为0-1背包问题：把
-                        第i种物品换成$c[i]$个0-1背包问题中的物品，则得到了物品数为$\sum c[i]$的0-1背包问题。
-                        时间复杂度是$O(W\sum c[i])$。状态转移方程为：
+                        与完全背包问题类似，也可以用“拆分物品”的思想把本问题转
+                        化为 0-1 背包问题：把第 i 种物品换成 `c[i]` 个 0-1 背包
+                        问题中的物品，则得到了物品数为 `sum( c[i] )` 的 0-1 背包
+                        问题。时间复杂度是 `O(W/sum{c[i]})`。状态转移方程为：
 
                         ```
                         f[i][j] = max {
                                         f[i-1][j-k*w[i]] + k*v[i]
                         },                                                  0 <= k <= c[i], 0 <= k*w[i] <= j
+                                                                            0 <= k <= min(c[i], j/w[i])
                         ```
 
                         伪代码如下：
@@ -11780,7 +11790,7 @@ A Bit of Logic -<
                         for i = 1..N
                             for j = W..w[i]
                                 K = min{j/w[i], c[i]}
-                                for k = 1..K
+                                for k = 1..K                                // k = 0, already considered in max( d[j], 'value when choose k' )
                                     d[j] = max{d[j], d[j-k*w[i]] + k*v[i]};
                         ```
 
@@ -11792,14 +11802,16 @@ A Bit of Logic -<
                                 ZeroOneKnapsack(d[], i)
                         ```
 
+                        拆分物品也可以使用二进制的技巧，把第 i 种物品拆分成若干
+                        物品，其中每件物品都有一个系数，这个新物品的重量和价值
+                        均是原来的重量和价值乘以这个系数。系数分别为 1, 2, 2^2^, ..., 2^k-1^, `c[i]`-(2^k^-1)，其中 k 是满足
+                        2^k^ - 1 < `c[i]` 的最大整数。例如，某种物品
+                        有 13 个，即 `c[i]=13`，则相应的 k=3，这种物品应该被拆
+                        分成系数分别 1, 2, 4 (2^2^), 6 (13-(2^3^-1)) 的四个物品。
+
+                        这样处理单个物品的复杂度由 `O(c[i])` 降到了 `O(log(c[i]))`，伪代码如下：
+
                         ```
-                        拆分物品也可以使用二进制的技巧，把第i种物品拆分成若干物品，其中每件物品都有一个
-                        系数，这个新物品的重量和价值均是原来的重量和价值乘以这个系数。系数分别为
-                        $1,2,2^2,...,2^{k-1},c[i]-2^k+1$，其中k是满足$2^k-1<c[i]$的最大整数。例如，某种物品
-                        有13个，即c[i]=13，则相应的k=3，这种物品应该被拆分成系数分别1,2,4,6的四个物品。
-
-                        这样处理单个物品的复杂度由$O(c[i])$降到了$O(\log c[i])$，伪代码如下：
-
                         // c, 物品系数
                         def ZeroOneKnapsack(d[], i, c)
                             for j = W..w[i]
@@ -11816,7 +11828,6 @@ A Bit of Logic -<
                                 k *= 2;
 
                             zero_one_knapsack(d[], i, c);
-                        \end{Code}
                         ```
 
                         ```cpp
@@ -11829,50 +11840,44 @@ A Bit of Logic -<
                         int N, W;
                         int w[MAXN], v[MAXN], c[MAXN];
 
-                        int d[MAXW + 1]; /* 滚动数组 */
+                        int d[MAXW + 1];
 
-                        /** c，物品的系数 */
+                        // c，物品的系数
                         void zero_one_knapsack(int d[], const int i, const int c) {
-                            int j;
                             const int neww = c * w[i];
                             const int newv = c * v[i];
-                            for(j = W; j >= neww; --j) {
+                            for( int j = W; j >= neww; --j ) {
                                 const int tmp = d[j - neww] + newv;
-                                if(tmp > d[j]) d[j] = tmp;  /* 求最小用 <，求最大用 > */
+                                if(tmp > d[j]) d[j] = tmp;
                             }
                         }
 
                         void unbounded_knapsack(int d[], const int i) {
-                            int j;
-                            for(j = w[i]; j <= W; ++j) {
+                            for( int j = w[i]; j <= W; ++j ) {
                                 const int tmp = d[j - w[i]] + v[i];
-                                if(tmp > d[j]) d[j] = tmp; /* 求最小用 <，求最大用 > */
+                                if(tmp > d[j]) d[j] = tmp;
                             }
                         }
 
-                        /**
-                         * @brief 多重背包问题中，处理单个物品.
-                         * @param[in] d 滚动数组
-                         * @param[in] i 该物品的下标
-                         * @param[in] c 该物品的数量
-                         * @return 无
-                         */
+                        // @brief 多重背包问题中，处理单个物品.
+                        // @param[in] d 滚动数组
+                        // @param[in] i 该物品的下标
+                        // @param[in] c 该物品的数量
+                        // @return 无
                         void bounded_knapsack(int d[], const int i) {
-                            int k;
-                            for(k = 0; k < c[i]; ++k) {
+                            for( int k = 0; k < c[i]; ++k ) {
                                 zero_one_knapsack(d, i, 1);
                             }
                         }
 
-                        /* 另一个版本，拆分物品更加优化 */
+                        // 另一个版本，拆分物品更加优化
                         void bounded_knapsack1(int d[], const int i) {
-                            int k;
                             if(c[i] * w[i] >= W) {
                                 unbounded_knapsack(d, i);
                                 return;
                             }
 
-                            k = 1;
+                            int k = 1;
                             while(k < c[i]) {
                                 zero_one_knapsack(d, i, k);
                                 c[i] -= k;
@@ -11882,20 +11887,16 @@ A Bit of Logic -<
                         }
 
                         void dp() {
-                            int i;
-                            memset(d, 0, sizeof(d)); /* 背包不一定要装满 */
-
-                            for(i = 0; i < N; ++i) bounded_knapsack1(d, i);
+                            memset(d, 0, sizeof(d));
+                            for( int i = 0; i < N; ++i ) { bounded_knapsack1(d, i); }
                         }
 
                         int main() {
-                            int i;
                             int T;
                             scanf("%d", &T);
                             while(T--) {
                                 scanf("%d %d", &W, &N);
-                                for(i = 0; i < N; ++i) scanf("%d %d %d", &w[i], &v[i], &c[i]);
-
+                                for( int i = 0; i < N; ++i ) { scanf("%d %d %d", &w[i], &v[i], &c[i]); }
                                 dp();
                                 printf("%d\n", d[W]);
                             }
@@ -11909,14 +11910,16 @@ A Bit of Logic -<
                 (DAG)。再进一步细分类别，有序列型动态规划，棋盘型动态规划，树型
                 动态规划等等。
 
-                -   最长上升子序列 -<
+                -   最长上升子序列 :hearts: -<
 
                     :   当一个序列严格递增时，我们称这个序列是上升的。
 
-                        对于一个给定的序列 a~1~, a~2~, ..., a~N~，我们可以得到一些上升的子序列 a~i1~, a~i2~, ..., a~iK~，
-                        这里 1 <= i1 < i2 < ... < iK <= N。例如，对于序列 (1, 7, 3, 5, 9, 4, 8)，
-                        有它的一些上升子序列，如(1, 7), (3, 4, 8)等等，这些子序列中最长的长度是4，
-                        比如子序列(1, 3, 5, 8)。
+                        对于一个给定的序列 a~1~, a~2~, ..., a~N~，我们可以得到
+                        一些上升的子序列 a~i1~, a~i2~, ..., a~iK~，
+                        这里 1 <= i~1~ < i~2~ < ... < i~K~ <= N。例如，对于序列
+                        (1, 7, 3, 5, 9, 4, 8)，有它的一些上升子序列，如 (1, 7),
+                        (3, 4, 8) 等等，这些子序列中最长的长度是 4，比如子序列
+                        (1, 3, 5, 8)。
 
                         对于给定的序列，求**最长上升子序列** (longest increasing subsequence) 的长度。
 
@@ -11924,7 +11927,7 @@ A Bit of Logic -<
                         输入
 
                             第一行是序列的长度 N (1 <= N <= 1000)。
-                            第二行给出序列中的N个整数，这些整数的取值范围都在 0 到 10000。
+                            第二行给出序列中的 N 个整数，这些整数的取值范围都在0 到 10000。
 
                             7
                             1 7 3 5 9 4 8
@@ -11936,7 +11939,7 @@ A Bit of Logic -<
                             4
                         ```
 
-                        设状态为 d[j]，表示以 a~j~ 为终点的最长上升子序列的长度。状态转移方程如下；
+                        设状态为 `d[j]`，表示以 a~j~ 为终点的最长上升子序列的长度。状态转移方程如下；
 
                         ```
                         d[j]= max {
@@ -11985,17 +11988,18 @@ A Bit of Logic -<
 
                 -   嵌套矩形 -<
 
-                    :   有n个矩形，每个矩形可以用a,b来描述，表示长和宽。矩形X(a,b)可以嵌套在
-                        矩形Y(c,d)中当且仅当a<c,b<d或者b<c,a<d（相当于旋转X90度）。例如
-                        （1,5）可以嵌套在（6,2）内，但不能嵌套在（3,4）中。你的任务是选出尽可能多的
+                    :   有 n 个矩形，每个矩形可以用 a,b 来描述，表示长和宽。矩形 X(a,b) 可以嵌套在
+                        矩形 Y(c,d) 中当且仅当 a<c,b<d 或者 b<c,a<d（相当于旋转 X90 度）。例如
+                        (1,5) 可以嵌套在 (6,2) 内，但不能嵌套在 (3,4) 中。你的任务是选出尽可能多的
                         矩形排成一行，使得除最后一个外，每一个矩形都可以嵌套在下一个矩形内。
 
                         ```
                         输入
 
-                            第一行是一个正整数$N(0<N<10)$，表示测试数据组数，
-                            每组测试数据的第一行是一个正正数n，表示该组测试数据中含有矩形的个数$(n<=1000)$
-                            随后的n行，每行有两个数$a,b(0<a,b<100)$，表示矩形的长和宽
+                            第一行是一个正整数 N(0<N<10)，表示测试数据组数，
+                            每组测试数据的第一行是一个正正数 n，表示该组测试数
+                            据中含有矩形的个数 (n<=1000), 随后的 n 行，每行有两
+                            个数 a, b (0<a,b<100)，表示矩形的长和宽
 
                             1
                             10
@@ -12017,9 +12021,9 @@ A Bit of Logic -<
                             5
                         ```
 
-                        本题实质上是求DAG中不固定起点的最长路径。
+                        本题实质上是**求 DAG 中不固定起点的最长路径**。
 
-                        设 d[i] 表示从结点i出发的最长长度，状态转移方程如下：
+                        设 `d[i]` 表示从结点 i 出发的最长长度，状态转移方程如下：
 
                         ```
                         d[i] = max {
@@ -12027,50 +12031,47 @@ A Bit of Logic -<
                         }
                         ```
 
-                        其中，E 为边的集合。最终答案是 d[i] 中的最大值。
+                        其中，E 为边的集合。最终答案是 `d[i]` 中的最大值。
 
                         ```cpp
                         #include <stdio.h>
                         #include <string.h>
 
-                        #define MAXN 1000 // 矩形最大个数
+                        #define MAXN 1000                           // 矩形最大个数
 
-                        int n; // 矩形个数
-                        int G[MAXN][MAXN]; // 矩形包含关系
-                        int d[MAXN]; // 表格
+                        int n;                                      // 矩形个数
+                        int G[MAXN][MAXN];                          // 矩形包含关系
+                        int d[MAXN];                                // 表格
 
-                        /**
-                         * @brief 备忘录法.
-                         * @param[in] i 起点
-                         * @return 以i为起点，能达到的最长路径
-                         */
+                        // @brief 备忘录法.
+                        // @param[in] i 起点
+                        // @return 以 i 为起点，能达到的最长路径
                         int dp(const int i) {
-                            int j;
                             int *ans= &d[i];
-                            if(*ans > 0) return *ans;
+                            if( *ans > 0 ) { return *ans; }
 
                             *ans = 1;
-                            for(j = 0; j < n; j++) if(G[i][j]) {
-                                const int next = dp(j) + 1;
-                                if(*ans < next) *ans = next;
+                            for( int j = 0; j < n; ++j ) {
+                                if(G[i][j]) {
+                                    int next = dp(j) + 1;
+                                    if( *ans < next ) {
+                                        *ans = next;
+                                    }
+                                }
                             }
                             return *ans;
                         }
 
-                        /**
-                         * @brief 按字典序打印路径.
-                         *
-                         * 如果多个 d[i] 相等，选择最小的i。
-                         *
-                         * @param[in] i 起点
-                         * @return 无
-                         */
+                        // @brief 按字典序打印路径.
+                        // 如果多个 d[i] 相等，选择最小的 i。
+                        // @param[in] i 起点
                         void print_path(const int i) {
-                            int j;
                             printf("%d ", i);
-                            for(j = 0; j < n; j++) if(G[i][j] && d[i] == d[j] + 1) {
-                                print_path(j);
-                                break;
+                            for( int j = 0; j < n; ++j ) {
+                                if(G[i][j] && d[i] == d[j] + 1) {
+                                    print_path(j);
+                                    break;
+                                }
                             }
                         }
 
@@ -12107,17 +12108,19 @@ A Bit of Logic -<
 
                 -   线段覆盖 2 -<
 
-                    :   数轴上有$n(n <= 1000)$条线段，线段的两端都是整数坐标，
-                        坐标范围在$0 \sim 1000000$，每条线段有一个价值，请从$n$
-                        条线段中挑出若干条线段，使得这些线段两两不覆盖（端点可
-                        以重合）且线段价值之和最大。
+                    :   数轴上有 n (n <= 1000) 条线段，线段的两端都是整数坐标，
+                        坐标范围在 0 ~ 1000000，每条线段有一个价值，请从 n 条线
+                        段中挑出若干条线段，使得这些线段两两不覆盖（端点可以重合）
+                        且线段价值之和最大。
 
                         ```
                         输入
 
-                            第一行一个整数$n$，表示有多少条线段。
+                            第一行一个整数 n，表示有多少条线段。
 
-                            接下来$n$行每行三个整数, $a_i,b_i,c_i$，分别代表第$i$条线段的左端点$a_i$，右端点$b_i$（保证左端点<右端点）和价值$c_i$。
+                            接下来 n 行每行三个整数, a_i,b_i,c_i，分别代表第 i
+                            条线段的左端点 a_i，右端点 b_i（保证左端点 < 右端点）
+                            和价值 c_i。
 
                             3
                             1 2 1
@@ -12131,34 +12134,94 @@ A Bit of Logic -<
                             4
                         ```
 
-                        先将线段排序。按照右端点从小到大排序。原因是循环结构中是$i$从$1$到$n$, $i$比较
-                        小的时候尽可能选右端点比较小的，这样才可以为后面的线段留下更大的空间。
+                        先将线段排序。按照右端点从小到大排序。原因是循环结构中
+                        是 i 从 1 到 n, i 比较小的时候尽可能选右端点比较小的，
+                        这样才可以为后面的线段留下更大的空间。
 
-                        设状态为f[i]，表示前i条线段时，选上第i条线段，能获得的最大价值。状态转移方程如下：
+                        设状态为 `f[i]`，表示前 i 条线段时，选上第 i 条线段，能
+                        获得的最大价值。状态转移方程如下：
 
                         ```
                         f[i] = max {
                                             max{ f[j] } + c[i],         2 <= i <= n, 1 <= j <= i-1, and b[j] <= a[i]
                         }
 
-                        b[j] <= a[i] 表示j的右端点在i的左端点左边，即不重合。
+                        b[j] <= a[i] 表示 j 的右端点在 i 的左端点左边，即不重合。
                         ```
 
-                        输出 f[i] 数组中的最大值。
+                        输出 `f[i]` 数组中的最大值。
+
+                        ```cpp
+                        // http://www.wikioi.com/problem/3027
+                        #include <stdio.h>
+                        #include <stdlib.h>
+                        #include <limits.h>
+
+                        #define MAXN 1000
+
+                        typedef struct line_t {
+                            int a, b, c;
+                        } line_t;
+
+                        int line_cmp( const void *a, const void *b ) {
+                            line_t *la = (line_t*)a;
+                            line_t *lb = (line_t*)b;
+                            return la->b - lb->b;
+                        }
+
+                        int n;
+                        line_t line[MAXN];
+                        int f[MAXN];
+
+                        void dp() {
+                            int i, j;
+                            qsort(line, n, sizeof(line_t), line_cmp);
+                            f[0] = line[0].c;
+
+                            for (i = 1; i < n; i++) {
+                                int max = 0;
+                                for (j = 0; j < i; j++) {
+                                    if (line[j].b <= line[i].a) max = max > f[j] ? max : f[j];
+                                }
+                                f[i] = max + line[i].c;
+                            }
+                        }
+
+                        static int max_element(const int a[], int begin, int end) {
+                            int i;
+                            int max_value = INT_MIN;
+                            int max_pos = -1;
+                            for (i = begin; i < end; i++) {
+                                if (max_value < a[i]) {
+                                    max_value = a[i];
+                                    max_pos = i;
+                                }
+                            }
+                            return max_pos;
+                        }
+
+
+                        int main() {
+                            int i;
+                            scanf("%d", &n);
+                            for (i = 0; i < n; i++) scanf("%d%d%d", &line[i].a, &line[i].b, &line[i].c);
+                            dp();
+                            printf("%d\n", f[max_element(f, 0, n)]);
+                            return 0;
+                        }
+                        ```
 
                 -   硬币问题 -<
 
-                    :   有n种硬币，面值为别为v_1,v_2,v_3,\cdots, v_n，每种都有
-                        无限多。给定非负整数S，可以选取多少个硬币，使得面值和恰
-                        好为S？输出硬币数目的最小值和最大值。
-                        1 <= n <= 100, 1 <= S <= 10000, 1 <= v_i <= S。
+                    :   有 n 种硬币，面值为别为 v~1~, v~2~, v~3~, ..., v~n~，每种都有无限多。
+                        给定非负整数 S，可以选取多少个硬币，使得面值和恰
+                        好为 S？输出硬币数目的最小值和最大值。
+                        1 <= n <= 100, 1 <= S <= 10000, 1 <= v~i~ <= S。
 
                         ```
                         输入
 
-                            第1行$n$，
-                            第2行$S$，
-                            第3到$n+2$行为$n$种不同的面值。
+                            第 1 行 n，第 2 行 S，第 3 到 n+2 行为 n 种不同的面值。
 
                             3
                             6
@@ -12168,19 +12231,21 @@ A Bit of Logic -<
 
                         输出
 
-                            第1行为最小值，
-                            第2行为最大值。
+                            第 1 行为最小值，
+                            第 2 行为最大值。
 
                             2
                             6
                         ```
 
-                        本题实质上是求DAG中固定终点的最长路径和最短路径。
+                        本题实质上是求 DAG 中固定终点的最长路径和最短路径。
 
-                        把每种面值看作一个点，表示“还需要凑足的面值”，则初始状态为S，目标状态为0。若当
-                        前状态为i，每使用一个硬币j，状态便转移到$i-v_j$。
+                        把每种面值看作一个点，表示“还需要凑足的面值”，则初始状
+                        态为 S，目标状态为 0。若当前状态为 i，每使用一个硬币 j，
+                        状态便转移到 i-v~j~。
 
-                        设状态为d[i]，表示从节点i出发的最长路径长度，则原问题的解是d[S]。状态转移方程如下：
+                        设状态为 `d[i]`，表示从节点 i 出发的最长路径长度，
+                        则原问题的解是 `d[S]`。状态转移方程如下：
 
                         ```
                         d[i] = max {
@@ -12188,10 +12253,11 @@ A Bit of Logic -<
                         }
                         ```
 
-                        本题还可以看作是完全背包问题: 背包容量为S，背包必须要装满，物品即硬币，每个硬币
-                        的费用为面值$v_i$，价值均为1。求背包中物品的最小价值和最大价值。
+                        本题还可以看作是完全背包问题: 背包容量为 S，背包必须要
+                        装满，物品即硬币，每个硬币的费用为面值 v~i~，价值均为 1。
+                        求背包中物品的最小价值和最大价值。
 
-                        版本1，备忘录法。 -<
+                        版本 1，备忘录法。 -<
 
                         :   ```cpp
                             #include<stdio.h>
@@ -12349,7 +12415,7 @@ A Bit of Logic -<
                             }
                             ```
 
-                        版本3，当作完全背包问题。 -<
+                        版本 3，当作完全背包问题。 -<
 
                         :   ```cpp
                             #include<stdio.h>
@@ -12417,25 +12483,28 @@ A Bit of Logic -<
 
             :   -   最优矩阵链乘 -<
 
-                    :   一个m * n的矩阵乘以一个n * p的矩阵等于一个m * p的矩阵，运算量为mnp。
+                    :   一个 `m * n` 的矩阵乘以一个 `n * p` 的矩阵
+                        等于一个 `m * p` 的矩阵，运算量为 `m * n * p`。
 
-                        矩阵乘法不满足分配律，但满足结合律，即A * B * C=(A * B) * C=A * (B * C)。
+                        矩阵乘法不满足分配律，但满足结合律，
+                        即 `A * B * C = (A * B) * C = A * (B * C)`。
 
-                        假设A、B、C分别是2 * 3、3 * 4、4 * 5的矩阵，则(A * B) *
-                        C的运算量为2 * 3 * 4 + 2 * 4 * 5=64，A * (B * C)的运算
-                        量为3 * 4 * 5 + 2 * 3 * 5=90，显然第一种运算顺序节省运
-                        算量。
+                        假设 A、B、C 分别是 2 x 3、3 x 4、4 x 5 的矩阵，则
+                        (A * B) * C 的运算量为 2 x 3 x 4 + 2 x 4 x 5 = 64，
+                        A * (B * C) 的运算量为 3 x 4 x 5 + 2 x 3 x 5 = 90，
+                        显然第一种运算顺序节省运算量。
 
-                        给出N个矩阵组成的序列，设计一种方法把它们依次乘起来，使得总的运算量尽量小。
+                        给出 N 个矩阵组成的序列，设计一种方法把它们依次乘起来，
+                        使得总的运算量尽量小。
 
                         ```
                         输入
 
                             对于每个矩阵序列，只给出它们的维度。每个序列由两个
-                            部分组成，第一行包含一个整数N，表示矩阵的个数；接下
-                            来的N行，每行一对整数，分别表示矩阵的行数和列数。给
-                            出的顺序与矩阵链乘的顺序一致。最后一行N为0，表示输
-                            入结束。N不大于10。
+                            部分组成，第一行包含一个整数 N，表示矩阵的个数；接
+                            下来的 N 行，每行一对整数，分别表示矩阵的行数和列数。
+                            给出的顺序与矩阵链乘的顺序一致。最后一行 N 为 0，
+                            表示输入结束。N 不大于 10。
 
                             3
                             1 5
@@ -12456,9 +12525,9 @@ A Bit of Logic -<
 
                         输出
 
-                            假设矩阵命名为A_1,A_2,...,A_N。对每个测试用例输出一
+                            假设矩阵命名为 A_1,A_2,...,A_N。对每个测试用例输出一
                             行，包含一个使用了小括号的表达式，清晰地指出乘法的
-                            先后顺序。每行输出以"Case x: "为前缀，x表示测试用例
+                            先后顺序。每行输出以"Case x: "为前缀，x 表示测试用例
                             编号。如果有多个正确结果，只需要输出其中一个。
 
                             Case 1: (A1 x (A2 x A3))
@@ -12466,14 +12535,14 @@ A Bit of Logic -<
                             Case 3: ((A1 x (A2 x A3)) x ((A4 x A5) x A6))
                         ```
 
-                        假设第i个矩阵A_i的维度是 `p_{i-1} * p_i, i=1..N`。
+                        假设第 i 个矩阵 A~i~ 的维度是 p~i-1~ * p~i~, i=1..N。
 
-                        设状态为 d[i][j]，表示子问题 A_i, A_{i+1},..., A_j 的最优解，
+                        设状态为 `d[i][j]`，表示子问题 A~i~, A~i+1~, ..., A~j~ 的最优解，
                         状态转移方程如下：
 
                         ```
                         d[i][j] = min {
-                                            d[i][k] + d[k+1][j] + p_{i-1}*p_k*p_j
+                                            d[i][k] + d[k+1][j] + p_{i-1} * p_k * p_j
                         }
                         ```
 
@@ -12547,18 +12616,18 @@ A Bit of Logic -<
 
                 -   石子合并 -<
 
-                    :   在一条直线上摆着N堆石子。现要将石子有次序地合并成一堆。
-                        规定每次只能选相邻的2堆石子合并成新的一堆，并将新的一堆
+                    :   在一条直线上摆着 N 堆石子。现要将石子有次序地合并成一堆。
+                        规定每次只能选相邻的 2 堆石子合并成新的一堆，并将新的一堆
                         石子数记为该次合并的得分。
 
-                        试设计一个算法，计算出将N堆石子合并成一堆的最小得分。
+                        试设计一个算法，计算出将 N 堆石子合并成一堆的最小得分。
 
                         ```
                         输入
 
-                            第一行是一个数N, 1 <= N <= 40000，表示堆数。
+                            第一行是一个数 N, 1 <= N <= 40000，表示堆数。
 
-                            接下来的N行每行一个数，表示该堆的石子数目。
+                            接下来的 N 行每行一个数，表示该堆的石子数目。
 
                             4
                             1
@@ -12568,61 +12637,69 @@ A Bit of Logic -<
 
                         输出
 
-                            一个整数，即N堆石子合并成一堆的最小得分。
+                            一个整数，即 N 堆石子合并成一堆的最小得分。
 
                             8
                         ```
 
-                        这题与前面的矩阵链乘非常相似，只是计算代价的方式不同。设状态为$d(i,j)$，表示子问题第$i$堆到第$j$堆石子的最优解，状态转移方程如下：
+                        这题与前面的矩阵链乘非常相似，只是计算代价的方式不同。
+                        设状态为 d(i,j)，表示子问题第 i 堆到第 j 堆石子的最优
+                        解，状态转移方程如下：
 
                         ```
                         d(i,j) = min {
-                                                d(i,k) + d(k+1,j) + sum(i,j)
+                                            d(i,k) + d(k+1,j) + sum(i,j)
                         }
                         ```
 
-                        sum(i,j) 表示从第i堆到第j堆的石子总数。代码见 <https://gist.github.com/soulmachine/6195139>
+                        sum(i,j) 表示从第 i 堆到第 j 堆的石子总数。
+                        代码见 <https://gist.github.com/soulmachine/6195139>
 
-                        上面的动规算法可以用四边形不等式进行优化，将时间复杂度从O(N^3)下降到O(N^2)。
+                        上面的动规算法可以用四边形不等式进行优化，
+                        将时间复杂度从 O(N^3^) 下降到 O(N^2^)。
 
-                        无论如何，时间复杂度都是$O(N^2)$，本题中$N$范围特别大，
+                        无论如何，时间复杂度都是 O(N^2^)，本题中 N 范围特别大，
                         开不了这么大的二维数组。所以动规算法只能处理小规模的情
-                        况。下面介绍第三种解法，Garsia-Wachs算法
+                        况。下面介绍第三种解法，Garsia-Wachs 算法
 
-                        假设我们只对3堆石子a,b,c进行合并, 先合并哪两堆, 能使得得分最小？有两种方案：
+                        假设我们只对 3 堆石子 a,b,c 进行合并, 先合并哪两堆, 能
+                        使得得分最小？有两种方案：
 
                         ```
                         score1 = (a+b) + ((a+b)+c)
                         score2 = (b+c) + ((b+c)+a)
                         ```
 
-                        假设score1 <= score2, 可以推导出 a <= c，反过来，只要a和c的关系确定，合并的顺序也确定。这就是**2-递减性质**。
+                        假设 score1 <= score2, 可以推导出 a <= c，反过来，只要
+                        a 和 c 的关系确定，合并的顺序也确定。
+                        这就是**2- 递减性质**。
 
-                        Garsia-Wachs算法，就是基于这个性质，找出序列中满足
-                        A[i-1] <= A[i+1]最小的i，合并temp = A[i]+A[i-1]，接着往
-                        前面找是否有满足A[j] > temp，把temp值插入A[j]的后面(数
-                        组的右边)。循环这个过程一直到只剩下一堆石子结束。
+                        Garsia-Wachs 算法，就是基于这个性质，找出序列中满足
+                        `A[i-1] <= A[i+1]` 最小的 i，合并 `temp = A[i]+A[i-1]`，接着往
+                        前面找是否有满足 `A[j] > temp`，把 temp 值插入 `A[j]` 的后面
+                        (数组的右边)。循环这个过程一直到只剩下一堆石子结束。
 
-                        例如, `13 9 5 7 8 6 14`, 首先，找第一个满足A[i-1] <=
-                        A[i+1]的三个连续点，本例中就是 5 7 8，5和7合并得到12，
-                        12不是丢在原来的位置，而是将它插入到第一个比它大的元素
-                        的后面，得到 `13 12 9 8 6 14`
+                        例如, `13 9 5 7 8 6 14`, 首先，找第一个满足 `A[i-1] <= A[i+1]` 的三个连续点，
+                        本例中就是 5 7 8，5 和 7 合并得到 12，12 不是丢在原来的位置，
+                        而是将它插入到第一个比它大的元素的后面，得到 `13 12 9 8 6 14`
 
-                        接着来，从左到右搜索三个连续点，找到 8 6 14，合并8和6的到14，将14插入到适当位置，得到 14 13 12 9 14
+                        接着来，从左到右搜索三个连续点，找到 8 6 14，
+                        合并 8 和 6 的到 14，将 14 插入到适当位置，得到 14 13 12 9 14
 
-                        找到12 9 14，合并12和9得到21，将21插入到适当位置，得到21 14 13 14
+                        找到 12 9 14，合并 12 和 9 得到 21，将 21 插入到适当位
+                        置，得到 21 14 13 14
 
-                        找到 14 13 14，合并14 和 13 得到 27，将27插入到适当位置
-                        ，得到27 21 14
+                        找到 14 13 14，合并 14 和 13 得到 27，将 27 插入到适当位置，
+                        得到 27 21 14
 
-                        因为27<14，先合并21和14，得到35，最后合并27和35，得到62
-                        ，就是最终答案。
+                        因为 27<14，先合并 21 和 14，得到 35，最后合并 27 和 35，
+                        得到 62，就是最终答案。
 
-                        为什么要将temp插入A[j]的后面, 可以理解为是为了保持2-递
-                        减性质。从A[j+1]到A[i-2]看成一个整体 A[mid]，现在A[j],
-                        A[mid], temp(A[i-1]+A[i])，因为temp < A[j]，因此不管怎
-                        样都是A[mid]和temp先合并, 所以将temp值插入A[j]的后面不
-                        会影响结果。
+                        为什么要将 temp 插入 `A[j]` 的后面, 可以理解为是为了
+                        **保持 2- 递减性质**。从 `A[j+1]` 到 `A[i-2]` 看成一个整体 `A[mid]`，
+                        现在 `A[j]`, `A[mid]`, `temp(A[i-1]+A[i])`，
+                        因为 `temp < A[j]`，因此不管怎样都是 `A[mid]` 和 temp 先合并,
+                        所以将 temp 值插入 `A[j]` 的后面不会影响结果。
 
                         ```cpp
                         #include <stdio.h>
@@ -12673,7 +12750,257 @@ A Bit of Logic -<
 
                 -   矩阵取数游戏 -<
 
-                    :   TODO
+                    :   帅帅经常跟同学玩一个矩阵取数游戏：对于一个给定的 `n*m`
+                        的矩阵，矩阵中的每个元素 a~ij~ 均为非负整数。游戏规则如下：
+
+                        -   每次取数时须从每行各取走一个元素，共 n 个，m 次后取
+                            完矩阵所有元素；
+                        -   每次取数时须从每行各取走一个元素，共 n 个，m 次后取
+                            完矩阵所有元素；每次取走的各个元素只能是该元素所在
+                            行的行首或行尾；
+                        -   每次取数时须从每行各取走一个元素，共 n 个，m 次后取
+                            完矩阵所有元素；每次取数都有一个得分值，为每行取数
+                            的得分之和，每行取数的得分 = 被取走的元素值*2i，其
+                            中 i 表示第 i 次取数（从 1 开始编号）；
+                        -   每次取数时须从每行各取走一个元素，共 n 个，m 次后取
+                            完矩阵所有元素；游戏结束总得分为 m 次取数得分之和。
+
+                        帅帅想请你帮忙写一个程序，对于任意矩阵，可以求出取数后的最大得分。
+
+                        ```
+                        输入
+
+                            第 1 行为两个用空格隔开的整数 n 和 m, 1 <= n,m <= 90。
+                            第 2 ~ n+1 行为 n*m 矩阵，其中每行有 m 个用单个空格
+                            隔开的非负整数 a_{ij}, 0 <= a_{ij} <= 1000。
+
+                            2 3
+                            1 2 3
+                            3 4 2
+
+                        输出
+
+                            输出仅包含 1 行，为一个整数，即输入矩阵取数后的最大得分。
+
+                            82
+
+                        第 1 次：第 1 行取行首元素，第 2 行取行尾元素，本次得分为 1*21+2*21=6
+                        第 2 次：两行均取行首元素，本次得分为 2*22+3*22=20
+                        第 3 次：得分为 3*23+4*23=56。总得分为 6+20+56=82
+                        ```
+
+                        首先，每行之间是互相独立的，因此可以分别求出每行的最大得分，最后相加起来。
+
+                        设状态为 f(i,j)，表示单行的区间 `[i,j]` 的最大值，转移方程为
+
+                        ```
+                        f(i,j) = max    {
+                                                f(i+1,j) + a(i)*2^x,
+                                                f(i,j-1) + a(j)*2^x
+                                        },                                  1 <= x <= m
+
+                        等价于
+
+                        f(i,j) = 2 * max{
+                                                f(i+1,j) + a(i),
+                                                f(i,j-1) + a(j)
+                                        }
+                        ```
+
+                        同时，注意到，最大得分可能会非常大，因此需要用到大整数运算。预估一下最大得分，
+                        大概是 1000x2^80^，用计算器算一下，有 28 位。
+
+                        ```cpp
+                        #include <stdio.h>
+                        #include <memory.h>
+                        #include <limits.h>
+
+                        /* 一个数组元素表示4个十进制位，即数组是万进制的 */
+                        #define BIGINT_RADIX 10000
+                        #define RADIX_LEN 4
+                        /* 1000*2^80 有 28 位 */
+                        #define MAX_LEN (28/RADIX_LEN+1)  /* 整数的最大位数 */
+
+                        /**
+                         * @brief 打印大整数.
+                         * @param[in] x 大整数，用数组表示，低位在低地址
+                         * @param[in] n 数组x的长度
+                         * @return 无
+                         */
+                        void bigint_print(const int x[], const int n) {
+                            int i;
+                            int start_output = 0;  /* 用于跳过前导0 */
+                            for (i = n - 1; i >= 0; --i) {
+                                if (start_output) {  /* 如果多余的0已经都跳过，则输出 */
+                                    printf("%04d", x[i]);
+                                } else if (x[i] > 0) {
+                                    printf("%d", x[i]);
+                                    start_output = 1; /* 碰到第一个非0的值，就说明多余的0已经都跳过 */
+                                }
+                            }
+
+                            if(!start_output) printf("0");  /* 当x全为0时 */
+                        }
+
+                        /**
+                         * @brief 一个32位整数转化为大整数bigint.
+                         * @param[in] n 32位整数
+                         * @param[out] x 大整数
+                         * @return 大整数
+                         */
+                        int* int_to_bigint(int n, int x[]) {
+                            int i = 0;
+                            memset(x, 0, MAX_LEN * sizeof(int));
+                            while (n > 0) {
+                                x[i++] = n % BIGINT_RADIX;
+                                n /= BIGINT_RADIX;
+                            }
+                            return x;
+                        }
+
+
+                        /**
+                         * @brief 大整数比较.
+                         * @param[in] x x
+                         * @param[in] y y
+                         * @return x<y，返回-1，相等于返回0，大于返回1.
+                         */
+                        int bigint_cmp(const int x[], const int y[]) {
+                            int i, lenx = 0, leny = 0;
+                            for (i = 0; i < MAX_LEN; i++) {
+                                if (x[i] != 0) lenx++;
+                                else break;
+                            }
+                            for (i = 0; i < MAX_LEN; i++) {
+                                if (y[i] != 0) leny++;
+                                else break;
+                            }
+                            if (lenx < leny) return -1;
+                            else if (lenx > leny) return 1;
+                            else {
+                                for (i = lenx - 1; i >= 0; i--) {
+                                    if (x[i] == y[i]) continue;
+                                    else if (x[i] > y[i]) return 1;
+                                    else return -1;
+                                }
+                                return 0;
+                            }
+                        }
+
+                        /**
+                         * @brief 大整数加上普通整数.
+                         * @param[inout] x 大整数
+                         * @param[in] y 32位整数
+                         * @return 大整数
+                         */
+                        int* bigint_add(int x[], const int y) {
+                            int i;
+
+                            x[0] += y;
+                            for (i = 0; i < MAX_LEN; i++) {
+                                if (x[i] >= BIGINT_RADIX) {
+                                    x[i+1] += x[i] / BIGINT_RADIX;
+                                    x[i] %= BIGINT_RADIX;
+                                }
+                            }
+                            return x;
+                        }
+
+
+                        /**
+                         * @brief 两个大整数相加, in place.
+                         * @param[inout] x x=x+y
+                         * @param[in] y y
+                         * @return 无
+                         */
+                        void bigint_add1(int x[], const int y[]) {
+                            int i;
+                            int c = 0;
+
+                            for (i = 0; i < MAX_LEN; i++) {  /* 逐位相加 */
+                                const int tmp = x[i] + y[i] + c;
+                                x[i] = tmp % BIGINT_RADIX;
+                                c = tmp / BIGINT_RADIX;
+                            }
+                        }
+
+                        /**
+                         * @brief 大整数乘法, x = x*y.
+                         * @param[inout] x x
+                         * @param[in] y y
+                         * @return 无
+                         */
+                        void bigint_mul(int x[], const int y) {
+                            int i;
+                            int c = 0; /* 保存进位 */
+
+                            for (i = 0; i < MAX_LEN; i++) { /*用y，去乘以x的各位*/
+                                const int tmp = x[i] * y + c;
+                                x[i] = tmp % BIGINT_RADIX;
+                                c = tmp / BIGINT_RADIX;
+                            }
+                        }
+
+
+                        #define MAX 80   /* n,m的最大值 */
+
+                        int n, m;
+                        int matrix[MAX][MAX];  /* 输入矩阵 */
+                        /* f[i][j] 表示某一行区间[i,j]的最大值，转移方程
+                         * f[i][j] = f[i+1][j]+a[i]*2^x, f[i][j-1]+a[j]*2^x, 1<=x<=m
+                         * 等价于 f[i][j] = 2*max(f[i+1][j]+a[i], f[i][j-1]+a[j])
+                         */
+                        int f[MAX][MAX][MAX_LEN];
+                        int tmp[MAX_LEN];
+
+                        /**
+                         * @brief 计算单行.
+                         * @param[in] a 某一行
+                         * @return 此行能获得的最大得分
+                         */
+                        int* dp(int a[MAX], int l, int r) {
+                            if (l == r) {
+                                int_to_bigint(a[l] * 2, f[l][r]);
+                                return f[l][r];
+                            }
+                            if (f[l][r][0] >= 0) return f[l][r];
+
+                            if (l < r) {
+                                memcpy(f[l][r], dp(a, l+1, r), sizeof(f[l][r]));
+                                bigint_mul(bigint_add(f[l][r], a[l]), 2);
+                                memcpy(tmp, dp(a, l, r-1), sizeof(tmp));
+                                bigint_mul(bigint_add(tmp, a[r]), 2);
+
+                                if (bigint_cmp(f[l][r], tmp) < 0) memcpy(f[l][r], tmp, sizeof(tmp));
+                            }
+                            return f[l][r];
+                        }
+
+                        int main() {
+                            int i, j, result[MAX_LEN];
+                            scanf("%d%d", &n, &m);
+
+                            for (i = 0; i < n; i++) {
+                                for (j = 0; j < m; j++) {
+                                    scanf("%d", &matrix[i][j]);
+                                }
+                            }
+
+                            memset(result, 0, sizeof(result));
+                            for (i = 0; i < n; i++) {
+                                memset(f, 0, sizeof(f));
+                                for (j = 0; j < m; j++) {
+                                    int k;
+                                    for (k = 0; k < m; k++) {
+                                        f[j][k][0] = -1;
+                                    }
+                                }
+                                bigint_add1(result, dp(matrix[i], 0, m-1));
+                            }
+                            bigint_print(result, MAX_LEN);
+                            return 0;
+                        }
+                        ```
 
         -   棋盘型动态规划 -<
 
@@ -12681,11 +13008,11 @@ A Bit of Logic -<
 
                 -   过河卒 -<
 
-                    :   A点有一个过河卒，需要走到目标B点。卒行走规则：可以向下、
-                        或者向右。同时在棋盘上的任一点有一个对方的马（如上图
-                        的C点），该马所在的点和所有跳跃一步可达的点称为对方马的
-                        控制点。例如上图C点上的马可以控制9个点（图中的P1，P2 …
-                        P8 和 C）。卒不能通过对方马的控制点。
+                    :   A 点有一个过河卒，需要走到目标 B 点。卒行走规则：
+                        可以向下、或者向右。同时在棋盘上的任一点有一个对方的马
+                        （如上图的 C 点），该马所在的点和所有跳跃一步可达的点称
+                        为对方马的控制点。例如上图 C 点上的马可以控制 9 个点（
+                        图中的 P1，P2 …P8 和 C）。卒不能通过对方马的控制点。
 
                         ```
                             0   1   2   3   4   5   6   7   8
@@ -12696,15 +13023,15 @@ A Bit of Logic -<
                         4   |           *       *           B
                         ```
 
-                        棋盘用坐标表示，A点（0，0）、B点（n,m）(n,m 为不超过20
-                        的整数，并由键盘输入)，同样马的位置坐标是需要给出的（约
-                        定: C不等于A，同时C不等于B）。现在要求你计算出卒从A点能
-                        够到达B点的路径的条数。
+                        棋盘用坐标表示，A 点（0，0）、B 点（n,m）(n,m 为不超过
+                        20 的整数，并由键盘输入)，同样马的位置坐标是需要给出的（
+                        约定: C 不等于 A，同时 C 不等于 B）。现在要求你计算出卒
+                        从 A 点能够到达 B 点的路径的条数。
 
                         ```
                         输入
 
-                            B点的坐标（n,m）以及对方马的坐标（X,Y）
+                            B 点的坐标（n,m）以及对方马的坐标（X,Y）
 
                             6 6 3 2
 
@@ -12717,10 +13044,11 @@ A Bit of Logic -<
 
                         这是一个棋盘形动态规划。
 
-                        设状态为 `f[i][j]`，表示从(0,0)到(i,j)的路径的条数，状态转移方程为
+                        设状态为 `f[i][j]`，表示从 (0,0) 到 (i,j) 的路径的条数，
+                        状态转移方程为
 
                         ```
-                        f[i][j] = f[i-1][j] + f[i][j-1]
+                        f[i][j] = f[i-1][j] + f[i][j-1]         if no horse at (i,j), else 0
                         ```
 
                         ```cpp
@@ -12770,12 +13098,12 @@ A Bit of Logic -<
 
                 -   传纸条 -<
 
-                    :   小渊和小轩是好朋友也是同班同学，他们在一起总有谈不完的
-                        话题。一次素质拓展活动中，班上同学安排做成一个m行n列的
-                        矩阵，而小渊和小轩被安排在矩阵对角线的两端，因此，他们
-                        就无法直接交谈了。幸运的是，他们可以通过传纸条来进行交
-                        流。纸条要经由许多同学传到对方手里，小渊坐在矩阵的左上
-                        角，坐标(1,1)，小轩坐在矩阵的右下角，坐标(m,n)。从小渊
+                    :   小渊和小轩是好朋友也是同班同学，他们在一起总有谈不完的话题。
+                        一次素质拓展活动中，班上同学安排做成一个 m 行 n 列的矩
+                        阵，而小渊和小轩被安排在矩阵对角线的两端，因此，他们就
+                        无法直接交谈了。幸运的是，他们可以通过传纸条来进行交流。
+                        纸条要经由许多同学传到对方手里，小渊坐在矩阵的左上角，
+                        坐标 (1,1)，小轩坐在矩阵的右下角，坐标 (m,n)。从小渊
                         传到小轩的纸条只可以向下或者向右传递，从小轩传给小渊的
                         纸条只可以向上或者向左传递。
 
@@ -12785,18 +13113,20 @@ A Bit of Logic -<
                         在小轩递给小渊的时候就不会再帮忙。反之亦然。
 
                         还有一件事情需要注意，全班每个同学愿意帮忙的好感度有高
-                        有低（注意：小渊和小轩的好心程度没有定义，输入时用0表示
-                        ），可以用一个0 \sim 100的自然数来表示，数越大表示越好
-                        心。小渊和小轩希望尽可能找好心程度高的同学来帮忙传纸条
-                        ，即找到来回两条传递路径，使得这两条路径上同学的好心程
+                        有低（注意：小渊和小轩的好心程度没有定义，输入时用 0 表示），
+                        可以用一个 0 ~ 100 的自然数来表示，数越大表示越好心。
+                        小渊和小轩希望尽可能找好心程度高的同学来帮忙传纸条，
+                        即找到来回两条传递路径，使得这两条路径上同学的好心程
                         度只和最大。现在，请你帮助小渊和小轩找到这样的两条路径。
 
                         ```
                         输入
 
-                            输入的第一行有2个用空格隔开的整数m和n，表示班里有m行n列(1 <= m,n <= 50)。
-                            接下来的m行是一个m*n的矩阵，矩阵中第i行j列的整数表示坐在第i行j列的学生的
-                            好心程度。每行的n个整数之间用空格隔开
+                            输入的第一行有 2 个用空格隔开的整数 m 和 n，表示班
+                            里有 m 行 n 列 (1 <= m,n <= 50)。接下来的 m 行是一
+                            个 m*n 的矩阵，矩阵中第 i 行 j 列的整数表示坐在
+                            第 i 行 j 列的学生的好心程度。
+                            每行的 n 个整数之间用空格隔开
 
                             3 3
                             0 3 9
@@ -12805,17 +13135,19 @@ A Bit of Logic -<
 
                         输出
 
-                            输出共一行，包含一个整数，表示来回两条路上参与传递纸条的学生的好心程度之和
-                            的最大值。
+                            输出共一行，包含一个整数，表示来回两条路上参与传递
+                            纸条的学生的好心程度之和的最大值。
 
                             34
                         ```
 
-                        这是一个棋盘形动态规划。用矩阵 `int g[MAX][MAX]` 存储输入数据，即每个学生的好心值。
+                        这是一个棋盘形动态规划。用矩阵 `int g[MAX][MAX]` 存储输
+                        入数据，即每个学生的好心值。
 
-                        题目等价为为从(1,1)传两张纸条到(m,n)。每个纸条都是由上面或左边传递过来的， 所以
-                        有四种情况。设状态为f[i][j][k][l]，表示纸条一在(i,j),纸条二在(k,l)的好心程度之
-                        和，状态转移方程为
+                        题目等价为为从 (1,1) 传两张纸条到 (m,n)。每个纸条都是由
+                        上面或左边传递过来的， 所以有四种情况。设状态为
+                        `f[i][j][k][l]`，表示纸条一在 (i,j), 纸条二在 (k,l) 的好
+                        心程度之和，状态转移方程为
 
                         ```
                         f[i][j][k][l]   =   max {
@@ -12824,41 +13156,46 @@ A Bit of Logic -<
                                                     f[i][j-1][k][l-1],
                                                     f[i][j-1][k-1][l]
                                                 }                       +   g[i][j] +   g[k][l];
+
+                        (i,j-1) ---+   +--- (k-1,l)
+                                    \ /
+                                     x
+                                    / \
+                        (i-1,j) ---+   +--- (k,l-1)
                         ```
 
                         ```cpp
-                        #include <stdio.h>
-                        #include <memory.h>
+                        #include <cstdio>
+                        #include <vector>
 
-                        #define max(a,b) ((a)>(b)?(a):(b))
-                        #define MAX 51          // m,n的最大值是 50
+                        using namespace std;
 
-                        int m, n;
-                        int g[MAX][MAX];        // 好心值
-
-                        // 题目等价为为从(1，1)传两张纸条到(m,n)，
-                        // f[i][j][k][l]表示纸条一在(i,j),纸条二在(k,l）的好心程度之和
-                        int f[MAX][MAX][MAX][MAX];
-
-                        void dp() {
-                            memset(f, 0, sizeof(f));
-                            for( int i = 0; i < m; ++i ) {  // 每个纸条都是由上面或左边传递过来的， 所以有四种情况
+                        void dp( const vector<vector<int> > &goodness, vector<vector<vector<vector<int> > > > &table ) {
+                            int m = goodness.size();
+                            int n = goodness[0].size();
+                            const vector<vector<int> >              &g = goodness;
+                            vector<vector<vector<vector<int> > > >  &f = table;
+                            for( int i = 0; i < m; ++i ) {
                                 for( int j = 0; j < n; ++j ) {
                                     for( int k = 0; k < m; ++k ) {
                                         for( int l = 0; l < n; ++l ) {
+                                            // (i-1,j), (k-1, l)
                                             if( i > 0 && k > 0 && (i != k || j != l) ) {
                                                 f[i][j][k][l] = max(    f[i][j][k][l],
                                                                         f[i-1][j][k-1][l] + g[i][j]+g[k][l] );
                                             }
+                                            // (i-1,j), (k, l-1)
                                             if( i > 0 && l < n && (i-1 != k || j != l-1) ) {
                                                 f[i][j][k][l] = max(    f[i][j][k][l],
                                                                         f[i-1][j][k][l-1] + g[i][j]+g[k][l] );
                                             }
-                                            if( j < n && l < n && (i != k || j != l) ) {
+                                            // (i,j-1), (k, l-1)
+                                            if( j > 0 && l > 0 && (i != k || j != l) ) {
                                                 f[i][j][k][l] = max(    f[i][j][k][l],
                                                                         f[i][j-1][k][l-1] + g[i][j]+g[k][l] );
                                             }
-                                            if( j < n && k > 0 && (i != k-1 || j-1 != l) ) {
+                                            // (i,j-1), (k-1, l)
+                                            if( j > 0 && k > 0 && (i != k-1 || j-1 != l) ) {
                                                 f[i][j][k][l] = max(    f[i][j][k][l],
                                                                         f[i][j-1][k-1][l] + g[i][j]+g[k][l] );
                                             }
@@ -12869,19 +13206,49 @@ A Bit of Logic -<
                         }
 
                         int main() {
-                            scanf("%d%d", &m, &n);
-                            for( int i = 0; i < m; ++i ) {
-                                for( int j = 0; j < n; ++j ) {
-                                    scanf("%d", &g[i][j]);
+                            int m, n;
+                            while( 2 == scanf("%d%d", &m, &n) ) {
+                                vector<vector<int> > goodness( m, vector<int>(n) );
+                                for( int i = 0; i < m; ++i ) {
+                                    for( int j = 0; j < n; ++j ) {
+                                        scanf( "%d", &goodness[i][j] );
+                                    }
                                 }
+                                vector<vector<vector<vector<int> > > >
+                                    table(  m,
+                                            vector<vector<vector<int> > >( n,
+                                                                           vector<vector<int> >( m, vector<int>(n, 0) ) ) );
+                                dp( goodness, table );
+                                printf( "%d\n", table[m-1][n-1][m-1][n-1] );
                             }
-                            dp();
-                            printf("%d\n", f[m-1][n-1][m-1][n-1]);
                             return 0;
                         }
                         ```
 
                         TODO: 本题可以优化为三维
+
+                        ```
+                        for( int i = 0; i < m; ++i ) {
+                            for( int j = 0; j < n; ++j ) {
+                                for( int k = 0; k < m; ++k ) {
+                                    for( int l = 0; l < n; ++l ) {
+                                        printf( "%p ", &table[i][j][k][l] );
+                                    }
+                                }
+                                printf("\n");
+                            }
+                        }
+
+                        0x19464e0 0x19464e4 0x19464e8 0x1946500 0x1946504 0x1946508 0x1946520 0x1946524 0x1946528
+                        0x1946590 0x1946594 0x1946598 0x19465b0 0x19465b4 0x19465b8 0x19465d0 0x19465d4 0x19465d8
+                        0x1946640 0x1946644 0x1946648 0x1946660 0x1946664 0x1946668 0x1946680 0x1946684 0x1946688
+                        0x1946740 0x1946744 0x1946748 0x1946760 0x1946764 0x1946768 0x1946780 0x1946784 0x1946788
+                        0x19467f0 0x19467f4 0x19467f8 0x1946810 0x1946814 0x1946818 0x1946830 0x1946834 0x1946838
+                        0x19468a0 0x19468a4 0x19468a8 0x19468c0 0x19468c4 0x19468c8 0x19468e0 0x19468e4 0x19468e8
+                        0x19469a0 0x19469a4 0x19469a8 0x19469c0 0x19469c4 0x19469c8 0x19469e0 0x19469e4 0x19469e8
+                        0x1946a50 0x1946a54 0x1946a58 0x1946a70 0x1946a74 0x1946a78 0x1946a90 0x1946a94 0x1946a98
+                        0x1946b00 0x1946b04 0x1946b08 0x1946b20 0x1946b24 0x1946b28 0x1946b40 0x1946b44 0x1946b48
+                        ```
 
                 -   骑士游历 -<
 
@@ -12909,13 +13276,13 @@ A Bit of Logic -<
 
                         这是一道棋盘型动态规划。
 
-                        设状态为 `f[i][j]`，表示从起点(x1,y1)到(i,j)的合法路径条数，状态转移方程为
+                        设状态为 `f[i][j]`，表示从起点 (x1,y1) 到 (i,j) 的合法路径条数，状态转移方程为
 
                         ```
                         f[i][j] = f[i-1][j-2] + f[i-1][j+2] + f[i-2][j-1] + f[i-2][j+1]
                         ```
 
-                        注意，合法路径条数有可能非常大，32位整数存不下，需要用64位整数。
+                        注意，合法路径条数有可能非常大，32 位整数存不下，需要用 64 位整数。
 
                         ```cpp
                         #include <stdio.h>
@@ -12952,21 +13319,23 @@ A Bit of Logic -<
 
             :   -   乘积最大 -<
 
-                    :   设有一个长度为N的数字串，要求选手使用K个乘号将它分成K+1个部分，找出一种分法，使得这K+1个部分的乘积能够为最大。
+                    :   设有一个长度为 N 的数字串，要求选手使用 K 个乘号将它分
+                        成 K+1 个部分，找出一种分法，使得这 K+1 个部分的乘积能
+                        够为最大。
 
-                        举个例子：有一个数字串：312， 当N=3，K=1时会有以下两种分法：
+                        举个例子：有一个数字串：312， 当 N=3，K=1 时会有以下两种分法：
 
-                        -   3*12=36
-                        -   31*2=62
+                        -   3x12 = 36
+                        -   31x2 = 62
 
-                        这时，符合题目要求的结果是：31*2=62。
+                        这时，符合题目要求的结果是：31x2 = 62。
 
                         ```
                         输入
 
                             输入共有两行：
-                            第一行共有2个自然数N,K(6 <= N <= 40, 1 <= K <= 6)\\
-                            第二行是一个长度为N的数字串。
+                            第一行共有 2 个自然数 N,K (6 <= N <= 40, 1 <= K <= 6)
+                            第二行是一个长度为 N 的数字串。
 
                             4 2
                             1231
@@ -12979,8 +13348,8 @@ A Bit of Logic -<
                         ```
 
                         首先，本题可以用区间型动态规划的思路解决。设状态为
-                        `f[i][j][k]`，表示i到j这一段用k个乘号的最大乘积，状态转
-                        移方程如下：
+                        `f[i][j][k]`，表示 i 到 j 这一段用 k 个乘号的最大乘积，
+                        状态转移方程如下：
 
                         ```
                         f[i][j][k] = max {
@@ -13001,12 +13370,12 @@ A Bit of Logic -<
                         int N, K;
                         char str[MAXN];
 
-                        // f[i][j][k]表示i到j这一段用k个乘号的最大乘积.
+                        // f[i][j][k] 表示 i 到 j 这一段用 k 个乘号的最大乘积.
                         int64_t f[MAXN][MAXN][MAXK+1];
 
                         #define max(a,b) ((a)>(b)?(a):(b))
 
-                        // 计算str[l,r]字符串的值，int64 可以过，不用高精度.
+                        // 计算 str[l,r] 字符串的值，int64 可以过，不用高精度.
                         int64_t num(int l, int r) {
                             int64_t ret = 0;
                             for( int i = l; i <= r; ++r ) {
@@ -13015,7 +13384,7 @@ A Bit of Logic -<
                             return ret;
                         }
 
-                        // 区间型动态规划，复杂度是O(n^3*k^2).
+                        // 区间型动态规划，复杂度是 O(n^3*k^2).
                         // f[i][j][k] = max(f[i][s][t] * f[s+1][j][k-t-1]), i <= s < j , 0 <= t < k
                         void dp() {
                             memset(f, 0, sizeof(f));
@@ -13040,26 +13409,29 @@ A Bit of Logic -<
                         }
 
                         int main() {
-                            scanf("%d%d", &N, &K);
-                            scanf("%s", str);
+                            scanf( "%d%d", &N, &K );
+                            scanf( "%s", str );
                             dp();
-                            printf("%lld\n", f[0][N-1][K]);
+                            printf( "%lld\n", f[0][N-1][K] );
                             return 0;
                         }
                         ```
 
-                        复杂度是O(N^2K)。代码如下。 -<
+                        复杂度是O(N^2^K)。代码如下。 -<
 
-                        :   尽管上面的代码可以AC了，但还有更高效的思路。设状态
-                            为f[k][j]，表示在区间[0,j]放入k个乘号的最大乘积，状
-                            态转移方程如下：
+                        :   尽管上面的代码可以 AC 了，但还有更高效的思路。设状态
+                            为 `f[k][j]`，表示在区间 `[0,j]` 放入 k 个乘号的最大乘积，
+                            状态转移方程如下：
 
                             ```
-                            f[k][j]=\max\left\{f[k][j], f[k-1][i]*num(i+1,j), 0 <= i < j\right\}
+                            f[k][j]=    max     {
+                                                        f[k][j],
+                                                        f[k-1][i]*num(i+1,j)
+                                                },                                  0 <= i < j
                             ```
 
                             ```cpp
-                            /** wikioi 1017 乘积最大, http://www.wikioi.com/problem/1017 */
+                            // wikioi 1017 乘积最大, http://www.wikioi.com/problem/1017
                             #include <stdio.h>
                             #include <stdlib.h>
                             #include <stdint.h>
@@ -13113,8 +13485,8 @@ A Bit of Logic -<
 
                 -   数的划分 -<
 
-                    :   将整数n分成k份，且每份不能为空，任意两种划分方案不能相
-                        同(不考虑顺序)。
+                    :   将整数 n 分成 k 份，且每份不能为空，任意两种划分方案不
+                        能相同 (不考虑顺序)。
 
                         例如：n=7，k=3，下面三种划分方案被认为是相同的。
 
@@ -13129,7 +13501,7 @@ A Bit of Logic -<
                         ```
                         输入
 
-                            n,k (6<n <= 200,2 <= k <= 6)
+                            n, k (6<n <= 200,2 <= k <= 6)
 
                             7 3
 
@@ -13140,17 +13512,19 @@ A Bit of Logic -<
                             4
                         ```
 
-                        设状态为 `f[k][i]`，表示将整数i分成k份的方案数。有两种情况，一种划分中有至少一
-                        个1，另外一种划分中所有的数都大于1。对于第一种划分，去掉一个1，就变成了一个于子
-                        问题f[n-1][k-1]，对于第二种划分，把划分中的每个数都减去1，就变成了一个子问题
-                        f[k][n-k]。因此，状态转移方程如下：
+                        设状态为 `f[k][i]`，表示将整数 i 分成 k 份的方案数。有
+                        两种情况，一种划分中有至少一个 1，另外一种划分中所有的
+                        数都大于 1。对于第一种划分，去掉一个 1，就变成了一个于
+                        子问题 `f[n-1][k-1]`，对于第二种划分，把划分中的每个数
+                        都减去 1，就变成了一个子问题`f[k][n-k]`。因此，状态转移
+                        方程如下：
 
                         ```
                         f[k][i] = f[k-1][i-1] + f[k][i-k]
                         ```
 
                         ```cpp
-                        /** wikioi 1039 数的划分, http://www.wikioi.com/problem/1039 */
+                        // wikioi 1039 数的划分, http://www.wikioi.com/problem/1039
                         #include <stdio.h>
                         #include <memory.h>
 
@@ -13158,9 +13532,9 @@ A Bit of Logic -<
                         #define MAXK 10
 
                         int N, K;
-                        int f[MAXK+1][MAXN+1];                      // f[k][i]表示将整数i分成k份的方案数.
+                        int f[MAXK+1][MAXN+1];                      // f[k][i] 表示将整数 i 分成 k 份的方案数.
 
-                        void dp() {                                 // 划分型动态规划，复杂度是O(K*N)
+                        void dp() {                                 // 划分型动态规划，复杂度是 O(K*N)
                             memset(f, 0, sizeof(f));
                             for( int i = 1; i <= N; ++i ) {
                                 f[1][i] = 1;
@@ -13175,9 +13549,9 @@ A Bit of Logic -<
                         }
 
                         int main() {
-                            scanf("%d%d", &N, &K);
+                            scanf( "%d%d", &N, &K );
                             dp();
-                            printf("%d\n", f[K][N]);
+                            printf( "%d\n", f[K][N] );
                             return 0;
                         }
                         ```
@@ -13190,20 +13564,28 @@ A Bit of Logic -<
                         艺术馆盗画。艺术馆的结构，每条走廊要么分叉为二条走廊，
                         要么通向一个展览室。皮尔知道每个展室里藏画的数量，并且
                         他精确地测量了通过每条走廊的时间，由于经验老道，他拿下
-                        一副画需要5秒的时间。你的任务是设计一个程序，计算在警察
-                        赶来之前(警察到达时皮尔回到了入口也算)，他最多能偷到多
-                        少幅画。
+                        一副画需要 5 秒的时间。你的任务是设计一个程序，计算在警
+                        察赶来之前 (警察到达时皮尔回到了入口也算)，他最多能偷到
+                        多少幅画。
 
                         ```
                         输入
 
-                            第1行是警察赶到得时间s(s <= 600)，以秒为单位。第2行描述了艺术馆得结构，是
-                            一串非负整数，成对地出现：每一对得第一个数是走过一条走廊得时间，第2个数是它
-                            末端得藏画数量；如果第2个数是0，那么说明这条走廊分叉为两条另外得走廊。走廊
-                            的数目 <= 100。数据按照深度优先得次序给出，请看样例
+                            第 1 行是警察赶到得时间 s(s <= 600)，以秒为单位。第
+                            2 行描述了艺术馆得结构，是一串非负整数，成对地出现：
+                            每一对得第一个数是走过一条走廊得时间，第 2 个数是
+                            它末端得藏画数量；如果第 2 个数是 0，那么说明这条走
+                            廊分叉为两条另外得走廊。走廊的数目 <= 100。数据按照
+                            深度优先得次序给出，请看样例
 
                             60
-                            7 0 8 0 3 1 14 2 10 0 12 4 6 2
+                            7 0
+                                8 0
+                                    3 1
+                                    14 2
+                                10 0
+                                    12 4
+                                    6 2
 
                         输出
 
@@ -13212,7 +13594,8 @@ A Bit of Logic -<
                             2
                         ```
 
-                        设状态为 `f[root][time]`，表示在root节点，剩下time时间内能偷到的画数，则状态转移方程如下：
+                        设状态为 `f[root][time]`，表示在 root 节点，剩下 time 时间内能偷到的画数，
+                        则状态转移方程如下：
 
                         ```
                         f[root][time]= max{
@@ -13221,102 +13604,89 @@ A Bit of Logic -<
                         ```
 
                         ```cpp
-                        /* wikioi 1163 访问艺术馆, http://www.wikioi.com/problem/1163/ */
-                        #include<stdio.h>
+                        // wikioi 1163 访问艺术馆, http://www.wikioi.com/problem/1163/
+                        #include <stdio.h>
                         #include <memory.h>
 
                         #define max(a,b) ((a)>(b)?(a):(b))
                         #define MAXN  1010                              // 走廊的最大数目
 
-                        int LIMIT, T[MAXN], P[MAXN];                    // 输入数据，警察到达时间，走廊时间，藏画数量
-                        int n, L[MAXN], R[MAXN];                        // 二叉树, 节点个数，左孩子，右孩子, 0位置未用
+                        int LIMIT, T[MAXN], P[MAXN];                    // 警察到达时间，走廊时间，藏画数量
+                        int n, L[MAXN], R[MAXN];                        // 二叉树: 节点个数，左孩子，右孩子, 0 位置未用
 
-                        int f[MAXN][MAXN];                              // f[root][time]表示在root节点，剩下time时间内能偷到的画数
+                        int f[MAXN][MAXN];                              // f[root][time] 表示在 root 节点，
+                                                                        // 剩下 time 时间内能偷到的画数
 
                         // 输入的数据是前序遍历序列，依次读入，递归建树
                         int build_tree() {
-                            n++;
+                            ++n;
                             scanf("%d%d", &T[n], &P[n]);
-                            T[n] *= 2;                                  // 走廊花费时间要*2, 因为还要出来
+                            T[n] *= 2;                                  // 走廊花费时间要 x2, 因为还要出来
                             int now = n;                                // 当前节点
-                            if (P[now] == 0) {
-                                L[now] = build_tree();                  // 建立节点now的左子树
-                                R[now] = build_tree();                  // 建立节点now的右子树
+                            if( P[now] == 0 ) {
+                                L[now] = build_tree();                  // 建立节点 now 的左子树
+                                R[now] = build_tree();                  // 建立节点 now 的右子树
                             }
                             return now;
                         }
 
                         // 备忘录法.  root 开始节点, 剩余时间, return 偷到得画的数量
-                        int dp(int root, int time) {
-                            int t;
-                            if (f[root][time] != -1)
+                        int dp( int root, int time ) {
+                            if( f[root][time] != -1 ) {
                                 return f[root][time];
-                            if (!time)
+                            }
+                            if( !time ) {                       // no time left
                                 return f[root][time] = 0;
+                            }
 
-                            const int ct = time - T[root]; /* 留给左右子节点的时间 */
+                            const int ct = time - T[root];      // 留给左右子节点的时间
 
-                            /* 到达叶子节点，即展览室 */
-                            if (!L[root] && !R[root]) {
-                                /* 不能tt / 5,因为时间够，但是可能画不够 */
-                                if (P[root] * 5 <= ct)
-                                    return f[root][time] = P[root];
-                                else
-                                    return f[root][time] = ct / 5;
+                            // 到达叶子节点，即展览室
+                            if( !L[root] && !R[root] ) {
+                                if ( P[root] * 5 <= ct ) {                  // 不能 tt / 5,因为时间够，但是可能画不够
+                                    return f[root][time] = P[root];         // take all the paintings
+                                } else {
+                                    return f[root][time] = ct / 5;          // take as much as you can
+                                }
                             }
 
                             f[root][time] = 0;
-                            for (t = 0; t <= ct; t++) {
-                                int lp = dp(L[root], t);
-                                int rp = dp(R[root], ct - t);
-                                f[root][time] = max(f[root][time], lp + rp);
+                            for( int t = 0; t <= ct; ++t ) {
+                                int lp = dp( L[root], t );
+                                int rp = dp( R[root], ct - t );
+                                f[root][time] = max( f[root][time], lp + rp );  // update
                             }
                             return f[root][time];
                         }
 
                         int main() {
-                            scanf("%d", &LIMIT);
+                            scanf( "%d", &LIMIT );
+                            n = 0;
                             build_tree();
-                            memset(f, -1, sizeof(f));
-                            printf("%d\n", dp(1, LIMIT));
+                            memset( f, -1, sizeof(f) );
+                            printf( "%d\n", dp( 1, LIMIT) );
                             return 0;
                         }
                         ```
 
-                -   没有上司的舞会 -<
+                -   没有上司的舞会 :hearts: -<
 
-                    :   Ural大学有N个职员，编号为1 ~ N。他们有从属关系，也就是说他
-                        们的关系就像一棵以校长为根的树，父结点就是子结点的直接
-                        上司。每个职员有一个快乐指数。现在有个周年庆宴会，要求
-                        与会职员的快乐指数最大。但是，没有职员愿和直接上司一起
-                        与会。
+                    :   Ural 大学有 N 个职员，编号为 1 ~ N。他们有从属关系，也
+                        就是说他们的关系就像一棵以校长为根的树，父结点就是子结
+                        点的直接上司。每个职员有一个快乐指数。现在有个周年庆宴
+                        会，要求与会职员的快乐指数最大。但是，没有职员愿和直接
+                        上司一起与会。
 
                         ```
                         输入
 
-                            第一行一个整数$N(1 <= N <= 6000)$。
-
-                            接下来$N$行，第$i+1$行表示$i$号职员的快乐指数$R_i(-128 <= R_i <= 127)$。
-
-                            接下来$N-1$行，每行输入一对整数$L,K$。表示$K$是$L$的直接上司。
-
-                            最后一行输入0,0，表示结束。
+                            第一行一个整数 N (1 <= N <= 6000)。
+                            接下来 N 行，第 i+1 行表示 i 号职员的快乐指数 R_i (-128 <= R_i <= 127)。
+                            接下来 N-1 行，每行输入一对整数 L,K。表示 K 是 L 的直接上司。
 
                             7
-                            1
-                            1
-                            1
-                            1
-                            1
-                            1
-                            1
-                            1 3
-                            2 3
-                            6 4
-                            7 4
-                            4 5
-                            3 5
-                            0 0
+                            1       1       1       1       1       1       1
+                            1 3     2 3     6 4     7 4     4 5     3 5
 
                         输出
 
@@ -13325,20 +13695,23 @@ A Bit of Logic -<
                             5
                         ```
 
-                        设状态为f[k][0]和f[k][1]，f[k][0]表示第i个人不参加时的最大值，f[k][1]表示第k个人参加的最大值，则状态转移方程如下：
+                        设状态为
+                        `f[k][0]` 和 `f[k][1]`，`f[k][0]` 表示第 k 个人不参加时的最大值，
+                        `f[k][1]` 表示第 k 个人参加的最大值，则
+                        状态转移方程如下：
 
                         ```
                         f[k][0] = sum_l max{ f[l][0], f[l][1] },            其中 k 是 l 的直接上司
-                        f[k][1] = sum_l f[l][0] + r[k]
+                        f[k][1] = sum_l f[l][0] + r[k]                      r[k] is the happy value
                         ```
 
                         ```cpp
-                        /* wikioi 1380 没有上司的舞会, http://www.wikioi.com/problem/1380 */
-                        #include<stdio.h>
-                        #include<string.h>
+                        // wikioi 1380 没有上司的舞会, http://www.wikioi.com/problem/1380
+                        #include <stdio.h>
+                        #include <string.h>
 
                         #define max(a,b) ((a)>(b)?(a):(b))
-                        #define MAXN 6001                                           // 0位置未用
+                        #define MAXN 6001                                           // 0 位置未用
 
                         int n;
                         int r[MAXN];                                                // 快乐指数
@@ -13353,18 +13726,33 @@ A Bit of Logic -<
 
                         int head[MAXN];                                             // head[root]指向表头，即最后一条边
 
-                        bool has_boss[MAXN];                                        // has_boss[i] 表示第i个人是否有上司
+                        bool has_boss[MAXN];                                        // has_boss[i] 表示第 i 个人是否有上司
 
                         int f[MAXN][2];
 
                         int cnt;                                                    // 边个数 - 1
-                        void add_edge(int u, int v) {
-                            edge[cnt].v = v;
+                        void add_edge( int u, int v ) {
+                            edge[cnt].v = v;                                        // v->u, v->head[u]
                             edge[cnt].prev = head[u];
-                            head[u] = cnt++;
+                            head[u] = cnt;                                          // u->v: edge[head[u]].v
+                            ++cnt;
                         }
 
-                        void dp(int k) {
+                        void printGraph( int x, int y ) {
+                            fprintf( stderr, "\nGraph after %d->%d:\n", x, y );
+                            for( int k = 0; k < 6001; ++k ) {
+                                int p = head[k];
+                                if( p == -1 ) { continue; }
+                                fprintf( stderr, "head[%d]:", k );
+                                for( ; p != -1; p = edge[p].prev ) {
+                                    int v = edge[p].v;
+                                    fprintf( stderr, " %d", v );
+                                }
+                                fprintf( stderr, "\n" );
+                            }
+                        }
+
+                        void dp( int k ) {
                             f[k][1] = r[k];
                             f[k][0] = 0;
                             for( int p = head[k]; p != -1; p = edge[p].prev ) {
@@ -13384,35 +13772,62 @@ A Bit of Logic -<
                                 }
                             }
                             dp(k);
-                            return max(f[k][0], f[k][1]);
+                            return max(f[k][0], f[k][1]);                           // cool!
                         }
 
                         int main() {
-                            scanf("%d", &n);
+                            scanf( "%d", &n );
                             for( int i = 1; i <= n; ++i ) {
-                                scanf("%d", &r[i]);
+                                scanf("%d", &r[i] );
                             }
 
                             cnt = 0;
-                            memset(has_boss, 0, sizeof(has_boss));
-                            memset(head, -1, sizeof(head));
-                            int x, y;
-                            for( int i = 1; i < n; ++i ) {
-                                scanf("%d%d", &x, &y);
+                            memset( has_boss, 0, sizeof(has_boss) );
+                            memset( head,    -1, sizeof(head) );
+                            for( int i = 0; i < n-1; ++i ) {
+                                int x, y;
+                                scanf( "%d%d", &x, &y );
                                 has_boss[x] = 1;
-                                add_edge(y, x);
+                                add_edge( y, x );               //    x   ->  y
+                                printGraph( x, y );
                             }
-                            scanf("%d%d", &x, &y);
-
                             printf("%d\n", solve());
                             return 0;
                         }
                         ```
 
+                        log in stderr, if you don't understand it. -<
+
+                        :   ```
+                            Graph after 1->3:
+                            head[3]: 1
+
+                            Graph after 2->3:
+                            head[3]: 2 1
+
+                            Graph after 6->4:
+                            head[3]: 2 1
+                            head[4]: 6
+
+                            Graph after 7->4:
+                            head[3]: 2 1
+                            head[4]: 7 6
+
+                            Graph after 4->5:
+                            head[3]: 2 1
+                            head[4]: 7 6
+                            head[5]: 4
+
+                            Graph after 3->5:
+                            head[3]: 2 1
+                            head[4]: 7 6
+                            head[5]: 3 4
+                            ```
+
         -   最大子矩形 -<
 
-            :   在一个给定的矩形网格中有一些障碍点，要找出网格内部不包含任何障碍点，且
-                边界与坐标轴平行的最大子矩形。
+            :   在一个给定的矩形网格中有一些障碍点，要找出网格内部不包含任何障
+                碍点，且边界与坐标轴平行的最大子矩形。
 
                 遇到求矩形面积，一般把左上角设置为坐标原点，这与数学中的坐标系不同。
 
@@ -13422,28 +13837,28 @@ A Bit of Logic -<
 
                 -   奶牛浴场 -<
 
-                    :   由于 john 建造了牛场围栏，激起了奶牛的愤怒，奶牛的产奶量
-                        急剧减少。为了讨好奶牛，john 决定在牛场中建造一个大型浴
-                        场。但是 john 的奶牛有一个奇怪的习惯，每头奶牛都必须在牛
+                    :   由于 John 建造了牛场围栏，激起了奶牛的愤怒，奶牛的产奶量
+                        急剧减少。为了讨好奶牛，John 决定在牛场中建造一个大型浴
+                        场。但是 John 的奶牛有一个奇怪的习惯，每头奶牛都必须在牛
                         场中的一个固定的位置产奶，而奶牛显然不能在浴场中产奶，
-                        于是，john 希望所建造的浴场不覆盖这些产奶点。这回，他又
-                        要求助于 clevow 了。你还能帮助 clevow 吗？
+                        于是，John 希望所建造的浴场不覆盖这些产奶点。这回，他又
+                        要求助于 Clevow 了。你还能帮助 Clevow 吗？
 
-                        john 的牛场和规划的浴场都是矩形。浴场要完全位于牛场之内，
+                        John 的牛场和规划的浴场都是矩形。浴场要完全位于牛场之内，
                         并且浴场的轮廓要与牛场的轮廓平行或者重合。浴场不能覆
                         盖任何产奶点，但是产奶点可以位于浴场的轮廓上。
 
-                        clevow 当然希望浴场的面积尽可能大了，所以你的任务就是帮
+                        Clevow 当然希望浴场的面积尽可能大了，所以你的任务就是帮
                         她计算浴场的最大面积。
 
                         ```
                         输入
 
-                            输入文件的第一行包含两个整数 L 和 W(1 <= L,W <=
-                            30000)，分别表示牛场的长和宽。文件的第二行包含一个
-                            整数 n(0 <= n <= 5000)，表示产奶点的数量。以下
-                            n 行每行包含两个整数 x 和 y，表示一个产奶点的坐标。所有
-                            产奶点都位于牛场内，即：0 <= x <= l, 0 <= y <= w。
+                            输入文件的第一行包含两个整数 L 和 W (1 <= L,W <= 30000)，
+                            分别表示牛场的长和宽。文件的第二行包含一个整数 n(0 <= n <= 5000)，
+                            表示产奶点的数量。以下 n 行每行包含两个整数 x 和 y，
+                            表示一个产奶点的坐标。所有产奶点都位于牛场内，
+                            即：0 <= x <= l, 0 <= y <= w。
 
                             10 10
                             4
@@ -13454,59 +13869,68 @@ A Bit of Logic -<
 
                         输出
 
-                            输出文件仅一行，包含一个整数S，表示浴场的最大面积。
+                            输出文件仅一行，包含一个整数 S，表示浴场的最大面积。
 
                             80
                         ```
 
-                        这里使用方法二，需要先做一定的预处理。由于第二种算法复
-                        杂度与牛场的面积有关，而题目中牛场的面积很大（
-                        30000×30000），因此需要对数据进行离散化处理。离散化后矩
-                        形的大小降为 S×S，所以时间复杂度为 O(S2)，空间复杂度为
-                        O(S)。需要注意的是，为了保证算法能正确执行，把 (0,0) 和
-                        (m,n) 设置为产奶点，相当于加上了一个“虚拟边界”。
+                        方法一是暴力枚举法，方法二是动规法。这里使用方法二，需
+                        要先做一定的预处理。由于第二种算法复杂度与牛场的面积有
+                        关，而题目中牛场的面积很大（30000×30000），因此需要对数
+                        据进行离散化处理。离散化后矩形的大小降为 S×S，所以时间
+                        复杂度为 O(S2)，空间复杂度为 O(S)。需要注意的是，为了保
+                        证算法能正确执行，把 (0,0) 和 (m,n) 设置为产奶点，相当于
+                        加上了一个“虚拟边界”。
 
                         ```cpp
-                        /**
-                         * OJ: https://vijos.org/p/1055
-                         */
+                        // OJ: https://vijos.org/p/1055
                         #include <string.h>
                         #include <stdio.h>
                         #include <stdlib.h>
+                        #include <vector>
 
-                        #define MAXN 5001
+                        using namespace std;
 
                         #define max(a,b) ((a)>(b)?(a):(b))
                         #define min(a,b) ((a)<(b)?(a):(b))
 
-                        int L, W; /* 长，竖向x坐标，宽，横向y坐标 */
-                        int n; /* n个产奶点 */
-                        int x[MAXN], y[MAXN]; /* 产奶点坐标 */
+                        int L, W;                   //            W
+                                                    //        +------> y
+                                                    //        |
+                                                    //     L  |
+                                                    //        |
+                                                    //        V x
 
-                        int int_cmp(const void *a, const void *b) {
+                        #define MAXN 5001
+                        int n;                      // n个产奶点
+                        int x[MAXN], y[MAXN];       // 产奶点坐标
+
+                        int int_cmp( const void *a, const void *b ) {
                             const int *ia = (const int*) a;
                             const int *ib = (const int*) b;
                             return *ia - *ib;
                         }
 
-                        /* 等价于复制粘贴，这里为了节约篇幅，使用include，在OJ上提交时请用复制粘贴 */
-                        #include "binary_search.c"
+                        int binary_search( int A[], int n, int target ) {
+                            int low = 0, high = n-1, mid;
+                            while( low <= high ) {
+                                mid = (low+high)/2;
+                                if( A[mid] < target ) {
+                                    low = mid+1;
+                                } else if( A[mid] > target ) {
+                                    high = mid-1;
+                                } else {
+                                    return mid;
+                                }
+                            }
+                            return -1;
+                        }
 
-                        /**
-                         * @brief 求最大子矩形
-                         *
-                         * 参考 http://wenku.baidu.com/view/728cd5126edb6f1aff001fbb.html 的第二种方法
-                         *
-                         * @param[in] L 长度，纵向
-                         * @param[in] W 宽度，横向
-                         * @param[in] x 纵向x坐标
-                         * @param[in] y 横向y坐标
-                         * @param[in] n 障碍点的个数
-                         * @return 最大子矩形的面积
-                         */
                         int max_submatrix(const int L, const int W,
                                 const int x[], const int y[], int n) {
-                            int *a = (int*) malloc((n + 1) * sizeof(int));
+                            vector<int> aa( n+1 );
+                            // int *a = (int*) malloc((n + 1) * sizeof(int));
+                            int *a = &aa[0];
                             int *b = (int*) malloc((n + 1) * sizeof(int));
                             int la = n, lb = n;
                             int i, j;
@@ -13540,7 +13964,6 @@ A Bit of Logic -<
                             h = (int*) malloc(lb * sizeof(int));
                             l = (int*) malloc(lb * sizeof(int));
                             r = (int*) malloc(lb * sizeof(int));
-                            //*******************************//
 
                             // 计算 v矩阵
                             v = (int**) malloc(la * sizeof(int*));
@@ -13591,7 +14014,7 @@ A Bit of Logic -<
                                 result = max(result, temp);
                             }
 
-                            free(a);
+                            // free(a);
                             free(b);
                             for (i = 0; i < la; i++) {
                                 free(v[i]);
@@ -13619,7 +14042,7 @@ A Bit of Logic -<
 
                 -   最大全 1 子矩阵 -<
 
-                    :   给定一个 m * n 的 01 矩阵，求最大的全 1 子矩阵。
+                    :   给定一个 `m * n` 的 01 矩阵，求最大的全 1 子矩阵。
 
                         ```
                         输入
@@ -13636,6 +14059,15 @@ A Bit of Logic -<
                             0 1 1 0
                             0 1 1 0
                             0 0 0 0
+                            8 8
+                            0   1   0   0   0   0   1   1
+                            1   1   1   0   0   0   1   1
+                            1   1   1   0   0   0   0   0
+                            1   1   1   0   1   1   1   1
+                            0   0   0   0   1   1   1   1
+                            0   0   0   0   1   1   1   1
+                            0   0   0   0   1   1   1   1
+                            0   0   0   0   1   1   1   1
 
                         输出
 
@@ -13644,6 +14076,7 @@ A Bit of Logic -<
 
                             0
                             4
+                            20
                         ```
 
                         注意，上一题算的是面积，这一题算的是个数，在某些细节上处理不同。
@@ -13652,32 +14085,23 @@ A Bit of Logic -<
                         #include <stdio.h>
                         #include <string.h>
                         #include <stdlib.h>
+                        #include <vector>
 
-                        #define max(a,b)  (a > b ? a : b)
-                        #define min(a,b)  (a < b ? a : b)
+                        using namespace std;
 
-                        #define  MAXN 2001
+                        int lagest_rectangle( vector<vector<int> > &matrix, int m, int n ) {
+                            vector<int> H( n, 0 );                              // 高度
+                            vector<int> L( n, 0 );                              // 左边界
+                            vector<int> R( n, n );                              // 右边界
 
-                        int matrix[MAXN][MAXN];
-
-                        int lagest_rectangle(/*int **matrix, */int m, int n) {
-                            int i, j;
-                            int *H = (int*) malloc(n * sizeof(int));  // 高度
-                            int *L = (int*) malloc(n * sizeof(int));  // 左边界
-                            int *R = (int*) malloc(n * sizeof(int));  // 右边界
                             int ret = 0;
-
-                            memset(H, 0, n * sizeof(int));
-                            memset(L, 0, n * sizeof(int));
-                            for (i = 0; i < n; i++) R[i] = n;
-
-                            for (i = 0; i < m; ++i) {
+                            for( int i = 0; i < m; ++i ) {
                                 int left = 0, right = n;
                                 // calculate L(i, j) from left to right
-                                for (j = 0; j < n; ++j) {
-                                    if (matrix[i][j] == 1) {
+                                for( int j = 0; j < n; ++j ) {
+                                    if( matrix[i][j] == 1 ) {
                                         ++H[j];
-                                        L[j] = max(L[j], left);
+                                        L[j] = max( L[j], left );               // rightify L
                                     } else {
                                         left = j + 1;
                                         H[j] = 0;
@@ -13686,10 +14110,10 @@ A Bit of Logic -<
                                     }
                                 }
                                 // calculate R(i, j) from right to left
-                                for (j = n - 1; j >= 0; --j) {
-                                    if (matrix[i][j] == 1) {
-                                        R[j] = min(R[j], right);
-                                        ret = max(ret, H[j] * (R[j] - L[j]));
+                                for( int j = n - 1; j >= 0; --j ) {
+                                    if( matrix[i][j] == 1 ) {
+                                        R[j] = min( R[j], right );              // leftify R
+                                        ret = max( ret, H[j]*(R[j]-L[j]) );     // larger area
                                     } else {
                                         right = j;
                                     }
@@ -13701,18 +14125,46 @@ A Bit of Logic -<
 
                         int main() {
                             int m, n;
-                            int i, j;
-                            while (scanf("%d%d", &m, &n) > 0) {
-                                for (i = 0; i < m; i++) {
-                                    for (j = 0; j < n; j++) {
-                                        scanf("%d", &matrix[i][j]);
+                            while( 2 == scanf("%d%d", &m, &n) ) {
+                                vector<vector<int> > matrix( m, vector<int>(n) );
+                                for( int i = 0; i < m; ++i ) {
+                                    for( int j = 0; j < n; ++j ) {
+                                        scanf( "%d", &matrix[i][j] );
                                     }
                                 }
-
-                                printf("%d\n", lagest_rectangle(m, n));
+                                printf( "%d\n", lagest_rectangle(matrix, m, n) );
                             }
                             return 0;
                         }
+                        ```
+
+                        ```
+                        // ret = max( ret, H[j]*(R[j]-L[j]) );     // larger area
+
+                        int area = H[j]*(R[j]-L[j]);
+                        if( area > ret ) {
+                            printf( "Area: %d, j= %d, L[j]: %d, R[j]: %d, H[j]: %d\n",
+                                    area, j, L[j], R[j], H[j] );
+                            ret = area;
+                        }
+
+                        8   8
+                        0   1   0   0   0   0   1   1
+                        1   1   1   0   0   0   1   1
+                        1   1   1   0   0   0   0   0
+                        1   1   1   0   1   1   1   1
+                        0   0   0   0   1   1   1   1
+                        0   0   0   0   1   1   1   1
+                        0   0   0   0   1   1   1   1
+                        0   0   0   0   1   1   1   1
+
+                        Area: 2,    j= 7, L[j]: 6, R[j]: 8, H[j]: 1
+                        Area: 4,    j= 7, L[j]: 6, R[j]: 8, H[j]: 2
+                        Area: 6,    j= 2, L[j]: 0, R[j]: 3, H[j]: 2
+                        Area: 9,    j= 2, L[j]: 0, R[j]: 3, H[j]: 3
+                        Area: 12,   j= 7, L[j]: 4, R[j]: 8, H[j]: 3
+                        Area: 16,   j= 7, L[j]: 4, R[j]: 8, H[j]: 4
+                        Area: 20,   j= 7, L[j]: 4, R[j]: 8, H[j]: 5
                         ```
 
         -   DAG 上的动态规划 -<
@@ -17125,11 +17577,11 @@ A Bit of Logic -<
             // 顶点数最大值
             const int MAX_NV = 100;
 
-            // 边的权值类型，可以为int, float, double.
+            // 边的权值类型，可以为 int, float, double.
             typedef int graph_weight_t;
             const graph_weight_t GRAPH_INF = INT_MAX;
 
-            // 图，用邻接矩阵(Adjacency Matrix).
+            // 图，用邻接矩阵 (Adjacency Matrix).
             struct graph_t {
                 int nv;                                         // 顶点数
                 int ne;                                         // 边数
@@ -17140,13 +17592,13 @@ A Bit of Logic -<
         稀疏图适合用邻接表来表示 -<
 
         :   ```cpp
-            // 边的权值类型，可以为int, float, double
+            // 边的权值类型，可以为 int, float, double
             typedef int graph_weight_t;
 
             // 顶点的编号，可以为 char, int, string 等
             typedef char graph_vertex_id_t;
 
-            // 图，用邻接表(Adjacency List).
+            // 图，用邻接表 (Adjacency List).
             struct graph_t {
                 int nv;                                         // 顶点数
                 int ne;                                         // 边数
@@ -17160,43 +17612,135 @@ A Bit of Logic -<
         图的深搜 DFS -<
 
         :   ```cpp
-            //  @brief 图的深度优先搜索代码框架，搜索边.
-            //  @param[in] g 图
-            //  @param[in] u 出发顶点
-            //  @param[in] visited 边的访问历史记录
-            //  @return 无
-            //  @remark 在使用的时候，为了降低递归的内存占用量，可以把
-            //  g, visited 抽出来作为全局变量
-            void dfs(const graph_t &g, int u, bool visited[][MAX_NV] ) {
-                for(int v = 0;  v < g.nv; v++) if(g.matrix[u][v] && !visited[u][v]) {
-                    visited[u][v] = visited[v][u] = true;   // 无向图用这句
-                    // visited[u][v] = true;                // 有向图用这句
-                    dfs(g, v, visited);
-                    // 这里写逻辑代码, printf("%d %d\n", u, v);
-                }
-            }
-            ```
-
-            ```cpp
-            //  @brief 图的深度优先搜索代码框架，搜索顶点.
-            //  @param[in] g 图
-            //  @param[in] u 出发顶点
-            //  @param[in] visited 顶点的访问历史记录
-            //  @return 无
-            //  @remark 在使用的时候，为了降低递归的内存占用量，可以把
-            //  g, visited 抽出来作为全局变量
-            void dfs(const graph_t &g, int u, bool visited[MAX_NV]) {
-                visited[u] = true;
-                for(int v = 0;  v < g.nv; v++) {
-                    if(g.matrix[u][v] && !visited[v]) {
-                        dfs(g, v, visited);
-                        // 这里写逻辑代码, printf("%d %d\n", u, v);
+            //  图的深度优先搜索代码框架，搜索边.
+            //  g 图
+            //  u 出发顶点
+            //  visited 边的访问历史记录
+            void dfs( const graph_t &g, int u, bool visited[][MAX_NV] ) {
+                for( int v = 0;  v < g.nv; ++v ) {
+                    if( g.matrix[u][v] && !visited[u][v]) {
+                        visited[u][v] = visited[v][u] = true;   // 无向图用这句
+                        // visited[u][v] = true;                // 有向图用这句
+                        dfs( g, v, visited );
+                        // 这里写逻辑代码, e.g. printf("%d %d\n", u, v);
                     }
                 }
             }
             ```
 
-            -   Satellite Photographs
+            ```cpp
+            //  图的深度优先搜索代码框架，搜索顶点.
+            //  g 图
+            //  u 出发顶点
+            //  visited 顶点的访问历史记录
+            void dfs( const graph_t &g, int u, bool visited[MAX_NV] ) {
+                visited[u] = true;
+                for( int v = 0;  v < g.nv; ++v ) {
+                    if( g.matrix[u][v] && !visited[v] ) {
+                        dfs(g, v, visited);
+                        // 这里写逻辑代码, e.g. printf("%d %d\n", u, v);
+                    }
+                }
+            }
+            ```
+
+            -   Satellite Photographs -<
+
+                :   Farmer John purchased satellite photos of `W * H` pixels of
+                    his farm (1 <= W <= 80, 1 <= H <= 1000) and wishes to
+                    determine the largest 'contiguous' (connected) pasture.
+                    Pastures are contiguous when any pair of pixels in a
+                    pasture can be connected by traversing adjacent vertical or
+                    horizontal pixels that are part of the pasture. (It is easy
+                    to create pastures with very strange shapes, even circles
+                    that surround other circles.)
+
+                    Each photo has been digitally enhanced to show pasture area
+                    as an asterisk (`*`) and non-pasture area as a period
+                    (`.`). Here is a 10x5 sample satellite photo:
+
+                    ```
+                    ..*.....**
+                    .**..*****
+                    .*...*....
+                    ..****.***
+                    ..****.***
+                    ```
+
+                    This photo shows three contiguous pastures of 4, 16, and 6
+                    pixels. Help FJ find the largest contiguous pasture in each
+                    of his satellite photos.
+
+                    ```
+                    输入
+
+                        Line  1:        Two space-separated integers: $W$ and $H$
+                        Lines 2..H+1:   Each line contains $W$ "*" or "." characters representing
+                                        one raster line of a satellite photograph.
+
+                        10 5
+                        ..*.....**
+                        .**..*****
+                        .*...*....
+                        ..****.***
+                        ..****.***
+
+                    输出
+
+                        Line 1:         The size of the largest contiguous field in the satellite photo.
+
+                        16
+                    ```
+
+                    这是一个平面的二维地图，把地图上的每个点当成隐式图上的一个
+                    顶点，每个顶点有上下左右四个邻接点。在这个隐式图上进行深搜。
+
+                    too easy...
+
+                    ```cpp
+                    // POJ 3051 Satellite Photographs, http://poj.org/problem?id=3051
+                    #include <stdio.h>
+                    #include <string.h>
+                    #include <vector>
+
+                    using namespace std;
+
+                    void dfs( vector<vector<char> > &map, int x, int y, int &count ) {
+                        if( map[x][y] == '.' ) { return; }  // 加了一圈 '.' 可以防止越界，因此不需要判断越界
+
+                        map[x][y] = '.';                    // 标记 (x,y) 已访问过，起到去重作用
+                        ++count;
+                        dfs( map, x+1, y,   count );
+                        dfs( map, x-1, y,   count );
+                        dfs( map, x,   y+1, count );
+                        dfs( map, x,   y-1, count );
+                    }
+
+                    int main() {
+                        int W, H;
+                        while( 2 == scanf( "%d%d", &W, &H ) ) {
+                            vector<vector<char> > map( H+2, vector<char>(W+2, '.') );
+                            for( int i = 1; i <= H; ++i ) {
+                                char line[100];
+                                scanf( "%s", line );
+                                strncpy( &map[i][1], line, W );
+                            }
+
+                            int ret = 0;
+                            for( int i = 1; i <= H; ++i ) {
+                                for( int j = 1; j <= W; ++j ) {
+                                    int count = 0;
+                                    if( map[i][j] == '*' ) {
+                                        dfs( map, i, j, count );
+                                    }
+                                    ret = max( ret, count );
+                                }
+                            }
+                            printf( "%d\n", ret );
+                        }
+                        return 0;
+                    }
+                    ```
 
             -   John's trip
 
@@ -17212,7 +17756,7 @@ A Bit of Logic -<
                 有最小权值的边，其中 u \in U, v \in V-U，则必存在一颗包含边
                 (u, v) 的最小生成树。
 
-                Prim算法和Kruskal算法是两个利用MST性质构造最小生成树的算法。它们都属于贪心法。
+                Prim 算法和 Kruskal 算法是两个利用 MST 性质构造最小生成树的算法。它们都属于贪心法。
 
                 -   Prim 算法
                 -   Kruskal 算法
