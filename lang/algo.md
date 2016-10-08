@@ -1,6 +1,6 @@
 ---
 title: Algorithms
-refs:   ![](http://whudoc.qiniudn.com/ascii.png)
+refs:
     ../../aoapc-book/aoapc-bac2nd/README.md
     D:\tzx\git\aoapc-book\aoapc-bac2nd\README.md
     ../../acm-cheat-sheet/C++/ACM-cheat-sheet.tex
@@ -35,7 +35,9 @@ ASCII table -<
                          .      .                                           |   <-------------- .
     ------------------------------------------------------------------------+
         0       1       2       3       4       5       6       7
+    ```
 
+    ```
     Usage: ascii [-dxohv] [-t] [char-alias...]
        -t = one-line output  -d = Decimal table  -o = octal table  -x = hex table
        -h = This help screen -v = version information
@@ -60,6 +62,8 @@ ASCII table -<
      14 0E SO   30 1E RS   46 2E .  62 3E >  78 4E N  94 5E ^  110 6E n  126 7E ~
      15 0F SI   31 1F US   47 2F /  63 3F ?  79 4F O  95 5F _  111 6F o  127 7F DEL
     ```
+
+    ![](http://whudoc.qiniudn.com/ascii.png)
 
 Cheatsheet -<
 
@@ -93,7 +97,7 @@ TODOs & Notes -<
 
     -   How to compile && run
 
-        :   ```
+        :   ```bash
             # compile
             g++ code.cpp -o code --std=c++11
             # run
@@ -102,7 +106,7 @@ TODOs & Notes -<
 
 ## 0.
 
-[我的算法学习之路 - Lucida](http://lucida.me/blog/on-learning-algorithms/) -<
+我的算法学习之路 - Lucida -<
 
 :   基友在人人发百度实习内推贴，当时自我感觉牛逼闪闪放光芒，于是就抱着看看国内 IT 环
     境 + 虐虐面试官的变态心理投了简历，结果在第一面就自己的师兄爆出翔：他让我写一个
@@ -149,9 +153,13 @@ TODOs & Notes -<
     >   **If you want to become a good programmer, you can spend 10 years
     >   programming, or spend 2 years programming and learning algorithms.**
 
-[9 个 offer，12 家公司，35 场面试，从微软到谷歌，应届计算机毕业生的 2012 求职之路 - _Luc_ - 博客园](http://www.cnblogs.com/figure9/archive/2013/01/09/2853649.html) -<
+    refs and see also
 
-:   外企（Google、MS、Yahoo 等）>国内互联网（阿里、腾讯、百度、网易等）>企事业单位（基本不考虑）
+    -   [我的算法学习之路 - Lucida](http://lucida.me/blog/on-learning-algorithms/)
+
+9 个 offer，12 家公司，35 场面试，从微软到谷歌，应届计算机毕业生的 2012 求职之路 -<
+
+:   外企（Google、MS、Yahoo 等） > 国内互联网（阿里、腾讯、百度、网易等） > 企事业单位（基本不考虑）
 
     我的微软 mentor 曾提到过，我的实习面试表现一般，但后来表现出的动手能力大大
     超出之前面试的预估，而有些面试表现很出色，问题对答如流的选手，入职之后反而
@@ -230,7 +238,11 @@ TODOs & Notes -<
     computer programs，这两本书难度很高，需要大量的时间阅读，不适合临场阅读准备，
     但读过后，写出的代码绝逼会上两个层次，这里我就不多介绍了。
 
-[白板编程浅谈——Why, What, How - Lucida](http://lucida.me/blog/whiteboard-coding-demystified/){.heart} -<
+    refs and see also
+
+    -   [9 个 offer，12 家公司，35 场面试，从微软到谷歌，应届计算机毕业生的 2012 求职之路 - _Luc_ - 博客园](http://www.cnblogs.com/figure9/archive/2013/01/09/2853649.html)
+
+白板编程浅谈——Why, What, How :hearts: -<
 
 :   技术面试中的问题大致可以分为 5 类：
 
@@ -378,7 +390,11 @@ TODOs & Notes -<
     |   惊动中原第一高手（简历 / 面试得到赏识）；
     |   海上决战名扬天下（得到 Offer 搞定工作）。
 
-[知其所以然（以算法学习为例）](http://mindhacks.cn/2008/07/07/the-importance-of-knowing-why/) -<
+    refs and see also
+
+    -   [白板编程浅谈——Why, What, How - Lucida](http://lucida.me/blog/whiteboard-coding-demystified/){.heart}
+
+知其所以然（以算法学习为例） -<
 
 :   徐宥在讨论中提到，这种策略的本质可以概括成“让未知世界无机可乘”。它是没有“弱
     点的”，答案的任何一个分支都是等概率的。反之，一旦某个分支蕴含的可能性更多，
@@ -441,11 +457,12 @@ TODOs & Notes -<
 
     refs and see also
 
+    -   [知其所以然（以算法学习为例）](http://mindhacks.cn/2008/07/07/the-importance-of-knowing-why/)
     -   [数学之美番外篇：快排为什么那样快](http://mindhacks.cn/2008/06/13/why-is-quicksort-so-quick/)
     -   [知其所以然（三）：为什么算法这么难？](http://mindhacks.cn/2011/07/10/the-importance-of-knowing-why-part3/)
     -   [数学之美番外篇：快排为什么那样快](http://mindhacks.cn/2008/06/13/why-is-quicksort-so-quick/)
 
-[有哪些学习算法的网站推荐？ - 知乎](https://www.zhihu.com/question/20368410) -<
+有哪些学习算法的网站推荐？ -<
 
 :   所以, 倾情推荐:
 
@@ -460,6 +477,10 @@ TODOs & Notes -<
     所以说, 还是做题最有效. 就算是你看了算法导论的前几页, 知道了什么是
     insertion sort, 不见得你写出来的代码就是对的. 不信的话, 打开 Insertion Sort
     List, 试试能不能通过.
+
+    refs and see also
+
+    -   [有哪些学习算法的网站推荐？ - 知乎](https://www.zhihu.com/question/20368410)
 
 ## 1.
 
@@ -18409,389 +18430,606 @@ A Bit of Logic -<
 
     :scissors: 2016/08/28 上午 9:30:00 9. 图与搜索 Graph & Search -<
 
-    :   稠密图适合用邻接矩阵来表示 -<
+    :   -   稠密图适合用邻接矩阵来表示 -<
 
-        :   ```cpp
-            // 顶点数最大值
-            const int MAX_NV = 100;
+            :   ```cpp
+                // 顶点数最大值
+                const int MAX_NV = 100;
 
-            // 边的权值类型，可以为 int, float, double.
-            typedef int graph_weight_t;
-            const graph_weight_t GRAPH_INF = INT_MAX;
+                // 边的权值类型，可以为 int, float, double.
+                typedef int graph_weight_t;
+                const graph_weight_t GRAPH_INF = INT_MAX;
 
-            // 图，用邻接矩阵 (Adjacency Matrix).
-            struct graph_t {
-                int nv;                                         // 顶点数
-                int ne;                                         // 边数
-                graph_weight_t matrix[MAX_NV][MAX_NV];          // 邻接矩阵，存放边的信息，如权重等
-            };
-            ```
+                // 图，用邻接矩阵 (Adjacency Matrix).
+                struct graph_t {
+                    int nv;                                         // 顶点数
+                    int ne;                                         // 边数
+                    graph_weight_t matrix[MAX_NV][MAX_NV];          // 邻接矩阵，存放边的信息，如权重等
+                };
+                ```
 
-        稀疏图适合用邻接表来表示 -<
+        -   稀疏图适合用邻接表来表示 -<
 
-        :   ```cpp
-            // 边的权值类型，可以为 int, float, double
-            typedef int graph_weight_t;
+            :   ```cpp
+                // 边的权值类型，可以为 int, float, double
+                typedef int graph_weight_t;
 
-            // 顶点的编号，可以为 char, int, string 等
-            typedef char graph_vertex_id_t;
+                // 顶点的编号，可以为 char, int, string 等
+                typedef char graph_vertex_id_t;
 
-            // 图，用邻接表 (Adjacency List).
-            struct graph_t {
-                int nv;                                         // 顶点数
-                int ne;                                         // 边数
-                map<
-                    graph_vertex_id_t,
-                    map<graph_vertex_id_t, graph_weight_t>
-                > matrix;                                       // 邻接表，存放边的信息，如权重等
-            };
-            ```
+                // 图，用邻接表 (Adjacency List).
+                struct graph_t {
+                    int nv;                                         // 顶点数
+                    int ne;                                         // 边数
+                    map<
+                        graph_vertex_id_t,
+                        map<graph_vertex_id_t, graph_weight_t>
+                    > matrix;                                       // 邻接表，存放边的信息，如权重等
+                };
+                ```
 
-        图的深搜 DFS -<
+        -   图的深搜 DFS -<
 
-        :   ```cpp
-            //  图的深度优先搜索代码框架，搜索边.
-            //  g 图
-            //  u 出发顶点
-            //  visited 边的访问历史记录
-            void dfs( const graph_t &g, int u, bool visited[][MAX_NV] ) {
-                for( int v = 0;  v < g.nv; ++v ) {
-                    if( g.matrix[u][v] && !visited[u][v]) {
-                        visited[u][v] = visited[v][u] = true;   // 无向图用这句
-                        // visited[u][v] = true;                // 有向图用这句
-                        dfs( g, v, visited );
-                        // 这里写逻辑代码, e.g. printf("%d %d\n", u, v);
-                    }
-                }
-            }
-            ```
+            :   -   图的 DFS, 搜索边 -<
 
-            ```cpp
-            //  图的深度优先搜索代码框架，搜索顶点.
-            //  g 图
-            //  u 出发顶点
-            //  visited 顶点的访问历史记录
-            void dfs( const graph_t &g, int u, bool visited[MAX_NV] ) {
-                visited[u] = true;
-                for( int v = 0;  v < g.nv; ++v ) {
-                    if( g.matrix[u][v] && !visited[v] ) {
-                        dfs(g, v, visited);
-                        // 这里写逻辑代码, e.g. printf("%d %d\n", u, v);
-                    }
-                }
-            }
-            ```
+                    :   ```cpp
+                        //  图的深度优先搜索代码框架，搜索边.
+                        //  g 图
+                        //  u 出发顶点
+                        //  visited 边的访问历史记录
+                        void dfs( const graph_t &g, int u, bool visited[][MAX_NV] ) {
+                            for( int v = 0;  v < g.nv; ++v ) {
+                                if( g.matrix[u][v] && !visited[u][v] ) {
+                                    visited[u][v] = visited[v][u] = true;   // 无向图用这句
+                                    // visited[u][v] = true;                // 有向图用这句
+                                    dfs( g, v, visited );
+                                    // 这里写逻辑代码, e.g. printf("%d %d\n", u, v);
+                                }
+                            }
+                        }
+                        ```
 
-            -   Satellite Photographs -<
+                -   图的 DFS, 搜索顶点 -<
 
-                :   Farmer John purchased satellite photos of `W * H` pixels of
-                    his farm (1 <= W <= 80, 1 <= H <= 1000) and wishes to
-                    determine the largest 'contiguous' (connected) pasture.
-                    Pastures are contiguous when any pair of pixels in a
-                    pasture can be connected by traversing adjacent vertical or
-                    horizontal pixels that are part of the pasture. (It is easy
-                    to create pastures with very strange shapes, even circles
-                    that surround other circles.)
+                    :   ```cpp
+                        //  图的深度优先搜索代码框架，搜索顶点.
+                        //  g 图
+                        //  u 出发顶点
+                        //  visited 顶点的访问历史记录
+                        void dfs( const graph_t &g, int u, bool visited[MAX_NV] ) {
+                            visited[u] = true;
+                            for( int v = 0;  v < g.nv; ++v ) {
+                                if( g.matrix[u][v] && !visited[v] ) {
+                                    dfs(g, v, visited);
+                                    // 这里写逻辑代码, e.g. printf("%d %d\n", u, v);
+                                }
+                            }
+                        }
+                        ```
 
-                    Each photo has been digitally enhanced to show pasture area
-                    as an asterisk (`*`) and non-pasture area as a period
-                    (`.`). Here is a 10x5 sample satellite photo:
+                -   Satellite Photographs -<
 
-                    ```
-                    ..*.....**
-                    .**..*****
-                    .*...*....
-                    ..****.***
-                    ..****.***
-                    ```
+                    :   Farmer John purchased satellite photos of `W * H` pixels of
+                        his farm (1 <= W <= 80, 1 <= H <= 1000) and wishes to
+                        determine the largest 'contiguous' (connected) pasture.
+                        Pastures are contiguous when any pair of pixels in a
+                        pasture can be connected by traversing adjacent vertical or
+                        horizontal pixels that are part of the pasture. (It is easy
+                        to create pastures with very strange shapes, even circles
+                        that surround other circles.)
 
-                    This photo shows three contiguous pastures of 4, 16, and 6
-                    pixels. Help FJ find the largest contiguous pasture in each
-                    of his satellite photos.
+                        Each photo has been digitally enhanced to show pasture area
+                        as an asterisk (`*`) and non-pasture area as a period
+                        (`.`). Here is a 10x5 sample satellite photo:
 
-                    ```
-                    输入
-
-                        Line  1:        Two space-separated integers: $W$ and $H$
-                        Lines 2..H+1:   Each line contains $W$ "*" or "." characters representing
-                                        one raster line of a satellite photograph.
-
-                        10 5
+                        ```
                         ..*.....**
                         .**..*****
                         .*...*....
                         ..****.***
                         ..****.***
+                        ```
 
-                    输出
+                        This photo shows three contiguous pastures of 4, 16, and 6
+                        pixels. Help FJ find the largest contiguous pasture in each
+                        of his satellite photos.
 
-                        Line 1:         The size of the largest contiguous field in the satellite photo.
+                        ```
+                        输入
 
-                        16
-                    ```
+                            Line  1:        Two space-separated integers: $W$ and $H$
+                            Lines 2..H+1:   Each line contains $W$ "*" or "." characters representing
+                                            one raster line of a satellite photograph.
 
-                    这是一个平面的二维地图，把地图上的每个点当成隐式图上的一个
-                    顶点，每个顶点有上下左右四个邻接点。在这个隐式图上进行深搜。
+                            10 5
+                            ..*.....**
+                            .**..*****
+                            .*...*....
+                            ..****.***
+                            ..****.***
 
-                    too easy...
+                        输出
 
-                    ```cpp
-                    // POJ 3051 Satellite Photographs, http://poj.org/problem?id=3051
-                    #include <stdio.h>
-                    #include <string.h>
-                    #include <vector>
+                            Line 1:         The size of the largest contiguous field in the satellite photo.
 
-                    using namespace std;
+                            16
+                        ```
 
-                    void dfs( vector<vector<char> > &map, int x, int y, int &count ) {
-                        if( map[x][y] == '.' ) { return; }  // 加了一圈 '.' 可以防止越界，因此不需要判断越界
+                        这是一个平面的二维地图，把地图上的每个点当成隐式图上的一个
+                        顶点，每个顶点有上下左右四个邻接点。在这个隐式图上进行深搜。
 
-                        map[x][y] = '.';                    // 标记 (x,y) 已访问过，起到去重作用
-                        ++count;
-                        dfs( map, x+1, y,   count );
-                        dfs( map, x-1, y,   count );
-                        dfs( map, x,   y+1, count );
-                        dfs( map, x,   y-1, count );
-                    }
+                        too easy...
 
-                    int main() {
-                        int W, H;
-                        while( 2 == scanf( "%d%d", &W, &H ) ) {
-                            vector<vector<char> > map( H+2, vector<char>(W+2, '.') );
-                            for( int i = 1; i <= H; ++i ) {
-                                char line[100];
-                                scanf( "%s", line );
-                                strncpy( &map[i][1], line, W );
-                            }
+                        ```cpp
+                        // POJ 3051 Satellite Photographs, http://poj.org/problem?id=3051
+                        #include <stdio.h>
+                        #include <string.h>
+                        #include <vector>
 
-                            int ret = 0;
-                            for( int i = 1; i <= H; ++i ) {
-                                for( int j = 1; j <= W; ++j ) {
-                                    int count = 0;
-                                    if( map[i][j] == '*' ) {
-                                        dfs( map, i, j, count );
+                        using namespace std;
+
+                        void dfs( vector<vector<char> > &map, int x, int y, int &count ) {
+                            if( map[x][y] == '.' ) { return; }  // 加了一圈 '.' 可以防止越界，因此不需要判断越界
+
+                            map[x][y] = '.';                    // 标记 (x,y) 已访问过，起到去重作用
+                            ++count;
+                            dfs( map, x+1, y,   count );
+                            dfs( map, x-1, y,   count );
+                            dfs( map, x,   y+1, count );
+                            dfs( map, x,   y-1, count );
+                        }
+
+                        int main() {
+                            int W, H;
+                            while( 2 == scanf( "%d%d", &W, &H ) ) {
+                                vector<vector<char> > map( H+2, vector<char>(W+2, '.') );
+                                for( int i = 1; i <= H; ++i ) {
+                                    char line[100];
+                                    scanf( "%s", line );
+                                    strncpy( &map[i][1], line, W );
+                                }
+
+                                int ret = 0;
+                                for( int i = 1; i <= H; ++i ) {
+                                    for( int j = 1; j <= W; ++j ) {
+                                        int count = 0;
+                                        if( map[i][j] == '*' ) {
+                                            dfs( map, i, j, count );
+                                        }
+                                        ret = max( ret, count );
                                     }
-                                    ret = max( ret, count );
+                                }
+                                printf( "%d\n", ret );
+                            }
+                            return 0;
+                        }
+                        ```
+
+                -   John's trip -<
+
+                    :   Little Johnny has got a new car. He decided to drive around
+                        the town to visit his friends. Johnny wanted to visit all
+                        his friends, but there was many of them. In each street he
+                        had one friend. He started thinking how to make his trip as
+                        short as possible. Very soon he realized that the best way
+                        to do it was to travel through each street of town only
+                        once. Naturally, he wanted to finish his trip at the same
+                        place he started, at his parents' house.
+
+                        The streets in Johnny's town were named by integer numbers
+                        from 1 to n, n < 1995. The junctions were independently
+                        named by integer numbers from 1 to m, m <= 44. No
+                        junction connects more than 44 streets. All junctions in
+                        the town had different numbers. Each street was connecting
+                        exactly two junctions. No two streets in the town had the
+                        same number. He immediately started to plan his round trip.
+                        If there was more than one such round trip, he would have
+                        chosen the one which, when written down as a sequence of
+                        street numbers is lexicographically the smallest. But
+                        Johnny was not able to find even one such round trip.
+
+                        Help Johnny and write a program which finds the desired
+                        shortest round trip. If the round trip does not exist the
+                        program should write a message. Assume that Johnny lives at
+                        the junction ending the street appears first in the input
+                        with smaller number. All streets in the town are two way.
+                        There exists a way from each street to another street in
+                        the town. The streets in the town are very narrow and there
+                        is no possibility to turn back the car once he is in the
+                        street.
+
+                        ```
+                        Input
+
+                            Input file consists of several blocks. Each block describes one town. Each
+                            line in the block contains three integers x; y; z, where x > 0 and y > 0
+                            are the numbers of junctions which are connected by the street number z.
+                            The end of the block is marked by the line containing x = y = 0. At the end
+                            of the input file there is an empty block, x = y = 0.
+
+                            1 2 1
+                            2 3 2
+                            3 1 6
+                            1 2 5
+                            2 3 3
+                            3 1 4
+                            0 0
+                            1 2 1
+                            2 3 2
+                            1 3 3
+                            2 4 4
+                            0 0
+                            0 0
+
+                        Output
+
+                            Output one line of each block contains the sequence of street numbers
+                            (single members of the sequence are separated by space) describing Johnny's
+                            round trip. If the round trip cannot be found the corresponding output
+                            block contains the message "Round trip does not exist."
+
+                            1 2 3 5 4 6
+                            Round trip does not exist.
+                        ```
+
+                        分析
+
+                        :   欧拉回路。
+
+                            如果能从图的某一顶点出发，每条边恰好经过一次，这样的路
+                            线称为**欧拉道路 (Eulerian Path)**。如果还能够回到起点，
+                            这样的路线称为**欧拉回路 (Eulerian Circuit)**。
+
+                            对于无向图 G，当且仅当 G 是连通的，且最多有两个奇点，则
+                            存在欧拉道路。如果有两个奇点，则必须从其中一个奇点出发，
+                            到另一个奇点终止。
+
+                            如果没有奇点，则一定存在一条欧拉回路。
+
+                            对于有向图 G，当且仅当 G 是连通的，且每个点的入度等于出
+                            度，则存在欧拉回路。
+
+                            如果有两个顶点的入度与出度不相等，且一个顶点的入度
+                            比出度小 1，另一个顶点的入度比出度大 1，此时，存在
+                            一条欧拉道路，以前一个顶点为起点，以后一个顶点为终
+                            点。
+
+                        ```cpp
+                        // POJ 1041 John's trip, http://poj.org/problem?id=1041
+                        #include <iostream>
+                        #include <cstring>
+                        #include <algorithm>
+                        #include <stack>
+
+                        using namespace std;
+
+                        const int MAX_NV = 45;
+                        const int MAX_NE = 1996;
+
+                        struct graph_t {
+                            int nv;
+                            int ne;
+                            int matrix[MAX_NV][MAX_NE];     // G[点][边] = 点，这样是为了能方便让边 lexicographically 输出
+                        } G;
+
+                        bool visited[MAX_NE];               // 边是否已访问
+                        int  degree[MAX_NV];                // 点的度
+
+                        stack<int> s;                       // 栈，用于输出
+
+                        void stack_print( stack<int> &s ) {
+                            while( !s.empty() ) {
+                                cout << s.top() << " ";
+                                s.pop();
+                            }
+                            cout << "\n";
+                        }
+
+                        void euler( int u ) {
+                            for( int e = 1; e <= G.ne; ++e ) {
+                                if( !visited[e] && G.matrix[u][e] ) {
+                                    visited[e] = true;
+                                    euler( G.matrix[u][e] );
+                                    s.push( e );
                                 }
                             }
-                            printf( "%d\n", ret );
                         }
-                        return 0;
-                    }
-                    ```
 
-            -   John's trip -<
-
-                :   Little Johnny has got a new car. He decided to drive around
-                    the town to visit his friends. Johnny wanted to visit all
-                    his friends, but there was many of them. In each street he
-                    had one friend. He started thinking how to make his trip as
-                    short as possible. Very soon he realized that the best way
-                    to do it was to travel through each street of town only
-                    once. Naturally, he wanted to finish his trip at the same
-                    place he started, at his parents' house.
-
-                    The streets in Johnny's town were named by integer numbers
-                    from 1 to $n, n < 1995$. The junctions were independently
-                    named by integer numbers from 1 to $m, m <= 44$. No
-                    junction connects more than 44 streets. All junctions in
-                    the town had different numbers. Each street was connecting
-                    exactly two junctions. No two streets in the town had the
-                    same number. He immediately started to plan his round trip.
-                    If there was more than one such round trip, he would have
-                    chosen the one which, when written down as a sequence of
-                    street numbers is lexicographically the smallest. But
-                    Johnny was not able to find even one such round trip.
-
-                    Help Johnny and write a program which finds the desired
-                    shortest round trip. If the round trip does not exist the
-                    program should write a message. Assume that Johnny lives at
-                    the junction ending the street appears first in the input
-                    with smaller number. All streets in the town are two way.
-                    There exists a way from each street to another street in
-                    the town. The streets in the town are very narrow and there
-                    is no possibility to turn back the car once he is in the
-                    street.
-
-                    ```
-                    Input
-
-                        Input file consists of several blocks. Each block describes one town. Each
-                        line in the block contains three integers x; y; z, where x > 0 and y > 0
-                        are the numbers of junctions which are connected by the street number z.
-                        The end of the block is marked by the line containing x = y = 0. At the end
-                        of the input file there is an empty block, x = y = 0.
-
-                        1 2 1
-                        2 3 2
-                        3 1 6
-                        1 2 5
-                        2 3 3
-                        3 1 4
-                        0 0
-                        1 2 1
-                        2 3 2
-                        1 3 3
-                        2 4 4
-                        0 0
-                        0 0
-
-                    Output
-
-                        Output one line of each block contains the sequence of street numbers
-                        (single members of the sequence are separated by space) describing Johnny's
-                        round trip. If the round trip cannot be found the corresponding output
-                        block contains the message "Round trip does not exist."
-
-                        1 2 3 5 4 6
-                        Round trip does not exist.
-                    ```
-
-                    分析
-
-                    :   欧拉回路。
-
-                        如果能从图的某一顶点出发，每条边恰好经过一次，这样的路
-                        线称为**欧拉道路 (Eulerian Path)**。如果还能够回到起点，
-                        这样的路线称为**欧拉回路 (Eulerian Circuit)**。
-
-                        对于无向图 G，当且仅当 G 是连通的，且最多有两个奇点，则
-                        存在欧拉道路。如果有两个奇点，则必须从其中一个奇点出发，
-                        到另一个奇点终止。
-
-                        如果没有奇点，则一定存在一条欧拉回路。
-
-                        对于有向图 G，当且仅当 G 是连通的，且每个点的入度等于出
-                        度，则存在欧拉回路。
-
-                        如果有两个顶点的入度与出度不相等，且一个顶点的入度比出
-                        度小1，另一个顶点的入度比出度大1，此时，存在一条欧拉道
-                        路，以前一个顶点为起点，以后一个顶点为终点。
-
-                    ```cpp
-                    // POJ 1041 John's trip, http://poj.org/problem?id=1041
-                    #include <iostream>
-                    #include <cstring>
-                    #include <algorithm>
-                    #include <stack>
-
-                    using namespace std;
-
-                    const int MAX_NV = 45;
-                    const int MAX_NE = 1996;
-
-                    struct graph_t {
-                        int nv;
-                        int ne;
-                        int matrix[MAX_NV][MAX_NE];     // G[点][边] = 点，这样是为了能方便让边 lexicographically 输出
-                    } G;
-
-                    bool visited[MAX_NE];               // 边是否已访问
-                    int  degree[MAX_NV];                // 点的度
-
-                    stack<int> s;                       // 栈，用于输出
-
-                    void stack_print( stack<int> &s ) {
-                        while( !s.empty() ) {
-                            cout << s.top() << " ";
-                            s.pop();
-                        }
-                        cout << "\n";
-                    }
-
-                    void euler( int u ) {
-                        for( int e = 1; e <= G.ne; ++e ) {
-                            if( !visited[e] && G.matrix[u][e] ) {
-                                visited[e] = true;
-                                euler( G.matrix[u][e] );
-                                s.push( e );
-                            }
-                        }
-                    }
-
-                    int main() {
-                        int x, y, z, start;
-                        while( (cin >> x >> y) && x && y ) {
-                            memset( visited,    false,  sizeof(visited) );
-                            memset( degree,     0,      sizeof(degree)  );
-                            memset( &G,         0,      sizeof(G)       );
-
-                            start = x < y ? x : y;
-                            cin >> z;
-                            G.ne = max( G.ne, z );
-                            G.nv = max( G.nv, max(x, y) );
-                                                            // input: x (node), y (node), z (edge)
-                            G.matrix[x][z] = y;             // x ---z---> y
-                            G.matrix[y][z] = x;             // y ---z---> x
-                            ++degree[x];
-                            ++degree[y];
-
+                        int main() {
+                            int x, y, z, start;
                             while( (cin >> x >> y) && x && y ) {
+                                memset( visited,    false,  sizeof(visited) );
+                                memset( degree,     0,      sizeof(degree)  );
+                                memset( &G,         0,      sizeof(G)       );
+
+                                start = x < y ? x : y;
                                 cin >> z;
                                 G.ne = max( G.ne, z );
                                 G.nv = max( G.nv, max(x, y) );
-                                G.matrix[x][z] = y;
-                                G.matrix[y][z] = x;
+                                                                // input: x (node), y (node), z (edge)
+                                G.matrix[x][z] = y;             // x ---z---> y
+                                G.matrix[y][z] = x;             // y ---z---> x
                                 ++degree[x];
                                 ++degree[y];
-                            }
 
-                            // 欧拉回路形成的条件之一，判断结点的度是否为偶数
-                            bool valid = true;
-                            for( int i = 1; i <= G.nv; ++i ) {
-                                if( degree[i] & 1 ) {
-                                    valid = false;
-                                    break;
+                                while( (cin >> x >> y) && x && y ) {
+                                    cin >> z;
+                                    G.ne = max( G.ne, z );
+                                    G.nv = max( G.nv, max(x, y) );
+                                    G.matrix[x][z] = y;
+                                    G.matrix[y][z] = x;
+                                    ++degree[x];
+                                    ++degree[y];
+                                }
+
+                                // 欧拉回路形成的条件之一，判断结点的度是否为偶数
+                                bool valid = true;
+                                for( int i = 1; i <= G.nv; ++i ) {
+                                    if( degree[i] & 1 ) {
+                                        valid = false;
+                                        break;
+                                    }
+                                }
+
+                                if( !valid ) {
+                                    cout << "Round trip does not exist.\n";
+                                } else {
+                                    euler( start );
+                                    stack_print(s);
                                 }
                             }
+                            return 0;
+                        }
+                        ```
 
-                            if( !valid ) {
-                                cout << "Round trip does not exist.\n";
-                            } else {
-                                euler( start );
-                                stack_print(s);
+                -   Abbott 的复仇 :hearts: -<
+
+                    :   ```cpp
+                        // d[r][c][dir] 存储从初始状态到 (r,c,dir) 的最短长度，其父节点保存在
+                        // p[r][c][dir]
+                        // has_edge[r][c][dir][turn], now at (r,c,dir), can `turn`?
+                        //  inside(r, c), inside the map
+
+                        const char *dirs  = "NESW"; // north, east, south, west
+                        const char *turns = "FLR";  // forward, left, right
+                        int dir_id(  char c ) { return strchr(dirs, c) - dirs; }
+                        int turn_id( char c ) { return strchr(turns, c) - turns; }
+
+                        //   clockwise :    N   E   S   W           //          +-----------> y (col-wise)
+                        const int dr[] = { -1,  0,  1,  0 };        //          |
+                        const int dc[] = {  0,  1,  0, -1 };        //          |
+                                                                    //          | x (row-wise)
+                                                                    //          V
+
+                        Node walk( const Node &u, int turn ) {
+                            int dir = u.dir;                        // turn = 0, forward
+                            if( turn == 1 ) { dir = (dir+3)%4; }    // turn = 1, left, counter clockwise
+                            if( turn == 2 ) { dir = (dir+1)%4; }    // turn = 2, right, clockwise
+                            return Node( u.r + dr[dir], u.c + dc[dir], dir );
+                        }
+
+                        void solve() {
+                            queue<Node> q;
+                            memset( d, -1, sizeof(d) );             // reset to -1
+                            Node u( r1, c1, dir );                  // start pos
+                            d[u.r][u.c][u.dir] = 0;                 // init distance
+                            q.push( u );
+                            while( !q.empty() ) {
+                                Node u = q.front(); q.pop();
+                                if( u.r == r2 && r.c == c2 ) { print_ans(u); return; }
+                                for( int i = 0; i < 3; ++i ) {      // enum turns
+                                    Node v = walk( u, i );
+                                    if( has_edge[u.r][u.c][u.dir][i] &&
+                                        inside(v.r, v.c) &&
+                                        d[v.r][v.c][v.dir] < 0 ) {  // 以前没有处于这个姿态
+                                        // advance
+                                        d[v.r][v.c][v.dir] = d[u.r][u.c][u.dir] + 1;
+                                        p[v.r][v.c][v.dir] = u;
+                                        q.push( v );                // 当前位置总是再 stack 顶端存着
+                                    }
+                                }
+                            }
+                            printf( "No Solution Possible.\n" );
+                        }
+
+                        void print_ans( Node u ) {
+                            vector<Node> nodes;
+                            for( ;; ) {
+                                nodes.push_back( u );                   // 一路存起来
+                                if( d[u.r][u.c][u.dir] == 0 ) break;    // origin
+                                u = p[u.r][u.c][u.dir];                 // backtrace
+                            }
+                            nodes.push_back( Node(r1, c1, dir) );       // origin: r0, c0
+
+                            int cnt = 0;
+                            for( int i = nodes.size()-1; i >= 0; --i ) {
+                                if( cnt % 10 == 0 ) { printf( " " ); }
+                                printf( " (%d, %d)", nodes[i].r, nodes[i].c );
+                                if( ++cnt % 10 == 0 ) {
+                                    printf( "\n" );
+                                }
+                            }
+                            if( nodes.size() % 10 != 0 ) { printf( "\n" ); }
+                        }
+                        ```
+
+                -   The Necklace buggy? -<
+
+                    :   My little sister had a beautiful necklace made of colorful
+                        beads. Two successive beads in the necklace shared a common
+                        color at their meeting point. The figure below shows a
+                        segment of the necklace:
+
+                        ```
+                           +-----------+   +-----------+   +-------------+   +------------+
+                        ---| green|red |---| red|white |---| white|green |---| green|blue |---
+                           +-----------+   +-----------+   +-------------+   +------------+
+                        ```
+
+                        But, alas! One day, the necklace was torn and the beads
+                        were all scattered over the floor.  My sister did her best
+                        to recollect all the beads from the floor, but she is not
+                        sure whether she was able to collect all of them. Now, she
+                        has come to me for help. She wants to know whether it is
+                        possible to make a necklace using all the beads she has in
+                        the same way her original necklace was made and if so in
+                        which order the bids must be put.
+
+                        Please help me write a program to solve the problem.
+
+                        ```
+                        Input
+
+                            The input contains T test cases. The first line of the
+                            input contains the integer T.
+
+                            The first line of each test case contains an integer N
+                            (5 <= N <= 1000) giving the number of beads my sister
+                            was able to collect. Each of the next N lines contains
+                            two integers describing the colors of a bead. Colors
+                            are represented by integers ranging from 1 to 50.
+
+                            2
+                            5
+                            1 2
+                            2 3
+                            3 4
+                            4 5
+                            5 6
+                            5
+                            2 1
+                            2 2
+                            3 4
+                            3 1
+                            2 4
+
+                        Output
+
+                            For each test case in the input first output the test
+                            case number as shown in the sample output. Then if you
+                            apprehend that some beads may be lost just print the
+                            sentence ``some beads may be lost" on a line by itself.
+                            Otherwise, print N lines with a single bead description
+                            on each line. Each bead description consists of two
+                            integers giving the colors of its two ends.
+                            For 1 <= i <= N_1, the second integer on line i must be
+                            the same as the first integer on line i + 1.
+                            Additionally, the second integer on line N must be
+                            equal to the first integer on line 1. Since there are
+                            many solutions, any one of them is acceptable.
+
+                            Print a blank line between two successive test cases.
+
+                            Case #1
+                            some beads may be lost
+
+                            Case #2
+                            2 1
+                            1 3
+                            3 4
+                            4 2
+                            2 2
+                        ```
+
+                        欧拉回路。
+
+                        注意顶点可以有自环。
+
+                        ```cpp
+                        #include <stdio.h>
+                        #include <string.h>
+
+                        #define MAXN 51                         // 顶点最大个数
+
+                        int G[MAXN][MAXN];
+                        int visited[MAXN];
+                        int count[MAXN];                        // 顶点的度
+
+                        void dfs( int u ) {
+                            visited[u] = 1;
+                            for( int v = 0;  v < MAXN; ++v ) {
+                                if( G[u][v] && !visited[v] ) {
+                                    dfs(v);
+                                }
                             }
                         }
-                        return 0;
-                    }
-                    ```
 
-            -   The Necklace :buggy?: -<
+                        // 欧拉回路，允许自环和重复边
+                        void euler( int u ) {
+                            for( int v = 0; v < MAXN; ++v ) {
+                                if( G[u][v] ) {
+                                    --G[u][v]; --G[v][u];       // 这个技巧，即有 visited 的功能，又允许重复边
+                                    printf( "%d %d\n", u, v );  // 逆向打印，或者存到栈里再打印
+                                    euler(v);
+                                }
+                            }
+                        }
 
-                :   My little sister had a beautiful necklace made of colorful
-                    beads. Two successive beads in the necklace shared a common
-                    color at their meeting point. The figure below shows a
-                    segment of the necklace:
 
-                    ```
-                       +-----------+   +-----------+   +-------------+   +------------+
-                    ---| green|red |---| red|white |---| white|green |---| green|blue |---
-                       +-----------+   +-----------+   +-------------+   +------------+
-                    ```
+                        int main() {
+                            int cases = 0, T;
+                            scanf( "%d",&T );
+                            while( T-- ) {
+                                bool validGraph = true;         // 结点的度是否为偶数
+                                bool connected  = true;         // 图是否是连通的
+                                memset( G,      0, sizeof(G)    );
+                                memset( count,  0, sizeof(count));
 
-                    But, alas! One day, the necklace was torn and the beads
-                    were all scattered over the floor.  My sister did her best
-                    to recollect all the beads from the floor, but she is not
-                    sure whether she was able to collect all of them. Now, she
-                    has come to me for help. She wants to know whether it is
-                    possible to make a necklace using all the beads she has in
-                    the same way her original necklace was made and if so in
-                    which order the bids must be put.
+                                int N;
+                                scanf( "%d",&N );
+                                for( int i = 0; i < N; ++i ) {
+                                    int a, b;
+                                    scanf( "%d %d", &a, &b );
+                                    ++G[a][b];
+                                    ++G[b][a];
+                                    ++count[a];
+                                    ++count[b];
+                                }
 
-                    Please help me write a program to solve the problem.
+                                printf( "Case #%d\n", ++cases );
 
-                    ```
-                    Input
+                                // 欧拉回路形成的条件之一，判断结点的度是否为偶数
+                                for( int i = 0; i < MAXN; ++i ) {
+                                    if( count[i] & 1 ) {
+                                        validGraph = false;
+                                        break;
+                                    }
+                                }
+                                // 检查图是否连通
+                                if( validGraph ) {
+                                    memset( visited, 0, sizeof(visited) );
+                                    for( int i = 0; i < MAXN; ++i ) {
+                                        if( count[i] ) {
+                                            dfs(i);
+                                            break;
+                                        }
+                                    }
+                                    for( int i = 0; i < MAXN; ++i ) {
+                                        if( count[i] && !visited[i] ) {
+                                            connected = false;
+                                            break;
+                                        }
+                                    }
+                                }
+                                if( validGraph && connected ) {
+                                    for( int i = 0; i < MAXN; ++i ) {
+                                        if( count[i] ) {
+                                            euler(i);
+                                            break;
+                                        }
+                                    }
+                                } else {
+                                    printf( "some beads may be lost\n" );
+                                }
 
-                        The input contains T test cases. The first line of the
-                        input contains the integer T.
+                                if( T > 0 ) { printf("\n"); }
+                            }
+                            return 0;
+                        }
+                        ```
 
-                        The first line of each test case contains an integer N
-                        (5 <= N <= 1000) giving the number of beads my sister
-                        was able to collect. Each of the next N lines contains
-                        two integers describing the colors of a bead. Colors
-                        are represented by integers ranging from 1 to 50.
-
+                        ```bash
+                        $ cat input.txt
                         2
                         5
                         1 2
@@ -18806,158 +19044,17 @@ A Bit of Logic -<
                         3 1
                         2 4
 
-                    Output
-
-                        For each test case in the input first output the test
-                        case number as shown in the sample output. Then if you
-                        apprehend that some beads may be lost just print the
-                        sentence ``some beads may be lost" on a line by itself.
-                        Otherwise, print N lines with a single bead description
-                        on each line. Each bead description consists of two
-                        integers giving the colors of its two ends.
-                        For 1 <= i <= N_1, the second integer on line i must be
-                        the same as the first integer on line i + 1.
-                        Additionally, the second integer on line N must be
-                        equal to the first integer on line 1. Since there are
-                        many solutions, any one of them is acceptable.
-
-                        Print a blank line between two successive test cases.
-
+                        $ cat input.txt | ./a.out
                         Case #1
                         some beads may be lost
 
                         Case #2
-                        2 1
-                        1 3
-                        3 4
-                        4 2
+                        1 2
                         2 2
-                    ```
-
-                    欧拉回路。
-
-                    注意顶点可以有自环。
-
-                    ```cpp
-                    #include <stdio.h>
-                    #include <string.h>
-
-                    #define MAXN 51                         // 顶点最大个数
-
-                    int G[MAXN][MAXN];
-                    int visited[MAXN];
-                    int count[MAXN];                        // 顶点的度
-
-                    void dfs( int u ) {
-                        visited[u] = 1;
-                        for( int v = 0;  v < MAXN; ++v ) {
-                            if( G[u][v] && !visited[v] ) {
-                                dfs(v);
-                            }
-                        }
-                    }
-
-                    // 欧拉回路，允许自环和重复边
-                    void euler( int u ) {
-                        for( int v = 0; v < MAXN; ++v ) {
-                            if( G[u][v] ) {
-                                --G[u][v]; --G[v][u];       // 这个技巧，即有 visited 的功能，又允许重复边
-                                printf( "%d %d\n", u, v );  // 逆向打印，或者存到栈里再打印
-                                euler(v);
-                            }
-                        }
-                    }
-
-
-                    int main() {
-                        int cases = 0, T;
-                        scanf( "%d",&T );
-                        while( T-- ) {
-                            bool validGraph = true;         // 结点的度是否为偶数
-                            bool connected  = true;         // 图是否是连通的
-                            memset( G,      0, sizeof(G)    );
-                            memset( count,  0, sizeof(count));
-
-                            int N;
-                            scanf( "%d",&N );
-                            for( int i = 0; i < N; ++i ) {
-                                int a, b;
-                                scanf( "%d %d", &a, &b );
-                                ++G[a][b];
-                                ++G[b][a];
-                                ++count[a];
-                                ++count[b];
-                            }
-
-                            printf( "Case #%d\n", ++cases );
-
-                            // 欧拉回路形成的条件之一，判断结点的度是否为偶数
-                            for( int i = 0; i < MAXN; ++i ) {
-                                if( count[i] & 1 ) {
-                                    validGraph = false;
-                                    break;
-                                }
-                            }
-                            // 检查图是否连通
-                            if( validGraph ) {
-                                memset( visited, 0, sizeof(visited) );
-                                for( int i = 0; i < MAXN; ++i ) {
-                                    if( count[i] ) {
-                                        dfs(i);
-                                        break;
-                                    }
-                                }
-                                for( int i = 0; i < MAXN; ++i ) {
-                                    if( count[i] && !visited[i] ) {
-                                        connected = false;
-                                        break;
-                                    }
-                                }
-                            }
-                            if( validGraph && connected ) {
-                                for( int i = 0; i < MAXN; ++i ) {
-                                    if( count[i] ) {
-                                        euler(i);
-                                        break;
-                                    }
-                                }
-                            } else {
-                                printf( "some beads may be lost\n" );
-                            }
-
-                            if( T > 0 ) { printf("\n"); }
-                        }
-                        return 0;
-                    }
-                    ```
-
-                    ```bash
-                    $ cat input.txt
-                    2
-                    5
-                    1 2
-                    2 3
-                    3 4
-                    4 5
-                    5 6
-                    5
-                    2 1
-                    2 2
-                    3 4
-                    3 1
-                    2 4
-
-                    $ cat input.txt | ./a.out
-                    Case #1
-                    some beads may be lost
-
-                    Case #2
-                    1 2
-                    2 2
-                    2 4
-                    4 3
-                    3 1
-                    ```
+                        2 4
+                        4 3
+                        3 1
+                        ```
 
         -   图上的宽度优先搜索 Graph BFS
 
@@ -19710,11 +19807,11 @@ A Bit of Logic -<
                             `path[i]` 存放的是最短路径上指向 v~i~ 的弧尾顶点。
                             那么从 v 出发到图上其余 v~i~ 的最短路径长度的初值为：
 
-                            **`dist[i]` = weight(v, v~i~), v~i~ ∈ V**
+                            `dist[i]` = weight(v, v~i~), v~i~ ∈ V
 
                         2.  选择 v~j~，使得
 
-                            **`dist[j]` = min{ `dist[j]`, weight(v, v~j~) | v~j~ ∈ V-S };**
+                            `dist[j]` = min{ `dist[j]`, weight(v, v~j~) | v~j~ ∈ V-S };
 
                             将 v~j~ 加入到 S，
 
@@ -19730,307 +19827,338 @@ A Bit of Logic -<
                             }
                             ```
 
-                    4.  重复 2，3 共 n-1 次。
+                        4.  重复 2，3 共 n-1 次。
 
-                    TODO, add pic url.
+                        TODO, add pic url.
 
-                    ```
-                    End Point           i=1         i=2         i=3         i=4         i=5
-                    -----------------------------------------------------------------------
-                        v1              inf         inf         inf         inf         inf
-                    -----------------------------------------------------------------------
-                        v2              10
-                                     (v0,v2)
-                    -----------------------------------------------------------------------
-                        v3              inf         60          50
-                                                (v0,v2,v3)  (v0,v4,v5)
-                    -----------------------------------------------------------------------
-                        v4              30          30
-                                     (v0,v4)     (v0,v4)
-                    -----------------------------------------------------------------------
-                        v5             100         100          90          60
-                                     (v0,v5)     (v0,v5)    (v0,v4,v5)  (v0,v4,v3,v5)
-                    -----------------------------------------------------------------------
-                        vj              v2          v4          v3          v5
-                        S            (v0,v2)    (v0,v2,v4)  (v0,v2,v3,v4)   (v0,v2,v3,v4,v5)
-                    ```
-
-                    ```cpp
-                    #include <iostream>
-                    #include <queue>
-                    #include <map>
-                    #include <utility>
-                    #include <climits>
-
-                    using namespace std;
-
-                    // 图，用邻接表 (Adjacency List).
-                    struct graph_t {
-                        int nv, ne;
-                        map<char, map<char, int> > matrix;
-                    };
-
-                    // Dijkstra 算法求单源最短路径.
-                    // g:           图
-                    // start:       起点
-                    // dist:        dist[v] 存放的是起点到 v 的最短路径长度
-                    // father:      father[v] 存放的是最短路径上指向 v 的上一个顶点
-                    void dijkstra( const graph_t &g, char start, map<char, int> &distance, map<char, char> &father ) {
-                        typedef pair<int, char> to_dist_t;
-                        priority_queue<to_dist_t, vector<to_dist_t>, greater<to_dist_t> > pq;
-                        pq.push( to_dist_t( distance[start]=0, start ) );
-                        while( !pq.empty() ) {
-                            to_dist_t u = pq.top(); pq.pop();
-                            char &vj = u.second;
-                            if( !g.matrix.count(vj) ) { continue; }
-                            for( auto const p : g.matrix.at(vj) ) {
-                                const char &vk  = p.first;
-                                const int  &wjk = p.second;
-                                //    vk not in S       or    there's a shorter path to vk
-                                if( !distance.count(vk) || distance[vj] + wjk < distance[vk] ) {
-                                    distance[ vk  ]     =  distance[vj] + wjk;
-                                    father[   vk  ]     =  vj;
-                                    pq.push( to_dist_t(distance[vk], vk) );
-                                }
-                            }
-                        }
-                    }
-
-                    void print_path( const map<char, char> &father, char end ) {
-                        if( !father.count(end) ) {
-                            printf( "%c", end );
-                        } else {
-                            print_path( father, father.at(end) );
-                            printf( "->%c", end );
-                        }
-                    }
-
-                    int main() {
-                        graph_t g;
-
-                        scanf( "%d", &g.ne );
-                        for( int i = 0; i < g.ne; ++i ) {
-                            char u[5], v[5];
-                            int w;
-                            scanf( "%s %s %d", u, v, &w );
-                            g.matrix[*u][*v] = w;
-                        }
-
-                        map<char, int> distance;
-                        map<char, char> father;
-                        dijkstra( g, 'A', distance, father );
-
-                        for( const auto p : father ) {
-                            if( p.first != 'A' ) {
-                                print_path( father, p.first );
-                                printf( "\n" );
-                            }
-                        }
-                        return 0;
-                    }
-                    ```
-
-                    ```
-                    $ cat input.txt
-                    8
-                    A C 10
-                    A E 30
-                    A F 100
-                    B C 5
-                    C D 50
-                    D F 10
-                    E D 20
-                    E F 60
-
-                    $ cat input.txt | ./tmp
-                    A->C
-                    A->E->D
-                    A->E
-                    A->E->D->F
-                    ```
-
-                    算法分析
-
-                    :   该算法包含了两个并列的 for 循环，第一个 for 循环做辅助
-                        数组的初始化工作，计算时间为 O(n)，第二个 for 循环是二
-                        重嵌套循环，进行最短路径的求解工作，由于对图中几乎每个
-                        顶点都要做计算，每个顶点的又要对集合 S 内的顶点进行检测，
-                        对集合 V-S 内中的顶点进行修改，所以运算时间复杂度为
-                        O(n^2^)。算法总的时间复杂度为 O(n^2^)。
-
-                -   每点最短路径 --- Floyd 算法 -<
-
-                    :   ```
-                        \subsection{每点最短路径——Floyd算法}
-                        Floyd算法的基本思想是：假设求从定点$v_i$到$v_j$的最短路径。初始时，若$v_i$与$v_j$之间存在边，则最短路径长度为此边的权值；若不存在边，则最短路径长度为无穷大。以后逐步在路径中加入顶点$k(k=0,1,...,n-1)$作为中间顶点，如果加入中间顶点后，得到的路径比原来的路径长度减少了，则以新路径代替原路径。
-
-                        首先比较$(v_i,v_j)$和$(v_i,v_0,v_j)$的路径长度，取较短者为从$v_i$到$v_j$的中间顶点的序号不大于0的最短路径。如果$(v_i,v_0,v_j)$较短，则取$(v_i,v_0,v_j)$作为最短路径。假如在路径上再增加一个顶点$v_1$，也就是说，如果$(v_i,...,v_1)$和$(v_1,...,v_j)$分别是当前找到的中间定点的序号不大于0的最短路径，那么$(vi,...,v1,...,vj)$就有可能是从$v_i$到$v_j$的中间顶点的序号不大于1的最短路径，将它和已经得到的从$v_i$到$v_j$的中间顶点的序号不大于0的最短路径相比较，选出较短者作为从$v_i$到$v_j$的中间顶点的序号不大于1的最短路径。再增加一个顶点$v_2$，继续进行试探，依此类推。一般的，若$(v_i,...,v_k)$和$(v_k,...,v_j)$分别是从$v_i$到$v_k$和从$v_k$到$v_j$的中间定点的序号不大于$k-1$的最短路径，则将$(v_i,...,v_k,...,v_j)$和已经得到的从$v_i$到$v_j$的中间顶点的序号不大于$k-1$的最短路径相比，较短者便是从$v_i$到$v_j$的中间顶点的序号不大于$k$的最短路径。这样，在经过$n$次比较后，最后求得的必是从$v_i$到$v_j$的最短路径。
-
-                        现定义一个$n$阶方阵序列，
-                        $$
-                        D^{(-1)}, D^{(0)} , D^{(1)},..., , D^{(k)},..., , D^{(n-1)}
-                        $$
-                        其中，
-                        \begin{eqnarray}
-                        D^{(-1)}[i][j] &=& \text{g->matrix}[i][j],  \nonumber \\
-                        D^{(k)}[i][j] &=& \min\left\{D^{(k-1)}[i][j], D^{(k-1)}[i][k] + D^{(k-1)}[k][j]\right\},0 \leq k \leq n-1 \nonumber
-                        \end{eqnarray}
-
-                        上述公式中，$D^{(k)}[i][j]$是从$v_i$到$v_j$的中间顶点的序号不大于$k$的最短路径的长度；$D^{(n-1)}[i][j]$是从$v_i$到$v_j$的最短路径的长度。
-
-                        例如，对图\ref{fig:floyd}所示的有向图及其邻接矩阵运行Floyd算法，
-
-                        \begin{center}
-                        \includegraphics[width=180pt]{floyd.png}\\
-                        \figcaption{有向图及其邻接矩阵}\label{fig:floyd}
-                        \end{center}
-
-                        运算过程中矩阵D的变化如表\ref{tab:floyd}所示。
-
-                        \begin{center}
-                        \tabcaption{Floyd算法过程中方阵和最短路径的变化}
-                        \label{tab:floyd}
-                        \begin{tabular}{|c|ccc|ccc|ccc|ccc|}
-                        \hline
-                        \multirow{2}{*}{$\mathbf{D}$} & \multicolumn{3}{|c|}{$\mathbf{D^{(0)}}$} & \multicolumn{3}{|c|}{$\mathbf{D^{(1)}}$} & \multicolumn{3}{|c|}{$\mathbf{D^{(2)}}$} & \multicolumn{3}{|c|}{$\mathbf{D^{(3)}}$} \\
-                         & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 2 \\
-                        \hline
-                        0 & 0 & 4 & 11 & 0 & 4 & 11 & 0 & 4 & 6 & 0 & 4 & 6 \\
-                        1 & 6 & 0 & 2 & 6 & 0 & 2 & 6 & 0 & 2 & 5 & 0 & 2 \\
-                        2 & 3 & $\infty$ & 0 & 3 & 7 & 0 & 3 & 7 & 0 & 3 & 7 & 0 \\
-                        \hline
-                        \multirow{2}{*}{$\mathbf{P}$} & \multicolumn{3}{|c|}{$\mathbf{P^{(0)}}$} & \multicolumn{3}{|c|}{$\mathbf{P^{(1)}}$} & \multicolumn{3}{|c|}{$\mathbf{P^{(2)}}$} & \multicolumn{3}{|c|}{$\mathbf{P^{(3)}}$} \\
-                         & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 2 \\
-                        \hline
-                        \multirow{2}{*}{0} & & A & A & & AB & A & & AB & AB & & AB & AB \\
-                                           & & B & C & & & C & & & C & & & C \\
-                        \hline
-                        \multirow{2}{*}{1} & B & & B & B & & B & B & & BC & BC & & BC \\
-                                           & A & & C & A & & C & A & & & A & & \\
-                        \hline
-                        \multirow{2}{*}{2} & C & & & C & CA & & C & CA & & CA & CA & \\
-                                           & A & & & A & B & & A & B & & & B & \\
-                        \hline
-                        \end{tabular}
-                        \end{center}
                         ```
-
-                        Floyd 算法的 C 语言实现如下。
+                        End Point           i=1         i=2         i=3         i=4         i=5
+                        -----------------------------------------------------------------------
+                            v1              inf         inf         inf         inf         inf
+                        -----------------------------------------------------------------------
+                            v2              10
+                                         (v0,v2)
+                        -----------------------------------------------------------------------
+                            v3              inf         60          50
+                                                    (v0,v2,v3)  (v0,v4,v5)
+                        -----------------------------------------------------------------------
+                            v4              30          30
+                                         (v0,v4)     (v0,v4)
+                        -----------------------------------------------------------------------
+                            v5             100         100          90          60
+                                         (v0,v5)     (v0,v5)    (v0,v4,v5)  (v0,v4,v3,v5)
+                        -----------------------------------------------------------------------
+                            vj              v2          v4          v3          v5
+                            S            (v0,v2)    (v0,v2,v4)  (v0,v2,v3,v4)   (v0,v2,v3,v4,v5)
+                        ```
 
                         ```cpp
                         #include <iostream>
+                        #include <queue>
+                        #include <map>
+                        #include <utility>
                         #include <climits>
 
                         using namespace std;
 
-                        const int MAX_NV = 100;
-                        const int GRAPH_INF = INT_MAX / 2;              // 确保加法不溢出
-
+                        // 图，用邻接表 (Adjacency List).
                         struct graph_t {
                             int nv, ne;
-                            int matrix[MAX_NV][MAX_NV];
+                            map<char, map<char, int> > matrix;
                         };
 
-                        graph_t g;
-
-                        int dist[MAX_NV][MAX_NV];                       // dist[i][j] 是顶点 i 和 j 之间最短路径长度
-                        int path[MAX_NV][MAX_NV];                       // path[i][j] 是最短路径上 i 和 j 之间的顶点
-
-                        // Floyd 算法求每点之间最短路径.
-                        // dist:        dist[i][j] 是顶点 i 和 j 之间最短路径长度
-                        // path:        path[i][j] 是最短路径上 i 和 j 之间的顶点
-                        void floyd( const graph_t &g, int dist[][MAX_NV], int path[][MAX_NV] ) {
-                            const int n = g.nv;
-                            for( int i = 0; i < n; ++i ) {
-                                for( int j = 0; j < n; ++j ) {
-                                    if( i != j ) {
-                                        dist[i][j] = g.matrix[i][j];
-                                        path[i][j] = i;
-                                    } else {
-                                        dist[i][j] =  0;
-                                        path[i][j] = -1;
-                                    }
-                                }
-                            }
-                            for( int k = 0; k < n; ++k ) {
-                                for( int i = 0; i < n; ++i ) {
-                                    for( int j = 0; j < n; ++j ) {
-                                        // i 到 j 的路径上加入顶点 k 可以缩短路径长度
-                                        if( dist[i][k] + dist[k][j] < dist[i][j] ) {
-                                            dist[i][j] = dist[i][k] + dist[k][j];
-                                            path[i][j] = k;
-                                        }
+                        // Dijkstra 算法求单源最短路径.
+                        // g:           图
+                        // start:       起点
+                        // dist:        dist[v] 存放的是起点到 v 的最短路径长度
+                        // father:      father[v] 存放的是最短路径上指向 v 的上一个顶点
+                        void dijkstra( const graph_t &g, char start, map<char, int> &distance, map<char, char> &father ) {
+                            typedef pair<int, char> to_dist_t;
+                            priority_queue<to_dist_t, vector<to_dist_t>, greater<to_dist_t> > pq;
+                            pq.push( to_dist_t( distance[start]=0, start ) );
+                            while( !pq.empty() ) {
+                                to_dist_t u = pq.top(); pq.pop();
+                                char &vj = u.second;
+                                if( !g.matrix.count(vj) ) { continue; }
+                                for( auto const p : g.matrix.at(vj) ) {
+                                    const char &vk  = p.first;
+                                    const int  &wjk = p.second;
+                                    //    vk not in S       or    there's a shorter path to vk
+                                    if( !distance.count(vk) || distance[vj] + wjk < distance[vk] ) {
+                                        distance[ vk  ]     =  distance[vj] + wjk;
+                                        father[   vk  ]     =  vj;
+                                        pq.push( to_dist_t(distance[vk], vk) );
                                     }
                                 }
                             }
                         }
 
-                        // 打印从 u 到 v 的最短路径
-                        static void print_path_r( int u, int v, const int path[][MAX_NV] ) {
-                            if( path[u][v] == -1 ) {
-                                printf( "%c", 'A'+u );
+                        void print_path( const map<char, char> &father, char end ) {
+                            if( !father.count(end) ) {
+                                printf( "%c", end );
                             } else {
-                                print_path_r( u, path[u][v], path );
-                                printf( "->%c", 'A'+v );
-                            }
-                        }
-
-                        // 打印 u 到其他所有点的最短路径
-                        void print_path( const graph_t &g, const int path[][MAX_NV] ) {
-                            for( int i = 0; i < g.nv; ++i ) {
-                                for( int j = 0; j < g.nv; ++j ) {
-                                    if( i != j ) {
-                                        print_path_r( i, j, path );
-                                        printf( "\n" );
-                                    }
-                                }
-                                printf( "\n" );
+                                print_path( father, father.at(end) );
+                                printf( "->%c", end );
                             }
                         }
 
                         int main() {
-                            scanf( "%d %d", &g.nv, &g.ne );
-                            for( int i = 0; i < g.nv; ++i ) {
-                                for( int j = 0; j < g.nv; ++j ) {
-                                    g.matrix[i][j] = GRAPH_INF;
-                                }
-                            }
-                            for( int k = 0; k < g.ne; ++k ) {
-                                char chx[5], chy[5];
+                            graph_t g;
+
+                            scanf( "%d", &g.ne );
+                            for( int i = 0; i < g.ne; ++i ) {
+                                char u[5], v[5];
                                 int w;
-                                scanf( "%s %s %d", chx, chy, &w );
-                                g.matrix[*chx-'A'][*chy-'A'] = w;
+                                scanf( "%s %s %d", u, v, &w );
+                                g.matrix[*u][*v] = w;
                             }
 
-                            floyd( g, dist, path );
-                            print_path( g, path  );
+                            map<char, int> distance;
+                            map<char, char> father;
+                            dijkstra( g, 'A', distance, father );
+
+                            for( const auto p : father ) {
+                                if( p.first != 'A' ) {
+                                    print_path( father, p.first );
+                                    printf( "\n" );
+                                }
+                            }
                             return 0;
                         }
                         ```
 
                         ```
-                        input:
+                        $ cat input.txt
+                        8
+                        A C 10
+                        A E 30
+                        A F 100
+                        B C 5
+                        C D 50
+                        D F 10
+                        E D 20
+                        E F 60
 
-                            3 5
-                            A B 4
-                            A C 11
-                            B A 6
-                            B C 2
-                            C A 3
-
-                        output:
-
-                            A->B
-                            A->B->C
-
-                            B->C->A
-                            B->C
-
-                            C->A
-                            C->A->B
+                        $ cat input.txt | ./tmp
+                        A->C
+                        A->E->D
+                        A->E
+                        A->E->D->F
                         ```
 
                         算法分析
+
+                        :   该算法包含了两个并列的 for 循环，第一个 for 循环做辅助
+                            数组的初始化工作，计算时间为 O(n)，第二个 for 循环是二
+                            重嵌套循环，进行最短路径的求解工作，由于对图中几乎每个
+                            顶点都要做计算，每个顶点的又要对集合 S 内的顶点进行检测，
+                            对集合 V-S 内中的顶点进行修改，所以运算时间复杂度为
+                            O(n^2^)。算法总的时间复杂度为 O(n^2^)。
+
+                -   每点最短路径 --- Floyd 算法 -<
+
+                    :   shit -<
+
+                        :   ```
+                            \subsection{每点最短路径——Floyd算法}
+                            Floyd算法的基本思想是：假设求从定点$v_i$到$v_j$的最短路
+                            径。初始时，若$v_i$与$v_j$之间存在边，则最短路径长度为
+                            此边的权值；若不存在边，则最短路径长度为无穷大。以后逐
+                            步在路径中加入顶点$k(k=0,1,...,n-1)$作为中间顶点，如果
+                            加入中间顶点后，得到的路径比原来的路径长度减少了，则以
+                            新路径代替原路径。
+
+                            首先比较$(v_i,v_j)$和$(v_i,v_0,v_j)$的路径长度，取较短
+                            者为从$v_i$到$v_j$的中间顶点的序号不大于0的最短路径。如
+                            果$(v_i,v_0,v_j)$较短，则取$(v_i,v_0,v_j)$作为最短路径
+                            。假如在路径上再增加一个顶点$v_1$，也就是说，如果
+                            $(v_i,...,v_1)$和$(v_1,...,v_j)$分别是当前找到的中间定
+                            点的序号不大于0的最短路径，那么$(vi,...,v1,...,vj)$就有
+                            可能是从$v_i$到$v_j$的中间顶点的序号不大于1的最短路径，
+                            将它和已经得到的从$v_i$到$v_j$的中间顶点的序号不大于0的
+                            最短路径相比较，选出较短者作为从$v_i$到$v_j$的中间顶点
+                            的序号不大于1的最短路径。再增加一个顶点$v_2$，继续进行
+                            试探，依此类推。一般的，若$(v_i,...,v_k)$和
+                            $(v_k,...,v_j)$分别是从$v_i$到$v_k$和从$v_k$到$v_j$的中
+                            间定点的序号不大于$k-1$的最短路径，则将
+                            $(v_i,...,v_k,...,v_j)$和已经得到的从$v_i$到$v_j$的中间
+                            顶点的序号不大于$k-1$的最短路径相比，较短者便是从$v_i$
+                            到$v_j$的中间顶点的序号不大于$k$的最短路径。这样，在经
+                            过$n$次比较后，最后求得的必是从$v_i$到$v_j$的最短路径。
+
+                            现定义一个$n$阶方阵序列，
+                            $$
+                            D^{(-1)}, D^{(0)} , D^{(1)},..., , D^{(k)},..., , D^{(n-1)}
+                            $$
+                            其中，
+                            \begin{eqnarray}
+                            D^{(-1)}[i][j] &=& \text{g->matrix}[i][j],  \nonumber \\
+                            D^{(k)}[i][j] &=& \min\left\{D^{(k-1)}[i][j], D^{(k-1)}[i][k] + D^{(k-1)}[k][j]\right\},0 \leq k \leq n-1 \nonumber
+                            \end{eqnarray}
+
+                            上述公式中，$D^{(k)}[i][j]$是从$v_i$到$v_j$的中间顶点的序号不大于$k$的最短路径的长度；$D^{(n-1)}[i][j]$是从$v_i$到$v_j$的最短路径的长度。
+
+                            例如，对图\ref{fig:floyd}所示的有向图及其邻接矩阵运行Floyd算法，
+
+                            \begin{center}
+                            \includegraphics[width=180pt]{floyd.png}\\
+                            \figcaption{有向图及其邻接矩阵}\label{fig:floyd}
+                            \end{center}
+
+                            运算过程中矩阵D的变化如表\ref{tab:floyd}所示。
+
+                            \begin{center}
+                            \tabcaption{Floyd算法过程中方阵和最短路径的变化}
+                            \label{tab:floyd}
+                            \begin{tabular}{|c|ccc|ccc|ccc|ccc|}
+                            \hline
+                            \multirow{2}{*}{$\mathbf{D}$} &
+                            \multicolumn{3}{|c|}{$\mathbf{D^{(0)}}$} &
+                            \multicolumn{3}{|c|}{$\mathbf{D^{(1)}}$} &
+                            \multicolumn{3}{|c|}{$\mathbf{D^{(2)}}$} &
+                            \multicolumn{3}{|c|}{$\mathbf{D^{(3)}}$} \\
+                             & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 2 \\
+                            \hline
+                            0 & 0 & 4 & 11 & 0 & 4 & 11 & 0 & 4 & 6 & 0 & 4 & 6 \\
+                            1 & 6 & 0 & 2 & 6 & 0 & 2 & 6 & 0 & 2 & 5 & 0 & 2 \\
+                            2 & 3 & $\infty$ & 0 & 3 & 7 & 0 & 3 & 7 & 0 & 3 & 7 & 0 \\
+                            \hline
+                            \multirow{2}{*}{$\mathbf{P}$} &
+                            \multicolumn{3}{|c|}{$\mathbf{P^{(0)}}$} &
+                            \multicolumn{3}{|c|}{$\mathbf{P^{(1)}}$} &
+                            \multicolumn{3}{|c|}{$\mathbf{P^{(2)}}$} &
+                            \multicolumn{3}{|c|}{$\mathbf{P^{(3)}}$} \\
+                             & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 2 \\
+                            \hline
+                            \multirow{2}{*}{0} & & A & A & & AB & A & & AB & AB & & AB & AB \\
+                                               & & B & C & & & C & & & C & & & C \\
+                            \hline
+                            \multirow{2}{*}{1} & B & & B & B & & B & B & & BC & BC & & BC \\
+                                               & A & & C & A & & C & A & & & A & & \\
+                            \hline
+                            \multirow{2}{*}{2} & C & & & C & CA & & C & CA & & CA & CA & \\
+                                               & A & & & A & B & & A & B & & & B & \\
+                            \hline
+                            \end{tabular}
+                            \end{center}
+                            ```
+
+                        Floyd 算法的 C 语言实现 -<
+
+                        :   ```cpp
+                            #include <iostream>
+                            #include <climits>
+
+                            using namespace std;
+
+                            const int MAX_NV = 100;
+                            const int GRAPH_INF = INT_MAX / 2;              // 确保加法不溢出
+
+                            struct graph_t {
+                                int nv, ne;
+                                int matrix[MAX_NV][MAX_NV];
+                            };
+
+                            graph_t g;
+
+                            int dist[MAX_NV][MAX_NV];                       // dist[i][j] 是顶点 i 和 j 之间最短路径长度
+                            int path[MAX_NV][MAX_NV];                       // path[i][j] 是最短路径上 i 和 j 之间的顶点
+
+                            // Floyd 算法求每点之间最短路径.
+                            // dist:        dist[i][j] 是顶点 i 和 j 之间最短路径长度
+                            // path:        path[i][j] 是最短路径上 i 和 j 之间的顶点
+                            void floyd( const graph_t &g, int dist[][MAX_NV], int path[][MAX_NV] ) {
+                                const int n = g.nv;
+                                for( int i = 0; i < n; ++i ) {
+                                    for( int j = 0; j < n; ++j ) {
+                                        if( i != j ) {
+                                            dist[i][j] = g.matrix[i][j];
+                                            path[i][j] = i;
+                                        } else {
+                                            dist[i][j] =  0;
+                                            path[i][j] = -1;
+                                        }
+                                    }
+                                }
+                                for( int k = 0; k < n; ++k ) {
+                                    for( int i = 0; i < n; ++i ) {
+                                        for( int j = 0; j < n; ++j ) {
+                                            // i 到 j 的路径上加入顶点 k 可以缩短路径长度
+                                            if( dist[i][k] + dist[k][j] < dist[i][j] ) {
+                                                dist[i][j] = dist[i][k] + dist[k][j];
+                                                path[i][j] = k;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            // 打印从 u 到 v 的最短路径
+                            static void print_path_r( int u, int v, const int path[][MAX_NV] ) {
+                                if( path[u][v] == -1 ) {
+                                    printf( "%c", 'A'+u );
+                                } else {
+                                    print_path_r( u, path[u][v], path );
+                                    printf( "->%c", 'A'+v );
+                                }
+                            }
+
+                            // 打印 u 到其他所有点的最短路径
+                            void print_path( const graph_t &g, const int path[][MAX_NV] ) {
+                                for( int i = 0; i < g.nv; ++i ) {
+                                    for( int j = 0; j < g.nv; ++j ) {
+                                        if( i != j ) {
+                                            print_path_r( i, j, path );
+                                            printf( "\n" );
+                                        }
+                                    }
+                                    printf( "\n" );
+                                }
+                            }
+
+                            int main() {
+                                scanf( "%d %d", &g.nv, &g.ne );
+                                for( int i = 0; i < g.nv; ++i ) {
+                                    for( int j = 0; j < g.nv; ++j ) {
+                                        g.matrix[i][j] = GRAPH_INF;
+                                    }
+                                }
+                                for( int k = 0; k < g.ne; ++k ) {
+                                    char chx[5], chy[5];
+                                    int w;
+                                    scanf( "%s %s %d", chx, chy, &w );
+                                    g.matrix[*chx-'A'][*chy-'A'] = w;
+                                }
+
+                                floyd( g, dist, path );
+                                print_path( g, path  );
+                                return 0;
+                            }
+                            ```
+
+                            ```
+                            input:
+
+                                3 5
+                                A B 4
+                                A C 11
+                                B A 6
+                                B C 2
+                                C A 3
+
+                            output:
+
+                                A->B
+                                A->B->C
+
+                                B->C->A
+                                B->C
+
+                                C->A
+                                C->A->B
+                            ```
+
+                        算法分析 -<
 
                         :   该算法中有两个并列的 for 循环，第一个循环是个二重循环，
                             用于初始化方阵 D；第二个循环是个三重循环，逐步生成
@@ -20139,225 +20267,151 @@ A Bit of Logic -<
 
                     :   TODO
 
-                -   拓扑排序 -<
+        -   拓扑排序 -<
 
-                    :   由某个集合上的一个偏序得到该集合上的一个全序，这个操作称为**拓扑排序**。
+            :   由某个集合上的一个偏序得到该集合上的一个全序，这个操作称为**拓扑排序**。
 
-                        拓扑序列的特点是：若有向边 <V~i~, V~j~> 是途中的弧，则
-                        在序列中顶点 V~i~ 必须排在顶点 V~j~ 之前。
+                拓扑序列的特点是：若有向边 <V~i~, V~j~> 是途中的弧，则
+                在序列中顶点 V~i~ 必须排在顶点 V~j~ 之前。
 
-                        如果用有向图表示一个工程，顶点表示活动，用有向边 <V~i~,
-                        V~j~> 表示活动必须先于活动进行。这种有向图叫做顶点表示
-                        活动的网络 (Activity On Vertext Network)，简称AOV 网络。
+                如果用有向图表示一个工程，顶点表示活动，用有向边 <V~i~,
+                V~j~> 表示活动必须先于活动进行。这种有向图叫做顶点表示
+                活动的网络 (Activity On Vertext Network)，简称AOV 网络。
 
-                        检测 AOV 网络是否存在环的方法是对 AOV 网络构造其顶点的
-                        拓扑有序序列。拓扑排序的基本步骤是：
+                检测 AOV 网络是否存在环的方法是对 AOV 网络构造其顶点的
+                拓扑有序序列。拓扑排序的基本步骤是：
 
-                        -   在有向图中选一个没有前驱的顶点且输出之；
-                        -   从图中删除该顶点和所有以它为尾的弧线。
+                -   在有向图中选一个没有前驱的顶点且输出之；
+                -   从图中删除该顶点和所有以它为尾的弧线。
 
-                        重复以上两步，直至 1) 全部顶点输出，或
-                        2) 当前图中不存在无前驱的顶点（这种情况说明图中存在环）。
+                重复以上两步，直至 1) 全部顶点输出，或
+                2) 当前图中不存在无前驱的顶点（这种情况说明图中存在环）。
 
-                        C++ code -<
+                C++ code -<
 
-                        :   ```cpp
-                            #include <iostream>
-                            #include <climits>
-                            #include <stack>
-                            #include <vector>
+                :   ```cpp
+                    #include <iostream>
+                    #include <climits>
+                    #include <stack>
+                    #include <vector>
 
-                            using namespace std;
+                    using namespace std;
 
-                            const int MAX_NV = 100;
-                            const int GRAPH_INF = INT_MAX;
+                    const int MAX_NV = 100;
+                    const int GRAPH_INF = INT_MAX;
 
-                            struct graph_t {
-                                int nv, ne;
-                                int matrix[MAX_NV][MAX_NV];
-                            };
+                    struct graph_t {
+                        int nv, ne;
+                        int matrix[MAX_NV][MAX_NV];
+                    };
 
-                            graph_t g;
+                    graph_t g;
 
-                            int topological[MAX_NV];                        // 拓扑排序的结果
+                    int topological[MAX_NV];                        // 拓扑排序的结果
 
-                            // 拓扑排序.
-                            // 无环返回 true，有环返回 false
-                            bool topo_sort( const graph_t &g, int topological[] ) {
-                                const int n = g.nv;
-                                vector<int> in_degree( n, 0 );              // in_degree[i] 是顶点 i 的入度
-                                for( int i = 0; i < n; ++i ) {
-                                    for( int j = 0; j < n; ++j ) {
-                                        if( g.matrix[i][j] < GRAPH_INF ) { ++in_degree[j]; }
-                                    }
-                                }
+                    // 拓扑排序.
+                    // 无环返回 true，有环返回 false
+                    bool topo_sort( const graph_t &g, int topological[] ) {
+                        const int n = g.nv;
+                        vector<int> in_degree( n, 0 );              // in_degree[i] 是顶点 i 的入度
+                        for( int i = 0; i < n; ++i ) {
+                            for( int j = 0; j < n; ++j ) {
+                                if( g.matrix[i][j] < GRAPH_INF ) { ++in_degree[j]; }
+                            }
+                        }
 
-                                stack<int> s;
-                                for( int i = 0; i < n; ++i ) {
-                                    if( !in_degree[i] ) { s.push(i); }
-                                }
+                        stack<int> s;
+                        for( int i = 0; i < n; ++i ) {
+                            if( !in_degree[i] ) { s.push(i); }
+                        }
 
-                                int count = 0;                              // 拓扑序列的元素个数
-                                while( !s.empty() ) {
-                                    int u = s.top(); s.pop();
-                                    topological[count++] = u;
-                                    for( int i = 0; i < n; ++i ) {
-                                        if( g.matrix[u][i] < GRAPH_INF ) {
-                                            if( --in_degree[i] == 0 ) { s.push(i); }
-                                        }
-                                    }
-                                }
-
-                                if( count != n ) {                          // 有环
-                                    return false;
-                                } else {                                    // 无环
-                                    return true;
+                        int count = 0;                              // 拓扑序列的元素个数
+                        while( !s.empty() ) {
+                            int u = s.top(); s.pop();
+                            topological[count++] = u;
+                            for( int i = 0; i < n; ++i ) {
+                                if( g.matrix[u][i] < GRAPH_INF ) {
+                                    if( --in_degree[i] == 0 ) { s.push(i); }
                                 }
                             }
+                        }
 
-                            int main() {
-                                scanf( "%d %d", &g.nv, &g.ne );
-                                // 初始化图，所有节点间距离为无穷大
-                                for( int i = 0; i < g.nv; ++i ) {
-                                    for( int j = 0; j < g.nv; ++j ) {
-                                        g.matrix[i][j] = GRAPH_INF;
-                                    }
-                                }
-                                // 读取边信息
-                                for( int k = 0; k < g.ne; ++k ) {
-                                    char chx[5], chy[5];
-                                    int w;
-                                    scanf( "%s %s %d", chx, chy, &w );
-                                    g.matrix[*chx-'A'][*chy-'A'] = w;
-                                }
+                        if( count != n ) {                          // 有环
+                            return false;
+                        } else {                                    // 无环
+                            return true;
+                        }
+                    }
 
-                                topo_sort( g, topological );
-                                for( int i = 0; i < g.nv; ++i ) {
-                                    printf( "%c ", 'A'+topological[i] );
-                                }
-                                printf( "\n" );
-                                return 0;
+                    int main() {
+                        scanf( "%d %d", &g.nv, &g.ne );
+                        // 初始化图，所有节点间距离为无穷大
+                        for( int i = 0; i < g.nv; ++i ) {
+                            for( int j = 0; j < g.nv; ++j ) {
+                                g.matrix[i][j] = GRAPH_INF;
                             }
-                            ```
+                        }
+                        // 读取边信息
+                        for( int k = 0; k < g.ne; ++k ) {
+                            char chx[5], chy[5];
+                            int w;
+                            scanf( "%s %s %d", chx, chy, &w );
+                            g.matrix[*chx-'A'][*chy-'A'] = w;
+                        }
 
-                            ```
-                            6 8
-                            A C 10
-                            A E 30
-                            A F 100
-                            B C 5
-                            C D 50
-                            D 5 10
-                            E D 20
-                            E F 60
-                            ```
+                        topo_sort( g, topological );
+                        for( int i = 0; i < g.nv; ++i ) {
+                            printf( "%c ", 'A'+topological[i] );
+                        }
+                        printf( "\n" );
+                        return 0;
+                    }
+                    ```
 
-                        对有 n 个顶点和 e 条边的 AOV 网络而言，求各顶点的入度所
-                        需时间为 O(e)，建立零入度顶点栈所需时间为 O(n)；在拓扑
-                        排序过程中，若有向图无环，每个顶进一次栈出一次栈，顶点
-                        入度减 1 的操作共执行了 e 次。所以总的时间复杂度为
-                        O(n+e)。
+                    ```
+                    6 8
+                    A C 10
+                    A E 30
+                    A F 100
+                    B C 5
+                    C D 50
+                    D 5 10
+                    E D 20
+                    E F 60
+                    ```
 
-                        当有向图中无环时，也可以利用深度优先搜索进行拓扑排序。
-                        因为图中无环，深度优先遍历不会死循环。进行深度优先遍历
-                        时，最先退出 DFS 函数的顶点即为出度为零的顶点，是拓扑有
-                        序序列的最后一个顶点。由此，按退出 DFS 函数的先后次序记
-                        录下来的顶点序列即为逆向的拓扑有序序列。
+                对有 n 个顶点和 e 条边的 AOV 网络而言，求各顶点的入度所
+                需时间为 O(e)，建立零入度顶点栈所需时间为 O(n)；在拓扑
+                排序过程中，若有向图无环，每个顶进一次栈出一次栈，顶点
+                入度减 1 的操作共执行了 e 次。所以总的时间复杂度为
+                O(n+e)。
 
-                        -   POJ 1094 Sorting It All Out -<
+                当有向图中无环时，也可以利用深度优先搜索进行拓扑排序。
+                因为图中无环，深度优先遍历不会死循环。进行深度优先遍历
+                时，最先退出 DFS 函数的顶点即为出度为零的顶点，是拓扑有
+                序序列的最后一个顶点。由此，按退出 DFS 函数的先后次序记
+                录下来的顶点序列即为逆向的拓扑有序序列。
 
-\section{关键路径} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-用有向边上的权值表示活动的持续时间，用顶点表示时间，这样的有向图叫做边表示的活动网络(Activity On Edge Network)，简称\textbf{AOE网络}。
+                -   POJ 1094 Sorting It All Out -<
 
-路径最长的路径叫做\textbf{关键路径}(Critical Path)。假设开始点为$v_1$，从$v_1$到$v_i$的最长路径长度叫做事件$v_i$的最早发生时间。这个事件决定了所有以$v_i$为尾的弧所表示的活动的最早开始时间。我们用$e(i)$表示活动$a_i$的最早开始时间。还可以定义一个活动的最迟开始时间$l(i)$，这是在不推迟整个工程完成的前提下，活动$a_i$最迟必须开始进行的时间。两者之差$l(i)-e(i)$意味着完成活动$a_i$的时间余量。我们把$l(i)=e(i)$的活动叫做关键活动。
+        -   关键路径 -<
 
+            :   用有向边上的权值表示活动的持续时间，用顶点表示时间，这
+                样的有向图叫做边表示的活动网络 (Activity On Edge Network)，
+                简称 **AOE 网络**。
 
-        -   DFS of graph -<
-
-            :   Selected Problems -<
-
-                :   -   Abbott 的复仇 :hearts: -<*
-
-                        :   ```cpp
-                            // d[r][c][dir] 存储从初始状态到 (r,c,dir) 的最短长度，其父节点保存在
-                            // p[r][c][dir]
-                            // has_edge[r][c][dir][turn], now at (r,c,dir), can `turn`?
-                            //  inside(r, c), inside the map
-
-                            const char *dirs  = "NESW"; // north, east, south, west
-                            const char *turns = "FLR";  // forward, left, right
-                            int dir_id(  char c ) { return strchr(dirs, c) - dirs; }
-                            int turn_id( char c ) { return strchr(turns, c) - turns; }
-
-                            //   clockwise :    N   E   S   W           //          +-----------> y (col-wise)
-                            const int dr[] = { -1,  0,  1,  0 };        //          |
-                            const int dc[] = {  0,  1,  0, -1 };        //          |
-                                                                        //          | x (row-wise)
-                                                                        //          V
-
-                            Node walk( const Node &u, int turn ) {
-                                int dir = u.dir;                        // turn = 0, forward
-                                if( turn == 1 ) { dir = (dir+3)%4; }    // turn = 1, left, counter clockwise
-                                if( turn == 2 ) { dir = (dir+1)%4; }    // turn = 2, right, clockwise
-                                return Node( u.r + dr[dir], u.c + dc[dir], dir );
-                            }
-
-                            void solve() {
-                                queue<Node> q;
-                                memset( d, -1, sizeof(d) );             // reset to -1
-                                Node u( r1, c1, dir );                  // start pos
-                                d[u.r][u.c][u.dir] = 0;                 // init distance
-                                q.push( u );
-                                while( !q.empty() ) {
-                                    Node u = q.front(); q.pop();
-                                    if( u.r == r2 && r.c == c2 ) { print_ans(u); return; }
-                                    for( int i = 0; i < 3; ++i ) {      // enum turns
-                                        Node v = walk( u, i );
-                                        if( has_edge[u.r][u.c][u.dir][i] &&
-                                            inside(v.r, v.c) &&
-                                            d[v.r][v.c][v.dir] < 0 ) {  // 以前没有处于这个姿态
-                                            // advance
-                                            d[v.r][v.c][v.dir] = d[u.r][u.c][u.dir] + 1;
-                                            p[v.r][v.c][v.dir] = u;
-                                            q.push( v );                // 当前位置总是再 stack 顶端存着
-                                        }
-                                    }
-                                }
-                                printf( "No Solution Possible.\n" );
-                            }
-
-                            void print_ans( Node u ) {
-                                vector<Node> nodes;
-                                for( ;; ) {
-                                    nodes.push_back( u );                   // 一路存起来
-                                    if( d[u.r][u.c][u.dir] == 0 ) break;    // origin
-                                    u = p[u.r][u.c][u.dir];                 // backtrace
-                                }
-                                nodes.push_back( Node(r1, c1, dir) );       // origin: r0, c0
-
-                                int cnt = 0;
-                                for( int i = nodes.size()-1; i >= 0; --i ) {
-                                    if( cnt % 10 == 0 ) { printf( " " ); }
-                                    printf( " (%d, %d)", nodes[i].r, nodes[i].c );
-                                    if( ++cnt % 10 == 0 ) {
-                                        printf( "\n" );
-                                    }
-                                }
-                                if( nodes.size() % 10 != 0 ) { printf( "\n" ); }
-                            }
-                            ```
-
-        -   拓扑排序 Topological Sorting
+                路径最长的路径叫做**关键路径 (Critical Path)**。假设开
+                始点为 v~1~，从 v~1~ 到 v~i~ 的最长路径长度叫做事件v~i~
+                的最早发生时间。这个事件决定了所有以 v~i~ 为尾的弧所表
+                示的活动的最早开始时间。我们用 e(i) 表示活动 a~i~ 的最
+                早开始时间。还可以定义一个活动的最迟开始时间 l(i)，这是
+                在不推迟整个工程完成的前提下，活动 a~i~ 最迟必须开始进
+                行的时间。两者之差 l(i)-e(i) 意味着完成活动 a~i~ 的时间
+                余量。我们把 l(i)=e(i) 的活动叫做关键活动。
 
         -   组合类深度优先搜索 Combination Related DFS
 
         -   排列类深度优先搜索 Permutation Related DFS
-
-        -   minal spanning tree
-
-        -   shortest path
-
-        -   key path
 
     【下面是强化班内容】
 
