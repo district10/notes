@@ -1,5 +1,12 @@
 ---
 title: Algorithms
+refs:   ![](http://whudoc.qiniudn.com/ascii.png)
+    ../../aoapc-book/aoapc-bac2nd/README.md
+    D:\tzx\git\aoapc-book\aoapc-bac2nd\README.md
+    ../../acm-cheat-sheet/C++/ACM-cheat-sheet.tex
+    /home/tzx/Downloads/acm-cheat-sheet-master/C++/ACM-cheat-sheet.tex
+    C:\Users\tzx\Downloads\LM\leetcode-master\C++\leetcode-cpp.tex
+    ../../aoapc-book/aoapc-bac2nd/README.md
 ...
 
 Algorithms
@@ -19,7 +26,8 @@ ASCII table -<
                              +--|---------------------------------------+
                                 |
                                 |                                           aqaq @ grave
-      0         16      32      |48     64      80     96       112
+      0         16      32      |48     64      80      96      112
+      00        10      20      |30     40      50      60      70
                                 |       阿      卡      琳      酱
       NULL     DEL      SP      0       @       P       `       p           |   <-------------- 0
                          !      1       A       Q       a       q           |   <-------------- 1
@@ -27,16 +35,31 @@ ASCII table -<
                          .      .                                           |   <-------------- .
     ------------------------------------------------------------------------+
         0       1       2       3       4       5       6       7
+
+    Usage: ascii [-dxohv] [-t] [char-alias...]
+       -t = one-line output  -d = Decimal table  -o = octal table  -x = hex table
+       -h = This help screen -v = version information
+    Prints all aliases of an ASCII character. Args may be chars, C \-escapes,
+    English names, ^-escapes, ASCII mnemonics, or numerics in decimal/octal/hex.
+
+    Dec Hex    Dec Hex    Dec Hex  Dec Hex  Dec Hex  Dec Hex   Dec Hex   Dec Hex
+      0 00 NUL  16 10 DLE  32 20    48 30 0  64 40 @  80 50 P   96 60 `  112 70 p
+      1 01 SOH  17 11 DC1  33 21 !  49 31 1  65 41 A  81 51 Q   97 61 a  113 71 q
+      2 02 STX  18 12 DC2  34 22 "  50 32 2  66 42 B  82 52 R   98 62 b  114 72 r
+      3 03 ETX  19 13 DC3  35 23 #  51 33 3  67 43 C  83 53 S   99 63 c  115 73 s
+      4 04 EOT  20 14 DC4  36 24 $  52 34 4  68 44 D  84 54 T  100 64 d  116 74 t
+      5 05 ENQ  21 15 NAK  37 25 %  53 35 5  69 45 E  85 55 U  101 65 e  117 75 u
+      6 06 ACK  22 16 SYN  38 26 &  54 36 6  70 46 F  86 56 V  102 66 f  118 76 v
+      7 07 BEL  23 17 ETB  39 27 '  55 37 7  71 47 G  87 57 W  103 67 g  119 77 w
+      8 08 BS   24 18 CAN  40 28 (  56 38 8  72 48 H  88 58 X  104 68 h  120 78 x
+      9 09 HT   25 19 EM   41 29 )  57 39 9  73 49 I  89 59 Y  105 69 i  121 79 y
+     10 0A LF   26 1A SUB  42 2A *  58 3A :  74 4A J  90 5A Z  106 6A j  122 7A z
+     11 0B VT   27 1B ESC  43 2B +  59 3B ;  75 4B K  91 5B [  107 6B k  123 7B {
+     12 0C FF   28 1C FS   44 2C ,  60 3C <  76 4C L  92 5C \  108 6C l  124 7C |
+     13 0D CR   29 1D GS   45 2D -  61 3D =  77 4D M  93 5D ]  109 6D m  125 7D }
+     14 0E SO   30 1E RS   46 2E .  62 3E >  78 4E N  94 5E ^  110 6E n  126 7E ~
+     15 0F SI   31 1F US   47 2F /  63 3F ?  79 4F O  95 5F _  111 6F o  127 7F DEL
     ```
-
-    ![](http://whudoc.qiniudn.com/ascii.png)
-
-    ../../aoapc-book/aoapc-bac2nd/README.md
-    D:\tzx\git\aoapc-book\aoapc-bac2nd\README.md
-    ../../acm-cheat-sheet/C++/ACM-cheat-sheet.tex
-    /home/tzx/Downloads/acm-cheat-sheet-master/C++/ACM-cheat-sheet.tex
-    C:\Users\tzx\Downloads\LM\leetcode-master\C++\leetcode-cpp.tex
-    ../../aoapc-book/aoapc-bac2nd/README.md
 
 Cheatsheet -<
 
@@ -64,9 +87,18 @@ FAQ -<
       ~ -   投简历： indeed，monster, hired.com, linkedin, readyforce.com，以及各大公司官网。
         -   找内推： mitbbs，一亩三分地, linkedin
 
-TODOs & Notes:
+TODOs & Notes -<
 
-:   -   (left+right)/2 和 left + (right-left)/2 除了在负数的时候不同之外，后者还不会越界。
+:   -   `(left+right)/2` 和 `left + (right-left)/2` 除了在负数的时候不同之外，后者还不会越界。
+
+    -   How to compile && run
+
+        :   ```
+            # compile
+            g++ code.cpp -o code --std=c++11
+            # run
+            cat input.txt | ./code
+            ```
 
 ## 0.
 
@@ -552,8 +584,9 @@ A Bit of Logic -<
 
                     int len = nstr - nsub;
                     int i,j;
-                    for ( int i = 0; i <= len; ++i ) {
-                        for ( int j = 0; j < nsub; ++j ) {
+                    for ( int i = 0; i <= len; ++i ) {          // 如果两个字符串等长, 至少要比较一下, 对吧.
+                        int j;
+                        for ( j = 0; j < nsub; ++j ) {
                             if ( str[i+j] != sub[j] ) {
                                 break;
                             }
@@ -578,15 +611,16 @@ A Bit of Logic -<
 
                 [从武侠小说到程序员面试 - Lucida](http://lucida.me/blog/from-wuxia-to-programmer-interview/) -<
 
-                :   回到程序员面试，大多数笔试/面试题目都可以在网上找到，而一些
+                :   回到程序员面试，大多数笔试 / 面试题目都可以在网上找到，而一些
                     公司在招聘时为了省事甚至直接到网上搜题，这就导致看似很高的
                     程序员面试门槛实际变的很低——得到一份还不错的工作并不需要花
-                    一两年系统的学习计算机技术，而只需一两个月到leetcode、
-                    CareerCup以及未名求职版刷题目。原本很有区分度的算法题目也变
+                    一两年系统的学习计算机技术，而只需一两个月到 leetcode、
+                    CareerCup 以及未名求职版刷题目。原本很有区分度的算法题目也变
                     的毫无价值——谁知道你是自己想出来的还是背出来的。就像轻功水
                     上漂，谁知道你是真的功力深厚，还是提前在水底打了暗桩。
 
-                    接下来我会问面试者能不能改善它的可读性（Readability）: `input - 32` -> `input - 'a' + 'A'`
+                    接下来我会问面试者能不能改善它的**可读性（Readability）**:
+                    `input - 32` -> `input - 'a' + 'A'`
 
                     其实就是用 `'a' <= input && input <= 'z'` 替代 `input >= 'a' && input <= 'z'` ——
                     这个技巧源自于代码大全，代码大全里面专门有一节讲解如何编写可读的布尔表达式。从
@@ -595,7 +629,7 @@ A Bit of Logic -<
 
                     接下来我会询问能不能进一步提升性能: table
 
-                    如果面试者能提到他是从 C语言标准库 里面学到这个技巧，加10分 :–)
+                    如果面试者能提到他是从 C 语言标准库 里面学到这个技巧，加 10 分 :–)
 
                     有的面试者会想到使用宏： `#define TO_UPPER(input) convert_table[input]`
                     这时我会询问宏的优点和缺点，以及在这里使用宏会不会有错误。
@@ -604,18 +638,193 @@ A Bit of Logic -<
 
                     接下来，让我们回顾这道简单的题目都考察了哪些点：
 
-                    -   函数的概念（而不是写在main里）;
+                    -   函数的概念（而不是写在 main 里）;
+
                     -   缩进和命名（而不是拼音）；
-                    -   使用可读的字面量（'a' - 'A'而非32）；
-                    -   **API设计**（当to_upper接收到非小写字母字符应该返回什么
-                        ？0？报错？还是返回原值？考虑到to_upper的应用场景是把一
+
+                    -   使用可读的字面量（'a' - 'A'而非 32）；
+
+                    -   **API 设计**（当 to_upper 接收到非小写字母字符应该返回什么
+                        ？0？报错？还是返回原值？考虑到 to_upper 的应用场景是把一
                         个字符串中的小写字母转化为大写，返回原值显然更合理）；
+
                     -   **是否有阅读习惯**（至少可以看出你有没有认真的读过代码大全）；
-                    -   是否读过C标准库源码（指出toupper数组实现的出处）；
+
+                    -   是否读过 C 标准库源码（指出 toupper 数组实现的出处）； -<
+
+                        :   ```cpp
+                            /* Note: this is decimal, not hex, to avoid accidental promotion to unsigned */
+                            #define _toupper(__c) ((__c) & ~32)             // turn off one bit, -32
+                            #define _tolower(__c) ((__c) | 32)              // turn on  one bit, +32
+
+                            enum {                                          // flags
+                                __ctype_upper = (1 << 0),
+                                __ctype_lower = (1 << 1),
+                                __ctype_digit = (1 << 2),
+                                __ctype_xdigit = (1 << 3),
+                                __ctype_space = (1 << 4),
+                                __ctype_print = (1 << 5),
+                                __ctype_punct = (1 << 6),
+                                __ctype_cntrl = (1 << 7),
+                            };
+
+                            extern const unsigned char __ctypes[];          // lookup table
+
+                            __ctype_inline int islower(int __c)
+                            {
+                                return __ctypes[__c + 1] & __ctype_lower;
+                            }
+
+                            __ctype_inline int isupper(int __c)
+                            {
+                                return __ctypes[__c + 1] & __ctype_upper;
+                            }
+
+                            __ctype_inline int toupper(int __c)
+                            {
+                                return islower(__c) ? _toupper(__c) : __c;
+                            }
+
+                            __ctype_inline int tolower(int __c)
+                            {
+                                return isupper(__c) ? _tolower(__c) : __c;
+                            }
+                            ```
+
+                            /usr/lib/syslinux/com32/include/ctype.h -<
+
+                            :   ```cpp
+                                /*
+                                 * ctype.h
+                                 *
+                                 * This assumes ISO 8859-1, being a reasonable superset of ASCII.
+                                 */
+
+                                #ifndef _CTYPE_H
+                                #define _CTYPE_H
+
+                                #include <klibc/extern.h>
+
+                                #ifndef __CTYPE_NO_INLINE
+                                # define __ctype_inline static __inline__
+                                #else
+                                # define __ctype_inline
+                                #endif
+
+                                /*
+                                 * This relies on the following definitions:
+                                 *
+                                 * cntrl = !print
+                                 * alpha = upper|lower
+                                 * graph = punct|alpha|digit
+                                 * blank = '\t' || ' ' (per POSIX requirement)
+                                 */
+                                enum {
+                                    __ctype_upper = (1 << 0),
+                                    __ctype_lower = (1 << 1),
+                                    __ctype_digit = (1 << 2),
+                                    __ctype_xdigit = (1 << 3),
+                                    __ctype_space = (1 << 4),
+                                    __ctype_print = (1 << 5),
+                                    __ctype_punct = (1 << 6),
+                                    __ctype_cntrl = (1 << 7),
+                                };
+
+                                extern const unsigned char __ctypes[];
+
+                                __ctype_inline int isalnum(int __c)
+                                {
+                                    return __ctypes[__c + 1] & (__ctype_upper | __ctype_lower | __ctype_digit);
+                                }
+
+                                __ctype_inline int isalpha(int __c)
+                                {
+                                    return __ctypes[__c + 1] & (__ctype_upper | __ctype_lower);
+                                }
+
+                                __ctype_inline int isascii(int __c)
+                                {
+                                    return !(__c & ~0x7f);
+                                }
+
+                                __ctype_inline int isblank(int __c)
+                                {
+                                    return (__c == '\t') || (__c == ' ');
+                                }
+
+                                __ctype_inline int iscntrl(int __c)
+                                {
+                                    return __ctypes[__c + 1] & __ctype_cntrl;
+                                }
+
+                                __ctype_inline int isdigit(int __c)
+                                {
+                                    return ((unsigned)__c - '0') <= 9;
+                                }
+
+                                __ctype_inline int isgraph(int __c)
+                                {
+                                    return __ctypes[__c + 1] &
+                                    (__ctype_upper | __ctype_lower | __ctype_digit | __ctype_punct);
+                                }
+
+                                __ctype_inline int islower(int __c)
+                                {
+                                    return __ctypes[__c + 1] & __ctype_lower;
+                                }
+
+                                __ctype_inline int isprint(int __c)
+                                {
+                                    return __ctypes[__c + 1] & __ctype_print;
+                                }
+
+                                __ctype_inline int ispunct(int __c)
+                                {
+                                    return __ctypes[__c + 1] & __ctype_punct;
+                                }
+
+                                __ctype_inline int isspace(int __c)
+                                {
+                                    return __ctypes[__c + 1] & __ctype_space;
+                                }
+
+                                __ctype_inline int isupper(int __c)
+                                {
+                                    return __ctypes[__c + 1] & __ctype_upper;
+                                }
+
+                                __ctype_inline int isxdigit(int __c)
+                                {
+                                    return __ctypes[__c + 1] & __ctype_xdigit;
+                                }
+
+                                /* Note: this is decimal, not hex, to avoid accidental promotion to unsigned */
+                                #define _toupper(__c) ((__c) & ~32)
+                                #define _tolower(__c) ((__c) | 32)
+
+                                __ctype_inline int toupper(int __c)
+                                {
+                                    return islower(__c) ? _toupper(__c) : __c;
+                                }
+
+                                __ctype_inline int tolower(int __c)
+                                {
+                                    return isupper(__c) ? _tolower(__c) : __c;
+                                }
+
+                                __extern char *skipspace(const char *p);
+                                __extern void chrreplace(char *source, char old, char new);
+
+                                #endif /* _CTYPE_H */
+                                ```
+
                     -   数组的运用（使用转换表）；
+
                     -   了解宏，以及宏的危害（使用宏）；
-                    -   是否背过这道题（在第一时间给出使用数组+宏的最优方案）；
-                    -   EOF以及C标准库风格。
+
+                    -   是否背过这道题（在第一时间给出使用数组 + 宏的最优方案）；
+
+                    -   EOF 以及 C 标准库风格。
 
                     接下来我还会要求面试者测试这个函数并给出**测试**代码，这里恕不赘述。
 
@@ -1140,12 +1349,13 @@ A Bit of Logic -<
                 -   参数命名上，str 和 sub 好不好？要不换成 haystack 和 needle
                     怎么样？
                 -   int len = strlen(str) 这里 len 的类型换成 size_t 是不是更好？
-                    int 型最多表示多长的字节？2^31-1/2^10(k)/2^10(m)/2^10(g) =
-                    2^{31-30} = 2 GB。我猜完全没有必要用……
+                    int 型最多表示多长的字节？
+                    2^31^-1 / 2^10^ (k) / 2^10^ (m) / 2^10^ (g) = 2^31-30^ = 2 GB。
+                    我猜完全没有必要用……
 
                 上面的问题你怎么回答。
 
-        -   从 Subset 中了解算法面试中模板的重要性 -<
+        -   从 Subset 中了解算法面试中**模板的重要性** -<
 
             :   挺重要。
 
@@ -1156,9 +1366,9 @@ A Bit of Logic -<
 
         -   程序设计入门建议 -<
 
-            :   -   我们的目标是解决问题，而不是为了写程序而写程序，同时应保持简单
-                    （**Keep It Simple and Stupid, KISS**），而不是自己创造条件去展示编
-                    程技巧。
+            :   -   我们的目标是解决问题，而不是为了写程序而写程序，
+                    同时应保持简单（**Keep It Simple and Stupid, KISS**），
+                    而不是自己**创造条件去展示编程技巧**。
 
                 -   三整数排序
 
@@ -1176,7 +1386,9 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   重定向（便于本地测试）
+                        step by step, get closer to your goal.
+
+                -   重定向（便于本地测试） :hearts:
 
                     ```cpp
                     freopen( "data.in",  "r", stdin  );
@@ -1223,10 +1435,17 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   最好在做一件事之前检查是不是可以做，而不要做完再后悔。
+                -   最好**在做一件事之前检查是不是可以做，而不要做完再后悔**。
                     因为“毁棋”往往比较麻烦。
 
-                -   `if( strchr( s, c ) == NULL ) { ... }`{.cpp}
+                -   ```cpp
+                    if( strchr( s, c ) == NULL ) { ... }
+
+                    int idx = strchr(s, c) - s;
+                    if( s[idx] ) {
+                        ...
+                    }
+                    ```
 
                 -   `fgetc` 返回 int？因为 EOF（值为 -1）不容易转化成 char。
 
@@ -1260,7 +1479,7 @@ A Bit of Logic -<
                             while( scanf( "%s", s ) == 1 ) {
                                 int len = strlen(s);
                                 int p = 1, m = 1;
-                                // 不是 len/2，你说为什么呢？
+                                // 不是 len/2，你说为什么呢？ because:          s[i] === s[i] but, s[i] !== rev(s[i]), not always
                                 for( int i = 0; i < (len+1)/2; ++i ) {
                                     if(   s[i]  != s[len-1-i] ) { p = 0; }
                                     if( r(s[i]) != s[len-1-i] ) { m = 0; }
@@ -1341,7 +1560,7 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   猜数字 -<
+                -   猜数字 :disappointed: -<
 
                     :   输入：
 
@@ -1379,7 +1598,7 @@ A Bit of Logic -<
                                         scanf( "%d", &b[i] );
                                         if( a[i] == b[i] ) { A++; }         // 统计 A
                                     }
-                                    if( b == 0 ) { break; }              // 正常的猜测序列不会有 0，所以只判断第一个数是否为 0 即可
+                                    if( b == 0 ) { break; }                 // 正常的猜测序列不会有 0，所以只判断第一个数是否为 0 即可
                                     for(int d = 1; d <= 9; d++) {
                                         int c1 = 0, c2 = 0;                 // 统计数字 d 在答案序列和猜测序列中各出现多少次
                                         for(int i = 0; i < n; i++) {
@@ -1395,9 +1614,10 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   生成元 -<
+                -   生成元 :disappointed: -<
 
-                    :   x 加上 x 的各个数字得到 y，就说 x 是 y 的生成元。给出 n（1<=n<=100000），求最小生成元。无解输出 0。
+                    :   x 加上 x 的各个数字得到 y，就说 x 是 y 的生成元。给出 n
+                        （1<=n<=100000），求最小生成元。无解输出 0。
                         例如，n=216，121，2005 时的解围 198，0， 1979。
 
                         ```cpp
@@ -1429,23 +1649,24 @@ A Bit of Logic -<
 
         -   第 4 章，函数和递归 -<
 
-            :   -   知识点 -<
+            :   -   知识点 :hearts: -<
 
                     :   -   由于使用了调用栈，C 语言自然支持了递归。在 C 语言中，
                             调用自己和调用其他函数并没有本质不同。
-                        -   正文段（Text Segment）存储指令，数据段（Data
-                            Segment）用于存储已经初始化的全局变量；BSS 段（BSS
-                            Segment）用于存储没赋值的全局变量所需的空间。运行时
-                            创建的调用栈所在段区被称为堆栈段（Stack Segment），
-                            越界访问就会出现 Segment Fault。栈帧太多，可能越界，
-                            这叫栈溢出（Stack Overflow）。
+                        -   正文段（Text Segment）存储指令，
+                            **数据段（Data Segment）用于存储已经初始化的全局变量；**
+                            BSS 段（BSS Segment）用于存储没赋值的全局变量所需的空间。
+                            运行时创建的调用栈所在段区被称为堆栈段（Stack Segment），
+                            越界访问就会出现 Segment Fault。
+                            栈帧太多，可能越界，这叫栈溢出（Stack Overflow）。
 
-                            可以用 `ulimit -a` 显示 stack size，用 `ulimit -s
-                            32768` 设置为 32 MB。Windows 上也可以设置。
+                            可以用 `ulimit -a` 显示 stack size，
+                            用 `ulimit -s 32768` 设置为 32 MB。
+                            Windows 上也可以设置。
 
                             局部变量太大，也可能 stack overflow。
 
-                -   古老的密码 -<
+                -   古老的密码 :disappointed: -<
 
                     :   一个随意的字符串 JWPUDJSTVP 能不能通过字符变换变成
                         VICTORIOUS，只要统计单词的频率，看是否匹配就可以了。
@@ -1454,6 +1675,8 @@ A Bit of Logic -<
                         #include <stdio.h>
                         #include <string.h>                                             // strlen
                         #include <stdlib.h>                                             // qsort
+
+                        #define ASCIISZIE 128
 
                         int cmp( const void *a, const void *b ) {
                             return *(int *)a - *(int *)b;
@@ -1464,13 +1687,13 @@ A Bit of Logic -<
                             while( scanf( "%s%s", s1, s2 ) == 2 ) {
                                 int n = strlen(s1);
                                 // assert( strlen(s1) == strlen(s2) );
-                                int cnt1 = {0}, cnt2 = {0};
+                                int cnt1[ASCIISIZE] = {0}, cnt2[ASCIISIZE] = {0};
                                 for( int i = 0; i < n; i++ ) { cnt1[s1[i] - 'A']++; }   // 统计
                                 for( int i = 0; i < n; i++ ) { cnt2[s2[i] - 'A']++; }
-                                qsort( cnt1, 26, sizeof( int ), cmp );                  // 对字频排序
-                                qsort( cnt2, 26, sizeof( int ), cmp );
+                                qsort( cnt1, ASCIISIZE, sizeof( int ), cmp );           // 对字频排序
+                                qsort( cnt2, ASCIISIZE, sizeof( int ), cmp );
                                 int ok = 1;
-                                for( int i = 0; i < 26; i++ ) {
+                                for( int i = 0; i < ASCIISIZE; i++ ) {
                                     if( cnt1[i] != cnt2[i] ) { ok = 0; }                // 是否匹配？
                                 }
                                 if( ok ) {
@@ -1491,7 +1714,7 @@ A Bit of Logic -<
                         sort( cnt2, cnt2 + 26 );
                         ```
 
-                -   骰子涂色 -<
+                -   骰子涂色 :hearts: -<
 
                     :   rbgggr 和 rggbgr 一样。
 
@@ -1572,9 +1795,11 @@ A Bit of Logic -<
                         }
                         ```
 
+                        see tutorial: [C/C++ notes](c-cpp.html).
+
                 -   5.2 STL 101 -<
 
-                    :   -   大理石在哪儿？ -<
+                    :   -   大理石在哪儿？ `sort, lower_bound` -<
 
                             :   ```
                                 input:
@@ -1629,11 +1854,7 @@ A Bit of Logic -<
                                 5 found at 4
                                 ```
 
-                        -   木块问题 -<
-
-                            :   use vector
-
-                        -   Set, Map -<
+                        -   Set, Map `set<int>::iterator` -<
 
                             :   elements in **set** already sorted.
 
@@ -1707,6 +1928,13 @@ A Bit of Logic -<
 
                                     :   >   明白 stack，以及常用的 `push(item)`, `item = top()`, `pop()` 操作。
 
+                                        ```cpp
+                                        //  print stack contents
+                                        for( std::stack<int> dump = stack; !dump.empty(); dump.pop() ) {
+                                            std::cout << dump.top() << '\n';
+                                        }
+                                        ```
+
                                         The SetStack Computer，支持如下操作：
 
                                         -   PUSH：空集“{}”入栈
@@ -1778,7 +2006,15 @@ A Bit of Logic -<
 
                                 -   queue -<
 
-                                    :   t 个队伍排队。新来的人，如果有队友，就插入到队友后面，如果没有，就只能排最后面。
+                                    :   >   ```cpp
+                                        >   queue<int> q;
+                                        >   q.push( val );
+                                        >   q.pop();
+                                        >   q.front();
+                                        >   q.back();
+                                        >   ```
+
+                                        t 个队伍排队。新来的人，如果有队友，就插入到队友后面，如果没有，就只能排最后面。
                                         输入每个团队中所有队员的编号，要求支持如下 3 中命令：
 
                                         -   ENQUEUE x：把 x 入队
@@ -1835,9 +2071,15 @@ A Bit of Logic -<
                                         }
                                         ```
 
-                                -   priority_queue -<
+                                -   priority_queue :hearts: -<
 
-                                    :   ugly number 是不能被 2，3，5 以为的其他素数整除的数。
+                                    :   >   ```cpp
+                                        >   pq.push();
+                                        >   pq.top();
+                                        >   pq.pop();
+                                        >   ```
+
+                                        ugly number 是不能被 2，3，5 以为的其他素数整除的数。
                                         （相比质数不是那么严格。）也就是 2，3，5 的各种）乘积的组合。
 
                                         如果 x 是 ugly number，2x，3x 和 5x 都会是 ugly number。用优先队列即可。
@@ -1899,25 +2141,621 @@ A Bit of Logic -<
 
                                         -   `priority_queue<int> pq` 是越小的整数优先级越低（逆序）
                                         -   `priority_queue<int, vector<int>, greater<int> > pq` 是越大的整数优先级越低（正序）
-                                        -   queue 使用 `front()` 出队，priority queue 使用 `top()`
+                                        -   **queue 使用 `front()`，priority queue 使用 `top()`**
 
                         -   Test STL -<
 
                             :   tips and guidelines
 
-                                -   RAND_MAX may be only 32767 (2^15-1)
+                                -   RAND_MAX may be only 32767 (2^15^-1)
                                 -   use `assert( ... )`, header file is `<assert.h>`
                                 -   vector, set, map are fast.
 
                 -   5.3 Big Integer -<
 
-                    :   TODO: browser some other implementation.
-
-                        ```cpp
+                    :   ```cpp
                         bool operator >  ( const T &rhs ) const { return   rhs < *this;     }
                         bool operator <= ( const T &rhs ) const { return !(rhs < *this);    }
                         bool operator != ( const T &rhs ) const { return !(*this == rhs);   }
                         ```
+
+                        在 32 位 CPU 下，C/C++ 中的 int 能表示的范围是 -2^31^ ~ 2^32^-1，
+                        unsigned int 能表示的范围是 0 ~ 2^32^。所以，int 和 unsigned int
+                        都不能保存超过 10 位的整数 (解方程 10^x^ <= 2^32^，可得 x <= 9.63。)
+                        有时我们需要参与运算的整数，可能会远远不止 10 位，我们
+                        称这种基本数据类型无法表示的整数为大整数。如何表示和存
+                        放大整数呢？基本的思想是：用数组模拟大整数。一个数组元
+                        素，存放大整数中的一位。
+
+                        例如，一个 200 位的十进制整数，可以用 `int x[200]` 来表
+                        示，一个数组元素对应一个位。这样做有点浪费空间，因为一
+                        个 int 可以表示的范围远远大于 10。因此，我们可以用一个
+                        数组元素，表示 4 个数位（一个 int 可以表示的范围也远远
+                        大于 10000，为什么一个数组元素只表示 4 个数位，可不可以
+                        表示 9 个数位？留给读者思考），这时，数组不再是 10 进制，
+                        而是 10000 进制。使用万进制，数组长度可以缩减到原来的 1/4。
+
+                        (我觉得, 万进制方便实现乘法, 不容易越界.)
+
+                        大整数加法 -<
+
+                        :   求两个非负的大整数相加的和。
+
+                            ```
+                            输入
+
+                                有两行，每行是一个不超过 200 位的非负整数，可能有多余的前导 0。
+
+                                33333333333333333333
+                                22222222222222222222
+
+                                234123412341324190834500091234087501234087
+                                190834500091234087501234087412340871234609
+
+                                234123412341324190834500091234087501234087234444444444444444444444
+                                12134123442134190834500091234087501234087412340871234609
+
+                                999999999999999
+                                5
+
+                                999999999999999999999999999999999999999999999999999999999999999999
+                                1
+
+                            输出
+
+                                一行，即相加后的结果。结果里不能有多余的前导 0，即如果结果是 342，那么就不
+                                能输出为 0342。
+
+                                33333333333333333333 +
+                                22222222222222222222 =
+                                55555555555555555555
+
+                                234123412341324190834500091234087501234087 +
+                                190834500091234087501234087412340871234609 =
+                                424957912432558278335734178646428372468696
+
+                                234123412341324190834500091234087501234087234444444444444444444444 +
+                                12134123442134190834500091234087501234087412340871234609 =
+                                234123412353458314276634282068587592468174735678531856785315679053
+
+                                999999999999999 +
+                                5 =
+                                1000000000000004
+
+                                999999999999999999999999999999999999999999999999999999999999999999 +
+                                1 =
+                                1000000000000000000000000000000000000000000000000000000000000000000
+                            ```
+
+                            ```cpp
+                            #include <stdio.h>
+                            #include <string.h>
+                            #include <stdlib.h>
+
+                            // 一个数组元素表示 4 个十进制位，即数组是万进制的
+                            #define BIGINT_RADIX 10000
+                            #define RADIX_LEN 4
+                            #define MAX_LEN (200/RADIX_LEN+1)                               // 整数的最大位数
+
+                            char a[MAX_LEN * RADIX_LEN], b[MAX_LEN * RADIX_LEN];
+                            int  x[MAX_LEN], y[MAX_LEN];
+                            int  z[MAX_LEN * 2]; // bigint_mul
+
+                            void bigint_print( const int x[], const int n ) {
+                                bool start_output = false;              // 用于跳过前导 0
+                                for( int i = n - 1; i >= 0; --i ) {
+                                    if( start_output ) {                // 如果多余的 0 已经都跳过，则输出
+                                        printf( "%04d", x[i] );
+                                        continue;
+                                    }
+                                    if( x[i] > 0 ) {
+                                        printf( "%d", x[i] );           // 本题输出比较坑爹，最高位数字有前导 0
+                                        start_output = true;            // 碰到第一个非 0 的值，就说明多余的 0 已经都跳过
+                                    }
+                                }
+
+                                if ( !start_output ) { printf("0"); }   // 当 x 全为 0 时
+                            }
+
+                            // x 大整数，用数组表示，低位在低地址
+                            void bigint_input( const char s[], int x[] ) {
+                                // memset( x, 0, sizeof(x) ); sizeof(x) == sizeof(int *)
+                                memset( x, 0, MAX_LEN*sizeof(int) );
+                                int j = 0;
+                                for( int i = strlen(s); i > 0; i -= RADIX_LEN ) {  /* [i-RADIX_LEN, i) */
+                                    int low = i-RADIX_LEN > 0 ? i-RADIX_LEN : 0;
+                                    int temp = 0;
+                                    for( int k = low; k < i; ++k ) {
+                                        temp = temp * 10 + s[k] - '0';
+                                    }
+                                    x[j++] = temp;
+                                }
+                            }
+
+                            void bigint_add( const int x[], const int y[], int z[] ) {
+                                memset( z, 0, (MAX_LEN*2)*sizeof(int) );
+                                for( int i = 0; i < MAX_LEN; ++i ) {
+                                    z[i] += x[i] + y[i];
+                                    if( z[i  ] >= BIGINT_RADIX ) {
+                                        z[i+1] += z[i] / BIGINT_RADIX;
+                                        z[i  ] %= BIGINT_RADIX;
+                                    }
+                                }
+                            }
+
+                            int main() {
+                                while( 2 == scanf( "%s %s", a, b ) ) {
+                                    bigint_input( a, x );
+                                    bigint_input( b, y );
+                                    bigint_add( x, y, z );
+                                    bigint_print( x, sizeof(x)/sizeof(x[0]) ); printf(" + \n");
+                                    bigint_print( y, sizeof(y)/sizeof(y[0]) ); printf(" = \n");
+                                    bigint_print( z, sizeof(z)/sizeof(z[0]) ); printf("\n\n");
+                                }
+                                return 0;
+                            }
+                            ```
+
+                            ```
+                            ## more about bigint input
+
+                            void bigint_input( const char s[], int x[] ) {  // x 大整数，用数组表示，低位在低地址
+                                // don't not use 'memset( x, 0, sizeof(x) );' because 'sizeof(x) == sizeof(int *)'
+                                memset( x, 0, MAX_LEN*sizeof(int) );
+                                int j = 0;
+                                for( int i = strlen(s); i > 0; i -= RADIX_LEN ) {
+                                    // (i, i-RADIX_LEN]
+                                    int low = i-RADIX_LEN > 0 ? i-RADIX_LEN : 0;
+                                    int temp = 0;
+                                    printf( "s[%d, %d) = \"", low, i );
+                                    for( int k = low; k < i; ++k ) {
+                                        temp = temp * 10 + s[k] - '0';
+                                        printf( "%c", s[k] );
+                                    }
+                                    printf( "\", \t\t" ); printf( "x[j=%d] = %d\n", j, temp );
+                                    x[j++] = temp;
+                                }
+                            }
+
+                            111222333444555666777888999
+
+                            111
+                              2223
+                                  3344
+                                      4555
+                                           6667
+                                               7788
+                                                   8999
+
+                                                   8        = 0*10      +   [8]
+                                                   89       = 8*10      +   [9]
+                                                   899      = 89*10     +   [9]
+                                                   8999     = 899*10    +   [9]
+
+                            s[23, 27) = "8999",         x[j=0] = 8999
+                            s[19, 23) = "7788",         x[j=1] = 7788
+                            s[15, 19) = "6667",         x[j=2] = 6667
+                            s[11, 15) = "4555",         x[j=3] = 4555
+                            s[ 7, 11) = "3344",         x[j=4] = 3344
+                            s[ 3,  7) = "2223",         x[j=5] = 2223
+                            s[ 0,  3) =  "111",         x[j=6] =  111
+                            ```
+
+                        大整数减法 -<
+
+                        :   ```cpp
+                            void bigint_sub( const int x[], const int y[], int z[] ) {
+                                memset( z, 0, (MAX_LEN*2)*sizeof(int) );
+                                for( int i = 0; i < MAX_LEN; ++i ) {
+                                    z[i] += x[i] - y[i];
+                                    while( z[i] < 0 ) {                  // 看是否要借位
+                                        z[i] += BIGINT_RADIX;
+                                        --z[i+1];
+                                    }
+                                }
+                            }
+                            ```
+
+                            ```
+                            33333333333333333333 -
+                            22222222222222222222 =
+                            11111111111111111111
+
+                            234123412341324190834500091234087501234087 -
+                            190834500091234087501234087412340871234609 =
+                            43288912250090103333266003821746629999478
+
+                            234123412341324190834500091234087501234087234444444444444444444444 -
+                            12134123442134190834500091234087501234087412340871234609 =
+                            234123412329190067392365900399587409999999733210357032103573209835
+
+                            999999999999999 -
+                            5 =
+                            999999999999994
+
+                            999999999999999999999999999999999999999999999999999999999999999999 -
+                            1 =
+                            999999999999999999999999999999999999999999999999999999999999999998
+                            ```
+
+                        大整数乘法 -<
+
+                        :   两个 200 位的数相乘，积最多会有 400 位。
+
+                            计算的过程基本上和小学生列竖式做乘法相同。为编程方
+                            便，并不急于处理进位，而将进位问题留待最后统一处理。
+
+                            一个数的第 i 位和另一个数的第 j 位相乘所得的数，一
+                            定是要累加到结果的第 i+j 位上。这里 i, j 都是从右往
+                            左，从 0 开始数。
+
+                            ```cpp
+                            void bigint_mul( const int x[], const int y[], int z[] ) {
+                                memset( z, 0, (MAX_LEN*2)*sizeof(int) );
+                                for( int i = 0; i < MAX_LEN; ++i ) {
+                                    for( int j = 0; j < MAX_LEN; ++j ) {
+                                        z[i + j] += y[i] * x[j];                    // 两数第 i, j 位相乘，累加到结果的第 i+j 位
+                                        if( z[i + j] >= BIGINT_RADIX ) {            // 看是否要进位
+                                            z[i+j+1] += z[i + j] / BIGINT_RADIX;
+                                            z[i + j] %= BIGINT_RADIX;
+                                        }
+                                    }
+                                }
+                            }
+                            ```
+
+                            ```
+                            33333333333333333333 x
+                            22222222222222222222 =
+                            740740740740740740725925925925925925926
+
+                            234123412341324190834500091234087501234087 x
+                            190834500091234087501234087412340871234609 =
+                            44678824353810467183442287509177670164600699173891564239282307776984043046804916983
+
+                            234123412341324190834500091234087501234087234444444444444444444444 x
+                            12134123442134190834500091234087501234087412340871234609 =
+                            2840882386043311185404680351433686312716618743780815470159469535469124552403228890832162235291280220562627816737390562396
+
+                            999999999999999 x
+                            5 =
+                            4999999999999995
+
+                            999999999999999999999999999999999999999999999999999999999999999999 x
+                            1 =
+                            999999999999999999999999999999999999999999999999999999999999999999
+                            ```
+
+                        大整数乘法 -<
+
+                        :   基本的思想是反复做减法，看看从被除数里最多能减去多
+                            少个除数，商就是多少。一个一个减显然太慢，如何减得
+                            更快一些呢？以 7546 除以 23 为例来看一下：开始商为 0。
+                            先减去 23 的 100 倍，就是 2300，发现够减 3 次，余下
+                            646。于是商的值就增加 300。然后用 646 减去 230，发
+                            现够减 2 次，余下 186，于是商的值增加 20。最后用
+                            186 减去 23，够减8 次，因此最终商就是 328。
+
+                            所以本题的核心是要写一个大整数的减法函数，然后反复
+                            调用该函数进行减法操作。
+
+                            计算除数的 10 倍、100 倍的时候，不用做乘法，直接在除数
+                            后面补 0 即可。
+
+                            ```cpp
+                            int length( const int x[] ) {
+                                int result = 0;
+                                for( int i = MAX_LEN - 1; i >= 0; --i ) {
+                                    if( x[i] > 0 ) { result = i + 1; break; }
+                                }
+                                return result;
+                            }
+                            int helper_sub( int x[], const int y[] ) {
+                                int lenx = length(x);
+                                int leny = length(y);
+                                // 判断 x 是否比 y 大
+                                if( lenx < leny ) { return -1; }
+                                if( lenx == leny ) {
+                                    int larger = 0;
+                                    for( int i = lenx - 1; i >= 0; --i ) {
+                                        if( x[i] > y[i] ) {
+                                            larger = 1;
+                                        } else if ( x[i] < y[i] ) {
+                                            if( !larger ) { return -1; }
+                                        }
+                                    }
+                                }
+
+                                for( int i = 0; i < MAX_LEN; ++i ) {    // 逐位相减
+                                    x[i] -= y[i];
+                                    while( x[i] < 0 ) {                 // 看是否要借位
+                                        x[i] += BIGINT_RADIX;
+                                        x[i+1] --;
+                                    }
+                                }
+                                return 1;
+                            }
+
+                            void bigint_div( int x[], const int y[], int z[] ) {
+                                int xlen = length(x);
+                                int ylen = length(y);
+                                int times = xlen - ylen;
+
+                                memset( z, 0, (MAX_LEN*2)*sizeof(int) );
+
+                                if( times < 0 ) { return; }                     // z = 0
+
+                                int *yy = (int *)malloc(sizeof(int) * MAX_LEN); // y 的副本
+                                memcpy( yy, y, sizeof(int) * MAX_LEN );
+
+                                // 将 yy 右移 times 位，使其长度和 x 相同，即 yy 乘以 10000 的 times 次幂
+                                for( int i = xlen - 1; i >= 0; --i ) {
+                                    if( i >= times ) {
+                                        yy[i] = yy[i - times];
+                                    } else {
+                                        yy[i] = 0;
+                                    }
+                                }
+
+                                // 先减去若干个 y×(10000 的 times 次方)，不够减了，再减去若干个 y×(10000 的
+                                // times-1 次方) 一直减到不够减为止
+                                ylen = xlen;
+                                for( int i = 0; i <= times; ++i ) {
+                                    while( helper_sub( x, yy) >= 0 ) {
+                                        ++z[times - i];
+                                    }
+                                    // yy 除以BIGINT_RADIX，即左移一位
+                                    for( int j = 1; j < ylen; ++j ) {
+                                        yy[j - 1] = yy[j];
+                                    }
+                                    yy[--ylen] = 0;
+                                }
+                                free( yy );
+
+                                // 下面的循环统一处理进位
+                                for( int i = 0; i < MAX_LEN - 1; ++i ) {
+                                    if( z[i  ] >= BIGINT_RADIX ) {          // 看是否要进位
+                                        z[i+1] += z[i] / BIGINT_RADIX;      // 进位
+                                        z[i  ] %= BIGINT_RADIX;
+                                    }
+                                }
+                            }
+                            ```
+
+                            ```
+                            $ cat input.txt
+                            33333333333333333333
+                            22222222222222222222
+
+                            234123412341324190834500091234087501234087
+                            190834500091234087501234087412340871234609
+
+                            234123412341324190834500091234087501234087234444444444444444444444
+                            12134123442134190834500091234087501234087412340871234609
+
+                            999999999999999
+                            5
+
+                            999999999999999999999999999999999999999999999999999999999999999999
+                            1
+
+                            12345678900
+                            98765432100
+
+                            2405337312963373359009260457742057439230496493930355595797660791082739646
+                            2987192585318701752584429931160870372907079248971095012509790550883793197894
+
+                            10000000000000000000000000000000000000000
+                            10000000000
+
+                            5409656775097850895687056798068970934546546575676768678435435345
+                            1
+
+                            2405337312963373359009260457742057439230496493930355595797660791082739646
+                            2987192585318701752584429931160870372907079248971095012509790550883793197894
+
+                            10000000000000000000000000000000000000000
+                            10000000000
+
+                            5409656775097850895687056798068970934546546575676768678435435345
+                            1
+
+                            $ cat input.txt | ./a.out
+                            33333333333333333333 /
+                            22222222222222222222 =
+                            1
+
+                            234123412341324190834500091234087501234087 /
+                            190834500091234087501234087412340871234609 =
+                            1
+
+                            234123412341324190834500091234087501234087234444444444444444444444 /
+                            12134123442134190834500091234087501234087412340871234609 =
+                            19294629188
+
+                            999999999999999 /
+                            5 =
+                            199999999999999
+
+                            999999999999999999999999999999999999999999999999999999999999999999 /
+                            1 =
+                            999999999999999999999999999999999999999999999999999999999999999999
+
+                            12345678900 /
+                            98765432100 =
+                            0
+
+                            2405337312963373359009260457742057439230496493930355595797660791082739646 /
+                            2987192585318701752584429931160870372907079248971095012509790550883793197894 =
+                            0
+
+                            10000000000000000000000000000000000000000 /
+                            10000000000 =
+                            1000000000000000000000000000000
+
+                            5409656775097850895687056798068970934546546575676768678435435345 /
+                            1 =
+                            5409656775097850895687056798068970934546546575676768678435435345
+
+                            2405337312963373359009260457742057439230496493930355595797660791082739646 /
+                            2987192585318701752584429931160870372907079248971095012509790550883793197894 =
+                            0
+
+                            10000000000000000000000000000000000000000 /
+                            10000000000 =
+                            1000000000000000000000000000000
+
+                            5409656775097850895687056798068970934546546575676768678435435345 /
+                            1 =
+                            5409656775097850895687056798068970934546546575676768678435435345
+                            ```
+
+                        大数阶乘 -<
+
+                        :   大数阶乘的位数 -<
+
+                            :   求 n! 的位数， 0 <= n <= 10^7。
+
+                                ```
+                                输入
+
+                                    第一行是一个正整数 T，表示测试用例的个数。接下来的 T 行，每行一个正整数 n。
+
+                                    2
+                                    10
+                                    20
+
+                                输出
+
+                                    对每个 n，每行输出 n! 的位数
+
+                                    7
+                                    19
+                                ```
+
+                                最简单的办法，是老老实实计算出 n!，然后就知道它的位数了。
+                                但这个方法很慢，会超时 (TLE)。
+
+                                组合数学里有个 Stirling 公式 ([Stirling's formula](http://en.wikipedia.org/wiki/Stirling's_approximation))
+
+                                可以用这个公式来计算 n! 的位数，它等于
+
+                                ```
+                                                              n!
+                                     lim        -----------------------------       =             1
+                                                   sqrt(2*pi*n) * (n/e)^n
+                                    n->inf
+
+
+                                    n! 的位数          =    n * log(n/e) + 1/2 * log(2*pi*n)   +  1
+
+                                        100            ->   log(100) +1 = 2+1 = 3
+                                        1000           ->   log(1000)+1 = 3+1 = 4
+                                ```
+
+                                ```cpp
+                                #include <stdio.h>
+                                #include <math.h>
+
+                                int factorial_digits( unsigned int n ) {
+                                    const static double PI = 3.14159265358979323846;
+                                    const static double E = 2.7182818284590452354;
+                                    if( n == 0 ) { return 1; }
+                                    return 1 + (int)( n*log10(n/E) + 0.5*log10(2*PI*n) );
+                                }
+
+                                int main() {
+                                    int T;
+                                    while( 1 == scanf("%d", &T) ) {
+                                        int n;
+                                        while( T-- ) {
+                                            scanf( "%d", &n );
+                                            printf( "%d\n", factorial_digits(n) );
+                                        }
+                                    }
+                                    return 0;
+                                }
+                                ```
+
+
+                            大数阶乘 -<
+
+                            :   ```
+                                输入
+
+                                    每行一个整数 n
+
+                                    1
+                                    2
+                                    3
+                                    6
+                                    18
+                                    108
+
+                                输出
+
+                                    对每个 n，每行输出 n!
+
+                                    1
+                                    2
+                                    6
+                                    720
+                                    6402373705728000
+                                    1324641819451828974499891837121832599810209360673358065686551152497461815091591578895743130235002378688844343005686404521144382704205360039762937774080000000000000000000000000
+                                ```
+
+                                ```cpp
+                                #include <stdio.h>
+                                #include <string.h>
+
+                                #define BIGINT_RADIX 10000
+                                #define RADIX_LEN 4
+                                #define MAX_LEN (35660/RADIX_LEN+1)         // 10000! 有 35660 位
+
+                                int     x[MAX_LEN + 1];
+
+                                void bigint_print( const int x[], const int n ) {
+                                    bool start_output = false;              // 用于跳过前导 0
+                                    for( int i = n - 1; i >= 0; --i ) {
+                                        if( start_output ) {                // 如果多余的 0 已经都跳过，则输出
+                                            printf( "%04d", x[i] );
+                                            continue;
+                                        }
+                                        if( x[i] > 0 ) {
+                                            printf( "%d", x[i] );           // 本题输出比较坑爹，最高位数字有前导 0
+                                            start_output = true;            // 碰到第一个非 0 的值，就说明多余的 0 已经都跳过
+                                        }
+                                    }
+                                    if ( !start_output ) { printf("0"); }   // 当 x 全为 0 时
+                                }
+
+                                // 大整数乘法, x = x*y.
+                                void bigint_mul( int x[], const int y ) {
+                                    int c = 0;                              // carry
+                                    for( int i = 0; i < MAX_LEN; ++i ) {    // 用 y，去乘以 x 的各位
+                                        int tmp = x[i] * y + c;
+                                        x[i] = tmp % BIGINT_RADIX;
+                                        c    = tmp / BIGINT_RADIX;
+                                    }
+                                }
+
+                                void bigint_factorial( int n, int x[] ) {
+                                    memset( x, 0, sizeof(int)*(MAX_LEN+1) );
+                                    x[0] = 1;
+                                    for( int i = 2; i <= n; ++i ) {
+                                        bigint_mul( x, i );
+                                    }
+                                }
+
+                                int main() {
+                                    int n;
+                                    while ( 1 == scanf("%d", &n) ) {
+                                        bigint_factorial( n, x );
+                                        bigint_print( x, MAX_LEN + 1 ); printf("\n");
+                                    }
+                                    return 0;
+                                }
+                                ```
 
                 -   5.4 Selected Problems -<
 
@@ -4055,7 +4893,7 @@ A Bit of Logic -<
 
                         #define MAXK 100
 
-                        // 一个数组元素表示4个十进制位，即数组是万进制的
+                        // 一个数组元素表示 4 个十进制位，即数组是万进制的
                         #define BIGINT_MOD 10000
                         #define MOD_LEN 4
                         #define MAX_LEN (61/MOD_LEN+1)  // 整数的最大位数, 10^x > 4^100
@@ -4066,17 +4904,17 @@ A Bit of Logic -<
                         void bigint_print(const int x[], const int n) {
                             bool start_output = false;              // 用于跳过前导 0
                             for( int i = n - 1; i >= 0; --i ) {
-                                if (start_output) {                 // 如果多余的0已经都跳过，则输出
+                                if( start_output ) {                 // 如果多余的 0 已经都跳过，则输出
                                     printf( "%04d", x[i] );
                                     continue;
                                 }
-                                if (x[i] > 0) {
-                                    printf("%d", x[i]);             // 本题输出比较坑爹，最高位数字有前导0
-                                    start_output = true;            // 碰到第一个非0的值，就说明多余的0已经都跳过
+                                if( x[i] > 0 ) {
+                                    printf( "%d", x[i] );           // 本题输出比较坑爹，最高位数字有前导 0
+                                    start_output = true;            // 碰到第一个非 0 的值，就说明多余的 0 已经都跳过
                                 }
                             }
 
-                            if ( !start_output ) { printf("0"); }   // 当x全为0时
+                            if ( !start_output ) { printf("0"); }   // 当 x 全为 0 时
                         }
 
                         // 计算f(k) = 4f(k-1)+1，与大整数乘法很类似.
@@ -17742,40 +18580,1703 @@ A Bit of Logic -<
                     }
                     ```
 
-            -   John's trip
+            -   John's trip -<
 
-            -   The Necklace
+                :   Little Johnny has got a new car. He decided to drive around
+                    the town to visit his friends. Johnny wanted to visit all
+                    his friends, but there was many of them. In each street he
+                    had one friend. He started thinking how to make his trip as
+                    short as possible. Very soon he realized that the best way
+                    to do it was to travel through each street of town only
+                    once. Naturally, he wanted to finish his trip at the same
+                    place he started, at his parents' house.
+
+                    The streets in Johnny's town were named by integer numbers
+                    from 1 to $n, n < 1995$. The junctions were independently
+                    named by integer numbers from 1 to $m, m <= 44$. No
+                    junction connects more than 44 streets. All junctions in
+                    the town had different numbers. Each street was connecting
+                    exactly two junctions. No two streets in the town had the
+                    same number. He immediately started to plan his round trip.
+                    If there was more than one such round trip, he would have
+                    chosen the one which, when written down as a sequence of
+                    street numbers is lexicographically the smallest. But
+                    Johnny was not able to find even one such round trip.
+
+                    Help Johnny and write a program which finds the desired
+                    shortest round trip. If the round trip does not exist the
+                    program should write a message. Assume that Johnny lives at
+                    the junction ending the street appears first in the input
+                    with smaller number. All streets in the town are two way.
+                    There exists a way from each street to another street in
+                    the town. The streets in the town are very narrow and there
+                    is no possibility to turn back the car once he is in the
+                    street.
+
+                    ```
+                    Input
+
+                        Input file consists of several blocks. Each block describes one town. Each
+                        line in the block contains three integers x; y; z, where x > 0 and y > 0
+                        are the numbers of junctions which are connected by the street number z.
+                        The end of the block is marked by the line containing x = y = 0. At the end
+                        of the input file there is an empty block, x = y = 0.
+
+                        1 2 1
+                        2 3 2
+                        3 1 6
+                        1 2 5
+                        2 3 3
+                        3 1 4
+                        0 0
+                        1 2 1
+                        2 3 2
+                        1 3 3
+                        2 4 4
+                        0 0
+                        0 0
+
+                    Output
+
+                        Output one line of each block contains the sequence of street numbers
+                        (single members of the sequence are separated by space) describing Johnny's
+                        round trip. If the round trip cannot be found the corresponding output
+                        block contains the message "Round trip does not exist."
+
+                        1 2 3 5 4 6
+                        Round trip does not exist.
+                    ```
+
+                    分析
+
+                    :   欧拉回路。
+
+                        如果能从图的某一顶点出发，每条边恰好经过一次，这样的路
+                        线称为**欧拉道路 (Eulerian Path)**。如果还能够回到起点，
+                        这样的路线称为**欧拉回路 (Eulerian Circuit)**。
+
+                        对于无向图 G，当且仅当 G 是连通的，且最多有两个奇点，则
+                        存在欧拉道路。如果有两个奇点，则必须从其中一个奇点出发，
+                        到另一个奇点终止。
+
+                        如果没有奇点，则一定存在一条欧拉回路。
+
+                        对于有向图 G，当且仅当 G 是连通的，且每个点的入度等于出
+                        度，则存在欧拉回路。
+
+                        如果有两个顶点的入度与出度不相等，且一个顶点的入度比出
+                        度小1，另一个顶点的入度比出度大1，此时，存在一条欧拉道
+                        路，以前一个顶点为起点，以后一个顶点为终点。
+
+                    ```cpp
+                    // POJ 1041 John's trip, http://poj.org/problem?id=1041
+                    #include <iostream>
+                    #include <cstring>
+                    #include <algorithm>
+                    #include <stack>
+
+                    using namespace std;
+
+                    const int MAX_NV = 45;
+                    const int MAX_NE = 1996;
+
+                    struct graph_t {
+                        int nv;
+                        int ne;
+                        int matrix[MAX_NV][MAX_NE];     // G[点][边] = 点，这样是为了能方便让边 lexicographically 输出
+                    } G;
+
+                    bool visited[MAX_NE];               // 边是否已访问
+                    int  degree[MAX_NV];                // 点的度
+
+                    stack<int> s;                       // 栈，用于输出
+
+                    void stack_print( stack<int> &s ) {
+                        while( !s.empty() ) {
+                            cout << s.top() << " ";
+                            s.pop();
+                        }
+                        cout << "\n";
+                    }
+
+                    void euler( int u ) {
+                        for( int e = 1; e <= G.ne; ++e ) {
+                            if( !visited[e] && G.matrix[u][e] ) {
+                                visited[e] = true;
+                                euler( G.matrix[u][e] );
+                                s.push( e );
+                            }
+                        }
+                    }
+
+                    int main() {
+                        int x, y, z, start;
+                        while( (cin >> x >> y) && x && y ) {
+                            memset( visited,    false,  sizeof(visited) );
+                            memset( degree,     0,      sizeof(degree)  );
+                            memset( &G,         0,      sizeof(G)       );
+
+                            start = x < y ? x : y;
+                            cin >> z;
+                            G.ne = max( G.ne, z );
+                            G.nv = max( G.nv, max(x, y) );
+                                                            // input: x (node), y (node), z (edge)
+                            G.matrix[x][z] = y;             // x ---z---> y
+                            G.matrix[y][z] = x;             // y ---z---> x
+                            ++degree[x];
+                            ++degree[y];
+
+                            while( (cin >> x >> y) && x && y ) {
+                                cin >> z;
+                                G.ne = max( G.ne, z );
+                                G.nv = max( G.nv, max(x, y) );
+                                G.matrix[x][z] = y;
+                                G.matrix[y][z] = x;
+                                ++degree[x];
+                                ++degree[y];
+                            }
+
+                            // 欧拉回路形成的条件之一，判断结点的度是否为偶数
+                            bool valid = true;
+                            for( int i = 1; i <= G.nv; ++i ) {
+                                if( degree[i] & 1 ) {
+                                    valid = false;
+                                    break;
+                                }
+                            }
+
+                            if( !valid ) {
+                                cout << "Round trip does not exist.\n";
+                            } else {
+                                euler( start );
+                                stack_print(s);
+                            }
+                        }
+                        return 0;
+                    }
+                    ```
+
+            -   The Necklace :buggy?: -<
+
+                :   My little sister had a beautiful necklace made of colorful
+                    beads. Two successive beads in the necklace shared a common
+                    color at their meeting point. The figure below shows a
+                    segment of the necklace:
+
+                    ```
+                       +-----------+   +-----------+   +-------------+   +------------+
+                    ---| green|red |---| red|white |---| white|green |---| green|blue |---
+                       +-----------+   +-----------+   +-------------+   +------------+
+                    ```
+
+                    But, alas! One day, the necklace was torn and the beads
+                    were all scattered over the floor.  My sister did her best
+                    to recollect all the beads from the floor, but she is not
+                    sure whether she was able to collect all of them. Now, she
+                    has come to me for help. She wants to know whether it is
+                    possible to make a necklace using all the beads she has in
+                    the same way her original necklace was made and if so in
+                    which order the bids must be put.
+
+                    Please help me write a program to solve the problem.
+
+                    ```
+                    Input
+
+                        The input contains T test cases. The first line of the
+                        input contains the integer T.
+
+                        The first line of each test case contains an integer N
+                        (5 <= N <= 1000) giving the number of beads my sister
+                        was able to collect. Each of the next N lines contains
+                        two integers describing the colors of a bead. Colors
+                        are represented by integers ranging from 1 to 50.
+
+                        2
+                        5
+                        1 2
+                        2 3
+                        3 4
+                        4 5
+                        5 6
+                        5
+                        2 1
+                        2 2
+                        3 4
+                        3 1
+                        2 4
+
+                    Output
+
+                        For each test case in the input first output the test
+                        case number as shown in the sample output. Then if you
+                        apprehend that some beads may be lost just print the
+                        sentence ``some beads may be lost" on a line by itself.
+                        Otherwise, print N lines with a single bead description
+                        on each line. Each bead description consists of two
+                        integers giving the colors of its two ends.
+                        For 1 <= i <= N_1, the second integer on line i must be
+                        the same as the first integer on line i + 1.
+                        Additionally, the second integer on line N must be
+                        equal to the first integer on line 1. Since there are
+                        many solutions, any one of them is acceptable.
+
+                        Print a blank line between two successive test cases.
+
+                        Case #1
+                        some beads may be lost
+
+                        Case #2
+                        2 1
+                        1 3
+                        3 4
+                        4 2
+                        2 2
+                    ```
+
+                    欧拉回路。
+
+                    注意顶点可以有自环。
+
+                    ```cpp
+                    #include <stdio.h>
+                    #include <string.h>
+
+                    #define MAXN 51                         // 顶点最大个数
+
+                    int G[MAXN][MAXN];
+                    int visited[MAXN];
+                    int count[MAXN];                        // 顶点的度
+
+                    void dfs( int u ) {
+                        visited[u] = 1;
+                        for( int v = 0;  v < MAXN; ++v ) {
+                            if( G[u][v] && !visited[v] ) {
+                                dfs(v);
+                            }
+                        }
+                    }
+
+                    // 欧拉回路，允许自环和重复边
+                    void euler( int u ) {
+                        for( int v = 0; v < MAXN; ++v ) {
+                            if( G[u][v] ) {
+                                --G[u][v]; --G[v][u];       // 这个技巧，即有 visited 的功能，又允许重复边
+                                printf( "%d %d\n", u, v );  // 逆向打印，或者存到栈里再打印
+                                euler(v);
+                            }
+                        }
+                    }
+
+
+                    int main() {
+                        int cases = 0, T;
+                        scanf( "%d",&T );
+                        while( T-- ) {
+                            bool validGraph = true;         // 结点的度是否为偶数
+                            bool connected  = true;         // 图是否是连通的
+                            memset( G,      0, sizeof(G)    );
+                            memset( count,  0, sizeof(count));
+
+                            int N;
+                            scanf( "%d",&N );
+                            for( int i = 0; i < N; ++i ) {
+                                int a, b;
+                                scanf( "%d %d", &a, &b );
+                                ++G[a][b];
+                                ++G[b][a];
+                                ++count[a];
+                                ++count[b];
+                            }
+
+                            printf( "Case #%d\n", ++cases );
+
+                            // 欧拉回路形成的条件之一，判断结点的度是否为偶数
+                            for( int i = 0; i < MAXN; ++i ) {
+                                if( count[i] & 1 ) {
+                                    validGraph = false;
+                                    break;
+                                }
+                            }
+                            // 检查图是否连通
+                            if( validGraph ) {
+                                memset( visited, 0, sizeof(visited) );
+                                for( int i = 0; i < MAXN; ++i ) {
+                                    if( count[i] ) {
+                                        dfs(i);
+                                        break;
+                                    }
+                                }
+                                for( int i = 0; i < MAXN; ++i ) {
+                                    if( count[i] && !visited[i] ) {
+                                        connected = false;
+                                        break;
+                                    }
+                                }
+                            }
+                            if( validGraph && connected ) {
+                                for( int i = 0; i < MAXN; ++i ) {
+                                    if( count[i] ) {
+                                        euler(i);
+                                        break;
+                                    }
+                                }
+                            } else {
+                                printf( "some beads may be lost\n" );
+                            }
+
+                            if( T > 0 ) { printf("\n"); }
+                        }
+                        return 0;
+                    }
+                    ```
+
+                    ```bash
+                    $ cat input.txt
+                    2
+                    5
+                    1 2
+                    2 3
+                    3 4
+                    4 5
+                    5 6
+                    5
+                    2 1
+                    2 2
+                    3 4
+                    3 1
+                    2 4
+
+                    $ cat input.txt | ./a.out
+                    Case #1
+                    some beads may be lost
+
+                    Case #2
+                    1 2
+                    2 2
+                    2 4
+                    4 3
+                    3 1
+                    ```
 
         -   图上的宽度优先搜索 Graph BFS
 
         -   最小生成树 -<
 
             :   构造最小生成树 (Minimum Spanning Tree, MST) 有多种算法。其中多数
-                算法利用了最小生成树的一个性质（简称为 MST 性质）：假设 N=(V, E)
+                算法利用了最小生成树的一个性质（简称为 MST 性质）：假设 N = (V, E)
                 是一个连通网，U 是顶点集 V 的一个非空子集。若 (u, v) 是一条具
-                有最小权值的边，其中 u \in U, v \in V-U，则必存在一颗包含边
+                有最小权值的边，其中 u ∈ {U}, v ∈ {V-U}，则必存在一颗包含边
                 (u, v) 的最小生成树。
 
-                Prim 算法和 Kruskal 算法是两个利用 MST 性质构造最小生成树的算法。它们都属于贪心法。
+                Prim 算法和 Kruskal 算法是两个利用 MST 性质构造最小生成树的算法。
+                **它们都属于贪心法。**
 
-                -   Prim 算法
-                -   Kruskal 算法
-                -   Highways
-                -   最优布线问题
+                -   Prim 算法 -<
 
-        -   最短路径 -<
+                    :   假设 N = (V, E) 是一个连通网，TE 是 N 上最小生成树中边
+                        的集合。算法从 U = u~0~ (u~0~ ∈ V), TE = {} 开始，重复
+                        执行下述操作：在所有 u ∈ U, v ∈ V-U 的边 (u, v) ∈ E 中找
+                        一条代价最小的边 (u~0~, v~0~) 并入集合 TE，同时 v~0~ 并
+                        入 U，直至 U = V 为止。此时 TE 中必有 n-1 条边，则 T =
+                        (V, TE) 为 N 的最小生成树。为实现这个算法需附设一个数组
+                        closedge，以记录从 U 到 V-U 具有最小代价的边。对每个顶
+                        点 v~i~ ∈V-U，在辅助数组中存在一个相应分量
+                        `closedge[i-1]`，它包括两个域，其中 lowcost 存储该边上的权。
+                        显然，`closedge[i].lowcost` = min{ cost(u, v~i~), u ∈ U }。
+                        adjvex 域存储该边依附的在 U 中的顶点。
 
-            :   -   单源最短路径——Dijkstra 算法
-                -   每点最短路径——Floyd 算法
-                -   HDU 2544 最短路
-                -   POJ 1125 Stockbroker Grapevine
-                -   POJ 1094 Sorting It All Out
+                        TODO, add picture url.
+
+                        ```
+                        +-----------------------+-----------------------+-------------------------------+-----------------------------------+
+                        |       \               |                       |                               |                                   |
+                        |          \       i    |                       |                               |                                   |
+                        |             \         |   v1  v2  v3  v4  v5  |   U                           |   V-U                             |
+                        |                \      |                       |                               |                                   |
+                        |       closedge    \   |                       |                               |                                   |
+                        +-----------------------+-----------------------+-------------------------------+-----------------------------------+
+                        |       adjvex          |   v0  v0  v0          |   v0                          |   {v1, v2, v3, v4, v5}            |
+                        |       lowcost         |   6   1   5           |                               |                                   |
+                        |                       |       ^               |                               |                                   |
+                        +-----------------------+-----------------------+-------------------------------+-----------------------------------+
+                        |       adjvex          |   v2      v1  v2  v3  |   v0, v2                      |   {v1, v3, v4, v5}                |
+                        |       lowcost         |   5   0   5   6   4   |                               |                                   |
+                        |                       |                   ^   |                               |                                   |
+                        +-----------------------+-----------------------+-------------------------------+-----------------------------------+
+                        |       adjvex          |   v2      v5  v2      |   v0, v2, v5                  |   {v1,v3, v4}                     |
+                        |       lowcost         |   5   0   2   6   0   |                               |                                   |
+                        |                       |           ^           |                               |                                   |
+                        +-----------------------+-----------------------+-------------------------------+-----------------------------------+
+                        |       adjvex          |   v2          v2      |   v0, v2, v5, v3              |   {v1, v4}                        |
+                        |       lowcost         |   5   0   0   6   0   |                               |                                   |
+                        |                       |   ^                   |                               |                                   |
+                        +-----------------------+-----------------------+-------------------------------+-----------------------------------+
+                        |       adjvex          |               v1      |   v0, v2, v5, v3, v1          |   {v4}                            |
+                        |       lowcost         |   0   0   0   3   0   |                               |                                   |
+                        |                       |               ^       |                               |                                   |
+                        +-----------------------+-----------------------+-------------------------------+-----------------------------------+
+                        |       adjvex          |                       |   v0, v2, v5, v3, v1, v4      |   {}                              |
+                        |       lowcost         |   0   0   0   0   0   |                               |                                   |
+                        +-----------------------+-----------------------+-------------------------------+-----------------------------------+
+                        ```
+
+                        ```cpp
+                        #include <cstdio>
+                        #include <climits>                          // INT_MAX
+
+                        using namespace std;
+
+                        const int MAX_NV = 100;
+
+                        typedef int graph_weight_t;
+                        const graph_weight_t GRAPH_INF = INT_MAX;
+
+                        // 图，用邻接矩阵(Adjacency Matrix).
+                        struct graph_t {
+                            int nv;
+                            int ne;
+                            graph_weight_t matrix[MAX_NV][MAX_NV];
+                        };
+
+                        graph_t g;
+
+                        struct closedge_t {
+                            int adjvex;                             // 弧头，属于 U
+                            graph_weight_t lowcost;                 // distance: adjvex -> [cur], -GRAPH_INF 表示已经加入 U
+                        };
+
+                        // 在 V-E 集合中寻找最小的边
+                        // closedge:    MST 中的边，起点为 adjvex，终点为本下标
+                        // n:           closedge 数组的长度
+
+                        // return:      找到了则返回弧尾的下标，V-U 为空集则返回 -1，表示终止
+                        int min_element( const closedge_t closedge[], int n ) {
+                            int min_value = GRAPH_INF;
+                            int min_pos = -1;
+                            for( int i = 0; i < n; ++i )
+                                if( closedge[i].lowcost > -GRAPH_INF ) {            // not in U
+                                    if( min_value > closedge[i].lowcost ) {
+                                        min_value = closedge[i].lowcost;
+                                        min_pos = i;
+                                    }
+                                }
+                            return min_pos;
+                        }
+
+                        // Prim 算法，求图的最小生成树.
+                        // return:      MST 的边的权值之和
+                        graph_weight_t prim( const graph_t &g ) {
+                            graph_weight_t sum = 0;                 // 权值之和
+                            const int n = g.nv;
+                            int u = 0;                              // 从 0 号顶点出发
+
+                            // closedge[n]，记录从顶点集 U 到 V-U 的边
+                            closedge_t *closedge = new closedge_t[n];
+
+                            // 辅助数组初始化
+                            for( int i = 0; i < n; ++i ) {
+                                if( i == u ) { continue; }
+                                closedge[i].adjvex = u;
+                                closedge[i].lowcost = g.matrix[u][i];
+                            }
+                            closedge[u].lowcost = -GRAPH_INF;       // 初始, U = {u}
+
+                            for( int i = 0; i < n; ++i ) {
+                                if( i == u ) { continue; }
+                                // 其余的 n-1 个顶点
+                                // 求出 TE 的下一个顶点 k
+                                int k = min_element( closedge, n );
+                                // 输出此边 closedge[k].adjvex --> k
+                                printf( "%c - %c: %d\n", 'A'+closedge[k].adjvex, 'A'+k, g.matrix[closedge[k].adjvex][k] );
+
+                                sum += g.matrix[closedge[k].adjvex][k];         // sum += closedge[k].lowcost;
+
+                                closedge[k].lowcost = -GRAPH_INF;               // 顶点 k 并入 U，表示此边加入 TE
+                                for( int j = 0; j < n; ++j ) {                  // 更新 k 的邻接点的值
+                                    const graph_weight_t &w = g.matrix[k][j];
+                                    if( w < closedge[j].lowcost ) {
+                                        closedge[j].adjvex  = k;
+                                        closedge[j].lowcost = w;
+                                    }
+                                }
+                            }
+                            delete[] closedge;
+                            return sum;
+                        }
+
+                        // 读取输入，构建图.
+                        void read_graph() {
+                            int m, n;
+                            scanf( "%d %d", &m, &n );               // #vertex, #edge
+                            g.nv = m;
+                            g.ne = n;
+
+                            // 初始化图，所有节点间距离为无穷大
+                            for( int i = 0; i < m; ++i ) {
+                                for( int j = 0; j < m; ++j ) {
+                                    g.matrix[i][j] = GRAPH_INF;
+                                }
+                            }
+
+                            // 读取边信息
+                            for( int k = 0; k < n; ++k ) {
+                                char chx[5], chy[5];
+                                int w;
+                                scanf( "%s %s %d", chx, chy, &w );
+                                int i = chx[0] - 'A';
+                                int j = chy[0] - 'A';
+                                g.matrix[i][j] = w;
+                                g.matrix[j][i] = w;
+                            }
+                        }
+
+                        int main() {
+                            read_graph();
+                            printf( "Total: %d\n", prim(g) );
+                            return 0;
+                        }
+                        ```
+
+                        ```bash
+                        $ cat input.txt
+                        7 11
+                        A B 7
+                        A D 5
+                        B C 8
+                        B D 9
+                        B E 7
+                        C E 5
+                        D E 15
+                        D F 6
+                        E F 8
+                        E G 9
+                        F G 11
+
+                        $ cat input.txt | ./tmp
+                        A - D: 5
+                        D - F: 6
+                        A - B: 7
+                        B - E: 7
+                        E - C: 5
+                        E - G: 9
+                        Total: 39
+                        ```
+
+                        **算法分析**
+
+                        假设网中有 n 个顶点，则第一个进行初始化的循环语句的频度
+                        为 n，第二个循环语句的频度为 n-1。其中有两个内循环：其
+                        一是在 `closedge[v].lowcost` 中求最小值，其频度为 n-1；
+                        其二是重新选择具有最小代价的边，其频度为 n。因此 Prim
+                        算法的时间复杂度为 O(n^2^)，与网中边数无关，因此适用于
+                        求边稠密的图的最小生成树。
+
+                        Prim 算法的另一种实现是使用小根堆，其流程是：小根堆中存
+                        储一个端点在生成树中，另一个端点不在生成树的边，每次从
+                        小根堆的堆顶可选出权值最小的边 (u, v)，将其从堆中推出，
+                        加入生成树中。然后将新出现的所有一个端点在生成树中，一
+                        个端点不在生成树的边都插入小根堆中。下一轮迭代中，下一
+                        条满足要求的边又上升到堆顶。如此重复 n-1 次，最后建立起
+                        该图的最小生成树。该算法的C 代码实现如下。
+
+                        ```cpp
+                        #include <iostream>
+                        #include <climits>                          // INT_MAX
+                        #include <queue>
+                        #include <vector>
+                        #include <algorithm>
+
+                        using namespace std;
+
+                        const int MAX_NV = 100;
+
+                        typedef int graph_weight_t;
+                        const graph_weight_t GRAPH_INF = INT_MAX;
+
+                        // 图，用邻接矩阵 (Adjacency Matrix).
+                        struct graph_t {
+                            int nv;
+                            int ne;
+                            graph_weight_t matrix[MAX_NV][MAX_NV];
+                        };
+
+                        graph_t g;
+
+                        // 边
+                        struct edge_t {
+                            int u;                  // from
+                            int v;                  // to
+                            graph_weight_t w;       // 权值
+                            bool operator>( const edge_t &other ) const {
+                                return w > other.w;
+                            }
+                        };
+
+                        // Prim 算法，求图的最小生成树.
+                        // return:      MST 的边的权值之和
+                        int prim( const graph_t &g ){
+                            graph_weight_t sum = 0;                         // 权值之和
+                            priority_queue<edge_t, vector<edge_t>, greater<edge_t> > pq;
+                            const int n = g.nv;
+                            vector<int> used( n, 0 );                       // 判断顶点是否已经加入最小生成树
+
+                            int u = 0;                                      // 从 0 号顶点出发
+                            used[u] = 1;
+                            int count = 1;                                  // MLE 当前的边数
+
+                            // 开始顶点加入 U (所以 count 初始为 1)
+                            while( count < n ) {
+                                for( int v = 0; v < n; ++v ) {
+                                    if( !used[v] ) {
+                                        edge_t e = {u, v, g.matrix[u][v]};  // 若 v 不在生成树，(u,v) 加入堆
+                                        pq.push(e);
+                                    }
+                                }
+                                while( !pq.empty() && count < n ) {
+                                    edge_t e = pq.top(); pq.pop();          // 从堆中退出最小权值边，存入 e
+                                    if( used[e.v] ) { continue; }
+
+                                    printf( "%c - %c: %d\n", 'A'+e.u, 'A'+e.v, g.matrix[e.u][e.v] );
+                                    sum += g.matrix[e.u][e.v];
+                                    u = e.v;
+                                    used[u] = 1;                            // u 并入到生成树的顶点集合 U
+                                    ++count;
+                                    break;
+
+                                }
+                            }
+
+                            return sum;
+                        }
+
+                        // 读取输入，构建图.
+                        void read_graph() {
+                            int m, n;
+                            scanf( "%d %d", &m, &n );                       // #vertex, #edge
+                            g.nv = m;
+                            g.ne = n;
+
+                            // 初始化图，所有节点间距离为无穷大
+                            for( int i = 0; i < m; ++i ) {
+                                for( int j = 0; j < m; ++j ) {
+                                    g.matrix[i][j] = GRAPH_INF;
+                                }
+                            }
+
+                            // 读取边信息
+                            for( int k = 0; k < n; ++k ) {
+                                char chx[5], chy[5];
+                                int w;
+                                scanf( "%s %s %d", chx, chy, &w );
+                                int i = chx[0] - 'A';
+                                int j = chy[0] - 'A';
+                                g.matrix[i][j] = w;
+                                g.matrix[j][i] = w;
+                            }
+                        }
+
+                        int main() {
+                            read_graph();
+                            printf( "Total: %d\n", prim(g) );
+                            return 0;
+                        }
+                        ```
+
+                        该算法迭代次数为 O(n)，每次迭代将平均 e/n 条边插入最小
+                        堆中，e 条边从堆中删除，堆的插入和删除操作时间复杂度均
+                        为 O(log~2~e)，则总的时间复杂度为 O(e*log~2~e)。
+
+                -   Kruskal 算法 -<
+
+                    :   假设连通网 N = {V, E}，则令最小生成树的初始状态为只有 n
+                        个顶点而无边的非连通图 T = (V, {})，图中每个顶点自成一
+                        个连通分量。在 E 中选择代价最小的边，若该边依附的顶点落
+                        在 T 中不同的连通分量上，则将此边加入到 T 中，否则舍去此
+                        边而选择下一条代价最小的边。依次类推，直至 T 中所有顶点
+                        都在同一连通分量上为止。
+
+                        ```cpp
+                        #include <iostream>
+                        #include <queue>
+                        #include <algorithm>
+                        #include <stdlib.h>
+
+                        using namespace std;
+
+                        struct edge_t{
+                            int u, v, w;
+                            bool operator>( const edge_t &other ) const {
+                                return w > other.w;
+                            }
+                        };
+
+                        const int MAX_NV = 11;
+                        const int MAX_NE = 100;
+                        edge_t edges[MAX_NE];
+
+                        // union-find set
+                        struct UFS {
+                            explicit UFS( int n ) { arr = vector<int>(n, -1); }
+                            int Find( int idx ) {
+                                int oldidx = idx;
+                                while( arr[idx] >= 0 ) { idx = arr[idx]; }
+                                while( oldidx != idx ) {
+                                    int next = arr[oldidx];
+                                    arr[oldidx] = idx;
+                                    oldidx = next;
+                                }
+                                return idx;
+                            }
+                            void Union( int a, int b ) {
+                                int ra = Find(a), rb = Find(b);
+                                if( ra == rb ) { return; }
+                                arr[ra] += arr[rb];
+                                arr[rb] = ra;
+                            }
+                            int Size( int a ) { return -arr[Find(a)]; }
+                            vector<int> arr;
+                        };
+
+                        // Kruskal 算法，堆 + 并查集.
+                        // edges:       边的数组
+                        // n:           边数，一定要大于或等于 (顶点数 -1)
+                        // m:           顶点数
+                        // return:      MST的边的权值之和
+                        int kruskal( const edge_t edges[], int n, int m ) {
+                            if( n < m - 1 ) { return -1; }
+                            int sum = 0;
+                            priority_queue<edge_t, vector<edge_t>, greater<edge_t> > pq;
+                            // 把所有边插入堆中
+                            for( int i = 0; i < n; ++i ) {
+                                pq.push( edges[i] );
+                            }
+                            UFS ufs( MAX_NV );
+                            for( int i = 0; i < n; ++i ) {
+                                edge_t e = pq.top(); pq.pop();      // 从堆中退出最小权值边
+                                // 取两顶点所在集合的根
+                                int u = ufs.Find( e.u );
+                                int v = ufs.Find( e.v );
+                                if( u != v ) {                      // 不是同一集合，说明不连通
+                                    ufs.Union( u, v );              // 合并，连通成一个分量
+                                    // 输出生成树 TE 的边，即此边加入 TE
+                                    printf( "%c - %c: %d\n", 'A'+e.u, 'A'+e.v, e.w );
+                                    sum += e.w;
+                                }
+                            }
+                            return sum;
+                        }
+
+                        int main() {
+                            int m, n;
+                            scanf( "%d %d", &m, &n );                       // #vertex, #edge
+                            for (int i = 0; i < n; i++) {                   // 读取边信息
+                                char chx[5], chy[5];
+                                int w;
+                                scanf( "%s %s %d", chx, chy, &w );
+                                int u = chx[0] - 'A';
+                                int v = chy[0] - 'A';
+                                edges[i].u = u;
+                                edges[i].v = v;
+                                edges[i].w = w;
+                            }
+                            // 求解最小生成树
+                            printf( "Total: %d\n", kruskal(edges, n, m) );
+                            return 0;
+                        }
+                        ```
+
+                        sort + union-find set
+
+                        :   ```cpp
+                            // for std::sort
+                            bool operator<( const edge_t &e1, const edge_t &e2 ) {
+                                return e1.w < e2.w;
+                            }
+
+                            // Kruskal 算法，快排 + 并查集
+                            int kruskal2( edge_t edges[], int n, int m ) {
+                                if( n < m - 1) { return -1; }
+                                int sum = 0;
+                                std::sort( edges, edges + n );
+                                UFS ufs( MAX_NV );
+                                for( int i = 0; i < n; ++i ) {
+                                    edge_t &e = edges[i];
+                                    int u = ufs.Find( e.u );
+                                    int v = ufs.Find( e.v );
+                                    if( u != v ) {
+                                        ufs.Union( u, v );
+                                        printf( "%c - %c: %d\n", 'A'+e.u, 'A'+e.v, e.w );
+                                        sum += e.w;
+                                    }
+                                }
+                                return sum;
+                            }
+                            ```
+
+                            如果采用邻接矩阵作为图的存储结构，则在建立小根堆时
+                            需要检测图的邻接矩阵，这需要 O(n^2^) 的时间。此外，
+                            需要将 e 条边组成初始的小根堆。如果直接从空堆开始，
+                            依次插入各边，需要 O(e*log~2~e) 的时间。在构造最小
+                            生成树的过程中，需要进行 O(e) 次出堆操作
+                            `heap_remove()`、2e 次并查集的 `ufs.Find()` 操作以
+                            及 n-1 次`ufs.Union()` 操作，计算时间分别为
+                            O(e*log~2~e)、O(log~2~n) 和 O(n)，所以总时间为
+                            O(n^2^+e*log~2~e)。
+
+                            如果采用邻接表作为图的存储结构，则在建立小根堆时需
+                            要检测图的邻接表，这需要 O(n+e) 的时间。为建成初始
+                            的小根堆，需要 O(e*log~2~e) 的时间。在构造最小生成
+                            树的过程中，需要进行 O(e) 次出堆操作`heap_remove()`
+                            、2e 次并查集的 `ufs.Find()` 操作以及 n-1 次
+                            `ufs.Union()` 操作，计算时间分别为 O(e*log~2~e)、
+                            O(e*log~2~n) 和 O(n)，所以总时间为 O(n+e*log~2~e)。
+
+                -   Highways -<
+
+                    :   一个名叫 Flatopia 的岛国地势非常平坦。不幸的是 Flatopia
+                        的公共高速公路系统很差劲。Flatopia 的政府也意识到了这个
+                        问题，已经建造了许多高速公路用来连接比较重要的城镇。不
+                        过，仍然有一些城镇没有接入高速公路。因此，很有必要建造
+                        更多的高速公路，让任意两个城镇之间可以通过高速公路连接。
+
+                        Flatopia 的城镇从 1 到 N 编号，城镇 i 的位置由笛卡尔坐
+                        标 (x~i~, y~i~) 表示。每条高速公路仅连接两个城镇。所有
+                        的高速公路都是直线，因此它们的长度就等于两个城镇之间的
+                        欧氏距离。所有的高速公路是双向的，高速公路之间可以相交，
+                        但是司机只能在公路的端点（也即城镇）换道。
+
+                        Flatopia 政府希望能最小化建造高速公路的代价。由于
+                        Flatopia 地势平坦，一条高速公路的代价正比于它的长度。因
+                        此，应该让高速公路的总长度最小。
+
+                        ```
+                        输入
+
+                            输入由两部分组成。
+                            第一部分描述所有的城镇，
+                            第二部分描述所有已经建造好的高速公路。
+
+                            第一行包含一个整数 N (1 <= N <= 750)，表示城镇的数目。
+                            接下来的 N 行每行包含一对整数，x_i 和 y_i，由空格隔开，
+                            表示第 i 个城镇的坐标。坐标的绝对值不会超过 10000。
+                            每个城镇的坐标都不重叠。
+
+                            接下来一行包含一个整数 M (0 <= M <= 1000)，表示已经存在的高速公路的数目。
+                            接下来的 M 行每行包含一对整数，给出了一对城镇编号，表示这两个城镇被一条高速公路连接起来。
+                            每两个城镇之间最多被一条高速公路连接。
+
+                            9
+                            1 5
+                            0 0
+                            3 2
+                            4 5
+                            5 1
+                            0 4
+                            5 2
+                            1 2
+                            5 3
+                            3
+                            1 3
+                            9 7
+                            1 2
+
+                        输出
+
+                            输出所有需要新建的高速公路。每行一个高速公路，用一对城镇编号表示。
+                            如果不需要新建高速公路，输出为空。
+
+                            1 6
+                            3 7
+                            4 9
+                            5 7
+                            8 3
+                        ```
+
+                        很明显，最小生成树。
+
+                        **题中的网络是一个完全图，任意两个城镇之间都有边，权值是
+                        两点间的距离。因此 Prim 算法比 Kruskal 算法效率更高。**
+
+                        对于已经存在的高速公路，令它们权值为 0，可以保证它们一定会被选中。
+
+                        因为题目只需要输出新建的高速公路的两个端点，不需要输出
+                        最小生成树的长度，所以计算距离的时候不用 sqrt，也就不用 double 了。
+
+                        ```cpp
+                        #include <cstdio>
+                        #include <queue>
+                        #include <vector>
+
+                        using namespace std;
+
+                        const int MAX_NV = 750;
+                        int n, m, x[MAX_NV], y[MAX_NV];
+
+                        struct graph_t {
+                            int nv, ne;
+                            int matrix[MAX_NV][MAX_NV];
+                        };
+                        graph_t g;
+
+                        struct edge_t {
+                            int u, v, w;
+                            bool operator>( const edge_t &other ) const { return w > other.w; }
+                        };
+
+                        int u;                                              // 从 u 号顶点出发
+
+                        void prim( const graph_t &g ){
+                            priority_queue<edge_t, vector<edge_t>, greater<edge_t> > pq;
+                            const int n = g.nv;
+                            vector<int> used( n, 0 );                       // 判断顶点是否已经加入最小生成树
+
+                            used[u] = 1;
+                            int count = 1;                                  // MLE 当前的边数
+
+                            // 开始顶点加入 U (所以 count 初始为 1)
+                            while( count < n ) {
+                                for( int v = 0; v < n; ++v ) {
+                                    if( !used[v] ) {
+                                        edge_t e = {u, v, g.matrix[u][v]};  // 若 v 不在生成树，(u,v) 加入堆
+                                        pq.push(e);
+                                    }
+                                }
+                                while( !pq.empty() && count < n ) {
+                                    edge_t e = pq.top(); pq.pop();          // 从堆中退出最小权值边，存入 e
+                                    if( used[e.v] ) { continue; }
+                                    if( g.matrix[e.u][e.v] > 0 ) {
+                                        printf( "%d %d\n", e.u+1, e.v+1 );
+                                    }
+                                    used[u=e.v] = 1;                        // u 并入到生成树的顶点集合 U
+                                    ++count;
+                                    break;
+                                }
+                            }
+                        }
+
+                        int main() {
+                            // 读取输入，构建图.
+                            scanf( "%d", &n );
+                            g.nv = n;
+                            g.ne = n*(n-1)/2;
+                            for( int i = 0; i < n; ++i ) { scanf( "%d %d", &x[i], &y[i] ); }
+                            for( int i = 0; i < n; ++i ) {
+                                for( int j = 0; j < n; ++j  ) {
+                                    g.matrix[i][j] = g.matrix[j][i] = (x[i]-x[j])*(x[i]-x[j])+(y[i]-y[j])*(y[i]-y[j]);
+                                }
+                            }
+                            scanf( "%d", &m );
+                            for( int i = 0; i < m; ++i ) {
+                                int a, b;
+                                scanf( "%d %d", &a, &b );
+                                g.matrix[a-1][b-1] = g.matrix[b-1][a-1] = 0;
+                                u = a;
+                            }
+
+                            prim( g );
+                            return 0;
+                        }
+                        ```
+
+                        我的输出为:
+
+                        ```
+                        1 6
+                        3 7
+                        7 5
+                        3 8
+                        9 4
+                        ```
+
+                        顺序不一样, 但是城市是一样的.
+
+                -   最优布线问题 -<
+
+                    :   学校需要将 n 台计算机连接起来，不同的 2 台计算机之间的
+                        连接费用可能是不同的。为了节省费用，我们考虑采用间接数
+                        据传输结束，就是一台计算机可以间接地通过其他计算机实现
+                        和另外一台计算机连接。
+
+                        为了使得任意两台计算机之间都是连通的（不管是直接还是间
+                        接的），需要在若干台计算机之间用网线直接连接，现在想使
+                        得总的连接费用最省，让你编程计算这个最小的费用。
+
+                        ```
+                        输入
+
+                            输入第一行为两个整数 n,m (2 <= n <= 100000, 2 <= m <= 100000)，
+                            表示计算机总数，和可以互相建立连接的连接个数。接下
+                            来 m 行，每行三个整数 a,b,c 表示在机器 a 和机器 b
+                            之间建立连接的话费是 c。(题目保证一定存在可行的连通
+                            方案, 数据中可能存在权值不一样的重边，但是保证没有
+                            自环)
+
+                            3 3
+                            1 2 1
+                            1 3 2
+                            2 3 1
+
+                        输出
+
+                            输出只有一行一个整数，表示最省的总连接费用。
+
+                            2
+                        ```
+
+                        本题是非常直白的 kruskal 算法，可以直接使用 kruskal 节的样例代码。
+
+                        ```cpp
+                        #include <cstdio>
+                        #include <queue>
+
+                        using namespace std;
+
+                        struct edge_t {
+                            int u, v, w;
+                            bool operator>( const edge_t &other ) const { return w > other.w; }
+                        };
+                        const int MAX_NV = 100001;
+                        const int MAX_NE = 100000;
+                        edge_t edges[MAX_NE];
+
+                        struct UFS {
+                            explicit UFS( int n ) { arr = vector<int>(n, -1); }
+                            int Find( int idx ) {
+                                int oldidx = idx;
+                                while( arr[idx] >= 0 ) { idx = arr[idx]; }
+                                while( oldidx != idx ) {
+                                    int next = arr[oldidx];
+                                    arr[oldidx] = idx;
+                                    oldidx = next;
+                                }
+                                return idx;
+                            }
+                            void Union( int a, int b ) {
+                                int ra = Find(a), rb = Find(b);
+                                if( ra == rb ) { return; }
+                                arr[ra] += arr[rb];
+                                arr[rb] = ra;
+                            }
+                            int Size( int a ) { return -arr[Find(a)]; }
+                            vector<int> arr;
+                        };
+
+                        long long kruskal( const edge_t edges[], int n, int m ) {
+                            if( n < m - 1 ) { return -1; }
+                            long long sum = 0LL;
+                            priority_queue<edge_t, vector<edge_t>, greater<edge_t> > pq;
+                            for( int i = 0; i < n; ++i ) { pq.push( edges[i] ); }
+                            UFS ufs( MAX_NV );
+                            for( int i = 0; i < n; ++i ) {
+                                edge_t e = pq.top(); pq.pop();
+                                int u = ufs.Find( e.u );
+                                int v = ufs.Find( e.v );
+                                if( u != v ) {
+                                    ufs.Union( u, v );
+                                    sum += e.w;
+                                }
+                            }
+                            return sum;
+                        }
+
+                        int main() {
+                            int n, m;
+                            scanf( "%d %d", &n, &m );
+                            for( int i = 0; i < m; ++i ) {
+                                scanf( "%d %d %d", &edges[i].u, &edges[i].v, &edges[i].w );
+                            }
+                            printf( "%lld\n", kruskal(edges, n, m) );
+                            return 0;
+                        }
+                        ```
+
+        -   最短路径 :hearts: -<
+
+            :   -   单源最短路径 --- Dijkstra 算法 -<
+
+                    :   假设 S 为已求得最短路径的点的集合，则可证明：
+                        下一条最短路径（设其终点为 x）或者是弧 (v, x)，
+                        或者是中间只经过 S 中的顶点而最后到达顶点 x 的路径。
+
+                        Dijkstra 算法流程如下：
+
+                        1.  S 为已找到从 v 出发的最短路径的终点的集合，它的初始
+                            状态为空集。`dist[i]` 存放的是 v 到 v~i~ 的最短路
+                            径长度，根据前面所述性质，
+
+                            `dist[i]` = min{ `dist[i]`, weight(v, v~i~) }。
+
+                            `path[i]` 存放的是最短路径上指向 v~i~ 的弧尾顶点。
+                            那么从 v 出发到图上其余 v~i~ 的最短路径长度的初值为：
+
+                            **`dist[i]` = weight(v, v~i~), v~i~ ∈ V**
+
+                        2.  选择 v~j~，使得
+
+                            **`dist[j]` = min{ `dist[j]`, weight(v, v~j~) | v~j~ ∈ V-S };**
+
+                            将 v~j~ 加入到 S，
+
+                            S = S ∪ v~j~
+
+                        3.  修改从 v 出发到集合 V-S 上任一顶点 v~k~ 可达的最短路径长度，
+                            并记录下这条边。
+
+                            ```cpp
+                            if( dist[j] + weight(j,k) < dist[k] ) {
+                                dist[k] = dist[j] + weight(j,k);
+                                path[k] = j;
+                            }
+                            ```
+
+                    4.  重复 2，3 共 n-1 次。
+
+                    TODO, add pic url.
+
+                    ```
+                    End Point           i=1         i=2         i=3         i=4         i=5
+                    -----------------------------------------------------------------------
+                        v1              inf         inf         inf         inf         inf
+                    -----------------------------------------------------------------------
+                        v2              10
+                                     (v0,v2)
+                    -----------------------------------------------------------------------
+                        v3              inf         60          50
+                                                (v0,v2,v3)  (v0,v4,v5)
+                    -----------------------------------------------------------------------
+                        v4              30          30
+                                     (v0,v4)     (v0,v4)
+                    -----------------------------------------------------------------------
+                        v5             100         100          90          60
+                                     (v0,v5)     (v0,v5)    (v0,v4,v5)  (v0,v4,v3,v5)
+                    -----------------------------------------------------------------------
+                        vj              v2          v4          v3          v5
+                        S            (v0,v2)    (v0,v2,v4)  (v0,v2,v3,v4)   (v0,v2,v3,v4,v5)
+                    ```
+
+                    ```cpp
+                    #include <iostream>
+                    #include <queue>
+                    #include <map>
+                    #include <utility>
+                    #include <climits>
+
+                    using namespace std;
+
+                    // 图，用邻接表 (Adjacency List).
+                    struct graph_t {
+                        int nv, ne;
+                        map<char, map<char, int> > matrix;
+                    };
+
+                    // Dijkstra 算法求单源最短路径.
+                    // g:           图
+                    // start:       起点
+                    // dist:        dist[v] 存放的是起点到 v 的最短路径长度
+                    // father:      father[v] 存放的是最短路径上指向 v 的上一个顶点
+                    void dijkstra( const graph_t &g, char start, map<char, int> &distance, map<char, char> &father ) {
+                        typedef pair<int, char> to_dist_t;
+                        priority_queue<to_dist_t, vector<to_dist_t>, greater<to_dist_t> > pq;
+                        pq.push( to_dist_t( distance[start]=0, start ) );
+                        while( !pq.empty() ) {
+                            to_dist_t u = pq.top(); pq.pop();
+                            char &vj = u.second;
+                            if( !g.matrix.count(vj) ) { continue; }
+                            for( auto const p : g.matrix.at(vj) ) {
+                                const char &vk  = p.first;
+                                const int  &wjk = p.second;
+                                //    vk not in S       or    there's a shorter path to vk
+                                if( !distance.count(vk) || distance[vj] + wjk < distance[vk] ) {
+                                    distance[ vk  ]     =  distance[vj] + wjk;
+                                    father[   vk  ]     =  vj;
+                                    pq.push( to_dist_t(distance[vk], vk) );
+                                }
+                            }
+                        }
+                    }
+
+                    void print_path( const map<char, char> &father, char end ) {
+                        if( !father.count(end) ) {
+                            printf( "%c", end );
+                        } else {
+                            print_path( father, father.at(end) );
+                            printf( "->%c", end );
+                        }
+                    }
+
+                    int main() {
+                        graph_t g;
+
+                        scanf( "%d", &g.ne );
+                        for( int i = 0; i < g.ne; ++i ) {
+                            char u[5], v[5];
+                            int w;
+                            scanf( "%s %s %d", u, v, &w );
+                            g.matrix[*u][*v] = w;
+                        }
+
+                        map<char, int> distance;
+                        map<char, char> father;
+                        dijkstra( g, 'A', distance, father );
+
+                        for( const auto p : father ) {
+                            if( p.first != 'A' ) {
+                                print_path( father, p.first );
+                                printf( "\n" );
+                            }
+                        }
+                        return 0;
+                    }
+                    ```
+
+                    ```
+                    $ cat input.txt
+                    8
+                    A C 10
+                    A E 30
+                    A F 100
+                    B C 5
+                    C D 50
+                    D F 10
+                    E D 20
+                    E F 60
+
+                    $ cat input.txt | ./tmp
+                    A->C
+                    A->E->D
+                    A->E
+                    A->E->D->F
+                    ```
+
+                    算法分析
+
+                    :   该算法包含了两个并列的 for 循环，第一个 for 循环做辅助
+                        数组的初始化工作，计算时间为 O(n)，第二个 for 循环是二
+                        重嵌套循环，进行最短路径的求解工作，由于对图中几乎每个
+                        顶点都要做计算，每个顶点的又要对集合 S 内的顶点进行检测，
+                        对集合 V-S 内中的顶点进行修改，所以运算时间复杂度为
+                        O(n^2^)。算法总的时间复杂度为 O(n^2^)。
+
+                -   每点最短路径 --- Floyd 算法 -<
+
+                    :   ```
+                        \subsection{每点最短路径——Floyd算法}
+                        Floyd算法的基本思想是：假设求从定点$v_i$到$v_j$的最短路径。初始时，若$v_i$与$v_j$之间存在边，则最短路径长度为此边的权值；若不存在边，则最短路径长度为无穷大。以后逐步在路径中加入顶点$k(k=0,1,...,n-1)$作为中间顶点，如果加入中间顶点后，得到的路径比原来的路径长度减少了，则以新路径代替原路径。
+
+                        首先比较$(v_i,v_j)$和$(v_i,v_0,v_j)$的路径长度，取较短者为从$v_i$到$v_j$的中间顶点的序号不大于0的最短路径。如果$(v_i,v_0,v_j)$较短，则取$(v_i,v_0,v_j)$作为最短路径。假如在路径上再增加一个顶点$v_1$，也就是说，如果$(v_i,...,v_1)$和$(v_1,...,v_j)$分别是当前找到的中间定点的序号不大于0的最短路径，那么$(vi,...,v1,...,vj)$就有可能是从$v_i$到$v_j$的中间顶点的序号不大于1的最短路径，将它和已经得到的从$v_i$到$v_j$的中间顶点的序号不大于0的最短路径相比较，选出较短者作为从$v_i$到$v_j$的中间顶点的序号不大于1的最短路径。再增加一个顶点$v_2$，继续进行试探，依此类推。一般的，若$(v_i,...,v_k)$和$(v_k,...,v_j)$分别是从$v_i$到$v_k$和从$v_k$到$v_j$的中间定点的序号不大于$k-1$的最短路径，则将$(v_i,...,v_k,...,v_j)$和已经得到的从$v_i$到$v_j$的中间顶点的序号不大于$k-1$的最短路径相比，较短者便是从$v_i$到$v_j$的中间顶点的序号不大于$k$的最短路径。这样，在经过$n$次比较后，最后求得的必是从$v_i$到$v_j$的最短路径。
+
+                        现定义一个$n$阶方阵序列，
+                        $$
+                        D^{(-1)}, D^{(0)} , D^{(1)},..., , D^{(k)},..., , D^{(n-1)}
+                        $$
+                        其中，
+                        \begin{eqnarray}
+                        D^{(-1)}[i][j] &=& \text{g->matrix}[i][j],  \nonumber \\
+                        D^{(k)}[i][j] &=& \min\left\{D^{(k-1)}[i][j], D^{(k-1)}[i][k] + D^{(k-1)}[k][j]\right\},0 \leq k \leq n-1 \nonumber
+                        \end{eqnarray}
+
+                        上述公式中，$D^{(k)}[i][j]$是从$v_i$到$v_j$的中间顶点的序号不大于$k$的最短路径的长度；$D^{(n-1)}[i][j]$是从$v_i$到$v_j$的最短路径的长度。
+
+                        例如，对图\ref{fig:floyd}所示的有向图及其邻接矩阵运行Floyd算法，
+
+                        \begin{center}
+                        \includegraphics[width=180pt]{floyd.png}\\
+                        \figcaption{有向图及其邻接矩阵}\label{fig:floyd}
+                        \end{center}
+
+                        运算过程中矩阵D的变化如表\ref{tab:floyd}所示。
+
+                        \begin{center}
+                        \tabcaption{Floyd算法过程中方阵和最短路径的变化}
+                        \label{tab:floyd}
+                        \begin{tabular}{|c|ccc|ccc|ccc|ccc|}
+                        \hline
+                        \multirow{2}{*}{$\mathbf{D}$} & \multicolumn{3}{|c|}{$\mathbf{D^{(0)}}$} & \multicolumn{3}{|c|}{$\mathbf{D^{(1)}}$} & \multicolumn{3}{|c|}{$\mathbf{D^{(2)}}$} & \multicolumn{3}{|c|}{$\mathbf{D^{(3)}}$} \\
+                         & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 2 \\
+                        \hline
+                        0 & 0 & 4 & 11 & 0 & 4 & 11 & 0 & 4 & 6 & 0 & 4 & 6 \\
+                        1 & 6 & 0 & 2 & 6 & 0 & 2 & 6 & 0 & 2 & 5 & 0 & 2 \\
+                        2 & 3 & $\infty$ & 0 & 3 & 7 & 0 & 3 & 7 & 0 & 3 & 7 & 0 \\
+                        \hline
+                        \multirow{2}{*}{$\mathbf{P}$} & \multicolumn{3}{|c|}{$\mathbf{P^{(0)}}$} & \multicolumn{3}{|c|}{$\mathbf{P^{(1)}}$} & \multicolumn{3}{|c|}{$\mathbf{P^{(2)}}$} & \multicolumn{3}{|c|}{$\mathbf{P^{(3)}}$} \\
+                         & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 2 & 0 & 1 & 2 \\
+                        \hline
+                        \multirow{2}{*}{0} & & A & A & & AB & A & & AB & AB & & AB & AB \\
+                                           & & B & C & & & C & & & C & & & C \\
+                        \hline
+                        \multirow{2}{*}{1} & B & & B & B & & B & B & & BC & BC & & BC \\
+                                           & A & & C & A & & C & A & & & A & & \\
+                        \hline
+                        \multirow{2}{*}{2} & C & & & C & CA & & C & CA & & CA & CA & \\
+                                           & A & & & A & B & & A & B & & & B & \\
+                        \hline
+                        \end{tabular}
+                        \end{center}
+                        ```
+
+                        Floyd 算法的 C 语言实现如下。
+
+                        ```cpp
+                        #include <iostream>
+                        #include <climits>
+
+                        using namespace std;
+
+                        const int MAX_NV = 100;
+                        const int GRAPH_INF = INT_MAX / 2;              // 确保加法不溢出
+
+                        struct graph_t {
+                            int nv, ne;
+                            int matrix[MAX_NV][MAX_NV];
+                        };
+
+                        graph_t g;
+
+                        int dist[MAX_NV][MAX_NV];                       // dist[i][j] 是顶点 i 和 j 之间最短路径长度
+                        int path[MAX_NV][MAX_NV];                       // path[i][j] 是最短路径上 i 和 j 之间的顶点
+
+                        // Floyd 算法求每点之间最短路径.
+                        // dist:        dist[i][j] 是顶点 i 和 j 之间最短路径长度
+                        // path:        path[i][j] 是最短路径上 i 和 j 之间的顶点
+                        void floyd( const graph_t &g, int dist[][MAX_NV], int path[][MAX_NV] ) {
+                            const int n = g.nv;
+                            for( int i = 0; i < n; ++i ) {
+                                for( int j = 0; j < n; ++j ) {
+                                    if( i != j ) {
+                                        dist[i][j] = g.matrix[i][j];
+                                        path[i][j] = i;
+                                    } else {
+                                        dist[i][j] =  0;
+                                        path[i][j] = -1;
+                                    }
+                                }
+                            }
+                            for( int k = 0; k < n; ++k ) {
+                                for( int i = 0; i < n; ++i ) {
+                                    for( int j = 0; j < n; ++j ) {
+                                        // i 到 j 的路径上加入顶点 k 可以缩短路径长度
+                                        if( dist[i][k] + dist[k][j] < dist[i][j] ) {
+                                            dist[i][j] = dist[i][k] + dist[k][j];
+                                            path[i][j] = k;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        // 打印从 u 到 v 的最短路径
+                        static void print_path_r( int u, int v, const int path[][MAX_NV] ) {
+                            if( path[u][v] == -1 ) {
+                                printf( "%c", 'A'+u );
+                            } else {
+                                print_path_r( u, path[u][v], path );
+                                printf( "->%c", 'A'+v );
+                            }
+                        }
+
+                        // 打印 u 到其他所有点的最短路径
+                        void print_path( const graph_t &g, const int path[][MAX_NV] ) {
+                            for( int i = 0; i < g.nv; ++i ) {
+                                for( int j = 0; j < g.nv; ++j ) {
+                                    if( i != j ) {
+                                        print_path_r( i, j, path );
+                                        printf( "\n" );
+                                    }
+                                }
+                                printf( "\n" );
+                            }
+                        }
+
+                        int main() {
+                            scanf( "%d %d", &g.nv, &g.ne );
+                            for( int i = 0; i < g.nv; ++i ) {
+                                for( int j = 0; j < g.nv; ++j ) {
+                                    g.matrix[i][j] = GRAPH_INF;
+                                }
+                            }
+                            for( int k = 0; k < g.ne; ++k ) {
+                                char chx[5], chy[5];
+                                int w;
+                                scanf( "%s %s %d", chx, chy, &w );
+                                g.matrix[*chx-'A'][*chy-'A'] = w;
+                            }
+
+                            floyd( g, dist, path );
+                            print_path( g, path  );
+                            return 0;
+                        }
+                        ```
+
+                        ```
+                        input:
+
+                            3 5
+                            A B 4
+                            A C 11
+                            B A 6
+                            B C 2
+                            C A 3
+
+                        output:
+
+                            A->B
+                            A->B->C
+
+                            B->C->A
+                            B->C
+
+                            C->A
+                            C->A->B
+                        ```
+
+                        算法分析
+
+                        :   该算法中有两个并列的 for 循环，第一个循环是个二重循环，
+                            用于初始化方阵 D；第二个循环是个三重循环，逐步生成
+                            D^(0)^, D^(1)^, ..., D^(n-1)^。所以算法总的时间复杂度为 O(n^3^)。
+
+                        Dijkstra 算法权值不能为负，Floyd 权值可以为负，但环路之和不能为负。
+
+                -   HDU 2544 最短路 -<
+
+                    :   在每年的校赛里，所有进入决赛的同学都会获得一件很漂亮的
+                        t-shirt。但是每当我们的工作人员把上百件的衣服从商店运回
+                        到赛场的时候，却是非常累的！所以现在他们想要寻找最短的
+                        从商店到赛场的路线，你可以帮助他们吗？
+
+                        ```
+                        输入
+
+                            输入包括多组数据。每组数据第一行是两个整数 N, M (N <= 100, M <= 10000)，
+                            N 表示成都的大街上有几个路口，标号为 1 的路口是商店所在地，标号为 N 的路口是赛场所在地，
+                            M 则表示在成都有几条路。N=M=0 表示输入结束。
+                            接下来 M 行，每行包括 3 个整数 A,B,C (1 <= A,B <= N, 1 <= C <= 1000),
+                            表示在路口 A 与路口 B 之间有一条路，我们的工作人员需要 C 分钟的时间走过这条路。
+
+                            输入保证至少存在 1 条商店到赛场的路线。
+
+                            2 1
+                            1 2 3
+                            3 3
+                            1 2 5
+                            2 3 5
+                            3 1 2
+                            0 0
+
+                        输出
+
+                            对于每组输入，输出一行，表示工作人员从商店走到赛场的最短时间
+
+                            3
+                            2
+                        ```
+
+                        单源最短路径，用 Dijkstra 算法，将 dijkstra 节中的代码稍加修改即可。
+
+                        注意，街道是双向的，所以给边赋值时要对称赋值。
+
+                        ```cpp
+                        #include <cstdio>
+                        #include <queue>
+                        #include <map>
+
+                        using namespace std;
+
+                        struct graph_t {
+                            int nv, ne;
+                            map<int, map<int, int> > matrix;
+                        };
+
+                        void dijkstra( const graph_t &g, int start, map<int, int> &distance, map<int, int> &father ) {
+                            typedef pair<int, int> to_dist_t;
+                            priority_queue<to_dist_t, vector<to_dist_t>, greater<to_dist_t> > pq;
+                            pq.push( to_dist_t( distance[start]=0, start ) );
+                            while( !pq.empty() ) {
+                                to_dist_t u = pq.top(); pq.pop();
+                                int &vj = u.second;
+                                if( !g.matrix.count(vj) ) { continue; }
+                                for( auto const p : g.matrix.at(vj) ) {
+                                    const int  &vk  = p.first;
+                                    const int  &wjk = p.second;
+                                    //    vk not in S       or    there's a shorter path to vk
+                                    if( !distance.count(vk) || distance[vj] + wjk < distance[vk] ) {
+                                        distance[ vk  ]     =  distance[vj] + wjk;
+                                        father[   vk  ]     =  vj;
+                                        pq.push( to_dist_t(distance[vk], vk) );
+                                    }
+                                }
+                            }
+                        }
+
+                        void print_path( const map<int, int> &father, int end ) {
+                            if( !father.count(end) ) {
+                                printf( "%c", end );
+                            } else {
+                                print_path( father, father.at(end) );
+                                printf( "->%c", end );
+                            }
+                        }
+
+                        int main() {
+                            graph_t g;
+                            while( 2 == scanf( "%d %d", &g.nv, &g.ne ) && g.nv && g.ne ) {
+                                for( int i = 0; i < g.ne; ++i ) {
+                                    int u, v, w;
+                                    scanf( "%d %d %d", &u, &v, &w );
+                                    g.matrix[u][v] = g.matrix[v][u] = w;
+                                }
+                                map<int, int> distance;
+                                map<int, int> father;
+                                dijkstra( g, 1, distance, father );
+                                printf( "%d\n", distance[g.nv]   );
+                            }
+                            return 0;
+                        }
+                        ```
+
+                -   POJ 1125 Stockbroker Grapevine -<
+
+                    :   TODO
+
+                -   拓扑排序 -<
+
+                    :   由某个集合上的一个偏序得到该集合上的一个全序，这个操作称为**拓扑排序**。
+
+                        拓扑序列的特点是：若有向边 <V~i~, V~j~> 是途中的弧，则
+                        在序列中顶点 V~i~ 必须排在顶点 V~j~ 之前。
+
+                        如果用有向图表示一个工程，顶点表示活动，用有向边 <V~i~,
+                        V~j~> 表示活动必须先于活动进行。这种有向图叫做顶点表示
+                        活动的网络 (Activity On Vertext Network)，简称AOV 网络。
+
+                        检测 AOV 网络是否存在环的方法是对 AOV 网络构造其顶点的
+                        拓扑有序序列。拓扑排序的基本步骤是：
+
+                        -   在有向图中选一个没有前驱的顶点且输出之；
+                        -   从图中删除该顶点和所有以它为尾的弧线。
+
+                        重复以上两步，直至 1) 全部顶点输出，或
+                        2) 当前图中不存在无前驱的顶点（这种情况说明图中存在环）。
+
+                        C++ code -<
+
+                        :   ```cpp
+                            #include <iostream>
+                            #include <climits>
+                            #include <stack>
+                            #include <vector>
+
+                            using namespace std;
+
+                            const int MAX_NV = 100;
+                            const int GRAPH_INF = INT_MAX;
+
+                            struct graph_t {
+                                int nv, ne;
+                                int matrix[MAX_NV][MAX_NV];
+                            };
+
+                            graph_t g;
+
+                            int topological[MAX_NV];                        // 拓扑排序的结果
+
+                            // 拓扑排序.
+                            // 无环返回 true，有环返回 false
+                            bool topo_sort( const graph_t &g, int topological[] ) {
+                                const int n = g.nv;
+                                vector<int> in_degree( n, 0 );              // in_degree[i] 是顶点 i 的入度
+                                for( int i = 0; i < n; ++i ) {
+                                    for( int j = 0; j < n; ++j ) {
+                                        if( g.matrix[i][j] < GRAPH_INF ) { ++in_degree[j]; }
+                                    }
+                                }
+
+                                stack<int> s;
+                                for( int i = 0; i < n; ++i ) {
+                                    if( !in_degree[i] ) { s.push(i); }
+                                }
+
+                                int count = 0;                              // 拓扑序列的元素个数
+                                while( !s.empty() ) {
+                                    int u = s.top(); s.pop();
+                                    topological[count++] = u;
+                                    for( int i = 0; i < n; ++i ) {
+                                        if( g.matrix[u][i] < GRAPH_INF ) {
+                                            if( --in_degree[i] == 0 ) { s.push(i); }
+                                        }
+                                    }
+                                }
+
+                                if( count != n ) {                          // 有环
+                                    return false;
+                                } else {                                    // 无环
+                                    return true;
+                                }
+                            }
+
+                            int main() {
+                                scanf( "%d %d", &g.nv, &g.ne );
+                                // 初始化图，所有节点间距离为无穷大
+                                for( int i = 0; i < g.nv; ++i ) {
+                                    for( int j = 0; j < g.nv; ++j ) {
+                                        g.matrix[i][j] = GRAPH_INF;
+                                    }
+                                }
+                                // 读取边信息
+                                for( int k = 0; k < g.ne; ++k ) {
+                                    char chx[5], chy[5];
+                                    int w;
+                                    scanf( "%s %s %d", chx, chy, &w );
+                                    g.matrix[*chx-'A'][*chy-'A'] = w;
+                                }
+
+                                topo_sort( g, topological );
+                                for( int i = 0; i < g.nv; ++i ) {
+                                    printf( "%c ", 'A'+topological[i] );
+                                }
+                                printf( "\n" );
+                                return 0;
+                            }
+                            ```
+
+                            ```
+                            6 8
+                            A C 10
+                            A E 30
+                            A F 100
+                            B C 5
+                            C D 50
+                            D 5 10
+                            E D 20
+                            E F 60
+                            ```
+
+                        对有 n 个顶点和 e 条边的 AOV 网络而言，求各顶点的入度所
+                        需时间为 O(e)，建立零入度顶点栈所需时间为 O(n)；在拓扑
+                        排序过程中，若有向图无环，每个顶进一次栈出一次栈，顶点
+                        入度减 1 的操作共执行了 e 次。所以总的时间复杂度为
+                        O(n+e)。
+
+                        当有向图中无环时，也可以利用深度优先搜索进行拓扑排序。
+                        因为图中无环，深度优先遍历不会死循环。进行深度优先遍历
+                        时，最先退出 DFS 函数的顶点即为出度为零的顶点，是拓扑有
+                        序序列的最后一个顶点。由此，按退出 DFS 函数的先后次序记
+                        录下来的顶点序列即为逆向的拓扑有序序列。
+
+                        -   POJ 1094 Sorting It All Out -<
+
+\section{关键路径} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+用有向边上的权值表示活动的持续时间，用顶点表示时间，这样的有向图叫做边表示的活动网络(Activity On Edge Network)，简称\textbf{AOE网络}。
+
+路径最长的路径叫做\textbf{关键路径}(Critical Path)。假设开始点为$v_1$，从$v_1$到$v_i$的最长路径长度叫做事件$v_i$的最早发生时间。这个事件决定了所有以$v_i$为尾的弧所表示的活动的最早开始时间。我们用$e(i)$表示活动$a_i$的最早开始时间。还可以定义一个活动的最迟开始时间$l(i)$，这是在不推迟整个工程完成的前提下，活动$a_i$最迟必须开始进行的时间。两者之差$l(i)-e(i)$意味着完成活动$a_i$的时间余量。我们把$l(i)=e(i)$的活动叫做关键活动。
+
 
         -   DFS of graph -<
 
             :   Selected Problems -<
 
-                :   -   Abbott 的复仇 :hearts: -<
+                :   -   Abbott 的复仇 :hearts: -<*
 
                         :   ```cpp
                             // d[r][c][dir] 存储从初始状态到 (r,c,dir) 的最短长度，其父节点保存在

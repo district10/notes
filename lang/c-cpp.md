@@ -1395,6 +1395,36 @@ C++ 简介 | Intro
         }
         ```
 
+        `stringstream.str()`
+
+        ```cpp
+        #include <sstream>
+        #include <iostream>
+        int main()
+        {
+            int n;
+
+            std::istringstream in;  // could also use in("1 2")
+            in.str("1 2");
+            in >> n;
+            std::cout << "after reading the first int from \"1 2\", the int is "
+                      << n << ", str() = \"" << in.str() << "\"\n";
+            //  after reading the first int from "1 2", the int is 1, str() = "1 2"
+
+            std::ostringstream out("1 2");
+            out << 3;
+            std::cout << "after writing the int '3' to output stream \"1 2\""
+                      << ", str() = \"" << out.str() << "\"\n";
+            //  after writing the int '3' to output stream "1 2", str() = "3 2"
+
+            std::ostringstream ate("1 2", std::ios_base::ate);
+            ate << 3;
+            std::cout << "after writing the int '3' to append stream \"1 2\""
+                      << ", str() = \"" << ate.str() << "\"\n";
+            //  after writing the int '3' to append stream "1 2", str() = "1 23"
+        }
+        ```
+
         refs and see also
 
         -   [std::basic_istringstream - cppreference.com](http://en.cppreference.com/w/cpp/io/basic_istringstream)
@@ -1528,6 +1558,194 @@ C++ 简介 | Intro
         refs and see also
 
         -   [std::equal_range - cppreference.com](http://en.cppreference.com/w/cpp/algorithm/equal_range)
+
+-   std::binary_search -<
+
+    :   Defined in header <algorithm>
+
+        ```cpp
+        template< class ForwardIt, class T >
+        bool binary_search( ForwardIt first, ForwardIt last, const T& value );
+
+        template< class ForwardIt, class T, class Compare >
+        bool binary_search( ForwardIt first, ForwardIt last, const T& value, Compare comp );
+        ```
+
+        Checks if an element equivalent to value appears within the range `[first, last)`.
+
+        For `std::binary_search` to succeed, the range `[first, last)` must be at least
+        partially ordered, i.e. it must satisfy all of the following requirements:
+
+        -   partitioned with respect to `element < value` or `comp(element, value)`
+        -   partitioned with respect to `!(value < element)` or `!comp(value, element)`
+        -   for all elements, if `element < value` or `comp(element, value)` is true then
+            `!(value < element)` or `!comp(value, element)` is also true
+
+        A fully-sorted range meets these criteria, as does a range resulting
+        from a call to `std::partition`.
+
+        Possible implementation
+
+        ```cpp
+        //  First version
+        template<class ForwardIt, class T>
+        bool binary_search(ForwardIt first, ForwardIt last, const T& value) {
+            first = std::lower_bound(first, last, value);
+            return (!(first == last) && !(value < *first));
+        }
+
+        //  Second version
+        template<class ForwardIt, class T, class Compare>
+        bool binary_search(ForwardIt first, ForwardIt last, const T& value, Compare comp) {
+            first = std::lower_bound(first, last, value, comp);
+            return (!(first == last) && !(comp(value, *first)));
+        }
+        ```
+
+        ```cpp
+        #include <iostream>
+        #include <algorithm>
+        #include <vector>
+
+        int main()
+        {
+            std::vector<int> haystack {1,    3,     4,    5,    9};
+            std::vector<int> needles  {1, 2, 3};
+
+            for (auto needle : needles) {
+                std::cout << "Searching for " << needle << '\n';
+                if (std::binary_search(haystack.begin(), haystack.end(), needle)) {
+                    std::cout << "Found " << needle << '\n';
+                } else {
+                    std::cout << "no dice!\n";
+                }
+            }
+        }
+
+        //  Searching for 1
+        //  Found 1
+        //  Searching for 2
+        //  no dice!
+        //  Searching for 3
+        //  Found 3
+        ```
+
+-   std::search -<
+
+    :   Defined in header <algorithm>
+
+        ```cpp
+        template< class ForwardIt1, class ForwardIt2 >
+        ForwardIt1 search( ForwardIt1 first, ForwardIt1 last,
+                           ForwardIt2 s_first, ForwardIt2 s_last );
+
+        template< class ForwardIt1, class ForwardIt2, class BinaryPredicate >
+        ForwardIt1 search( ForwardIt1 first, ForwardIt1 last,
+                           ForwardIt2 s_first, ForwardIt2 s_last, BinaryPredicate p );
+        ```
+
+        Searches for the first occurrence of the subsequence of elements `[s_first, s_last)`
+        in the range `[first, last - (s_last - s_first))`. The first version uses `operator==`
+        to compare the elements, the second version uses the given binary predicate p.
+
+        ```cpp
+        //  First version
+        template<class ForwardIt1, class ForwardIt2>
+        ForwardIt1 search(ForwardIt1 first, ForwardIt1 last,
+                          ForwardIt2 s_first, ForwardIt2 s_last)
+        {
+            for (; ; ++first) {
+                ForwardIt1 it = first;
+                for (ForwardIt2 s_it = s_first; ; ++it, ++s_it) {
+                    if (s_it == s_last) {
+                        return first;
+                    }
+                    if (it == last) {
+                        return last;
+                    }
+                    if (!(*it == *s_it)) {
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Second version
+        template<class ForwardIt1, class ForwardIt2, class BinaryPredicate>
+        ForwardIt1 search(ForwardIt1 first, ForwardIt1 last,
+                          ForwardIt2 s_first, ForwardIt2 s_last,
+                          BinaryPredicate p)
+        {
+            for (; ; ++first) {
+                ForwardIt1 it = first;
+                for (ForwardIt2 s_it = s_first; ; ++it, ++s_it) {
+                    if (s_it == s_last) {
+                        return first;
+                    }
+                    if (it == last) {
+                        return last;
+                    }
+                    if (!p(*it, *s_it)) {
+                        break;
+                    }
+                }
+            }
+        }
+        ```
+
+        ```cpp
+        #include <string>
+        #include <algorithm>
+        #include <iostream>
+        #include <vector>
+
+        template<typename Container>
+        bool in_quote(const Container& cont, const std::string& s)
+        {
+            return std::search(cont.begin(), cont.end(), s.begin(), s.end()) != cont.end();
+        }
+
+        int main()
+        {
+            std::string str = "why waste time learning, when ignorance is instantaneous?";
+            // str.find() can be used as well
+            std::cout << std::boolalpha << in_quote(str, "learning") << '\n'
+                                        << in_quote(str, "lemming")  << '\n';
+
+            std::vector<char> vec(str.begin(), str.end());
+            std::cout << std::boolalpha << in_quote(vec, "learning") << '\n'
+                                        << in_quote(vec, "lemming")  << '\n';
+        }
+        //  true
+        //  false
+        //  true
+        //  false
+        ```
+
+        ```cpp
+        #include <vector>
+        #include <string>
+        #include <algorithm>
+        #include <iostream>
+        #include <cstdio>
+
+        using namespace std;
+
+        int main()
+        {
+            int i = 32;
+            vector<int> vi = { 10, 21, 32, 43 };
+            auto it1 = search( vi.begin(), vi.end(), &i, &i+1 );
+            printf( "index: %d, value: %d\n", (int)distance(vi.begin(), it1), *it1 );
+            //  index: 2, value: 32
+
+            string s = "two";
+            vector<string> vs = { "zero", "one", "two", "three" };
+            auto it2 = search( vs.begin(), vs.end(), &s, &s+1 );
+            printf( "index: %d, value: %s\n", (int)distance(vs.begin(), it2), it2->c_str() );
+            //  index: 2, value: two
+        }
+        ```
 
 -   print out queue, stack -<
 
