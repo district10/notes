@@ -104,6 +104,10 @@ TODOs & Notes -<
             cat input.txt | ./code
             ```
 
+    -   fib, fac -<
+
+        :   fibonacci. factorial.
+
 ## 0.
 
 我的算法学习之路 - Lucida -<
@@ -528,7 +532,7 @@ A Bit of Logic -<
     -   [Linear algebra - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Linear_algebra)
     -   [Bit field - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Bit_field)
 
-九章算法班/强化班 (JiuZhang) -<
+九章算法班/强化班 (JiuZhang) :hearts: :hearts: :hearts: -<
 
 :   >   没有报这个班（关键是穷 ==），但从这个列表（syllabus），可以制定自己的复习内容。
 
@@ -1359,7 +1363,7 @@ A Bit of Logic -<
                             }
                             ```
 
-                    -   Rabin-Karp -<
+                    -   Rabin-Karp :TODO: -<
 
                         :   TODO
 
@@ -3259,8 +3263,8 @@ A Bit of Logic -<
                     int A[] = { 1,  5,  6,  9,  12,    18,    25,    73  };
                     int x;
                     while( scanf("%d", &x) == 1 ) {
-                        int pos = binary_search( A, sizeof(A)/sizeof(A), x );
-                        for( int i = 0; i < sizeof(A)/sizeof(A); ++i ) {
+                        int pos = binary_search( A, sizeof(A)/sizeof(A[0]), x );
+                        for( int i = 0; i < sizeof(A)/sizeof(A[0]); ++i ) {
                             printf( "[%3d]", A[i] );
                         }
                         printf( "\n" );
@@ -3683,140 +3687,143 @@ A Bit of Logic -<
                 }
                 ```
 
-                递归版的都很容易：
-                （Recursive solution is trivial `['trɪvɪəl]`, could you do it iteratively `['itə,reitivli] `?）
+                递归版的都很容易 -<
 
-                ```cpp
-                void traversal( TreeNode *root, vector<int> &result ) {
-                    if( !root ) { return; }
-                    // 如果先序（中序和后序只是调整一下位置）
-                    result.push_back( root->val );
-                    traversal( root->left,  result );
-                    traversal( root->right, result );
-                }
-                ```
+                :   （Recursive solution is trivial `['trɪvɪəl]`, could you do it iteratively `['itə,reitivli] `?）
 
-                ```
-                【从维基百科查到的 iterative 方法的算法伪码】
-
-                DPS: Depth-first search
-                BPS: Breath-first search
-                --------------------------------------------
-                iterativePreorder(node)
-                    if (node = null)
-                        return
-                    s ← empty stack
-                    s.push(node)
-                    while (not s.isEmpty())
-                        node ← s.pop()
-                        visit(node)
-                        if (node.right ≠ null)
-                            s.push(node.right)
-                        if (node.left ≠ null)
-                            s.push(node.left)
-                --------------------------------------------
-                iterativeInorder(node)
-                   s ← empty stack
-
-                   while (not s.isEmpty() or node ≠ null)
-                       if (node ≠ null)
-                           s.push(node)
-                           node ← node.left
-                       else
-                           node ← s.pop()
-                           visit(node)
-                           node ← node.right
-                --------------------------------------------
-                iterativePostorder(node)
-                    s ← empty stack                                               O  1                  X-> go left/down
-                    lastNodeVisited ← null                                       /                      X-> go right?
-                    while (not s.isEmpty() or node ≠ null)                   2  O                       X-> go up.
-                        if (node ≠ null)                                       / \
-                            s.push(node)                                   3  X-> O  4
-                            node ← node.left                                     / \
-                        else                                                5  O    O  7
-                            peekNode ← s.peek()                              /     /
-                            // if right child exists and traversing node    X 6   X 8
-                            // from left child, then move right
-                            if (peekNode.right ≠ null and lastNodeVisited ≠ peekNode.right)
-                                node ← peekNode.right
-                            else
-                                visit(peekNode)
-                                lastNodeVisited ← s.pop()
-                --------------------------------------------
-                levelorder(root)
-                    q ← empty queue
-                    q.enqueue(root)
-                    while (not q.isEmpty())
-                        node ← q.dequeue()
-                        visit(node)
-                        if (node.left ≠ null)
-                            q.enqueue(node.left)
-                        if (node.right ≠ null)
-                            q.enqueue(node.right)
-                ```
-
-                template:
-
-                ```cpp
-                #include <stdio.h>
-                #include <iostream>
-                #include <queue>
-                #include <stack>
-                #include <vector>
-                #define nullptr 0
-                using namespace std;
-
-                struct TreeNode {
-                    int val;
-                    TreeNode *left;
-                    TreeNode *right;
-                    TreeNode(int x = -1 ) : val(x), left(NULL), right(NULL) {}  // added default ctor
-                };
-                void link( TreeNode &root, TreeNode * left, TreeNode *right ) {
-                    root.left  = left;
-                    root.right = right;
-                }
-
-                class Solution {
-                    public:
-                    vector<vector<int> > levelOrder( TreeNode *root );
-                    ...
-                };
-
-                int main() {
-                    TreeNode node;
-                    for( int i = 0; i < 10; ++i ) { node[i].val = i; }
-                    printf( "         0               \n"
-                            "        / \\             \n"
-                            "       /   \\            \n"
-                            "      1     2            \n"
-                            "    /  \\     \\         \n"
-                            "   3    4     5          \n"
-                            "   \\    /    / \\       \n"
-                            "    6  7    8   9        \n" );
-                    link( node, &node, &node );
-                    link( node, &node, &node );
-                    link( node,       0 , &node );
-                    link( node,       0 , &node );
-                    link( node, &node,       0  );
-                    link( node, &node, &node );
-                    link( node,       0 ,       0  );
-                    link( node,       0 ,       0  );
-                    link( node,       0 ,       0  );
-                    link( node,       0 ,       0  );
-
-                    Solution sol;
-                    vector<vector<int> > ret = sol.levelOrder( &node );
-                    for( int i = 0; i < ret.size(); ++i ) {
-                        for( int j = 0; j < ret[i].size(); ++j ) {
-                            cout << " " << ret[i][j];
-                        }
-                        cout << "\n";
+                    ```cpp
+                    void traversal( TreeNode *root, vector<int> &result ) {
+                        if( !root ) { return; }
+                        // 如果先序（中序和后序只是调整一下位置）
+                        result.push_back( root->val );
+                        traversal( root->left,  result );
+                        traversal( root->right, result );
                     }
-                    return 0;
-                }
-                ```
+                    ```
+
+                Iterative 算法伪码 -<
+
+                :   ```
+                    【从维基百科查到的 iterative 方法的算法伪码】
+
+                    DPS: Depth-first search
+                    BPS: Breath-first search
+                    --------------------------------------------
+                    iterativePreorder(node)
+                        if (node = null)
+                            return
+                        s ← empty stack
+                        s.push(node)
+                        while (not s.isEmpty())
+                            node ← s.pop()
+                            visit(node)
+                            if (node.right ≠ null)
+                                s.push(node.right)
+                            if (node.left ≠ null)
+                                s.push(node.left)
+                    --------------------------------------------
+                    iterativeInorder(node)
+                       s ← empty stack
+
+                       while (not s.isEmpty() or node ≠ null)
+                           if (node ≠ null)
+                               s.push(node)
+                               node ← node.left
+                           else
+                               node ← s.pop()
+                               visit(node)
+                               node ← node.right
+                    --------------------------------------------
+                    iterativePostorder(node)
+                        s ← empty stack                                               O  1      X-> go left/down
+                        lastNodeVisited ← null                                       /          X-> go right?
+                        while (not s.isEmpty() or node ≠ null)                   2  O           X-> go up.
+                            if (node ≠ null)                                       / \
+                                s.push(node)                                   3  X-> O  4
+                                node ← node.left                                     / \
+                            else                                                5  O    O  7
+                                peekNode ← s.peek()                              /     /
+                                // if right child exists and traversing node    X 6   X 8
+                                // from left child, then move right
+                                if (peekNode.right ≠ null and lastNodeVisited ≠ peekNode.right)
+                                    node ← peekNode.right
+                                else
+                                    visit(peekNode)
+                                    lastNodeVisited ← s.pop()
+                    --------------------------------------------
+                    levelorder(root)
+                        q ← empty queue
+                        q.enqueue(root)
+                        while (not q.isEmpty())
+                            node ← q.dequeue()
+                            visit(node)
+                            if (node.left ≠ null)
+                                q.enqueue(node.left)
+                            if (node.right ≠ null)
+                                q.enqueue(node.right)
+                    ```
+
+                Code Template -<
+
+                :   ```cpp
+                    #include <stdio.h>
+                    #include <iostream>
+                    #include <queue>
+                    #include <stack>
+                    #include <vector>
+                    #define nullptr 0
+                    using namespace std;
+
+                    struct TreeNode {
+                        int val;
+                        TreeNode *left;
+                        TreeNode *right;
+                        TreeNode(int x = -1 ) : val(x), left(NULL), right(NULL) {}  // added default ctor
+                    };
+                    void link( TreeNode &root, TreeNode * left, TreeNode *right ) {
+                        root.left  = left;
+                        root.right = right;
+                    }
+
+                    class Solution {
+                        public:
+                        vector<vector<int> > levelOrder( TreeNode *root );
+                        ...
+                    };
+
+                    int main() {
+                        TreeNode node;
+                        for( int i = 0; i < 10; ++i ) { node[i].val = i; }
+                        printf( "         0               \n"
+                                "        / \\             \n"
+                                "       /   \\            \n"
+                                "      1     2            \n"
+                                "    /  \\     \\         \n"
+                                "   3    4     5          \n"
+                                "   \\    /    / \\       \n"
+                                "    6  7    8   9        \n"   );
+                        link(   node,     &node,      &node     );
+                        link(   node,     &node,      &node     );
+                        link(   node,         0,      &node     );
+                        link(   node,         0,      &node     );
+                        link(   node,     &node,          0     );
+                        link(   node,     &node,      &node     );
+                        link(   node,         0,          0     );
+                        link(   node,         0,          0     );
+                        link(   node,         0,          0     );
+                        link(   node,         0,          0     );
+
+                        Solution sol;
+                        vector<vector<int> > ret = sol.levelOrder( &node );
+                        for( int i = 0; i < ret.size(); ++i ) {
+                            for( int j = 0; j < ret[i].size(); ++j ) {
+                                cout << " " << ret[i][j];
+                            }
+                            cout << "\n";
+                        }
+                        return 0;
+                    }
+                    ```
 
                 refs and see also
 
@@ -3908,26 +3915,26 @@ A Bit of Logic -<
                             :   -   用栈 -<
 
                                     :   ```
-                                        =while { if / else }=
+                                            =while { if / else }=
 
-                                         down to left loop
-                                         +------->-------+
-                                         |              \|/
-                                         |               |
-                                       +-----+       +--- ---------------+
-                                       |while|       |  i f  -->-- else  |
-                                       +-^---+       +--- ---------- ----+
-                                         |               |          | go to right subtree
-                                         +-------<-------+--<-------+
+                                             down to left loop
+                                             +------->-------+
+                                             |              \|/
+                                             |               V
+                                           +-----+       +---|---------------+
+                                           |while|       |  i f  -->-- else  |
+                                           +-^---+       +---|---------- ----+
+                                             |               V          | go to right subtree
+                                             +-------<-------+--<-------+
 
-                                        +--+                           +----+
-                                        |if|                           |else|
-                                        +--+                           +----+
-                                                    X
-                                                   /                           i.  pop
-                                                  X                            ii. visit
-                                                 /                             iii. go right
-                                                ?
+                                            +--+                           +----+
+                                            |if|                           |else|
+                                            +--+                           +----+
+                                                        X
+                                                       /                           i.  pop
+                                                      X                            ii. visit
+                                                     /                             iii. go right
+                                                    ?
                                         ```
 
 
@@ -3952,6 +3959,7 @@ A Bit of Logic -<
                                 -   Moris -<
 
                                     :   ```cpp
+                                        TODO
                                         ```
 
                                         ![红色是为了定位到某个节点，黑色线是为了
@@ -4168,7 +4176,7 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   rebuild tree -<
+                -   rebuild tree :hearts: -<
 
                     :   -   原理以及人工推演 -<
 
@@ -4205,11 +4213,11 @@ A Bit of Logic -<
                                 #include <string.h>
 
                                 void build_post( const char * pre, const char *in, const int n, char *post ) {
-                                    int left_len = strchr(in, pre) - in;
                                     if(n <= 0) { return; }
+                                    int left_len = strchr(in, pre[0]) - in;
+                                    post[n - 1] = pre[0];                   // you can put this line before/after recursion.
                                     build_post( pre+1,          in,             left_len,       post );
                                     build_post( pre+left_len+1, in+left_len+1,  n-left_len-1,   post+left_len );
-                                    post[n - 1] = pre;                   // you can put this line before recursion.
                                 }
 
                                 int main() {
@@ -4223,14 +4231,14 @@ A Bit of Logic -<
                                     "       D     E   F            \n"
                                     "        \\                    \n"
                                     "         G                    \n" );
-                                    const char *pre = "ABDGCEF";
-                                    const char *in  = "DGBAECF";
-                                    //          post= "GDBEFCA";
-                                    char post = { 0 };
-                                    build_post( pre, in, strlen(pre), post );
-                                    printf( "pre:  %s\n", pre );
-                                    printf( "in:   %s\n", in );
-                                    printf( "post: %s\n", post );
+                                    const char *pre     = "ABDGCEF";
+                                    const char *in      = "DGBAECF";
+                                    char        post[8] = { 0     };
+                                    //                    "GDBEFCA";
+                                    build_post( pre, in, strlen(pre), post  );
+                                    printf( "pre:  %s\n", pre               );
+                                    printf( "in:   %s\n", in                );
+                                    printf( "post: %s\n", post              );
                                 }
                                 ```
 
@@ -4418,33 +4426,6 @@ A Bit of Logic -<
                                 }
                                 ```
 
-                -   DFS 模板 Introduce DFS Template :dizzy: -<
-
-                    :   DFS (depth-first search) 是深搜。
-
-                        ```cpp
-                        void dfs( type &input, type &path, type &result, int cur or gap ) {
-                            if( 数据非法 ) { return 0; }            // 终止条件
-                            if( cur == input.size() ) {
-                                将 path 放入 result
-                            }
-                            if( 可以剪纸 ) { return; }
-                            for( ... ) {                            // 执行所有可能的扩展动作
-                                执行动作，修改 path
-                                dfs( input, step+1 or gap--, result );
-                                恢复 path
-                            }
-                        }
-                        ```
-
-                        [Depth-first search - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Depth-first_search)
-
-                        DFS 和回溯（backtracking）不一样。Backtracking = DFS + 减枝。
-
-                        [Backtracking - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Backtracking)
-
-                        [Pruning (algorithm) - Wikipedia, the free encyclopedia](http://inimino.org/~inimino/tests/js/tree_explorer/wikipedia/Pruning_(algorithm).html)
-
         -   二叉树的宽度优先遍历 Binary Tree BFS Traversal -<
 
             :   就是层序遍历（level order traversal）
@@ -4459,9 +4440,10 @@ A Bit of Logic -<
                             return result;
                         }
 
+                        // level is IMPORTANT!
                         void traverse( TreeNode *root, size_t level, vector<vector<int> > &result ) {
                             if( !root ) { return; }
-                            if( level > result.size() ) {
+                            if( level - 1 >= result.size() ) {
                                 result.push_back( vector<int>() );                  // 也可以用 resize( level );
                             }
                             result[level-1].push_back( root->val );
@@ -4478,7 +4460,6 @@ A Bit of Logic -<
                             vector<vector<int> > ret;
                             if( !root ) { return ret; };
                             queue<TreeNode *> cur, next;
-
                             cur.push( root );
                             while( !cur.empty() ) {
                                 vector<int> level;
@@ -4503,9 +4484,9 @@ A Bit of Logic -<
                             if( !root ) { return ret; }
                             queue<TreeNode *> q;
                             q.push( root );
-                            q.push( nullptr );      // indicate end of cur level
+                            q.push( nullptr );                          // indicate end of cur level
                             vector<int> cur;
-                            do {
+                            while( !q.empty() ) {
                                 root = q.front(); q.pop();
                                 if( root ) {
                                     cur.push_back( root->val );
@@ -4516,9 +4497,9 @@ A Bit of Logic -<
                                         ret.push_back( cur );
                                         cur.clear();
                                     }
-                                    q.push( nullptr );
+                                    q.push( nullptr );                  // indicate end of cur level
                                 }
-                            } while( !q.empty() );
+                            }
                             if( !cur.empty() ) { ret.push_back( cur ); }
                             return ret;
                         }
@@ -4636,7 +4617,7 @@ A Bit of Logic -<
                         ```cpp
                         int numTrees( int n ) {
                             vector<int> f( n+1, 0 );
-                            f = f = 1;
+                            f[0] = f[1] = 1;
                             for( int i = 2; i <= n; ++i ) {
                                 for( int k = 1; k <= n; ++k ) {
                                     f[i] += f[k-1] * f[i-k];
@@ -4664,8 +4645,8 @@ A Bit of Logic -<
                             if( !root ) { return true; }
                             long long val = root->val;
                             return val > min && val < max &&
-                                   isValidBST( root->left, min, root->val ) &&
-                                   isValidBST( root->right, root->val, max );
+                                   isValidBST( root->left,          min,  root->val ) &&
+                                   isValidBST( root->right,   root->val,        max );
                         }
                         ```
 
@@ -4675,10 +4656,11 @@ A Bit of Logic -<
 
                 -   Convert Sorted Array to Binary Search Tree -<
 
-                    :   Given an array where elements are sorted in ascending order, convert it to a height balanced BST.
+                    :   Given an array where elements are sorted in ascending
+                        order, convert it to a height balanced BST.
 
                         dup problem, same idea. (思路是一样的，不过那边更直白。)
-                        首先要明确，这个 BST 不唯一。
+                        首先要明确，**这个 BST 不唯一**。
 
                         ```cpp
                         TreeNode * sortedArrayToBST( vector<int> &nums ) {
@@ -4686,11 +4668,11 @@ A Bit of Logic -<
                         }
                         template<typename RandomAccessIterator>
                         TreeNode * sortedArrayToBST( RandomAccessIterator first, RandomAccessIterator last ) {
-                            const auto length = distance( first, last );
                             if( length <= 0 ) { return nullptr; }
+                            const auto length = distance( first, last );
                             RandomAccessIterator mid = first + length/2;
                             TreeNode *root = new TreeNode( *mid );
-                            root->left = sortedArrayToBST( first, mid );
+                            root->left  = sortedArrayToBST( first, mid  );
                             root->right = sortedArrayToBST( mid+1, last );
                             return root;
                         }
@@ -4701,56 +4683,49 @@ A Bit of Logic -<
                         -   [Convert Sorted Array to Balanced Binary Search Tree (BST) – LeetCode](http://articles.leetcode.com/convert-sorted-array-into-balanced)
                         -   [Convert Sorted Array to Binary Search Tree | LeetCode OJ](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)
 
-                -   Convert Sorted List to Binary Search Tree :TODO: -<
+                -   Convert Sorted List to Binary Search Tree -<
 
                     :   这里和上面不同的是，list 不能随机存取。最省力的方法是，先把 list 转成 array……
 
                         不用这种化归的偷懒策略，有两种思路：
 
-                        -   分治法，自顶向下 O(n^2)，O(logn) -<
+                        -   分治法，自顶向下 O(n^2^)，O(logn) -<
 
                             :   ```cpp
                                 // 分治法，类似于 Convert Sorted Array to Binary Search Tree，
                                 // 自顶向下，时间复杂度O(n^2)，空间复杂度O(logn)
                                 class Solution {
                                 public:
-                                    TreeNode* sortedListToBST (ListNode* head) {
-                                        return sortedListToBST (head, listLength (head));
+                                    TreeNode *sortedListToBST( ListNode *head ) {
+                                        return sortedListToBST( head, listLength(head) );
                                     }
 
-                                    TreeNode* sortedListToBST (ListNode* head, int len) {
-                                        if (len == 0) return nullptr;
-                                        if (len == 1) return new TreeNode (head->val);
-
-                                        TreeNode* root = new TreeNode (nth_node (head, len / 2 + 1)->val);
-                                        root->left = sortedListToBST (head, len / 2);
-                                        root->right = sortedListToBST (nth_node (head, len / 2 + 2),
-                                                (len - 1) / 2);
-
+                                    TreeNode *sortedListToBST( ListNode *head, int len ) {
+                                        if (len == 0) { return nullptr; }
+                                        if (len == 1) { return new TreeNode(head->val); }
+                                        TreeNode *root = new TreeNode( nth_node (head, len / 2 + 1)->val );
+                                        root->left  = sortedListToBST( head,                         len / 2     );
+                                        root->right = sortedListToBST( nth_node(head, len / 2 + 2), (len - 1) / 2);
                                         return root;
                                     }
 
-                                    int listLength (ListNode* node) {
+                                    int listLength( ListNode *node ) {
                                         int n = 0;
-
-                                        while(node) {
-                                            ++n;
+                                        while( node ) {
                                             node = node->next;
+                                            ++n;
                                         }
-
                                         return n;
                                     }
 
-                                    ListNode* nth_node (ListNode* node, int n) {
-                                        while (--n)
-                                            node = node->next;
-
+                                    ListNode *nth_node( ListNode *node, int n ) {
+                                        while( --n ) { node = node->next; }
                                         return node;
                                     }
                                 };
                                 ```
 
-                        -   自底向上 O(n)，O(logn) -<
+                        -   自底向上 O(n)，O(logn) :hearts: -<
 
                             :   As usual, the best solution requires you
                                 **to think from another perspective**. In other words, we no
@@ -4795,33 +4770,33 @@ A Bit of Logic -<
                                 }
                                 ```
 
-                        这是什么解法呢？
+                        -   这是什么解法呢？ -<
 
-                        ```cpp
-                        // Convert Sorted List to Binary Search Tree
-                        class Solution {
-                            ListNode *l;
-                            TreeNode *f(int n) {
-                                if (! n) return 0;
-                                auto x = new TreeNode(0);
-                                x->left = f(n/2);
-                                x->val = l->val;
-                                l = l->next;
-                                x->right = f(n-n/2-1);
-                                return x;
-                            }
-                        public:
-                            TreeNode *sortedListToBST(ListNode *head) {
-                                l = head;
-                                int n = 0;
-                                while (head) {
-                                    head = head->next;
-                                    n++;
-                                }
-                                return f(n);
-                            }
-                        };
-                        ```
+                            :   ```cpp
+                                // Convert Sorted List to Binary Search Tree
+                                class Solution {
+                                    ListNode *l;
+                                    TreeNode *f(int n) {
+                                        if (! n) return 0;
+                                        auto x = new TreeNode(0);
+                                        x->left = f(n/2);
+                                        x->val = l->val;
+                                        l = l->next;
+                                        x->right = f(n-n/2-1);
+                                        return x;
+                                    }
+                                public:
+                                    TreeNode *sortedListToBST(ListNode *head) {
+                                        l = head;
+                                        int n = 0;
+                                        while (head) {
+                                            head = head->next;
+                                            n++;
+                                        }
+                                        return f(n);
+                                    }
+                                };
+                                ```
 
                         refs and see also
 
@@ -4832,14 +4807,14 @@ A Bit of Logic -<
 
             :   -   pow(x, n) -<
 
-                    :   实现 power(x, n) 即 x^n
+                    :   实现 power(x, n) 即 x^n^
 
                         思路：
 
-                        -   n 为奇数，x^n = x * x^{n-1}
-                        -   n 为偶数，x^n = x^{n/2} * x^{n/2}
+                        -   n 为奇数，x^n^ = x \* x^n-1^
+                        -   n 为偶数，x^n^ = x^n/2^ \* x^n/2^
 
-                        或者 x^n = x^{n/2} * x^{n/2} * x^{n%2}
+                        或者 x^n^ = x^n/2^ \* x^n/2^ \* x^n%2^
 
                         ```cpp
                         // Time: O(logn), Space: O(1)
@@ -4878,7 +4853,7 @@ A Bit of Logic -<
 
                 -   chess covering -<
 
-                    :   acm-cheat
+                    :   dup?
 
                         ```
                         input:
@@ -4896,98 +4871,40 @@ A Bit of Logic -<
                         ```
 
                         本题的棋盘是 2^k^ x 2^k^，很容易想到用分治法。把棋盘切
-                        成4块，则每一块都是 2^k-1^ x 2^k-1^ 的。有黑格的
-                        那一块可以递归解决，但其他3块并没有黑格子，应该怎么办呢
-                        ？可以构造出一个黑格子，如图~\ref{fig:chessboard}所示，
-                        在中心放一个L型牌，其它3块也变成了子问题。递归边界不难
-                        得出，当$k=1$时1块L型牌就够了。
+                        成 4 块，则每一块都是 2^k-1^ x 2^k-1^ 的。有黑格的那一块
+                        可以递归解决，但其他 3 块并没有黑格子，应该怎么办呢？可以
+                        构造出一个黑格子，在中心放一个 L 型牌，其它 3 块也变成了子
+                        问题。递归边界不难得出，当 k=1 时 1 块 L 型牌就够了。
 
                         本题只需要求总数，不需要求具体怎么摆放，因此简化很多。
-                        根据上面的思路，设$f(k)$表示棋盘是$2^k \times 2^k$时所
-                        需L型牌的总数，可得递推公式$f(k)=4f(k-1)+1$。
+                        根据上面的思路，设 f(k) 表示棋盘是 2^k^ x 2^k^ 时所
+                        需 L 型牌的总数，可得递推公式 f(k) = 4f(k-1)+1。
 
-                        注意，$2^100$是一个很大的数，本题需要处理大数，见\S \ref{sec:bigintmul}节。
-
-                        ```cpp
-                        #include<cstdio>
-                        #include<cstring>
-
-                        #define MAXK 100
-
-                        // 一个数组元素表示 4 个十进制位，即数组是万进制的
-                        #define BIGINT_MOD 10000
-                        #define MOD_LEN 4
-                        #define MAX_LEN (61/MOD_LEN+1)  // 整数的最大位数, 10^x > 4^100
-
-                        int  d[MAXK][MAX_LEN * 2];  // d[k-1] = f(k)
-
-                        // 大整数，用数组表示，低位在低地址
-                        void bigint_print(const int x[], const int n) {
-                            bool start_output = false;              // 用于跳过前导 0
-                            for( int i = n - 1; i >= 0; --i ) {
-                                if( start_output ) {                 // 如果多余的 0 已经都跳过，则输出
-                                    printf( "%04d", x[i] );
-                                    continue;
-                                }
-                                if( x[i] > 0 ) {
-                                    printf( "%d", x[i] );           // 本题输出比较坑爹，最高位数字有前导 0
-                                    start_output = true;            // 碰到第一个非 0 的值，就说明多余的 0 已经都跳过
-                                }
-                            }
-
-                            if ( !start_output ) { printf("0"); }   // 当 x 全为 0 时
-                        }
-
-                        // 计算f(k) = 4f(k-1)+1，与大整数乘法很类似.
-                        void bigint_mul_small(const int x[], const int y, int z[]) {
-                            int i;
-                            for (i = 0; i < MAX_LEN * 2; i++) z[i] = 0;
-
-                            z[0] = 1;
-
-                            for (i = 0; i < MAX_LEN; i++) z[i] += x[i] * y;
-                            for (i = 0; i < MAX_LEN * 2; i++) {  // 统一处理进位问题
-                                if (z[i] >= BIGINT_MOD) {
-                                    z[i+1] += z[i] / BIGINT_MOD;
-                                    z[i] %= BIGINT_MOD;
-                                }
-                            }
-                        }
-
-                        int main() {
-                            int k, T;
-                            d[0][0] = 1;
-                            for (k = 2; k <= 100; k++) bigint_mul_small(d[k-2], 4, d[k-1]);
-
-                            scanf("%d", &T);
-                            while( T-- > 0 ) {
-                                scanf("%d", &k);
-                                bigint_print(d[k - 1], MAX_LEN * 2);
-                                printf("\n");
-                            }
-                            return 0;
-                        }
-                        ```
+                        注意，2^100^ 是一个很大的数，本题需要处理大数。
 
                 -   schedule :hearts: -<
 
                     :   有 2^k^ 个运动员参加循环比赛，需要设计比赛日程表。要求如下：
 
-                        -   每个选手必须与其他n-1个选手各赛一次
+                        -   每个选手必须与其他 n-1 个选手各赛一次
                         -   每个选手一天只能赛一次
-                        -   比赛一共进行n-1天
+                        -   比赛一共进行 n-1 天
 
-                        按此要求设计一张比赛日程表，它有n行和n-1列，第i行第j列为第i个选手第j天遇到的对手。
+                        按此要求设计一张比赛日程表，它有 n 行和 n-1 列，第 i 行
+                        第 j 列为第 i 个选手第 j 天遇到的对手。
 
                         ```
                         input:
 
-                            1 // 只有一个数k，0<k<9，且k为自然数。
+                            只有一个数 k，0 < k < 9，且 k 为自然数。
+
+                            1
 
                         output:
 
-                            一张比赛日程表，它有n行和n-1列（不算第一列，第一列表示选手的编号），第i行第
-                            j列为第i个选手第j天遇到的对手。相邻的两个整数用空格隔开。
+                            一张比赛日程表，它有 n 行和 n-1 列
+                            （不算第一列，第一列表示选手的编号），第 i 行第j 列为
+                            第 i 个选手第 j 天遇到的对手。相邻的两个整数用空格隔开。
 
                             1 2
                             2 1
@@ -4995,11 +4912,13 @@ A Bit of Logic -<
 
                         分析
 
-                        根据分而治之的思想，可从其中一半选手(2^{k-1}位)的比赛日程，推导出全体选手的日程，最终细分到只有两位选手的比赛日程。
+                        根据分而治之的思想，可从其中一半选手 (2^k-1^ 位) 的比赛
+                        日程，推导出全体选手的日程，最终细分到只有两位选手的比
+                        赛日程。
 
-                        所示是 k=3 时的一个可行解，它是由4块拼起来的。左上角是
-                        k=2时的一组解，左下角是由左上角每个数加4得到，而右上角
-                        、右下角分别由左下角、左上角复制得到。
+                        所示是 k=3 时的一个可行解，它是由 4 块拼起来的。左上角
+                        是 k=2 时的一组解，左下角是由左上角每个数加 4 得到，而右
+                        上角、右下角分别由左下角、左上角复制得到。
 
                         ```
                         1   2   3   4 | 5   6   7   8
@@ -5017,7 +4936,7 @@ A Bit of Logic -<
                         #include<stdio.h>
                         #include<stdlib.h>
 
-                        #define MAXN 512   /* N=2^k, 0<k9 */
+                        #define MAXN 512                    // N=2^k, 0<k<9
                         short schedule[MAXN][MAXN];
 
                         void dc(const int k) {
@@ -5103,9 +5022,7 @@ A Bit of Logic -<
 
     :   -   util: print.cpp -<
 
-            :   print.cpp
-
-                ```cpp
+            :   ```cpp
                 #include <stdio.h>
                 #include <algorithm>
 
@@ -5176,7 +5093,7 @@ A Bit of Logic -<
 
                         int main() {
                             int A[] = { 3, 2, 6, 9, 5, 1, 4, 8, 7  };
-                            int n = sizeof(A)/sizeof(A);
+                            int n = sizeof(A)/sizeof(A[0]);
                             straight_insertion_sort( A, 0, n );
                         }
                         ```
@@ -5390,22 +5307,21 @@ A Bit of Logic -<
 
                 -   shell insertion sort -<
 
-                    :   从对直接插入排序的分析得知，其算法时间复杂度为 O(n^2)，
-                        但是，若待排序记录序列为“正序”时，其时间
-                        复杂度可提高至 O(n)。由此可设想，若待排序记录序列
-                        按关键字“基本有序”，即序列中具有下列特性
-                        $$R_i.key < \max\left\{R_j.key\right\},\; j<i$$
-                        的记录较少时，直接插入排序的效率就可大大提高，从另
-                        一方面来看，由于直接插入排序算法简单，则在 n 值很小时
-                        效率也比较高。希尔排序正是从这两点分析出发对直接插
-                        入排序进行改进得到的一种插入排序方法。
+                    :   从对直接插入排序的分析得知，其算法时间复杂度为 O(n^2^)，
+                        但是，若待排序记录序列为“正序”时，其时间复杂度可提高至
+                        O(n)。由此可设想，若待排序记录序列按关键字“基本有序”，
+                        即序列中具有下列特性 R~i~.key < max{ R~j~.key }, j<i 的
+                        记录较少时，直接插入排序的效率就可大大提高，从另一方面
+                        来看，由于直接插入排序算法简单，则在 n 值很小时效率也比
+                        较高。希尔排序正是从这两点分析出发对直接插入排序进行改
+                        进得到的一种插入排序方法。
 
                         希尔排序 (Shell Sort) 的基本思想是：设待排序元素序
                         列有 n 个元素，首先取一个整数 gap = n/3+1 作为间隔，
                         将全部元素分为 gap 个子序列，所有距离为 gap 的元素放在
                         同一个子序列中，在每一个子序列中分别施行直接插入排
-                        序。然后缩小间隔 gap，取 gap=n/3+1, 重复上述的子序列
-                        划分和排序工作，直到最后取 gap=1，将所有元素放在同一
+                        序。然后缩小间隔 gap，取 gap = n/3+1, 重复上述的子序列
+                        划分和排序工作，直到最后取 gap = 1，将所有元素放在同一
                         个序列中排序为止。
 
                         ```cpp
@@ -5645,7 +5561,7 @@ A Bit of Logic -<
 
                         int main() {
                             int A[] = { 3, 2, 6, 9, 5, 1, 4, 8, 7  };
-                            int n = sizeof(A)/sizeof(A);
+                            int n = sizeof(A)/sizeof(A[0]);
                             heap_sort( A, n, &cmp );
                         }
                         ```
@@ -5910,17 +5826,17 @@ A Bit of Logic -<
             :   -----------------------------------------------------------------
                 排序方法        平均时间        最坏情况    辅助存储    是否稳定
                 -----------     -----------     ----------  ---------   ---------
-                直接插入排序    O(n^2)          O(n^2)      O(1)        是
+                直接插入排序    O(n^2^)         O(n^2^)     O(1)        是
 
-                折半插入排序    O(n^2)          O(n^2)      O(1)        是
+                折半插入排序    O(n^2^)         O(n^2^)     O(1)        是
 
                 希尔排序        N/A             N/A         O(1)        否
 
-                冒泡排序        O(n^2)          O(n^2)      O(1)        是
+                冒泡排序        O(n^2^)         O(n^2^)     O(1)        是
 
-                快速排序        O(nlogn)        O(n^2)      O(logn)     否
+                快速排序        O(nlogn)        O(n^2^)     O(logn)     否
 
-                简单选择排序    O(n^2)          O(n^2)      O(1)        否
+                简单选择排序    O(n^2^)         O(n^2^)     O(1)        否
 
                 堆排序          O(nlogn)        O(nlogn)    O(1)        否
 
@@ -6096,7 +6012,7 @@ A Bit of Logic -<
                     :   这个存粹是暴力了起点和终点，然后看是否“水位更高”。
 
                         输入 n 个元素组成的序列 S，找一个乘积最大的连续子序列。
-                        如果最大为负，输出 0。1 <= n <= 18，-10 <= S_i <= 10。
+                        如果最大为负，输出 0。1 <= n <= 18，-10 <= S~i~ <= 10。
 
                         ```
                         input:
@@ -6112,7 +6028,7 @@ A Bit of Logic -<
                             20
                         ```
 
-                        因为 n 和 S_i 的值域，最大乘积不会超过 10^18^，可以用 long long 表示。
+                        **因为 n 和 S~i~ 的值域，最大乘积不会超过 10^18^，可以用 long long 表示。**
 
                         ```cpp
                         // UVa11059 Maximum Product
@@ -6168,11 +6084,9 @@ A Bit of Logic -<
 
                         分析：
 
-                        1/k = 1/x + 1/y
-
-                        `x >= y` -> `1/x <= 1/y` -> `1/k <= 2/y` -> `y <= 2k`
-
-                        `x > 0` -> `y > k`
+                        -   1/k = 1/x + 1/y
+                        -   `x >= y` -> `1/x <= 1/y` -> `1/k <= 2/y` -> `y <= 2k`
+                        -   `x > 0` -> `y > k`
 
                         所以在 `y~(k, 2k]` 枚举。
 
@@ -6186,7 +6100,7 @@ A Bit of Logic -<
                             int k;
                             while( scanf( "%d", &k ) == 1 && k ) {
                                 vector<int> X, Y;
-                                for( int y = k+1; y <= k*2; y++ ) {
+                                for( int y = k+1; y <= k*2; ++y ) {
                                     if( k*y%( y-k ) == 0 ) {                // 1/k = 1/x + 1/y => x = ky/(y-k)
                                         X.push_back(k*y/(y-k)); Y.push_back(y);
                                     }
@@ -6253,311 +6167,317 @@ A Bit of Logic -<
 
                         如果确定了 n 的范围，比如 n <= 100，可以用全局 A，避免动态内存分配。
 
-                        leetcode 里面的题：[Next Permutation | LeetCode OJ](https://leetcode.com/problems/next-permutation/) -<
+                -   Leetcode: Next Permutation -<
 
-                        :   ```
-                            处理步骤：
-                                                        ^ increase
-                                                         \
-                                                          \
-                                                           \
-                                    <-----------------------\
-                                        i   j   *   *   *   *
+                    :   ```
+                        处理步骤：
+                                                    ^ increase
+                                                     \
+                                                      \
+                                                       \
+                                <-----------------------\
+                                    i   j   *   *   *   *
 
-                            Example
+                        Example
 
-                                        6   8   7   4   3   2
-                            step 1     [6]  8   7   4   3   2
-                            step 2      6   8  [7]  4   3   2
-                            step 3      7   8   6   4   3   2
-                            step 4      7  [8   6   4   3   2]
-                                        7   2   2   4   6   8
+                                    6   8   7   4   3   2
+                        step 1     [6]  8   7   4   3   2
+                        step 2      6   8  [7]  4   3   2
+                        step 3      7   8   6   4   3   2
+                        step 4      7  [8   6   4   3   2]
+                                    7   2   2   4   6   8
 
-                            1.  from right to left, find the first digit which violate the increase，这里是 6，称之为 PartitionNumber
-                            2.  from right to left, find the first digit which large than PartitionNumber（6）,
-                                call it ChangeNumber，这里是 7。
-                            3.  swap the PartitionNumber and ChangeNumber；
-                            4.  Reverse all the digit on the right of partition index。
-                            ```
+                        1.  from right to left, find the first digit which violate the increase，这里是 6，称之为 PartitionNumber
+                        2.  from right to left, find the first digit which large than PartitionNumber（6）,
+                            call it ChangeNumber，这里是 7。
+                        3.  swap the PartitionNumber and ChangeNumber；
+                        4.  Reverse all the digit on the right of partition index。
+                        ```
 
-                            ```cpp
-                            // 这里的 ROF 是 for 倒过来，意思就是 i 从 b 到 a。
-                            #define ROF(i, a, b) for (int i = (b); --i >= (a); )
+                        ```cpp
+                        // 这里的 ROF 是 for 倒过来，意思就是 i 从 b 到 a。
+                        #define ROF(i, a, b) for (int i = (b); --i >= (a); )
 
-                            class Solution {
-                            public:
-                                void nextPermutation(vector<int> &num) {
-                                    if (num.size() <= 1) return;
-                                    // ROF(i, 0, num.size()-1) {
-                                    for( int i = num.size()-2; i >= 0; --i ) {
-                                        if ( i+1 < num.size() && num[i] < num[i+1] ) {
-                                            int j = num.size();
-                                            while (! (num[i] < num[--j]));  // num[i] < num[j]
-                                            swap(num[i], num[j]);
-                                            reverse(num.begin()+i+1, num.end());
-                                            return;
-                                        }
+                        class Solution {
+                        public:
+                            void nextPermutation(vector<int> &num) {
+                                if (num.size() <= 1) return;
+                                // ROF(i, 0, num.size()-1) {
+                                for( int i = num.size()-2; i >= 0; --i ) {
+                                    if ( i+1 < num.size() && num[i] < num[i+1] ) {
+                                        int j = num.size();
+                                        while (! (num[i] < num[--j]));  // num[i] < num[j]
+                                        swap(num[i], num[j]);
+                                        reverse(num.begin()+i+1, num.end());
+                                        return;
                                     }
-                                    reverse(num.begin(), num.end());
                                 }
-                            };
-                            ```
+                                reverse(num.begin(), num.end());
+                            }
+                        };
+                        ```
 
-                            [Permutation Sequence | LeetCode OJ](https://leetcode.com/problems/permutation-sequence/) -<
+                        refs and see also
 
-                            :   The set `[1,2,3,…,n]` contains a total of n! unique permutations. 输入 n 和 k，返回第 k 个序列。
+                        -   [Next Permutation | LeetCode OJ](https://leetcode.com/problems/next-permutation/)
 
-                                最无赖的解法：
+                -   Leetcode: Permutation Sequence -<
 
-                                ```cpp
-                                class Solution {
-                                public:
-                                    string getPermutation(int n, int k) {
-                                        string s(n, '0');
-                                        for (int i = 0; i < n; ++i)
-                                            s[i] += i+1;
-                                        for (int i = 0; i < k-1; ++i)
-                                            next_permutation(s.begin(), s.end());
-                                        return s;
-                                    }
-                                };
-                                ```
+                    :   The set `[1,2,3,…,n]` contains a total of n! unique permutations.
+                        输入 n 和 k，返回第 k 个序列。
 
-                                这个方法可以得到答案，但是……Status: Time Limit Exceeded……
+                        最无赖的解法：
 
-                                康托展开 -<
+                        ```cpp
+                        class Solution {
+                        public:
+                            string getPermutation(int n, int k) {
+                                string s(n, '0');
+                                for (int i = 0; i < n; ++i)
+                                    s[i] += i+1;
+                                for (int i = 0; i < k-1; ++i)
+                                    next_permutation(s.begin(), s.end());
+                                return s;
+                            }
+                        };
+                        ```
 
-                                :   Cantor expansion
+                        这个方法可以得到答案，但是……Status: Time Limit Exceeded……
 
-                                    `X=a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[1]*0!`，
-                                    其中 `a[i]` 为当前未出现的元素中是排在第几个（从 0 开始）。这就是康托展开。康托展开可用代码实现。
+                        康托展开, Cantor expansion -<
 
-                                    refs and see also
+                        :   `X=a[n]*(n-1)!+a[n-1]*(n-2)!+...+a[i]*(i-1)!+...+a[1]*0!`，
+                            其中 `a[i]` 为当前未出现的元素中是排在第几个（从 0开始）。
+                            这就是康托展开。康托展开可用代码实现。
 
-                                    -   [康托展开_百度百科](http://baike.baidu.com/link?url=UTLtFkZMM5RzyijXFpFAkwFSJ3PeZcsBj_48119xF7LgI0cr9jW92Y2vGkdPY9ibPxD53oPbG5YS1ZLenghvOK)
-                                    -   [全排列的编码与解码——康托展开 (附完整代码) - AC，∑ndless - 博客频道 - CSDN.NET](http://blog.csdn.net/synapse7/article/details/16901489)
+                            refs and see also
 
-                                利用康托编码的思路，假设有 n 个不重复的元素，第 k 个排列是 a~1~, a~2~,
-                                a~3~, ..., a~n~，那么 a~1~ 是哪一个位置呢？我们把 a~1~去掉，那么剩下的排列
-                                为 a~2~, a~3~, ..., a~n~, 共计 n-1 个元素，n-1 个元素共有 (n-1)! 个排列，于
-                                是就可以知道 a~1~ = k / (n-1)!。
+                            -   [康托展开_百度百科](http://baike.baidu.com/link?url=UTLtFkZMM5RzyijXFpFAkwFSJ3PeZcsBj_48119xF7LgI0cr9jW92Y2vGkdPY9ibPxD53oPbG5YS1ZLenghvOK)
+                            -   [全排列的编码与解码——康托展开 (附完整代码) - AC，∑ndless - 博客频道 - CSDN.NET](http://blog.csdn.net/synapse7/article/details/16901489)
 
-                                同理，a~2~, a~3~, ..., a~n~ 的值推导如下：
+                        利用康托编码的思路，假设有 n 个不重复的元素，第 k 个排列是 a~1~, a~2~,
+                        a~3~, ..., a~n~，那么 a~1~ 是哪一个位置呢？我们把 a~1~去掉，那么剩下的排列
+                        为 a~2~, a~3~, ..., a~n~, 共计 n-1 个元素，n-1 个元素共有 (n-1)! 个排列，于
+                        是就可以知道 a~1~ = k / (n-1)!。
 
-                                -   k~2~ = k%(n-1)!
-                                -   a~2~ = k~2~/(n-2)!
-                                -   ...
-                                -   k~n-1~ = k~n-2~%2!
-                                -   a~n-1~ = k~n-1~%1!
-                                -   a~n~ = 0
+                        同理，a~2~, a~3~, ..., a~n~ 的值推导如下：
 
-                                ```cpp
-                                // 康托编码，时间复杂度 O(n)，空间复杂度 O(1)
-                                class Solution {
-                                public:
-                                    string getPermutation(int n, int k) {
-                                        string s(n, '0');
-                                        string result;
-                                        for (int i = 0; i < n; ++i)
-                                            s[i] += i + 1;
-                                        return kth_permutation(s, k);
-                                    }
-                                private:
-                                    int factorial(int n) {
-                                        int result = 1;
-                                        for (int i = 1; i <= n; ++i)
-                                            result *= i;
-                                        return result;
-                                    }
+                        -   k~2~ = k%(n-1)!
+                        -   a~2~ = k~2~/(n-2)!
+                        -   ...
+                        -   k~n-1~ = k~n-2~%2!
+                        -   a~n-1~ = k~n-1~%1!
+                        -   a~n~ = 0
 
-                                    template<typename Sequence>                                     // seq 已排好序，是第一个排列
-                                    Sequence kth_permutation(const Sequence &seq, int k) {
-                                        const int n = seq.size();
-                                        Sequence S(seq), result;
-                                        result.reserve( n );
+                        ```cpp
+                        // 康托编码，时间复杂度 O(n)，空间复杂度 O(1)
+                        class Solution {
+                        public:
+                            string getPermutation(int n, int k) {
+                                string s(n, '0');
+                                string result;
+                                for (int i = 0; i < n; ++i)
+                                    s[i] += i + 1;
+                                return kth_permutation(s, k);
+                            }
+                        private:
+                            int factorial(int n) {
+                                int result = 1;
+                                for (int i = 1; i <= n; ++i)
+                                    result *= i;
+                                return result;
+                            }
 
-                                        int base = factorial(n - 1);
-                                        --k;                                                        // 康托编码从 0 开始
+                            template<typename Sequence>                                     // seq 已排好序，是第一个排列
+                            Sequence kth_permutation(const Sequence &seq, int k) {
+                                const int n = seq.size();
+                                Sequence S(seq), result;
+                                result.reserve( n );
 
-                                        for (int i = n - 1; i > 0; k %= base, base /= i, --i ) {    // base/=i 实在太巧妙
-                                            auto a = next(S.begin(), k / base);
-                                            result.push_back(*a);
-                                            S.erase(a);                                             // 记得 erase 掉！
-                                        }
+                                int base = factorial(n - 1);
+                                --k;                                                        // 康托编码从 0 开始
 
-                                        result.push_back(S[0]);                                     // 最后一个
-                                        return result;
-                                    }
-                                };
-                                ```
+                                for (int i = n - 1; i > 0; k %= base, base /= i, --i ) {    // base/=i 实在太巧妙
+                                    auto a = next(S.begin(), k / base);
+                                    result.push_back(*a);
+                                    S.erase(a);                                             // 记得 erase 掉！
+                                }
 
-                                上面那个答案通过了。下面有个更简洁的。也通过了。
+                                result.push_back(S[0]);                                     // 最后一个
+                                return result;
+                            }
+                        };
+                        ```
 
-                                ```cpp
-                                #define ROF(i, a, b) for (int i = (b); --i >= (a); )
+                        上面那个答案通过了。下面有个更简洁的。也通过了。
 
-                                class Solution {
-                                public:
-                                    string getPermutation(int n, int k) {
-                                        // factorial:   0     1   2   3    4      5       6        7        8
-                                        int f[] =     { 1,    1,  2,  6,  24,   120,    720,    5040,   40320   };
-                                        vector<bool> a(n, true);
-                                        string r;
-                                        k--;
-                                        ROF(i, 0, n) {
-                                            int t = k/f[i], j = 0;
-                                            k %= f[i];
-                                            while (!a[j]) j++;
-                                            while (t--)
-                                                while (! a[++j]);
-                                            a[j] = false;
-                                            r += '1'+j;
-                                        }
-                                        return r;
-                                    }
-                                };
-                                ```
+                        ```cpp
+                        #define ROF(i, a, b) for (int i = (b); --i >= (a); )
+
+                        class Solution {
+                        public:
+                            string getPermutation(int n, int k) {
+                                // factorial:   0     1   2   3    4      5       6        7        8
+                                int f[] =     { 1,    1,  2,  6,  24,   120,    720,    5040,   40320   };
+                                vector<bool> a(n, true);
+                                string r;
+                                k--;
+                                ROF(i, 0, n) {
+                                    int t = k/f[i], j = 0;
+                                    k %= f[i];
+                                    while (!a[j]) j++;
+                                    while (t--)
+                                        while (! a[++j]);
+                                    a[j] = false;
+                                    r += '1'+j;
+                                }
+                                return r;
+                            }
+                        };
+                        ```
+
+                        refs and see also
+
+                        -   [Permutation Sequence | LeetCode OJ](https://leetcode.com/problems/permutation-sequence/)
 
                 -   生成可重集的排列 :hearts: -<
 
-                    :   直接用 STL 里面的 next_permutation。
+                    :   直接用 STL 里面的 next_permutation -<
 
-                        std::next_permutation -<
-
-                        :   接口是这样的：
-
-                            ```cpp
-                            template< class BidirIt >
-                            bool next_permutation( BidirIt first, BidirIt last );
-
-                            template< class BidirIt, class Compare >
-                            bool next_permutation( BidirIt first, BidirIt last, Compare comp );
-                            ```
-
-                            Possible implementation :hearts: :hearts: -<
+                        :   std::next_permutation 接口 -<
 
                             :   ```cpp
-                                template<class BidirIt>
-                                bool next_permutation(BidirIt first, BidirIt last)
-                                {
-                                    if (first == last) return false;                // no element
-                                    BidirIt i = last;
-                                    if (first == --i) return false;                 // only one element
+                                template< class BidirIt >
+                                bool next_permutation( BidirIt first, BidirIt last );
 
-                                    while (true) {
-                                        BidirIt i1, i2;
-
-                                        i1 = i;
-                                        if (*--i < *i1) {
-                                            i2 = last;
-                                            while (!(*i < *--i2))
-                                                ;
-                                            std::iter_swap(i, i2);                  // iter_swap?? TODO
-                                            std::reverse(i1, last);
-                                            return true;
-                                        }
-                                        if (i == first) {
-                                            std::reverse(first, last);
-                                            return false;                           // great! termination.
-                                        }
-                                    }
-                                }
+                                template< class BidirIt, class Compare >
+                                bool next_permutation( BidirIt first, BidirIt last, Compare comp );
                                 ```
 
-                        ```cpp
-                        #include <stdio.h>
-                        #include <stdlib.h>
-                        #include <algorithm>
+                                Possible implementation :hearts: :hearts: -<
 
-                        using namespace std;
+                                :   ```cpp
+                                    template<class BidirIt>
+                                    bool next_permutation(BidirIt first, BidirIt last)
+                                    {
+                                        if (first == last) return false;                // no element
+                                        BidirIt i = last;
+                                        if (first == --i) return false;                 // only one element
 
-                        int main() {
-                            int n, p;
-                            scanf( "%d", &n );
-                            for( int i = 0; i < n; i++ ) { scanf( "%d", &p[i] ); }
-                            sort( p, p+n );                                                 // 排序，得到 p 的最小排列
-                            do {
-                                for( int i = 0; i < n; i++ ) { printf( "%d ", p[i] ); }     // 输出排列 p
-                                printf( "\n" );
-                            } while(  next_permutation( p, p+n )  );                        // 求下一个排列
-                            return 0;
-                        }
-                        ```
+                                        while (true) {
+                                            BidirIt i1, i2;
 
-                        ```bash
-                        $ echo "4 5 2 2 4" | ./a.out
-                        2 2 4 5
-                        2 2 5 4
-                        2 4 2 5
-                        2 4 5 2
-                        2 5 2 4
-                        2 5 4 2
-                        4 2 2 5
-                        4 2 5 2
-                        4 5 2 2
-                        5 2 2 4
-                        5 2 4 2
-                        5 4 2 2
-                        ```
+                                            i1 = i;
+                                            if (*--i < *i1) {
+                                                i2 = last;
+                                                while (!(*i < *--i2))
+                                                    ;
+                                                std::iter_swap(i, i2);                  // iter_swap?? TODO
+                                                std::reverse(i1, last);
+                                                return true;
+                                            }
+                                            if (i == first) {
+                                                std::reverse(first, last);
+                                                return false;                           // great! termination.
+                                            }
+                                        }
+                                    }
+                                    ```
 
-                        当然，自己写也是可以得。:hearts: 【这个代码十分重要！！！】:hearts:
+                            ```cpp
+                            #include <stdio.h>
+                            #include <stdlib.h>
+                            #include <algorithm>
 
-                        ```cpp
-                        #include <cstdio>
-                        #include <algorithm>
-                        using namespace std;
+                            using namespace std;
 
-                        const int maxn = 50;
-                        int P[maxn], A[maxn];
+                            int main() {
+                                int n, p;
+                                scanf( "%d", &n );
+                                for( int i = 0; i < n; i++ ) { scanf( "%d", &p[i] ); }
+                                sort( p, p+n );                                                 // 排序，得到 p 的最小排列
+                                do {
+                                    for( int i = 0; i < n; i++ ) { printf( "%d ", p[i] ); }     // 输出排列 p
+                                    printf( "\n" );
+                                } while(  next_permutation( p, p+n )  );                        // 求下一个排列
+                                return 0;
+                            }
+                            ```
 
-                        // 输出数组 P 中元素的全排列。数组 P 中可能有重复元素
-                        void print_permutation( int n, int *P, int *A, int cur ) {
-                            if( cur == n ) {
-                                for( int i = 0; i < n; i++ ) { printf( "%d ", A[i] ); } printf( "\n" );
-                            } else {
-                                for( int i = 0; i < n; i++ ) {
-                                    if( i == 0 || P[i] != P[i-1] ) {
-                                        int c1 = 0, c2 = 0;
-                                        for( int j = 0; j < cur; j++ ) { if( A[j] == P[i] ) { c1++; } }
-                                        for( int j = 0; j <   n; j++ ) { if( P[i] == P[j] ) { c2++; } }
-                                        if( c1 < c2 ) {
-                                            A[cur] = P[i];
-                                            print_permutation( n, P, A, cur+1 );
+                            ```bash
+                            $ echo "4 5 2 2 4" | ./a.out
+                            2 2 4 5
+                            2 2 5 4
+                            2 4 2 5
+                            2 4 5 2
+                            2 5 2 4
+                            2 5 4 2
+                            4 2 2 5
+                            4 2 5 2
+                            4 5 2 2
+                            5 2 2 4
+                            5 2 4 2
+                            5 4 2 2
+                            ```
+
+                        当然，自己写也是可以得。【这个代码十分重要！！！】:hearts: -<
+
+                        :   ```cpp
+                            #include <cstdio>
+                            #include <algorithm>
+                            using namespace std;
+
+                            const int maxn = 50;
+                            int P[maxn], A[maxn];
+
+                            // 输出数组 P 中元素的全排列。数组 P 中可能有重复元素
+                            void print_permutation( int n, int *P, int *A, int cur ) {
+                                if( cur == n ) {
+                                    for( int i = 0; i < n; i++ ) { printf( "%d ", A[i] ); } printf( "\n" );
+                                } else {
+                                    for( int i = 0; i < n; i++ ) {
+                                        if( i == 0 || P[i] != P[i-1] ) {
+                                            int c1 = 0, c2 = 0;
+                                            for( int j = 0; j < cur; j++ ) { if( A[j] == P[i] ) { c1++; } }
+                                            for( int j = 0; j <   n; j++ ) { if( P[i] == P[j] ) { c2++; } }
+                                            if( c1 < c2 ) {
+                                                A[cur] = P[i];
+                                                print_permutation( n, P, A, cur+1 );
+                                            }
                                         }
                                     }
                                 }
                             }
-                        }
 
-                        int main() {
-                            int i, n;
-                            scanf( "%d", &n );
-                            for( i = 0; i < n; i++ ) {
-                                scanf( "%d", &P[i] );
+                            int main() {
+                                int i, n;
+                                scanf( "%d", &n );
+                                for( i = 0; i < n; i++ ) {
+                                    scanf( "%d", &P[i] );
+                                }
+                                sort( P, P+n );
+                                print_permutation( n, P, A, 0 );
+                                return 0;
                             }
-                            sort( P, P+n );
-                            print_permutation( n, P, A, 0 );
-                            return 0;
-                        }
-                        ```
+                            ```
 
-                        ```bash
-                        $ echo 4 2 3 1 1 | ./a.out
-                        1 1 2 3
-                        1 1 3 2
-                        1 2 1 3
-                        1 2 3 1
-                        1 3 1 2
-                        1 3 2 1
-                        2 1 1 3
-                        2 1 3 1
-                        2 3 1 1
-                        3 1 1 2
-                        3 1 2 1
-                        3 2 1 1
-                        ```
+                            ```bash
+                            $ echo 4 2 3 1 1 | ./a.out
+                            1 1 2 3
+                            1 1 3 2
+                            1 2 1 3
+                            1 2 3 1
+                            1 3 1 2
+                            1 3 2 1
+                            2 1 1 3
+                            2 1 3 1
+                            2 3 1 1
+                            3 1 1 2
+                            3 1 2 1
+                            3 2 1 1
+                            ```
 
-                        所以啊，枚举排列要不自己递归枚举，要不就用 stl 的 next_permutation。
+                            所以啊，枚举排列要不自己递归枚举，要不就用 stl 的 next_permutation。
 
                 -   解答树 -<
 
@@ -6725,7 +6645,7 @@ A Bit of Logic -<
 
             :   -   回溯法理论 TODO -<
 
-                    :   之前两种思路是：递归构造、直接枚举（一一 generate，然后 test）。
+                    :   之前两种思路是：递归构造、直接枚举（generate，然后 test）。
 
                 -   n 皇后问题 -<
 
@@ -7213,67 +7133,67 @@ A Bit of Logic -<
 
                             当 n = 12 就相当慢了。
 
-                        生成--测试法太慢，现在用回溯法。
+                        生成--测试法太慢，现在用回溯法 -<
 
-                        ```cpp
-                        #include <cstdio>
-                        #include <cstring>
-                        #include <algorithm>
-                        using namespace std;
+                        :   ```cpp
+                            #include <cstdio>
+                            #include <cstring>
+                            #include <algorithm>
+                            using namespace std;
 
-                        int is_prime( int x ) {
-                            for( int i = 2; i*i <= x; i++ ) {
-                                if( x % i == 0 ) { return 0; }
-                            }
-                            return 1;
-                        }
-
-                        const int maxn = 50;
-                        int n, A[maxn], isp[maxn], vis[maxn];
-                        void dfs( int cur ) {
-                            if( cur == n && isp[A[0]+A[n-1]] ) {                // 已经处理了所有，除了第一个和最后一个（闭环）
-                                for( int i = 0; i < n; i++ ) {
-                                    if( i != 0 ) { printf( " " ); }
-                                    printf( "%d", A[i] );
+                            int is_prime( int x ) {
+                                for( int i = 2; i*i <= x; i++ ) {
+                                    if( x % i == 0 ) { return 0; }
                                 }
-                                printf( "\n" );
-                            } else {
-                                for( int i = 2; i <= n; i++ ) {
-                                    if( !vis[i] && isp[i+A[cur-1]] ) {          // 这次我选 i，设置 cur 的位置
-                                        A[cur] = i;
-                                        vis[i] = 1;                             // visited
-                                        dfs( cur+1 );                           // 递归，处理 cur+1 的位置
-                                        vis[i] = 0;                             // change back
+                                return 1;
+                            }
+
+                            const int maxn = 50;
+                            int n, A[maxn], isp[maxn], vis[maxn];
+                            void dfs( int cur ) {
+                                if( cur == n && isp[A[0]+A[n-1]] ) {                // 已经处理了所有，除了第一个和最后一个（闭环）
+                                    for( int i = 0; i < n; i++ ) {
+                                        if( i != 0 ) { printf( " " ); }
+                                        printf( "%d", A[i] );
+                                    }
+                                    printf( "\n" );
+                                } else {
+                                    for( int i = 2; i <= n; i++ ) {
+                                        if( !vis[i] && isp[i+A[cur-1]] ) {          // 这次我选 i，设置 cur 的位置
+                                            A[cur] = i;
+                                            vis[i] = 1;                             // visited
+                                            dfs( cur+1 );                           // 递归，处理 cur+1 的位置
+                                            vis[i] = 0;                             // change back
+                                        }
                                     }
                                 }
                             }
-                        }
 
-                        int main() {
-                            int kase = 0;
-                            while( scanf( "%d", &n ) == 1 && n > 0 ) {
-                                if( kase > 0 ) { printf( "\n" ); }
-                                printf( "Case %d:\n", ++kase );
-                                for( int i = 2; i <= n*2; i++ ) { isp[i] = is_prime( i ); }
-                                memset( vis, 0, sizeof(vis) );
-                                A[0] = 1;
-                                dfs( 1 );
+                            int main() {
+                                int kase = 0;
+                                for( int i = 0; i < maxn; ++i ) { isp[i] = is_prime( i ); }
+                                while( scanf( "%d", &n ) == 1 && n > 0 ) {
+                                    if( kase > 0 ) { printf( "\n" ); }
+                                    printf( "Case %d:\n", ++kase );
+                                    memset( vis, 0, sizeof(vis) );
+                                    A[0] = 1;
+                                    dfs( 1 );   // put A[1]
+                                }
+                                return 0;
                             }
-                            return 0;
-                        }
-                        ```
+                            ```
 
-                        ```bash
-                        $ echo 6 | ./a.out
-                        Case 1:
-                        1 4 3 2 5 6
-                        1 6 5 2 3 4
-                        ```
+                            ```bash
+                            $ echo 6 | ./a.out
+                            Case 1:
+                            1 4 3 2 5 6
+                            1 6 5 2 3 4
+                            ```
 
-                        因为是一个环，所以固定了第一个是 1。这样便没有重复输出。
-                        里面的 i 也是从 2 开始循环，所以不用担心 vis[1] 没有设定了。
+                            因为是一个环，所以固定了第一个是 1。这样便没有重复输出。
+                            里面的 i 也是从 2 开始循环，所以不用担心 `vis[1]` 没有设定了。
 
-                -   困难的串 Krypton Factor -<
+                -   困难的串 Krypton Factor :???: -<
 
                     :   包含两个相邻的重复子串，称之为“容易的串”，否则，“困难的串”。
                         例如，“BB”、“ABCDACABCAB”、“ABCDABCD”都是容易的，
@@ -7315,7 +7235,7 @@ A Bit of Logic -<
                             for( int i = 0; i < L; i++ ) {
                                 S[cur] = i;
                                 int ok = 1;
-                                for( int j = 1; j*2 <= cur+1; j++ ) {                       // 尝试长度为j*2的后缀
+                                for( int j = 1; j*2 <= cur+1; j++ ) {                       // 尝试长度为 j*2 的后缀
                                     int equal = 1;
                                     for( int k = 0; k < j; k++ ) {                          // 检查后一半是否等于前一半
                                         if( S[cur-k] != S[cur-k-j] ) { equal = 0; break; }
@@ -7516,13 +7436,9 @@ A Bit of Logic -<
                         }
                         ```
 
-        -   背包问题九讲 -<
+        -   路径寻找问题 :hearts: -<
 
-            :   see again.
-
-        -   路径寻找问题 -<
-
-            :   -   八数码问题 -<
+            :   -   八数码问题 :hearts: -<
 
                     :   ```
                         +---+---+---+        +---+---+---+
@@ -7659,7 +7575,7 @@ A Bit of Logic -<
 
                         完美哈希。
 
-                -   7-8 倒水问题，fill -<
+                -   7-8 倒水问题，fill :???: -<
 
                     :   三个杯子容量为 a，b，c（1<=a,b,c<=200）。
 
@@ -7675,14 +7591,14 @@ A Bit of Logic -<
                         using namespace std;
 
                         struct Node {
-                            int v, dist;
+                            int v[3], dist;
                             bool operator < (const Node& rhs) const {
                                 return dist > rhs.dist;
                             }
                         };
 
                         const int maxn = 200 + 5;
-                        int mark[maxn][maxn], dist[maxn][maxn], cap, ans[maxn];
+                        int mark[maxn][maxn], dist[maxn][maxn], cap[3], ans[maxn];
 
                         void update_ans(const Node& u) {
                             for(int i = 0; i < 3; i++) {
@@ -7692,7 +7608,7 @@ A Bit of Logic -<
                         }
 
                         void solve(int a, int b, int c, int d) {
-                            cap = a; cap = b; cap = c;
+                            cap[0] = a; cap[1] = b; cap[2] = c;
                             memset(ans, -1, sizeof(ans));
                             memset(mark, 0, sizeof(mark));
                             memset(dist, -1, sizeof(dist));
@@ -7700,7 +7616,7 @@ A Bit of Logic -<
 
                             Node start;
                             start.dist = 0;
-                            start.v = 0; start.v = 0; start.v = c;
+                            start.v[0] = 0; start.v[1] = 0; start.v[2] = c;
                             q.push(start);
 
                             dist = 0;
@@ -8047,13 +7963,16 @@ A Bit of Logic -<
 
             :   -   **直接枚举**：效率不高。
 
-                -   **枚举子集和排列**：n 个元素的子集有 2^n^ 个，可用递归的方法枚举（增量法和位向量法），也可以用
-                    二进制法枚举。递归法效率高，方便剪枝，缺点在于代码比较长。当 n <= 15 时，一般用二进制枚举。
+                -   **枚举子集和排列**：n 个元素的子集有 2^n^ 个，可用递归的方
+                    法枚举（增量法和位向量法），也可以用二进制法枚举。递归法效
+                    率高，方便剪枝，缺点在于代码比较长。当 n <= 15 时，一般用二
+                    进制枚举。
 
-                    n 个不同元素的全排列有 n! 个。除了用递归的方法枚举，还可以用 STL 的 next_permutation，它可以处理
-                    重复元素的情况。
+                    n 个不同元素的全排列有 n! 个。除了用递归的方法枚举，还可以
+                    用 STL 的 `next_permutation`，它可以处理重复元素的情况。
 
-                -   **回溯法**，回溯就是递归枚举，只不过可以提前终止递归，即回溯（backtracking）。
+                -   **回溯法**，回溯就是递归枚举，只不过可以提前终止递归，
+                    即回溯（backtracking）。
 
                 -   **状态空间的搜索**：本质上，状态空间搜索和图算法相似度比较大。
 
@@ -8570,7 +8489,7 @@ A Bit of Logic -<
                 -   分治法
                 -   正确对待算法分析结果
 
-        -   再谈排序与检索
+        -   再谈排序与检索 -<
 
             :   -   归并排序
                 -   快速排序
@@ -8580,12 +8499,15 @@ A Bit of Logic -<
         -   贪心法 -<
 
             :   -   背包相关问题
+
                 -   区间相关问题
+
                 -   Huffman 编码 :hearts: -<
 
-                    :   给定一个英文字符串，使用0和1对其进行编码，求最优前缀编码，使其所需要的比特数最少。
+                    :   给定一个英文字符串，使用 0 和 1 对其进行编码，求最优前
+                        缀编码，使其所需要的比特数最少。
 
-                        题目很长，不过就是哈弗曼编码。
+                        哈弗曼编码。
 
                         ```cpp
                         // 本题考查哈弗曼编码，但只需要统计哈弗曼编码后的总码长即可，
@@ -8599,23 +8521,19 @@ A Bit of Logic -<
                         using namespace std;
 
                         int main() {
-                            vector<int> count( 128, 0 );    // count[i]记录ASCII码为i的字符的出现次数
+                            vector<int> count( 128, 0 );    // count[i] 记录 ASCII 码为 i 的字符的出现次数
 
                             int sum;
-                            // 小根堆，队列头为最小元素
-                            priority_queue<int, vector<int>, greater<int> > pq;
+                            priority_queue<int, vector<int>, greater<int> > pq;     // 小根堆，队列头为最小元素
 
                             string line;
                             while ( getline(cin, line) ) {
                                 if( line == "END" ) { break; }
-
                                 sum = 0;                        // 清零
-
                                 const int len = line.size();
                                 for( int i = 0; i < len; ++i ) {
                                     count[line[i]]++;
                                 }
-
                                 for( int i = 0; i < 128; ++i ) {
                                     if (count[i] > 0) {
                                         pq.push(count[i]);
@@ -9676,135 +9594,217 @@ A Bit of Logic -<
 
                         POJ 3984 迷宫问题, <http://poj.org/problem?id=3984>
 
-                        ```cpp
-                        #include <stdio.h>
-                        #include <cstring>
-                        #include <queue>
-                        using namespace std;
+                        C version -<
 
-                        const char name = { 'U', 'R', 'D', 'L' };    //      |
-                        const int dx = { -1, 0, 1, 0 };              //      |
-                        const int dy = { 0, 1, 0, -1 };              //      V  rowsise: x
+                        :   ```cpp
+                            #include <stdio.h>
+                            #include <cstring>
+                            #include <queue>
+                            using namespace std;
 
-                        typedef struct state_t {
-                            int data;
-                            int action;
-                            int father;
-                        } state_t;
+                            const char name[] = { 'U', 'R', 'D', 'L' };    //      |
+                            const int dx[] = { -1, 0, 1, 0 };              //      |
+                            const int dy[] = { 0, 1, 0, -1 };              //      V  rowsise: x
 
-                        const int MAXN = 5;
-                        int m = MAXN, n = MAXN;                                 // 迷宫的行数，列数
-                        int map[MAXN][MAXN];                                    // 迷宫，0 表示空地，1 表示障碍物
+                            typedef struct state_t {
+                                int data;
+                                int action;
+                                int father;
+                            } state_t;
 
-                        const int STATE_MAX = MAXN * MAXN;                      // 状态总数
-                        state_t nodes[STATE_MAX];
-                        int state_hash(  const state_t &s ) {
-                            return s.data;
-                        }
-                        int state_index( const state_t &s ) {
-                            return state_hash(s);
-                        }
+                            const int MAXN = 5;
+                            int m = MAXN, n = MAXN;                                 // 迷宫的行数，列数
+                            int map[MAXN][MAXN];                                    // 迷宫，0 表示空地，1 表示障碍物
 
-                        void print_action(const int end) {
-                            if( nodes[end].father == -1 ) { return; }           // no father
-                            print_action( nodes[end].father );
-                            putchar( name[nodes[end].action] );
-                        }
-                        void print_path( const int end ) {
-                            if( nodes[end].father != -1 ) {                     // starting point
-                                print_path( nodes[end].father );
+                            const int STATE_MAX = MAXN * MAXN;                      // 状态总数
+                            state_t nodes[STATE_MAX];
+                            int state_hash(  const state_t &s ) {
+                                return s.data;
                             }
-                            printf("(%d, %d)\n", end / n, end % n);
-                        }
+                            int state_index( const state_t &s ) {
+                                return state_hash(s);
+                            }
 
-                        const state_t END = { 24, -1, -1 };                     // (4, 4)
-                        bool state_is_target( const state_t &s ) {              // end point
-                            return s.data == END.data;
-                        }
+                            void print_action(const int end) {
+                                if( nodes[end].father == -1 ) { return; }           // no father
+                                print_action( nodes[end].father );
+                                putchar( name[nodes[end].action] );
+                            }
+                            void print_path( const int end ) {
+                                if( nodes[end].father != -1 ) {                     // starting point
+                                    print_path( nodes[end].father );
+                                }
+                                printf("(%d, %d)\n", end / n, end % n);
+                            }
 
-                        const int HASH_CAPACITY = STATE_MAX;
-                        bool visited[HASH_CAPACITY];
-                        void hashset_init() {
-                            memset( visited, 0, sizeof(visited) );
-                        }
-                        bool hashset_find( const state_t &s ) {
-                            return visited[state_hash(s)] == true;
-                        }
-                        void hashset_insert( const state_t &s ) {
-                            visited[state_hash(s)] = true;
-                        }
+                            const state_t END = { 24, -1, -1 };                     // (4, 4)
+                            bool state_is_target( const state_t &s ) {              // end point
+                                return s.data == END.data;
+                            }
 
-                        int x, y;                                               // 扩展点，即当前位置
-                        int action_cur;
-                        const int ACTION_BEGIN = 0;
-                        const int ACTION_END   = 4;
-                        void state_extend_init(const state_t &s) {
-                            action_cur = ACTION_BEGIN;
-                            x = s.data / n;
-                            y = s.data % n;
-                        }
+                            const int HASH_CAPACITY = STATE_MAX;
+                            bool visited[HASH_CAPACITY];
+                            void hashset_init() {
+                                memset( visited, 0, sizeof(visited) );
+                            }
+                            bool hashset_find( const state_t &s ) {
+                                return visited[state_hash(s)] == true;
+                            }
+                            void hashset_insert( const state_t &s ) {
+                                visited[state_hash(s)] = true;
+                            }
 
-                        bool state_extend( const state_t &s, state_t &next ) {
-                            while( action_cur < ACTION_END ) {
-                                const int nx = x + dx[action_cur];
-                                const int ny = y + dy[action_cur];
-                                if( 0 <= nx && nx < m && 0 <= ny && ny < n && !map[nx][ny] ) {  // in scope, and empty
-                                    next.data = nx * n + ny;
-                                    if( !hashset_find(next) ) {                                 // 判重
-                                        next.action = action_cur;                               // 记录路径
-                                        next.father = state_hash(s);
-                                        nodes[state_index(next)] = next;
-                                        ++action_cur;                                           // return 前别忘了增 1
-                                        return true;
+                            int x, y;                                               // 扩展点，即当前位置
+                            int action_cur;
+                            const int ACTION_BEGIN = 0;
+                            const int ACTION_END   = 4;
+                            void state_extend_init(const state_t &s) {
+                                action_cur = ACTION_BEGIN;
+                                x = s.data / n;
+                                y = s.data % n;
+                            }
+
+                            bool state_extend( const state_t &s, state_t &next ) {
+                                while( action_cur < ACTION_END ) {
+                                    const int nx = x + dx[action_cur];
+                                    const int ny = y + dy[action_cur];
+                                    if( 0 <= nx && nx < m && 0 <= ny && ny < n && !map[nx][ny] ) {  // in scope, and empty
+                                        next.data = nx * n + ny;
+                                        if( !hashset_find(next) ) {                                 // 判重
+                                            next.action = action_cur;                               // 记录路径
+                                            next.father = state_hash(s);
+                                            nodes[state_index(next)] = next;
+                                            ++action_cur;                                           // return 前别忘了增 1
+                                            return true;
+                                        }
+                                    }
+                                    ++action_cur;
+                                }
+                                return false;
+                            }
+
+                            int bfs( state_t &start ) {
+                                queue<state_t> q;
+                                hashset_init();
+
+                                start.action = -1;
+                                start.father = -1;
+
+                                nodes[state_index(start)] = start;
+                                hashset_insert(start);
+                                if ( state_is_target(start) ) {
+                                    return state_index(start);
+                                }
+
+                                q.push(start);
+                                while( !q.empty() ) {
+                                    const state_t s = q.front(); q.pop();
+                                    state_extend_init( s );
+                                    state_t next;
+                                    while( state_extend(s, next) ) {
+                                        if( state_is_target(next) ) {       // the END
+                                            return state_index(next);
+                                        }
+                                        q.push( next );
+                                        hashset_insert( next );
                                     }
                                 }
-                                ++action_cur;
-                            }
-                            return false;
-                        }
-
-                        int bfs( state_t &start ) {
-                            queue<state_t> q;
-                            hashset_init();
-
-                            start.action = -1;
-                            start.father = -1;
-
-                            nodes[state_index(start)] = start;
-                            hashset_insert(start);
-                            if ( state_is_target(start) ) {
-                                return state_index(start);
+                                return -1;
                             }
 
-                            q.push(start);
-                            while( !q.empty() ) {
-                                const state_t s = q.front(); q.pop();
-                                state_extend_init( s );
-                                state_t next;
-                                while( state_extend(s, next) ) {
-                                    if( state_is_target(next) ) {       // the END
-                                        return state_index(next);
+                            int main(void) {
+                                for( int i = 0; i < m; ++i ) {
+                                    for( int j = 0; j < n; ++j ) {
+                                        scanf( "%d", &map[i][j] );
                                     }
-                                    q.push( next );
-                                    hashset_insert( next );
                                 }
-                            }
-                            return -1;
-                        }
 
-                        int main(void) {
-                            for( int i = 0; i < m; ++i ) {
-                                for( int j = 0; j < n; ++j ) {
-                                    scanf( "%d", &map[i][j] );
+                                state_t start = { 0, -1, -1 };                          // 左上角为起点
+                                int end = bfs( start );
+                                print_path( end );
+                                return 0;
+                            }
+                            ```
+
+                        C++ version -<
+
+                        :   ```cpp
+                            #include <cstdio>
+                            #include <queue>
+                            #include <vector>
+                            #include <stack>
+                            #include <unordered_set>
+                            #include <unordered_map>
+
+                            using namespace std;
+
+                            struct Point {
+                                int x, y;
+                                Point( int x = 0, int y = 0 ) : x(x), y(y) { }
+                                bool valid( const vector<vector<int>> &map ) const {
+                                    return 0 <= x && x < map.size() && 0 <= y && y < map[0].size() && map.at(x).at(y) == 0;
                                 }
+                                bool operator==( const Point &rhs ) const {
+                                    return x == rhs.x && y == rhs.y;
+                                }
+                            };
+
+                            namespace std {
+                                template <> struct hash<Point> {
+                                    size_t operator()( const Point &p ) const {
+                                        return p.x * 10 + p.y;
+                                    }
+                                };
                             }
 
-                            state_t start = { 0, -1, -1 };                          // 左上角为起点
-                            int end = bfs( start );
-                            print_path( end );
-                            return 0;
-                        }
-                        ```
+                            bool bfs( const vector<vector<int>> &map, unordered_map<Point, Point> &father, const Point &start, const Point &end ) {
+                                queue<Point> q;
+                                q.push( start );
+                                unordered_set<Point> s;
+                                s.insert( start );
+                                while( !q.empty() ) {
+                                    Point p = q.front(); q.pop();
+                                    static int dx[] = { 1, -1, 0,  0 };
+                                    static int dy[] = { 0,  0, 1, -1 };
+                                    for( int i = 0; i < 4; ++i ) {
+                                        Point pp( p.x+dx[i], p.y+dy[i] );
+                                        if( !pp.valid(map) || s.count(pp) ) { continue; }
+                                        s.insert( pp );
+                                        father[pp] = p;
+                                        if( pp == end ) {
+                                            return true;
+                                        }
+                                        q.push( pp );
+                                    }
+                                }
+                                return false;
+                            }
+
+                            int main() {
+                                vector<vector<int>> map( 5, vector<int>(5) );
+                                for( int i = 0; i < 5; ++i ) {
+                                    for( int j = 0; j < 5; ++j ) {
+                                        scanf( "%d", &map[i][j] );
+                                    }
+                                }
+                                Point start( 0, 0 );
+                                Point end  ( 4, 4 );
+                                unordered_map<Point, Point> father;
+                                if( bfs(map, father, start, end) ) {
+                                    stack<Point> s;
+                                    while( father.count(end) ) {
+                                        s.push( end );
+                                        end = father[end];
+                                    }
+                                    s.push( start );
+                                    while( !s.empty() ) {
+                                        printf("(%d, %d)\n", s.top().x, s.top().y );
+                                        s.pop();
+                                    }
+                                }
+                                return 0;
+                            }
+                            ```
 
                 -   eight digit -<
 
@@ -10038,57 +10038,49 @@ A Bit of Logic -<
                         }
                         ```
 
-                        ```cpp
-                        namespace std {
-                        template<> struct hash<state_t> {
-                            size_t operator()( const state_t &x ) const {
-                                int ret = 0;
-                                for( int i = 0; i < DIGITS; ++i ) {
-                                    ret = ret*10 + x.data[i];
-                                }
-                                return ret;
-                            }
-                        };
-                        }
-
-                        unordered_set<state_t> visited;
-                        ```
-
                 -   four go -<
 
-                    :   在一个4*4的棋盘上摆放了14颗棋子，其中有7颗白色棋子，7颗黑色棋子，有两个空白地带，任何一颗黑白
-                        棋子都可以向上下左右四个方向移动到相邻的空格，这叫行棋一步，黑白双方交替走棋，任意一方可以先走，
-                        如果某个时刻使得任意一种颜色的棋子形成四个一线（包括斜线），这样的状态为目标棋局。
-
-                        输入
-                          ~ 一个4*4的初始棋局，黑棋子用B表示，白棋子用W表示，空格地带用O表示。
-
-                        输出
-                         ~ 移动到目标棋局的最少步数。
+                    :   在一个 4 x 4 的棋盘上摆放了 14 颗棋子，其中有 7 颗白色
+                        棋子，7 颗黑色棋子，有两个空白地带，任何一颗黑白棋子都
+                        可以向上下左右四个方向移动到相邻的空格，这叫行棋一步，
+                        黑白双方交替走棋，任意一方可以先走，如果某个时刻使得任
+                        意一种颜色的棋子形成四个一线（包括斜线），这样的状态为
+                        目标棋局。
 
                         ```
-                        input:
+                        输入
+
+                            一个 4 x 4 的初始棋局，
+                            黑棋子用 B 表示，白棋子用 W 表示，空格地带用 O 表示。
 
                             BWBO
                             WBWB
                             BWBW
                             WBWO
 
-                        output:
+                        输出
 
-                            5
+                            移动到目标棋局的最少步数。
+
+                           5
                         ```
 
                         分析
 
                         :   求最少步数，很自然的想到广搜。
 
-                            如何表示一个状态？用一个二维数组 `int board[4][4]` 表示，还需要记录该状态是由白子还是黑子移动而导致的，走到该状态已经花费的步数。
+                            如何表示一个状态？用一个二维数组 `int board[4][4]`
+                            表示，还需要记录该状态是由白子还是黑子移动而导致的，
+                            走到该状态已经花费的步数。
 
-                            如何扩展节点？每一步，从队列弹出一个状态，两个空格都可以向四个方向扩展，把得到的状态入队列。
+                            如何扩展节点？每一步，从队列弹出一个状态，两个空格
+                            都可以向四个方向扩展，把得到的状态入队列。
 
-                            如何判重？棋盘用二维矩阵存储，用0表示空格，1表示黑色，2表示白色，所以最后可以看成一个16位的三进制数。
-                            用这个数作为棋盘的编码，就可以用来判重了。注意，本题要黑白交替走，所以我们要区分状态是由白子还是黑子移动而导致的。
+                            如何判重？棋盘用二维矩阵存储，用 0 表示空格，1 表示
+                            黑色，2 表示白色，所以最后可以看成一个 16 位的三进
+                            制数。用这个数作为棋盘的编码，就可以用来判重了。注
+                            意，本题要黑白交替走，所以我们要区分状态是由白子还
+                            是黑子移动而导致的。
 
                             判重: `visited[0]` 记录白子的历史， `visited[1]` 记录黑子的历史
 
@@ -10284,7 +10276,7 @@ A Bit of Logic -<
                         C++ version -<
 
                         :   ```cpp
-                            /** wikioi 1004 四子连棋  , http://www.wikioi.com/problem/1004 */
+                            // wikioi 1004 四子连棋  , http://www.wikioi.com/problem/1004
                             #include <cstdio>
                             #include <cstring>
                             #include <queue>
@@ -10294,6 +10286,17 @@ A Bit of Logic -<
 
                             struct state_t {
                                 int board[4][4], color, count;
+                                bool operator==( const state_t &rhs ) const {
+                                    if( color != rhs.color ) { return false; }
+                                    for( int i = 0; i < 4; ++i ) {
+                                        for( int j = 0; j < 4; ++j ) {
+                                            if( board[i][j] != rhs.board[i][j] ) {
+                                                return false;
+                                            }
+                                        }
+                                    }
+                                    return true;
+                                }
                             };
 
                             namespace std {
@@ -10301,8 +10304,8 @@ A Bit of Logic -<
                                 size_t operator()( const state_t &x ) const {
                                     const static int RADIX = 3;
                                     int ret = 0;
-                                    for (int i = 0; i < 4; i++) {
-                                        for (int j = 0; j < 4; j++) {
+                                    for( int i = 0; i < 4; ++i ) {
+                                        for( int j = 0; j < 4; ++j ) {
                                             ret = ret * RADIX + x.board[i][j];
                                         }
                                     }
@@ -10427,10 +10430,10 @@ A Bit of Logic -<
                             };
 
                             int main() {
-                                char s[10];
                                 state_t start;
                                 FourGo fg;
                                 for (int i = 0; i < 4; i++) {
+                                    char s[10];
                                     scanf("%s", s);
                                     for (int j = 0; j < 4; j++) {
                                         if (s[j] == 'B') start.board[i][j] = 1;
@@ -10444,11 +10447,11 @@ A Bit of Logic -<
                             }
                             ```
 
-                -   two BFS -<
+                -   two-queue BFS (nothing here) -<
 
                     :   See again. See Milo Yip's blog post.
 
-                -   `A*` Algorithm -<
+                -   `A*` Algorithm (nothing here) :TODO: -<
 
                     :   TODO
 
@@ -10456,7 +10459,8 @@ A Bit of Logic -<
 
                     :   -   适用场景 -<
 
-                            :   -   **输入**数据：没什么特征，不像深搜，需要有“递归”的性质。
+                            :   -   **输入**数据：没什么特征，不像深搜，
+                                    需要有“递归”的性质。
                                     如果是树或者图，概率更大。
                                 -   **状态转换图**：树或者图。
                                 -   求解**目标**：求最短。
@@ -10468,37 +10472,47 @@ A Bit of Logic -<
                                     :   -   如果是求路径长度，则状态里面要存路径长度
                                         -   如果是求路径本身或动作序列
                                             -   要用一棵树存储宽搜过程中的路径
-                                            -   是否可以预估状态个数的上限？能够预估状态总数，则开一个大数组，用树
-                                                的双亲表示法；如果不能预估状态总数，则要使用一棵通用的树。这一步也
-                                                是第4步的必要不充分条件。
+                                            -   是否可以预估状态个数的上限？能
+                                                够预估状态总数，则开一个大数组，
+                                                用树的双亲表示法；如果不能预估
+                                                状态总数，则要使用一棵通用的树。
+                                                这一步也是第4步的必要不充分条件。
 
                                 -   如何表示状态？ -<
 
-                                    :   即一个状态需要存储哪些些必要的数据，才能够完整提供如何扩展到
-                                        下一步状态的所有信息。一般记录当前位置或整体局面。
+                                    :   即一个状态需要存储哪些些必要的数据，
+                                        才能够完整提供如何扩展到下一步状态的所有信息。
+                                        一般记录当前位置或整体局面。
 
                                 -   如何扩展状态？ -<
 
-                                    :   这一步跟第 2 步相关。状态里记录的数据不同，扩展方法就不同。对于
-                                        固定不变的数据结构（一般题目直接给出，作为输入数据），如二叉树，图等，扩展
-                                        方法很简单，直接往下一层走，对于隐式图，要先在第 1 步里想清楚状态所带的数据，
-                                        想清楚了这点，那如何扩展就很简单了。
+                                    :   这一步跟第 2 步相关。状态里记录的数据不
+                                        同，扩展方法就不同。对于固定不变的数据
+                                        结构（一般题目直接给出，作为输入数据），
+                                        如二叉树，图等，扩展方法很简单，直接
+                                        往下一层走，对于隐式图，要先在第 1 步里
+                                        想清楚状态所带的数据，想清楚了这点，那
+                                        如何扩展就很简单了。
 
                                 -   关于判重，状态是否存在完美哈希方案？
 
                                     :   即将状态一一映射到整数，互相之间不会冲突。
 
-                                        -   如果不存在，则需要使用通用的哈希表（自己实现或用标准库，例如
-                                            `unordered_set`）来判重；自己实现哈希表的话，如果能够预估状态个数的
-                                            上限，则可以开两个数组，head 和 next，表示哈希表，参考第 subsec:eightDigits 节方案 2。
-                                        -   如果存在，则可以开一个大布尔数组，作为哈希表来判重，且此时可以精确计算
+                                        -   如果不存在，则需要使用通用的哈希表
+                                            （自己实现或用标准库，例如 `unordered_set`）来判重；
+                                            自己实现哈希表的话，如果能够预估状态个数的上限，
+                                            则可以开两个数组，head 和 next，表示哈希表，
+                                            参考第 subsec:eightDigits 节方案 2。
+                                        -   如果存在，则可以开一个大布尔数组，
+                                            作为哈希表来判重，且此时可以精确计算
                                             出状态总数，而不仅仅是预估上限。
 
                                 -   目标状态是否已知？ -<
 
-                                    :   如果题目已经给出了目标状态，可以带来很大便利，这时候可以
-                                        从起始状态出发，正向广搜；也可以从目标状态出发，逆向广搜；也可以同时出发，
-                                        双向广搜。
+                                    :   如果题目已经给出了目标状态，可以带来很
+                                        大便利，这时候可以从起始状态出发，正向
+                                        广搜；也可以从目标状态出发，逆向广搜；
+                                        也可以同时出发，双向广搜。
 
                         -   代码模板 -<
 
@@ -10528,8 +10542,8 @@ A Bit of Logic -<
                                 对于树，如果用 STL，可以用
                                 `unordered_map<state_t, state_t> father` 表示一
                                 颗树，代码非常简洁。如果能够预估状态总数的上限
-                                （设为 STATE_MAX），可以用数组(`state_t
-                                nodes[STATE_MAX]`)，即树的双亲表示法来表示树，
+                                （设为 STATE_MAX），可以用数组(`state_t nodes[STATE_MAX]`)，
+                                即树的双亲表示法来表示树，
                                 效率更高，当然，需要写更多代码。
 
                                 C++ template -<
@@ -10609,6 +10623,31 @@ A Bit of Logic -<
                                     }
                                     ```
 
+                        -   C++ snippets :hearts: -<
+
+                            :   ```cpp
+                                struct State {
+                                    bool operator==( const State &rhs ) const {
+                                        return true;
+                                    }
+                                    bool operator<( const State &rhs ) const {
+                                        return true;
+                                    }
+                                };
+
+                                namespace std {
+                                template<> struct hash<State> {
+                                    size_t operator()( const State &s ) const {
+                                        return 0;
+                                    }
+                                };
+                                }
+
+
+                                unordered_set<State> visited;
+                                priority_queue<State> pq;
+                                ```
+
         -   chap10. DFS -<
 
             :   -   four coloring -<
@@ -10617,20 +10656,17 @@ A Bit of Logic -<
                         请输出用 4 种颜色将地图涂色的所有方案数（要求相邻两点不
                         能涂成相同的颜色）。
 
-                        数据中0代表不相邻，1代表相邻。
-
-                        输入
-                          ~ 第一行一个整数N，代表地图上有N个点。
-
-                        接下来N行，每行N个整数，每个整数是0或者1。第i行第j
-                        列的值代表了第i个点和第j个点之间是相邻的还是不相邻，相
-                        邻就是1，不相邻就是0。我们保证 `a[i][j] = a[j][i]`。
-
-                        输出
-                          ~ 染色的方案数
+                        数据中 0 代表不相邻，1 代表相邻。
 
                         ```
-                        input:
+                        输入
+
+                            第一行一个整数 N，代表地图上有 N 个点。
+
+                            接下来 N 行，每行 N 个整数，每个整数是 0 或者 1。第
+                            i 行第 j列的值代表了第 i 个点和第 j 个点之间是相邻
+                            的还是不相邻，相邻就是 1，不相邻就是 0。
+                            我们保证 a[i][j] = a[j][i]。
 
                             8
                             0 0 0 1 0 0 1 0
@@ -10642,7 +10678,9 @@ A Bit of Logic -<
                             1 0 1 0 0 0 0 0
                             0 1 0 0 0 0 0 0
 
-                        ouput:
+                        输出
+
+                            染色的方案数
 
                             15552
                         ```
@@ -10655,7 +10693,7 @@ A Bit of Logic -<
 
                         using namespace std;
 
-                        // 深搜，给第cur个节点涂色.
+                        // 深搜，给第 cur 个节点涂色.
                         void dfs( vector<vector<int> > &table, vector<int> &history, int cur, int N, int &count ) {
                             if ( cur == N ) {
                                 ++count;
@@ -10695,9 +10733,9 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   all arrangements (null)
+                -   all arrangements (dup)
 
-                -   eight queen (null)
+                -   eight queen (dup)
 
                 -   restore IP addr -<
 
@@ -10705,7 +10743,7 @@ A Bit of Logic -<
 
                         给定一个只包含数字的字符串，还原出所有合法的IP地址。
 
-                        例如：给定"25525511135"，返回 ["255.255.11.135", "255.255.111.35"]。 (顺序无关紧要)
+                        例如：给定 "25525511135"，返回 `["255.255.11.135", "255.255.111.35"]`。 (顺序无关紧要)
 
                         这题很明显分为四步，有层次，因此可以尝试用回溯法解决。
 
@@ -10733,8 +10771,7 @@ A Bit of Logic -<
                                 int num = 0;
                                 for ( int i = start; i < start + 3; ++i ) {
                                     num = num * 10 + (s[i] - '0');
-
-                                    if (num <= 255) {  // 当前结点合法，则继续往下递归
+                                    if( num <= 255 ) {                          // 当前结点合法，则继续往下递归
                                         ip += s[i];
                                         dfs( s, i+1, step+1, ip+'.', result );
                                     }
@@ -10746,19 +10783,20 @@ A Bit of Logic -<
 
                 -   combination sum -<
 
-                    :   本题是 LeetCode Online Judge上的"Combination Sum"。
+                    :   本题是 LeetCode Online Judge 上的 "Combination Sum"。
 
-                        给定一个数的集合(C)和一个目标数(T)，找到C中所有不重复的组合，让这些被选出来的数加起来等于T。
+                        给定一个数的集合 (C) 和一个目标数 (T)，找到 C 中所有不重复的组合，
+                        让这些被选出来的数加起来等于 T。
 
                         每一个数可以被选无数次。
 
                         注意：
 
                         -   所有的数（包括目标）都是正整数
-                        -   一个组合（$a_1,a_2,\cdot,a_k$）中的元素必须以非递减顺序排列
+                        -   一个组合（a~1~, a~2~, ..., a~k~）中的元素必须以非递减顺序排列
                         -   一个组合不能与另一个组合重复
 
-                        例如，给定一组数2,3,6,7,和目标7，则答案是
+                        例如，给定一组数 2,3,6,7, 和目标 7，则答案是
 
                         ```
                         [7]
@@ -10772,25 +10810,24 @@ A Bit of Logic -<
                         public:
                             vector<vector<int> > combinationSum(vector<int> &nums, int target) {
                                 sort(nums.begin(), nums.end());
-                                vector<vector<int> > result; // 最终结果
-                                vector<int> intermediate; // 中间结果
-                                dfs(nums, target, 0, intermediate, result);
+                                vector<vector<int> > result;                // 最终结果
+                                vector<int> cur;                            // 中间结果
+                                dfs(nums, target, 0, cur, result);
                                 return result;
                             }
 
                         private:
-                            void dfs(vector<int>& nums, int gap, int level, vector<int>& intermediate,
-                                    vector<vector<int> > &result) {
-                                if (gap == 0) {  // 找到一个合法解
-                                    result.push_back(intermediate);
+                            void dfs( vector<int> &nums, int gap, int level, vector<int> &cur, vector<vector<int>> &result ) {
+                                if( gap == 0 ) {                            // 找到一个合法解
+                                    result.push_back( cur );
                                     return;
                                 }
-                                for (size_t i = level; i < nums.size(); i++) { // 扩展状态
-                                    if (gap < nums[i]) return; // 剪枝
-
-                                    intermediate.push_back(nums[i]); // 执行扩展动作
-                                    dfs(nums, gap - nums[i], i, intermediate, result);
-                                    intermediate.pop_back();  // 撤销动作
+                                int n = nums.size();
+                                for( int i = level; i < n; ++i ) {          // 扩展状态
+                                    if( gap < nums[i] ) { return; }         // 剪枝
+                                    cur.push_back( nums[i] );               // 执行扩展动作
+                                    dfs(nums, gap - nums[i], i, cur, result);
+                                    cur.pop_back();                         // 撤销动作
                                 }
                             }
                         };
@@ -10804,36 +10841,31 @@ A Bit of Logic -<
                         // LeetCode, Combination Sum II
                         class Solution {
                         public:
-                            vector<vector<int> > combinationSum2(vector<int> &nums, int target) {
-                                sort(nums.begin(), nums.end()); // 跟第 50 行配合，
-                                                                     // 确保每个元素最多只用一次
+                            vector<vector<int> > combinationSum2( vector<int> &nums, int target ) {
+                                sort( nums.begin(), nums.end() );
                                 vector<vector<int> > result;
-                                vector<int> intermediate;
-                                dfs(nums, target, 0, intermediate, result);
+                                vector<int> cur;
+                                dfs( nums, target, 0, cur, result );
                                 return result;
                             }
                         private:
-                            // 使用nums[index, nums.size())之间的元素，能找到的所有可行解
-                            static void dfs(vector<int> &nums, int gap, int index,
-                                    vector<int> &intermediate, vector<vector<int> > &result) {
-                                if (gap == 0) {  //  找到一个合法解
-                                    result.push_back(intermediate);
+                            // 使用 nums[index, nums.size()) 之间的元素，能找到的所有可行解
+                            static void dfs( vector<int> &nums, int gap, int index, vector<int> &cur, vector<vector<int> > &result ) {
+                                if( gap == 0 ) {                            //  找到一个合法解
+                                    result.push_back(cur);
                                     return;
                                 }
-
-                                int previous = -1;
-                                for (size_t i = index; i < nums.size(); i++) {
-                                    // 如果上一轮循环没有选nums[i]，则本次循环就不能再选nums[i]，
-                                    // 确保nums[i]最多只用一次
-                                    if (previous == nums[i]) continue;
-
-                                    if (gap < nums[i]) return;  // 剪枝
-
+                                int previous = nums[0]-1;                   // so will not dup
+                                int n = nums.size();
+                                for( int i = index; i < n; ++i ) {
+                                    // 如果上一轮循环选 nums[i]，则本次循环就不能再选 nums[i]，
+                                    // 确保nums[i] 最多只用一次
+                                    if( previous == nums[i] ) { continue; }
+                                    if( gap < nums[i] ) { return; }         // 剪枝
                                     previous = nums[i];
-
-                                    intermediate.push_back(nums[i]);
-                                    dfs(nums, gap - nums[i], i + 1, intermediate, result);
-                                    intermediate.pop_back();  // 恢复环境
+                                    cur.push_back( nums[i] );
+                                    dfs( nums, gap - nums[i], i + 1, cur, result);
+                                    cur.pop_back();
                                 }
                             }
                         };
@@ -10842,37 +10874,49 @@ A Bit of Logic -<
                 -   conclusion :hearts: -<
 
                     :   输入数据
-                          ~ 如果是递归数据结构，如单链表，二叉树，集合，则百分
+
+                        :   如果是递归数据结构，如单链表，二叉树，集合，则百分
                             之百可以用深搜；如果是非递归数据结构，如一维数组，二
                             维数组，字符串，图，则概率小一些。
 
                         状态转换图
-                          ~ 树或者图。
+
+                        :   树或者图。
 
                         求解目标
-                          ~ 必须要走到最深（例如对于树，必须要走到叶子节点）才能得到一个解，这种情况适合用深搜。
+
+                        :   必须要走到最深（例如对于树，必须要走到叶子节点）
+                            才能得到一个解，这种情况适合用深搜。
 
                         思考的步骤
 
                         :   -   是求路径条数，还是路径本身（或动作序列）？深搜最常
-                                见的三个问题，求可行解的总数，求一个可行解，求所有
-                                可行解。
+                                见的三个问题，**求可行解的总数**，**求一个可行解**，
+                                **求所有可行解**。
 
-                                -   如果是求路径本身，则要用一个数组\fn{path[]}存储路径。跟宽搜不同，宽搜虽
-                                    然最终求的也是一条路径，但是需要存储扩展过程中的所有路径，在没找到答案
-                                    之前所有路径都不能放弃；而深搜，在搜索过程中始终只有一条路径，因此用一
-                                    个数组就足够了。
+                                -   如果是求路径本身，则要用一个数组 `path[]` 存储路径。
+                                    **跟宽搜不同，宽搜虽然最终求的也是一条路径，
+                                    但是需要存储扩展过程中的所有路径，在没找到
+                                    答案之前所有路径都不能放弃；而深搜，在搜索
+                                    过程中始终只有一条路径，因此用一个数组就足
+                                    够了。**
+
                                 -   如果是路径条数，则不需要存储路径。
 
-                            -   只要求一个解，还是要求所有解？如果只要求一个解，那找到一个就可以返回；如果
-                                要求所有解，找到了一个后，还要继续扩展，直到遍历完。广搜一般只要求一个解，
-                                因而不需要考虑这个问题（广搜当然也可以求所有解，这时需要扩展到所有叶子节点，
-                                相当于在内存中存储整个状态转换图，非常占内存，因此广搜不适合解这类问题）。
+                            -   只要求一个解，还是要求所有解？如果只要求一个解，
+                                那找到一个就可以返回；如果要求所有解，找到了一
+                                个后，还要继续扩展，直到遍历完。广搜一般只要求
+                                一个解，因而不需要考虑这个问题（广搜当然也可以
+                                求所有解，这时需要扩展到所有叶子节点，相当于在
+                                内存中存储整个状态转换图，非常占内存，因此广搜
+                                不适合解这类问题）。
 
-                            -   如何表示状态？即一个状态需要存储哪些些必要的数据，才能够完整提供如何扩展到
-                                下一步状态的所有信息。跟广搜不同，深搜的惯用写法，不是把数据记录在状态
-                                struct 里，而是添加函数参数（有时为了节省递归堆栈，用全局变量），
-                                struct 里的字段与函数参数一一对应。
+                            -   如何表示状态？即一个状态需要存储哪些些必要的数据，
+                                才能够完整提供如何扩展到下一步状态的所有信息。
+                                跟广搜不同，深搜的惯用写法，不是把数据记录在状
+                                态 struct 里，而是添加函数参数（有时为了节省递归
+                                堆栈，用全局变量），struct 里的字段与函数参数一
+                                一对应。
 
                             -   如何扩展状态？这一步跟上一步相关。状态里记录的数据
                                 不同，扩展方法就不同。对于固定不变的数据结构（一般
@@ -10885,16 +10929,20 @@ A Bit of Logic -<
 
                             :   -   如果状态转换图是一棵树，则不需要判重，因为在遍
                                     历过程中不可能重复。
+
                                 -   如果状态转换图是一个图，则需要判重，方法跟广搜
-                                    相同，见第 \S \ref{sec:bfs-template} 节。这里跟
-                                    第8步中的加缓存是相同的，如果有重叠子问题，则需
-                                    要判重，此时加缓存自然也是有效果的。
+                                    相同，见第 bfs-template 节。这里跟第 8 步中的加缓存是相同的，
+                                    如果有重叠子问题，则需要判重，此时加缓存自然也是有效果的。
 
                         -   终止条件是什么？
-                              ~ 终止条件是指到了不能扩展的末端节点。对于树，是叶子节点，对于图或隐式图，是出度为0的节点。
+
+                            :   终止条件是指到了不能扩展的末端节点。
+                                对于树，是叶子节点，
+                                对于图或隐式图，是出度为 0 的节点。
 
                         -   收敛条件是什么？
-                              ~ 收敛条件是指找到了一个合法解的时刻。如果是正向
+
+                            :   收敛条件是指找到了一个合法解的时刻。如果是正向
                                 深搜（父状态处理完了才进行递归，即父状态不依赖
                                 子状态，递归语句一定是在最后，尾递归），则是指
                                 是否达到目标状态；如果是逆向深搜（处理父状态时
@@ -10907,7 +10955,7 @@ A Bit of Logic -<
                         为了判断是否到了收敛条件，要在函数接口里用一个参数记录
                         当前的位置（或距离目标还有多远）。如果是求一个解，直接
                         返回这个解；如果是求所有解，要在这里收集解，即把第一步
-                        中表示路径的数组\fn{path[]}复制到解集合里。}
+                        中表示路径的数组 `path[]` 复制到解集合里。}
 
                         -   如何加速？
 
@@ -10915,26 +10963,28 @@ A Bit of Logic -<
                                     益大，加几行代码，就能大大加速。这里没有通
                                     用方法，只能具体问题具体分析，要充分观察，
                                     充分利用各种信息来剪枝，在中间节点提前返回。
-                                -   缓存。如果子问题的解会被重复利用，可以考虑使用缓存。
-                                    -   前提条件：子问题的解会被重复利用，即子
-                                        问题之间的依赖关系是有向无环图(DAG)。如
-                                        果依赖关系是树状的（例如树，单链表），
-                                        没必要加缓存，因为子问题只会一层层往下
-                                        ，用一次就再也不会用到，加了缓存也没什
-                                        么加速效果。
-                                    -   具体实现：可以用数组或HashMap。维度简单
-                                        的，用数组；维度复杂的，用HashMap，C++
-                                        有\fn{map}，C++ 11以后有
-                                        \fn{unordered_map}，比\fn{map}快。
 
-                        拿到一个题目，当感觉它适合用深搜解决时，在心里面把上面8
-                        个问题默默回答一遍，代码基本上就能写出来了。对于树，不
-                        需要回答第5和第8个问题。如果读者对上面的经验总结看不懂
-                        或感觉“不实用”，很正常，因为这些经验总结是笔者做了很多
-                        深搜题后总结出来的，从思维的发展过程看，“经验总结”要晚
-                        于感性认识，所以这时候建议读者先做做后面的题目，积累一
-                        定的感性认识后，在回过头来看这一节的总结，相信会和笔者
-                        有共鸣。
+                                -   缓存。如果子问题的解会被重复利用，可以考虑使用缓存。
+
+                                    -   前提条件：子问题的解会被重复利用，即子
+                                        问题之间的依赖关系是有向无环图 (DAG)。
+                                        如果依赖关系是树状的（例如树，单链表），
+                                        没必要加缓存，因为子问题只会一层层往下，
+                                        用一次就再也不会用到，加了缓存也没什么加速效果。
+
+                                    -   具体实现：可以用数组或 HashMap。维度简单
+                                        的，用数组；维度复杂的，用 HashMap，C++
+                                        有 `map`，C++ 11 以后有 `unordered_map`，
+                                        比 `map` 快。
+
+                        拿到一个题目，当感觉它适合用深搜解决时，在心里面把上面
+                        8 个问题默默回答一遍，代码基本上就能写出来了。对于树，不
+                        需要回答第 5 和第 8 个问题。如果读者对上面的经验总结看
+                        不懂或感觉“不实用”，很正常，因为这些经验总结是笔者做了
+                        很多深搜题后总结出来的，从思维的发展过程看，“经验总结”
+                        要晚于感性认识，所以这时候建议读者先做做后面的题目，积
+                        累一定的感性认识后，在回过头来看这一节的总结，相信会和
+                        笔者有共鸣。
 
                         代码模板 -<
 
@@ -10963,52 +11013,51 @@ A Bit of Logic -<
 
                         深搜与回溯法的区别
 
-                        :   -   深搜(Depth-first search, DFS)的定义见
-                                \myurl{http://en.wikipedia.org/wiki/Depth_first_search}
-                                ，回溯法(backtracking)的定义见
-                                \myurl{http://en.wikipedia.org/wiki/Backtracking}
-                            -   回溯法 = 深搜 + 剪枝。一般大家用深搜时，或多或少会
-                                剪枝，因此深搜与回溯法没有什么不同，可以在它们之间
-                                画上一个等号。本书同时使用深搜和回溯法两个术语，但
-                                读者可以认为二者等价。
-                            -   深搜一般用递归(recursion)来实现，这样比较简洁。
+                        :   -   **回溯法 = 深搜 + 剪枝**。一般大家用深搜时，
+                                或多或少会剪枝，因此深搜与回溯法没有什么不同，
+                                可以在它们之间画上一个等号。本书同时使用深搜和
+                                回溯法两个术语，但读者可以认为二者等价。
+
+                            -   深搜一般用递归 (recursion) 来实现，这样比较简洁。
+
                             -   深搜能够在候选答案生成到一半时，就进行判断，抛弃不
                                 满足要求的答案，所以深搜比暴力搜索法要快。
 
-
                         深搜与递归的区别
 
-                        :   -   深搜经常用递归(recursion)来实现，二者常常同时出现，
+                        :   -   深搜经常用递归 (recursion) 来实现，二者常常同时出现，
                                 导致很多人误以为他俩是一个东西。
-                            -   深搜，是逻辑意义上的算法，递归，是一种物理意义上的
-                                实现，它和迭代(iteration)是对应的。深搜，可以用递归
-                                来实现，也可以用栈来实现；而递归，一般总是用来实现
-                                深搜。可以说，\textbf{递归一定是深搜，深搜不一定用
-                                递归}。
-                            -   递归有两种加速策略，一种是\textbf{剪枝(prunning)}，
-                                对中间结果进行判断，提前返回；一种是\textbf{加缓存}
-                                （就变成了memoization，备忘录法），缓存中间结果，防
-                                止重复计算，用空间换时间。
-                            -   其实，递归+缓存，就是一种 memorization 。所谓
-                                \textbf{memorization}（翻译为备忘录法，见第 \S
-                                \ref{sec:dp-vs-memorization}节），就是"top-down
-                                with cache"（自顶向下+缓存），它是Donald Michie 在
-                                1968年创造的术语，表示一种优化技术，在top-down 形式
-                                的程序中，使用缓存来避免重复计算，从而达到加速的目
-                                的。
-                            -   memorization 不一定用递归}，就像深搜不一定用递归一
-                                样，可以在迭代(iterative)中使用 memorization 。
-                                **递归也不一定用 memorization**，可以用
-                                memorization来加速，但不是必须的。只有当递归使用了
-                                缓存，它才是 memorization 。
 
-                        >   既然递归一定是深搜，为什么很多书籍都同时使用这两个
+                            -   深搜，是逻辑意义上的算法，
+                                递归，是一种物理意义上的实现，它和迭代 (iteration) 是对应的。
+                                深搜，可以用递归来实现，也可以用栈来实现；
+                                而递归，一般总是用来实现深搜。
+                                可以说，**递归一定是深搜，深搜不一定用递归**。
+
+                            -   递归有两种加速策略，一种是**剪枝 (prunning)**，
+                                对中间结果进行判断，提前返回；一种是**加缓存**
+                                （就变成了 memoization，备忘录法），
+                                缓存中间结果，防止重复计算，用空间换时间。
+
+                            -   其实，递归 + 缓存，就是一种 memorization 。
+                                所谓memorization（备忘录法），
+                                就是 **"top-down with cache"（自顶向下 + 缓存）**，
+                                它是 Donald Michie 在 1968 年创造的术语，表示一
+                                种优化技术，在 top-down 形式的程序中，使用缓存
+                                来避免重复计算，从而达到加速的目的。
+
+                            -   memorization 不一定用递归，就像深搜不一定用递归一样，
+                                可以在迭代 (iterative) 中使用 memorization 。
+                                递归也不一定用 memorization，可以用 memorization 来加速，
+                                但不是必须的。只有当递归使用了缓存，它才是 memorization 。
+
+                        >   **既然递归一定是深搜，为什么很多书籍都同时使用这两个
                         >   术语呢？在递归味道更浓的地方，一般用递归这个术语，
                         >   在深搜更浓的场景下，用深搜这个术语，读者心里要弄清
                         >   楚他俩大部分时候是一回事。在单链表、二叉树等递归数
                         >   据结构上，递归的味道更浓，这时用递归这个术语；
                         >   在图、隐士图等数据结构上，递归的比重不大，深搜的意图更
-                        >   浓，这时用深搜这个术语。
+                        >   浓，这时用深搜这个术语。**
 
     :scissors: 2016/08/13 上午 9:30:00 4. 动态规划 Dynamic Programming I -<
 
@@ -11119,17 +11168,17 @@ A Bit of Logic -<
                 最后，动态规划算法和广度优先搜索解决的是同样的问题，解决问题的
                 方法的描述方式不同而已。
 
-                对动态规划（Dynamic Programming）的理解：从穷举开始
+                对动态规划（Dynamic Programming）的理解：从穷举开始 -<
 
                 :   TODO
 
-                    《算法竞赛入门经典 (豆瓣)》中 LRJ 是按“穷举－分治－dp”来安排
-                    书本章节的，这并非偶然，要深入理解并灵活运用 dp 必须要先对穷
-                    举和分治有很好的基础。否则就会陷入 LRJ 指出的一种现象：
+                    《算法竞赛入门经典 (豆瓣)》中 LiuRuJia 是按“穷举－分治－dp”
+                    来安排书本章节的，这并非偶然，要深入理解并灵活运用 dp 必须
+                    要先对穷举和分治有很好的基础。否则就会陷入 LRJ 指出的一种现象：
 
                     >   “每次碰到新题自己都想不出来，但一看题解就懂”的尴尬情况。
 
-                动态规划 - 华科小涛
+                动态规划 - 华科小涛 -<
 
                 :   TODO
 
@@ -11144,15 +11193,21 @@ A Bit of Logic -<
 
                 :   ```
                     贪心：                                  【每一步只选最优】
-                        A ------------- H/I ----------- P/Q -------- Z
+                            +----H----+             +----P----+
+                           /           \           /           \
+                       A -+             +----O----+             +-- Z
+                           \           /           \           /
+                            +----I----+             +----Q----+
                                     min(H,I)          min(P,Q)
 
                     穷举：                                  【把这些路都尝试一遍，才知道哪个最优】
-                        A --+-- H ----- P ------- Z
-                            |    \----- Q -------/
+                       A  --+-- H ----- P -------- Z
+                            |    \                /
+                            |     +---- Q -------/
                             |                   /
-                            \---I ----- R -----/
-                                 \----- S ----/
+                            +-- I ----- R -----/
+                                 \            /
+                                  +----- S --+
 
                     动态规划：                              【暴力，但 A-H-Q 和 A-I-Q 保存一条就可以了】
                                      -- P --
@@ -11171,7 +11226,8 @@ A Bit of Logic -<
                     每个步骤面对第 i 号物品，决策有两条：选，还是放弃，这里的状态，就是影响之后步
                     骤决策的因素，在这里，就是“背包的剩余空间”
 
-                    比如，物品的重量是 1,2,3,4,5,6，W=12，从头决策，0 表示放弃，1 表示选，BFS 三次后有八种状态：
+                    比如，物品的重量是 1,2,3,4,5,6，W=12，从头决策，0 表示放弃，1 表示选，
+                    BFS 三次后有八种状态：
 
                     |   000 剩12
                     |   001 剩9
@@ -11202,6 +11258,7 @@ A Bit of Logic -<
                     都知道斗地主靠贪心法是得不到最优出牌顺序的吧，哈。。。
 
                 refs and see also
+
                 -   [什么是动态规划？动态规划的意义是什么？ - 知乎](https://www.zhihu.com/question/23995189)
                 -   [对动态规划（Dynamic Programming）的理解：从穷举开始 · Jan Fan](http://janfan.github.io/chinese/2015/01/21/dynamic-programming.html)
                 -   [动态规划 - 华科小涛 - 博客园](http://www.cnblogs.com/hust-ghtao/p/4150159.html)
@@ -11267,10 +11324,10 @@ A Bit of Logic -<
                 -   **无后效性**：即某阶段状态一旦确定，就不受这个状态以后决策的影
                     响。也就是说，某状态以后的过程不会影响以前的状态，只与当前
                     状态有关。
-                -   **有重叠子问题（overlapping subproblem）**：即子问题之间是不独立的，一个子问题在下一阶段
-                    决策中可能被多次使用到。（该性质并不是动态规划适用的必要条
-                    件，但是如果没有这条性质，动态规划算法同其他算法相比就不具
-                    备优势）
+                -   **有重叠子问题（overlapping subproblem）**：即子问题之间是不独立的，
+                    一个子问题在下一阶段决策中可能被多次使用到。
+                    （该性质并不是动态规划适用的必要条件，但是如果没有这条性质，
+                    动态规划算法同其他算法相比就不具备优势）
 
                 refs and see also
 
@@ -11282,16 +11339,17 @@ A Bit of Logic -<
 
                 -   状 态 State
                       ~ 灵感，创造力，存储小规模问题的结果
+
                 -   方程 Function
                       ~ 状态之间的联系，怎么通过小的状态，来算大的状态
+
                 -   初始化 Initialization
                       ~ 最极限的小状态是什么, 起点
+
                 -   答案 Answer
                       ~ 最大的那个状态是什么，终点
 
-        -   动规的两种实现方式：记忆化搜索 (top-down) *vs* 循环递推 (bottom-up) -<
-
-            :   TODO
+        -   **动规的两种实现方式：记忆化搜索 (top-down) *vs* 循环递推 (bottom-up)**
 
         -   面试中动态规划的常见类型 -<
 
@@ -11307,9 +11365,11 @@ A Bit of Logic -<
 
                 :   满足下面三个条件之一：
 
-                    -   求出所有**具体**的方案而非方案**个数**<http://www.lintcode.com/problem/palindrome-partitioning/>
-                    -   输入数据是一个**集合**而不**序列**<http://www.lintcode.com/problem/longest-consecutive-sequence/>
-                    -   暴力的算法已经是多项式级别，2^n → n^2 是 DP 擅长的事
+                    -   求出所有**具体**的方案而非方案**个数** <http://www.lintcode.com/problem/palindrome-partitioning/>
+
+                    -   输入数据是一个**集合**而不**序列** <http://www.lintcode.com/problem/longest-consecutive-sequence/>
+
+                    -   暴力的算法已经是多项式级别，2^n^ → n^2^ 是 DP 擅长的事
 
                     则极不可能使用动态规划求解
 
@@ -11361,7 +11421,15 @@ A Bit of Logic -<
                             3 |     4   1   8   3   |   4   1   8   3   |   4   1   8   3   |   4   1   8   3
                         ```
 
-                        首先，定义状态转移方程：`f(i,j) = min{ f(i+i,j), f(i+1,j+1)} + f(i,j) for j = 0..i, i = n-2..0`。
+                        首先，定义状态转移方程：
+
+                        ```
+                        f(i,j) = min{
+                                            f(i+i,j),
+                                            f(i+1,j+1)
+                                    }                       +       f(i,j),
+                                                                                    for j = 0..i, i = n-2..0
+                        ```
 
                         ```cpp
                         int minimumTotal( vector<vector<int>> &triangle ) {
@@ -11516,16 +11584,16 @@ A Bit of Logic -<
 
             :   -   **坐标型动态规划 15%**
                     -   state:
-                        -   f[x] 表示我从起点走到坐标 x......
-                        -   f[x][y] 表示我从起点走到坐标 x,y......
+                        -   `f[x]` 表示我从起点走到坐标 x......
+                        -   `f[x][y]` 表示我从起点走到坐标 x,y......
                     -   function: 研究走到 x,y 这个点之前的一步
                     -   initialize: 起点
                     -   answer: 终点
                 -   **序列型动态规划 30%**
-                    -   state: f[i] 表示前 i 个位置 / 数字 / 字符, 第 i 个...
-                    -   function: f[i] = f[j] ... j 是 i 之前的一个位置
+                    -   state: `f[i]` 表示前 i 个位置 / 数字 / 字符, 第 i 个...
+                    -   function: `f[i]` = `f[j]` ... j 是 i 之前的一个位置
                     -   initialize: f..
-                    -   answer: f[n]..
+                    -   answer: `f[n]`..
                         -   一般 answer 是 f(n) 而不是 f(n-1)
                         -   因为对于 n 个字符, 包含前 0 个字符 (空串), 前 1 个字符...... 前 n 个字符。
                 -   **双序列动态规划 30%**
@@ -11575,259 +11643,264 @@ A Bit of Logic -<
 
         -   backpack
 
-        -   TODO -<
+        -   Word Break :hearts: -<
 
-            :   [Word Break 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/word-break/) :hearts: -<
+            :   Given a string s and a dictionary of words dict, determine if s can
+                be segmented into a space-separated sequence of one or more
+                dictionary words. For example, given s = "leetcode", dict =
+                ["leet", "code"].  Return true because "leetcode" can be segmented
+                as "leet code".
 
-                :   Given a string s and a dictionary of words dict, determine if s can
-                    be segmented into a space-separated sequence of one or more
-                    dictionary words. For example, given s = "leetcode", dict =
-                    ["leet", "code"].  Return true because "leetcode" can be segmented
-                    as "leet code".
+                java code:
 
-                    java code:
+                ```java
+                public class Solution {
+                    private int getMaxLength(Set<String> dict) {
+                        int maxLength = 0;
+                        for (String word : dict) {
+                            maxLength = Math.max(maxLength, word.length());
+                        }
+                        return maxLength;
+                    }
 
-                    ```java
-                    public class Solution {
-                        private int getMaxLength(Set<String> dict) {
-                            int maxLength = 0;
-                            for (String word : dict) {
-                                maxLength = Math.max(maxLength, word.length());
-                            }
-                            return maxLength;
+                    public boolean wordBreak(String s, Set<String> dict) {
+                        if (s == null || s.length() == 0) {
+                            return true;
                         }
 
-                        public boolean wordBreak(String s, Set<String> dict) {
-                            if (s == null || s.length() == 0) {
-                                return true;
-                            }
+                        int maxLength = getMaxLength(dict);
+                        boolean[] canSegment = new boolean[s.length() + 1];
 
-                            int maxLength = getMaxLength(dict);
-                            boolean[] canSegment = new boolean[s.length() + 1];
-
-                            canSegment = true;
-                            for (int i = 1; i <= s.length(); i++) {
-                                canSegment[i] = false;
-                                for (int lastWordLength = 1;
-                                         lastWordLength <= maxLength && lastWordLength <= i;
-                                         lastWordLength++) {
-                                    if (!canSegment[i - lastWordLength]) {
-                                        continue;
-                                    }
-                                    String word = s.substring(i - lastWordLength, i);
-                                    if (dict.contains(word)) {
-                                        canSegment[i] = true;
-                                        break;
-                                    }
+                        canSegment = true;
+                        for (int i = 1; i <= s.length(); i++) {
+                            canSegment[i] = false;
+                            for (int lastWordLength = 1;
+                                     lastWordLength <= maxLength && lastWordLength <= i;
+                                     lastWordLength++) {
+                                if (!canSegment[i - lastWordLength]) {
+                                    continue;
+                                }
+                                String word = s.substring(i - lastWordLength, i);
+                                if (dict.contains(word)) {
+                                    canSegment[i] = true;
+                                    break;
                                 }
                             }
-
-                            return canSegment[s.length()];
                         }
+
+                        return canSegment[s.length()];
                     }
+                }
+                ```
+
+                -   state: f[i] 表示“前 i”个字符能否被完美切分
+                -   function: f[i] = OR{f[j] && j+1~i is a word}, 其中 j < i
+                -   initialize: f = true
+                -   answer: f[n]
+
+                注意: 切分位置的枚举 ->单词长度枚举 O(NL^2^), N: 字符串长度, L: 最长的单词的长度
+
+                refs and see also
+
+                -   [Word Break 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/word-break/)
+
+        -   Palindrome Partitioning -<
+
+            :   Given a string s, partition s such that every substring of the partition is a palindrome.
+
+                Return all possible palindrome partitioning of s.
+
+                For example, given s = "aab",
+                Return
+
+                ```
+                [
+                  ["aa","b"],
+                  ["a","a","b"]
+                ]
+                ```
+
+                深搜 1 -<
+
+                :   ```cpp
+                    // 时间复杂度 O(2^n)，空间复杂度 O(n)
+                    class Solution {
+                    public:
+                        vector<vector<string>> partition(string s) {
+                            vector<vector<string>> result;
+                            vector<string> path;  // 一个partition方案
+                            dfs(s, path, result, 0, 1);
+                            return result;
+                        }
+
+                        // prev 表示前一个隔板, start 表示当前隔板
+                        void dfs(string &s, vector<string>& path,
+                                vector<vector<string>> &result, size_t prev, size_t start) {
+                            if (start == s.size()) { // 最后一个隔板
+                                if (isPalindrome(s, prev, start - 1)) { // 必须使用
+                                    path.push_back(s.substr(prev, start - prev));
+                                    result.push_back(path);
+                                    path.pop_back();
+                                }
+                                return;
+                            }
+                            // 不断开
+                            dfs(s, path, result, prev, start + 1);
+                            // 如果[prev, start-1] 是回文，则可以断开，也可以不断开（上一行已经做了）
+                            if (isPalindrome(s, prev, start - 1)) {
+                                // 断开
+                                path.push_back(s.substr(prev, start - prev));
+                                dfs(s, path, result, start, start + 1);
+                                path.pop_back();
+                            }
+                        }
+
+                        bool isPalindrome(const string &s, int start, int end) {
+                            while (start < end && s[start] == s[end]) {
+                                ++start;
+                                --end;
+                            }
+                            return start >= end;
+                        }
+                    };
                     ```
 
-                    -   state: f[i] 表示“前 i”个字符能否被完美切分
-                    -   function: f[i] = OR{f[j] && j+1~i is a word}, 其中 j < i
-                    -   initialize: f = true
-                    -   answer: f[n]
+                深搜 2 -<
 
-                    注意:切分位置的枚举->单词长度枚举 O(NL 2), N: 字符串长度, L: 最长的单词的长度
+                :   ```cpp
+                    // 时间复杂度 O(2^n)，空间复杂度 O(n)
+                    class Solution {
+                    public:
+                        vector<vector<string>> partition(string s) {
+                            vector<vector<string>> result;
+                            vector<string> path;  // 一个partition方案
+                            dfs(s, path, result, 0, 1);
+                            return result;
+                        }
 
-                    [Palindrome Partitioning | LeetCode OJ](https://leetcode.com/problems/palindrome-partitioning/) -<
-
-                    :   Given a string s, partition s such that every substring of the partition is a palindrome.
-
-                        Return all possible palindrome partitioning of s.
-
-                        For example, given s = "aab",
-                        Return
-
-                        ```
-                        [
-                          ["aa","b"],
-                          ["a","a","b"]
-                        ]
-                        ```
-
-                        深搜 1 -<
-
-                        :   ```cpp
-                            // 时间复杂度 O(2^n)，空间复杂度 O(n)
-                            class Solution {
-                            public:
-                                vector<vector<string>> partition(string s) {
-                                    vector<vector<string>> result;
-                                    vector<string> path;  // 一个partition方案
-                                    dfs(s, path, result, 0, 1);
-                                    return result;
+                        // prev 表示前一个隔板, start 表示当前隔板
+                        void dfs(string &s, vector<string>& path,
+                                vector<vector<string>> &result, size_t prev, size_t start) {
+                            if (start == s.size()) { // 最后一个隔板
+                                if (isPalindrome(s, prev, start - 1)) { // 必须使用
+                                    path.push_back(s.substr(prev, start - prev));
+                                    result.push_back(path);
+                                    path.pop_back();
                                 }
+                                return;
+                            }
+                            // 不断开
+                            dfs(s, path, result, prev, start + 1);
+                            // 如果[prev, start-1] 是回文，则可以断开，也可以不断开（上一行已经做了）
+                            if (isPalindrome(s, prev, start - 1)) {
+                                // 断开
+                                path.push_back(s.substr(prev, start - prev));
+                                dfs(s, path, result, start, start + 1);
+                                path.pop_back();
+                            }
+                        }
 
-                                // prev 表示前一个隔板, start 表示当前隔板
-                                void dfs(string &s, vector<string>& path,
-                                        vector<vector<string>> &result, size_t prev, size_t start) {
-                                    if (start == s.size()) { // 最后一个隔板
-                                        if (isPalindrome(s, prev, start - 1)) { // 必须使用
-                                            path.push_back(s.substr(prev, start - prev));
-                                            result.push_back(path);
-                                            path.pop_back();
-                                        }
-                                        return;
-                                    }
-                                    // 不断开
-                                    dfs(s, path, result, prev, start + 1);
-                                    // 如果[prev, start-1] 是回文，则可以断开，也可以不断开（上一行已经做了）
-                                    if (isPalindrome(s, prev, start - 1)) {
-                                        // 断开
-                                        path.push_back(s.substr(prev, start - prev));
-                                        dfs(s, path, result, start, start + 1);
-                                        path.pop_back();
-                                    }
-                                }
+                        bool isPalindrome(const string &s, int start, int end) {
+                            while (start < end && s[start] == s[end]) {
+                                ++start;
+                                --end;
+                            }
+                            return start >= end;
+                        }
+                    };
+                    ```
 
-                                bool isPalindrome(const string &s, int start, int end) {
-                                    while (start < end && s[start] == s[end]) {
-                                        ++start;
-                                        --end;
-                                    }
-                                    return start >= end;
-                                }
-                            };
-                            ```
+                动归 -<
 
-                        深搜 2 -<
+                :   ```cpp
+                    // 动规，时间复杂度 O(n^2)，空间复杂度 O(1)
+                    class Solution {
+                    public:
+                        vector<vector<string> > partition(string s) {
+                            const int n = s.size();
+                            bool p[n][n]; // whether s[i,j] is palindrome
+                            fill_n(&p[0][0], n * n, false);
+                            for (int i = n - 1; i >= 0; --i)
+                                for (int j = i; j < n; ++j)
+                                    p[i][j] = s[i] == s[j] && ((j - i < 2) || p[i + 1][j - 1]);
 
-                        :   ```cpp
-                            // 时间复杂度 O(2^n)，空间复杂度 O(n)
-                            class Solution {
-                            public:
-                                vector<vector<string>> partition(string s) {
-                                    vector<vector<string>> result;
-                                    vector<string> path;  // 一个partition方案
-                                    dfs(s, path, result, 0, 1);
-                                    return result;
-                                }
-
-                                // prev 表示前一个隔板, start 表示当前隔板
-                                void dfs(string &s, vector<string>& path,
-                                        vector<vector<string>> &result, size_t prev, size_t start) {
-                                    if (start == s.size()) { // 最后一个隔板
-                                        if (isPalindrome(s, prev, start - 1)) { // 必须使用
-                                            path.push_back(s.substr(prev, start - prev));
-                                            result.push_back(path);
-                                            path.pop_back();
-                                        }
-                                        return;
-                                    }
-                                    // 不断开
-                                    dfs(s, path, result, prev, start + 1);
-                                    // 如果[prev, start-1] 是回文，则可以断开，也可以不断开（上一行已经做了）
-                                    if (isPalindrome(s, prev, start - 1)) {
-                                        // 断开
-                                        path.push_back(s.substr(prev, start - prev));
-                                        dfs(s, path, result, start, start + 1);
-                                        path.pop_back();
-                                    }
-                                }
-
-                                bool isPalindrome(const string &s, int start, int end) {
-                                    while (start < end && s[start] == s[end]) {
-                                        ++start;
-                                        --end;
-                                    }
-                                    return start >= end;
-                                }
-                            };
-                            ```
-
-                        动归 -<
-
-                        :   ```cpp
-                            // 动规，时间复杂度 O(n^2)，空间复杂度 O(1)
-                            class Solution {
-                            public:
-                                vector<vector<string> > partition(string s) {
-                                    const int n = s.size();
-                                    bool p[n][n]; // whether s[i,j] is palindrome
-                                    fill_n(&p[0][0], n * n, false);
-                                    for (int i = n - 1; i >= 0; --i)
-                                        for (int j = i; j < n; ++j)
-                                            p[i][j] = s[i] == s[j] && ((j - i < 2) || p[i + 1][j - 1]);
-
-                                    vector<vector<string> > sub_palins[n]; // sub palindromes of s[0,i]
-                                    for (int i = n - 1; i >= 0; --i) {
-                                        for (int j = i; j < n; ++j)
-                                            if (p[i][j]) {
-                                                const string palindrome = s.substr(i, j - i + 1);
-                                                if (j + 1 < n) {
-                                                    for (auto v : sub_palins[j + 1]) {
-                                                        v.insert(v.begin(), palindrome);
-                                                        sub_palins[i].push_back(v);
-                                                    }
-                                                } else {
-                                                    sub_palins[i].push_back(vector<string> { palindrome });
-                                                }
+                            vector<vector<string> > sub_palins[n]; // sub palindromes of s[0,i]
+                            for (int i = n - 1; i >= 0; --i) {
+                                for (int j = i; j < n; ++j)
+                                    if (p[i][j]) {
+                                        const string palindrome = s.substr(i, j - i + 1);
+                                        if (j + 1 < n) {
+                                            for (auto v : sub_palins[j + 1]) {
+                                                v.insert(v.begin(), palindrome);
+                                                sub_palins[i].push_back(v);
                                             }
+                                        } else {
+                                            sub_palins[i].push_back(vector<string> { palindrome });
+                                        }
                                     }
-                                    return sub_palins[0];
-                                }
-                            };
-                            ```
+                            }
+                            return sub_palins[0];
+                        }
+                    };
+                    ```
 
-                        动归 -<
+                动归 -<
 
-                        :   ```cpp
-                            // Palindrome Partitioning
-                            #define ROF(i, a, b) for (int i = (b); --i >= (a); )
-                            #define FOR(i, a, b) for (int i = (a); i < (b); i++)
-                            #define REP(i, n) for (int i = 0; i < (n); i++)
+                :   ```cpp
+                    // Palindrome Partitioning
+                    #define ROF(i, a, b) for (int i = (b); --i >= (a); )
+                    #define FOR(i, a, b) for (int i = (a); i < (b); i++)
+                    #define REP(i, n) for (int i = 0; i < (n); i++)
 
-                            class Solution {
-                            private:
-                                vector<vector<bool>> f;
-                                vector<string> rr;
-                                vector<vector<string>> r;
-                                void g(string &s, int i) {
-                                    if (i == s.size())
-                                        r.push_back(rr);
-                                    else
-                                        REP(j, s.size())
-                                            if (f[i][j]) {
-                                                rr.push_back(s.substr(i, j-i+1));
-                                                g(s, j+1);
-                                                rr.pop_back();
-                                            }
-                                }
-                            public:
-                                vector<vector<string>> partition(string s) {
-                                    int n = s.size();
-                                    f.assign(n, vector<bool>(n));
-                                    ROF(i, 0, n) {
-                                        f[i][i] = true;
-                                        if (i+1 < n && s[i] == s[i+1])
-                                            f[i][i+1] = true;
-                                        FOR(j, i+2, n)
-                                            f[i][j] = f[i+1][j-1] && s[i] == s[j];
+                    class Solution {
+                    private:
+                        vector<vector<bool>> f;
+                        vector<string> rr;
+                        vector<vector<string>> r;
+                        void g(string &s, int i) {
+                            if (i == s.size())
+                                r.push_back(rr);
+                            else
+                                REP(j, s.size())
+                                    if (f[i][j]) {
+                                        rr.push_back(s.substr(i, j-i+1));
+                                        g(s, j+1);
+                                        rr.pop_back();
                                     }
-                                    r.clear();
-                                    g(s, 0);
-                                    return r;
-                                }
-                            };
-                            ```
+                        }
+                    public:
+                        vector<vector<string>> partition(string s) {
+                            int n = s.size();
+                            f.assign(n, vector<bool>(n));
+                            ROF(i, 0, n) {
+                                f[i][i] = true;
+                                if (i+1 < n && s[i] == s[i+1])
+                                    f[i][i+1] = true;
+                                FOR(j, i+2, n)
+                                    f[i][j] = f[i+1][j-1] && s[i] == s[j];
+                            }
+                            r.clear();
+                            g(s, 0);
+                            return r;
+                        }
+                    };
+                    ```
 
-                        refs and see also
+                refs and see also
 
-                        -   [Palindrome Partitioning II 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/palindrome-partitioning-ii/)
+                -   [Palindrome Partitioning | LeetCode OJ](https://leetcode.com/problems/palindrome-partitioning/)
+                -   [Palindrome Partitioning II 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/palindrome-partitioning-ii/)
 
-                -   单序列动态规划（下） Sequnece DP
+        -   TODO -<
+
+            :   -   单序列动态规划（下） Sequnece DP
 
                 -   双序列动态规划 Two Sequences DP -<
 
-                    :   -   state: f[i][j] 代表了第一个 sequence 的前 i 个数字 / 字符, 配上第二个 sequence 的前 j 个...
-                        -   function: f[i][j] = 研究第 i 个和第 j 个的匹配关系
-                        -   initialize: f[i] 和 f[i]
-                        -   answer: f[n][m]
+                    :   -   state: `f[i][j]` 代表了第一个 sequence 的前 i 个数字 / 字符, 配上第二个 sequence 的前 j 个...
+                        -   function: `f[i][j]` = 研究第 i 个和第 j 个的匹配关系
+                        -   initialize: `f[i]` 和 `f[i]`
+                        -   answer: `f[n][m]`
                         -   n = s1.length()
                         -   m = s2.length()
 
@@ -11836,19 +11909,32 @@ A Bit of Logic -<
                     :   求 Max, [Longest Common Subsequence 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/longest-common-subsequence/) -<
 
                         :   -   http://www.lintcode.com/problem/longest-common-substring/
-                            -   state: f[i][j] 表示前 i 个字符配上前 j 个字符的 LCS 的长度
-                            -   function: f[i][j] = MAX(f[i-1][j], f[i][j-1], f[i-1][j-1] + 1) // A[i - 1] == B[j - 1] = MAX(f[i-1][j], f[i][j-1]) // A[i - 1] != B[j - 1]
+
+                            -   state: `f[i][j]` 表示前 i 个字符配上前 j 个字符的 LCS 的长度
+
+                            -   function:
+
+                                ```
+                                f[i][j]` = MAX(f[i-1][j], f[i][j-1], f[i-1][j-1] + 1)
+                                // A[i - 1] == B[j - 1] = MAX(f[i-1][j], f[i][j-1]) // A[i - 1] != B[j - 1]
+                                ```
+
                             -   intialize: f[i] = 0 f[j] = 0
+
                             -   answer: f[n][m]
 
                         求 Min, [Edit Distance 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/edit-distance/)
 
                         求方案总数, [Distinct Subsequences 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/distinct-subsequences/) -<
 
-                        :   -   state: f[i][j] 表示 S 的前 i 个字符中选取 T 的前 j 个字符, 有多少种方案
-                            -   function: f[i][j] = f[i - 1][j] + f[i - 1][j - 1] // S[i-1] == T[j-1] = f[i - 1][j] // S[i-1] != T[j-1]
-                            -   initialize: f[i] = 1, f[j] = 0 (j > 0)
-                            -   answer: f[n][m] (n = sizeof(S), m = sizeof(T))
+                        :   -   state: `f[i][j]` 表示 S 的前 i 个字符中选取 T 的前 j 个字符, 有多少种方案
+
+                            -   function: `f[i][j]` = `f[i - 1][j]` + `f[i - 1][j - 1]`
+                                `// S[i-1] == T[j-1] = f[i - 1][j] // S[i-1] != T[j-1]`
+
+                            -   initialize: `f[i] = 1, f[j] = 0 (j > 0)`
+
+                            -   answer: `f[n][m] (n = sizeof(S), m = sizeof(T))`
 
                         求是否可行, [Interleaving String 参考程序 Java/C++/Python](http://www.jiuzhang.com/solutions/interleaving-string/)
 
@@ -11885,7 +11971,7 @@ A Bit of Logic -<
 
     :scissors: 2016/08/14 上午 9:30:00 5. 动态规划 Dynamic Programming II -<
 
-    :   Theories +<
+    :   Theories -<
 
         :   如果一个问题具有以下两个要素：
 
@@ -12071,7 +12157,26 @@ A Bit of Logic -<
 
         -   maximum continuous subsequence sum -<
 
-            :   Maximum Subarray (see again)
+            :   Maximum Subarray (dup)
+
+                take a peak
+
+                :   -   `f[j] = max( f[j-1]+S[j], S[j] ), j = 2..n, f = S`
+                    -   `target = max{ f[j] }, j = 1..n`
+
+                    代码：
+
+                    ```cpp
+                    // Time: O(n), Space: O(1)
+                    int maxSubArray( vector<int> &nums ) {
+                        int result = INT_MIN, f = 0;
+                        for( int i = 0; i < nums.size(); ++i ) {
+                            f = max( f+nums[i], nums[i] );
+                            result = max( f, result );
+                        }
+                        return result;
+                    }
+                    ```
 
         -   最大 M 子段和, maximum m segments sum -<
 
@@ -12454,8 +12559,8 @@ A Bit of Logic -<
 
                         “拆分物品”还有更高效的拆分方法： -<
 
-                        :   把第 i 种物品拆分成重量为 2^k^*`w[i]`、价值为 2^k*`v[i]` 的
-                            若干物品，其中 k 取所有满足 2^k^*`w[i]` <= W 的非负
+                        :   把第 i 种物品拆分成重量为 2^k^ × `w[i]`、价值为 2^k × `v[i]` 的
+                            若干物品，其中 k 取所有满足 2^k^ × `w[i]` <= W 的非负
                             整数。这是二进制的思想，因为闭区间 `[1, W/w[i]]` 中
                             的任何整数都可以表示为 1, 2, 4, ..., 2^k^ 中若干个的和。
 
@@ -14111,12 +14216,13 @@ A Bit of Logic -<
 
                 -   骑士游历 -<
 
-                    :   设有一个 n*m 的棋盘 (2 <= n <= 50, 2 <= m <= 50)，在棋盘上有一个中国象棋马。规定：
+                    :   设有一个 n × m 的棋盘 (2 <= n <= 50, 2 <= m <= 50)，在棋盘上有一个中国象棋马。规定：
 
                         -   马只能走日字
                         -   马只能向右跳
 
-                        问给定起点 (x1,y1) 和终点 (x2,y2)，求出马从 (x1,y1) 出发到 (x2,y2) 的合法路径条数。
+                        问给定起点 (x1, y1) 和终点 (x2, y2)，求出马
+                        从 (x1, y1) 出发到 (x2, y2) 的合法路径条数。
 
                         ```
                         输入
@@ -17426,7 +17532,7 @@ A Bit of Logic -<
 
         -   sequential+linked -> static list
 
-        -   你必须知道的几点 Linked List 的常用技巧 Basic skills in Linked List you should know -<
+        -   你必须知道的几点 Linked List 的常用技巧 Basic skills in Linked List you should know :TODO: -<
 
             :   TODO
 
@@ -17555,7 +17661,7 @@ A Bit of Logic -<
 
                     -   [Linked List Cycle II | LeetCode OJ](https://leetcode.com/problems/linked-list-cycle-ii/)
 
-        -   常见问题讲解 Frequent Questions -<
+        -   常见问题讲解 Frequent Questions :TODO: -<
 
             :   TODO
 
@@ -17758,7 +17864,7 @@ A Bit of Logic -<
 
                     -   [Subset sum problem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Subset_sum_problem)
 
-        -   两根指针与 x-sum 问题 Two Pointers & x-sum -<
+        -   两根指针与 x-sum 问题 Two Pointers & x-sum :TODO: -<
 
             :   TODO
 
@@ -17857,7 +17963,7 @@ A Bit of Logic -<
                                 1 5 10 10 5 1       i=6                 ...
                                 ```
 
-                -   栈的原理、实现和运用, Stack -<
+                -   栈的原理、实现和运用, Stack :TODO: -<
 
                     :   TODO
 
@@ -18537,9 +18643,10 @@ A Bit of Logic -<
                         ```
                         输入
 
-                            Line  1:        Two space-separated integers: $W$ and $H$
-                            Lines 2..H+1:   Each line contains $W$ "*" or "." characters representing
-                                            one raster line of a satellite photograph.
+                            Line  1:        Two space-separated integers: W and H
+                            Lines 2..H+1:   Each line contains W "*" or "."
+                                            characters representing one raster line of
+                                            a satellite photograph.
 
                             10 5
                             ..*.....**
@@ -18586,7 +18693,7 @@ A Bit of Logic -<
                                 for( int i = 1; i <= H; ++i ) {
                                     char line[100];
                                     scanf( "%s", line );
-                                    strncpy( &map[i][1], line, W );
+                                    strncpy( &map[i][1], line, W ); // will not append '\0'
                                 }
 
                                 int ret = 0;
@@ -18642,7 +18749,7 @@ A Bit of Logic -<
                         Input
 
                             Input file consists of several blocks. Each block describes one town. Each
-                            line in the block contains three integers x; y; z, where x > 0 and y > 0
+                            line in the block contains three integers x, y, z, where x > 0 and y > 0
                             are the numbers of junctions which are connected by the street number z.
                             The end of the block is marked by the line containing x = y = 0. At the end
                             of the input file there is an empty block, x = y = 0.
@@ -18965,10 +19072,9 @@ A Bit of Logic -<
                             }
                         }
 
-
                         int main() {
                             int cases = 0, T;
-                            scanf( "%d",&T );
+                            scanf( "%d", &T );
                             while( T-- ) {
                                 bool validGraph = true;         // 结点的度是否为偶数
                                 bool connected  = true;         // 图是否是连通的
@@ -19265,9 +19371,9 @@ A Bit of Logic -<
                         假设网中有 n 个顶点，则第一个进行初始化的循环语句的频度
                         为 n，第二个循环语句的频度为 n-1。其中有两个内循环：其
                         一是在 `closedge[v].lowcost` 中求最小值，其频度为 n-1；
-                        其二是重新选择具有最小代价的边，其频度为 n。因此 Prim
-                        算法的时间复杂度为 O(n^2^)，与网中边数无关，因此适用于
-                        求边稠密的图的最小生成树。
+                        其二是重新选择具有最小代价的边，其频度为 n。
+                        **因此 Prim 算法的时间复杂度为 O(n^2^)，与网中边数无关，
+                        因此适用于求边稠密的图的最小生成树。**
 
                         Prim 算法的另一种实现是使用小根堆，其流程是：小根堆中存
                         储一个端点在生成树中，另一个端点不在生成树的边，每次从
@@ -19318,6 +19424,18 @@ A Bit of Logic -<
                             const int n = g.nv;
                             vector<int> used( n, 0 );                       // 判断顶点是否已经加入最小生成树
 
+           char *
+           strncpy(char *dest, const char *src, size_t n)
+           {
+               size_t i;
+
+               for (i = 0; i < n && src[i] != '\0'; i++)
+                   dest[i] = src[i];
+               for ( ; i < n; i++)
+                   dest[i] = '\0';
+
+               return dest;
+           }
                             int u = 0;                                      // 从 0 号顶点出发
                             used[u] = 1;
                             int count = 1;                                  // MLE 当前的边数
@@ -20263,7 +20381,7 @@ A Bit of Logic -<
                         }
                         ```
 
-                -   POJ 1125 Stockbroker Grapevine -<
+                -   POJ 1125 Stockbroker Grapevine :TODO: -<
 
                     :   TODO
 
@@ -20271,21 +20389,21 @@ A Bit of Logic -<
 
             :   由某个集合上的一个偏序得到该集合上的一个全序，这个操作称为**拓扑排序**。
 
-                拓扑序列的特点是：若有向边 <V~i~, V~j~> 是途中的弧，则
+                拓扑序列的特点是：若有向边 (V~i~, V~j~) 是途中的弧，则
                 在序列中顶点 V~i~ 必须排在顶点 V~j~ 之前。
 
-                如果用有向图表示一个工程，顶点表示活动，用有向边 <V~i~,
-                V~j~> 表示活动必须先于活动进行。这种有向图叫做顶点表示
-                活动的网络 (Activity On Vertext Network)，简称AOV 网络。
+                如果用有向图表示一个工程，顶点表示活动，用有向边 (V~i~, V~j~)
+                表示活动必须先于活动进行。这种有向图叫做顶点表示活动的网络
+                (Activity On Vertext Network)，简称 AOV 网络。
 
                 检测 AOV 网络是否存在环的方法是对 AOV 网络构造其顶点的
                 拓扑有序序列。拓扑排序的基本步骤是：
 
                 -   在有向图中选一个没有前驱的顶点且输出之；
-                -   从图中删除该顶点和所有以它为尾的弧线。
+                -   从图中删除该顶点和所有以它为端点的弧线。
 
-                重复以上两步，直至 1) 全部顶点输出，或
-                2) 当前图中不存在无前驱的顶点（这种情况说明图中存在环）。
+                重复以上两步，直至 1) 全部顶点输出，或 2) 当前图中不存在无前驱
+                的顶点（这种情况说明图中存在环）。
 
                 C++ code -<
 
@@ -20369,15 +20487,21 @@ A Bit of Logic -<
                     ```
 
                     ```
-                    6 8
-                    A C 10
-                    A E 30
-                    A F 100
-                    B C 5
-                    C D 50
-                    D 5 10
-                    E D 20
-                    E F 60
+                    input:
+
+                        6 8
+                        A C 10
+                        A E 30
+                        A F 100
+                        B C 5
+                        C D 50
+                        D 5 10
+                        E D 20
+                        E F 60
+
+                    output:
+
+                        B A E F C D
                     ```
 
                 对有 n 个顶点和 e 条边的 AOV 网络而言，求各顶点的入度所
@@ -20394,6 +20518,189 @@ A Bit of Logic -<
 
                 -   POJ 1094 Sorting It All Out -<
 
+                    :   An ascending sorted sequence of distinct values is one
+                        in which some form of a less-than operator is used to
+                        order the elements from smallest to largest. For
+                        example, the sorted sequence A, B, C, D implies that
+                        A < B, B < C and C < D. in this problem, we will give you
+                        a set of relations of the form A < B and ask you to
+                        determine whether a sorted order has been specified or not.
+
+                        ```
+                        输入
+
+                            Input consists of multiple problem instances. Each
+                            instance starts with a line containing two positive
+                            integers n and m. the first value indicated the
+                            number of objects to sort, where 2 <= n <= 26.  The
+                            objects to be sorted will be the first n characters
+                            of the uppercase alphabet. The second value m
+                            indicates the number of relations of the form A < B
+                            which will be given in this problem instance. Next
+                            will be m lines, each containing one such relation
+                            consisting of three characters: an uppercase
+                            letter, the character "<" and a second uppercase
+                            letter. No letter will be outside the range of the
+                            first n letters of the alphabet.  Values of n = m = 0
+                            indicate end of input.
+
+                            4 6
+                            A<B
+                            A<C
+                            B<C
+                            C<D
+                            B<D
+                            A<B
+                            3 2
+                            A<B
+                            B<A
+                            26 1
+                            A<Z
+                            6 6
+                            A<F
+                            B<D
+                            C<E
+                            F<D
+                            D<E
+                            E<F
+                            0 0
+
+                        输出
+
+                            For each problem instance, output consists of one
+                            line.  This line should be one of the following three:
+
+                            -   Sorted sequence determined after xxx relations: yyy...y.
+                            -   Sorted sequence cannot be determined.
+                            -   Inconsistency found after xxx relations.
+
+                            where xxx is the number of relations processed at
+                            the time either a sorted sequence is determined or
+                            an inconsistency is found, whichever comes first,
+                            and yyy...y is the sorted, ascending sequence.
+
+                            Sorted sequence determined after 4 relations: ABCD.
+                            Inconsistency found after 2 relations.
+                            Sorted sequence cannot be determined.
+                            Inconsistency found after 6 relations.
+                        ```
+
+                        根据题目的要求，我们要每输入一次就要进行一次拓扑排序
+                        `topological_sort()`，这样才能做到不成功（即发现有环）时，
+                        能知道是哪步不成功，并且给出输出。
+
+                        还有要注意的就是如果我们可以提前判断结果了，但后面还有
+                        输入没完成，那么我们必须继续完成输入，不然剩下的输入会
+                        影响下一次 case 的输入。
+
+                        ```cpp
+                        // POJ 1094 Sorting It All Out, http://poj.org/problem?id=1094
+                        #include <iostream>
+                        #include <climits>
+                        #include <stack>
+                        #include <vector>
+
+                        using namespace std;
+
+                        const int MAX_NV  = 26;
+                        const int GRAPH_INF = INT_MAX;
+
+                        struct graph_t {
+                            int nv, ne;
+                            int matrix[MAX_NV][MAX_NV];
+                        };
+
+                        graph_t g;
+
+                        int topological[MAX_NV];
+
+                        int topo_sort( const graph_t *g, int topological[] ) {
+                            const int n = g->nv;
+                            vector<int> in_degree( n, 0 );
+                            for( int i = 0; i < n; ++i ) {
+                                for( int j = 0; j < n; ++j ) {
+                                    if( g->matrix[i][j] < GRAPH_INF ) {
+                                        ++in_degree[j];
+                                    }
+                                }
+                            }
+
+                            stack<int> s;
+                            for( int i = 0; i < n; ++i ) {
+                                if( !in_degree[i] ) { s.push(i); }
+                            }
+
+                            int count = 0;
+                            bool insufficient = false;
+                            while( !s.empty() ) {
+                                if( s.size() > 1 ) { insufficient = true; }
+                                int u = s.top(); s.pop();                       // 删除顶点 u
+                                topological[count++] = u;
+                                --in_degree[u];                                 // 变成 -1，表示已经输出
+                                for( int i = 0; i < n; ++i ) {                  // 更新入度
+                                    if( g->matrix[u][i] < GRAPH_INF ) {
+                                        --in_degree[i];
+                                    }
+                                }
+                                for( int i = 0; i < n; ++i ) {                  // 选择入度为 0 的顶点
+                                    if( g->matrix[u][i] < GRAPH_INF ) {
+                                        if( !in_degree[i] ) { s.push(i); }
+                                    }
+                                }
+                            }
+
+                            if( count < n ) {
+                                return 0;
+                            } else {
+                                if( insufficient ) {                            // 有孤立点，说明条件不足
+                                    return -1;
+                                } else {
+                                    return 1;
+                                }
+                            }
+                        }
+
+                        int main() {
+                            int m;                                              // m 不一定是边的数目，因为输入边可能有重复
+
+                            while( 2 == scanf( "%d %d", &g.nv, &m ) && g.nv && m ) {
+                                bool finished = false;                          // 排序完成，结束，发现有环，可以提前结束
+                                for( int i = 0; i < g.nv; ++i ) {               // 初始化图，所有节点间距离为无穷大
+                                    for( int j = 0; j < g.nv; ++j ) {
+                                        g.matrix[i][j] = GRAPH_INF;
+                                    }
+                                }
+                                for( int k = 0; k < m; ++k ) {                  // 读取边信息
+                                    char s[5];
+                                    scanf( "%s", s );
+                                    g.matrix[s[0]-'A'][s[2]-'A'] = 1;
+                                    if( finished ) { continue; }                // 完成，则 continue，消耗输入
+
+                                    // 是否有环，0 表示有环
+                                    const int ok = topo_sort( &g, topological );
+
+                                    if( ok == 0 ) {                             // 有环存在
+                                        printf( "Inconsistency found after %d relations.\n", k+1 );
+                                        finished = true;                        // 提前结束，记住要继续消耗输入
+                                    }
+                                    if( ok == 1 && k ) {
+                                        printf( "Sorted sequence determined after %d relations: ", k+1 );
+                                        for( int i = 0; i < g.nv; ++i ) {
+                                            printf( "%c", 'A'+topological[i] );
+                                        }
+                                        printf( ".\n" );
+                                        finished = true;
+                                    }
+                                    // ok == -1, continue
+                                }
+                                if( !finished ) {
+                                    printf( "Sorted sequence cannot be determined.\n" );
+                                }
+                            }
+                            return 0;
+                        }
+                        ```
+
         -   关键路径 -<
 
             :   用有向边上的权值表示活动的持续时间，用顶点表示时间，这
@@ -20401,13 +20708,213 @@ A Bit of Logic -<
                 简称 **AOE 网络**。
 
                 路径最长的路径叫做**关键路径 (Critical Path)**。假设开
-                始点为 v~1~，从 v~1~ 到 v~i~ 的最长路径长度叫做事件v~i~
-                的最早发生时间。这个事件决定了所有以 v~i~ 为尾的弧所表
-                示的活动的最早开始时间。我们用 e(i) 表示活动 a~i~ 的最
-                早开始时间。还可以定义一个活动的最迟开始时间 l(i)，这是
+                始点为 v~1~，从 v~1~ 到 v~i~ 的最长路径长度叫做事件 v~i~
+                的最早发生时间。这个事件决定了所有以 v~i~ 为端点的弧所表
+                示的活动的最早 (earliest) 开始时间。我们用 e(i) 表示活动 a~i~ 的最
+                早开始时间。还可以定义一个活动的最迟 (latest) 开始时间 l(i)，这是
                 在不推迟整个工程完成的前提下，活动 a~i~ 最迟必须开始进
                 行的时间。两者之差 l(i)-e(i) 意味着完成活动 a~i~ 的时间
-                余量。我们把 l(i)=e(i) 的活动叫做关键活动。
+                余量。我们把 l(i) = e(i) 的活动叫做关键活动。
+
+                设活动 a~i~ 由弧 \<j, k\> 表示，为了求得活动的 e(i) 和 l(i)，
+                首先应求得事件的最早发生时间 ve(j) 和最迟发生时间 vl(j)，
+                其持续时间记为 dut(\<j, k\>)，则有如下关系
+
+                -   e(i) = ve(j)
+                -   l(i) = vl(k) - dut(\<j, k>\)
+
+                求 ve(j) 和 vl(k) 需分两步进行：
+
+                1.  从 ve(0) = 0 开始向前递推
+
+                    ve(j) = max{ ve(i)+dut(\<i, j\>) }, \<i, j\> ∈ T
+
+                    其中 T 是所有以顶点 j 为弧头的边的集合。
+
+                2.  从 vl(n-1) = ve(n-1) 起向后递推
+
+                    vl(j) = min{ vl(k)-dut(\<j, k\>) }, \<j, k\> ∈ S
+
+                    其中 S 是所有以顶点 j 为弧尾的边的集合。
+
+                [有向图及其邻接矩阵](criticalpath.png)
+
+                ```
+                (a) 所示 AOE 网络的关键路径的计算过程}
+
+                Vertex      ve          vl         |    Activity    e           l           l-e
+                -----------------------------------+-------------------------------------------
+                v1          0           0          |    a1          0           1           1
+                v2          3     |     4     ^    |    a2          0           0           0
+                v3          2     |     2    /|\   |    a3          3           4           1
+                v4          6    \|/    6     |    |    a4          3           4           1
+                v5          6     V     7     |    |    a5          2           2           0
+                v6          8           8          |    a6          2           5           3
+                                                   |    a7          6           6           0
+                                                   |    a8          6           7           1
+                ```
+
+                ```
+                input:
+
+                    6 8
+                    A B 3
+                    A C 2
+                    C D 4
+                    B D 2
+                    C F 3
+                    B E 3
+                    E F 1
+                    D F 2
+
+                output:
+
+                    A C D F
+                ```
+
+                邻接矩阵上的关键路径的 C 语言实现 -<
+
+                :   ```cpp
+                    #include <iostream>
+                    #include <climits>
+                    #include <stack>
+                    #include <algorithm>
+
+                    using namespace std;
+
+                    const int MAX_NV = 100;
+                    const int GRAPH_INF = INT_MAX;
+
+                    struct graph_t {
+                        int nv, ne;
+                        int matrix[MAX_NV][MAX_NV];
+                    };
+
+                    graph_t g;
+
+                    int topological[MAX_NV];
+                    int path[MAX_NV];
+
+                    // 按照拓扑排序的顺序，计算所有顶点的最早发生时间 ve.
+                    // return:  无环返回 true，有环返回 false
+                    bool toposort_ve( const graph_t &g, int topological[], int ve[] ) {
+                        const int n = g.nv;
+                        vector<int> in_degree( n, 0 );
+                        for( int i = 0; i < n; ++i ) {
+                            for( int j = 0; j < n; ++j ) {
+                                if( g.matrix[i][j] < GRAPH_INF ) {
+                                    ++in_degree[j];
+                                }
+                            }
+                        }
+                        stack<int> s;
+                        for( int i = 0; i < n; ++i ) {
+                            if( !in_degree[i] ) { s.push(i); }
+                        }
+                        fill( ve, ve + n, 0 );
+
+                        int count = 0;
+                        while( !s.empty() ) {
+                            int u = s.top(); s.pop();
+                            topological[count++] = u;
+                            --in_degree[u];
+                            for( int i = 0; i < n; ++i ) {
+                                if( g.matrix[u][i] < GRAPH_INF ) {
+                                    --in_degree[i];
+                                }
+                            }
+                            for( int i = 0; i < n; ++i ) {
+                                if( g.matrix[u][i] < GRAPH_INF && ve[i] < ve[u] + g.matrix[u][i] ) {
+                                    ve[i] = ve[u] + g.matrix[u][i];
+                                }
+                            }
+                            for( int i = 0; i < n; ++i ) {
+                                if( g.matrix[u][i] < GRAPH_INF && !in_degree[i] ) {
+                                    s.push(i);
+                                }
+                            }
+                        }
+
+                        if( count < n ) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    }
+
+                    // 求关键路径，第一个顶点为起点，最后一个顶点为终点.
+                    // ve:      所有事件的最早发生时间
+                    // path:    关键路径
+                    // return:  无环返回关键路径的顶点个数，有环返回 0
+                    int critical_path( const graph_t &g, int path[MAX_NV] ) {
+                        int count = 0;
+                        vector<int> ve( g.nv );
+                        vector<int> vl( g.nv );
+
+                        if( !toposort_ve(g, topological, &ve[0]) ) {        // 有环
+                            return 0;
+                        }
+
+                        for( int i = 0; i < MAX_NV; ++i ) {
+                            path[i] = -1;
+                        }
+                        for( int i = 0; i < g.nv; ++i ) {
+                            vl[i] = ve[g.nv-1];                         // 初始化 vl 为最大
+                        }
+
+                        // 逆序计算 vl
+                        for( int i = g.nv-1; i >=0; i-- ) {
+                            int k = topological[i];
+                            for( int j = 0; j < g.nv; ++j ) {
+                                if( g.matrix[j][k] < GRAPH_INF && vl[j] > vl[k] - g.matrix[j][k] ) {
+                                    vl[j] = vl[k] - g.matrix[j][k];
+                                }
+                            }
+                        }
+                        for( int i = 0; i < g.nv; ++i ) {
+                            for( int j = 0; j < g.nv; ++j ) {
+                                int e = ve[i];
+                                int l = vl[j] - g.matrix[i][j];
+                                if( e == l ) {
+                                    if( i == 0 ) {
+                                        path[count++] = i;
+                                        path[count++] = j;
+                                    } else {
+                                        path[count++] = j;
+                                    }
+                                }
+                            }
+                        }
+
+                        return count;
+                    }
+
+                    int main() {
+                        scanf( "%d %d", &g.nv, &g.ne );
+                        for( int i = 0; i < g.nv; ++i ) {
+                            for( int j = 0; j < g.nv; ++j ) {
+                                g.matrix[i][j] = GRAPH_INF;
+                            }
+                        }
+                        for( int k = 0; k < g.ne; ++k ) {
+                            char chx[5], chy[5];
+                            int w;
+                            scanf( "%s %s %d", chx, chy, &w );
+                            g.matrix[*chx-'A'][*chy-'A'] = w;
+                        }
+
+                        int count = critical_path( g, path );
+                        for( int i = 0; i < count; ++i ) {
+                            printf( "%c ", 'A'+path[i] );
+                        }
+                        printf( "\n" );
+                        return 0;
+                    }
+                    ```
+
+                一次正向，复杂度为 O(n^2^)，
+                一次逆向，复杂度为 O(n^2^)，
+                因此，该算法的复杂度为 O(n^2^)。
 
         -   组合类深度优先搜索 Combination Related DFS
 
@@ -27464,7 +27971,7 @@ Beauty of Programming -<
         int main() {
             int A[] = { 1, 2, 1, 3, 8, 8, 3, 9, 0, 9 }; // 0!
             int x = 0;
-            for( int i =0; i < sizeof(A)/sizeof(A); ++i ) {
+            for( int i =0; i < sizeof(A)/sizeof(A[0]); ++i ) {
                 x ^= A[i]; // communitive rule, xor
             }
             printf( "the missing one is: %d\n", x );
@@ -27806,17 +28313,11 @@ Beauty of Programming -<
             }
             ```
 
-    -   TODO: fib, fac -<
-
-        :   fibonacci. factorial.
-
-        [nonstriater/Learn-Algorithms: 算法学习笔记](https://github.com/nonstriater/Learn-Algorithms)
-
         refs and see also
 
         -   [程序员编程艺术：第四章、现场编写类似 strstr/strcpy/strpbrk 的函数 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6417600)
 
-StackOverflow -<
+StackOverflow :hearts: -<
 
 :   -   [logic - What is the optimal algorithm for the game 2048? - Stack Overflow](http://stackoverflow.com/questions/22342854/what-is-the-optimal-algorithm-for-the-game-2048)
 
@@ -28548,2369 +29049,15 @@ Milo Yip 的博客 :hearts: -<
             }
             ```
 
-Adoo's blog - Introduction to Algorithm -third edition -<
-
-:   [算法导论——平摊分析](http://www.roading.org//algorithm/introductiontoalgorithm/%e7%ae%97%e6%b3%95%e5%af%bc%e8%ae%ba%e5%b9%b3%e6%91%8a%e5%88%86%e6%9e%90.html)
-
-    [赫夫曼编码](http://www.roading.org//algorithm/introductiontoalgorithm/%e7%ae%97%e6%b3%95%e5%af%bc%e8%ae%ba%e8%b5%ab%e5%a4%ab%e6%9b%bc%e7%bc%96%e7%a0%81.html) -<
-
-    :   ![](http://www.roading.org/images/2012-03/image_thumb22.png)
-
-        赫夫曼编码的正确性
-
-        证明赫夫曼编码的正确性需证明贪心算法的两要素：
-
-        -   具有最优子结构
-        -   贪心选择性质
-
-    [《算法导论》笔记汇总](http://www.roading.org//algorithm/introductiontoalgorithm/%e7%ae%97%e6%b3%95%e5%af%bc%e8%ae%ba%e7%b4%a2%e5%bc%95%e8%a1%a8.html) -<
-
-    :   [仿STL 的二叉搜索树的C++实现](http://www.roading.org//algorithm/introductiontoalgorithm/%e4%bb%bfstl-%e7%9a%84%e4%ba%8c%e5%8f%89%e6%90%9c%e7%b4%a2%e6%a0%91%e7%9a%84c%e5%ae%9e%e7%8e%b0.html)
-
-        [扩展数据结构](http://www.roading.org//algorithm/introductiontoalgorithm/%e6%89%a9%e5%b1%95%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84.html)
-
-        [C++实现红黑树，仿STL封装](http://www.roading.org//algorithm/introductiontoalgorithm/c%e5%ae%9e%e7%8e%b0%e7%ba%a2%e9%bb%91%e6%a0%91%ef%bc%8c%e4%bb%bfstl%e5%b0%81%e8%a3%85.html)
-
-        [Chapter 13 Red-Black trees (红黑树)](http://www.roading.org//algorithm/introductiontoalgorithm/chapter-13-red-black-trees-%e7%ba%a2%e9%bb%91%e6%a0%91.html)
-
-        [Radix Tree 基数树](http://www.roading.org//algorithm/introductiontoalgorithm/radix-tree-%e5%9f%ba%e6%95%b0%e6%a0%91.html)
-
-        [算法导论6-3 young tableaus](http://www.roading.org//algorithm/introductiontoalgorithm/%e7%ae%97%e6%b3%95%e5%af%bc%e8%ae%ba6-3-young-tableaus.html)
-
-        [哈希表（1）](http://www.roading.org//algorithm/introductiontoalgorithm/%e5%93%88%e5%b8%8c%e8%a1%a8%ef%bc%881%ef%bc%89.html)
-
-
-        [快速排序及C++实现](http://www.roading.org//algorithm/introductiontoalgorithm/%e7%ac%ac%e4%b8%83%e7%ab%a0%ef%bc%881%ef%bc%89-%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f.html)
-
-        [利用堆来建立优先级队列](http://www.roading.org//algorithm/introductiontoalgorithm/%e5%88%a9%e7%94%a8%e5%a0%86%e6%9d%a5%e5%bb%ba%e7%ab%8b%e4%bc%98%e5%85%88%e7%ba%a7%e9%98%9f%e5%88%97.html)
-
-        [排序之插入排序与合并排序-C++实现](http://www.roading.org//algorithm/introductiontoalgorithm/%e6%8f%92%e5%85%a5%e6%8e%92%e5%ba%8f-insertionsort-c%e5%ae%9e%e7%8e%b0.html)
-
-    refs and see also
-
-    -   [Adoo's blog - Introduction to Algorithm -third edition](http://www.roading.org/category/introduction-to-algorithm-third-edition.html) -<
-
-Blog Posts -<
-
-:   [Heap · Data Structure and Algorithm notes](http://algorithm.yuanbin.me/zh-hans/basics_data_structure/heap.html)
-
-    《DPV -- Algorithm》 -<
-
-    :   [算法之美（Algorithms）书评](https://book.douban.com/review/1325850/)
-
-        :   算法作为一门学问，有两条正交的线索。一个是算法处理的对象：数、矩阵、
-            集合、串 (strings)、排列 (permutations)、图 (graphs)、表达式
-            (formula)、分布(distributions)，等等。另一个是算法的设计思想：贪婪、
-            分治、动态规划、线性规划、局部搜索 (local search)，等等。这两条线索
-            几乎是相互独立的：同一个离散对象，例如图，稍有不同的问题，例如
-            single-source shortest path和all-pair shortest path，就可以用到不同
-            的设计思想，如贪婪和动态规划；而完全不同的离散对象上的问题，例如排
-            序和整数乘法，也许就会用到相同的思想，例如分治。
-
-    《The Algorithm Design Manual》 -<
-
-    :   [Skiena's Audio Lectures](http://www3.cs.stonybrook.edu/~algorith/video-lectures/)
-
-        [不愧对“手册”之名，即使通读过 CLRS 再读也有所收获（算法设计手册）书评](https://book.douban.com/review/6250350/)
-
-    [程序员面试、算法研究、编程艺术、红黑树、数据挖掘5大系列集锦 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/6543438) -<
-
-    :   [横空出世，席卷互联网--评微软等公司数据结构+算法面试100题 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6015165)
-
-        [九月十月百度，迅雷，华为，阿里巴巴笔试面试六十题(第411~470题) - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/11921021)
-
-        [五大常用算法：分治、动态规划、贪心、回溯和分支界定 - yapian8的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/yapian8/article/details/28240973)
-
-        授人以鱼，不如授之以渔，何况自己都忘了，建议去看 sedgewick 的《算法》第四版平衡搜索树和红黑树部分，讲得非常清晰。
-
-        -   [Zenefits电面真题 & 解析 - 九章算法 - 知乎专栏](https://zhuanlan.zhihu.com/p/20348386?refer=jiuzhang)
-        -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
-        -   [Sorting algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Sorting_algorithm)
-        -   [cirosantilli/algorithm-cheat: Algorithm tutorials and simple implementations with unit tests.](https://github.com/cirosantilli/algorithm-cheat)
-        -   [4ker/aoapc-book: Automatically exported from code.google.com/p/aoapc-book](https://github.com/4ker/aoapc-book)
-        -   [4ker/ppearls: Programming Pearls Prep work](https://github.com/4ker/ppearls)
-        -   [4ker/programming_pearls: the codes of "programming pearls(2nd edition)"](https://github.com/4ker/programming_pearls)
-
-        [红黑树并没有我们想象的那么难(上) - 捣乱小子](http://daoluan.net/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/25/rbtree-is-not-difficult.html)
-
-        [红黑树并没有我们想象的那么难(下) - 捣乱小子](http://daoluan.net/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/28/rbtree-is-not-difficult-2.html)
-
-        [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
-
-        [排序（一）归并、快排、优先队列等（图文详解） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237641)
-
-        [排序（二）键索引、桶排序、位示图、败者树等（图文详解--败者树） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237809)
-
-    Code Reading -<
-
-    :   [4ker/Lua-Source-Internal: Lua source internal](https://github.com/4ker/Lua-Source-Internal)
-
-        [libevent 源码深度剖析一 - sparkliang 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957667)
-
-        [libevent 源码深度剖析二 - sparkliang 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957744)
-
-        [daoluan/decode-memcached: memcached 源码剖析注释](https://github.com/daoluan/decode-memcached)
-
-        [Redis 设计与实现 — Redis 设计与实现](http://redisbook.com/) :hearts: -<
-
-        :   What is Redis -<
-
-            :   Redis 是一个开源的使用 ANSI C 语言编写、支持网络、可基于内存亦
-                可持久化的日志型、Key-Value 数据库，并提供多种语言的 API。从
-                2010 年 3 月 15 日起，Redis 的开发工作由VMware 主持。从 2013 年
-                5 月开始，Redis 的开发由 Pivotal 赞助。
-
-                Redis 的优点如下：
-
-                -   丰富的数据结构和命令
-                -   默认就有持久化
-                -   事务
-                -   值有 512MB（memcached 最大是 1MB）
-
-                Memcached 的优点：
-
-                -   可以做集群
-
-                refs and see also
-
-                -   [Redis 和 Memcached 各有什么优缺点，主要的应用场景是什么样的？ - 知乎](https://www.zhihu.com/question/19829601)
-
-            第一部分：数据结构与对象 -<
-
-            :   简单动态字符串 -<
-
-                :   Redis 没有直接使用 C 语言传统的字符串表示（以空字符结尾的字符数
-                    组，以下简称 C 字符串）， 而是自己构建了一种名为简单动态字符串
-                    （**simple dynamic string，SDS**）的抽象类型， 并将 SDS 用作 Redis
-                    的默认字符串表示。
-
-                    ```cpp
-                    struct sdshdr {
-                        // 记录 buf 数组中已使用字节的数量
-                        // 等于 SDS 所保存字符串的长度
-                        int len;
-
-                        // 记录 buf 数组中未使用字节的数量
-                        int free;
-
-                        // 字节数组，用于保存字符串
-                        char buf[];
-                    };
-                    ```
-
-                    ----------------------------------------------------------------------------------------------------------------
-                    C 字符串                                                    SDS
-                    ----------------------------------------------              ----------------------------------------------------
-                    获取字符串长度的复杂度为 O(N) 。                            获取字符串长度的复杂度为 O(1) 。
-                    API 是不安全的，可能会造成缓冲区溢出。                      API 是安全的，不会造成缓冲区溢出。
-                    修改字符串长度 N 次必然需要执行 N 次内存重分配。            修改字符串长度 N 次最多需要执行 N 次内存重分配。
-                    只能保存文本数据。                                          可以保存文本或者二进制数据。
-                    可以使用所有 <string.h> 库中的函数。                        可以使用一部分 <string.h> 库中的函数。
-                    ----------------------------------------------------------------------------------------------------------------
-
-                    Redis 只会使用 C 字符串作为字面量， 在大多数情况下， Redis 使用 SDS （Simple Dynamic String，简单动态字符串）作为字符串表示。
-
-                    比起 C 字符串， SDS 具有以下优点：
-
-                    -   常数复杂度获取字符串长度。
-                    -   杜绝缓冲区溢出。
-                    -   减少修改字符串长度时所需的内存重分配次数。
-                    -   二进制安全。
-                    -   兼容部分 C 字符串函数。
-
-                    refs and see also
-
-                    -   [Null-terminated string - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Null-terminated_string)
-
-                链表 -<
-
-                :   ```cpp
-                    typedef struct list {
-                        // 表头节点
-                        listNode *head;
-
-                        // 表尾节点
-                        listNode *tail;
-
-                        // 链表所包含的节点数量
-                        unsigned long len;
-
-                        // 节点值复制函数
-                        void *(*dup)(void *ptr);
-
-                        // 节点值释放函数
-                        void (*free)(void *ptr);
-
-                        // 节点值对比函数
-                        int (*match)(void *ptr, void *key);
-                    } list;
-                    ```
-
-                    Redis 的链表实现的特性可以总结如下：
-
-                    -   双端： 链表节点带有 prev 和 next 指针， 获取某个节点的前置节点和后置节点的复杂度都是 O(1) 。
-                    -   无环： 表头节点的 prev 指针和表尾节点的 next 指针都指向 NULL ， **对链表的访问以 NULL 为终点**。
-                    -   带表头指针和表尾指针： 通过 list 结构的 head 指针和 tail 指针， 程序获取链表的表头节点和表尾节点的复杂度为 O(1) 。
-                    -   带链表长度计数器： 程序使用 list 结构的 len 属性来对 list 持有的链表节点进行计数， 程序获取链表中节点数量的复杂度为 O(1) 。
-                    -   多态： 链表节点使用 `void*` 指针来保存节点值， 并且可以通过 list 结构的 dup 、 free 、 match 三个属性为节点值设置类型特定函数， 所以链表可以用于保存各种不同类型的值。
-
-                    重点回顾
-
-                    -   链表被广泛用于实现 Redis 的各种功能， 比如列表键， 发布与订阅， 慢查询， 监视器， 等等。
-                    -   每个链表节点由一个 listNode 结构来表示， 每个节点都有一个指向前置节点和后置节点的指针， 所以 Redis 的链表实现是双端链表。
-                    -   每个链表使用一个 list 结构来表示， 这个结构带有表头节点指针、表尾节点指针、以及链表长度等信息。
-                    -   因为链表表头节点的前置节点和表尾节点的后置节点都指向 NULL ， 所以 Redis 的链表实现是无环链表。
-                    -   通过为链表设置不同的类型特定函数， Redis 的链表可以用于保存各种不同类型的值。
-
-                字典 -<
-
-                :   字典经常作为一种数据结构内置在很多高级编程语言里面， 但 Redis
-                    所使用的 C 语言并没有内置这种数据结构， 因此 Redis 构建了自己的
-                    字典实现。
-
-                    字典在 Redis 中的应用相当广泛， 比如 Redis 的数据库就是使用字典
-                    来作为底层实现的， 对数据库的增、删、查、改操作也是构建在对字典
-                    的操作之上的。
-
-                    字典的实现 -<
-
-                    :   Redis 的字典使用哈希表作为底层实现， 一个哈希表里面可以有多个哈
-                        希表节点， 而每个哈希表节点就保存了字典中的一个键值对。
-
-                        ```cpp
-                        // key-value
-                        typedef struct dictEntry {
-
-                            // 键
-                            void *key;
-
-                            // 值
-                            union {
-                                void *val;
-                                uint64_t u64;
-                                int64_t s64;
-                            } v;
-
-                            // 指向下个哈希表节点，形成链表
-                            struct dictEntry *next;
-
-                        } dictEntry;
-                        ```
-
-                        key 属性保存着键值对中的键， 而 v 属性则保存着键值对中的值，
-                        其中键值对的值可以是一个指针， 或者是一个 uint64_t 整数，
-                        又或者是一个 int64_t 整数。
-
-                        next 属性是指向另一个哈希表节点的指针， 这个指针可以将多个
-                        哈希值相同的键值对连接在一次， 以此来解决键冲突（collision）
-                        的问题。
-
-                        ```cpp
-                        // dict hash table
-                        typedef struct dictht {
-
-                            // 哈希表数组
-                            dictEntry **table;
-
-                            // 哈希表大小
-                            unsigned long size;
-
-                            // 哈希表大小掩码，用于计算索引值
-                            // 总是等于 size - 1
-                            unsigned long sizemask;
-
-                            // 该哈希表已有节点的数量
-                            unsigned long used;
-
-                        } dictht;
-
-                        // dict
-                        typedef struct dict {
-
-                            // 类型特定函数
-                            dictType *type;
-
-                            // 私有数据
-                            void *privdata;
-
-                            // 哈希表
-                            dictht ht[2];
-
-                            // rehash 索引
-                            // 当 rehash 不在进行时，值为 -1
-                            int rehashidx; /* rehashing not in progress if rehashidx == -1 */
-
-                        } dict;
-                        ```
-
-                        ![](http://redisbook.com/_images/graphviz-d2641d962325fd58bf15d9fffb4208f70251a999.png)
-
-                        ```cpp
-                        typedef struct dictType {
-
-                            // 计算哈希值的函数
-                            unsigned int (*hashFunction)(const void *key);
-
-                            // 复制键的函数
-                            void *(*keyDup)(void *privdata, const void *key);
-
-                            // 复制值的函数
-                            void *(*valDup)(void *privdata, const void *obj);
-
-                            // 对比键的函数
-                            int (*keyCompare)(void *privdata, const void *key1, const void *key2);
-
-                            // 销毁键的函数
-                            void (*keyDestructor)(void *privdata, void *key);
-
-                            // 销毁值的函数
-                            void (*valDestructor)(void *privdata, void *obj);
-
-                        } dictType;
-                        ```
-
-                    哈希算法 -<
-
-                    :   ```cpp
-                        # 使用字典设置的哈希函数，计算键 key 的哈希值
-                        hash = dict->type->hashFunction(key);
-
-                        # 使用哈希表的 sizemask 属性和哈希值，计算出索引值
-                        # 根据情况不同， ht[x] 可以是 ht[0] 或者 ht[1]
-                        index = hash & dict->ht[x].sizemask;
-                        ```
-
-                        Redis 使用 MurmurHash2 算法来计算键的哈希值。
-
-                        MurmurHash 算法最初由 Austin Appleby 于 2008 年发明， 这种
-                        算法的优点在于， 即使输入的键是有规律的， 算法仍能给出一个
-                        很好的随机分布性， 并且算法的计算速度也非常快。
-
-                    解决键冲突 -<
-
-                    :   Redis 的哈希表使用链地址法（separate chaining）来解决键冲突：
-                        每个哈希表节点都有一个 next 指针， 多个哈希表节点可以用
-                        next 指针构成一个单向链表， 被分配到同一个索引上的多个节点
-                        可以用这个单向链表连接起来， 这就解决了键冲突的问题。
-
-                        **因为 dictEntry 节点组成的链表没有指向链表表尾的指针， 所
-                        以为了速度考虑， 程序总是将新节点添加到链表的表头位置（复杂
-                        度为 O(1)）， 排在其他已有节点的前面。**
-
-                    rehash -<
-
-                    :   ![before](http://redisbook.com/_images/graphviz-93608325578e8e45848938ef420115bf2227639e.png)
-
-                        !["malloc" for `ht[1]`](http://redisbook.com/_images/graphviz-b68acb4d868ec7d79a44935ce08a159746ca58da.png)
-
-                        ![copy](http://redisbook.com/_images/graphviz-b68acb4d868ec7d79a44935ce08a159746ca58da.png)
-
-                        ![after](http://redisbook.com/_images/graphviz-fa28d986a72f1f48b83c7f959ea217b1f9527d3c.png)
-
-                        **哈希表的扩展与收缩**
-
-                        当以下条件中的任意一个被满足时， 程序会自动开始对哈希表执行扩展操作：
-
-                        -   服务器目前没有在执行 BGSAVE 命令或者 BGREWRITEAOF 命令，
-                            并且哈希表的负载因子大于等于 1（因为是链式，所以 load
-                            factor 可以大于 1）；
-                        -   服务器目前正在执行 BGSAVE 命令或者 BGREWRITEAOF 命令，
-                            并且哈希表的负载因子大于等于 5 ；
-
-                        其中哈希表的负载因子可以通过公式：
-
-                        ```
-                        # 负载因子 = 哈希表已保存节点数量 / 哈希表大小
-                        load_factor = ht[0].used / ht[0].size
-                        ```
-
-                    渐进式 rehash -<
-
-                    :   因此， 为了避免 rehash 对服务器性能造成影响， 服务器不是一
-                        次性将 `ht[0]` 里面的所有键值对全部 rehash 到 `ht[1]`， 而是分
-                        多次、渐进式地将 `ht[0]` 里面的键值对慢慢地 rehash 到 `ht[1]`。
-
-                        因为在进行渐进式 rehash 的过程中， 字典会同时使用 ht[0] 和
-                        ht[1] 两个哈希表， 所以在渐进式 rehash 进行期间， 字典的删
-                        除（delete）、查找（find）、更新（update）等操作会在两个哈
-                        希表上进行： 比如说， 要在字典里面查找一个键的话， 程序会先
-                        在 ht[0] 里面进行查找， 如果没找到的话， 就会继续到 ht[1]
-                        里面进行查找， 诸如此类。
-
-                        另外， 在渐进式 rehash 执行期间， 新添加到字典的键值对一律
-                        会被保存到 ht[1] 里面， 而 ht[0] 则不再进行任何添加操作：
-                        这一措施保证了 ht[0] 包含的键值对数量会只减不增， 并随着
-                        rehash 操作的执行而最终变成空表。
-
-                    重点回顾 -<
-
-                    :   -   字典被广泛用于实现 Redis 的各种功能， 其中包括数据库和
-                            哈希键。
-                        -   Redis 中的字典使用哈希表作为底层实现， 每个字典带有两个
-                            哈希表， 一个用于平时使用， 另一个仅在进行 rehash 时使用。
-                        -   当字典被用作数据库的底层实现， 或者哈希键的底层实现时，
-                            Redis 使用 MurmurHash2 算法来计算键的哈希值。
-                        -   哈希表使用链地址法来解决键冲突， 被分配到同一个索引上的
-                            多个键值对会连接成一个单向链表。
-                        -   在对哈希表进行扩展或者收缩操作时， 程序需要将现有哈希表
-                            包含的所有键值对 rehash 到新哈希表里面， 并且这个
-                            rehash 过程并不是一次性地完成的， 而是渐进式地完成的。
-
-                跳跃表 -<
-
-                :   跳跃表（skiplist）是一种有序数据结构， 它通过在每个节点中维
-                    持多个指向其他节点的指针， 从而达到快速访问节点的目的。
-
-                    跳跃表支持平均 O(log N) 最坏 O(N) 复杂度的节点查找， 还可以
-                    通过顺序性操作来批量处理节点。
-
-                    在大部分情况下， 跳跃表的效率可以和平衡树相媲美， 并且因为
-                    跳跃表的实现比平衡树要来得更为简单， 所以有不少程序都使用跳
-                    跃表来代替平衡树。
-
-                    Redis 使用跳跃表作为有序集合键的底层实现之一： 如果一个有序
-                    集合包含的元素数量比较多， 又或者有序集合中元素的成员
-                    （member）是比较长的字符串时， Redis 就会使用跳跃表来作为有
-                    序集合键的底层实现。
-
-                    和链表、字典等数据结构被广泛地应用在 Redis 内部不同， Redis
-                    只在两个地方用到了跳跃表， 一个是实现有序集合键， 另一个是
-                    在集群节点中用作内部数据结构， 除此之外， 跳跃表在 Redis 里
-                    面没有其他用途。
-
-                    重点回顾 -<
-
-                    :   -   跳跃表是有序集合的底层实现之一， 除此之外它在 Redis
-                            中没有其他应用。
-                        -   Redis 的跳跃表实现由 zskiplist 和 zskiplistNode 两
-                            个结构组成， 其中 zskiplist 用于保存跳跃表信息（比
-                            如表头节点、表尾节点、长度）， 而 zskiplistNode 则
-                            用于表示跳跃表节点。
-                        -   每个跳跃表节点的层高都是 1 至 32 之间的随机数。
-                        -   在同一个跳跃表中， 多个节点可以包含相同的分值， 但
-                            每个节点的成员对象必须是唯一的。
-                        -   跳跃表中的节点按照分值大小进行排序， 当分值相同时，
-                            节点按照成员对象的大小进行排序。
-
-                整数集合 -<
-
-                :   整数集合（intset）是集合键的底层实现之一： 当一个集合只包含
-                    整数值元素， 并且这个集合的元素数量不多时， Redis 就会使用
-                    整数集合作为集合键的底层实现。
-
-                    ```cpp
-                    typedef struct intset {
-
-                        // 编码方式
-                        uint32_t encoding;
-
-                        // 集合包含的元素数量
-                        uint32_t length;
-
-                        // 保存元素的数组
-                        int8_t contents[];
-
-                    } intset;
-                    ```
-
-                    每当我们要将一个新元素添加到整数集合里面， 并且新元素的类型
-                    比整数集合现有所有元素的类型都要长时， 整数集合需要先进行升
-                    级（upgrade）， 然后才能将新元素添加到整数集合里面。
-
-                    升级整数集合并添加新元素共分为三步进行：
-
-                    -   根据新元素的类型， 扩展整数集合底层数组的空间大小， 并
-                        为新元素分配空间。
-                    -   将底层数组现有的所有元素都转换成与新元素相同的类型， 并
-                        将类型转换后的元素放置到正确的位上， 而且在放置元素的过
-                        程中， 需要继续维持底层数组的有序性质不变。
-                    -   将新元素添加到底层数组里面。
-
-                    比如说， 如果我们一直只向整数集合添加 int16_t 类型的值， 那
-                    么整数集合的底层实现就会一直是 int16_t 类型的数组， 只有在
-                    我们要将 int32_t 类型或者 int64_t 类型的值添加到集合时， 程
-                    序才会对数组进行升级。
-
-                    整数集合不支持降级操作， 一旦对数组进行了升级， 编码就会一
-                    直保持升级后的状态。
-
-                    举个例子， 对于图 6-11 所示的整数集合来说， 即使我们将集合
-                    里唯一一个真正需要使用 int64_t 类型来保存的元素 4294967295
-                    删除了， 整数集合的编码仍然会维持 INTSET_ENC_INT64 ， 底层
-                    数组也仍然会是 int64_t 类型的，
-
-                    ```
-                    intsetNew           创建一个新的整数集合。  O(1)
-                    intsetAdd           将给定元素添加到整数集合里面。  O(N)
-                    intsetRemove        从整数集合中移除给定元素。  O(N)
-                    intsetFind          检查给定值是否存在于集合。  因为底层数组有序，查找可以通过二分查找法来进行， 所以复杂度为 O(log N) 。
-                    intsetRandom        从整数集合中随机返回一个元素。  O(1)
-                    intsetGet           取出底层数组在给定索引上的元素。    O(1)
-                    intsetLen           返回整数集合包含的元素个数。    O(1)
-                    intsetBlobLen       返回整数集合占用的内存字节数。  O(1)
-                    ```
-
-                    重点回顾
-
-                    -   整数集合是集合键的底层实现之一。
-                    -   整数集合的底层实现为数组， 这个数组以有序、无重复的方式保存集合元素， 在有需要时， 程序会根据新添加元素的类型， 改变这个数组的类型。
-                    -   升级操作为整数集合带来了操作上的灵活性， 并且尽可能地节约了内存。
-                    -   整数集合只支持升级操作， 不支持降级操作。
-
-
-                压缩列表 -<
-
-                :   压缩列表（ziplist）是列表键和哈希键的底层实现之一。
-
-                    当一个列表键只包含少量列表项， 并且每个列表项要么就是小整数
-                    值， 要么就是长度比较短的字符串， 那么 Redis 就会使用压缩列
-                    表来做列表键的底层实现。
-
-                    压缩列表的构成 -<
-
-                    :   压缩列表是 Redis 为了节约内存而开发的， 由一系列特殊编码的连续内存块组成的顺序型（sequential）数据结构。
-
-                        一个压缩列表可以包含任意多个节点（entry）， 每个节点可以保存一个字节数组或者一个整数值。
-
-                        图 7-1 展示了压缩列表的各个组成部分， 表 7-1 则记录了各个组成部分的类型、长度、以及用途。
-
-                        ![](http://redisbook.com/_images/graphviz-fe42f343a3f32f477efb5e895da547d476a7c97d.png)
-
-                        ![](http://redisbook.com/_images/graphviz-071fe5086440a360087904af9a5f78e8e02c2d8d.png)
-
-                        每个压缩列表节点都由 previous_entry_length 、 encoding 、 content 三个部分组成， 如图 7-4 所示。
-
-                        ![](http://redisbook.com/_images/graphviz-49750cc228ee403c4ef64ad1d2911154765bf3d3.png)
-
-                        压缩列表的从表尾向表头遍历操作就是使用这一原理实现的：
-                        只要我们拥有了一个指向某个节点起始地址的指针， 那么通过
-                        这个指针以及这个节点的 previous_entry_length 属性， 程
-                        序就可以一直向前一个节点回溯， 最终到达压缩列表的表头节
-                        点。
-
-                        ![](http://redisbook.com/_images/graphviz-cfb376f8015f3af9f59acd30dc71a35e90c6d763.png)
-
-                    连锁更新 -<
-
-                    :   因为连锁更新在最坏情况下需要对压缩列表执行 N 次空间重分配操作， 而每次空间重分配的最坏复杂度为 O(N) ， 所以连锁更新的最坏复杂度为 O(N^2) 。
-
-                        要注意的是， 尽管连锁更新的复杂度较高， 但它真正造成性能问题的几率是很低的：
-
-                        -   首先， 压缩列表里要恰好有多个连续的、长度介于 250 字节至 253 字节之间的节点， 连锁更新才有可能被引发， 在实际中， 这种情况并不多见；
-                        -   其次， 即使出现连锁更新， 但只要被更新的节点数量不多， 就不会对性能造成任何影响： 比如说， 对三五个节点进行连锁更新是绝对不会影响性能的；
-
-                        因为以上原因， ziplistPush 等命令的平均复杂度仅为 O(N) ， 在实际中， 我们可以放心地使用这些函数， 而不必担心连锁更新会影响压缩列表的性能。
-
-                    重点回顾 -<
-
-                    :   -   压缩列表是一种为节约内存而开发的顺序型数据结构。
-                        -   压缩列表被用作列表键和哈希键的底层实现之一。
-                        -   压缩列表可以包含多个节点，每个节点可以保存一个字节数组或者整数值。
-                        -   添加新节点到压缩列表， 或者从压缩列表中删除节点， 可能会引发连锁更新操作， 但这种操作出现的几率并不高。
-
-                对象
-
-            第二部分：单机数据库的实现 -<
-
-            :   数据库 -<
-
-                :   服务器中的数据库
-                    切换数据库
-                    数据库键空间
-                    设置键的生存时间或过期时间
-                    过期键删除策略
-                    Redis 的过期键删除策略
-                    AOF 、RDB 和复制功能对过期键的处理
-                    数据库通知
-                    重点回顾
-
-                RDB 持久化 -<
-
-                :   RDB 文件的创建与载入
-                    自动间隔性保存
-                    RDB 文件结构
-                    分析 RDB 文件
-                    重点回顾
-
-                AOF 持久化 -<
-
-                :   AOF 持久化的实现
-                    AOF 文件的载入与数据还原
-                    AOF 重写
-                    重点回顾
-
-                事件 -<
-
-                :   文件事件
-                    时间事件
-                    事件的调度与执行
-                    重点回顾
-                    参考资料
-
-                客户端 -<
-
-                :   客户端属性
-                    客户端的创建与关闭
-                    重点回顾
-
-                服务器 -<
-
-                :   命令请求的执行过程
-                    serverCron 函数
-                    初始化服务器
-                    重点回顾
-
-            第三部分：多机数据库的实现 -<
-
-            :   复制 -<
-
-                :   旧版复制功能的实现
-                    旧版复制功能的缺陷
-                    新版复制功能的实现
-                    部分重同步的实现
-                    PSYNC 命令的实现
-                    复制的实现
-                    心跳检测
-                    重点回顾
-
-                Sentinel -<
-
-                :   启动并初始化 Sentinel
-                    获取主服务器信息
-                    获取从服务器信息
-                    向主服务器和从服务器发送信息
-                    接收来自主服务器和从服务器的频道信息
-                    检测主观下线状态
-                    检查客观下线状态
-                    选举领头 Sentinel
-                    故障转移
-                    重点回顾
-                    参考资料
-
-                集群 -<
-
-                :   节点
-                    槽指派
-                    在集群中执行命令
-                    重新分片
-                    ASK 错误
-                    复制与故障转移
-                    消息
-                    重点回顾
-
-            第四部分：独立功能的实现 -<
-
-            :   发布与订阅 -<
-
-                :   频道的订阅与退订
-                    模式的订阅与退订
-                    发送消息
-                    查看订阅信息
-                    重点回顾
-                    参考资料
-
-                事务 -<
-
-                :   事务的实现
-                    WATCH 命令的实现
-                    事务的 ACID 性质
-                    重点回顾
-                    参考资料
-
-                Lua 脚本 -<
-
-                :   创建并修改 Lua 环境
-                    Lua 环境协作组件
-                    EVAL 命令的实现
-                    EVALSHA 命令的实现
-                    脚本管理命令的实现
-                    脚本复制
-                    重点回顾
-                    参考资料
-
-                排序 -<
-
-                :   SORT <key> 命令的实现
-                    ALPHA 选项的实现
-                    ASC 选项和 DESC 选项的实现
-                    BY 选项的实现
-                    带有 ALPHA 选项的 BY 选项的实现
-                    LIMIT 选项的实现
-                    GET 选项的实现
-                    STORE 选项的实现
-                    多个选项的执行顺序
-                    重点回顾
-
-                二进制位数组 -<
-
-                :   位数组的表示
-                    GETBIT 命令的实现
-                    SETBIT 命令的实现
-                    BITCOUNT 命令的实现
-                    BITOP 命令的实现
-                    重点回顾
-                    参考资料
-
-                慢查询日志 -<
-
-                :   慢查询记录的保存
-                    慢查询日志的阅览和删除
-                    添加新日志
-                    重点回顾
-
-                监视器 -<
-
-                :   成为监视器
-                    向监视器发送命令信息
-                    重点回顾
-
-    AVL 树，红黑树，B 树，B+ 树，Trie 树都分别应用在哪些现实场景中？ -<
-
-    :   AVL 树: 最早的平衡二叉树之一。应用相对其他数据结构比较少。windows 对进程地
-        址空间的管理用到了 AVL 树。AVL 是一种高度平衡的二叉树，所以通常的结果是，维
-        护这种高度平衡所付出的代价比从中获得的效率收益还大，故而实际的应用不多，更
-        多的地方是用追求局部而不是非常严格整体平衡的红黑树。当然，如果场景中对插入
-        删除不频繁，只是对查找特别有要求，AVL 还是优于红黑的。
-
-
-        红黑树: 平衡二叉树，广泛用在 C++ 的 STL 中。map 和 set 都是用红黑树实现的。
-        还有
-
-        -   著名的 linux 进程调度 Completely Fair Scheduler, 用红黑树管理进程控制块
-        -   epoll 在内核中的实现，用红黑树管理事件块
-        -   nginx 中，用红黑树管理 timer 等
-        -   Java 的 TreeMap 实现
-
-        B/B+ 树用在磁盘文件组织 数据索引和数据库索引
-
-        Trie 树：字典树，用在统计和排序大量字符串 (场景自己 yy = =)，trie 树的一个
-        典型应用是前缀匹配，比如下面这个很常见的场景，在我们输入时，搜索引擎会给予
-        提示，还有比如 IP 选路，也是前缀匹配，一定程度会用到 trie。
-
-        ---
-
-        红黑树，AVL 树简单来说都是用来搜索的呗。
-
-        AVL 树
-
-        :   平衡二叉树，一般是用平衡因子差值决定并通过旋转来实现，左右子树树高差不
-            超过 1，那么和红黑树比较它是严格的平衡二叉树，平衡条件非常严格（树高差只
-            有 1），只要插入或删除不满足上面的条件就要通过旋转来保持平衡。由于旋转是
-            非常耗费时间的。我们可以推出 AVL 树适合用于插入删除次数比较少，但查找多
-            的情况。
-
-        红黑树
-
-        :   平衡二叉树，通过对任何一条从根到叶子的简单路径上各个节点的颜色进行约束，
-            确保没有一条路径会比其他路径长 2 倍，因而是近似平衡的。所以相对于严格要求
-            平衡的 AVL 树来说，它的旋转保持平衡次数较少。用于搜索时，插入删除次数多的
-            情况下我们就用红黑树来取代 AVL。
-
-            （现在部分场景使用跳表来替换红黑树，可搜索“为啥 redis 使用跳表
-            (skiplist) 而不是使用 red-black？”）
-
-            [为啥 redis 使用跳表 (skiplist) 而不是使用 red-black？ - 知乎](https://www.zhihu.com/question/20202931) -<
-
-            :   在 server 端，对并发和性能有要求的情况下，如何选择合适的数据结构（这里是跳跃表和红黑树）。
-
-                如果单纯比较性能，跳跃表和红黑树可以说相差不大，但是加上并发的环境
-                就不一样了，如果要更新数据，跳跃表需要更新的部分就比较少，锁的东西
-                也就比较少，所以不同线程争锁的代价就相对少了，而红黑树有个平衡的过
-                程，牵涉到大量的节点，争锁的代价也就相对较高了。性能也就不如前者了。
-
-        B 树，B+ 树
-
-        :   它们特点是一样的，是多路查找树，一般用于数据库系统中，为什么，因为它们分支
-            多层数少呗，都知道磁盘 IO 是非常耗时的，而像大量数据存储在磁盘中所以我们要有
-            效的减少磁盘 IO 次数避免磁盘频繁的查找。
-
-            B+ 树是 B 树的变种树，有 n 棵子树的节点中含有 n 个关键字，每个关键字不保存
-            数据，只用来索引，数据都保存在叶子节点。是为文件系统而生的。
-
-        Trie 树
-
-        :   又名单词查找树，一种树形结构，常用来操作字符串。它是不同字符串的相同前缀只保存一份。
-            相对直接保存字符串肯定是节省空间的，但是它保存大量字符串时会很耗费内存
-            （是内存）。类似的有前缀树 (prefix tree)，后缀树 (suffix tree)，radix
-            tree(patricia tree, compact prefix tree)，crit-bit tree（解决耗费内存问
-            题），以及前面说的 double array trie。
-
-            简单的补充下我了解应用
-
-            -   前缀树：字符串快速检索，字符串排序，最长公共前缀，自动匹配前缀显示后缀。
-            -   后缀树：查找字符串 s1 在 s2 中，字符串 s1 在 s2 中出现的次数，字符串 s1,s2 最长公共部分，最长回文串。
-            -   radix tree：linux 内核，nginx。
-
-        refs and see also
-
-        -   [AVL 树，红黑树，B 树，B+ 树，Trie 树都分别应用在哪些现实场景中？ - 知乎](https://www.zhihu.com/question/30527705)
-
-    数据结构与算法中，树一般会应用在哪些方面？为什么？ -<
-
-    :   树的一个大类是自平衡二叉搜索树 (self-balanced BST), 变种特别多:
-
-        -  RB 树是每个节点是红色或者黑色, 颜色隔代遗传
-        -  AVL 树是每个节点包含平衡因子, 等于左高-右高
-        -  Splay 树是每个节点带个父节点的指针
-        -  Treap 是每个节点都带个随机的 priority number, parent priority >= child priority
-
-        ... (其实说白了都是为了方便平衡操作给节点附加一个字段)
-
-        自平衡二叉搜索树在面试中经常出现, 但做网页的互联网码农却很少用得上... 如果
-        是当 Map 用, 往往还不如直接上哈希表. 如果是当排序用, 不如直接用排序算法...
-        不过也有有用的时候, 例如查找一个数字的上下界.
-
-        树的另一个大类是 Trie, 特点是能保证字典序, 存储词典的空间压缩率高, 能做前缀
-        搜索. 在正则匹配, 数据压缩, 构建索引都可能用到. Trie 也有不少变种:
-
-        -   Double Array - trie 的一个经典实现 (这实现其实不算树, 也不适合处理非 ascii 字符的情况)
-        -   Patricia Trie (Radix-Tree) - 每个节点可以存一段字符串而不限于一个字符
-        -   Judy Array - 基于 256-ary radix tree, 用了 20 种压缩方式, 极其复杂...
-        -   Burst Trie - 如果一个子树足够小, 就用 binary 堆的方式存储, 不过压缩效果一般
-        -   HAT Trie - 压缩率高而且不容易出现 CPU cache miss, 查速接近哈希表而耗内存少得多. 节点可以是以下三种之一: Array Hash, 序列化的 Bucket, 传统 Trie node
-        -   MARISA Trie - 压缩率最高, 支持 mmap 载入, 也是用了很多压缩技巧的复杂实现, 就是构建比较花时间, 也不能动态更新
-
-        refs and see also
-
-        -   [数据结构与算法中，树一般会应用在哪些方面？为什么？ - 知乎](https://www.zhihu.com/question/20176446)
-
-    用链表的目的是什么？省空间还是省时间？ -<
-
-    :   链表的优点除了「插入删除不需要移动其他元素」之外，还在于它是一个局部化结构。
-        就是说当你拿到链表的一个 node 之后，不需要太多其它数据，就可以完成插入，删
-        除的操作。而其它的数据结构不行。比如说 array，你只拿到一个 item 是断不敢做
-        插入删除的。
-
-        当然了，局部化这个好处只有 intrusive（侵入的；打扰的）链表才有，就是必须 prev/next 嵌入在数
-        据结构中。像 STL 和 Java 那种设计是失败了。
-
-        refs and see also
-
-        -   [用链表的目的是什么？省空间还是省时间？ - 知乎](https://www.zhihu.com/question/31082722)
-
-    利用 Trie 树求多个字符串的最小编辑距离 -<
-
-    :   编辑距离 -<
-
-        :   1965 年，俄国科学家 Vladimir Levenshtein 给字符串相似度做出了一个明确的定义
-            叫做 Levenshtein 距离，我们通常叫它“编辑距离”。字符串 A 到 B 的编辑距离是指，
-            只用插入、删除和替换三种操作，最少需要多少步可以把 A 变成 B。例如，从 FAME
-            到 GATE 需要两步（两次替换），从 GAME 到 ACM 则需要三步（删除 G 和 E 再添加
-            C）。Levenshtein 给出了编辑距离的一般求法，就是大家都非常熟悉的经典**动态规划**问题。
-
-            Levenshtein 的定义可以是单词任意位置上的操作，似乎不遍历字典是不可能完成的。
-            现在很多软件都有拼写检查的功能，提出更正建议的速度是很快的。它们到底是怎么
-            做的呢？1973 年，Burkhard 和 Keller 提出的 BK 树有效地解决了这个问题。这个
-            数据结构强就强在，它初步解决了一个看似不可能的问题，而其原理非常简单。
-
-            首先，我们观察 Levenshtein 距离的性质。令 d(x,y) 表示字符串 x 到 y 的
-            Levenshtein 距离，那么显然：
-
-            1.  d(x,y) = 0 当且仅当 x=y  （Levenshtein 距离为 0 <==> 字符串相等）
-            2.  d(x,y) = d(y,x)     （从 x 变到 y 的最少步数就是从 y 变到 x 的最少步数）
-            3.  d(x,y) + d(y,z) >= d(x,z)  （从 x 变到 z 所需的步数不会超过 x 先变成 y 再变成 z 的步数）
-
-            最后这一个性质叫做三角形不等式。就好像一个三角形一样，两边之和必然大于第三
-            边。给某个集合内的元素定义一个二元的“距离函数”，如果这个距离函数同时满足上
-            面说的三个性质，我们就称它为“度量空间”。我们的三维空间就是一个典型的度量空
-            间，它的距离函数就是点对的直线距离。度量空间还有很多，比如 Manhattan 距离，
-            图论中的最短路，当然还有这里提到的 Levenshtein 距离。就好像并查集对所有等价
-            关系都适用一样，BK 树可以用于任何一个度量空间。
-
-            查询操作异常方便。如果我们需要返回与错误单词距离不超过 n 的单词，这个错误单
-            词与树根所对应的单词距离为 d，那么接下来我们只需要递归地考虑编号在 d-n 到
-            d+n 范围内的边所连接的子树。由于 n 通常很小，因此每次与某个节点进行比较时都
-            可以排除很多子树。
-
-            举个例子，假如我们输入一个 GAIE，程序发现它不在字典中。现在，我们想返回字典
-            中所有与 GAIE 距离为 1 的单词。我们首先将 GAIE 与树根进行比较，得到的距离
-            d=1。由于 Levenshtein 距离满足三角形不等式，因此现在所有离 GAME 距离超过 2
-            的单词全部可以排除了。比如，以 AIM 为根的子树到 GAME 的距离都是 3，而 GAME
-            和 GAIE 之间的距离是 1，那么 AIM 及其子树到 GAIE 的距离至少都是 2。于是，现
-            在程序只需要沿着标号范围在 1-1 到 1+1 里的边继续走下去。我们继续计算 GAIE
-            和 FAME 的距离，发现它为 2，于是继续沿标号在 1 和 3 之间的边前进。遍历结束
-            后回到 GAME 的第二个节点，发现 GAIE 和 GAIN 距离为 1，输出 GAIN 并继续沿编
-            号为 1 或 2 的边递归下去（那条编号为 4 的边连接的子树又被排除掉了）……
-
-            ![](http://www.matrix67.com/blogimage/200710223.gif)
-
-            实践表明，一次查询所遍历的节点不会超过所有节点的 5% 到 8%，两次查询则一般不
-            会 17-25%，效率远远超过暴力枚举。适当进行缓存，减小 Levenshtein 距离常数 n
-            可以使算法效率更高。
-
-            这篇文章真是够了，和 Matrix67 的几乎一模一样：
-            [字符串相似度之美（一）- SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20101194?refer=simons)。
-
-        Trie 树的实现 -<
-
-        :   由于多叉树不够灵活，同时对空间存在即大的浪费，因此本文利用二叉树实现一棵 Trie 树。
-
-             二叉树是这样的结构：节点的左孩子代表它的第一个孩子，节点的右孩子代表它的兄弟节点。
-
-            总体的思路是：
-
-            -   建立 10 万次的词典，单词长度 5-30
-            -   为这些单词建立 Trie 树，给定任意字符串，求所有与该字符串的编辑距离为 1 或者 2 的单词
-            -   同时用暴力匹配的方法求得符合要求的字符串，然后进行时间的比较。
-
-            ```cpp
-            #include <fstream>
-            #include <iostream>
-            #include <string>
-            #include <cstring>
-            #include <vector>
-            #include <algorithm>
-            #include <ctime>
-            #include <cstdlib>
-            #include <sys/time.h>
-
-            using namespace std;
-
-            const int X = 30;
-            const int Y = 30;
-            const int MAX = 30;
-
-            int edit_length(string &x, string &y);
-
-            // Trie树的节点定义
-            struct Node {
-                int length;
-                string word;
-                Node *left, *right;
-                Node() : length(0), word(""), left(0), right(0) { }
-            };
-
-            // Trie 树的操作定义
-            class Trie {
-                private:
-                    Node* pRoot;
-                private:
-                    // 销毁 Trie 树
-                    void destory(Node* r) {
-                        if(!r) { return; }
-                        destory(r -> left);
-                        destory(r -> right);
-                        delete r;
-                        r = NULL;
-                    }
-                    void find( Node *pRoot, string &str, int limit_num, vector<string> &word_set );
-                public:
-                    Trie() {}
-                    ~Trie() { destroy(pRoot); }
-                    void insert(string str);
-                    void search(string &str, int limit_num, vector<string> &word_set);
-            };
-
-            // 插入单词，建立 Trie 树
-            void Trie::insert(string str){
-                if(pRoot != NULL){
-                    //如果trie树已经存在
-                    Node *pPre = pRoot;
-                    Node *pCur = pRoot -> left;
-                    while(1) {
-                        //计算该单词与当前节点的编辑距离
-                        string word = pPre -> word;
-                        int distance = edit_length(word, str);
-                        //若该单词已存在
-                        if(distance == 0) {
-                            break;
-                        }
-                        //若该单词不存在
-                        if(pCur == NULL) {
-                            //若首节点不存在，则创建首节点
-                            pCur = new Node();
-                            pCur -> length = distance;
-                            pCur -> word = str;
-                            pCur -> left = NULL;
-                            pCur -> right = NULL;
-
-                            pPre -> left = pCur;
-
-                            break;
-
-                        } else if (pCur != NULL && pCur -> length > distance) {
-                            //若首节点存在，并且首节点大于目标编辑距离，重建首节点
-                            Node *p = new Node();
-                            p -> length = distance;
-                            p -> word = str;
-                            p -> left = NULL;
-                            p -> right = pCur;
-
-                            pPre -> left = p;
-                            break;
-
-                        } else {
-                            //首节点存在，且首节点小于等于目标编辑距离
-                            while(pCur != NULL && pCur -> length < distance){
-                                pPre = pCur;
-                                pCur = pCur -> right;
-                            }
-                            if(pCur != NULL && pCur -> length == distance){
-                                //找到了目标节点
-                                pPre = pCur;
-                                pCur = pCur -> left;
-                            } else {
-                                //创建目标节点
-                                Node *p = new Node();
-                                p -> length = distance;
-                                p -> word = str;
-                                p -> left = NULL;
-                                p -> right = pCur;
-
-                                pPre -> right = p;
-                                break;
-                            }
-                        }
-                    }
-                } else {
-                    //如果Trie树还不存在，以该单词创建根节点
-                    pRoot = new Node();
-                    pRoot -> length = 0;
-                    pRoot -> word = str;
-                }
-            }
-
-            // 搜索与给定字符串的编辑距离小于给定值的所有字符串（内部调用）
-            void Trie::find(Node* pRoot, string &str, int limit_num, vector<string> &word_set) {
-
-                if(pRoot == NULL){
-                    cout << "kong" << endl;
-                    return;
-                }
-                string word = pRoot -> word;
-                int distance = edit_length(word, str);
-                if(distance < limit_num) {
-                    word_set.push_back(word);
-                }
-
-                //如果当前节点有孩子的话
-                Node *pCur = pRoot -> left;
-                while(pCur != NULL){
-                    if(pCur -> length < distance + limit_num &&
-                            pCur -> length > distance - limit_num &&
-                            pCur -> length > limit_num - distance){
-                        find(pCur, str, limit_num, word_set);
-                    }
-                    pCur = pCur -> right;
-                }
-            }
-
-
-            // 包装函数，搜索与给定字符串的编辑距离小于给定值的所有字符串（外部调用）
-            void Trie::search(string &str, int limit_num, vector<string> &word_set){
-                find(pRoot, str, limit_num, word_set);
-            }
-
-            // ---------------------------工具函数------------------------------
-            // 求两个字符串的最断编辑距离
-            int edit_length(string &x, string &y){
-                int xlen = x.length();
-                int ylen = y.length();
-                int edit[3][Y+1];
-                memset(edit, 0, sizeof(edit));
-
-                int i = 0;
-                int j = 0;
-                for(j = 0; j <= ylen; j++){
-                    edit[0][j] = j;
-                }
-                for(i = 1; i <= xlen; i++){
-                    edit[i%3][0] = edit[(i-1)%3][0] + 1;
-                    for(j = 1; j <= ylen; j++){
-                        if (x[i-1] == y[j-1]) {
-                            edit[i%3][j] = min(min(edit[i%3][j-1] + 1, edit[(i-1)%3][j] + 1),
-                                    edit[(i-1)%3][j-1]);
-                        } else {
-                            if(i >= 2 && j >= 2 && x[i-2] == y[j-1] && x[i-1] == y[j-2]){
-                                edit[i%3][j] = min(min(edit[i%3][j-1] + 1, edit[(i-1)%3][j] + 1),
-                                        min(edit[(i-1)%3][j-1] + 1, edit[(i-2)%3][j-2] + 1));
-                            } else {
-                                edit[i%3][j] = min(min(edit[i%3][j-1] + 1, edit[(i-1)%3][j] + 1),
-                                        edit[(i-1)%3][j-1] + 1);
-                            }
-                        }
-                    }
-                }
-                return edit[(i-1)%3][j-1];
-            }
-
-            //生成随机字符串
-            string rand_string(int len){
-                srand(time(NULL));
-                char a[MAX+1];
-                for(int i = 0; i < len; i++){
-                    a[i] = rand()%26 + 'a';
-                }
-                a[len] = '\0';
-                string str(a);
-                return str;
-            }
-
-            // 获取当前时间 (ms)
-            long getCurrentTime(){
-                struct timeval tv;
-                gettimeofday(&tv, NULL);
-                return tv.tv_sec*1000 + tv.tv_usec/1000;
-            }
-
-            //-----------------------------测试函数------------------------
-            //测试最短编辑距离函数
-            void Test_1(){
-                string a = "abcdef";
-                string b = "abcdef";
-                int max_len = edit_length(a, b);
-                cout << max_len << endl;
-            }
-
-            // 验证 Trie 树是否完整
-            void Test_2(){
-
-                //1.创建对象，打开文件
-                Trie trie;
-                string str;
-                ifstream fin;
-                fin.open("dict.txt");
-                if(!fin){
-                    cout << "打开文件失败！" << endl;
-                }
-
-                //2.建立Trie树
-                while(getline(fin, str, '\n')){
-                    trie.insert(str);
-                }
-                fin.close();
-
-                //3.验证Trie树的正确性
-                fin.open("dict.txt");
-                if(!fin){
-                    cout << "打开文件失败！" << endl;
-                }
-                while(getline(fin, str, '\n')){
-                    int count = 0;
-                    vector<string> word_set;
-                    trie.search(str, 1, word_set);
-                    cout << word_set.size() << "  " << str << endl;
-                }
-
-            }
-
-
-            //测试对于随机字符串搜索结果的正确性
-            void Test_3(){
-
-                //1.创建对象，打开文件
-                Trie trie;
-                string str;
-                ifstream fin;
-                fin.open("dict.txt");
-                if(!fin){
-                    cout << "打开文件失败！" << endl;
-                }
-
-                //2.建立Trie树
-                long time_1 = getCurrentTime();
-                while(getline(fin, str, '\n')){
-                    trie.insert(str);
-                }
-                long time_2 = getCurrentTime();
-                fin.close();
-
-                //3.产生随机字符串
-                string rand_str = rand_string(6);
-                //rand_str = "wdeuojyucsalslpd";
-                cout << "随机字符串为：" << rand_str << endl;
-
-                //4.利用Trie树计算结果
-                vector<string> word_set_1;
-                long time_3 = getCurrentTime();
-                trie.search(rand_str, 3, word_set_1);
-                long time_4 = getCurrentTime();
-
-                //5.利用暴力匹配计算结果
-                vector<string> word_set_2;
-                vector<string> word_dict;
-                fin.open("dict.txt");
-                if(!fin){
-                    cout << "打开文件失败！" << endl;
-                }
-                while(getline(fin, str, '\n')){
-                    word_dict.push_back(str);
-                }
-                int size = word_dict.size();
-                long time_5 = getCurrentTime();
-                for(int j = 0; j < size; j++){
-                    if(edit_length(word_dict[j], rand_str) < 3){
-                        word_set_2.push_back(word_dict[j]);
-                    }
-                }
-                long time_6 = getCurrentTime();
-                fin.close();
-
-                //6.结果比较
-                sort(word_set_1.begin(), word_set_1.end());
-                sort(word_set_2.begin(), word_set_2.end());
-
-                cout << "word_set_1的大小：" << word_set_1.size() << endl;
-                cout << "结果为：";
-                for(int i = 0; i < word_set_1.size(); i++){
-                    cout << "  " << word_set_1[i];
-                }
-                cout << endl;
-
-                cout << "word_set_2的大小：" << word_set_2.size() << endl;
-                cout << "结果为：";
-                for(int i = 0; i < word_set_2.size(); i++){
-                    cout << "  " << word_set_2[i];
-                }
-                cout << endl;
-
-                if(word_set_1 == word_set_2){
-                    cout << "验证正确" << endl;
-                } else {
-                    cout << "验证错误" << endl;
-                }
-
-                //7.时间比较
-                cout << "建立Trie树用时（ms）：" << time_2 - time_1 << endl;
-                cout << "Trie树搜索用时（ms）：" << time_4 - time_3 << endl;
-                cout << "暴力搜索用时（ms）："   << time_6 - time_5 << endl;
-                cout << "百分比：" << double(time_4 -time_3)/(time_6 - time_5) << endl;
-            }
-            int main(){
-
-                //Test_1();
-                //Test_2();
-                Test_3();
-            }
-            ```
-
-        refs and see also
-
-        -   [编辑距离、拼写检查与度量空间：一个有趣的数据结构 | Matrix67: The Aha Moments](http://www.matrix67.com/blog/archives/333)
-        -   [利用 Trie 树求多个字符串的最小编辑距离 - 时空霹雳的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/u010189459/article/details/34114465)
-
-    如何从零写一个正则表达式引擎？ -<
-
-    :   推荐代码: Henry Spencer's regexp engine
-        [regexp.old/regexp.c at master · garyhouston/regexp.old](https://github.com/garyhouston/regexp.old/blob/master/regexp.c)
-        是很多现代流行的正则引擎的始祖, 解释器实现, 很
-        多新 feature 能扩展得得进去, 也有混合 DFA 的优化
-
-        <http://whudoc.qiniudn.com/2016/regex.zip> -<
-
-        :   写了个 80 行的 C++ 模板版。注意啊，regex 的定义包括了 concatenation，
-            alternation（“|”），Kleene closure（“*”），还得有一个ε字符（可近似认为
-            “?”），expression 还要能嵌套（“(”“)”）。有些例子里缺了 alternation 和嵌套
-            那就不该叫 regex 了。
-
-            之所以这么短是因为压根没有 parsing，parsing 多无聊啊。直接构造 regex 的
-            AST，根本不去打 NFA 的主意。想加什么功能就直接加 type 就行了。
-
-            这个是 compile time regex，所以跑起来是 raw speed，很快。你要是要运行时
-            的regex，把那几个模板特化改为一个树状 variant 结构，在树上走就行了，算
-            法（包括那个 continuation 的 trick）都是一样的。
-
-            建 NFA 那套做法是 Ken Thompson 推出来的“标准”算法，但是就玩玩而已应该从
-            更简单的学起。学一下 CPS 变换又不会死。
-
-            另外把程序写短小紧凑的诀窍就是写成 FP style。我的 80 行中所有函数都只有
-            一个 return 语句。
-
-            ```cpp
-            template <typename Left, typename Right>
-            struct ConcatExpr;
-
-            template <typename Left, typename Right>
-            struct AltExpr;
-
-            template <typename SubExpr>
-            struct RepeatExpr;
-
-            template <char ch>
-            struct MatchExpr;
-
-            template <typename RegExpr>
-            struct MatchImpl;
-
-            struct EpsilonExpr;
-
-            template <typename SubExpr>
-            using OptionalExpr = AltExpr<SubExpr, EpsilonExpr>;
-
-            template <typename Left, typename Right>
-            struct MatchImpl<ConcatExpr<Left, Right>> {
-              template <typename Continuation>
-              static bool Apply(const char* target, Continuation cont) {
-                return MatchImpl<Left>::Apply(target, [cont](const char* rest) -> bool {
-                  return MatchImpl<Right>::Apply(rest, cont);
-                });
-              }
-            };
-
-            template <typename Left, typename Right>
-            struct MatchImpl<AltExpr<Left, Right>> {
-              template <typename Continuation>
-              static bool Apply(const char* target, Continuation cont) {
-                return MatchImpl<Left>::Apply(target, cont) ||
-                       MatchImpl<Right>::Apply(target, cont);
-              }
-            };
-
-            template <typename SubExpr>
-            struct MatchImpl<RepeatExpr<SubExpr>> {
-              template <typename Continuation>
-              static bool Apply(const char* target, Continuation cont) {
-                return MatchImpl<SubExpr>::Apply(
-                           target,
-                           [target, cont](const char* rest) -> bool {
-                             return target < rest &&
-                                 MatchImpl<RepeatExpr<SubExpr>>::Apply(rest, cont);
-                           }) ||
-                       cont(target);
-              }
-            };
-
-            template <char ch>
-            struct MatchImpl<MatchExpr<ch>> {
-              template <typename Continuation>
-              static bool Apply(const char* target, Continuation cont) {
-                return *target && *target == ch && cont(target + 1);
-              }
-            };
-
-            template <>
-            struct MatchImpl<EpsilonExpr> {
-              template <typename Continuation>
-              static bool Apply(const char* target, Continuation cont) {
-                return cont(target);
-              }
-            };
-
-            template <typename RegExpr>
-            bool RegexMatch(const char* target) {
-              return MatchImpl<RegExpr>::Apply(
-                  target, [](const char* rest) -> bool { return *rest == '\0'; });
-            }
-
-            template <typename RegExpr>
-            bool RegexSearch(const char* target) {
-              return MatchImpl<RegExpr>::Apply(
-                         target, [](const char* rest) -> bool { return true; }) ||
-                     (*target && RegexSearch<RegExpr>(target + 1));
-            }
-
-            #include <cassert>
-
-            int main() {
-              assert((RegexMatch<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("ab")));
-              assert((RegexMatch<AltExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("a")));
-              assert((RegexMatch<AltExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("b")));
-              assert((RegexMatch<RepeatExpr<MatchExpr<'a'>>>("aaaaa")));
-              assert((RegexMatch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>(
-                  "aaaaab")));
-              assert((
-                  RegexMatch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>("b")));
-              assert((RegexSearch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>(
-                  "aaaaabb")));
-              assert((RegexMatch<OptionalExpr<MatchExpr<'a'>>>("a")));
-              assert((RegexMatch<OptionalExpr<MatchExpr<'a'>>>("")));
-              assert((RegexMatch<OptionalExpr<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>>(
-                  "ab")));
-              assert((RegexMatch<OptionalExpr<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>>(
-                  "")));
-              assert((!RegexMatch<RepeatExpr<MatchExpr<'a'>>>("aaaaab")));
-              assert((RegexMatch<RepeatExpr<OptionalExpr<MatchExpr<'a'>>>>("")));
-
-              return 0;
-            }
-            ```
-
-        Milo Yip 的正则代码 -<
-
-        :   ```cpp
-            todo
-            ```
-
-            [rapidjson/regex.h at regex · miloyip/rapidjson](https://github.com/miloyip/rapidjson/blob/regex/include/rapidjson/internal/regex.h)
-
-        refs and see also
-
-        -   [如何从零写一个正则表达式引擎？ - 知乎](https://www.zhihu.com/question/27434493)
-
-    Graph (abstract data type) -<
-
-    :   In computer science, a graph is an abstract data type that is meant to
-        implement the undirected graph and directed graph concepts from mathematics.
-
-        The basic operations provided by a graph data structure G usually include:
-
-        -   adjacent(G, x, y): tests whether there is an edge from the vertices x to y;
-        -   neighbors(G, x): lists all vertices y such that there is an edge from the vertices x to y;
-        -   add_vertex(G, x): adds the vertex x, if it is not there;
-        -   remove_vertex(G, x): removes the vertex x, if it is there;
-        -   add_edge(G, x, y): adds the edge from the vertices x to y, if it is not there;
-        -   remove_edge(G, x, y): removes the edge from the vertices x to y, if it is there;
-        -   get_vertex_value(G, x): returns the value associated with the vertex x;
-        -   set_vertex_value(G, x, v): sets the value associated with the vertex x to v.
-
-        Structures that associate values to the edges usually also provide:
-
-        -   get_edge_value(G, x, y): returns the value associated with the edge (x, y);
-        -   set_edge_value(G, x, y, v): sets the value associated with the edge (x, y) to v.
-
-        Adjacency List
-
-        :   Vertices are stored as records or objects, and every vertex stores
-            **a list of adjacent vertices**. This data structure allows the storage of
-            additional data on the vertices. Additional data can be stored if edges
-            are also stored as objects, in which case each vertex stores its
-            incident edges and each edge stores its incident vertices.
-
-        Adjancy Matrix
-
-        :   A two-dimensional matrix, in which the rows represent source vertices
-            and columns represent destination vertices. Data on edges and vertices
-            must be stored externally. Only the cost for one edge can be stored
-            between each pair of vertices.
-
-        Incidence matrix
-
-        :   A two-dimensional Boolean matrix, in which the rows represent the
-            vertices and columns represent the edges. The entries indicate whether
-            the vertex at a row is incident to the edge at a column.
-
-            ![An undirected graph.](https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Labeled_undirected_graph.svg/375px-Labeled_undirected_graph.svg.png)
-
-            For example the incidence matrix of the undirected graph shown on the
-            right is a matrix consisting of 4 rows (corresponding to the four
-            vertices, 1-4) and 4 columns (corresponding to the four edges, e1-e4):
-
-            ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/99f6e54a9f49d5a3ae4c25e396d8b7c153cdaa07)
-
-        ![](http://whudoc.qiniudn.com/2016/firefox_2016-09-06_11-26-02.png)
-
-        **Adjacency lists are generally preferred because they efficiently represent
-        sparse graphs. An adjacency matrix is preferred if the graph is dense, that
-        is the number of edges |E| is close to the number of vertices squared,
-        |V|^2^, or if one must be able to quickly look up if there is an edge
-        connecting two vertices.**
-
-        refs and see also
-
-        -   [Graphs in Computer Science](http://web.cecs.pdx.edu/~sheard/course/Cs163/Doc/Graphs.html)
-        -   [Adjacency list - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Adjacency_list)
-        -   [Adjacency matrix - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Adjacency_matrix)
-        -   [Incidence matrix - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Incidence_matrix)
-        -   [Graph (abstract data type) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Graph_(abstract_data_type))
-
-    trees -<
-
-    :   Spanning tree -<
-
-        :   In the mathematical field of graph theory, **a spanning tree T of an
-            undirected graph G is a subgraph that is a tree which includes all of the
-            vertices of G**. In general, a graph may have several spanning trees, but a
-            graph that is not connected will not contain a spanning tree (but see
-            Spanning forests below). If all of the edges of G are also edges of a
-            spanning tree T of G, then G is a tree and is identical to T
-            (that is, **a tree has a unique spanning tree and it is itself**).
-
-            Several pathfinding algorithms, including Dijkstra's algorithm and the `A*`
-            search algorithm, internally **build a spanning tree as an intermediate step in solving the problem**.
-
-            Definitions
-
-            :   **A tree is a connected undirected graph with no cycles**. It is a spanning
-                tree of a graph G if it spans G (that is, it includes every vertex of
-                G) and is a subgraph of G (every edge in the tree belongs to G). A
-                spanning tree of a connected graph G can also be defined as a maximal
-                set of edges of G that contains no cycle, or as a minimal set of edges
-                that connect all vertices.
-
-            minimal/minimum spanning tree
-
-            In some cases, it is easy to calculate t(G) directly:
-
-            -   If G is itself a tree, then t(G) = 1.
-            -   When G is the cycle graph Cn with n vertices, then t(G) = n.
-            -   For a complete graph with n vertices, Cayley's formula gives the number of spanning trees as n^n−2^.
-            -   If G is the complete bipartite graph K~p,q~, then t(G) = p^q-1^q^p-1^.
-            -   For the n-dimensional hypercube graph...
-
-            arbitrary tree?
-
-            see [Kirchhoff's theorem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem).
-
-            Prim's algorithm -<
-
-            :   In computer science, Prim's algorithm is **a greedy algorithm** that
-                **finds a minimum spanning tree for a weighted undirected graph**.
-                This means it finds a subset of the edges that forms a tree that includes every
-                vertex, where the total weight of all the edges in the tree is
-                minimized. The algorithm operates by building this tree one vertex at a
-                time, from an arbitrary starting vertex, at each step adding the
-                cheapest possible connection from the tree to another vertex.
-
-        Self-balancing binary search tree -<
-
-        :   In computer science, a self-balancing (or height-balanced) binary
-            search tree is any node-based binary search tree that automatically
-            keeps its height (maximal number of levels below the root) small in the
-            face of arbitrary item insertions and deletions.
-
-            The red–black tree, which is a type of self-balancing binary search
-            tree, was called symmetric binary B-tree and was renamed but can
-            still be confused with the generic concept of self-balancing binary
-            search tree because of the initials.
-
-        AVL tree -<
-
-        :   d(height(left), height(right)) = { -1, 0, 1 }, left-heavy, right-heavy, balanced.
-
-        Splay tree -<
-
-        :   A splay（展开） tree is a self-adjusting binary search tree with the additional
-            property that recently accessed elements are quick to access again. It
-            performs basic operations such as insertion, look-up and removal in
-            O(log n) amortized time. For many sequences of non-random operations,
-            splay trees perform better than other search trees, even when the
-            specific pattern of the sequence is unknown. The splay tree was
-            invented by Daniel Sleator and Robert Tarjan in 1985.
-
-            Advantages -<
-
-            :   Good performance for a splay tree depends on the fact that it is
-                **self-optimizing**, in that frequently accessed nodes will move nearer
-                to the root where they can be accessed more quickly. The worst-case
-                height—though unlikely—is O(n), with the average being O(log n).
-                Having frequently used nodes near the root is an advantage for many
-                practical applications (also see **Locality of reference**), and is
-                particularly useful for implementing caches and garbage collection
-                algorithms.
-
-                Locality of reference -<
-
-                :   In computer science, locality of reference, also known as the
-                    principle of locality, is a term for the phenomenon in which
-                    the same values, or related storage locations, are frequently
-                    accessed, depending on the memory access pattern. There are two
-                    basic types of reference locality – temporal and spatial
-                    locality. Temporal locality refers to the reuse of specific
-                    data, and/or resources, within a relatively small time
-                    duration. Spatial locality refers to the use of data elements
-                    within relatively close storage locations.  Sequential
-                    locality, a special case of spatial locality, occurs when data
-                    elements are arranged and accessed linearly, such as,
-                    traversing the elements in a one-dimensional array.
-
-                    Locality is merely one type of predictable behavior that occurs
-                    in computer systems. Systems that exhibit strong locality of
-                    reference are great candidates for performance optimization
-                    through the use of techniques such as the caching, prefetching
-                    for memory and advanced branch predictors at the pipelining
-                    stage of processor core.
-
-                    There are several different types of locality of reference:
-
-                    -   Temporal locality
-                    -   Spatial locality
-                    -   Memory locality
-                    -   Branch locality
-                    -   Equidistant locality
-
-                    refs and see also
-
-                    -   [Locality of reference - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Locality_of_reference)
-
-                Advantages include:
-
-                -   Comparable performance: Average-case performance is as efficient as other trees.
-                -   Small memory footprint: Splay trees **do not need to store any bookkeeping data**.
-
-            Disadvantages -<
-
-            :   The most significant disadvantage of splay trees is that
-                **the height of a splay tree can be linear**. For example, this
-                will be the case after accessing all n elements in non-decreasing
-                order. Since the height of a tree corresponds to the worst-case
-                access time, this means that the actual cost of an operation can be
-                high. However the amortized access cost of this worst case is
-                logarithmic, O(log n).  Also, the expected access cost can be
-                reduced to O(log n) by using a randomized variant.
-
-                The representation of splay trees can **change even when they are
-                accessed in a 'read-only' manner** (i.e. by find operations). This
-                complicates the use of such splay trees in a multi-threaded
-                environment. Specifically, extra management is needed if multiple
-                threads are allowed to perform find operations concurrently. This
-                also makes them **unsuitable for general use in purely functional
-                programming**, although they can be used in limited ways to
-                implement priority queues even there.
-
-            ![zig](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Splay_tree_zig.svg/1064px-Splay_tree_zig.svg.png)
-
-            ![zig zig](https://upload.wikimedia.org/wikipedia/commons/f/fd/Zigzig.gif)
-
-            C++ 实现 -<
-
-            :   ```cpp
-                #include <functional>
-
-                #ifndef SPLAY_TREE
-                #define SPLAY_TREE
-
-                template< typename T, typename Comp = std::less< T > >
-                class splay_tree {
-                private:
-                  Comp comp;
-                  unsigned long p_size;
-
-                  struct node {
-                    node *left, *right;
-                    node *parent;
-                    T key;
-                    node( const T& init = T( ) ) : left( 0 ), right( 0 ), parent( 0 ), key( init ) { }
-                    ~node( ) {
-                      if( left ) delete left;
-                      if( right ) delete right;
-                      if( parent ) delete parent;
-                    }
-                  } *root;
-
-                  void left_rotate( node *x ) {
-                    node *y = x->right;
-                    if(y) {
-                      x->right = y->left;
-                      if( y->left ) y->left->parent = x;
-                      y->parent = x->parent;
-                    }
-
-                    if( !x->parent ) root = y;
-                    else if( x == x->parent->left ) x->parent->left = y;
-                    else x->parent->right = y;
-                    if(y) y->left = x;
-                    x->parent = y;
-                  }
-
-                  void right_rotate( node *x ) {
-                    node *y = x->left;
-                    if(y) {
-                      x->left = y->right;
-                      if( y->right ) y->right->parent = x;
-                      y->parent = x->parent;
-                    }
-                    if( !x->parent ) root = y;
-                    else if( x == x->parent->left ) x->parent->left = y;
-                    else x->parent->right = y;
-                    if(y) y->right = x;
-                    x->parent = y;
-                  }
-
-                  void splay( node *x ) {
-                    while( x->parent ) {
-                      if( !x->parent->parent ) {
-                        if( x->parent->left == x ) right_rotate( x->parent );
-                        else left_rotate( x->parent );
-                      } else if( x->parent->left == x && x->parent->parent->left == x->parent ) {
-                        right_rotate( x->parent->parent );
-                        right_rotate( x->parent );
-                      } else if( x->parent->right == x && x->parent->parent->right == x->parent ) {
-                        left_rotate( x->parent->parent );
-                        left_rotate( x->parent );
-                      } else if( x->parent->left == x && x->parent->parent->right == x->parent ) {
-                        right_rotate( x->parent );
-                        left_rotate( x->parent );
-                      } else {
-                        left_rotate( x->parent );
-                        right_rotate( x->parent );
-                      }
-                    }
-                  }
-
-                  void replace( node *u, node *v ) {
-                    if( !u->parent ) root = v;
-                    else if( u == u->parent->left ) u->parent->left = v;
-                    else u->parent->right = v;
-                    if( v ) v->parent = u->parent;
-                  }
-
-                  node* subtree_minimum( node *u ) {
-                    while( u->left ) u = u->left;
-                    return u;
-                  }
-
-                  node* subtree_maximum( node *u ) {
-                    while( u->right ) u = u->right;
-                    return u;
-                  }
-                public:
-                  splay_tree( ) : root( 0 ), p_size( 0 ) { }
-
-                  void insert( const T &key ) {
-                    node *z = root;
-                    node *p = 0;
-
-                    while( z ) {
-                      p = z;
-                      if( comp( z->key, key ) ) z = z->right;
-                      else z = z->left;
-                    }
-
-                    z = new node( key );
-                    z->parent = p;
-
-                    if( !p ) root = z;
-                    else if( comp( p->key, z->key ) ) p->right = z;
-                    else p->left = z;
-
-                    splay( z );
-                    p_size++;
-                  }
-
-                  node* find( const T &key ) {
-                    node *z = root;
-                    while( z ) {
-                      if( comp( z->key, key ) ) z = z->right;
-                      else if( comp( key, z->key ) ) z = z->left;
-                      else return z;
-                    }
-                    return 0;
-                  }
-
-                  void erase( const T &key ) {
-                    node *z = find( key );
-                    if( !z ) return;
-
-                    splay( z );
-
-                    if( !z->left ) replace( z, z->right );
-                    else if( !z->right ) replace( z, z->left );
-                    else {
-                      node *y = subtree_minimum( z->right );
-                      if( y->parent != z ) {
-                        replace( y, y->right );
-                        y->right = z->right;
-                        y->right->parent = y;
-                      }
-                      replace( z, y );
-                      y->left = z->left;
-                      y->left->parent = y;
-                    }
-
-                    delete z;
-                    p_size--;
-                  }
-
-                  const T& minimum( ) { return subtree_minimum( root )->key; }
-                  const T& maximum( ) { return subtree_maximum( root )->key; }
-
-                  bool empty( ) const { return root == 0; }
-                  unsigned long size( ) const { return p_size; }
-                };
-
-                #endif // SPLAY_TREE
-                ```
-
-        B-tree -<
-
-        :   In computer science, a B-tree is a self-balancing tree data structure
-            that keeps data sorted and allows searches, sequential access,
-            insertions, and deletions in logarithmic time. The B-tree is a
-            generalization of a binary search tree in that a node can have more
-            than two children (Comer 1979, p. 123). Unlike self-balancing binary
-            search trees, the B-tree is **optimized for systems that read and write
-            large blocks of data**. B-trees are a good example of
-            **a data structure for external memory**. It is commonly used in databases and filesystems.
-
-            multi-way search tree
-              ~ A multiway tree is a tree that can have more than two children. A
-                multiway tree of order m (or an m-way tree) is one in which a tree
-                can have m children.
-
-            ![A B-tree (Bayer & McCreight 1972) of order 5 (Knuth 1998).](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/B-tree.svg/600px-B-tree.svg.png)
-
-            Etymology -<
-
-            :   >   The origin of "B-tree" has never been explained by the authors.
-                >   As we shall see, "balanced," "broad," or "bushy" might apply.
-                >   Others suggest that the "B" stands for Boeing. Because of his
-                >   contributions, however, it seems appropriate to think of
-                >   B-trees as "Bayer"-trees. (Comer 1979, p. 123 footnote 1)
-
-            Advantages of B-tree usage for databases -<
-
-            :   The B-tree uses all of the ideas described above. In particular, a B-tree:
-
-                -   keeps keys in sorted order for sequential traversing
-                -   uses a hierarchical index to minimize the number of disk reads
-                -   uses partially full blocks to speed insertions and deletions
-                -   keeps the index balanced with an elegant recursive algorithm
-
-                In addition, a B-tree minimizes waste by making sure the interior
-                nodes are at least half full. A B-tree can handle an arbitrary
-                number of insertions and deletions.
-
-            Disadvantages of B-trees -<
-
-            :   maximum key length cannot be changed without completely rebuilding
-                the database. This led to many database systems truncating full human
-                names to 70 characters.
-
-            According to Knuth's definition, **a B-tree of order m** is a tree which
-            satisfies the following properties:
-
-            -   Every node has at most m children.
-            -   Every non-leaf node (except root) has at least ⌈m/2⌉ (ceil of m/2) children.
-            -   The root has at least two children if it is not a leaf node.
-            -   A non-leaf node with k children contains k−1 keys.
-            -   All leaves appear in the same level
-
-            It can be shown (by induction for example) that a B-tree of height h
-            with all its nodes completely filled has n= mh+1−1 entries. Hence, the
-            best case height of a B-tree is: log~m~^n+1^.
-
-            ![(A B Tree insertion example with each iteration. The nodes of this B tree have at most 3 children (Knuth order 3).](https://en.wikipedia.org/wiki/File:B_tree_insertion_example.png)
-
-        Red–black tree -<
-
-        :   A red–black tree is a kind of self-balancing binary search tree. Each
-            node of the binary tree has an extra bit, and that bit is often
-            interpreted as the color (red or black) of the node. These color bits
-            are used to ensure the tree remains approximately balanced during
-            insertions and deletions.
-
-            Balance is preserved by painting each node of the tree with one of two
-            colors (typically called 'red' and 'black') in a way that satisfies
-            certain properties, which collectively constrain how unbalanced the
-            tree can become in the worst case. When the tree is modified, the new
-            tree is subsequently rearranged and repainted to restore the coloring
-            properties. The properties are designed in such a way that this
-            **rearranging and recoloring can be performed efficiently**.
-
-            The balancing of the tree is not perfect, but it is good enough to
-            allow it to guarantee **searching in O(log n) time**, where n is the total
-            number of elements in the tree. The insertion and deletion operations,
-            along with the tree rearrangement and recoloring, are also performed in
-            O(log n) time.
-
-            Tracking the color of each node requires only 1 bit of information per
-            node because there are only two colors. The tree does not contain any
-            other data specific to its being a red–black tree so its memory
-            footprint is almost identical to a classic (uncolored) binary search
-            tree. In many cases the additional bit of information can be stored at
-            no additional memory cost.
-
-            The leaf nodes of red–black trees do not contain data. These leaves
-            need not be explicit in computer memory—a null child pointer can encode
-            the fact that this child is a leaf—but it simplifies some algorithms
-            for operating on red–black trees if the leaves really are explicit
-            nodes. To save memory, sometimes a single sentinel node performs the
-            role of all leaf nodes; all references from internal nodes to leaf
-            nodes then point to the sentinel node.
-
-            ![An example of a red–black tree](https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Red-black_tree_example.svg/750px-Red-black_tree_example.svg.png)
-
-            properties
-
-            #.  A node is either red or black.
-            #.  **The root is black**. This rule is sometimes omitted. Since the root can
-                always be changed from red to black, but not necessarily vice versa, this
-                rule has little effect on analysis.
-            #.  **All leaves (NIL) are black.**
-            #.  **If a node is red, then both its children are black.**
-            #.  Every path from a given node to any of its descendant NIL nodes contains
-                **the same number of black nodes**. Some definitions: the number of black nodes
-                from the root to a node is the node's 【black depth; the uniform number of
-                black nodes in all paths from root to the leaves is called the 【black-height】
-                of the red–black tree.
-
-            These constraints enforce a critical property of red–black trees: the
-            path from the root to the farthest leaf is no more than twice as long
-            as the path from the root to the nearest leaf. The result is that the
-            tree is roughly height-balanced. Since operations such as inserting,
-            deleting, and finding values require worst-case time proportional to
-            the height of the tree, this theoretical upper bound on the height
-            allows red–black trees to be efficient in the worst case, unlike
-            ordinary binary search trees.
-
-            ![The same red–black tree as in the example above, seen as a
-                B-tree.](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Red-black_tree_example_%28B-tree_analogy%29.svg/640px-Red-black_tree_example_%28B-tree_analogy%29.svg.png)
-
-            The red–black tree is then structurally equivalent to a B-tree of order
-            4, with a minimum fill factor of 33% of values per cluster with a
-            maximum capacity of 3 values.
-
-            This B-tree type is still more general than a red–black tree though, as
-            it allows ambiguity in a red–black tree conversion—multiple red–black
-            trees can be produced from an equivalent B-tree of order 4.
-
-            Insertion -<
-
-            :   RB-tree properties:
-
-                -   property 3 (all leaves are black) always holds.
-                -   property 4 (both children of every red node are black) is threatened only by adding a red node, repainting a black node red, or a rotation.
-                -   property 5 (all paths from any given node to its leaf nodes contain the same number of black nodes) is threatened only by adding a black node, repainting a red node black (or vice versa), or a rotation.
-
-                N: 当前 node，P：parent node，G：grandparent node，U：uncle node。 -<
-
-                :   ```cpp
-                    struct node *grandparent(struct node *n)
-                    {
-                        if ((n != NULL) && (n->parent != NULL))
-                            return n->parent->parent;
-                        else
-                            return NULL;
-                    }
-
-                    struct node *uncle(struct node *n)
-                    {
-                        struct node *g = grandparent(n);
-                        if (g == NULL)
-                            return NULL; // No grandparent means no uncle
-                        if (n->parent == g->left)
-                            return g->right;
-                        else
-                            return g->left;
-                    }
-
-                    struct node *sibling(struct node *n)
-                    {
-                        if ((n == NULL) || (n->parent == NULL))
-                            return NULL; // no parent means no sibling
-                        if (n == n->parent->left)
-                            return n->parent->right;
-                        else
-                            return n->parent->left;
-                    }
-                    ```
-
-                There are several cases of red–black tree insertion to handle:
-
-                1.  N is the root node, i.e., first node of red–black tree -<
-
-                    :   ```cpp
-                        void insert_case1(struct node *n)
-                        {
-                            if (n->parent == NULL)
-                                n->color = BLACK;
-                            else
-                                insert_case2(n);
-                        }
-                        ```
-
-                2.  P is black -<
-
-                    :   ```cpp
-                        void insert_case2(struct node *n)
-                        {
-                            if (n->parent->color == BLACK)
-                                return; /* Tree is still valid */
-                            else
-                                insert_case3(n);
-                        }
-                        ```
-
-                        The current node's parent P is black, so property 4 (both
-                        children of every red node are black) is not invalidated.
-                        In this case, the tree is still valid. Property 5 (all
-                        paths from any given node to its leaf nodes contain the
-                        same number of black nodes) is not threatened, because the
-                        current node N has two black leaf children, but because N
-                        is red, the paths through each of its children have the
-                        same number of black nodes as the path through the leaf it
-                        replaced, which was black, and so this property remains
-                        satisfied.
-
-                        Note: In the following cases it can be assumed that N has a
-                        grandparent node G, because its parent P is red, and if it
-                        were the root, it would be black. Thus, N also has an uncle
-                        node U, although it may be a leaf in cases 4 and 5.
-
-                3.  P & U are red -<
-
-                    :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Red-black_tree_insert_case_3.svg/600px-Red-black_tree_insert_case_3.svg.png)
-
-                        ```cpp
-                        void insert_case3(struct node *n)
-                        {
-                            struct node *u = uncle(n), *g;
-
-                            if ((u != NULL) && (u->color == RED)) {
-                                n->parent->color = BLACK;
-                                u->color = BLACK;
-                                g = grandparent(n);
-                                g->color = RED;
-                                insert_case1(g);
-                            } else {
-                                insert_case4(n);
-                            }
-                        }
-                        ```
-
-                        Note: In the remaining cases, it is assumed that the parent
-                        node P is the left child of its parent. If it is the right
-                        child, left and right should be reversed throughout cases 4
-                        and 5. The code samples take care of this.
-
-                4.  N is added to right of left child of grandparent, or N is added to left of right child of grandparent (P is red and U is black) -<
-
-                    :   ![](https://en.wikipedia.org/wiki/File:Red-black_tree_insert_case_4.svg)
-
-                        ```cpp
-                        void insert_case4(struct node *n)
-                        {
-                            struct node *g = grandparent(n);
-
-                            if ((n == n->parent->right) && (n->parent == g->left)) {
-                                rotate_left(n->parent);
-
-                                /*
-                                 * rotate_left can be the below because of already having *g =  grandparent(n)
-                                 *
-                                 * struct node *saved_p=g->left, *saved_left_n=n->left;
-                                 * g->left=n;
-                                 * n->left=saved_p;
-                                 * saved_p->right=saved_left_n;
-                                 *
-                                 * and modify the parent's nodes properly
-                                 */
-
-                                n = n->left;
-
-                            } else if ((n == n->parent->left) && (n->parent == g->right)) {
-                                rotate_right(n->parent);
-
-                                /*
-                                 * rotate_right can be the below to take advantage of already having *g =  grandparent(n)
-                                 *
-                                 * struct node *saved_p=g->right, *saved_right_n=n->right;
-                                 * g->right=n;
-                                 * n->right=saved_p;
-                                 * saved_p->left=saved_right_n;
-                                 *
-                                 */
-
-                                n = n->right;
-                            }
-                            insert_case5(n);
-                        }
-                        ```
-
-                5.  N is added to left of left child of grandparent, or N is added to right of right child of grandparent (P is red and U is black) -<
-
-                    :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Red-black_tree_insert_case_5.svg/600px-Red-black_tree_insert_case_5.svg.png)
-
-                        ```cpp
-                        void insert_case5(struct node *n)
-                        {
-                            struct node *g = grandparent(n);
-
-                            n->parent->color = BLACK;
-                            g->color = RED;
-                            if (n == n->parent->left)
-                                rotate_right(g);
-                            else
-                                rotate_left(g);
-                        }
-                        ```
-
-                        Note that inserting is actually in-place, since all the calls above use tail recursion.
-
-            Removal -<
-
-            :   todo.
-
-            可靠性、稳定性
-
-        k-d tree -<
-
-        :   In computer science, a k-d tree (short for **k-dimensional tree**) is a
-            space-partitioning data structure for organizing points in a
-            k-dimensional space. k-d trees are a useful data structure for several
-            applications, such as searches involving a multidimensional search key
-            (e.g. range searches and nearest neighbor searches). k-d trees are a
-            special case of binary space partitioning trees.
-
-            ![A 3-dimensional k-d tree. The first split (the red vertical plane)
-                cuts the root cell (white) into two subcells, each of which is then
-                split (by the green horizontal planes) into two subcells. Finally,
-                those four cells are split (by the four blue vertical planes) into
-                two subcells. Since there is no more splitting, the final eight are
-                called leaf cells.](https://upload.wikimedia.org/wikipedia/commons/b/b6/3dtree.png)
-
-            The k-d tree is a **binary tree** in which every node is a
-            k-dimensional point. Every non-leaf node can be thought of as
-            implicitly generating a splitting hyperplane that divides the space
-            into two parts, known as half-spaces. Points to the left of this
-            hyperplane are represented by the left subtree of that node and points
-            right of the hyperplane are represented by the right subtree. The
-            hyperplane direction is chosen in the following way: every node in the
-            tree is associated with one of the k-dimensions, with the hyperplane
-            perpendicular to that dimension's axis. So, for example, if for a
-            particular split the "x" axis is chosen, all points in the subtree with
-            a smaller "x" value than the node will appear in the left subtree and
-            all points with larger "x" value will be in the right subtree. In such
-            a case, the hyperplane would be set by the x-value of the point, and
-            its normal would be the unit x-axis.
-
-            ![k-d tree decomposition for the point set (2,3), (5,4), (9,6), (4,7), (8,1), (7,2).](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Kdtree_2d.svg/555px-Kdtree_2d.svg.png)
-
-            ![The resulting k-d tree.](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tree_0001.svg/555px-Tree_0001.svg.png)
-
-        refs and see also
-
-        -   [k-d tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/K-d_tree)
-        -   [B-tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/B-tree)
-        -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
-        -   [Spanning tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Spanning_tree)
-        -   [Self-balancing binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
-        -   [Splay tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Splay_tree)
-        -   [Binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Binary_search_tree)
-        -   [AVL tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/AVL_tree)
-        -   [Prim's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Prim%27s_algorithm)
-        -   [Mutli-way Trees](http://faculty.cs.niu.edu/~freedman/340/340notes/340multi.htm)
-
-    Hash Function -<
-
-    :   A hash function is any function that can be used to map data of arbitrary
-        size to data of fixed size. The values returned by a hash function are
-        called hash values, hash codes, hash sums, or simply hashes.
-
-        Perfect hashing
-
-        :   A hash function that is **injective**—that is, maps each valid input to a
-            different hash value—is said to be perfect. With such a function one
-            can directly locate the desired entry in a hash table, without any
-            additional searching.
-
-        refs and see also
-
-        -   [Hash function - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hash_function)
-
-    Dijkstra's algorithm -<
-
-    :   Dijkstra's algorithm is an algorithm for finding the shortest paths between
-        nodes in a graph, which may represent, for example, road networks. It was
-        conceived by computer scientist Edsger W. Dijkstra in 1956 and published
-        three years later.
-
-        ![Dijkstra's algorithm to find the shortest path between a and b. It picks
-            the unvisited vertex with the lowest distance, calculates the distance
-            through it to each unvisited neighbor, and updates the neighbor's
-            distance if smaller. Mark visited (set to red) when done with
-            neighbors.](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif)
-
-        ![](https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif)
-
-        ```
-         1  function Dijkstra(Graph, source):
-         2
-         3      create vertex set Q
-         4
-         5      for each vertex v in Graph:             // Initialization
-         6          dist[v] ← INFINITY                  // Unknown distance from source to v
-         7          prev[v] ← UNDEFINED                 // Previous node in optimal path from source
-         8          add v to Q                          // All nodes initially in Q (unvisited nodes)
-         9
-        10      dist[source] ← 0                        // Distance from source to source
-        11
-        12      while Q is not empty:
-        13          u ← vertex in Q with min dist[u]    // Source node will be selected first
-        14          remove u from Q
-        15
-        16          for each neighbor v of u:           // where v is still in Q.
-        17              alt ← dist[u] + length(u, v)
-        18              if alt < dist[v]:               // A shorter path to v has been found
-        19                  dist[v] ← alt
-        20                  prev[v] ← u
-        21
-        22      return dist[], prev[]
-        ```
-
-        If we are only interested in a shortest path between vertices source and
-        target, we can terminate the search after line 13 if u = target. Now we can
-        read the shortest path from source to target by reverse iteration:
-
-        ```
-         1  S ← empty sequence
-         2  u ← target
-         3  while prev[u] is defined:                  // Construct the shortest path with a stack S
-         4      insert u at the beginning of S         // Push the vertex onto the stack
-         5      u ← prev[u]                            // Traverse from target to source
-         6  insert u at the beginning of S             // Push the source onto the stack
-        ```
-
-        Using a priority queue
-
-        ```
-         1  function Dijkstra(Graph, source):
-         2      dist[source] ← 0                                // Initialization
-         3
-         4      create vertex set Q
-         5
-         6      for each vertex v in Graph:
-         7          if v ≠ source
-         8              dist[v] ← INFINITY                      // Unknown distance from source to v
-         9              prev[v] ← UNDEFINED                     // Predecessor of v
-        10
-        11         Q.add_with_priority(v, dist[v])
-        12
-        13
-        14      while Q is not empty:                           // The main loop
-        15          u ← Q.extract_min()                         // Remove and return best vertex
-        16          for each neighbor v of u:                   // only v that is still in Q
-        17              alt = dist[u] + length(u, v)
-        18              if alt < dist[v]
-        19                  dist[v] ← alt
-        20                  prev[v] ← u
-        21                  Q.decrease_priority(v, alt)
-        22
-        23     return dist[], prev[]
-        ```
-
-        refs and see also
-
-        -   [Dijkstra's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
-
-    `A*` search algorithm -<
-
-    :   In computer science, `A*` (pronounced as "A star") is a computer algorithm
-        that is widely used in pathfinding and graph traversal, the process of
-        plotting an efficiently traversable path between multiple points, called
-        nodes. Noted for its performance and accuracy, it enjoys widespread use.
-        However, in practical travel-routing systems, it is generally outperformed
-        by algorithms which can pre-process the graph to attain better performance,
-        although other work has found `A*` to be superior to other approaches.
-
-        `A*` achieves better performance by using heuristics to guide its search.
-
-        `A*` selects the path that minimizes: f(n) = g(n) + h(n), n: node, g: cost dist, h: heuristic dist.
-
-        ![](https://upload.wikimedia.org/wikipedia/commons/5/5d/Astar_progress_animation.gif)
-
-        ![Key: green: start; blue: goal; orange: visited](https://en.wikipedia.org/wiki/File:AstarExampleEn.gif)
-
-        ```cpp
-        function A*(start, goal)
-            // The set of nodes already evaluated.
-            closedSet := {}
-            // The set of currently discovered nodes still to be evaluated.
-            // Initially, only the start node is known.
-            openSet := {start}
-            // For each node, which node it can most efficiently be reached from.
-            // If a node can be reached from many nodes, cameFrom will eventually contain the
-            // most efficient previous step.
-            cameFrom := the empty map
-
-            // For each node, the cost of getting from the start node to that node.
-            gScore := map with default value of Infinity
-            // The cost of going from start to start is zero.
-            gScore[start] := 0
-            // For each node, the total cost of getting from the start node to the goal
-            // by passing by that node. That value is partly known, partly heuristic.
-            fScore := map with default value of Infinity
-            // For the first node, that value is completely heuristic.
-            fScore[start] := heuristic_cost_estimate(start, goal)
-
-            while openSet is not empty
-                current := the node in openSet having the lowest fScore[] value
-                if current = goal
-                    return reconstruct_path(cameFrom, current)
-
-                openSet.Remove(current)
-                closedSet.Add(current)
-                for each neighbor of current
-                    if neighbor in closedSet
-                        continue        // Ignore the neighbor which is already evaluated.
-                    // The distance from start to a neighbor
-                    tentative_gScore := gScore[current] + dist_between(current, neighbor)
-                    if neighbor not in openSet  // Discover a new node
-                        openSet.Add(neighbor)
-                    else if tentative_gScore >= gScore[neighbor]
-                        continue        // This is not a better path.
-
-                    // This path is the best until now. Record it!
-                    cameFrom[neighbor] := current
-                    gScore[neighbor] := tentative_gScore
-                    fScore[neighbor] := gScore[neighbor] + heuristic_cost_estimate(neighbor, goal)
-
-            return failure
-
-        function reconstruct_path(cameFrom, current)
-            total_path := [current]
-            while current in cameFrom.Keys:
-                current := cameFrom[current]
-                total_path.append(current)
-            return total_path
-        ```
-
-        refs and see also
-
-        -   [`A*` search algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/A*_search_algorithm)
-
-    Travelling salesman problem -<
-
-    :   The travelling salesman problem (TSP) asks the following question: Given a
-        list of **cities** and the **distances** between each pair of cities, what is the
-        **shortest possible route that visits each city exactly once and returns to
-        the origin city**? It is an NP-hard problem in combinatorial optimization,
-        important in operations research and theoretical computer science.
-
-        ![Solution of a travelling salesman
-            problem](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/GLPK_solution_of_a_travelling_salesman_problem.svg/330px-GLPK_solution_of_a_travelling_salesman_problem.svg.png)
-
-        **TSP can be modelled as an undirected weighted graph**, such that cities are
-        the graph's vertices, paths are the graph's edges, and a path's distance is
-        the edge's length. It is a minimization problem starting and finishing at a
-        specified vertex after having visited each other vertex exactly once.
-        Often, the model is a complete graph (i.e. each pair of vertices is
-        connected by an edge). If no path exists between two cities, adding an
-        arbitrarily long edge will complete the graph without affecting the optimal
-        tour.
-
-        Exact algorithms
-
-        :   try all permutations (ordered combinations) -> brute force, O(n!)
-
-        Heuristic and approximation algorithms
-
-        :   NN 近邻法
-
-        refs and see also
-
-        -   [Travelling salesman problem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
-
-    [ACM 题集以及各种总结大全！ - 枯槐树下乘凉 - 博客频道 - CSDN.NET](http://blog.csdn.net/kuhuaishuxia/article/details/52254209)
-
-    [《挑战程序设计竞赛(第2版)》-码农场](http://www.hankcs.com/tag/%e3%80%8a%e6%8c%91%e6%88%98%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e7%ab%9e%e8%b5%9b%e7%ac%ac2%e7%89%88%e3%80%8b/)
-
-    [演算法筆記](http://www.csie.ntnu.edu.tw/~u91029/)
-
-    [網誌 - BYVoid](https://www.byvoid.com/blog/tag/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)
-
-    [hiho 一下第 114 周《Image Encryption》题目分析 - hihoCoder](http://hihocoder.com/discuss/question/3663)
-
-    [DSACPP, 数据结构（C++语言版）](http://dsa.cs.tsinghua.edu.cn/%7Edeng/ds/dsacpp/index.htm)
-
-    [程序员如何快速准备面试中的算法 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/19131887)
-
-    [检测单链表中是否有环--快慢指针法 - Linloves - 博客频道 - CSDN.NET](http://blog.csdn.net/loveyou426/article/details/7927297)
-
-    [横空出世，席卷互联网 -- 评微软等公司数据结构 + 算法面试 100 题 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_JULY_v/article/details/6015165) -<
-
-    :   ~~这个系列很乱，推荐先下载 PDF：[微软面试 100 题系列之 PDF 文档 [带目录 +
-        标签]by_July - 下载频道 - CSDN.NET](http://download.csdn.net/download/v_july_v/4583815)。~~
-
-        It sucks.
-
-    shitshit
-
-[LeetCode solutions | MaskRay](http://maskray.me/blog/2014-06-29-leetcode-solutions){.hearts} -<
+LeetCode solutions | MaskRay :hearts: -<
 
 :   见 [4ker/LeetCode](https://github.com/4ker/LeetCode)。
 
-    [http://tangzx.qiniudn.com/notes/leetcode-maskray/index.html](http://tangzx.qiniudn.com/notes/leetcode-maskray/index.html)
+    read online: [http://tangzx.qiniudn.com/notes/leetcode-maskray/index.html](http://tangzx.qiniudn.com/notes/leetcode-maskray/index.html)
+
+    refs and see also
+
+    -   [LeetCode solutions | MaskRay](http://maskray.me/blog/2014-06-29-leetcode-solutions){.hearts}
 
     [Add Two Numbers | LeetCode OJ](https://leetcode.com/problems/add-two-numbers/) -<
 
@@ -32431,1709 +30578,4070 @@ Blog Posts -<
         };
         ```
 
-[面试必会内容之——操作系统 - 671coder的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/liuqiyao_01/article/details/38962323)
+Finals -<
 
-科学松鼠会 » 遗传算法：内存中的进化 -<
-
-:   简单地说，遗传算法是一种解决问题的方法。它**模拟大自然中种群在选择压力下的
-    演化，从而得到问题的一个近似解**。
-
-    其次，为了使扇贝的样子向Firefox图标靠近，我们要给它们加上一点选择压力，就是
-    文章开头故事中提到的那个人的行动：在每一代把最不像Firefox的扇贝淘汰出去，同
-    时也给新的个体留下生存的空间。怎么评价这个扇贝像不像Firefox呢？最直接的方法
-    就是一个一个像素比较，颜色相差得越多就越不像。这个评价的函数叫做“适应函数”，
-    它负责评价一个个体到底有多适应我们的要求。
-
-    好了，现在是万事俱备只欠东风了。定义好基因，写好繁衍、变异、评价适应性、淘
-    汰和终止的代码之后，只需要随机产生一个适当大小的种群，然后让它这样一代代的
-    繁衍、变异和淘汰下去，到最后终止我们就会获得一个惊喜的结果：（这回是完整的
-    了，图片下的数字表示这个扇贝是第几代中最好的）
-
-    ![](http://blufiles.storage.msn.com/y1p96zcjxuwxolgnU-4kYeJil49VAcoYd0ieRPXt9jLGTd7UOR8kUlNdb1ZAzScolGo?PARTNER=WRITER)
-
-    其实，通过微调参数和繁衍、变异、淘汰、终止的代码，我们有可能得到更有效的算
-    法。遗传算法只是一个框架，里边具体内容可以根据实际问题进行调整，这也是它能
-    在许多问题上派上用场的一个原因。像这样可以适应很多问题的算法还有模拟退火算
-    法、粒子群算法、蚁群算法、禁忌搜索等等，统称为元启发式算法（Meta-heuristic algorithms）。
-
-    Metaheuristic
-
-    :   TODO
-
-    遗传算法模拟一个人工种群的进化过程，通过选择 (Selection)、交叉 (Crossover)
-    以及变异 (Mutation) 等机制，在每次迭代中都保留一组候选个体，重复此过程，种
-    群经过若干代以后，理想情况下其适应度达到***近似最优***的状态。
-
-    refs and see also
-
-    -   [如何通俗易懂地解释遗传算法？有什么例子？ - 知乎](https://www.zhihu.com/question/23293449)
-    -   [科学松鼠会 » 遗传算法：内存中的进化](http://songshuhui.net/archives/10462)
-    -   [Metaheuristic - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Metaheuristic)
-
-    ---
-
-    [如何用简单易懂的例子解释隐马尔可夫模型？ - 知乎](https://www.zhihu.com/question/20962240)
-
-    [机器学习专家与统计学家观点上有哪些不同？ - 知乎](https://www.zhihu.com/question/29687860)
-
-    [奇异值的物理意义是什么？ - 知乎](https://www.zhihu.com/question/22237507)
-
-    :   [科学网—奇异值分解(SVD) --- 几何意义 - 余露的博文](http://blog.sciencenet.cn/blog-696950-699432.html)
-
-[SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/simons) -<
-
-:   [分班问题算法求解——动态规划 - SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20038650?refer=simons)
-
-    [倒刷 LeetCode——Valid Number - SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20042325?refer=simons) -<
-
-    :   使用确定有穷状态自动机 (DFA) 来解答此题必然是最优雅的，无论空间还是时间
-        复杂度都有不错的表现。如果不熟悉 DFA 的话也没关系，可以把本文当作入门教程来看。
-
-        所谓“确定有穷状态”，必然需要我们自己动手构造出所有状态来，如下所示：
-
-        -   0 初始无输入或者只有 space 的状态
-        -   1 输入了数字之后的状态
-        -   2 前面无数字，只输入了 dot 的状态
-        -   3 输入了 +/- 状态
-        -   4 前面有数字和有 dot 的状态
-        -   5 'e' or 'E'输入后的状态
-        -   6 输入 e 之后输入 +/- 的状态
-        -   7 输入 e 后输入数字的状态
-        -   8 前面有有效数输入之后，输入 space 的状态
-
-        ![](http://img.hb.aicdn.com/30ee1dcf092b0ff270d715558f7c84ccf79d4897b667-ZCBWYf_fw658)
-
-        在 9 种状态中，我们可以发现只有 1、4、7、8 四种状态是合法的，所以题目迎
-        刃而解，只要挨个遍历字符，通过判断遍历到最后一个字符时的状态即可确定该
-        字符串是否合法。
-
-        在编程中，我们可以简单地用一个邻接矩阵来存储上图转移关系，不了解的同学
-        请恶补图论相关基础知识。
-
-        ```python
-        class Solution:
-            # @param {string} s
-            # @return {boolean}
-            def isNumber(self, s):
-                INVALID=0; SPACE=1; SIGN=2; DIGIT=3; DOT=4; EXPONENT=5;
-                #0invalid,1space,2sign,3digit,4dot,5exponent,6num_inputs
-                transitionTable=[[-1, 0, 3, 1, 2, -1],      #0 no input or just spaces
-                                 [-1, 8, -1, 1, 4, 5],      #1 input is digits
-                                 [-1, -1, -1, 4, -1, -1],   #2 no digits in front just Dot
-                                 [-1, -1, -1, 1, 2, -1],    #3 sign
-                                 [-1, 8, -1, 4, -1, 5],     #4 digits and dot in front
-                                 [-1, -1, 6, 7, -1, -1],    #5 input 'e' or 'E'
-                                 [-1, -1, -1, 7, -1, -1],   #6 after 'e' input sign
-                                 [-1, 8, -1, 7, -1, -1],    #7 after 'e' input digits
-                                 [-1, 8, -1, -1, -1, -1]]   #8 after valid input input space
-                 state = 0
-                 for c in s:
-                    inputtype = INVALID
-
-                    if c == ' ': inputtype = SPACE
-                    elif c == '-' or c == '+': inputtype = SIGN
-                    elif c.isdigit(): inputtype = DIGIT
-                    elif c == '.': inputtype = DOT
-                    elif c.upper() == 'E': inputtype = EXPONENT
-
-                    state = transitionTable[state][inputtype]
-                    if state == -1: return False
-                    return state == 1 or state == 4 or state == 7 or state == 8
-        ```
-
-    [字符串相似度之美（二） - SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20102352?refer=simons)
-
-    [猴子摘香蕉一次可以摘 1 个或 2 个，总共 50 个，问有多少种摘法？ - SimonS 的回答 - 知乎](https://www.zhihu.com/question/29454855/answer/44437341)
-
-    [『啤酒与尿不湿』之关联规则 - SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20546361?refer=simons)
-
-[nonstriater/Learn-Algorithms: 算法学习笔记](https://github.com/nonstriater/Learn-Algorithms) -<
-
-:   二叉查找树
-
-    :   二叉查找树（Binary search tree），也叫`有序二叉树 (Ordered binary tree)`,
-        `排序二叉树 (Sorted binary tree)`。是指一个空树或者具有下列性质的二叉树：
-
-        1.  若任意节点的左子树不为空，则左子树上所有的节点值小于它的根节点值
-        2.  若任意节点的右子树不为空，则右子树上所有节点的值均大于它的根节点的值
-        3.  任意节点左右子树也为二叉查找树
-        4.  没有键值相等的节点
-
-        删除节点,需要重建排序树
-
-        -   删除节点是叶子节点（分支为0），结构不破坏
-        -   删除节点只有一个分支(分支为1)，结构也不破坏
-        -   删除节点有2个分支，此时删除节点
-            -   思路一： 选左子树的最大节点，或右子树最小节点替换
-
-    伸展树 (splay tree)
-
-    :   伸展树是一种自平衡的二叉排序树。为什么需要这些自平衡的二叉排序树？
-
-        n 个节点的完全二叉树，其查找，删除的复杂度都是 O(logN), 但是如果频繁的插入
-        删除，导致二叉树退化成一个 n 个节点的单链表，也就是`插入，查找复杂度趋于
-        `O(N)`，为了克服这个缺点，出现了很多二叉查找树的变形，如 AVL 树，红黑树，以
-        及接下来介绍的 伸展树 (splay tree)。
-
-    B 树
-
-    :   平衡查找树，一种多路查找树。
-
-        能保证数据插入和删除情况下，任然保持执行效率。
-
-        一个 M 阶的 B 树满足：
-
-        1.  每个节点最多 M 个子节点
-        2.  除跟节点和叶节点外，其它每个节点至少有 M/2 个孩子
-        3.  根节点至少 2 个节点
-        4.  所有叶节点在同一层，叶节点不包含任何关键字信息
-        5.  有 k 个关键字的页节点包含 k+1 个孩子
-
-        也就是说：根节点到每个叶节点的路径长度都是相同的。
-
-    B+ 树
-
-    :   mysql 索引使用 B+ 树的数据结构
-
-    赫夫曼编码 Huffman
-
-    :   这是一个经典的压缩算法。通过`字符出现的频率`，`优先级`，`二叉树`进行的压缩算法。
-
-        对一个字符串，计算每个字符出现的次数, 把这些字符放到优先队列（priority
-        queue）这这个 priority queue 转出二叉树
-
-        需要一个字符编码表来解码, 通过二叉树建立 huffman 编码和解码的字典表
-
-    字典树 trie (前缀树，单词查找树)
-
-    :   trie，又称为前缀树或字典树，是一种有序树，用于保存关联数组。
-
-        1.  除根节点不包含字符，每个节点都包含一个字符
-        2.  从根节点到某一个节点，路径上经过的字符连接起来，为该节点对应的字符串
-        3.  每个节点的所有子节点包含的字符都不相同（保证每个节点对应的字符串都不一样）
-
-        比如：
-
-        ```
-                            / \
-                           / | \
-                          t  a  i
-                        /  \     \
-                       o    e     n
-                           /|\    /
-                          a d n  n
-        ```
-
-        上面的 Trie 树，可以表示字符串集合{“a”, “to”, “tea”, “ted”, “ten”, “i”, “in”, “inn”} 。
-
-        trie 树把每个关键字保存在一条路径上，而不是一个节点中。两个有公共前缀的关键
-        字，在 Trie 树中前缀部分的路径相同，所以 Trie 树又叫做前缀树（Prefix Tree）。
-
-        子树用数组存储，浪费空间；如果系统中存在大量字符串，且这些字符串基本没有公
-        共前缀，trie树将消耗大量内存。如果用链表存储，查询时需要遍历链表，查询效率
-        有所降低
-
-        trie 树的增加和删除都比较麻烦，但索引本身就是写少读多，是否考虑添加删除的复
-        杂度上升，依靠具体场景决定。
-
-        它的优点是：
-
-        1.  插入和查询的效率很高，都是 O(m), 其中 m 是待插入 / 查询的字符串的长度
-        2.  Trie 树可以对关键字按字典序排序
-        3.  利用字符串的公共前缀来最大限度地减少无谓的字符串比较, 提高查询效率
-
-        缺点：
-
-        1.  trie 树比较费内存空间，在处理大数据时会内存吃紧
-        2.  当 hash 函数较好时，Hash 查询效率比 trie 更优
-
-        典型应用是：前缀查询,字符串查询，排序
-
-        -   用于统计，排序和保存大量的字符串（但不仅限于字符串）
-        -   经常被搜索引擎系统用于文本词频统计
-        -   排序大量字符串
-        -   用于索引结构
-        -   敏感词过滤
-
-        实际应用问题
-
-        1.  给你100000个长度不超过10的单词。对于每一个单词，我们要判断他出没出现过，如果出现了，求第一次出现在第几个位置
-
-            分析思路一：trie 树 ，找到这个字符串查询操作就可以了，如何知道出现的第一个位置呢？我们可以在 trie 树中加一个字段来记录当前字符串第一次出现的位置。
-
-        2.  已知 n 个由小写字母构成的平均长度为 10 的单词, 判断其中是否存在某个串为另一个串的前缀子串
-
-        3.  给出 N 个单词组成的熟词表，以及一篇全用小写英文书写的文章，请你按最早出现的顺序写出所有不在熟词表中的生词。
-
-            分析：trie 树查询单词的应用。先建立 N 个熟词的前缀树，然后按文章的单词一次查询。
-
-        4.  给出一个词典，其中的单词为不良单词。单词均为小写字母。再给出一段文本，文本的每一行也由小写字母构成。判断文本中是否含有任何不良单词。例如，若 rob 是不良单词，那么文本 problem 含有不良单词。
-
-            分析：先用不良单词建立 trie 树，然后过滤文本 (每个单词都在 trie 树上查询，查询的复杂度 O(1), 效率非常高)，这正是`敏感词过滤系统 (或垃圾评论系统)`的原理。
-
-        5.  给你 N 个互不相同的仅由一个单词构成的英文名，让你将它们按字典序从小到大排序输出
-
-            分析：这是 trie 树排序的典型应用，建立 N 个单词的 trie 树，然后线序遍历整个树，就可以达到效果。
-
-    后缀树（suffix tree）
-
-    :   后缀树的应用
-
-        可以解决很多字符串的问题
-
-        1.  查找字符串 S1 是否在字符串 S 中
-        2.  指定字符串 S1 在字符串 S 中出现的次数
-        3.  字符串 S 中的最长重复子串
-        4.  2 个字符串的最长公共部分
-
-    数据库系统中的算法 -<
-
-    :   最近开始读《数据库系统实现》这本书，所以就想到把数据库里面用到的数据结构和算法做一个梳理。就有了这些文字。
-
-        电梯算法
-
-        B 树索引
-
-        R 树索引
-
-        位图索引
-
-        一趟算法
-
-        二趟算法
-
-        基于排序
-
-        基于散列
-
-        连接树
-
-        动态规划
-
-        贪婪算法
-
-        分布式并行数据库中的任务分配算法
-
-        并行算法
-
-        数据挖掘
-
-        发现频繁项集的算法
-
-        发现近似商品的算法
-
-        PageRank
-
-        refs and see also
-
-        -   《数据库系统实现》
-        -   《redis 设计与实现》
-
-[huangz/note — huangz/note](http://note.huangz.me/) -<
-
-:   [算术 — huangz/note](http://note.huangz.me/algorithm/arithmetic/index.html) -<
-
-    :   [幂次定律 —— Power Law — huangz/note](http://note.huangz.me/algorithm/arithmetic/power-law.html) -<
-
-        :   如果某件事的发生频率和它的某个属性成幂关系，那么这个频率就可以称之为符合幂次定律。
-
-            幂次定律的表现是， 少数几个事件的发生频率占了整个发生频率的大部分， 而其余的大多数事件只占整个发生频率的一个小部分， 如图：
-
-            ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Long_tail.svg/450px-Long_tail.svg.png)
-
-            In statistics, a power law is a functional relationship between two quantities,
-            where a relative change in one quantity results in a
-            proportional relative change in the other quantity, independent of the
-            initial size of those quantities: one quantity varies as a power of
-            another. For instance, considering the area of a square in terms of the
-            length of its side, if the length is doubled, the area is multiplied by
-            a factor of four.
-
-            refs and see also
-
-            -   [Exponential backoff - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Exponential_backoff)
-
-        [指数补偿 —— Exponential backoff — huangz/note](http://note.huangz.me/algorithm/arithmetic/exponential-backoff.html) -<
-
-        :   指数补偿指的是，在执行事件时，通过反馈，逐渐降低某个过程的速率，从而最
-            终找到一个合适的速率（来处理事件）。
-
-            Exponential backoff is an algorithm that uses feedback to
-            multiplicatively decrease the rate of some process, in order to
-            gradually find an acceptable rate.
-
-            refs and see also
-
-            -   [Exponential backoff - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Exponential_backoff)
-
-        [将字符串解释为数字 —— Parse string to number — huangz/note](http://note.huangz.me/algorithm/arithmetic/parse-string-to-number.html) -<
-
-        :   就是 atoi。
-
-    [第一章： 计算系统简介 — huangz/note](http://note.huangz.me/system/csapp/chp1.html) :hearts:
-
-    [第 2 章：传输层：TCP 、 UDP 和 SCTP — huangz/note](http://note.huangz.me/network/unp/chp2.html)
-
-    [《UNIX 环境高级编程》笔记 — huangz/note](http://note.huangz.me/os/apue/index.html)
-
-[一道阿里笔试题，思路应该是怎样？ - 知乎](https://www.zhihu.com/question/50512830) -<
-
-:   [The-Art-Of-Programming-By-July/02.09.md at master · julycoding/The-Art-Of-Programming-By-July](https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/02.09.md)
-
-[Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne](http://algs4.cs.princeton.edu/home/) -<
-
-:   >   essential information that every serious programmer needs to know about
-    >   algorithms and data structures
-
-[Leetcode: Palindrome Partitioning II - Avril - 博客园](http://www.cnblogs.com/avril/p/3293449.html)
-
-Best Time to Buy and Sell Stock IV 问题
-
-问答 | 九章算法 -<
-
-:   refs and see also
-
-    -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖 IT 企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/796/)
-
-    概率论问题 :hearts: -<
-
-    :   假设有一个硬币，抛出字（背面）和花（正面）的概率都是0.5，而且每次抛硬币
-        与前次结果无关。现在做一个游戏，连续地抛这个硬币，直到连续出现两次字为
-        止，问平均要抛多少次才能结束游戏？注意，一旦连续抛出两个“字”向上游戏就
-        结束了，不用继续抛。
-
-        假设连续抛 2 次正面的期望为 E
-
-        ```
-        E = 0.5 * 0.5 * 2     (第一次抛了正， 第二次也抛了正，则抛两次结束了，次数是两次)
-          + 0.5 * 0.5 * (E + 2)（第一次抛了正， 第二次抛了反，前面无效了，从头开始，那么再出现两个正面，次数是 E+2）
-          + 0.5 * (E + 1)      (第一次抛了反， 前面无效了，从头开始，那么再出现两个正面次数是 E+1）
-        ```
-
-        E = 6
-
-        同理可以推算连续三个正面，连续反正，正反，等等所有情况都可以计算。
-
-        >   谢谢助教，
-        >
-        >   比如三个正面应该就是这四种情况分析了把？(反正以遇到反就要从头开始弄了)
-        >
-        >   -   1) 正正正
-        >   -   2) 正正反 + E
-        >   -   3) 正反 + E
-        >   -   4) 反 + E
-
-        同理算一样连续三个正面的期望 E
-
-        ```
-        E = 0.5 * 0.5 * 0.5 * 3
-          + 0.5 * 0.5 * 0.5 * (E + 3)
-          + 0.5 * 0.5 + (E + 2)
-          + 0.5 * (E + 1)
-        ```
-
-        得到 E = 14，三个连续正面的期望是 14 次。
-
-        refs and see also
-
-        -   [抛硬币 直到连续出现两次字为止 - VergiL Wang的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/wangran51/article/details/8882088)
-        -   [概率论问题](http://www.jiuzhang.com/qa/2125/){.hearts}
-
-    怎么找中小公司校招的职位？  -<
-
-    :   大公司可以去他们网站投，不过那些不知名的中小公司的校招职位怎么找呢？Indeed 之类的上面搜什么关键词？
-
-        >   angellist
-
-    【置顶】 为什么不需要学习贪心法 -<
-
-    :   因此，贪心法可以说，是一种“目光短浅”的算法。一般在算法问题中，可以使用
-        贪心算法的问题，其贪心策略往往都比较复杂，一般人是想不到的。而你容易想
-        到的那些贪心策略，往往都是错的。
-
-        面试基本不会考 -<
-
-        :   贪心法的问题，面试基本不会考，因为等同于考智力题或者是背诵题。一个面试官想
-            要自己凭空创造出一个面试题是使用贪心算法的，是非常困难的。（参见 LintCode 上
-            的贪心算法的题目所占比例可知）。既然如此，如果面试中被问到了贪心算法，那么
-            一定是一道经典的贪心问题，这类问题，我们可以称之为背诵题。因为大多数同学
-            （除了智商很高，或者有算法竞赛经历的那一批），是不可能在面试的时候想得出解
-            法的。
-
-            举几个例子：Gas Station (http://www.lintcode.com/en/problem/gas-station/)，
-            这个题的做法是，从任意站点出发，走一圈，找到这一圈里剩余Gas最少的那一站，然
-            后从这一站出发走一圈，如果在这一站出发可以顺利走完全程，那么就可以行，否则
-            就不可行。像这样的算法，是需要进行数学证明来证明其正确性的，面试官是没有能
-            力出这样的面试题的。
-
-            从另外一个角度来说，贪心算法的题，对于程序的实现能力要求并不高，也违背了公
-            司通过算法题面试主要是希望考察大家的程序实现能力这一点。所以面试官和公司也
-            都不倾向于将贪心算法作为面试的算法问题。
-
-        没有通用性 -<
-
-        :   二分法，动态规划算法，分治算法，搜索算法等等，很多的算法都是具有通用性的。
-            也就是说，在题目 A 里，你用了这个算法，在其他的题目 B 里，你可能完全可以用一样
-            的算法和思路去解决。
-
-            而贪心法，他不是“一个算法”，而是“一类算法”的统称。所以基本的情况就是，你在
-            题目A里用了某个贪心算法解决了这个问题，然后这个题中用到的贪心法，永远也找不
-            到第二个题用类似的方法来解决。
-
-        贪心是动态规划的子集么? -<
-
-        :   只要问题的解决方案有最优子结构，并且无后效性就可以认为是动态规划。
-
-            但是你这样问并没有什么意义，因为动态规划真正的目的还是依赖空间换时间，而贪心策略不是。
-
-            举个简单的例子来说，求单源最短路的 Dijkstra 算法，你可以认为它是一个贪心算
-            法，因为根据定义（Di 表示源点到节点 i 的最短路长度）：
-
-            Dj = min{ Dj, Di+ Matrix[i][j] }
-
-            它每次迭代都很无脑地选一条最近的路出发，所以认为是一个贪心策略。但是它又有
-            效地将重叠的最优子结构问题用一个辅助数组 D 存储了起来，并且没有后效性，所以
-            也是一个动态规划算法。
-
-        如何理解动态规划？ -<
-
-        :   TODO
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2100/)
-        -   [（无权限）几个必须“背诵”的贪心算法题](http://www.jiuzhang.com/qa/2099/)
-        -   [贪心是动态规划的子集么? - 知乎](https://www.zhihu.com/question/34414760)
-        -   [如何理解动态规划？ - 知乎](https://www.zhihu.com/question/39948290)
-        -   [第10讲 贪心算法的例子_图文_百度文库](http://wenku.baidu.com/view/f20777a7b0717fd5370cdc05.html)
-        -   [贪心算法如何体现在霍夫曼编码中？ - 知乎](https://www.zhihu.com/question/22112710?sort=created)
-        -   [【算法学习笔记】25.贪心法 均分纸牌问题的分析 - 雨尘之林 - 博客园](http://www.cnblogs.com/yuchenlin/p/4382027.html)
-        -   [均分纸牌问题为什么可以用贪心法得到全局最优解？ - 知乎](https://www.zhihu.com/question/27883948)
-        -   [贪心算法及几个经典例子 - a925907195的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/a925907195/article/details/41314549)
-
-    resume 上需要写 objective 吗  -<
-
-    :   听九章的讲座说要写，但是九章给的简历里又没有 objective。是不是转专业的必需写？
-
-        **要。**
-
-    多个面试经验贴汇总 -<
-
-    :   -   第一档次: Dropbox, Square, Pinterest, Facebook, LinkedIn, Google, Twitter, Apple
-        -   第二档次: Zynga, Yelp, Netflix, Skype, VMWare, Salesforce, Groupon, Paypal, Evernote, Box.net, Quora, A9.com, 126Lab, Palantir
-        -   第三档次: Oracle, EMC, eBay, Intuit, NetApp, NetSuite, Yahoo, Adobe, Autodesk, Symantec, Riverbed, Quantcast, Concur, Aster Data, Citrix, EA等
-
-            算上湾区以外公司， Amazon, Micriosoft 可以排在第二档次 Expedia,
-            RedHat, RackSpace, Akamai, Bloomberg 等可以排在第三档次。
-
-            Dropbox 创始人 Drew Houston 在 2013 年 MIT 的毕业典礼上讲的很好：
-            “世界上只有一个好莱坞，一个硅谷，如果你想待在业界最好的圈子，那就搬
-            家！”我被他说服，投简历的时候瞄准了 FLGT(业界最火的四家公司，
-            Facebook, LinkedIn, Google, Twitter) 和一众火爆的初创公司。
-
-            最近细读未来公司 LinkedIn 的创始人 Reid Hoffman 的新书 The Start-up
-            of You，里面讲到求职三片拼图：你的资源 / 能力（your assets），你的
-            志向 / 价值观（your aspirations/values) 和市场现实（market
-            reality），共同组成你的核心竞争力。所以我去尝试互联网大公司，十投八
-            中，但是其他的努力很多都浪费了，如果当时早就看了这本书多好。关于这
-            本书和它的作者，以后会写另一篇文章详述，这里先隆重推荐给大家。
-
-        最后来一点干货吧，给本专业的人看 -<
-
-        :   Google 题目： -<
-
-            :   1. MST of a all connected graph. Need to use Fibo heap to reduce complexity.
-                2. Game of Life, one transition (sub O(n^2) solution).
-                3. String compressor that turns 123abkkkkc to 123ab5xkc. Decompressor is already written and must remain unchanged. (messy code)
-                4. Youtube mash design, how to do a video version of Mark’s FaceMash.
-
-                题全都没见过，rej
-
-            Facebook 题目： -<
-
-            :   电话
-
-                1. Big Integer multiplication. (Optimization required, how to do 8 digits*8 digits, etc).
-                2. Binary tree level order traversal. (leetcode original)
-                3. 也是 leetcode 原题，不记得了
-
-                Onsite
-
-                1. Given 1->a, 2->b … 26->z. 126 -> az or lf or abf (bfs/dfs not accepted, need to use DP or some tricky method)
-                2. Binary tree serialization/de-serialization (这道题pinterest也问了）
-                3. Permutation with duplicate
-                4. Range maximum query, pre-processing in O(n) and query in O(1)
-
-                题答少了一道，rej
-
-        其他重要题目和技巧：
-
-        :   2Sum 3Sum, rotate LinkedList, minimum path sum, combinations
-
-            注重练习 tree 的 recursion 搜索, dp, greedy, two/three pointers, stack.
-            谷歌的题是很难刷到的，要靠运气，其他很多公司（尤其是亚马逊为首）都可以
-            靠刷题大幅提高胜算。 资源：leetcode.com, geeksforgeeks.com,
-            glassdoor.com, CC150
-
-            BTW，今年几家的硕士 package 都差不多，大约是 115k base + 160-170k （RSU
-            股票分4 年 + signing + reloc)，如果没有 competing offer 比较难negotiate。
-            我的 O 家offer 是 114k base + 4000 股期权分四年 + 15k signing + 10k
-            reloc，在等 LinkedIn发 official offer 之前，成功的想办法把 deadline 延
-            长了两次，变成 Standing offer，如果不这么干，他们是愿意涨一点 base 的。
-
-            按照我个人的理解，学生被大公司分两类，第一类是“名校 GPA3.8 以上”的，第
-            二类是else。作为 else 的代表，我不得不说，GPA3.8 以上真的很难，第一类们
-            确实确实有特权先被考虑，但本文正是献给广大 else 们的。
-
-            面试这个东西，其实是没法准备的，全靠经验。我没有哪个问题在第一次被问的
-            时候就能答的很完美，我相信谁也不能。从去年 6 月跟人家介绍自己都要磕磕巴
-            巴，到现在基本我虐面试官，大大小小的电面一百来次，onsite 十来次，磨厚的
-            不只是嘴皮，还有脸皮。其实面试的最高奥义就是厚着脸皮吹牛逼，并用丰富的
-            吹牛逼经验保证不被拆穿即可。当然了，知识还是要有一些，毕竟是技术职位，
-            而且要对 Coding 有一腔热情。当然了，还要习惯每天吃 subway。
-
-            在这里我想说一说老中，我所说的老中是指现在 40-50 岁，30 多岁的时候从国
-            内直接跳槽过来的中国软工，错了，是 我们这儿 软工。我去 qualcomm 和
-            amazon onsite 都是栽到了老中手里。我现在也不明白为什么只有中国人看不上
-            中国人，而人家阿三都是只帮阿三。我在 qualcomm 最后一个面的老中问我，有
-            没有学过 OS，我说我自学的。他说你没有做过那些 project 也说你学过？我说
-            你可以问啊，看看我会不会。结果这 B 问了我一堆我回来 google 都查不到的鬼
-            问题，还问我 how to simulate garbage collector in C? 看我不会又得意洋洋
-            的反问我，你没学过 OS 还想找 SWE 的工作? 我就说我的课都是 application
-            level 的。他操着浓重的不知哪的方言腔说了一句让我一辈子都忘不了的话：If
-            I wanna build a applicaiton, I will go to hign school and ask them "Who
-            wanna do some funny stuff?". Why I hire you? 我擦，我当时真想一口大浓痰
-            吐他脸上然后大骂我去你大爷的。但是我还是忍住了，虽然我从他眼睛里也能看
-            到我眼里冒出的火光。Amazon 也是一样的，在其他面试官都被我折服之后，他又
-            问我为什么 EE 的不好好学 EE，CS 的基础课你都没学过云云.... 我当时以为我
-            面的可以，因为他的题被我做完了，我还挑了他一个错误。事后我感觉挑他的错
-            这一下让他决定毙我的，要不然，就是和我竞争的人过于 NB 了。
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/788/)
-
-    美团 2015 校招面经 - 软件研发岗 (拿到 offer) -<
+:   面试必会内容之——操作系统 :hearts: -<
 
     :   refs and see also
 
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/751/)
+        -   [面试必会内容之——操作系统 - 671coder的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/liuqiyao_01/article/details/38962323){.hearts}
 
-    Linkedin 面经合集 -<
+    nonstriater/Learn-Algorithms: 算法学习笔记 :hearts: -<
 
-    :   面经 1 -<
+    :   二叉查找树 -<
 
-        :   然后就是开始做题，两个题目。
+        :   二叉查找树（Binary search tree），也叫`有序二叉树 (Ordered binary tree)`,
+            `排序二叉树 (Sorted binary tree)`。是指一个空树或者具有下列性质的二叉树：
 
-            第一个是两个单词最短距离，在版上看到很多人都说过这个题目，应该是L家经常面的。
-            本来以为只要实现一个函数，哪里知道是实现两个函数，第一个是做求最短距离的准
-            备工作，实现类的初始化；第二个才是真正的求最短距离的函数。写第二个函数的时
-            候，还忘记判断单词是否在字典中出现过，幸好面试官有提醒。
+            1.  若任意节点的左子树不为空，则左子树上所有的节点值小于它的根节点值
+            2.  若任意节点的右子树不为空，则右子树上所有节点的值均大于它的根节点的值
+            3.  任意节点左右子树也为二叉查找树
+            4.  没有键值相等的节点
 
-            第二题就是 leetcode 上的全排列，没有重复元素的。
+            删除节点,需要重建排序树
 
-        面经 2 -<
+            -   删除节点是叶子节点（分支为0），结构不破坏
+            -   删除节点只有一个分支(分支为1)，结构也不破坏
+            -   删除节点有2个分支，此时删除节点
+                -   思路一： 选左子树的最大节点，或右子树最小节点替换
 
-        :   第二题也比较常见,CC150 原题, 找俩字符串在一段文字中最近的距离:
+        伸展树 (splay tree) -<
 
-            直接用 CC150 解法, 用两个 index 比较得出 Math.abs(index1-index2), update 最小距
-            离. 写好后提示要是 cat dog cloud dog dog dog......, 即后面有 million 个 dog, 是
-            否不用比较整个文章. 回答说用 map 提早存储每个单词的 index, 然后在 map 中找到单
-            词比较, 在讨论后最坏情况下复杂度也是 O(n).
+        :   伸展树是一种自平衡的二叉排序树。为什么需要这些自平衡的二叉排序树？
 
-            由于没有时间写代码了所以这样结速了.
+            n 个节点的完全二叉树，其查找，删除的复杂度都是 O(logN), 但是如果频繁的插入
+            删除，导致二叉树退化成一个 n 个节点的单链表，也就是插入，查找复杂度趋于
+            O(N)，为了克服这个缺点，出现了很多二叉查找树的变形，如 AVL 树，红黑树，以
+            及接下来介绍的 伸展树 (splay tree)。
 
-        面经 3 -<
+        B 树 -<
 
-        :   就一道题，经典的求minimum word distance. 但是一开始有挺多有关ML的细节题
+        :   平衡查找树，一种多路查找树。
 
-            实现 BlockingQueue 的 take() 和 put()
+            能保证数据插入和删除情况下，任然保持执行效率。
+
+            一个 M 阶的 B 树满足：
+
+            1.  每个节点最多 M 个子节点
+            2.  除跟节点和叶节点外，其它每个节点至少有 M/2 个孩子
+            3.  根节点至少 2 个节点
+            4.  所有叶节点在同一层，叶节点不包含任何关键字信息
+            5.  有 k 个关键字的页节点包含 k+1 个孩子
+
+            也就是说：根节点到每个叶节点的路径长度都是相同的。
+
+        B+ 树 -<
+
+        :   mysql 索引使用 B+ 树的数据结构
+
+        赫夫曼编码 Huffman -<
+
+        :   这是一个经典的压缩算法。通过`字符出现的频率`，`优先级`，`二叉树`进行的压缩算法。
+
+            对一个字符串，计算每个字符出现的次数, 把这些字符放到优先队列（priority
+            queue）这这个 priority queue 转出二叉树
+
+            需要一个字符编码表来解码, 通过二叉树建立 huffman 编码和解码的字典表
+
+        字典树 trie (前缀树，单词查找树) -<
+
+        :   trie，又称为前缀树或字典树，是一种有序树，用于保存关联数组。
+
+            1.  除根节点不包含字符，每个节点都包含一个字符
+            2.  从根节点到某一个节点，路径上经过的字符连接起来，为该节点对应的字符串
+            3.  每个节点的所有子节点包含的字符都不相同（保证每个节点对应的字符串都不一样）
+
+            比如：
+
+            ```
+                                / \
+                               / | \
+                              t  a  i
+                            /  \     \
+                           o    e     n
+                               /|\    /
+                              a d n  n
+            ```
+
+            上面的 Trie 树，可以表示字符串集合{“a”, “to”, “tea”, “ted”, “ten”, “i”, “in”, “inn”} 。
+
+            trie 树把每个关键字保存在一条路径上，而不是一个节点中。两个有公共前缀的关键
+            字，在 Trie 树中前缀部分的路径相同，所以 Trie 树又叫做前缀树（Prefix Tree）。
+
+            子树用数组存储，浪费空间；如果系统中存在大量字符串，且这些字符串基本没有公
+            共前缀，trie树将消耗大量内存。如果用链表存储，查询时需要遍历链表，查询效率
+            有所降低
+
+            trie 树的增加和删除都比较麻烦，但索引本身就是写少读多，是否考虑添加删除的复
+            杂度上升，依靠具体场景决定。
+
+            它的优点是：
+
+            1.  插入和查询的效率很高，都是 O(m), 其中 m 是待插入 / 查询的字符串的长度
+            2.  Trie 树可以对关键字按字典序排序
+            3.  利用字符串的公共前缀来最大限度地减少无谓的字符串比较, 提高查询效率
+
+            缺点：
+
+            1.  trie 树比较费内存空间，在处理大数据时会内存吃紧
+            2.  当 hash 函数较好时，Hash 查询效率比 trie 更优
+
+            典型应用是：前缀查询,字符串查询，排序
+
+            -   用于统计，排序和保存大量的字符串（但不仅限于字符串）
+            -   经常被搜索引擎系统用于文本词频统计
+            -   排序大量字符串
+            -   用于索引结构
+            -   敏感词过滤
+
+            实际应用问题
+
+            1.  给你100000个长度不超过10的单词。对于每一个单词，我们要判断他出没出
+                现过，如果出现了，求第一次出现在第几个位置
+
+                分析思路一：trie 树 ，找到这个字符串查询操作就可以了，如何知道出现
+                的第一个位置呢？我们可以在 trie 树中加一个字段来记录当前字符串第一
+                次出现的位置。
+
+            2.  已知 n 个由小写字母构成的平均长度为 10 的单词, 判断其中是否存在某个
+                串为另一个串的前缀子串
+
+            3.  给出 N 个单词组成的熟词表，以及一篇全用小写英文书写的文章，请你按最
+                早出现的顺序写出所有不在熟词表中的生词。
+
+                分析：trie 树查询单词的应用。先建立 N 个熟词的前缀树，然后按文章的
+                单词一次查询。
+
+            4.  给出一个词典，其中的单词为不良单词。单词均为小写字母。再给出一段文
+                本，文本的每一行也由小写字母构成。判断文本中是否含有任何不良单词。
+                例如，若 rob 是不良单词，那么文本 problem 含有不良单词。
+
+                分析：先用不良单词建立 trie 树，然后过滤文本 (每个单词都在 trie 树
+                上查询，查询的复杂度 O(1), 效率非常高)，这正是`敏感词过滤系统 (或垃
+                圾评论系统)`的原理。
+
+            5.  给你 N 个互不相同的仅由一个单词构成的英文名，让你将它们按字典序从小
+                到大排序输出
+
+                分析：这是 trie 树排序的典型应用，建立 N 个单词的 trie 树，然后线序
+                遍历整个树，就可以达到效果。
+
+        后缀树（suffix tree） -<
+
+        :   后缀树的应用
+
+            可以解决很多字符串的问题
+
+            1.  查找字符串 S1 是否在字符串 S 中
+            2.  指定字符串 S1 在字符串 S 中出现的次数
+            3.  字符串 S 中的最长重复子串
+            4.  2 个字符串的最长公共部分
+
+        数据库系统中的算法 -<
+
+        :   最近开始读《数据库系统实现》这本书，所以就想到把数据库里面用到的数据结构和算法做一个梳理。就有了这些文字。
+
+            电梯算法
+
+            B 树索引
+
+            R 树索引
+
+            位图索引
+
+            一趟算法
+
+            二趟算法
+
+            基于排序
+
+            基于散列
+
+            连接树
+
+            动态规划
+
+            贪婪算法
+
+            分布式并行数据库中的任务分配算法
+
+            并行算法
+
+            数据挖掘
+
+            发现频繁项集的算法
+
+            发现近似商品的算法
+
+            PageRank
+
+            refs and see also
+
+            -   《数据库系统实现》
+            -   《redis 设计与实现》
+
+        refs and see also
+
+        -   [nonstriater/Learn-Algorithms: 算法学习笔记](https://github.com/nonstriater/Learn-Algorithms)
+
+    问答 | 九章算法 :hearts: -<
+
+    :   概率论问题 :hearts: -<
+
+        :   假设有一个硬币，抛出字（背面）和花（正面）的概率都是0.5，而且每次抛硬币
+            与前次结果无关。现在做一个游戏，连续地抛这个硬币，直到连续出现两次字为
+            止，问平均要抛多少次才能结束游戏？注意，一旦连续抛出两个“字”向上游戏就
+            结束了，不用继续抛。
+
+            假设连续抛 2 次正面的期望为 E
+
+            ```
+            E = 0.5 * 0.5 * 2     (第一次抛了正， 第二次也抛了正，则抛两次结束了，次数是两次)
+              + 0.5 * 0.5 * (E + 2)（第一次抛了正， 第二次抛了反，前面无效了，从头开始，那么再出现两个正面，次数是 E+2）
+              + 0.5 * (E + 1)      (第一次抛了反， 前面无效了，从头开始，那么再出现两个正面次数是 E+1）
+            ```
+
+            E = 6
+
+            同理可以推算连续三个正面，连续反正，正反，等等所有情况都可以计算。
+
+            >   谢谢助教，
+            >
+            >   比如三个正面应该就是这四种情况分析了把？(反正以遇到反就要从头开始弄了)
+            >
+            >   -   1) 正正正
+            >   -   2) 正正反 + E
+            >   -   3) 正反 + E
+            >   -   4) 反 + E
+
+            同理算一样连续三个正面的期望 E
+
+            ```
+            E = 0.5 * 0.5 * 0.5 * 3
+              + 0.5 * 0.5 * 0.5 * (E + 3)
+              + 0.5 * 0.5 + (E + 2)
+              + 0.5 * (E + 1)
+            ```
+
+            得到 E = 14，三个连续正面的期望是 14 次。
+
+            refs and see also
+
+            -   [抛硬币 直到连续出现两次字为止 - VergiL Wang的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/wangran51/article/details/8882088)
+            -   [概率论问题](http://www.jiuzhang.com/qa/2125/){.hearts}
+
+        怎么找中小公司校招的职位？  -<
+
+        :   大公司可以去他们网站投，不过那些不知名的中小公司的校招职位怎么找呢？Indeed 之类的上面搜什么关键词？
+
+            >   angellist
+
+        【置顶】 为什么不需要学习贪心法 -<
+
+        :   因此，贪心法可以说，是一种“目光短浅”的算法。一般在算法问题中，可以使用
+            贪心算法的问题，其贪心策略往往都比较复杂，一般人是想不到的。而你容易想
+            到的那些贪心策略，往往都是错的。
+
+            面试基本不会考 -<
+
+            :   贪心法的问题，面试基本不会考，因为等同于考智力题或者是背诵题。一个面试官想
+                要自己凭空创造出一个面试题是使用贪心算法的，是非常困难的。（参见 LintCode 上
+                的贪心算法的题目所占比例可知）。既然如此，如果面试中被问到了贪心算法，那么
+                一定是一道经典的贪心问题，这类问题，我们可以称之为背诵题。因为大多数同学
+                （除了智商很高，或者有算法竞赛经历的那一批），是不可能在面试的时候想得出解
+                法的。
+
+                举几个例子：Gas Station (http://www.lintcode.com/en/problem/gas-station/)，
+                这个题的做法是，从任意站点出发，走一圈，找到这一圈里剩余Gas最少的那一站，然
+                后从这一站出发走一圈，如果在这一站出发可以顺利走完全程，那么就可以行，否则
+                就不可行。像这样的算法，是需要进行数学证明来证明其正确性的，面试官是没有能
+                力出这样的面试题的。
+
+                从另外一个角度来说，贪心算法的题，对于程序的实现能力要求并不高，也违背了公
+                司通过算法题面试主要是希望考察大家的程序实现能力这一点。所以面试官和公司也
+                都不倾向于将贪心算法作为面试的算法问题。
+
+            没有通用性 -<
+
+            :   二分法，动态规划算法，分治算法，搜索算法等等，很多的算法都是具有通用性的。
+                也就是说，在题目 A 里，你用了这个算法，在其他的题目 B 里，你可能完全可以用一样
+                的算法和思路去解决。
+
+                而贪心法，他不是“一个算法”，而是“一类算法”的统称。所以基本的情况就是，你在
+                题目A里用了某个贪心算法解决了这个问题，然后这个题中用到的贪心法，永远也找不
+                到第二个题用类似的方法来解决。
+
+            贪心是动态规划的子集么? -<
+
+            :   只要问题的解决方案有最优子结构，并且无后效性就可以认为是动态规划。
+
+                但是你这样问并没有什么意义，因为动态规划真正的目的还是依赖空间换时间，而贪心策略不是。
+
+                举个简单的例子来说，求单源最短路的 Dijkstra 算法，你可以认为它是一个贪心算
+                法，因为根据定义（Di 表示源点到节点 i 的最短路长度）：
+
+                Dj = min{ Dj, Di+ Matrix[i][j] }
+
+                它每次迭代都很无脑地选一条最近的路出发，所以认为是一个贪心策略。但是它又有
+                效地将重叠的最优子结构问题用一个辅助数组 D 存储了起来，并且没有后效性，所以
+                也是一个动态规划算法。
+
+            如何理解动态规划？ :TODO: -<
+
+            :   TODO
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2100/)
+            -   [（无权限）几个必须“背诵”的贪心算法题](http://www.jiuzhang.com/qa/2099/)
+            -   [贪心是动态规划的子集么? - 知乎](https://www.zhihu.com/question/34414760)
+            -   [如何理解动态规划？ - 知乎](https://www.zhihu.com/question/39948290)
+            -   [第10讲 贪心算法的例子_图文_百度文库](http://wenku.baidu.com/view/f20777a7b0717fd5370cdc05.html)
+            -   [贪心算法如何体现在霍夫曼编码中？ - 知乎](https://www.zhihu.com/question/22112710?sort=created)
+            -   [【算法学习笔记】25.贪心法 均分纸牌问题的分析 - 雨尘之林 - 博客园](http://www.cnblogs.com/yuchenlin/p/4382027.html)
+            -   [均分纸牌问题为什么可以用贪心法得到全局最优解？ - 知乎](https://www.zhihu.com/question/27883948)
+            -   [贪心算法及几个经典例子 - a925907195的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/a925907195/article/details/41314549)
+
+        resume 上需要写 objective 吗  -<
+
+        :   听九章的讲座说要写，但是九章给的简历里又没有 objective。是不是转专业的必需写？
+
+            **要。**
+
+        多个面试经验贴汇总 -<
+
+        :   -   第一档次: Dropbox, Square, Pinterest, Facebook, LinkedIn, Google, Twitter, Apple
+            -   第二档次: Zynga, Yelp, Netflix, Skype, VMWare, Salesforce, Groupon, Paypal, Evernote, Box.net, Quora, A9.com, 126Lab, Palantir
+            -   第三档次: Oracle, EMC, eBay, Intuit, NetApp, NetSuite, Yahoo, Adobe, Autodesk, Symantec, Riverbed, Quantcast, Concur, Aster Data, Citrix, EA等
+
+                算上湾区以外公司， Amazon, Micriosoft 可以排在第二档次 Expedia,
+                RedHat, RackSpace, Akamai, Bloomberg 等可以排在第三档次。
+
+                Dropbox 创始人 Drew Houston 在 2013 年 MIT 的毕业典礼上讲的很好：
+                “世界上只有一个好莱坞，一个硅谷，如果你想待在业界最好的圈子，那就搬
+                家！”我被他说服，投简历的时候瞄准了 FLGT(业界最火的四家公司，
+                Facebook, LinkedIn, Google, Twitter) 和一众火爆的初创公司。
+
+                最近细读未来公司 LinkedIn 的创始人 Reid Hoffman 的新书 The Start-up
+                of You，里面讲到求职三片拼图：你的资源 / 能力（your assets），你的
+                志向 / 价值观（your aspirations/values) 和市场现实（market
+                reality），共同组成你的核心竞争力。所以我去尝试互联网大公司，十投八
+                中，但是其他的努力很多都浪费了，如果当时早就看了这本书多好。关于这
+                本书和它的作者，以后会写另一篇文章详述，这里先隆重推荐给大家。
+
+            最后来一点干货吧，给本专业的人看 -<
+
+            :   Google 题目： -<
+
+                :   1. MST of a all connected graph. Need to use Fibo heap to reduce complexity.
+                    2. Game of Life, one transition (sub O(n^2) solution).
+                    3. String compressor that turns 123abkkkkc to 123ab5xkc. Decompressor is already written and must remain unchanged. (messy code)
+                    4. Youtube mash design, how to do a video version of Mark’s FaceMash.
+
+                    题全都没见过，rej
+
+                Facebook 题目： -<
+
+                :   电话
+
+                    1. Big Integer multiplication. (Optimization required, how to do 8 digits*8 digits, etc).
+                    2. Binary tree level order traversal. (leetcode original)
+                    3. 也是 leetcode 原题，不记得了
+
+                    Onsite
+
+                    1. Given 1->a, 2->b … 26->z. 126 -> az or lf or abf (bfs/dfs not accepted, need to use DP or some tricky method)
+                    2. Binary tree serialization/de-serialization (这道题pinterest也问了）
+                    3. Permutation with duplicate
+                    4. Range maximum query, pre-processing in O(n) and query in O(1)
+
+                    题答少了一道，rej
+
+            其他重要题目和技巧：
+
+            :   2Sum 3Sum, rotate LinkedList, minimum path sum, combinations
+
+                注重练习 tree 的 recursion 搜索, dp, greedy, two/three pointers, stack.
+                谷歌的题是很难刷到的，要靠运气，其他很多公司（尤其是亚马逊为首）都可以
+                靠刷题大幅提高胜算。 资源：leetcode.com, geeksforgeeks.com,
+                glassdoor.com, CC150
+
+                BTW，今年几家的硕士 package 都差不多，大约是 115k base + 160-170k （RSU
+                股票分4 年 + signing + reloc)，如果没有 competing offer 比较难negotiate。
+                我的 O 家offer 是 114k base + 4000 股期权分四年 + 15k signing + 10k
+                reloc，在等 LinkedIn发 official offer 之前，成功的想办法把 deadline 延
+                长了两次，变成 Standing offer，如果不这么干，他们是愿意涨一点 base 的。
+
+                按照我个人的理解，学生被大公司分两类，第一类是“名校 GPA3.8 以上”的，第
+                二类是else。作为 else 的代表，我不得不说，GPA3.8 以上真的很难，第一类们
+                确实确实有特权先被考虑，但本文正是献给广大 else 们的。
+
+                面试这个东西，其实是没法准备的，全靠经验。我没有哪个问题在第一次被问的
+                时候就能答的很完美，我相信谁也不能。从去年 6 月跟人家介绍自己都要磕磕巴
+                巴，到现在基本我虐面试官，大大小小的电面一百来次，onsite 十来次，磨厚的
+                不只是嘴皮，还有脸皮。其实面试的最高奥义就是厚着脸皮吹牛逼，并用丰富的
+                吹牛逼经验保证不被拆穿即可。当然了，知识还是要有一些，毕竟是技术职位，
+                而且要对 Coding 有一腔热情。当然了，还要习惯每天吃 subway。
+
+                在这里我想说一说老中，我所说的老中是指现在 40-50 岁，30 多岁的时候从国
+                内直接跳槽过来的中国软工，错了，是 我们这儿 软工。我去 qualcomm 和
+                amazon onsite 都是栽到了老中手里。我现在也不明白为什么只有中国人看不上
+                中国人，而人家阿三都是只帮阿三。我在 qualcomm 最后一个面的老中问我，有
+                没有学过 OS，我说我自学的。他说你没有做过那些 project 也说你学过？我说
+                你可以问啊，看看我会不会。结果这 B 问了我一堆我回来 google 都查不到的鬼
+                问题，还问我 how to simulate garbage collector in C? 看我不会又得意洋洋
+                的反问我，你没学过 OS 还想找 SWE 的工作? 我就说我的课都是 application
+                level 的。他操着浓重的不知哪的方言腔说了一句让我一辈子都忘不了的话：If
+                I wanna build a applicaiton, I will go to hign school and ask them "Who
+                wanna do some funny stuff?". Why I hire you? 我擦，我当时真想一口大浓痰
+                吐他脸上然后大骂我去你大爷的。但是我还是忍住了，虽然我从他眼睛里也能看
+                到我眼里冒出的火光。Amazon 也是一样的，在其他面试官都被我折服之后，他又
+                问我为什么 EE 的不好好学 EE，CS 的基础课你都没学过云云.... 我当时以为我
+                面的可以，因为他的题被我做完了，我还挑了他一个错误。事后我感觉挑他的错
+                这一下让他决定毙我的，要不然，就是和我竞争的人过于 NB 了。
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/788/)
+
+        美团 2015 校招面经 - 软件研发岗 (拿到 offer) -<
+
+        :   refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/751/)
+
+        Linkedin 面经合集 -<
+
+        :   面经 1 -<
+
+            :   然后就是开始做题，两个题目。
+
+                第一个是两个单词最短距离，在版上看到很多人都说过这个题目，应该是L家经常面的。
+                本来以为只要实现一个函数，哪里知道是实现两个函数，第一个是做求最短距离的准
+                备工作，实现类的初始化；第二个才是真正的求最短距离的函数。写第二个函数的时
+                候，还忘记判断单词是否在字典中出现过，幸好面试官有提醒。
+
+                第二题就是 leetcode 上的全排列，没有重复元素的。
+
+            面经 2 -<
+
+            :   第二题也比较常见,CC150 原题, 找俩字符串在一段文字中最近的距离:
+
+                直接用 CC150 解法, 用两个 index 比较得出 Math.abs(index1-index2), update 最小距
+                离. 写好后提示要是 cat dog cloud dog dog dog......, 即后面有 million 个 dog, 是
+                否不用比较整个文章. 回答说用 map 提早存储每个单词的 index, 然后在 map 中找到单
+                词比较, 在讨论后最坏情况下复杂度也是 O(n).
+
+                由于没有时间写代码了所以这样结速了.
+
+            面经 3 -<
+
+            :   就一道题，经典的求minimum word distance. 但是一开始有挺多有关ML的细节题
+
+                实现 BlockingQueue 的 take() 和 put()
+
+                ```cpp
+                public interface BlockingQueue<T>
+                {
+                    /** Retrieve and remove the head of the queue, waiting if no elements
+                    are present. */
+
+                    T take();
+
+                    /** Add the given element to the end of the queue, waiting if necessary
+                    for space to become available. */
+                    void put (T obj);
+                }
+                ```
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/747/)
+
+        Google 15 Fall SDE I 实习生电面 -<
+
+        :   refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/749/)
+
+        G 家面经题，矩阵最小 -<
+
+        :   refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/344/)
+
+        Compress String :hearts: -<
+
+        :   给一个 string，要求压缩后最短。比如说对于 aaaa，`4[a]` 肯定要比 `2[aa]` 要
+            好。我除了暴力枚举 substring 以外想不到任何其他方法，请问助教有没有其他想法？
+
+            本问题可以简化成 S = a[substring], 求最大的a。
+
+            如果学过 KMP 算法的，求出 S 的 next 数组。
 
             ```cpp
-            public interface BlockingQueue<T>
-            {
-                /** Retrieve and remove the head of the queue, waiting if no elements
-                are present. */
+            n = len(S)
+                j = next[n]
+            while   n % (n - j) != 0:
+                    j = next[j]
 
-                T take();
+                a = n / (n - j)
+            ```
 
-                /** Add the given element to the end of the queue, waiting if necessary
-                for space to become available. */
-                void put (T obj);
+            这是由 next 数组的性质决定的，可以先学一下 KMP 算法。
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1439/#)
+
+        无实习开源经验 GPA 不高的小硕的 FLAGBR Offer 经  -<
+
+        :   拿了 FLAGR 的 offer，B 家主动 cancel 了 onsite。非常幸运，面了的公司都
+            拿了 offer，最终去了最喜欢的 F 家，多要了一点 sign on，因为穷的太久了，
+            急需点钱来玩。对于package 来说，基本都是标准 package，开始的时候 F 最多，
+            后来 G 给加了不少，最终拒绝G 的时候还要再给加，感觉 G 很喜欢抢 F 的人啊！
+            钱多钱少不太看重，反正也不准备长期做码农。自己感觉的 hiring bar 的排序：
+            facebook=linkedin>google>amazon, 当然，难度是随着时间改变的，招人多的时
+            候容易，不怎么招人的时候就很难。
+
+            Facebook
+
+            签了 offer，就不透露题了，总之感觉 facebook 的 bar 最高，面试题的难度不
+            同人差别很大，题目简单不一定就有 offer，题目难也未必没 offer，不好说。
+
+            ```
+            第一题：贪心
+
+                Given a number, can you remove k digits from the number so that the new
+                formatted number is smallest possible.
+                input: n = 1432219, k = 3
+                output: 1219
+
+            第二题：DP
+
+                BT(binary tree), want to find the LIS(largest independent set) of the BT
+                LIS: if the current node is in the set, then its chilren should not be in
+                the set. So that the set has the largest number of nodes.
+
+            电面2：
+
+                第一题：Median of Two Sorted Arrays
+                第二题：DP，一个二维数组，元素是 0 或 1，找出最大的由 1 构成的"X"形状
+
+            onsite:
+
+            1. print all subsets
+               system design(N topics, publishers, subscribers, scalability, distributed)
+               the most frequent urls in the past minute, hour, day
+            2. manager interview
+               code review
+            3. shortest path between two nodes of a tree(no parent pointer)
+            4. machine learning(不懂)
+            5. machine learning(不懂)
+
+            Rocket Fuel是自己投的，因为在网上看到code challenge挺有意思。onsite的时候了
+            解到他家最近要搬进新楼里，应该招人很多，大家可以试一试，题目不简单
+
+            Google:
+
+            电面：
+            remove duplicate lines of a file(what if the file is very large which could
+            not be held in the main memory)
+
+            开关灯问题
+            Trapping Rain Water(leetcode)
+            sometimes a program works, sometimes it does not. Possible reasons
+
+            onsite:
+            1. clone directed graph(recursive, non-recursive)
+               longest common suffix of two linked list
+               data structure design
+            2. how many (m, n) pairs such that m*m+n*n<N
+               线索化二叉树
+            3. 判断一个点是否在一个凸多边形内, O(n), O(logn)
+            4. group items(BFS)
+               MapReduce(filter a collection of documents, the words which occur more
+            than 5000 times)
+
+            google 面的不好，因为实在是太累了，幸运的是还是给 offer 了。
+
+            linkedin
+
+            电面 1：
+
+            第一题：给一个 words list, 输入两个单词，找出这两个单词在 list 中的最近距离 (先
+            写了一个没有预处理的，又写了一个预处理建 index 的)
+            ['green', 'blue', 'orange', 'purple', 'green']  f.distance(list, 'blue', ' green') # output 1
+
+            第二题：类似 binary search 的一题，要注意 boundary case
+
+            电面2：
+
+            binary tree level order traversal, 写了三种方法。。。(BFS 用 arraylist，类似 DFS，BFS 用 queue)
+
+            onsite:
+            1. romanToInt, intToRoman,
+               N points, m nearst ones
+            2. 双向链表，每个node可能都有父节点和子节点，每个父子节点又是一个链表。把它拍扁，顺序随意，O(1)空间复杂度
+               edit distance
+            3. system deisign: design amazon product page
+            4. project presentation
+            5. group fit
+
+            LinkedIn 很不错，食堂很好吃，并没有传说中的那么多印度人，国人挺多的。听 hr 说
+            linkedin 今年要扩大技术团队，大家可以投一下
+            ```
+
+            找工作经验：
+
+            -   不要把战线拉的太长，2 个月最好，时间久了就没有激情了，效果反倒不好。准备的时候要全力以赴，concentration
+            -   安排面试最好不要把所有公司放在同一周，实在是太累了，最好是两个 onsite 之间间隔两天
+            -   对于男生来说，准备面试无聊的时候可以做做俯卧撑和卷腹，即使拿不到 offer 还能练出胸肌和腹肌~
+            -   CC150 随便看看就行了，leetcode 要“好好”做 (融会贯通)，面试一家公司之前看看相应的面经，足够了
+            -   如果不是搞 acm 的，leetcode 至少要刷一遍再去面 flag。刷几遍不关键，关键是要有提高
+            -   提高两方面：
+                1.  coding 能力：会做的题能写出 bug free，简洁可读性好的代码
+                2.  算法，解决问题的能力：没见过的题，一步一步想到面试官想要的方法
+            -   coding 能力：写的程序越短越好，思路清楚，容易看懂；可以写多个函数，可读性好
+                很多，写起来也容易；争取一遍写完就 OK，不要改来改去；我感觉 coding 能力的重
+                要性被大家严重低估了，很多人只关心算法，其实能把程序写的干净漂亮才是最关键的。
+            -   算法，解决问题的能力：即使见过的题也要一点一点的分析，面试官看重的是分析和
+                交流的过程，而不是最终的 solution；不要只知道多做题，要多思考，这个和高考一
+                样，翻来覆去就是几种类型的题，按照类型来做，很快就熟练了
+            -   和面试官聊的开心很关键，要表现出积极，乐观，阳光，热爱生活，让面试官 enjoy
+                面试过程，喜欢和你一起工作
+            -   不要抱怨，不要给自己找借口
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/794/)
+
+        Facebook onsite 面经 -<
+
+        :   第一轮 -<
+
+            :   老印，上来一道题，讲了半天我才弄明白。类似手机按键，比如手机按键上 2 对应
+                ‘abc’, 然后根据‘abc’的顺序，打出 a 要按一下键，b 要按两下键，c 要按三下键。给你
+                两个数组: `keySize[]` 每个 element 代表能存放的最多 character，`frequency[]` 每个
+                element 代表每个 character 出现的频率。要算出最少的按键次数。
+
+                Follow up 1: 怎么能提高效率。
+
+                Follup up 2: 如果要求 character 放在按键上的顺序是 order 的，类似于手机 shang 的字母按键，这样最少按键次数是多少。
+
+            第二轮 -<
+
+            :   还是个烙印： 第一题：rotated sorted array search. 让后要求 cut branch。 第二
+                题： sort an array contains only 3 element，类似 leetcode 的 sort colors。
+                follow up: what if there are N element? 没想出来， hint 是可以使用 extra memery。
+
+            第三轮 -<
+
+            :   简历问题为主，问了一道 code： check the first bad version.
+
+                结果还是跪了。问题应该出在第一轮面试上，code 写了好久才写出来，follow up 也没答上。其实题目也不算很难，大家好运吧。
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/760/)
+
+        微软 ots，已挂，求分析一道题 -<
+
+        :   最近做微软的 OTS，一共三道题。
+
+            1.  给你一个时钟，返回一个 palindrome 的时间。比如 1:01，12:21
+            2.  排序 2d 数列，返回负数的数量。
+            3.  碰到一题算是系统设计题吧。只有两三句话：用熟悉的语言写一个 email 的 api 服
+                务。写出实现的场景以及需要用到哪些参数。
+
+            已挂，估计是挂在第三题。前两题都做过差不多的。第三题不是很懂题目要我做什么，因
+            为是在线面试，没法和面试官交流。不是很清楚需要写什么。。。求大家一起讨论下。我
+            用java写了个几个接口。然后今天接到通知面试挂了。不是很清楚应该怎么做这种题。我
+            当时代码大概如下
+
+            比如 我实现了 get email 的 api，但不知道具体 api 里面该写些什么。需要连数据库还是啥的？
+
+            ```cpp
+            class user {
+                int userID;
+                String userName;
+            }
+
+            class email {
+                int emailID;
+                String emailAddress;
+                String subject;
+                Date timestamp;
+                String content;
+                int from_userID;
+                int to_userID;
+            }
+
+            public List getEmail (int userID) {
+                return db.getEmail(userID)
+            }
+
+            public List getEmail (int userID, Date startDate, Date endDate) {
+                return db.getEmail(userID, startDate, endDate);
+            }
+
+            public List getEmail (int userID, int getEmailNum) {
+                return db.getEmail(userID, getEmailNum);
             }
             ```
 
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/747/)
-
-    Google 15 Fall SDE I 实习生电面 -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/749/)
-
-    G 家面经题，矩阵最小 -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/344/)
-
-    Compress String :hearts: -<
-
-    :   给一个 string，要求压缩后最短。比如说对于 aaaa，`4[a]` 肯定要比 `2[aa]` 要
-        好。我除了暴力枚举 substring 以外想不到任何其他方法，请问助教有没有其他想法？
-
-        本问题可以简化成 S = a[substring], 求最大的a。
-
-        如果学过 KMP 算法的，求出 S 的 next 数组。
-
-        ```cpp
-        n = len(S)
-            j = next[n]
-        while   n % (n - j) != 0:
-                j = next[j]
-
-            a = n / (n - j)
-        ```
-
-        这是由 next 数组的性质决定的，可以先学一下 KMP 算法。
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1439/#)
-
-    无实习开源经验 GPA 不高的小硕的 FLAGBR Offer 经  -<
-
-    :   拿了 FLAGR 的 offer，B 家主动 cancel 了 onsite。非常幸运，面了的公司都
-        拿了 offer，最终去了最喜欢的 F 家，多要了一点 sign on，因为穷的太久了，
-        急需点钱来玩。对于package 来说，基本都是标准 package，开始的时候 F 最多，
-        后来 G 给加了不少，最终拒绝G 的时候还要再给加，感觉 G 很喜欢抢 F 的人啊！
-        钱多钱少不太看重，反正也不准备长期做码农。自己感觉的 hiring bar 的排序：
-        facebook=linkedin>google>amazon, 当然，难度是随着时间改变的，招人多的时
-        候容易，不怎么招人的时候就很难。
-
-        Facebook
-
-        签了 offer，就不透露题了，总之感觉 facebook 的 bar 最高，面试题的难度不
-        同人差别很大，题目简单不一定就有 offer，题目难也未必没 offer，不好说。
-
-        ```
-        第一题：贪心
-
-            Given a number, can you remove k digits from the number so that the new
-            formatted number is smallest possible.
-            input: n = 1432219, k = 3
-            output: 1219
-
-        第二题：DP
-
-            BT(binary tree), want to find the LIS(largest independent set) of the BT
-            LIS: if the current node is in the set, then its chilren should not be in
-            the set. So that the set has the largest number of nodes.
-
-        电面2：
-
-            第一题：Median of Two Sorted Arrays
-            第二题：DP，一个二维数组，元素是 0 或 1，找出最大的由 1 构成的"X"形状
-
-        onsite:
-
-        1. print all subsets
-           system design(N topics, publishers, subscribers, scalability, distributed)
-           the most frequent urls in the past minute, hour, day
-        2. manager interview
-           code review
-        3. shortest path between two nodes of a tree(no parent pointer)
-        4. machine learning(不懂)
-        5. machine learning(不懂)
-
-        Rocket Fuel是自己投的，因为在网上看到code challenge挺有意思。onsite的时候了
-        解到他家最近要搬进新楼里，应该招人很多，大家可以试一试，题目不简单
-
-        Google:
-
-        电面：
-        remove duplicate lines of a file(what if the file is very large which could
-        not be held in the main memory)
-
-        开关灯问题
-        Trapping Rain Water(leetcode)
-        sometimes a program works, sometimes it does not. Possible reasons
-
-        onsite:
-        1. clone directed graph(recursive, non-recursive)
-           longest common suffix of two linked list
-           data structure design
-        2. how many (m, n) pairs such that m*m+n*n<N
-           线索化二叉树
-        3. 判断一个点是否在一个凸多边形内, O(n), O(logn)
-        4. group items(BFS)
-           MapReduce(filter a collection of documents, the words which occur more
-        than 5000 times)
-
-        google 面的不好，因为实在是太累了，幸运的是还是给 offer 了。
-
-        linkedin
-
-        电面 1：
-
-        第一题：给一个 words list, 输入两个单词，找出这两个单词在 list 中的最近距离 (先
-        写了一个没有预处理的，又写了一个预处理建 index 的)
-        ['green', 'blue', 'orange', 'purple', 'green']  f.distance(list, 'blue', ' green') # output 1
-
-        第二题：类似 binary search 的一题，要注意 boundary case
-
-        电面2：
-
-        binary tree level order traversal, 写了三种方法。。。(BFS 用 arraylist，类似 DFS，BFS 用 queue)
-
-        onsite:
-        1. romanToInt, intToRoman,
-           N points, m nearst ones
-        2. 双向链表，每个node可能都有父节点和子节点，每个父子节点又是一个链表。把它拍扁，顺序随意，O(1)空间复杂度
-           edit distance
-        3. system deisign: design amazon product page
-        4. project presentation
-        5. group fit
-
-        LinkedIn 很不错，食堂很好吃，并没有传说中的那么多印度人，国人挺多的。听 hr 说
-        linkedin 今年要扩大技术团队，大家可以投一下
-        ```
-
-        找工作经验：
-
-        -   不要把战线拉的太长，2 个月最好，时间久了就没有激情了，效果反倒不好。准备的时候要全力以赴，concentration
-        -   安排面试最好不要把所有公司放在同一周，实在是太累了，最好是两个 onsite 之间间隔两天
-        -   对于男生来说，准备面试无聊的时候可以做做俯卧撑和卷腹，即使拿不到 offer 还能练出胸肌和腹肌~
-        -   CC150 随便看看就行了，leetcode 要“好好”做 (融会贯通)，面试一家公司之前看看相应的面经，足够了
-        -   如果不是搞 acm 的，leetcode 至少要刷一遍再去面 flag。刷几遍不关键，关键是要有提高
-        -   提高两方面：
-            1.  coding 能力：会做的题能写出 bug free，简洁可读性好的代码
-            2.  算法，解决问题的能力：没见过的题，一步一步想到面试官想要的方法
-        -   coding 能力：写的程序越短越好，思路清楚，容易看懂；可以写多个函数，可读性好
-            很多，写起来也容易；争取一遍写完就 OK，不要改来改去；我感觉 coding 能力的重
-            要性被大家严重低估了，很多人只关心算法，其实能把程序写的干净漂亮才是最关键的。
-        -   算法，解决问题的能力：即使见过的题也要一点一点的分析，面试官看重的是分析和
-            交流的过程，而不是最终的 solution；不要只知道多做题，要多思考，这个和高考一
-            样，翻来覆去就是几种类型的题，按照类型来做，很快就熟练了
-        -   和面试官聊的开心很关键，要表现出积极，乐观，阳光，热爱生活，让面试官 enjoy
-            面试过程，喜欢和你一起工作
-        -   不要抱怨，不要给自己找借口
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/794/)
-
-    Facebook onsite 面经 -<
-
-    :   第一轮 -<
-
-        :   老印，上来一道题，讲了半天我才弄明白。类似手机按键，比如手机按键上 2 对应
-            ‘abc’, 然后根据‘abc’的顺序，打出 a 要按一下键，b 要按两下键，c 要按三下键。给你
-            两个数组: `keySize[]` 每个 element 代表能存放的最多 character，`frequency[]` 每个
-            element 代表每个 character 出现的频率。要算出最少的按键次数。
-
-            Follow up 1: 怎么能提高效率。
-
-            Follup up 2: 如果要求 character 放在按键上的顺序是 order 的，类似于手机 shang 的字母按键，这样最少按键次数是多少。
-
-        第二轮 -<
-
-        :   还是个烙印： 第一题：rotated sorted array search. 让后要求 cut branch。 第二
-            题： sort an array contains only 3 element，类似 leetcode 的 sort colors。
-            follow up: what if there are N element? 没想出来， hint 是可以使用 extra memery。
-
-        第三轮 -<
-
-        :   简历问题为主，问了一道 code： check the first bad version.
-
-            结果还是跪了。问题应该出在第一轮面试上，code 写了好久才写出来，follow up 也没答上。其实题目也不算很难，大家好运吧。
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/760/)
-
-    微软 ots，已挂，求分析一道题 -<
-
-    :   最近做微软的 OTS，一共三道题。
-
-        1.  给你一个时钟，返回一个 palindrome 的时间。比如 1:01，12:21
-        2.  排序 2d 数列，返回负数的数量。
-        3.  碰到一题算是系统设计题吧。只有两三句话：用熟悉的语言写一个 email 的 api 服
-            务。写出实现的场景以及需要用到哪些参数。
-
-        已挂，估计是挂在第三题。前两题都做过差不多的。第三题不是很懂题目要我做什么，因
-        为是在线面试，没法和面试官交流。不是很清楚需要写什么。。。求大家一起讨论下。我
-        用java写了个几个接口。然后今天接到通知面试挂了。不是很清楚应该怎么做这种题。我
-        当时代码大概如下
-
-        比如 我实现了 get email 的 api，但不知道具体 api 里面该写些什么。需要连数据库还是啥的？
-
-        ```cpp
-        class user {
-            int userID;
-            String userName;
-        }
-
-        class email {
-            int emailID;
-            String emailAddress;
-            String subject;
-            Date timestamp;
-            String content;
-            int from_userID;
-            int to_userID;
-        }
-
-        public List getEmail (int userID) {
-            return db.getEmail(userID)
-        }
-
-        public List getEmail (int userID, Date startDate, Date endDate) {
-            return db.getEmail(userID, startDate, endDate);
-        }
-
-        public List getEmail (int userID, int getEmailNum) {
-            return db.getEmail(userID, getEmailNum);
-        }
-        ```
-
-        自己看着感觉都不怎么符合要求。能有人指点一下正确写法改如何写吗？谢谢了！
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1861/)
-
-    第一堂课 Design Twitter -<
-
-    :   存在 NoSQL DB 的 Tweet 是每一个 Tweet 对应一行吗，还是每个用户对应一行？
-        这样的话 row key 是什么呢？是 user_id？如果是，然后 column key 是 tweet
-        id，因而可以支持范围查找？如果是范围查找的话，timeline 的请求为什么需要
-        n 次的 DB 访问时间（mentioned in p41 in the slides）？
-
-        每个用户一行，然后有无限列。
-
-        ```
-        row_key = user_id
-        column_key 可以是tweet_id，也可以是一堆数据的组合，比如tweet_id + timestamp。
-        column_key 可以支持范围查找。
-        ```
-
-        P41 这里说的是，当你需要构建一个 NewsFeed 的时候（你关注的 N 个好友的所
-        有新鲜事汇总），需要 N 次 DB 请求去分别请求每个好友的最近 100 条 tweets
-        然后再归并到一起。请求某一个用户的 timeline 是一次 Query，请求 N 个用户，
-        就是 N 次。这里的 N 说的是你的好友个数。
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1914/)
-
-    应届生国内找国外工作求职网站有哪些 -<
-
-    :   我是一名国内的应届硕士毕业生，九月要开始投简历了。问一下，想直接找国外工作
-        的话，有哪些好的网站可以推荐？目前只看到了 google 有正式的全球招聘途径，其
-        它公司的如何能看到？linkedin 等上面的职位是不是都是针对有在美国工作资格的才
-        能申请？
-
-        <http://stackoverflow.com/jobs?med=site-ui&ref=jobs-tab>
-
-        谢谢啦，请问 VISA SPONSOR 是不是指可以提供抽签证的机会？
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1945/)
-
-    yahoo 面试经验 -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/778/)
-
-    腾讯面经，拿到 offer -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/733/)
-
-    东邪老师第二节课 Friendship 相关的问题 -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1878/)
-
-    剩下不到一個月時間 interview 請問怎麼準備? -<
-
-    :   已經刷題一陣子. 但是一些比較難的和 graph, DP 都還不行, 有什麼好建議?
-
-        那就不要看 Graph 和 DP 这类考得很少的问题。多看 DFS / BFS 这类问题。
-
-    Uber 面试题 房屋窃贼 House Robber II :hearts: -<
-
-    :   小偷找到了一个新的偷盗地点，这个地区的房子组成了一个环，如果小偷同时偷
-        窃了两个直接相邻的房子，就会触发警报器。在不触发警报器的情况下，求小偷
-        可以抢到的最多的 money。
-
-        解题思路
-
-        :   本题是 House Robber 的 follow up。
-
-            House Robber-i 中房子排列成一个序列，用动态规划就可以，上过《九章算法强化班》的同学应该都已经会做啦。
-
-            按照课堂上讲过的动态规划四要素说说 dp 状态的定义：
-
-            -   df[i] 表示前 i 个房子能获得的最大价值，
-            -   dp[i] = max(dp[i-2] + nums[i], dp[i-1])。
-
-            而在本题中，房子难点在于排列成一个环。对于环上的问题，有一个小技巧就是就是拆环：**把环展成一条直线**。
-
-            本题中，可以先假设房子排成一条直线，从 0 到 n-1，那么我们如果用原来的动态规划算
-            法求得的最优解可能同时取到房子 0 和房子 n-1，而因为 0 和 n-1 在本题中是连在一起
-            的，不能同时取到。也就是说，我们要分两种情况：要么不偷房子 0（此时房子 n-1 是否
-            偷未知），要么不偷房子 n-1。基于这两种情况，我们对不含房子 0 的序列做一次动态规
-            划，对不含房子 n-1 的序列做一次动态规划，取较大值就可。
-
-            参考程序 <http://www.jiuzhang.com/solutions/house-robber-ii/>
-
-            面试官角度分析：本题是一个 follow up，在解决 robber-i 的情况下，对于环的特殊性给出解决方法，实现 O(n) 算法可以达到 hire。
-
-            LC 相关联系题：https://lintcode.com/problems/house-robber/
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1767/)
-
-    怎么准备多线程的问题 -<
-
-    :   最近好多朋友面试都被问到了线程的问题，比如让你写一个比较简单的字符
-        串处理的程序，可能涉及到哈希表之类的，然后紧接着问你如果多线程怎么
-        实现？或者问你线程如何才能安全。
-
-        因为关于线程只了解生产者消费者，平时工作中用的也不多，请问有关于最
-        近频繁出现的多线程问题应该怎么准备？有什么材料或者推荐么？
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1280/)
-
-    微软面经 -<
-
-    :   这家面试轮数较多，从学校开始，面了很多经典问题。数组里找最大和的序列，
-        何时买卖股票，两个链表是否有公共 Node，二分查找（数组很大，你需要考虑
-        sort 成本，什么时候 sort 才有意义， 比如你 query 的次数很多很多，那么一
-        次性sort 一下是有必要的），二位已排序矩阵中如何快速查找一个数，计算泰勒
-        展开，计算 `N*M` 矩阵的所有子矩阵。微软很注重写完 code 以后测试，一定要留
-        些时间给测试，一般来说白板上写的 code 小毛病都会有好几处，通过自己测试
-        是可以改过来的。
-
-        一些操作系统原理，我不会，选择不作答，感觉没甚影响。
-
-        我因为长时间不用 C++，可以说目前已经不会 C++，只会 JAVA，起初很虚，但是
-        后来微软对不编程语言要求很松，重要的是解释问题要解释得很清楚。所有面试
-        官都思路很清晰，【你解释不清楚，他会直接打断你，不要想着糊弄】。如果不
-        清楚，直接承认，这是我从已经拿到全职的朋友那儿听来的经验，算是微软的风格吧。
-
-        【时间复杂度，当然，每一步操作都会问你时间复杂度】，逃不掉的。对哈希表，
-        有一个面试官表现出明显的不喜欢，这时候我换思路了，虽然那道题目哈希表做
-        很容易，但是没办法，人家是面试官。
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/796/)
-
-    面试时如何有条理的组织 test case 啊  -<
-
-    :   Test case 有以下几种
-
-        1.  边界数据，比如 n = 0 这些边界情况
-        2.  特殊数据，比如链表中我们删节点需要删除 head 的时候
-        3.  大数据，一般测试算法效率
-
-        面试的时候，我们只需要给出边界数据，特殊数据，和一些普通数据即可。
-
-    豆瓣面试题 :分段筒排: -<
-
-    :   给定 10G 个无符号整数 (32 位)，如何能够最快地在一台内存为 2G 的机器上找
-        到这些数据中的中位数 (比一半数据大，比另一半数据小)，这个感觉似曾相识，
-        又想不出是哪个方面的知识, 助教老师能否解答下？
-
-        这个是古董的不能在古董的题目了。常用做法就是【分段桶排】
-
-        更详细的可以看这个文章，我就不复制过来了。
-
-        <http://www.cnblogs.com/avril/archive/2012/04/20/2460805.html>
-
-        refs and see also
-
-        -   [10G 个整数找出中位数，内存限制为 2G - Avril - 博客园](http://www.cnblogs.com/avril/archive/2012/04/20/2460805.html)
-
-    leetcode 面试题 38 洗牌的技巧 -<
-
-    :   有一副扑克有 2n 张牌，用 `1,2,..2*n` 代表每一张牌，一次洗牌会把牌分成两堆，
-        1,2..n 和 n+1...2n。然后再交叉的洗在一起：n+1, 1, n+2, 2, … n, 2n。问按
-        照这种技巧洗牌，洗多少次能够洗回扑克最初的状态：1,2,...2n。
-
-        以 1 2 3 4 5 6 为例，洗一次之后为 4 1 5 2 6 3 。将两排数组对比看：
-
-        1   2   3   4   5   6
-        4   1   5   2   6   3
-
-        数字 1 的下面是 4，代表每一次洗牌后 1 这个位置的数会被 4 这个位置的数替代，接着
-        看数字 4，4 下面是 2，代表每一次洗牌后 4 这个位置的数会被 2 替代，再看 2，2 下
-        面是 1，2 这个位置的数字会被 1 替代。此时，1 4 2 形成一个环，代表这三个位置上的
-        数再每一次洗牌后，循环交替，并且在洗 3 次以后，各自回到最初的位置。用同样的方法
-        可以找到 3 5 6 是一个循环，循环节长度为 3。由此可以知道，在经过了 LCM(3,3)=3 次
-        洗牌后，所有数都回到原位，这里 LCM 是最小公倍数的意思。于是算法为，根据一次洗牌
-        的结果，找到所有的循环节，答案为所有循环节长度的最小公倍数。
-
-        面试官角度：
-
-        这个题目的考察点在于找规律。不过如果有一定置换群的理论基础的同学，是可以比较轻
-        松的解决这个问题的。有兴趣的同学可以查看离散数学的相关书籍中置换群的知识点。
-
-        1   2   3   4 | 5   6   7   8
-        5   1   6   2   6   3   8   4
-
-        1->5->6->3->6
-        2->1->5->6->3->6
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/877/)
-
-    leetcode 面试题 40 不用除法求积 -<
-
-    :   给定一个数组 `A[1..n]`，求数组 `B[1..n]`，使得 `B[i] = A[1] * A[2] .. * A[i-1] * A[i+1] .. * A[n]`。
-        要求不要使用除法，且在 O(n) 的时间内完成，使用 O(1) 的额外空间（不包含 B 数组所占空间）。
-
-        计算前缀乘积 `Prefix[i] = A[1] * A[2] .. A[i]`，计算后缀乘积
-        `Suffix[i] = A[i] * A[i+1] .. A[n]`，易知，`B[i] = Prefix[i - 1] * Suffix[i + 1]`。实际上无需实际
-        构造出 Prefix 和 Suffix 数组，利用 B 数组从左到右遍历一次得到 `Prefix[i]`，然后
-        从右到左遍历一次，计算出所要求的 B 数组。
-
-        面试官角度：
-
-        这种从前到后遍历和从后到前再遍历一次的方法（Foward-Backward-Traverse）
-        在很多题目中都有借鉴。如九章算法面试题31 子数组的最大差。
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/875/)
-
-    Perfect Squares 这道题的思想及状态转移方程怎么想？ -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2126/)
-
-    关于 design Google suggestion sharding 的问题 -<
-
-    :   refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1858/)
-
-    根据字符串表达式计算字符串 -<
-
-    :   yahoo onsite 题目，给出表达式，由数字和括号组成，数字表示括号里面的内容（可以是字符串或者另一个表达式）重复的次数，表达式和字符串可以混合，比如：
-
-        ```
-        3[abc] => abcabcabc
-        4[ac]dy => acacacacdy
-        3[2[ad]3[pf]]xyz => adadpfpfpfadadpfpfpfadadpfpfpfxyz
-        ```
-
-        尝试用了递归发现做不出来。。然后用 stack 解决了一部分 case，但是另一部分
-        case 不适用。。。求高人指点，万分感谢！
-
-        refs and see also
-
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2019/)
-
-        将一个字符串形式的十进制数转换成 7 进制的字符串 -<
-
-        :   例如: 十进制的 "123" 转为七进制的 "174"。
-
-            follow up: 如何修改使之可以满足任意进制间的转换。
-
-            ```
-            123 / 7 = 17(商).....4(余数)
-            17 / 7 = 2(商).....3(余数)
-            2 / 7 = 0(商).....2(余数)
-            ```
-
-            所以对应的 7 进制是 “234”， 2 * 49 + 3 * 7 + 4 = 123（10 进制）
-
-            同理79：
-
-            ```
-            79 / 7 = 11(商).....2(余数)
-            11 / 7= 1(商).....4(余数)
-            1 / 7 = 0(商).....1(余数)
-            ```
-
-            所以对应的 7 进制是 “142”， 1 * 49 + 4 * 7 + 2 = 79（10 进制）
-
-            所以 10 进制转换成 B 进制，就是除 B 取余倒序。
+            自己看着感觉都不怎么符合要求。能有人指点一下正确写法改如何写吗？谢谢了！
 
             refs and see also
 
-            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1394/)
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1861/)
 
-    窗口类 two pointer -<
+        第一堂课 Design Twitter -<
 
-    :   在课间中的窗口类 two pointer，minimum-size-subarray-sum 这道题中提到了窗口
-        类和 sliding windows 的区别，请问这个区别在哪？现在不记得上课怎么讲的了。。。
+        :   存在 NoSQL DB 的 Tweet 是每一个 Tweet 对应一行吗，还是每个用户对应一行？
+            这样的话 row key 是什么呢？是 user_id？如果是，然后 column key 是 tweet
+            id，因而可以支持范围查找？如果是范围查找的话，timeline 的请求为什么需要
+            n 次的 DB 访问时间（mentioned in p41 in the slides）？
 
-    线段树 (Segment Tree、Binary Indexed Tree)、Trie、Union Find 这些特殊数据结构需要掌握到什么程度 -<
+            每个用户一行，然后有无限列。
 
-    :   如题，线段树(Segment Tree、Binary Indexed Tree)、Trie、Union Find这些特殊数据结构需要掌握吗？如果需要的话，需要掌握到什么程度？会用、知道原理、会实现等等。
+            ```
+            row_key = user_id
+            column_key 可以是tweet_id，也可以是一堆数据的组合，比如tweet_id + timestamp。
+            column_key 可以支持范围查找。
+            ```
 
-        如果你上的是强化班你建议做一做 Ladder 里面线段树相关的题目。
+            P41 这里说的是，当你需要构建一个 NewsFeed 的时候（你关注的 N 个好友的所
+            有新鲜事汇总），需要 N 次 DB 请求去分别请求每个好友的最近 100 条 tweets
+            然后再归并到一起。请求某一个用户的 timeline 是一次 Query，请求 N 个用户，
+            就是 N 次。这里的 N 说的是你的好友个数。
 
-        LintCode 线段树的题目： http://www.lintcode.com/en/tag/segment-tree/
+            refs and see also
 
-        我觉得并不是太重要，首先线段树考的频率不高，如果一些高频算法你掌握的很好了，
-        学一下当然更好，不光光线段树的问题可以解决，其他很多问题也能用线段树优化，
-        肯定能为你面试加分。其他高频算法还没掌握好，建议可以放一放。
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1914/)
 
-        一般线段树用于解决与区间有关的问题，Lintcode 上如果做过了基础线段树题目还可以做其他的如：
+        应届生国内找国外工作求职网站有哪些 -<
 
-        -   http://www.lintcode.com/zh-cn/problem/interval-minimum-number/
-        -   http://www.lintcode.com/zh-cn/problem/interval-sum/
-        -   http://www.lintcode.com/zh-cn/problem/interval-sum-ii/
-        -   http://www.lintcode.com/zh-cn/problem/count-of-smaller-number/
-        -   http://www.lintcode.com/zh-cn/problem/count-of-smaller-number-before-itself/
+        :   我是一名国内的应届硕士毕业生，九月要开始投简历了。问一下，想直接找国外工作
+            的话，有哪些好的网站可以推荐？目前只看到了 google 有正式的全球招聘途径，其
+            它公司的如何能看到？linkedin 等上面的职位是不是都是针对有在美国工作资格的才
+            能申请？
 
-        我都找完之后才发现 Lintcode 的 Tags（标签）功能还是很好用的！
+            <http://stackoverflow.com/jobs?med=site-ui&ref=jobs-tab>
 
-    leetcode 面试题 29 子矩阵的最大公约数 -<
+            谢谢啦，请问 VISA SPONSOR 是不是指可以提供抽签证的机会？
 
-    :   给定 `n*n` 的矩阵，需要查询任意子矩阵中所有数字的最大公约数。请给出一种设计思路，对矩阵进行预处理，加速查询。额外的空间复杂度要求 O(n^2) 以内。
+            refs and see also
 
-        构建二维线段树。预处理时间 O(n^2)，每次查询 O(log n)
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1945/)
 
-        面试官角度：
+        yahoo 面试经验 -<
+
+        :   refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/778/)
+
+        腾讯面经，拿到 offer -<
+
+        :   refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/733/)
+
+        东邪老师第二节课 Friendship 相关的问题 -<
+
+        :   refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1878/)
+
+        剩下不到一個月時間 interview 請問怎麼準備? -<
+
+        :   已經刷題一陣子. 但是一些比較難的和 graph, DP 都還不行, 有什麼好建議?
+
+            那就不要看 Graph 和 DP 这类考得很少的问题。多看 DFS / BFS 这类问题。
+
+        Uber 面试题 房屋窃贼 House Robber II :hearts: -<
+
+        :   小偷找到了一个新的偷盗地点，这个地区的房子组成了一个环，如果小偷同时偷
+            窃了两个直接相邻的房子，就会触发警报器。在不触发警报器的情况下，求小偷
+            可以抢到的最多的 money。
+
+            解题思路
+
+            :   本题是 House Robber 的 follow up。
+
+                House Robber-i 中房子排列成一个序列，用动态规划就可以，上过《九章算法强化班》的同学应该都已经会做啦。
+
+                按照课堂上讲过的动态规划四要素说说 dp 状态的定义：
+
+                -   df[i] 表示前 i 个房子能获得的最大价值，
+                -   dp[i] = max(dp[i-2] + nums[i], dp[i-1])。
+
+                而在本题中，房子难点在于排列成一个环。对于环上的问题，有一个小技巧就是就是拆环：**把环展成一条直线**。
+
+                本题中，可以先假设房子排成一条直线，从 0 到 n-1，那么我们如果用原来的动态规划算
+                法求得的最优解可能同时取到房子 0 和房子 n-1，而因为 0 和 n-1 在本题中是连在一起
+                的，不能同时取到。也就是说，我们要分两种情况：要么不偷房子 0（此时房子 n-1 是否
+                偷未知），要么不偷房子 n-1。基于这两种情况，我们对不含房子 0 的序列做一次动态规
+                划，对不含房子 n-1 的序列做一次动态规划，取较大值就可。
+
+                参考程序 <http://www.jiuzhang.com/solutions/house-robber-ii/>
+
+                面试官角度分析：本题是一个 follow up，在解决 robber-i 的情况下，对于环的特殊性给出解决方法，实现 O(n) 算法可以达到 hire。
+
+                LC 相关联系题：https://lintcode.com/problems/house-robber/
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1767/)
+
+        怎么准备多线程的问题 -<
+
+        :   最近好多朋友面试都被问到了线程的问题，比如让你写一个比较简单的字符
+            串处理的程序，可能涉及到哈希表之类的，然后紧接着问你如果多线程怎么
+            实现？或者问你线程如何才能安全。
+
+            因为关于线程只了解生产者消费者，平时工作中用的也不多，请问有关于最
+            近频繁出现的多线程问题应该怎么准备？有什么材料或者推荐么？
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1280/)
+
+        微软面经 -<
+
+        :   这家面试轮数较多，从学校开始，面了很多经典问题。数组里找最大和的序列，
+            何时买卖股票，两个链表是否有公共 Node，二分查找（数组很大，你需要考虑
+            sort 成本，什么时候 sort 才有意义， 比如你 query 的次数很多很多，那么一
+            次性sort 一下是有必要的），二位已排序矩阵中如何快速查找一个数，计算泰勒
+            展开，计算 `N*M` 矩阵的所有子矩阵。微软很注重写完 code 以后测试，一定要留
+            些时间给测试，一般来说白板上写的 code 小毛病都会有好几处，通过自己测试
+            是可以改过来的。
+
+            一些操作系统原理，我不会，选择不作答，感觉没甚影响。
+
+            我因为长时间不用 C++，可以说目前已经不会 C++，只会 JAVA，起初很虚，但是
+            后来微软对不编程语言要求很松，重要的是解释问题要解释得很清楚。所有面试
+            官都思路很清晰，【你解释不清楚，他会直接打断你，不要想着糊弄】。如果不
+            清楚，直接承认，这是我从已经拿到全职的朋友那儿听来的经验，算是微软的风格吧。
+
+            【时间复杂度，当然，每一步操作都会问你时间复杂度】，逃不掉的。对哈希表，
+            有一个面试官表现出明显的不喜欢，这时候我换思路了，虽然那道题目哈希表做
+            很容易，但是没办法，人家是面试官。
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/796/)
+
+        面试时如何有条理的组织 test case 啊  -<
+
+        :   Test case 有以下几种
+
+            1.  边界数据，比如 n = 0 这些边界情况
+            2.  特殊数据，比如链表中我们删节点需要删除 head 的时候
+            3.  大数据，一般测试算法效率
+
+            面试的时候，我们只需要给出边界数据，特殊数据，和一些普通数据即可。
+
+        豆瓣面试题 :分段筒排: -<
+
+        :   给定 10G 个无符号整数 (32 位)，如何能够最快地在一台内存为 2G 的机器上找
+            到这些数据中的中位数 (比一半数据大，比另一半数据小)，这个感觉似曾相识，
+            又想不出是哪个方面的知识, 助教老师能否解答下？
+
+            这个是古董的不能在古董的题目了。常用做法就是【分段桶排】
+
+            更详细的可以看这个文章，我就不复制过来了。
+
+            <http://www.cnblogs.com/avril/archive/2012/04/20/2460805.html>
+
+            refs and see also
+
+            -   [10G 个整数找出中位数，内存限制为 2G - Avril - 博客园](http://www.cnblogs.com/avril/archive/2012/04/20/2460805.html)
+
+        leetcode 面试题 38 洗牌的技巧 -<
+
+        :   有一副扑克有 2n 张牌，用 `1,2,..2*n` 代表每一张牌，一次洗牌会把牌分成两堆，
+            1,2..n 和 n+1...2n。然后再交叉的洗在一起：n+1, 1, n+2, 2, … n, 2n。问按
+            照这种技巧洗牌，洗多少次能够洗回扑克最初的状态：1,2,...2n。
+
+            以 1 2 3 4 5 6 为例，洗一次之后为 4 1 5 2 6 3 。将两排数组对比看：
+
+            1   2   3   4   5   6
+            4   1   5   2   6   3
+
+            数字 1 的下面是 4，代表每一次洗牌后 1 这个位置的数会被 4 这个位置的数替代，接着
+            看数字 4，4 下面是 2，代表每一次洗牌后 4 这个位置的数会被 2 替代，再看 2，2 下
+            面是 1，2 这个位置的数字会被 1 替代。此时，1 4 2 形成一个环，代表这三个位置上的
+            数再每一次洗牌后，循环交替，并且在洗 3 次以后，各自回到最初的位置。用同样的方法
+            可以找到 3 5 6 是一个循环，循环节长度为 3。由此可以知道，在经过了 LCM(3,3)=3 次
+            洗牌后，所有数都回到原位，这里 LCM 是最小公倍数的意思。于是算法为，根据一次洗牌
+            的结果，找到所有的循环节，答案为所有循环节长度的最小公倍数。
+
+            面试官角度：
+
+            这个题目的考察点在于找规律。不过如果有一定置换群的理论基础的同学，是可以比较轻
+            松的解决这个问题的。有兴趣的同学可以查看离散数学的相关书籍中置换群的知识点。
+
+            1   2   3   4 | 5   6   7   8
+            5   1   6   2   6   3   8   4
+
+            1->5->6->3->6
+            2->1->5->6->3->6
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/877/)
+
+        leetcode 面试题 40 不用除法求积 -<
+
+        :   给定一个数组 `A[1..n]`，求数组 `B[1..n]`，使得 `B[i] = A[1] * A[2] .. * A[i-1] * A[i+1] .. * A[n]`。
+            要求不要使用除法，且在 O(n) 的时间内完成，使用 O(1) 的额外空间（不包含 B 数组所占空间）。
+
+            计算前缀乘积 `Prefix[i] = A[1] * A[2] .. A[i]`，计算后缀乘积
+            `Suffix[i] = A[i] * A[i+1] .. A[n]`，易知，`B[i] = Prefix[i - 1] * Suffix[i + 1]`。实际上无需实际
+            构造出 Prefix 和 Suffix 数组，利用 B 数组从左到右遍历一次得到 `Prefix[i]`，然后
+            从右到左遍历一次，计算出所要求的 B 数组。
+
+            面试官角度：
+
+            这种从前到后遍历和从后到前再遍历一次的方法（Foward-Backward-Traverse）
+            在很多题目中都有借鉴。如九章算法面试题31 子数组的最大差。
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/875/)
+
+        Perfect Squares 这道题的思想及状态转移方程怎么想？ -<
+
+        :   refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2126/)
+
+        关于 design Google suggestion sharding 的问题 -<
+
+        :   refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1858/)
+
+        根据字符串表达式计算字符串 -<
+
+        :   yahoo onsite 题目，给出表达式，由数字和括号组成，数字表示括号里面的内容（可以是字符串或者另一个表达式）重复的次数，表达式和字符串可以混合，比如：
+
+            ```
+            3[abc] => abcabcabc
+            4[ac]dy => acacacacdy
+            3[2[ad]3[pf]]xyz => adadpfpfpfadadpfpfpfadadpfpfpfxyz
+            ```
+
+            尝试用了递归发现做不出来。。然后用 stack 解决了一部分 case，但是另一部分
+            case 不适用。。。求高人指点，万分感谢！
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/2019/)
+
+            将一个字符串形式的十进制数转换成 7 进制的字符串 -<
+
+            :   例如: 十进制的 "123" 转为七进制的 "174"。
+
+                follow up: 如何修改使之可以满足任意进制间的转换。
+
+                ```
+                123 / 7 = 17(商).....4(余数)
+                17 / 7 = 2(商).....3(余数)
+                2 / 7 = 0(商).....2(余数)
+                ```
+
+                所以对应的 7 进制是 “234”， 2 * 49 + 3 * 7 + 4 = 123（10 进制）
+
+                同理79：
+
+                ```
+                79 / 7 = 11(商).....2(余数)
+                11 / 7= 1(商).....4(余数)
+                1 / 7 = 0(商).....1(余数)
+                ```
+
+                所以对应的 7 进制是 “142”， 1 * 49 + 4 * 7 + 2 = 79（10 进制）
+
+                所以 10 进制转换成 B 进制，就是除 B 取余倒序。
+
+                refs and see also
+
+                -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/1394/)
+
+        窗口类 two pointer -<
+
+        :   在课间中的窗口类 two pointer，minimum-size-subarray-sum 这道题中提到了窗口
+            类和 sliding windows 的区别，请问这个区别在哪？现在不记得上课怎么讲的了。。。
+
+        线段树 (Segment Tree、Binary Indexed Tree)、Trie、Union Find 这些特殊数据结构需要掌握到什么程度 -<
+
+        :   如题，线段树(Segment Tree、Binary Indexed Tree)、Trie、Union Find这些特殊数据结构需要掌握吗？如果需要的话，需要掌握到什么程度？会用、知道原理、会实现等等。
+
+            如果你上的是强化班你建议做一做 Ladder 里面线段树相关的题目。
+
+            LintCode 线段树的题目： http://www.lintcode.com/en/tag/segment-tree/
+
+            我觉得并不是太重要，首先线段树考的频率不高，如果一些高频算法你掌握的很好了，
+            学一下当然更好，不光光线段树的问题可以解决，其他很多问题也能用线段树优化，
+            肯定能为你面试加分。其他高频算法还没掌握好，建议可以放一放。
+
+            一般线段树用于解决与区间有关的问题，Lintcode 上如果做过了基础线段树题目还可以做其他的如：
+
+            -   http://www.lintcode.com/zh-cn/problem/interval-minimum-number/
+            -   http://www.lintcode.com/zh-cn/problem/interval-sum/
+            -   http://www.lintcode.com/zh-cn/problem/interval-sum-ii/
+            -   http://www.lintcode.com/zh-cn/problem/count-of-smaller-number/
+            -   http://www.lintcode.com/zh-cn/problem/count-of-smaller-number-before-itself/
+
+            我都找完之后才发现 Lintcode 的 Tags（标签）功能还是很好用的！
+
+        leetcode 面试题 29 子矩阵的最大公约数 -<
+
+        :   给定 `n*n` 的矩阵，需要查询任意子矩阵中所有数字的最大公约数。请给出一种设计思路，对矩阵进行预处理，加速查询。额外的空间复杂度要求 O(n^2) 以内。
+
+            构建二维线段树。预处理时间 O(n^2)，每次查询 O(log n)
+
+            面试官角度：
+
+            ```
+            这个题目需要具备一定的数据结构功底。线段树 (Interval Tree) 可以解决的问题是
+            那些满足结合律的运算。最大公约数是一个满足结合律的运算。所以有，
+            GCD(A,B,C,D) = GCD(GCD(A,B), GCD(C, D)) 。同样具备结合律的运算有
+            PI,SUM,XOR(积, 和, 异或)。线段树的基本思想是，将区间 [1,n] 查分为 [1, n/2],
+            [n/2+1,n] 这两个子区间，然后每个子区间继续做二分，直到区间长度为 1。在每个
+            区间上维护这个区间的运算结果（如 GCD,SUM)，需要查询某一段区间的结果时，将该
+            区间映射到线段树上的若干不相交的区间，将这些区间的结果合并起来则得到了答案。
+            可以证明任何一个区间可以映射到线段树上不超过 O(log n) 个区间。上面介绍的是
+            一维的线段树，对于二维的情况，可以采用四分或者横纵剖分的方法来构建线段树。
+            ```
+
+            refs and see also
+
+            -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/886/)
+
+        MISC -<
+
+        :   此题的最优算法是贪心。在实际面试过程中，笔者认为只需要想到贪心算法，并
+            给出算法框架，就可以达到【hire】的程度。能在短时间内完成程序，可以达到
+            【strong hire】。
+
+        refs and see also
+
+        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖 IT 企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/796/)
+
+    AVL 树，红黑树，B 树，B+ 树，Trie 树都分别应用在哪些现实场景中？ -<
+
+    :   AVL 树: 最早的平衡二叉树之一。应用相对其他数据结构比较少。windows 对进程地
+        址空间的管理用到了 AVL 树。AVL 是一种高度平衡的二叉树，所以通常的结果是，维
+        护这种高度平衡所付出的代价比从中获得的效率收益还大，故而实际的应用不多，更
+        多的地方是用追求局部而不是非常严格整体平衡的红黑树。当然，如果场景中对插入
+        删除不频繁，只是对查找特别有要求，AVL 还是优于红黑的。
+
+
+        红黑树: 平衡二叉树，广泛用在 C++ 的 STL 中。map 和 set 都是用红黑树实现的。
+        还有
+
+        -   著名的 linux 进程调度 Completely Fair Scheduler, 用红黑树管理进程控制块
+        -   epoll 在内核中的实现，用红黑树管理事件块
+        -   nginx 中，用红黑树管理 timer 等
+        -   Java 的 TreeMap 实现
+
+        B/B+ 树用在磁盘文件组织 数据索引和数据库索引
+
+        Trie 树：字典树，用在统计和排序大量字符串 (场景自己 yy = =)，trie 树的一个
+        典型应用是前缀匹配，比如下面这个很常见的场景，在我们输入时，搜索引擎会给予
+        提示，还有比如 IP 选路，也是前缀匹配，一定程度会用到 trie。
+
+        红黑树，AVL 树简单来说都是用来搜索的呗。
+
+        AVL 树
+
+        :   平衡二叉树，一般是用平衡因子差值决定并通过旋转来实现，左右子树树高差不
+            超过 1，那么和红黑树比较它是严格的平衡二叉树，平衡条件非常严格（树高差只
+            有 1），只要插入或删除不满足上面的条件就要通过旋转来保持平衡。由于旋转是
+            非常耗费时间的。我们可以推出 AVL 树适合用于插入删除次数比较少，但查找多
+            的情况。
+
+        红黑树
+
+        :   平衡二叉树，通过对任何一条从根到叶子的简单路径上各个节点的颜色进行约束，
+            确保没有一条路径会比其他路径长 2 倍，因而是近似平衡的。所以相对于严格要求
+            平衡的 AVL 树来说，它的旋转保持平衡次数较少。用于搜索时，插入删除次数多的
+            情况下我们就用红黑树来取代 AVL。
+
+            （现在部分场景使用跳表来替换红黑树，可搜索“为啥 redis 使用跳表
+            (skiplist) 而不是使用 red-black？”）
+
+            [为啥 redis 使用跳表 (skiplist) 而不是使用 red-black？ - 知乎](https://www.zhihu.com/question/20202931) -<
+
+            :   在 server 端，对并发和性能有要求的情况下，如何选择合适的数据结构（这里是跳跃表和红黑树）。
+
+                如果单纯比较性能，跳跃表和红黑树可以说相差不大，但是加上并发的环境
+                就不一样了，如果要更新数据，跳跃表需要更新的部分就比较少，锁的东西
+                也就比较少，所以不同线程争锁的代价就相对少了，而红黑树有个平衡的过
+                程，牵涉到大量的节点，争锁的代价也就相对较高了。性能也就不如前者了。
+
+        B 树，B+ 树
+
+        :   它们特点是一样的，是多路查找树，一般用于数据库系统中，为什么，因为它们分支
+            多层数少呗，都知道磁盘 IO 是非常耗时的，而像大量数据存储在磁盘中所以我们要有
+            效的减少磁盘 IO 次数避免磁盘频繁的查找。
+
+            B+ 树是 B 树的变种树，有 n 棵子树的节点中含有 n 个关键字，每个关键字不保存
+            数据，只用来索引，数据都保存在叶子节点。是为文件系统而生的。
+
+        Trie 树
+
+        :   又名单词查找树，一种树形结构，常用来操作字符串。它是不同字符串的相同前缀只保存一份。
+            相对直接保存字符串肯定是节省空间的，但是它保存大量字符串时会很耗费内存
+            （是内存）。类似的有前缀树 (prefix tree)，后缀树 (suffix tree)，radix
+            tree(patricia tree, compact prefix tree)，crit-bit tree（解决耗费内存问
+            题），以及前面说的 double array trie。
+
+            简单的补充下我了解应用
+
+            -   前缀树：字符串快速检索，字符串排序，最长公共前缀，自动匹配前缀显示后缀。
+            -   后缀树：查找字符串 s1 在 s2 中，字符串 s1 在 s2 中出现的次数，字符串 s1,s2 最长公共部分，最长回文串。
+            -   radix tree：linux 内核，nginx。
+
+        refs and see also
+
+        -   [AVL 树，红黑树，B 树，B+ 树，Trie 树都分别应用在哪些现实场景中？ - 知乎](https://www.zhihu.com/question/30527705)
+
+    数据结构与算法中，树一般会应用在哪些方面？为什么？ -<
+
+    :   树的一个大类是自平衡二叉搜索树 (self-balanced BST), 变种特别多:
+
+        -  RB 树是每个节点是红色或者黑色, 颜色隔代遗传
+        -  AVL 树是每个节点包含平衡因子, 等于左高-右高
+        -  Splay 树是每个节点带个父节点的指针
+        -  Treap 是每个节点都带个随机的 priority number, parent priority >= child priority
+
+        ... (其实说白了都是为了方便平衡操作给节点附加一个字段)
+
+        自平衡二叉搜索树在面试中经常出现, 但做网页的互联网码农却很少用得上... 如果
+        是当 Map 用, 往往还不如直接上哈希表. 如果是当排序用, 不如直接用排序算法...
+        不过也有有用的时候, 例如查找一个数字的上下界.
+
+        树的另一个大类是 Trie, 特点是能保证字典序, 存储词典的空间压缩率高, 能做前缀
+        搜索. 在正则匹配, 数据压缩, 构建索引都可能用到. Trie 也有不少变种:
+
+        -   Double Array - trie 的一个经典实现 (这实现其实不算树, 也不适合处理非 ascii 字符的情况)
+        -   Patricia Trie (Radix-Tree) - 每个节点可以存一段字符串而不限于一个字符
+        -   Judy Array - 基于 256-ary radix tree, 用了 20 种压缩方式, 极其复杂...
+        -   Burst Trie - 如果一个子树足够小, 就用 binary 堆的方式存储, 不过压缩效果一般
+        -   HAT Trie - 压缩率高而且不容易出现 CPU cache miss, 查速接近哈希表而耗内存少得多. 节点可以是以下三种之一: Array Hash, 序列化的 Bucket, 传统 Trie node
+        -   MARISA Trie - 压缩率最高, 支持 mmap 载入, 也是用了很多压缩技巧的复杂实现, 就是构建比较花时间, 也不能动态更新
+
+        refs and see also
+
+        -   [数据结构与算法中，树一般会应用在哪些方面？为什么？ - 知乎](https://www.zhihu.com/question/20176446)
+
+    用链表的目的是什么？省空间还是省时间？ -<
+
+    :   链表的优点除了「插入删除不需要移动其他元素」之外，还在于它是一个局部化结构。
+        就是说当你拿到链表的一个 node 之后，不需要太多其它数据，就可以完成插入，删
+        除的操作。而其它的数据结构不行。比如说 array，你只拿到一个 item 是断不敢做
+        插入删除的。
+
+        当然了，局部化这个好处只有 intrusive（侵入的；打扰的）链表才有，就是必须 prev/next 嵌入在数
+        据结构中。像 STL 和 Java 那种设计是失败了。
+
+        refs and see also
+
+        -   [用链表的目的是什么？省空间还是省时间？ - 知乎](https://www.zhihu.com/question/31082722)
+
+    Graph (abstract data type) -<
+
+    :   In computer science, a graph is an abstract data type that is meant to
+        implement the undirected graph and directed graph concepts from mathematics.
+
+        The basic operations provided by a graph data structure G usually include:
+
+        -   adjacent(G, x, y): tests whether there is an edge from the vertices x to y;
+        -   neighbors(G, x): lists all vertices y such that there is an edge from the vertices x to y;
+        -   add_vertex(G, x): adds the vertex x, if it is not there;
+        -   remove_vertex(G, x): removes the vertex x, if it is there;
+        -   add_edge(G, x, y): adds the edge from the vertices x to y, if it is not there;
+        -   remove_edge(G, x, y): removes the edge from the vertices x to y, if it is there;
+        -   get_vertex_value(G, x): returns the value associated with the vertex x;
+        -   set_vertex_value(G, x, v): sets the value associated with the vertex x to v.
+
+        Structures that associate values to the edges usually also provide:
+
+        -   get_edge_value(G, x, y): returns the value associated with the edge (x, y);
+        -   set_edge_value(G, x, y, v): sets the value associated with the edge (x, y) to v.
+
+        Adjacency List
+
+        :   Vertices are stored as records or objects, and every vertex stores
+            **a list of adjacent vertices**. This data structure allows the storage of
+            additional data on the vertices. Additional data can be stored if edges
+            are also stored as objects, in which case each vertex stores its
+            incident edges and each edge stores its incident vertices.
+
+        Adjancy Matrix
+
+        :   A two-dimensional matrix, in which the rows represent source vertices
+            and columns represent destination vertices. Data on edges and vertices
+            must be stored externally. Only the cost for one edge can be stored
+            between each pair of vertices.
+
+        Incidence matrix
+
+        :   A two-dimensional Boolean matrix, in which the rows represent the
+            vertices and columns represent the edges. The entries indicate whether
+            the vertex at a row is incident to the edge at a column.
+
+            ![An undirected graph.](https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Labeled_undirected_graph.svg/375px-Labeled_undirected_graph.svg.png)
+
+            For example the incidence matrix of the undirected graph shown on the
+            right is a matrix consisting of 4 rows (corresponding to the four
+            vertices, 1-4) and 4 columns (corresponding to the four edges, e1-e4):
+
+            ![](https://wikimedia.org/api/rest_v1/media/math/render/svg/99f6e54a9f49d5a3ae4c25e396d8b7c153cdaa07)
+
+        ![](http://whudoc.qiniudn.com/2016/firefox_2016-09-06_11-26-02.png)
+
+        **Adjacency lists are generally preferred because they efficiently represent
+        sparse graphs. An adjacency matrix is preferred if the graph is dense, that
+        is the number of edges |E| is close to the number of vertices squared,
+        |V|^2^, or if one must be able to quickly look up if there is an edge
+        connecting two vertices.**
+
+        refs and see also
+
+        -   [Graphs in Computer Science](http://web.cecs.pdx.edu/~sheard/course/Cs163/Doc/Graphs.html)
+        -   [Adjacency list - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Adjacency_list)
+        -   [Adjacency matrix - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Adjacency_matrix)
+        -   [Incidence matrix - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Incidence_matrix)
+        -   [Graph (abstract data type) - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Graph_(abstract_data_type))
+
+    trees -<
+
+    :   Spanning tree -<
+
+        :   In the mathematical field of graph theory, **a spanning tree T of an
+            undirected graph G is a subgraph that is a tree which includes all of the
+            vertices of G**. In general, a graph may have several spanning trees, but a
+            graph that is not connected will not contain a spanning tree (but see
+            Spanning forests below). If all of the edges of G are also edges of a
+            spanning tree T of G, then G is a tree and is identical to T
+            (that is, **a tree has a unique spanning tree and it is itself**).
+
+            Several pathfinding algorithms, including Dijkstra's algorithm and the `A*`
+            search algorithm, internally **build a spanning tree as an intermediate step in solving the problem**.
+
+            Definitions
+
+            :   **A tree is a connected undirected graph with no cycles**. It is a spanning
+                tree of a graph G if it spans G (that is, it includes every vertex of
+                G) and is a subgraph of G (every edge in the tree belongs to G). A
+                spanning tree of a connected graph G can also be defined as a maximal
+                set of edges of G that contains no cycle, or as a minimal set of edges
+                that connect all vertices.
+
+            minimal/minimum spanning tree
+
+            In some cases, it is easy to calculate t(G) directly:
+
+            -   If G is itself a tree, then t(G) = 1.
+            -   When G is the cycle graph Cn with n vertices, then t(G) = n.
+            -   For a complete graph with n vertices, Cayley's formula gives the number of spanning trees as n^n−2^.
+            -   If G is the complete bipartite graph K~p,q~, then t(G) = p^q-1^q^p-1^.
+            -   For the n-dimensional hypercube graph...
+
+            arbitrary tree?
+
+            see [Kirchhoff's theorem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Kirchhoff%27s_theorem).
+
+            Prim's algorithm -<
+
+            :   In computer science, Prim's algorithm is **a greedy algorithm** that
+                **finds a minimum spanning tree for a weighted undirected graph**.
+                This means it finds a subset of the edges that forms a tree that includes every
+                vertex, where the total weight of all the edges in the tree is
+                minimized. The algorithm operates by building this tree one vertex at a
+                time, from an arbitrary starting vertex, at each step adding the
+                cheapest possible connection from the tree to another vertex.
+
+        Self-balancing binary search tree -<
+
+        :   In computer science, a self-balancing (or height-balanced) binary
+            search tree is any node-based binary search tree that automatically
+            keeps its height (maximal number of levels below the root) small in the
+            face of arbitrary item insertions and deletions.
+
+            The red–black tree, which is a type of self-balancing binary search
+            tree, was called symmetric binary B-tree and was renamed but can
+            still be confused with the generic concept of self-balancing binary
+            search tree because of the initials.
+
+        AVL tree -<
+
+        :   d(height(left), height(right)) = { -1, 0, 1 }, left-heavy, right-heavy, balanced.
+
+        Splay tree -<
+
+        :   A splay（展开） tree is a self-adjusting binary search tree with the additional
+            property that recently accessed elements are quick to access again. It
+            performs basic operations such as insertion, look-up and removal in
+            O(log n) amortized time. For many sequences of non-random operations,
+            splay trees perform better than other search trees, even when the
+            specific pattern of the sequence is unknown. The splay tree was
+            invented by Daniel Sleator and Robert Tarjan in 1985.
+
+            Advantages -<
+
+            :   Good performance for a splay tree depends on the fact that it is
+                **self-optimizing**, in that frequently accessed nodes will move nearer
+                to the root where they can be accessed more quickly. The worst-case
+                height—though unlikely—is O(n), with the average being O(log n).
+                Having frequently used nodes near the root is an advantage for many
+                practical applications (also see **Locality of reference**), and is
+                particularly useful for implementing caches and garbage collection
+                algorithms.
+
+                Locality of reference -<
+
+                :   In computer science, locality of reference, also known as the
+                    principle of locality, is a term for the phenomenon in which
+                    the same values, or related storage locations, are frequently
+                    accessed, depending on the memory access pattern. There are two
+                    basic types of reference locality – temporal and spatial
+                    locality. Temporal locality refers to the reuse of specific
+                    data, and/or resources, within a relatively small time
+                    duration. Spatial locality refers to the use of data elements
+                    within relatively close storage locations.  Sequential
+                    locality, a special case of spatial locality, occurs when data
+                    elements are arranged and accessed linearly, such as,
+                    traversing the elements in a one-dimensional array.
+
+                    Locality is merely one type of predictable behavior that occurs
+                    in computer systems. Systems that exhibit strong locality of
+                    reference are great candidates for performance optimization
+                    through the use of techniques such as the caching, prefetching
+                    for memory and advanced branch predictors at the pipelining
+                    stage of processor core.
+
+                    There are several different types of locality of reference:
+
+                    -   Temporal locality
+                    -   Spatial locality
+                    -   Memory locality
+                    -   Branch locality
+                    -   Equidistant locality
+
+                    refs and see also
+
+                    -   [Locality of reference - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Locality_of_reference)
+
+                Advantages include:
+
+                -   Comparable performance: Average-case performance is as efficient as other trees.
+                -   Small memory footprint: Splay trees **do not need to store any bookkeeping data**.
+
+            Disadvantages -<
+
+            :   The most significant disadvantage of splay trees is that
+                **the height of a splay tree can be linear**. For example, this
+                will be the case after accessing all n elements in non-decreasing
+                order. Since the height of a tree corresponds to the worst-case
+                access time, this means that the actual cost of an operation can be
+                high. However the amortized access cost of this worst case is
+                logarithmic, O(log n).  Also, the expected access cost can be
+                reduced to O(log n) by using a randomized variant.
+
+                The representation of splay trees can **change even when they are
+                accessed in a 'read-only' manner** (i.e. by find operations). This
+                complicates the use of such splay trees in a multi-threaded
+                environment. Specifically, extra management is needed if multiple
+                threads are allowed to perform find operations concurrently. This
+                also makes them **unsuitable for general use in purely functional
+                programming**, although they can be used in limited ways to
+                implement priority queues even there.
+
+            ![zig](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Splay_tree_zig.svg/1064px-Splay_tree_zig.svg.png)
+
+            ![zig zig](https://upload.wikimedia.org/wikipedia/commons/f/fd/Zigzig.gif)
+
+            C++ 实现 -<
+
+            :   ```cpp
+                #include <functional>
+
+                #ifndef SPLAY_TREE
+                #define SPLAY_TREE
+
+                template< typename T, typename Comp = std::less< T > >
+                class splay_tree {
+                private:
+                  Comp comp;
+                  unsigned long p_size;
+
+                  struct node {
+                    node *left, *right;
+                    node *parent;
+                    T key;
+                    node( const T& init = T( ) ) : left( 0 ), right( 0 ), parent( 0 ), key( init ) { }
+                    ~node( ) {
+                      if( left ) delete left;
+                      if( right ) delete right;
+                      if( parent ) delete parent;
+                    }
+                  } *root;
+
+                  void left_rotate( node *x ) {
+                    node *y = x->right;
+                    if(y) {
+                      x->right = y->left;
+                      if( y->left ) y->left->parent = x;
+                      y->parent = x->parent;
+                    }
+
+                    if( !x->parent ) root = y;
+                    else if( x == x->parent->left ) x->parent->left = y;
+                    else x->parent->right = y;
+                    if(y) y->left = x;
+                    x->parent = y;
+                  }
+
+                  void right_rotate( node *x ) {
+                    node *y = x->left;
+                    if(y) {
+                      x->left = y->right;
+                      if( y->right ) y->right->parent = x;
+                      y->parent = x->parent;
+                    }
+                    if( !x->parent ) root = y;
+                    else if( x == x->parent->left ) x->parent->left = y;
+                    else x->parent->right = y;
+                    if(y) y->right = x;
+                    x->parent = y;
+                  }
+
+                  void splay( node *x ) {
+                    while( x->parent ) {
+                      if( !x->parent->parent ) {
+                        if( x->parent->left == x ) right_rotate( x->parent );
+                        else left_rotate( x->parent );
+                      } else if( x->parent->left == x && x->parent->parent->left == x->parent ) {
+                        right_rotate( x->parent->parent );
+                        right_rotate( x->parent );
+                      } else if( x->parent->right == x && x->parent->parent->right == x->parent ) {
+                        left_rotate( x->parent->parent );
+                        left_rotate( x->parent );
+                      } else if( x->parent->left == x && x->parent->parent->right == x->parent ) {
+                        right_rotate( x->parent );
+                        left_rotate( x->parent );
+                      } else {
+                        left_rotate( x->parent );
+                        right_rotate( x->parent );
+                      }
+                    }
+                  }
+
+                  void replace( node *u, node *v ) {
+                    if( !u->parent ) root = v;
+                    else if( u == u->parent->left ) u->parent->left = v;
+                    else u->parent->right = v;
+                    if( v ) v->parent = u->parent;
+                  }
+
+                  node* subtree_minimum( node *u ) {
+                    while( u->left ) u = u->left;
+                    return u;
+                  }
+
+                  node* subtree_maximum( node *u ) {
+                    while( u->right ) u = u->right;
+                    return u;
+                  }
+                public:
+                  splay_tree( ) : root( 0 ), p_size( 0 ) { }
+
+                  void insert( const T &key ) {
+                    node *z = root;
+                    node *p = 0;
+
+                    while( z ) {
+                      p = z;
+                      if( comp( z->key, key ) ) z = z->right;
+                      else z = z->left;
+                    }
+
+                    z = new node( key );
+                    z->parent = p;
+
+                    if( !p ) root = z;
+                    else if( comp( p->key, z->key ) ) p->right = z;
+                    else p->left = z;
+
+                    splay( z );
+                    p_size++;
+                  }
+
+                  node* find( const T &key ) {
+                    node *z = root;
+                    while( z ) {
+                      if( comp( z->key, key ) ) z = z->right;
+                      else if( comp( key, z->key ) ) z = z->left;
+                      else return z;
+                    }
+                    return 0;
+                  }
+
+                  void erase( const T &key ) {
+                    node *z = find( key );
+                    if( !z ) return;
+
+                    splay( z );
+
+                    if( !z->left ) replace( z, z->right );
+                    else if( !z->right ) replace( z, z->left );
+                    else {
+                      node *y = subtree_minimum( z->right );
+                      if( y->parent != z ) {
+                        replace( y, y->right );
+                        y->right = z->right;
+                        y->right->parent = y;
+                      }
+                      replace( z, y );
+                      y->left = z->left;
+                      y->left->parent = y;
+                    }
+
+                    delete z;
+                    p_size--;
+                  }
+
+                  const T& minimum( ) { return subtree_minimum( root )->key; }
+                  const T& maximum( ) { return subtree_maximum( root )->key; }
+
+                  bool empty( ) const { return root == 0; }
+                  unsigned long size( ) const { return p_size; }
+                };
+
+                #endif // SPLAY_TREE
+                ```
+
+        B-tree -<
+
+        :   In computer science, a B-tree is a self-balancing tree data structure
+            that keeps data sorted and allows searches, sequential access,
+            insertions, and deletions in logarithmic time. The B-tree is a
+            generalization of a binary search tree in that a node can have more
+            than two children (Comer 1979, p. 123). Unlike self-balancing binary
+            search trees, the B-tree is **optimized for systems that read and write
+            large blocks of data**. B-trees are a good example of
+            **a data structure for external memory**. It is commonly used in databases and filesystems.
+
+            multi-way search tree
+              ~ A multiway tree is a tree that can have more than two children. A
+                multiway tree of order m (or an m-way tree) is one in which a tree
+                can have m children.
+
+            ![A B-tree (Bayer & McCreight 1972) of order 5 (Knuth 1998).](https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/B-tree.svg/600px-B-tree.svg.png)
+
+            Etymology -<
+
+            :   >   The origin of "B-tree" has never been explained by the authors.
+                >   As we shall see, "balanced," "broad," or "bushy" might apply.
+                >   Others suggest that the "B" stands for Boeing. Because of his
+                >   contributions, however, it seems appropriate to think of
+                >   B-trees as "Bayer"-trees. (Comer 1979, p. 123 footnote 1)
+
+            Advantages of B-tree usage for databases -<
+
+            :   The B-tree uses all of the ideas described above. In particular, a B-tree:
+
+                -   keeps keys in sorted order for sequential traversing
+                -   uses a hierarchical index to minimize the number of disk reads
+                -   uses partially full blocks to speed insertions and deletions
+                -   keeps the index balanced with an elegant recursive algorithm
+
+                In addition, a B-tree minimizes waste by making sure the interior
+                nodes are at least half full. A B-tree can handle an arbitrary
+                number of insertions and deletions.
+
+            Disadvantages of B-trees -<
+
+            :   maximum key length cannot be changed without completely rebuilding
+                the database. This led to many database systems truncating full human
+                names to 70 characters.
+
+            According to Knuth's definition, **a B-tree of order m** is a tree which
+            satisfies the following properties:
+
+            -   Every node has at most m children.
+            -   Every non-leaf node (except root) has at least ⌈m/2⌉ (ceil of m/2) children.
+            -   The root has at least two children if it is not a leaf node.
+            -   A non-leaf node with k children contains k−1 keys.
+            -   All leaves appear in the same level
+
+            It can be shown (by induction for example) that a B-tree of height h
+            with all its nodes completely filled has n= mh+1−1 entries. Hence, the
+            best case height of a B-tree is: log~m~^n+1^.
+
+            ![(A B Tree insertion example with each iteration. The nodes of this B tree have at most 3 children (Knuth order 3).](https://en.wikipedia.org/wiki/File:B_tree_insertion_example.png)
+
+        Red–black tree -<
+
+        :   A red–black tree is a kind of self-balancing binary search tree. Each
+            node of the binary tree has an extra bit, and that bit is often
+            interpreted as the color (red or black) of the node. These color bits
+            are used to ensure the tree remains approximately balanced during
+            insertions and deletions.
+
+            Balance is preserved by painting each node of the tree with one of two
+            colors (typically called 'red' and 'black') in a way that satisfies
+            certain properties, which collectively constrain how unbalanced the
+            tree can become in the worst case. When the tree is modified, the new
+            tree is subsequently rearranged and repainted to restore the coloring
+            properties. The properties are designed in such a way that this
+            **rearranging and recoloring can be performed efficiently**.
+
+            The balancing of the tree is not perfect, but it is good enough to
+            allow it to guarantee **searching in O(log n) time**, where n is the total
+            number of elements in the tree. The insertion and deletion operations,
+            along with the tree rearrangement and recoloring, are also performed in
+            O(log n) time.
+
+            Tracking the color of each node requires only 1 bit of information per
+            node because there are only two colors. The tree does not contain any
+            other data specific to its being a red–black tree so its memory
+            footprint is almost identical to a classic (uncolored) binary search
+            tree. In many cases the additional bit of information can be stored at
+            no additional memory cost.
+
+            The leaf nodes of red–black trees do not contain data. These leaves
+            need not be explicit in computer memory—a null child pointer can encode
+            the fact that this child is a leaf—but it simplifies some algorithms
+            for operating on red–black trees if the leaves really are explicit
+            nodes. To save memory, sometimes a single sentinel node performs the
+            role of all leaf nodes; all references from internal nodes to leaf
+            nodes then point to the sentinel node.
+
+            ![An example of a red–black tree](https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Red-black_tree_example.svg/750px-Red-black_tree_example.svg.png)
+
+            properties
+
+            #.  A node is either red or black.
+            #.  **The root is black**. This rule is sometimes omitted. Since the root can
+                always be changed from red to black, but not necessarily vice versa, this
+                rule has little effect on analysis.
+            #.  **All leaves (NIL) are black.**
+            #.  **If a node is red, then both its children are black.**
+            #.  Every path from a given node to any of its descendant NIL nodes contains
+                **the same number of black nodes**. Some definitions: the number of black nodes
+                from the root to a node is the node's 【black depth; the uniform number of
+                black nodes in all paths from root to the leaves is called the 【black-height】
+                of the red–black tree.
+
+            These constraints enforce a critical property of red–black trees: the
+            path from the root to the farthest leaf is no more than twice as long
+            as the path from the root to the nearest leaf. The result is that the
+            tree is roughly height-balanced. Since operations such as inserting,
+            deleting, and finding values require worst-case time proportional to
+            the height of the tree, this theoretical upper bound on the height
+            allows red–black trees to be efficient in the worst case, unlike
+            ordinary binary search trees.
+
+            ![The same red–black tree as in the example above, seen as a
+                B-tree.](https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Red-black_tree_example_%28B-tree_analogy%29.svg/640px-Red-black_tree_example_%28B-tree_analogy%29.svg.png)
+
+            The red–black tree is then structurally equivalent to a B-tree of order
+            4, with a minimum fill factor of 33% of values per cluster with a
+            maximum capacity of 3 values.
+
+            This B-tree type is still more general than a red–black tree though, as
+            it allows ambiguity in a red–black tree conversion—multiple red–black
+            trees can be produced from an equivalent B-tree of order 4.
+
+            Insertion -<
+
+            :   RB-tree properties:
+
+                -   property 3 (all leaves are black) always holds.
+                -   property 4 (both children of every red node are black) is threatened only by adding a red node, repainting a black node red, or a rotation.
+                -   property 5 (all paths from any given node to its leaf nodes contain the same number of black nodes) is threatened only by adding a black node, repainting a red node black (or vice versa), or a rotation.
+
+                N: 当前 node，P：parent node，G：grandparent node，U：uncle node。 -<
+
+                :   ```cpp
+                    struct node *grandparent(struct node *n)
+                    {
+                        if ((n != NULL) && (n->parent != NULL))
+                            return n->parent->parent;
+                        else
+                            return NULL;
+                    }
+
+                    struct node *uncle(struct node *n)
+                    {
+                        struct node *g = grandparent(n);
+                        if (g == NULL)
+                            return NULL; // No grandparent means no uncle
+                        if (n->parent == g->left)
+                            return g->right;
+                        else
+                            return g->left;
+                    }
+
+                    struct node *sibling(struct node *n)
+                    {
+                        if ((n == NULL) || (n->parent == NULL))
+                            return NULL; // no parent means no sibling
+                        if (n == n->parent->left)
+                            return n->parent->right;
+                        else
+                            return n->parent->left;
+                    }
+                    ```
+
+                There are several cases of red–black tree insertion to handle:
+
+                1.  N is the root node, i.e., first node of red–black tree -<
+
+                    :   ```cpp
+                        void insert_case1(struct node *n)
+                        {
+                            if (n->parent == NULL)
+                                n->color = BLACK;
+                            else
+                                insert_case2(n);
+                        }
+                        ```
+
+                2.  P is black -<
+
+                    :   ```cpp
+                        void insert_case2(struct node *n)
+                        {
+                            if (n->parent->color == BLACK)
+                                return; /* Tree is still valid */
+                            else
+                                insert_case3(n);
+                        }
+                        ```
+
+                        The current node's parent P is black, so property 4 (both
+                        children of every red node are black) is not invalidated.
+                        In this case, the tree is still valid. Property 5 (all
+                        paths from any given node to its leaf nodes contain the
+                        same number of black nodes) is not threatened, because the
+                        current node N has two black leaf children, but because N
+                        is red, the paths through each of its children have the
+                        same number of black nodes as the path through the leaf it
+                        replaced, which was black, and so this property remains
+                        satisfied.
+
+                        Note: In the following cases it can be assumed that N has a
+                        grandparent node G, because its parent P is red, and if it
+                        were the root, it would be black. Thus, N also has an uncle
+                        node U, although it may be a leaf in cases 4 and 5.
+
+                3.  P & U are red -<
+
+                    :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Red-black_tree_insert_case_3.svg/600px-Red-black_tree_insert_case_3.svg.png)
+
+                        ```cpp
+                        void insert_case3(struct node *n)
+                        {
+                            struct node *u = uncle(n), *g;
+
+                            if ((u != NULL) && (u->color == RED)) {
+                                n->parent->color = BLACK;
+                                u->color = BLACK;
+                                g = grandparent(n);
+                                g->color = RED;
+                                insert_case1(g);
+                            } else {
+                                insert_case4(n);
+                            }
+                        }
+                        ```
+
+                        Note: In the remaining cases, it is assumed that the parent
+                        node P is the left child of its parent. If it is the right
+                        child, left and right should be reversed throughout cases 4
+                        and 5. The code samples take care of this.
+
+                4.  N is added to right of left child of grandparent, or N is added to left of right child of grandparent (P is red and U is black) -<
+
+                    :   ![](https://en.wikipedia.org/wiki/File:Red-black_tree_insert_case_4.svg)
+
+                        ```cpp
+                        void insert_case4(struct node *n)
+                        {
+                            struct node *g = grandparent(n);
+
+                            if ((n == n->parent->right) && (n->parent == g->left)) {
+                                rotate_left(n->parent);
+
+                                /*
+                                 * rotate_left can be the below because of already having *g =  grandparent(n)
+                                 *
+                                 * struct node *saved_p=g->left, *saved_left_n=n->left;
+                                 * g->left=n;
+                                 * n->left=saved_p;
+                                 * saved_p->right=saved_left_n;
+                                 *
+                                 * and modify the parent's nodes properly
+                                 */
+
+                                n = n->left;
+
+                            } else if ((n == n->parent->left) && (n->parent == g->right)) {
+                                rotate_right(n->parent);
+
+                                /*
+                                 * rotate_right can be the below to take advantage of already having *g =  grandparent(n)
+                                 *
+                                 * struct node *saved_p=g->right, *saved_right_n=n->right;
+                                 * g->right=n;
+                                 * n->right=saved_p;
+                                 * saved_p->left=saved_right_n;
+                                 *
+                                 */
+
+                                n = n->right;
+                            }
+                            insert_case5(n);
+                        }
+                        ```
+
+                5.  N is added to left of left child of grandparent, or N is added to right of right child of grandparent (P is red and U is black) -<
+
+                    :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Red-black_tree_insert_case_5.svg/600px-Red-black_tree_insert_case_5.svg.png)
+
+                        ```cpp
+                        void insert_case5(struct node *n)
+                        {
+                            struct node *g = grandparent(n);
+
+                            n->parent->color = BLACK;
+                            g->color = RED;
+                            if (n == n->parent->left)
+                                rotate_right(g);
+                            else
+                                rotate_left(g);
+                        }
+                        ```
+
+                        Note that inserting is actually in-place, since all the calls above use tail recursion.
+
+            Removal :TODO: -<
+
+            :   todo.
+
+            可靠性、稳定性
+
+        k-d tree -<
+
+        :   In computer science, a k-d tree (short for **k-dimensional tree**) is a
+            space-partitioning data structure for organizing points in a
+            k-dimensional space. k-d trees are a useful data structure for several
+            applications, such as searches involving a multidimensional search key
+            (e.g. range searches and nearest neighbor searches). k-d trees are a
+            special case of binary space partitioning trees.
+
+            ![A 3-dimensional k-d tree. The first split (the red vertical plane)
+                cuts the root cell (white) into two subcells, each of which is then
+                split (by the green horizontal planes) into two subcells. Finally,
+                those four cells are split (by the four blue vertical planes) into
+                two subcells. Since there is no more splitting, the final eight are
+                called leaf cells.](https://upload.wikimedia.org/wikipedia/commons/b/b6/3dtree.png)
+
+            The k-d tree is a **binary tree** in which every node is a
+            k-dimensional point. Every non-leaf node can be thought of as
+            implicitly generating a splitting hyperplane that divides the space
+            into two parts, known as half-spaces. Points to the left of this
+            hyperplane are represented by the left subtree of that node and points
+            right of the hyperplane are represented by the right subtree. The
+            hyperplane direction is chosen in the following way: every node in the
+            tree is associated with one of the k-dimensions, with the hyperplane
+            perpendicular to that dimension's axis. So, for example, if for a
+            particular split the "x" axis is chosen, all points in the subtree with
+            a smaller "x" value than the node will appear in the left subtree and
+            all points with larger "x" value will be in the right subtree. In such
+            a case, the hyperplane would be set by the x-value of the point, and
+            its normal would be the unit x-axis.
+
+            ![k-d tree decomposition for the point set (2,3), (5,4), (9,6), (4,7), (8,1), (7,2).](https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Kdtree_2d.svg/555px-Kdtree_2d.svg.png)
+
+            ![The resulting k-d tree.](https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Tree_0001.svg/555px-Tree_0001.svg.png)
+
+        refs and see also
+
+        -   [k-d tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/K-d_tree)
+        -   [B-tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/B-tree)
+        -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+        -   [Spanning tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Spanning_tree)
+        -   [Self-balancing binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Self-balancing_binary_search_tree)
+        -   [Splay tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Splay_tree)
+        -   [Binary search tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Binary_search_tree)
+        -   [AVL tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/AVL_tree)
+        -   [Prim's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Prim%27s_algorithm)
+        -   [Mutli-way Trees](http://faculty.cs.niu.edu/~freedman/340/340notes/340multi.htm)
+
+    Hash Function -<
+
+    :   A hash function is any function that can be used to map data of arbitrary
+        size to data of fixed size. The values returned by a hash function are
+        called hash values, hash codes, hash sums, or simply hashes.
+
+        Perfect hashing
+
+        :   A hash function that is **injective**—that is, maps each valid input to a
+            different hash value—is said to be perfect. With such a function one
+            can directly locate the desired entry in a hash table, without any
+            additional searching.
+
+        refs and see also
+
+        -   [Hash function - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Hash_function)
+
+    Dijkstra's algorithm -<
+
+    :   Dijkstra's algorithm is an algorithm for finding the shortest paths between
+        nodes in a graph, which may represent, for example, road networks. It was
+        conceived by computer scientist Edsger W. Dijkstra in 1956 and published
+        three years later.
+
+        ![Dijkstra's algorithm to find the shortest path between a and b. It picks
+            the unvisited vertex with the lowest distance, calculates the distance
+            through it to each unvisited neighbor, and updates the neighbor's
+            distance if smaller. Mark visited (set to red) when done with
+            neighbors.](https://upload.wikimedia.org/wikipedia/commons/5/57/Dijkstra_Animation.gif)
+
+        ![](https://upload.wikimedia.org/wikipedia/commons/2/23/Dijkstras_progress_animation.gif)
 
         ```
-        这个题目需要具备一定的数据结构功底。线段树 (Interval Tree) 可以解决的问题是
-        那些满足结合律的运算。最大公约数是一个满足结合律的运算。所以有，
-        GCD(A,B,C,D) = GCD(GCD(A,B), GCD(C, D)) 。同样具备结合律的运算有
-        PI,SUM,XOR(积, 和, 异或)。线段树的基本思想是，将区间 [1,n] 查分为 [1, n/2],
-        [n/2+1,n] 这两个子区间，然后每个子区间继续做二分，直到区间长度为 1。在每个
-        区间上维护这个区间的运算结果（如 GCD,SUM)，需要查询某一段区间的结果时，将该
-        区间映射到线段树上的若干不相交的区间，将这些区间的结果合并起来则得到了答案。
-        可以证明任何一个区间可以映射到线段树上不超过 O(log n) 个区间。上面介绍的是
-        一维的线段树，对于二维的情况，可以采用四分或者横纵剖分的方法来构建线段树。
+         1  function Dijkstra(Graph, source):
+         2
+         3      create vertex set Q
+         4
+         5      for each vertex v in Graph:             // Initialization
+         6          dist[v] ← INFINITY                  // Unknown distance from source to v
+         7          prev[v] ← UNDEFINED                 // Previous node in optimal path from source
+         8          add v to Q                          // All nodes initially in Q (unvisited nodes)
+         9
+        10      dist[source] ← 0                        // Distance from source to source
+        11
+        12      while Q is not empty:
+        13          u ← vertex in Q with min dist[u]    // Source node will be selected first
+        14          remove u from Q
+        15
+        16          for each neighbor v of u:           // where v is still in Q.
+        17              alt ← dist[u] + length(u, v)
+        18              if alt < dist[v]:               // A shorter path to v has been found
+        19                  dist[v] ← alt
+        20                  prev[v] ← u
+        21
+        22      return dist[], prev[]
+        ```
+
+        If we are only interested in a shortest path between vertices source and
+        target, we can terminate the search after line 13 if u = target. Now we can
+        read the shortest path from source to target by reverse iteration:
+
+        ```
+         1  S ← empty sequence
+         2  u ← target
+         3  while prev[u] is defined:                  // Construct the shortest path with a stack S
+         4      insert u at the beginning of S         // Push the vertex onto the stack
+         5      u ← prev[u]                            // Traverse from target to source
+         6  insert u at the beginning of S             // Push the source onto the stack
+        ```
+
+        Using a priority queue
+
+        ```
+         1  function Dijkstra(Graph, source):
+         2      dist[source] ← 0                                // Initialization
+         3
+         4      create vertex set Q
+         5
+         6      for each vertex v in Graph:
+         7          if v ≠ source
+         8              dist[v] ← INFINITY                      // Unknown distance from source to v
+         9              prev[v] ← UNDEFINED                     // Predecessor of v
+        10
+        11         Q.add_with_priority(v, dist[v])
+        12
+        13
+        14      while Q is not empty:                           // The main loop
+        15          u ← Q.extract_min()                         // Remove and return best vertex
+        16          for each neighbor v of u:                   // only v that is still in Q
+        17              alt = dist[u] + length(u, v)
+        18              if alt < dist[v]
+        19                  dist[v] ← alt
+        20                  prev[v] ← u
+        21                  Q.decrease_priority(v, alt)
+        22
+        23     return dist[], prev[]
         ```
 
         refs and see also
 
-        -   [问答 | 九章算法 - 帮助更多中国人找到好工作，硅谷顶尖IT企业工程师实时在线授课为你传授面试技巧](http://www.jiuzhang.com/qa/886/)
-
-    MISC -<
-
-    :   此题的最优算法是贪心。在实际面试过程中，笔者认为只需要想到贪心算法，并
-        给出算法框架，就可以达到【hire】的程度。能在短时间内完成程序，可以达到
-        【strong hire】。
-
-    [LeetCode： 一些编程心得](https://www.douban.com/note/332117149/) -<
-
-    :   LeetCode 对基础数据结构和基础算法是很好的训练和考查。
-
-        （1）涉及的重要数据结构：
-          ~ 数组（一维，多维），链表，栈，队列，二叉树，无向图，散列，。。。
-
-        （2）涉及的重要算法技术：
-          ~ 贪心，动态规划，分治（递归），回溯（剪枝），搜索（广搜，深搜），。。。
-
-        刷题后的一些体会（以下说法不绝对）：
-
-        -   1，一般来说，贪心的时间复杂度在 O(n)，空间复杂度是 O(1) 或 O(n) 。
-        -   2，动规需要记录表（标记数组），时间复杂度经常是 O(n^2)，空间复杂度也通
-            常是 O(n^2) 。
-        -   3，回溯很常见，重点是确定何时找到一个解、何时退出、越界时如何处理；通常
-            需要一个线性结构来保存前面的状态，以便回溯时使用。
-        -   4，如果贪心、动规等方法都行不通，通常就考虑搜索来解决。
-        -   5，线性时间复杂度一般通过贪心方法实现；有时候，需要借助 HASH 结构（如
-            unordered_map）。
-        -   6，利用好栈 (stack)！很多问题通过栈能够在 O(n) 时间内解决。
-        -   7，深度优先搜索一般是递归的，数据过大时，递归深度太大出现问题；广度优先
-            搜索一般借助队列，一般不需要递归。
-        -   8，初始化数组时，memset(address, value, n_bytes) (包含在 cstring.h) 是
-            针对“字节”赋值！所以除非是单字节元素，或者初值为 0 或者 -1，否则不要用
-            memset 初始化；使用 vector 比较方便。
-        -   9，必要时，使用 unordered_map, unordered_set 等 C++ 容器。
-        -   10，必要时，利用类变量简化传参。
-        -   11，动规的关键是找到转移方程；因此动规的子问题具有“累积”性质。
-        -   12，贪心不同于动规，贪心的子问题不是“累积性“，而是具有“决定性”。
-        -   13，写代码最重要的是思路清楚、可理解性，而不是纠结变量少、代码短等无关
-            紧要的问题。
-        -   14，由于单链表只能从前向后遍历，因此操作时经常需要保存所关心结点的前趋
-            结点。
-        -   15，处理链表要时刻注意检查空指针 NULL。
-        -   16，数组检索、定位快；链表插入、删除快（不需要移动数据）。
-        -   17，vector, string 的性质都倾向于数组；List 的性质倾向于链表。
-        -   18，二叉树问题的基础是遍历方法：前序 / 中序 / 后续，递归与非递归都很重
-            要。
-        -   19，关于二叉树的问题，有些是自顶向下的；也有些是自底向上的，如检查平衡
-            二叉树。通常这两类问题都可以通过递归、非递归两种方法解决。
-        -   20，二叉树非递归遍历：前序遍历最简单，当前结点没有左儿子时，栈顶就是下
-            一个结点；中序遍历需要先将当前结点（顶点）入栈，当前结点没有左儿子时，
-            访问栈顶，并且栈内结点的头一个非空右儿子是下一个结点；后序遍历最后访问
-            根结点，所以，顶点不仅要入栈，而且要记录是否访问了它的右儿子，只有访问
-            了顶点的右儿子之后才能访问它自己。
-        -   21，许多问题需要应用二叉树遍历方法，有些问题需要在结点入栈的同时保存当
-            前状态（如求最长路径）。
-        -   22，二叉树 Level 遍历的本质是广度优先搜索，需要利用队列。
-        -   23，关于”图“，LeetCode 只有一道遍历题目，需要到其他地方补充一下。
-        -   24，有些方法虽然 AC 了，但并不一定是最优美的。
-
-        （未完待续）
-
-        补充：多看一些经典算法的思路，着重理解算法本质还是很有必要的。毕竟，数据结
-        构+算法还是核心。
-
-[Solving Every Sudoku Puzzle](http://norvig.com/sudoku.html) -<
-
-:   ```
-     A1 A2 A3| A4 A5 A6| A7 A8 A9    4 . . |. . . |8 . 5     4 1 7 |3 6 9 |8 2 5
-     B1 B2 B3| B4 B5 B6| B7 B8 B9    . 3 . |. . . |. . .     6 3 2 |1 5 8 |9 4 7
-     C1 C2 C3| C4 C5 C6| C7 C8 C9    . . . |7 . . |. . .     9 5 8 |7 2 4 |3 1 6
-    ---------+---------+---------    ------+------+------    ------+------+------
-     D1 D2 D3| D4 D5 D6| D7 D8 D9    . 2 . |. . . |. 6 .     8 2 5 |4 3 7 |1 6 9
-     E1 E2 E3| E4 E5 E6| E7 E8 E9    . . . |. 8 . |4 . .     7 9 1 |5 8 6 |4 3 2
-     F1 F2 F3| F4 F5 F6| F7 F8 F9    . . . |. 1 . |. . .     3 4 6 |9 1 2 |7 5 8
-    ---------+---------+---------    ------+------+------    ------+------+------
-     G1 G2 G3| G4 G5 G6| G7 G8 G9    . . . |6 . 3 |. 7 .     2 8 9 |6 4 3 |5 7 1
-     H1 H2 H3| H4 H5 H6| H7 H8 H9    5 . . |2 . . |. . .     5 7 3 |2 9 1 |6 8 4
-     I1 I2 I3| I4 I5 I6| I7 I8 I9    1 . 4 |. . . |. . .     1 6 4 |8 7 5 |2 9 3
-    ```
-
-    ```python
-    "4.....8.5.3..........7......2.....6.....8.4......1.......6.3.7.5..2.....1.4......"
-
-    """
-    400000805
-    030000000
-    000700000
-    020000060
-    000080400
-    000010000
-    000603070
-    500200000
-    104000000"""
-
-    """
-    4 . . |. . . |8 . 5
-    . 3 . |. . . |. . .
-    . . . |7 . . |. . .
-    ------+------+------
-    . 2 . |. . . |. 6 .
-    . . . |. 8 . |4 . .
-    . . . |. 1 . |. . .
-    ------+------+------
-    . . . |6 . 3 |. 7 .
-    5 . . |2 . . |. . .
-    1 . 4 |. . . |. . .
-    """
-    ```
-
-    Constraint Propagation -<
-
-    :   The function parse_grid calls assign(values, s, d). We could implement this
-        as values[s] = d, but we can do more than just that. Those with experience
-        solving Sudoku puzzles know that there are two important strategies that we
-        can use to make progress towards filling in all the squares:
-
-        (1) If a square has only one possible value, then eliminate that value from
-            the square's peers.
-        (2) If a unit has only one possible place for a value, then put the value
-            there.
-
-        As an example of strategy (1) if we assign 7 to A1, yielding {'A1': '7',
-        'A2':'123456789', ...}, we see that A1 has only one value, and thus the 7
-        can be removed from its peer A2 (and all other peers), giving us {'A1':
-        '7', 'A2': '12345689', ...}. As an example of strategy (2), if it turns out
-        that none of A3 through A9 has a 3 as a possible value, then the 3 must
-        belong in A2, and we can update to {'A1': '7', 'A2':'3', ...}. These
-        updates to A2 may in turn cause further updates to its peers, and the peers
-        of those peers, and so on. This process is called constraint propagation.
-
-    Search -<
-
-    :   What is the search algorithm? Simple: first make sure we haven't already
-        found a solution or a contradiction, and if not, choose one unfilled square
-        and consider all its possible values. One at a time, try assigning the
-        square each value, and searching from the resulting position. In other
-        words, we search for a value d such that we can successfully search for a
-        solution from the result of assigning square s to d. If the search leads to
-        an failed position, go back and consider another value of d. This is a
-        recursive search, and we call it a depth-first search because we
-        (recursively) consider all possibilities under values[s] = d before we
-        consider a different value for s.
-
-    refs and see also
-
-    -   [pauek/norvig-sudoku: Norvig's Sudoku solver in C++](https://github.com/pauek/norvig-sudoku)
-
-C++ 实现的 B+ 树 -<
-
-:   refs and see also
-
-    -   [algorithm/bptree.c at master · ghostrong/algorithm](https://github.com/ghostrong/algorithm/blob/master/bptree.c)
-
-OJ 工具 -<
-
-:   getx.h
-
-    ```cpp
-    #include <iostream>
-    #include <string>
-
-    namespace oj {
-
-    using namespace std;
-
-    template<typename T>
-    T get(istream & is = cin) {
-        T val;
-        is >> val;
-        return val;
-    }
-
-    }
-    ```
-
-    link-list.h
-
-    ```cpp
-    template<typename T>
-    class LinkList {
-    public:
-        T val;
-        LinkList* next;
-        LinkList(T _val = 0): val(_val), next(NULL) {}
-    };
-
-    template<typename T>
-    ostream& operator<<(ostream& o, LinkList<T>* head){
-        while(head){
-            o<<head->val;
-            if(head->next) o<<"->";
-            head = head->next;
-        }
-        return o;
-    }
-    ```
-
-    pair.h
-
-    ```cpp
-    template<typename T1, class T2>
-    istream & operator>> (istream & is, pair<T1, T2>& p) {
-        T1 k;
-        T2 v;
-        is >> k >> v;
-        p.first = k;
-        p.second = v;
-        return is;
-    }
-
-    template<typename T1, typename T2>
-    ostream & operator<< (ostream & o, pair<T1, T2>& p) {
-        return o << '<' << p.first << "," << p.second << '>';
-    }
-    ```
-
-    set.h, map.h
-
-    ```cpp
-    #include<iostream>
-    #include<sstream>
-    #include <set>
-    #include <unordered_set>
-    using namespace std;
-
-    // set
-    template<typename T>
-    istream& operator>>(istream& is, set<T>& st){
-        string s; getline(is, s);
-        stringstream ss(s);
-        T v;
-        while(ss>>v){
-            st.insert(v);
-        }
-        return is;
-    }
-    template<typename T>
-    ostream& operator<<(ostream& o, set<T>& st){
-        size_t i = st.size() - 1;
-        typename set<T>::iterator it;
-        o<<"{";
-        for(it = st.begin(); it != st.end(); ++it, --i){
-            o<<*it;
-            if(i) o<<',';
-        }
-        return o<<"}";
-    }
-
-    // map
-    template<typename T1, typename T2>
-    istream & operator>>(istream & is, map<T1, T2>& m) {
-        string s;
-        getline(is, s);
-        stringstream ss(s);
-        T1 k;
-        T2 v;
-        while(ss >> k >> v){
-            m[k] = v;
-        }
-        return is;
-    }
-    template<typename T1, typename T2>
-    ostream& operator<<(ostream& o, const map<T1, T2>& c) {
-        o << "{";
-        for(auto pr : c) o << pr << ' ';
-        return o << "\b}";
-    }
-    ```
-
-    vector.h
-
-    ```cpp
-    template<typename T>
-    ostream & operator<< (ostream & o, const vector<T>& v){
-        o << "[";
-        for(int i=0; i<v.size(); ++i){
-            o << v[i];
-            if(i<v.size()-1) o<< ',';
-        }
-        return o << "]";
-    }
-
-    template<typename T>
-    istream & operator>>(istream & is, vector<T>& v){
-        string s; getline(is, s);
-        stringstream ss(s);
-        T tmp;
-        while(ss >> tmp){
-            v.push_back(tmp);
-        }
-        return is;
-    }
-    ```
-
-    refs and see also
-
-    -   [oj.h/lib at master · harttle/oj.h](https://github.com/harttle/oj.h/tree/master/lib)
-
-[微软 2015 校园招聘 Dec2 #2 Have Lunch Together | 天码营 - 新一代技术学习服务平台](https://www.tianmaying.com/tutorial/MS2015_Dec2_2)
-
-[LeetCode 题目总结/分类](https://www.douban.com/note/330562764/) -<
-
-:   注：此分类仅供大概参考，没有精雕细琢。有不同意见欢迎评论~
-    欢迎参考我的leetcode代码
-
-    利用堆栈：
-
-    -   http://oj.leetcode.com/problems/evaluate-reverse-polish-notation/
-    -   http://oj.leetcode.com/problems/longest-valid-parentheses/ （也可以用一维数组，贪心）
-    -   http://oj.leetcode.com/problems/valid-parentheses/
-    -   http://oj.leetcode.com/problems/largest-rectangle-in-histogram/
-    -   特别注意细节：http://oj.leetcode.com/problems/trapping-rain-water/
-
-    多种数据结构：
-
-    -   http://oj.leetcode.com/problems/lru-cache/
-    -   http://oj.leetcode.com/problems/substring-with-concatenation-of-all-words/ (注意遍历方法）
-    -   HASH：http://oj.leetcode.com/problems/longest-consecutive-sequence/
-
-    简单编程：
-
-    -   http://oj.leetcode.com/problems/longest-common-prefix/
-    -   http://oj.leetcode.com/problems/string-to-integer-atoi/ (分析，控制语句）
-
-    排序 & 查找：
-
-    -   二分查找：http://oj.leetcode.com/problems/search-a-2d-matrix/
-    -   二分查找进阶：http://oj.leetcode.com/problems/search-for-a-range/
-    -   二分查找应用：http://oj.leetcode.com/problems/sqrtx/
-    -   二分查找应用：http://oj.leetcode.com/problems/search-insert-position/
-    -   二分查找变种：http://oj.leetcode.com/problems/search-in-rotated-sorted-array/
-    -   二分查找变种：http://oj.leetcode.com/problems/search-in-rotated-sorted-array-ii/
-
-    简单数学：
-
-    -   http://oj.leetcode.com/problems/pascals-triangle/
-    -   http://oj.leetcode.com/problems/pascals-triangle-ii/
-    -   http://oj.leetcode.com/problems/powx-n/
-    -   http://oj.leetcode.com/problems/reverse-integer/
-    -   http://oj.leetcode.com/problems/plus-one/
-    -   http://oj.leetcode.com/problems/unique-paths/
-    -   http://oj.leetcode.com/problems/palindrome-number/
-    -   http://oj.leetcode.com/problems/permutation-sequence/
-    -   http://oj.leetcode.com/problems/merge-intervals/
-    -   http://oj.leetcode.com/problems/valid-number/
-    -   http://oj.leetcode.com/problems/climbing-stairs/
-    -   http://oj.leetcode.com/problems/roman-to-integer/
-    -   http://oj.leetcode.com/problems/integer-to-roman/
-    -   http://oj.leetcode.com/problems/divide-two-integers/
-    -   区间：http://oj.leetcode.com/problems/insert-interval/
-
-    大数的数学运算：
-
-    -   http://oj.leetcode.com/problems/add-binary/
-    -   http://oj.leetcode.com/problems/add-two-numbers/
-
-    数组：
-
-    -   http://oj.leetcode.com/problems/remove-element/
-    -   http://oj.leetcode.com/problems/merge-sorted-array/
-    -   http://oj.leetcode.com/problems/first-missing-positive/
-    -   http://oj.leetcode.com/problems/spiral-matrix/
-    -   http://oj.leetcode.com/problems/spiral-matrix-ii/
-    -   http://oj.leetcode.com/problems/rotate-image/
-    -   遍历技巧：http://oj.leetcode.com/problems/container-with-most-water/
-    -   http://oj.leetcode.com/problems/two-sum/
-    -   http://oj.leetcode.com/problems/3sum/
-    -   http://oj.leetcode.com/problems/3sum-closest/
-    -   http://oj.leetcode.com/problems/4sum/
-    -   http://oj.leetcode.com/problems/set-matrix-zeroes/
-    -   用好标记数组：http://oj.leetcode.com/problems/valid-sudoku/
-    -   http://oj.leetcode.com/problems/next-permutation/
-    -   http://oj.leetcode.com/problems/word-search/
-    -   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-array/
-    -   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
-    -   http://oj.leetcode.com/problems/sort-colors/
-
-    暴力方法/细节实现：
-
-    -   http://oj.leetcode.com/problems/max-points-on-a-line/
-
-    链表：
-
-    -   归并排序：http://oj.leetcode.com/problems/sort-list/
-    -   插入排序：http://oj.leetcode.com/problems/insertion-sort-list/
-    -   反转、插入：http://oj.leetcode.com/problems/reorder-list/
-    -   检测是否有环：http://oj.leetcode.com/problems/linked-list-cycle/
-    -   确定链表环的起点：http://oj.leetcode.com/problems/linked-list-cycle-ii/
-    -   Deep Copy 带有随机指针的链表：http://oj.leetcode.com/problems/copy-list-with-random-pointer/
-    -   链表细节：http://oj.leetcode.com/problems/rotate-list/
-    -   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-list/
-    -   删除细节：http://oj.leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
-    -   http://oj.leetcode.com/problems/partition-list/
-    -   http://oj.leetcode.com/problems/swap-nodes-in-pairs/
-    -   Merge 两个链表：http://oj.leetcode.com/problems/merge-two-sorted-lists/
-    -   Merge 多链表：http://oj.leetcode.com/problems/merge-k-sorted-lists/
-    -   细节：http://oj.leetcode.com/problems/reverse-nodes-in-k-group/
-    -   http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/
-    -   http://oj.leetcode.com/problems/reverse-linked-list-ii/
-
-    二叉树遍历：递归 & 非递归
-
-    -   http://oj.leetcode.com/problems/same-tree/
-    -   前序：http://oj.leetcode.com/problems/binary-tree-preorder-traversal/
-    -   中序：http://oj.leetcode.com/problems/binary-tree-inorder-traversal/
-    -   后序：http://oj.leetcode.com/problems/binary-tree-postorder-traversal/
-    -   遍历变种：http://oj.leetcode.com/problems/sum-root-to-leaf-numbers/
-    -   遍历变种：http://oj.leetcode.com/problems/path-sum/
-    -   遍历变种：http://oj.leetcode.com/problems/path-sum-ii/
-    -   遍历变种：http://oj.leetcode.com/problems/maximum-depth-of-binary-tree/
-    -   遍历变种：http://oj.leetcode.com/problems/minimum-depth-of-binary-tree/
-    -   重建二叉树：http://oj.leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
-    -   重建二叉树：http://oj.leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
-    -   层次遍历变种：http://oj.leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
-    -   遍历变种：http://oj.leetcode.com/problems/symmetric-tree/
-    -   遍历应用：http://oj.leetcode.com/problems/binary-tree-maximum-path-sum/
-    -   遍历应用：http://oj.leetcode.com/problems/balanced-binary-tree/
-    -   遍历应用：http://oj.leetcode.com/problems/recover-binary-search-tree/
-    -   遍历应用：http://oj.leetcode.com/problems/flatten-binary-tree-to-linked-list/
-    -   level遍历：http://oj.leetcode.com/problems/binary-tree-level-order-traversal/
-    -   level 遍历：http://oj.leetcode.com/problems/binary-tree-level-order-traversal-ii/
-    -   level 遍历变种：http://oj.leetcode.com/problems/populating-next-right-pointers-in-each-node/
-    -   level 遍历变种：http://oj.leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
-
-    问题分析/智商/细节：
-
-    -   http://oj.leetcode.com/problems/single-number/
-    -   http://oj.leetcode.com/problems/single-number-ii/
-    -   http://oj.leetcode.com/problems/candy/ ？
-    -   http://oj.leetcode.com/problems/gas-station/
-
-    动态规划：
-
-    -   http://oj.leetcode.com/problems/triangle/ （最短路径）
-    -   http://oj.leetcode.com/problems/subsets/ （另一种形式）
-    -   http://oj.leetcode.com/problems/subsets-ii/
-    -   http://oj.leetcode.com/problems/edit-distance/ （经典）
-    -   http://oj.leetcode.com/problems/word-break/
-    -   http://oj.leetcode.com/problems/word-break-ii/
-    -   http://oj.leetcode.com/problems/unique-binary-search-trees/ （动态规划避免递归）
-    -   http://oj.leetcode.com/problems/unique-paths-ii/
-    -   http://oj.leetcode.com/problems/scramble-string/
-    -   http://oj.leetcode.com/problems/palindrome-partitioning/
-    -   http://oj.leetcode.com/problems/palindrome-partitioning-ii/
-    -   http://oj.leetcode.com/problems/interleaving-string/
-    -   http://oj.leetcode.com/problems/distinct-subsequences/
-    -   http://oj.leetcode.com/problems/decode-ways/
-    -   http://oj.leetcode.com/problems/gray-code/
-    -   http://oj.leetcode.com/problems/minimum-path-sum/
-
-    回溯：
-
-    -   http://oj.leetcode.com/problems/combinations/
-    -   http://oj.leetcode.com/problems/generate-parentheses/
-    -   http://oj.leetcode.com/problems/combination-sum/
-    -   http://oj.leetcode.com/problems/combination-sum-ii/
-    -   http://oj.leetcode.com/problems/sudoku-solver/
-    -   经典N皇后：http://oj.leetcode.com/problems/n-queens/
-    -   http://oj.leetcode.com/problems/n-queens-ii/
-    -   http://oj.leetcode.com/problems/letter-combinations-of-a-phone-number/
-
-    贪心：
-
-    -   http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock/
-    -   http://oj.leetcode.com/problems/jump-game/
-    -   http://oj.leetcode.com/problems/jump-game-ii/
-    -   http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
-    -   http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
-    -   http://oj.leetcode.com/problems/maximum-subarray/
-    -   http://oj.leetcode.com/problems/minimum-window-substring/
-    -   http://oj.leetcode.com/problems/maximal-rectangle/
-    -   http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/
-
-    分治 & 递归：
-
-    -   http://oj.leetcode.com/problems/unique-binary-search-trees-ii/
-    -   http://oj.leetcode.com/problems/restore-ip-addresses/ （时间复杂度有限，递归满足）
-    -   http://oj.leetcode.com/problems/permutations/
-    -   http://oj.leetcode.com/problems/permutations-ii/
-    -   http://oj.leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
-    -   http://oj.leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
-    -   http://oj.leetcode.com/problems/median-of-two-sorted-arrays/
-    -   http://oj.leetcode.com/problems/validate-binary-search-tree/
-
-    字符串：
-
-    -   http://oj.leetcode.com/problems/count-and-say/
-    -   http://oj.leetcode.com/problems/implement-strstr/ （子串查找）
-    -   http://oj.leetcode.com/problems/anagrams/
-    -   http://oj.leetcode.com/problems/text-justification/ (细节）
-    -   http://oj.leetcode.com/problems/simplify-path/ （基础控制语句 if-else-for）
-    -   http://oj.leetcode.com/problems/multiply-strings/
-    -   http://oj.leetcode.com/problems/regular-expression-matching/
-    -   http://oj.leetcode.com/problems/wildcard-matching/
-    -   http://oj.leetcode.com/problems/longest-palindromic-substring/
-    -   http://oj.leetcode.com/problems/zigzag-conversion/
-    -   http://oj.leetcode.com/problems/length-of-last-word/
-    -   http://oj.leetcode.com/problems/valid-palindrome/
-
-    图：
-
-    -   深搜/广搜：http://oj.leetcode.com/problems/clone-graph/
-
-    搜索 & 遍历：
-
-    -   http://oj.leetcode.com/problems/word-ladder/
-    -   http://oj.leetcode.com/problems/word-ladder-ii/
-    -   广搜：http://oj.leetcode.com/problems/surrounded-regions/
+        -   [Dijkstra's algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)
+
+    `A*` search algorithm -<
+
+    :   In computer science, `A*` (pronounced as "A star") is a computer algorithm
+        that is widely used in pathfinding and graph traversal, the process of
+        plotting an efficiently traversable path between multiple points, called
+        nodes. Noted for its performance and accuracy, it enjoys widespread use.
+        However, in practical travel-routing systems, it is generally outperformed
+        by algorithms which can pre-process the graph to attain better performance,
+        although other work has found `A*` to be superior to other approaches.
+
+        `A*` achieves better performance by using heuristics to guide its search.
+
+        `A*` selects the path that minimizes: f(n) = g(n) + h(n), n: node, g: cost dist, h: heuristic dist.
+
+        ![](https://upload.wikimedia.org/wikipedia/commons/5/5d/Astar_progress_animation.gif)
+
+        ![Key: green: start; blue: goal; orange: visited](https://en.wikipedia.org/wiki/File:AstarExampleEn.gif)
+
+        ```cpp
+        function A*(start, goal)
+            // The set of nodes already evaluated.
+            closedSet := {}
+            // The set of currently discovered nodes still to be evaluated.
+            // Initially, only the start node is known.
+            openSet := {start}
+            // For each node, which node it can most efficiently be reached from.
+            // If a node can be reached from many nodes, cameFrom will eventually contain the
+            // most efficient previous step.
+            cameFrom := the empty map
+
+            // For each node, the cost of getting from the start node to that node.
+            gScore := map with default value of Infinity
+            // The cost of going from start to start is zero.
+            gScore[start] := 0
+            // For each node, the total cost of getting from the start node to the goal
+            // by passing by that node. That value is partly known, partly heuristic.
+            fScore := map with default value of Infinity
+            // For the first node, that value is completely heuristic.
+            fScore[start] := heuristic_cost_estimate(start, goal)
+
+            while openSet is not empty
+                current := the node in openSet having the lowest fScore[] value
+                if current = goal
+                    return reconstruct_path(cameFrom, current)
+
+                openSet.Remove(current)
+                closedSet.Add(current)
+                for each neighbor of current
+                    if neighbor in closedSet
+                        continue        // Ignore the neighbor which is already evaluated.
+                    // The distance from start to a neighbor
+                    tentative_gScore := gScore[current] + dist_between(current, neighbor)
+                    if neighbor not in openSet  // Discover a new node
+                        openSet.Add(neighbor)
+                    else if tentative_gScore >= gScore[neighbor]
+                        continue        // This is not a better path.
+
+                    // This path is the best until now. Record it!
+                    cameFrom[neighbor] := current
+                    gScore[neighbor] := tentative_gScore
+                    fScore[neighbor] := gScore[neighbor] + heuristic_cost_estimate(neighbor, goal)
+
+            return failure
+
+        function reconstruct_path(cameFrom, current)
+            total_path := [current]
+            while current in cameFrom.Keys:
+                current := cameFrom[current]
+                total_path.append(current)
+            return total_path
+        ```
+
+        refs and see also
+
+        -   [`A*` search algorithm - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/A*_search_algorithm)
+
+    Travelling salesman problem -<
+
+    :   The travelling salesman problem (TSP) asks the following question: Given a
+        list of **cities** and the **distances** between each pair of cities, what is the
+        **shortest possible route that visits each city exactly once and returns to
+        the origin city**? It is an NP-hard problem in combinatorial optimization,
+        important in operations research and theoretical computer science.
+
+        ![Solution of a travelling salesman
+            problem](https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/GLPK_solution_of_a_travelling_salesman_problem.svg/330px-GLPK_solution_of_a_travelling_salesman_problem.svg.png)
+
+        **TSP can be modelled as an undirected weighted graph**, such that cities are
+        the graph's vertices, paths are the graph's edges, and a path's distance is
+        the edge's length. It is a minimization problem starting and finishing at a
+        specified vertex after having visited each other vertex exactly once.
+        Often, the model is a complete graph (i.e. each pair of vertices is
+        connected by an edge). If no path exists between two cities, adding an
+        arbitrarily long edge will complete the graph without affecting the optimal
+        tour.
+
+        Exact algorithms
+
+        :   try all permutations (ordered combinations) -> brute force, O(n!)
+
+        Heuristic and approximation algorithms
+
+        :   NN 近邻法
+
+        refs and see also
+
+        -   [Travelling salesman problem - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
+
+Blog Posts -<
+
+:   -   C++ 实现的 B+ 树 -<
+
+        :   refs and see also
+
+            -   [algorithm/bptree.c at master · ghostrong/algorithm](https://github.com/ghostrong/algorithm/blob/master/bptree.c)
+
+    -   OJ 工具 -<
+
+        :   getx.h
+
+            ```cpp
+            #include <iostream>
+            #include <string>
+
+            namespace oj {
+
+            using namespace std;
+
+            template<typename T>
+            T get(istream & is = cin) {
+                T val;
+                is >> val;
+                return val;
+            }
+
+            }
+            ```
+
+            link-list.h
+
+            ```cpp
+            template<typename T>
+            class LinkList {
+            public:
+                T val;
+                LinkList* next;
+                LinkList(T _val = 0): val(_val), next(NULL) {}
+            };
+
+            template<typename T>
+            ostream& operator<<(ostream& o, LinkList<T>* head){
+                while(head){
+                    o<<head->val;
+                    if(head->next) o<<"->";
+                    head = head->next;
+                }
+                return o;
+            }
+            ```
+
+            pair.h
+
+            ```cpp
+            template<typename T1, class T2>
+            istream & operator>> (istream & is, pair<T1, T2>& p) {
+                T1 k;
+                T2 v;
+                is >> k >> v;
+                p.first = k;
+                p.second = v;
+                return is;
+            }
+
+            template<typename T1, typename T2>
+            ostream & operator<< (ostream & o, pair<T1, T2>& p) {
+                return o << '<' << p.first << "," << p.second << '>';
+            }
+            ```
+
+            set.h, map.h
+
+            ```cpp
+            #include<iostream>
+            #include<sstream>
+            #include <set>
+            #include <unordered_set>
+            using namespace std;
+
+            // set
+            template<typename T>
+            istream& operator>>(istream& is, set<T>& st){
+                string s; getline(is, s);
+                stringstream ss(s);
+                T v;
+                while(ss>>v){
+                    st.insert(v);
+                }
+                return is;
+            }
+            template<typename T>
+            ostream& operator<<(ostream& o, set<T>& st){
+                size_t i = st.size() - 1;
+                typename set<T>::iterator it;
+                o<<"{";
+                for(it = st.begin(); it != st.end(); ++it, --i){
+                    o<<*it;
+                    if(i) o<<',';
+                }
+                return o<<"}";
+            }
+
+            // map
+            template<typename T1, typename T2>
+            istream & operator>>(istream & is, map<T1, T2>& m) {
+                string s;
+                getline(is, s);
+                stringstream ss(s);
+                T1 k;
+                T2 v;
+                while(ss >> k >> v){
+                    m[k] = v;
+                }
+                return is;
+            }
+            template<typename T1, typename T2>
+            ostream& operator<<(ostream& o, const map<T1, T2>& c) {
+                o << "{";
+                for(auto pr : c) o << pr << ' ';
+                return o << "\b}";
+            }
+            ```
+
+            vector.h
+
+            ```cpp
+            template<typename T>
+            ostream & operator<< (ostream & o, const vector<T>& v){
+                o << "[";
+                for(int i=0; i<v.size(); ++i){
+                    o << v[i];
+                    if(i<v.size()-1) o<< ',';
+                }
+                return o << "]";
+            }
+
+            template<typename T>
+            istream & operator>>(istream & is, vector<T>& v){
+                string s; getline(is, s);
+                stringstream ss(s);
+                T tmp;
+                while(ss >> tmp){
+                    v.push_back(tmp);
+                }
+                return is;
+            }
+            ```
+
+            refs and see also
+
+            -   [oj.h/lib at master · harttle/oj.h](https://github.com/harttle/oj.h/tree/master/lib)
+
+    -   [微软 2015 校园招聘 Dec2 #2 Have Lunch Together | 天码营 - 新一代技术学习服务平台](https://www.tianmaying.com/tutorial/MS2015_Dec2_2)
+
+    -   [LeetCode： 一些编程心得](https://www.douban.com/note/332117149/) -<
+
+        :   LeetCode 对基础数据结构和基础算法是很好的训练和考查。
+
+            （1）涉及的重要数据结构：
+              ~ 数组（一维，多维），链表，栈，队列，二叉树，无向图，散列，。。。
+
+            （2）涉及的重要算法技术：
+              ~ 贪心，动态规划，分治（递归），回溯（剪枝），搜索（广搜，深搜），。。。
+
+            刷题后的一些体会（以下说法不绝对）：
+
+            -   1，一般来说，贪心的时间复杂度在 O(n)，空间复杂度是 O(1) 或 O(n) 。
+            -   2，动规需要记录表（标记数组），时间复杂度经常是 O(n^2^)，空间复杂度也通常是 O(n^2^) 。
+            -   3，回溯很常见，重点是确定何时找到一个解、何时退出、越界时如何处理；通常需要一个线性结构来保存前面的状态，以便回溯时使用。
+            -   4，如果贪心、动规等方法都行不通，通常就考虑搜索来解决。
+            -   5，线性时间复杂度一般通过贪心方法实现；有时候，需要借助 HASH 结构（如 unordered_map）。
+            -   6，利用好栈 (stack)！很多问题通过栈能够在 O(n) 时间内解决。
+            -   7，深度优先搜索一般是递归的，数据过大时，递归深度太大出现问题；广度优先
+                搜索一般借助队列，一般不需要递归。
+            -   8，初始化数组时，memset(address, value, n_bytes) (包含在 cstring.h) 是
+                针对“字节”赋值！所以除非是单字节元素，或者初值为 0 或者 -1，否则不要用
+                memset 初始化；使用 vector 比较方便。
+            -   9，必要时，使用 unordered_map, unordered_set 等 C++ 容器。
+            -   10，必要时，利用类变量简化传参。
+            -   11，动规的关键是找到转移方程；因此动规的子问题具有“累积”性质。
+            -   12，贪心不同于动规，贪心的子问题不是“累积性“，而是具有“决定性”。
+            -   13，写代码最重要的是思路清楚、可理解性，而不是纠结变量少、代码短等无关
+                紧要的问题。
+            -   14，由于单链表只能从前向后遍历，因此操作时经常需要保存所关心结点的前趋结点。
+            -   15，处理链表要时刻注意检查空指针 NULL。
+            -   16，数组检索、定位快；链表插入、删除快（不需要移动数据）。
+            -   17，vector, string 的性质都倾向于数组；List 的性质倾向于链表。
+            -   18，二叉树问题的基础是遍历方法：前序 / 中序 / 后续，递归与非递归都很重
+                要。
+            -   19，关于二叉树的问题，有些是自顶向下的；也有些是自底向上的，如检查平衡
+                二叉树。通常这两类问题都可以通过递归、非递归两种方法解决。
+            -   20，二叉树非递归遍历：前序遍历最简单，当前结点没有左儿子时，栈顶就是下
+                一个结点；中序遍历需要先将当前结点（顶点）入栈，当前结点没有左儿子时，
+                访问栈顶，并且栈内结点的头一个非空右儿子是下一个结点；后序遍历最后访问
+                根结点，所以，顶点不仅要入栈，而且要记录是否访问了它的右儿子，只有访问
+                了顶点的右儿子之后才能访问它自己。
+            -   21，许多问题需要应用二叉树遍历方法，有些问题需要在结点入栈的同时保存当
+                前状态（如求最长路径）。
+            -   22，二叉树 Level 遍历的本质是广度优先搜索，需要利用队列。
+            -   23，关于”图“，LeetCode 只有一道遍历题目，需要到其他地方补充一下。
+            -   24，有些方法虽然 AC 了，但并不一定是最优美的。
+
+            （未完待续）
+
+            补充：多看一些经典算法的思路，着重理解算法本质还是很有必要的。毕竟，数据结
+            构+算法还是核心。
+
+    -   [Solving Every Sudoku Puzzle](http://norvig.com/sudoku.html) -<
+
+        :   ```
+             A1 A2 A3| A4 A5 A6| A7 A8 A9    4 . . |. . . |8 . 5     4 1 7 |3 6 9 |8 2 5
+             B1 B2 B3| B4 B5 B6| B7 B8 B9    . 3 . |. . . |. . .     6 3 2 |1 5 8 |9 4 7
+             C1 C2 C3| C4 C5 C6| C7 C8 C9    . . . |7 . . |. . .     9 5 8 |7 2 4 |3 1 6
+            ---------+---------+---------    ------+------+------    ------+------+------
+             D1 D2 D3| D4 D5 D6| D7 D8 D9    . 2 . |. . . |. 6 .     8 2 5 |4 3 7 |1 6 9
+             E1 E2 E3| E4 E5 E6| E7 E8 E9    . . . |. 8 . |4 . .     7 9 1 |5 8 6 |4 3 2
+             F1 F2 F3| F4 F5 F6| F7 F8 F9    . . . |. 1 . |. . .     3 4 6 |9 1 2 |7 5 8
+            ---------+---------+---------    ------+------+------    ------+------+------
+             G1 G2 G3| G4 G5 G6| G7 G8 G9    . . . |6 . 3 |. 7 .     2 8 9 |6 4 3 |5 7 1
+             H1 H2 H3| H4 H5 H6| H7 H8 H9    5 . . |2 . . |. . .     5 7 3 |2 9 1 |6 8 4
+             I1 I2 I3| I4 I5 I6| I7 I8 I9    1 . 4 |. . . |. . .     1 6 4 |8 7 5 |2 9 3
+            ```
+
+            ```python
+            "4.....8.5.3..........7......2.....6.....8.4......1.......6.3.7.5..2.....1.4......"
+
+            """
+            400000805
+            030000000
+            000700000
+            020000060
+            000080400
+            000010000
+            000603070
+            500200000
+            104000000"""
+
+            """
+            4 . . |. . . |8 . 5
+            . 3 . |. . . |. . .
+            . . . |7 . . |. . .
+            ------+------+------
+            . 2 . |. . . |. 6 .
+            . . . |. 8 . |4 . .
+            . . . |. 1 . |. . .
+            ------+------+------
+            . . . |6 . 3 |. 7 .
+            5 . . |2 . . |. . .
+            1 . 4 |. . . |. . .
+            """
+            ```
+
+            Constraint Propagation -<
+
+            :   The function parse_grid calls assign(values, s, d). We could implement this
+                as values[s] = d, but we can do more than just that. Those with experience
+                solving Sudoku puzzles know that there are two important strategies that we
+                can use to make progress towards filling in all the squares:
+
+                (1) If a square has only one possible value, then eliminate that value from
+                    the square's peers.
+                (2) If a unit has only one possible place for a value, then put the value
+                    there.
+
+                As an example of strategy (1) if we assign 7 to A1, yielding {'A1': '7',
+                'A2':'123456789', ...}, we see that A1 has only one value, and thus the 7
+                can be removed from its peer A2 (and all other peers), giving us {'A1':
+                '7', 'A2': '12345689', ...}. As an example of strategy (2), if it turns out
+                that none of A3 through A9 has a 3 as a possible value, then the 3 must
+                belong in A2, and we can update to {'A1': '7', 'A2':'3', ...}. These
+                updates to A2 may in turn cause further updates to its peers, and the peers
+                of those peers, and so on. This process is called constraint propagation.
+
+            Search -<
+
+            :   What is the search algorithm? Simple: first make sure we haven't already
+                found a solution or a contradiction, and if not, choose one unfilled square
+                and consider all its possible values. One at a time, try assigning the
+                square each value, and searching from the resulting position. In other
+                words, we search for a value d such that we can successfully search for a
+                solution from the result of assigning square s to d. If the search leads to
+                an failed position, go back and consider another value of d. This is a
+                recursive search, and we call it a depth-first search because we
+                (recursively) consider all possibilities under values[s] = d before we
+                consider a different value for s.
+
+            refs and see also
+
+            -   [pauek/norvig-sudoku: Norvig's Sudoku solver in C++](https://github.com/pauek/norvig-sudoku)
+
+    -   一道阿里笔试题，思路应该是怎样？ -<
+
+        :   refs and see also
+
+            -   [The-Art-Of-Programming-By-July/02.09.md at master · julycoding/The-Art-Of-Programming-By-July](https://github.com/julycoding/The-Art-Of-Programming-By-July/blob/master/ebook/zh/02.09.md)
+            -   [一道阿里笔试题，思路应该是怎样？ - 知乎](https://www.zhihu.com/question/50512830)
+
+    -   Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne -<
+
+        :   >   essential information that every serious programmer needs to know about
+            >   algorithms and data structures
+
+            refs and see also
+
+            -   [Algorithms, 4th Edition by Robert Sedgewick and Kevin Wayne](http://algs4.cs.princeton.edu/home/)
+
+    -   [Leetcode: Palindrome Partitioning II - Avril - 博客园](http://www.cnblogs.com/avril/p/3293449.html)
+
+    -   [huangz/note — huangz/note](http://note.huangz.me/) -<
+
+        :   [算术 — huangz/note](http://note.huangz.me/algorithm/arithmetic/index.html) -<
+
+            :   [幂次定律 —— Power Law — huangz/note](http://note.huangz.me/algorithm/arithmetic/power-law.html) -<
+
+                :   如果某件事的发生频率和它的某个属性成幂关系，那么这个频率就可以称之为符合幂次定律。
+
+                    幂次定律的表现是， 少数几个事件的发生频率占了整个发生频率的大部分， 而其余的大多数事件只占整个发生频率的一个小部分， 如图：
+
+                    ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Long_tail.svg/450px-Long_tail.svg.png)
+
+                    In statistics, a power law is a functional relationship between two quantities,
+                    where a relative change in one quantity results in a
+                    proportional relative change in the other quantity, independent of the
+                    initial size of those quantities: one quantity varies as a power of
+                    another. For instance, considering the area of a square in terms of the
+                    length of its side, if the length is doubled, the area is multiplied by
+                    a factor of four.
+
+                    refs and see also
+
+                    -   [Exponential backoff - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Exponential_backoff)
+
+                [指数补偿 —— Exponential backoff — huangz/note](http://note.huangz.me/algorithm/arithmetic/exponential-backoff.html) -<
+
+                :   指数补偿指的是，在执行事件时，通过反馈，逐渐降低某个过程的速率，从而最
+                    终找到一个合适的速率（来处理事件）。
+
+                    Exponential backoff is an algorithm that uses feedback to
+                    multiplicatively decrease the rate of some process, in order to
+                    gradually find an acceptable rate.
+
+                    refs and see also
+
+                    -   [Exponential backoff - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Exponential_backoff)
+
+                [将字符串解释为数字 —— Parse string to number — huangz/note](http://note.huangz.me/algorithm/arithmetic/parse-string-to-number.html) -<
+
+                :   就是 atoi。
+
+            [第一章： 计算系统简介 — huangz/note](http://note.huangz.me/system/csapp/chp1.html) :hearts:
+
+            [第 2 章：传输层：TCP 、 UDP 和 SCTP — huangz/note](http://note.huangz.me/network/unp/chp2.html)
+
+            [《UNIX 环境高级编程》笔记 — huangz/note](http://note.huangz.me/os/apue/index.html)
+
+    -   [SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/simons) -<
+
+        :   [分班问题算法求解——动态规划 - SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20038650?refer=simons)
+
+            [倒刷 LeetCode——Valid Number - SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20042325?refer=simons) -<
+
+            :   使用**确定有穷状态自动机 (DFA)** 来解答此题必然是最优雅的，无论空间还是时间
+                复杂度都有不错的表现。如果不熟悉 DFA 的话也没关系，可以把本文当作入门教程来看。
+
+                所谓“确定有穷状态”，必然需要我们自己动手构造出所有状态来，如下所示：
+
+                -   0 初始无输入或者只有 space 的状态
+                -   1 输入了数字之后的状态
+                -   2 前面无数字，只输入了 dot 的状态
+                -   3 输入了 +/- 状态
+                -   4 前面有数字和有 dot 的状态
+                -   5 'e' or 'E'输入后的状态
+                -   6 输入 e 之后输入 +/- 的状态
+                -   7 输入 e 后输入数字的状态
+                -   8 前面有有效数输入之后，输入 space 的状态
+
+                ![](http://img.hb.aicdn.com/30ee1dcf092b0ff270d715558f7c84ccf79d4897b667-ZCBWYf_fw658)
+
+                在 9 种状态中，我们可以发现只有 1、4、7、8 四种状态是合法的，所以题目迎
+                刃而解，只要挨个遍历字符，通过判断遍历到最后一个字符时的状态即可确定该
+                字符串是否合法。
+
+                在编程中，我们可以简单地用一个邻接矩阵来存储上图转移关系，不了解的同学
+                请恶补图论相关基础知识。
+
+                ```python
+                class Solution:
+                    # @param {string} s
+                    # @return {boolean}
+                    def isNumber(self, s):
+                        INVALID=0; SPACE=1; SIGN=2; DIGIT=3; DOT=4; EXPONENT=5;
+                        #0invalid,1space,2sign,3digit,4dot,5exponent,6num_inputs
+                        transitionTable=[[-1, 0, 3, 1, 2, -1],      #0 no input or just spaces
+                                         [-1, 8, -1, 1, 4, 5],      #1 input is digits
+                                         [-1, -1, -1, 4, -1, -1],   #2 no digits in front just Dot
+                                         [-1, -1, -1, 1, 2, -1],    #3 sign
+                                         [-1, 8, -1, 4, -1, 5],     #4 digits and dot in front
+                                         [-1, -1, 6, 7, -1, -1],    #5 input 'e' or 'E'
+                                         [-1, -1, -1, 7, -1, -1],   #6 after 'e' input sign
+                                         [-1, 8, -1, 7, -1, -1],    #7 after 'e' input digits
+                                         [-1, 8, -1, -1, -1, -1]]   #8 after valid input input space
+                         state = 0
+                         for c in s:
+                            inputtype = INVALID
+
+                            if c == ' ': inputtype = SPACE
+                            elif c == '-' or c == '+': inputtype = SIGN
+                            elif c.isdigit(): inputtype = DIGIT
+                            elif c == '.': inputtype = DOT
+                            elif c.upper() == 'E': inputtype = EXPONENT
+
+                            state = transitionTable[state][inputtype]
+                            if state == -1: return False
+                            return state == 1 or state == 4 or state == 7 or state == 8
+                ```
+
+            -   [字符串相似度之美（二） - SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20102352?refer=simons)
+
+            -   [猴子摘香蕉一次可以摘 1 个或 2 个，总共 50 个，问有多少种摘法？ - SimonS 的回答 - 知乎](https://www.zhihu.com/question/29454855/answer/44437341)
+
+            -   [『啤酒与尿不湿』之关联规则 - SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20546361?refer=simons)
+
+    -   科学松鼠会 » 遗传算法：内存中的进化 -<
+
+        :   简单地说，遗传算法是一种解决问题的方法。它**模拟大自然中种群在选择压力下的
+            演化，从而得到问题的一个近似解**。
+
+            其次，为了使扇贝的样子向Firefox图标靠近，我们要给它们加上一点选择压力，就是
+            文章开头故事中提到的那个人的行动：在每一代把最不像Firefox的扇贝淘汰出去，同
+            时也给新的个体留下生存的空间。怎么评价这个扇贝像不像Firefox呢？最直接的方法
+            就是一个一个像素比较，颜色相差得越多就越不像。这个评价的函数叫做“适应函数”，
+            它负责评价一个个体到底有多适应我们的要求。
+
+            好了，现在是万事俱备只欠东风了。定义好基因，写好繁衍、变异、评价适应性、淘
+            汰和终止的代码之后，只需要随机产生一个适当大小的种群，然后让它这样一代代的
+            繁衍、变异和淘汰下去，到最后终止我们就会获得一个惊喜的结果：（这回是完整的
+            了，图片下的数字表示这个扇贝是第几代中最好的）
+
+            ![](http://blufiles.storage.msn.com/y1p96zcjxuwxolgnU-4kYeJil49VAcoYd0ieRPXt9jLGTd7UOR8kUlNdb1ZAzScolGo?PARTNER=WRITER)
+
+            其实，通过微调参数和繁衍、变异、淘汰、终止的代码，我们有可能得到更有效的算
+            法。遗传算法只是一个框架，里边具体内容可以根据实际问题进行调整，这也是它能
+            在许多问题上派上用场的一个原因。像这样可以适应很多问题的算法还有模拟退火算
+            法、粒子群算法、蚁群算法、禁忌搜索等等，统称为元启发式算法（Meta-heuristic algorithms）。
+
+            Metaheuristic :TODO: -<
+
+            :   TODO
+
+            遗传算法模拟一个人工种群的进化过程，通过选择 (Selection)、交叉 (Crossover)
+            以及变异 (Mutation) 等机制，在每次迭代中都保留一组候选个体，重复此过程，种
+            群经过若干代以后，理想情况下其适应度达到***近似最优***的状态。
+
+            refs and see also
+
+            -   [如何通俗易懂地解释遗传算法？有什么例子？ - 知乎](https://www.zhihu.com/question/23293449)
+            -   [科学松鼠会 » 遗传算法：内存中的进化](http://songshuhui.net/archives/10462)
+            -   [Metaheuristic - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Metaheuristic)
+
+    -   [如何用简单易懂的例子解释隐马尔可夫模型？ - 知乎](https://www.zhihu.com/question/20962240)
+
+    -   [机器学习专家与统计学家观点上有哪些不同？ - 知乎](https://www.zhihu.com/question/29687860)
+
+    -   [奇异值的物理意义是什么？ - 知乎](https://www.zhihu.com/question/22237507) -<
+
+        :   [科学网—奇异值分解 (SVD) --- 几何意义 - 余露的博文](http://blog.sciencenet.cn/blog-696950-699432.html)
+
+    -   [Heap · Data Structure and Algorithm notes](http://algorithm.yuanbin.me/zh-hans/basics_data_structure/heap.html)
+
+    -   《DPV -- Algorithm》 算法之美（Algorithms）书评 -<
+
+        :   算法作为一门学问，有两条正交的线索。一个是算法处理的对象：数、矩阵、
+            集合、串 (strings)、排列 (permutations)、图 (graphs)、表达式(formula)、
+            分布(distributions)，等等。另一个是算法的设计思想：贪婪、分治、动态规划、
+            线性规划、局部搜索 (local search)，等等。这两条线索几乎是相互独立的：
+            同一个离散对象，例如图，稍有不同的问题，例如single-source shortest path
+            和all-pair shortest path，就可以用到不同的设计思想，如贪婪和动态规划；
+            而完全不同的离散对象上的问题，例如排序和整数乘法，也许就会用到相同的思
+            想，例如分治。
+
+            refs and see also
+
+            -   [算法之美（Algorithms）书评](https://book.douban.com/review/1325850/)
+
+    -   《The Algorithm Design Manual》 -<
+
+        :   [Skiena's Audio Lectures](http://www3.cs.stonybrook.edu/~algorith/video-lectures/)
+
+            [不愧对“手册”之名，即使通读过 CLRS 再读也有所收获（算法设计手册）书评](https://book.douban.com/review/6250350/)
+
+    -   red-black tree -<
+
+        :   refs and see also
+
+            -   [Red–black tree - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
+            -   [红黑树并没有我们想象的那么难(上) - 捣乱小子](http://daoluan.net/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/25/rbtree-is-not-difficult.html)
+            -   [红黑树并没有我们想象的那么难(下) - 捣乱小子](http://daoluan.net/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%AE%97%E6%B3%95/2013/09/28/rbtree-is-not-difficult-2.html)
+
+    -   sorting -<
+
+        :   refs and see also
+
+            -   [排序（一）归并、快排、优先队列等（图文详解） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237641)
+            -   [排序（二）键索引、桶排序、位示图、败者树等（图文详解--败者树） - 菜鸟的自留地 - 博客频道 - CSDN.NET](http://blog.csdn.net/yang_yulei/article/details/27237809)
+
+    -   Code Reading -<
+
+        :   [4ker/Lua-Source-Internal: Lua source internal](https://github.com/4ker/Lua-Source-Internal)
+
+            [libevent 源码深度剖析一 - sparkliang 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957667)
+
+            [libevent 源码深度剖析二 - sparkliang 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/sparkliang/article/details/4957744)
+
+            [daoluan/decode-memcached: memcached 源码剖析注释](https://github.com/daoluan/decode-memcached)
+
+            [Redis 设计与实现 — Redis 设计与实现](http://redisbook.com/) :hearts: -<
+
+            :   What is Redis -<
+
+                :   Redis 是一个开源的使用 ANSI C 语言编写、支持网络、可基于内存亦
+                    可持久化的日志型、Key-Value 数据库，并提供多种语言的 API。从
+                    2010 年 3 月 15 日起，Redis 的开发工作由VMware 主持。从 2013 年
+                    5 月开始，Redis 的开发由 Pivotal 赞助。
+
+                    Redis 的优点如下：
+
+                    -   丰富的数据结构和命令
+                    -   默认就有持久化
+                    -   事务
+                    -   值有 512MB（memcached 最大是 1MB）
+
+                    Memcached 的优点：
+
+                    -   可以做集群
+
+                    refs and see also
+
+                    -   [Redis 和 Memcached 各有什么优缺点，主要的应用场景是什么样的？ - 知乎](https://www.zhihu.com/question/19829601)
+
+                第一部分：数据结构与对象 -<
+
+                :   简单动态字符串 -<
+
+                    :   Redis 没有直接使用 C 语言传统的字符串表示（以空字符结尾的字符数
+                        组，以下简称 C 字符串）， 而是自己构建了一种名为简单动态字符串
+                        （**simple dynamic string，SDS**）的抽象类型， 并将 SDS 用作 Redis
+                        的默认字符串表示。
+
+                        ```cpp
+                        struct sdshdr {
+                            // 记录 buf 数组中已使用字节的数量
+                            // 等于 SDS 所保存字符串的长度
+                            int len;
+
+                            // 记录 buf 数组中未使用字节的数量
+                            int free;
+
+                            // 字节数组，用于保存字符串
+                            char buf[];
+                        };
+                        ```
+
+                        ----------------------------------------------------------------------------------------------------------------
+                        C 字符串                                                    SDS
+                        ----------------------------------------------              ----------------------------------------------------
+                        获取字符串长度的复杂度为 O(N) 。                            获取字符串长度的复杂度为 O(1) 。
+                        API 是不安全的，可能会造成缓冲区溢出。                      API 是安全的，不会造成缓冲区溢出。
+                        修改字符串长度 N 次必然需要执行 N 次内存重分配。            修改字符串长度 N 次最多需要执行 N 次内存重分配。
+                        只能保存文本数据。                                          可以保存文本或者二进制数据。
+                        可以使用所有 <string.h> 库中的函数。                        可以使用一部分 <string.h> 库中的函数。
+                        ----------------------------------------------------------------------------------------------------------------
+
+                        Redis 只会使用 C 字符串作为字面量， 在大多数情况下， Redis 使用 SDS （Simple Dynamic String，简单动态字符串）作为字符串表示。
+
+                        比起 C 字符串， SDS 具有以下优点：
+
+                        -   常数复杂度获取字符串长度。
+                        -   杜绝缓冲区溢出。
+                        -   减少修改字符串长度时所需的内存重分配次数。
+                        -   二进制安全。
+                        -   兼容部分 C 字符串函数。
+
+                        refs and see also
+
+                        -   [Null-terminated string - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Null-terminated_string)
+
+                    链表 -<
+
+                    :   ```cpp
+                        typedef struct list {
+                            // 表头节点
+                            listNode *head;
+
+                            // 表尾节点
+                            listNode *tail;
+
+                            // 链表所包含的节点数量
+                            unsigned long len;
+
+                            // 节点值复制函数
+                            void *(*dup)(void *ptr);
+
+                            // 节点值释放函数
+                            void (*free)(void *ptr);
+
+                            // 节点值对比函数
+                            int (*match)(void *ptr, void *key);
+                        } list;
+                        ```
+
+                        Redis 的链表实现的特性可以总结如下：
+
+                        -   双端： 链表节点带有 prev 和 next 指针， 获取某个节点的前置节点和后置节点的复杂度都是 O(1) 。
+                        -   无环： 表头节点的 prev 指针和表尾节点的 next 指针都指向 NULL ， **对链表的访问以 NULL 为终点**。
+                        -   带表头指针和表尾指针： 通过 list 结构的 head 指针和 tail 指针， 程序获取链表的表头节点和表尾节点的复杂度为 O(1) 。
+                        -   带链表长度计数器： 程序使用 list 结构的 len 属性来对 list 持有的链表节点进行计数， 程序获取链表中节点数量的复杂度为 O(1) 。
+                        -   多态： 链表节点使用 `void*` 指针来保存节点值， 并且可以通过 list 结构的 dup 、 free 、 match 三个属性为节点值设置类型特定函数， 所以链表可以用于保存各种不同类型的值。
+
+                        重点回顾
+
+                        -   链表被广泛用于实现 Redis 的各种功能， 比如列表键， 发布与订阅， 慢查询， 监视器， 等等。
+                        -   每个链表节点由一个 listNode 结构来表示， 每个节点都有一个指向前置节点和后置节点的指针， 所以 Redis 的链表实现是双端链表。
+                        -   每个链表使用一个 list 结构来表示， 这个结构带有表头节点指针、表尾节点指针、以及链表长度等信息。
+                        -   因为链表表头节点的前置节点和表尾节点的后置节点都指向 NULL ， 所以 Redis 的链表实现是无环链表。
+                        -   通过为链表设置不同的类型特定函数， Redis 的链表可以用于保存各种不同类型的值。
+
+                    字典 -<
+
+                    :   字典经常作为一种数据结构内置在很多高级编程语言里面， 但 Redis
+                        所使用的 C 语言并没有内置这种数据结构， 因此 Redis 构建了自己的
+                        字典实现。
+
+                        字典在 Redis 中的应用相当广泛， 比如 Redis 的数据库就是使用字典
+                        来作为底层实现的， 对数据库的增、删、查、改操作也是构建在对字典
+                        的操作之上的。
+
+                        字典的实现 -<
+
+                        :   Redis 的字典使用哈希表作为底层实现， 一个哈希表里面可以有多个哈
+                            希表节点， 而每个哈希表节点就保存了字典中的一个键值对。
+
+                            ```cpp
+                            // key-value
+                            typedef struct dictEntry {
+
+                                // 键
+                                void *key;
+
+                                // 值
+                                union {
+                                    void *val;
+                                    uint64_t u64;
+                                    int64_t s64;
+                                } v;
+
+                                // 指向下个哈希表节点，形成链表
+                                struct dictEntry *next;
+
+                            } dictEntry;
+                            ```
+
+                            key 属性保存着键值对中的键， 而 v 属性则保存着键值对中的值，
+                            其中键值对的值可以是一个指针， 或者是一个 uint64_t 整数，
+                            又或者是一个 int64_t 整数。
+
+                            next 属性是指向另一个哈希表节点的指针， 这个指针可以将多个
+                            哈希值相同的键值对连接在一次， 以此来解决键冲突（collision）
+                            的问题。
+
+                            ```cpp
+                            // dict hash table
+                            typedef struct dictht {
+
+                                // 哈希表数组
+                                dictEntry **table;
+
+                                // 哈希表大小
+                                unsigned long size;
+
+                                // 哈希表大小掩码，用于计算索引值
+                                // 总是等于 size - 1
+                                unsigned long sizemask;
+
+                                // 该哈希表已有节点的数量
+                                unsigned long used;
+
+                            } dictht;
+
+                            // dict
+                            typedef struct dict {
+
+                                // 类型特定函数
+                                dictType *type;
+
+                                // 私有数据
+                                void *privdata;
+
+                                // 哈希表
+                                dictht ht[2];
+
+                                // rehash 索引
+                                // 当 rehash 不在进行时，值为 -1
+                                int rehashidx; /* rehashing not in progress if rehashidx == -1 */
+
+                            } dict;
+                            ```
+
+                            ![](http://redisbook.com/_images/graphviz-d2641d962325fd58bf15d9fffb4208f70251a999.png)
+
+                            ```cpp
+                            typedef struct dictType {
+
+                                // 计算哈希值的函数
+                                unsigned int (*hashFunction)(const void *key);
+
+                                // 复制键的函数
+                                void *(*keyDup)(void *privdata, const void *key);
+
+                                // 复制值的函数
+                                void *(*valDup)(void *privdata, const void *obj);
+
+                                // 对比键的函数
+                                int (*keyCompare)(void *privdata, const void *key1, const void *key2);
+
+                                // 销毁键的函数
+                                void (*keyDestructor)(void *privdata, void *key);
+
+                                // 销毁值的函数
+                                void (*valDestructor)(void *privdata, void *obj);
+
+                            } dictType;
+                            ```
+
+                        哈希算法 -<
+
+                        :   ```cpp
+                            # 使用字典设置的哈希函数，计算键 key 的哈希值
+                            hash = dict->type->hashFunction(key);
+
+                            # 使用哈希表的 sizemask 属性和哈希值，计算出索引值
+                            # 根据情况不同， ht[x] 可以是 ht[0] 或者 ht[1]
+                            index = hash & dict->ht[x].sizemask;
+                            ```
+
+                            Redis 使用 MurmurHash2 算法来计算键的哈希值。
+
+                            MurmurHash 算法最初由 Austin Appleby 于 2008 年发明， 这种
+                            算法的优点在于， 即使输入的键是有规律的， 算法仍能给出一个
+                            很好的随机分布性， 并且算法的计算速度也非常快。
+
+                        解决键冲突 -<
+
+                        :   Redis 的哈希表使用链地址法（separate chaining）来解决键冲突：
+                            每个哈希表节点都有一个 next 指针， 多个哈希表节点可以用
+                            next 指针构成一个单向链表， 被分配到同一个索引上的多个节点
+                            可以用这个单向链表连接起来， 这就解决了键冲突的问题。
+
+                            **因为 dictEntry 节点组成的链表没有指向链表表尾的指针， 所
+                            以为了速度考虑， 程序总是将新节点添加到链表的表头位置（复杂
+                            度为 O(1)）， 排在其他已有节点的前面。**
+
+                        rehash -<
+
+                        :   ![before](http://redisbook.com/_images/graphviz-93608325578e8e45848938ef420115bf2227639e.png)
+
+                            !["malloc" for `ht[1]`](http://redisbook.com/_images/graphviz-b68acb4d868ec7d79a44935ce08a159746ca58da.png)
+
+                            ![copy](http://redisbook.com/_images/graphviz-b68acb4d868ec7d79a44935ce08a159746ca58da.png)
+
+                            ![after](http://redisbook.com/_images/graphviz-fa28d986a72f1f48b83c7f959ea217b1f9527d3c.png)
+
+                            **哈希表的扩展与收缩**
+
+                            当以下条件中的任意一个被满足时， 程序会自动开始对哈希表执行扩展操作：
+
+                            -   服务器目前没有在执行 BGSAVE 命令或者 BGREWRITEAOF 命令，
+                                并且哈希表的负载因子大于等于 1（因为是链式，所以 load
+                                factor 可以大于 1）；
+                            -   服务器目前正在执行 BGSAVE 命令或者 BGREWRITEAOF 命令，
+                                并且哈希表的负载因子大于等于 5 ；
+
+                            其中哈希表的负载因子可以通过公式：
+
+                            ```
+                            # 负载因子 = 哈希表已保存节点数量 / 哈希表大小
+                            load_factor = ht[0].used / ht[0].size
+                            ```
+
+                        渐进式 rehash -<
+
+                        :   因此， 为了避免 rehash 对服务器性能造成影响， 服务器不是一
+                            次性将 `ht[0]` 里面的所有键值对全部 rehash 到 `ht[1]`， 而是分
+                            多次、渐进式地将 `ht[0]` 里面的键值对慢慢地 rehash 到 `ht[1]`。
+
+                            因为在进行渐进式 rehash 的过程中， 字典会同时使用 ht[0] 和
+                            ht[1] 两个哈希表， 所以在渐进式 rehash 进行期间， 字典的删
+                            除（delete）、查找（find）、更新（update）等操作会在两个哈
+                            希表上进行： 比如说， 要在字典里面查找一个键的话， 程序会先
+                            在 ht[0] 里面进行查找， 如果没找到的话， 就会继续到 ht[1]
+                            里面进行查找， 诸如此类。
+
+                            另外， 在渐进式 rehash 执行期间， 新添加到字典的键值对一律
+                            会被保存到 ht[1] 里面， 而 ht[0] 则不再进行任何添加操作：
+                            这一措施保证了 ht[0] 包含的键值对数量会只减不增， 并随着
+                            rehash 操作的执行而最终变成空表。
+
+                        重点回顾 -<
+
+                        :   -   字典被广泛用于实现 Redis 的各种功能， 其中包括数据库和
+                                哈希键。
+                            -   Redis 中的字典使用哈希表作为底层实现， 每个字典带有两个
+                                哈希表， 一个用于平时使用， 另一个仅在进行 rehash 时使用。
+                            -   当字典被用作数据库的底层实现， 或者哈希键的底层实现时，
+                                Redis 使用 MurmurHash2 算法来计算键的哈希值。
+                            -   哈希表使用链地址法来解决键冲突， 被分配到同一个索引上的
+                                多个键值对会连接成一个单向链表。
+                            -   在对哈希表进行扩展或者收缩操作时， 程序需要将现有哈希表
+                                包含的所有键值对 rehash 到新哈希表里面， 并且这个
+                                rehash 过程并不是一次性地完成的， 而是渐进式地完成的。
+
+                    跳跃表 -<
+
+                    :   跳跃表（skiplist）是一种有序数据结构， 它通过在每个节点中维
+                        持多个指向其他节点的指针， 从而达到快速访问节点的目的。
+
+                        跳跃表支持平均 O(log N) 最坏 O(N) 复杂度的节点查找， 还可以
+                        通过顺序性操作来批量处理节点。
+
+                        在大部分情况下， 跳跃表的效率可以和平衡树相媲美， 并且因为
+                        跳跃表的实现比平衡树要来得更为简单， 所以有不少程序都使用跳
+                        跃表来代替平衡树。
+
+                        Redis 使用跳跃表作为有序集合键的底层实现之一： 如果一个有序
+                        集合包含的元素数量比较多， 又或者有序集合中元素的成员
+                        （member）是比较长的字符串时， Redis 就会使用跳跃表来作为有
+                        序集合键的底层实现。
+
+                        和链表、字典等数据结构被广泛地应用在 Redis 内部不同， Redis
+                        只在两个地方用到了跳跃表， 一个是实现有序集合键， 另一个是
+                        在集群节点中用作内部数据结构， 除此之外， 跳跃表在 Redis 里
+                        面没有其他用途。
+
+                        重点回顾 -<
+
+                        :   -   跳跃表是有序集合的底层实现之一， 除此之外它在 Redis
+                                中没有其他应用。
+                            -   Redis 的跳跃表实现由 zskiplist 和 zskiplistNode 两
+                                个结构组成， 其中 zskiplist 用于保存跳跃表信息（比
+                                如表头节点、表尾节点、长度）， 而 zskiplistNode 则
+                                用于表示跳跃表节点。
+                            -   每个跳跃表节点的层高都是 1 至 32 之间的随机数。
+                            -   在同一个跳跃表中， 多个节点可以包含相同的分值， 但
+                                每个节点的成员对象必须是唯一的。
+                            -   跳跃表中的节点按照分值大小进行排序， 当分值相同时，
+                                节点按照成员对象的大小进行排序。
+
+                    整数集合 -<
+
+                    :   整数集合（intset）是集合键的底层实现之一： 当一个集合只包含
+                        整数值元素， 并且这个集合的元素数量不多时， Redis 就会使用
+                        整数集合作为集合键的底层实现。
+
+                        ```cpp
+                        typedef struct intset {
+
+                            // 编码方式
+                            uint32_t encoding;
+
+                            // 集合包含的元素数量
+                            uint32_t length;
+
+                            // 保存元素的数组
+                            int8_t contents[];
+
+                        } intset;
+                        ```
+
+                        每当我们要将一个新元素添加到整数集合里面， 并且新元素的类型
+                        比整数集合现有所有元素的类型都要长时， 整数集合需要先进行升
+                        级（upgrade）， 然后才能将新元素添加到整数集合里面。
+
+                        升级整数集合并添加新元素共分为三步进行：
+
+                        -   根据新元素的类型， 扩展整数集合底层数组的空间大小， 并
+                            为新元素分配空间。
+                        -   将底层数组现有的所有元素都转换成与新元素相同的类型， 并
+                            将类型转换后的元素放置到正确的位上， 而且在放置元素的过
+                            程中， 需要继续维持底层数组的有序性质不变。
+                        -   将新元素添加到底层数组里面。
+
+                        比如说， 如果我们一直只向整数集合添加 int16_t 类型的值， 那
+                        么整数集合的底层实现就会一直是 int16_t 类型的数组， 只有在
+                        我们要将 int32_t 类型或者 int64_t 类型的值添加到集合时， 程
+                        序才会对数组进行升级。
+
+                        整数集合不支持降级操作， 一旦对数组进行了升级， 编码就会一
+                        直保持升级后的状态。
+
+                        举个例子， 对于图 6-11 所示的整数集合来说， 即使我们将集合
+                        里唯一一个真正需要使用 int64_t 类型来保存的元素 4294967295
+                        删除了， 整数集合的编码仍然会维持 INTSET_ENC_INT64 ， 底层
+                        数组也仍然会是 int64_t 类型的，
+
+                        ```
+                        intsetNew           创建一个新的整数集合。  O(1)
+                        intsetAdd           将给定元素添加到整数集合里面。  O(N)
+                        intsetRemove        从整数集合中移除给定元素。  O(N)
+                        intsetFind          检查给定值是否存在于集合。  因为底层数组有序，查找可以通过二分查找法来进行， 所以复杂度为 O(log N) 。
+                        intsetRandom        从整数集合中随机返回一个元素。  O(1)
+                        intsetGet           取出底层数组在给定索引上的元素。    O(1)
+                        intsetLen           返回整数集合包含的元素个数。    O(1)
+                        intsetBlobLen       返回整数集合占用的内存字节数。  O(1)
+                        ```
+
+                        重点回顾
+
+                        -   整数集合是集合键的底层实现之一。
+                        -   整数集合的底层实现为数组， 这个数组以有序、无重复的方式保存集合元素， 在有需要时， 程序会根据新添加元素的类型， 改变这个数组的类型。
+                        -   升级操作为整数集合带来了操作上的灵活性， 并且尽可能地节约了内存。
+                        -   整数集合只支持升级操作， 不支持降级操作。
+
+
+                    压缩列表 -<
+
+                    :   压缩列表（ziplist）是列表键和哈希键的底层实现之一。
+
+                        当一个列表键只包含少量列表项， 并且每个列表项要么就是小整数
+                        值， 要么就是长度比较短的字符串， 那么 Redis 就会使用压缩列
+                        表来做列表键的底层实现。
+
+                        压缩列表的构成 -<
+
+                        :   压缩列表是 Redis 为了节约内存而开发的， 由一系列特殊编码的连续内存块组成的顺序型（sequential）数据结构。
+
+                            一个压缩列表可以包含任意多个节点（entry）， 每个节点可以保存一个字节数组或者一个整数值。
+
+                            图 7-1 展示了压缩列表的各个组成部分， 表 7-1 则记录了各个组成部分的类型、长度、以及用途。
+
+                            ![](http://redisbook.com/_images/graphviz-fe42f343a3f32f477efb5e895da547d476a7c97d.png)
+
+                            ![](http://redisbook.com/_images/graphviz-071fe5086440a360087904af9a5f78e8e02c2d8d.png)
+
+                            每个压缩列表节点都由 previous_entry_length 、 encoding 、 content 三个部分组成， 如图 7-4 所示。
+
+                            ![](http://redisbook.com/_images/graphviz-49750cc228ee403c4ef64ad1d2911154765bf3d3.png)
+
+                            压缩列表的从表尾向表头遍历操作就是使用这一原理实现的：
+                            只要我们拥有了一个指向某个节点起始地址的指针， 那么通过
+                            这个指针以及这个节点的 previous_entry_length 属性， 程
+                            序就可以一直向前一个节点回溯， 最终到达压缩列表的表头节
+                            点。
+
+                            ![](http://redisbook.com/_images/graphviz-cfb376f8015f3af9f59acd30dc71a35e90c6d763.png)
+
+                        连锁更新 -<
+
+                        :   因为连锁更新在最坏情况下需要对压缩列表执行 N 次空间重分配操作， 而每次空间重分配的最坏复杂度为 O(N) ， 所以连锁更新的最坏复杂度为 O(N^2) 。
+
+                            要注意的是， 尽管连锁更新的复杂度较高， 但它真正造成性能问题的几率是很低的：
+
+                            -   首先， 压缩列表里要恰好有多个连续的、长度介于 250 字节至 253 字节之间的节点， 连锁更新才有可能被引发， 在实际中， 这种情况并不多见；
+                            -   其次， 即使出现连锁更新， 但只要被更新的节点数量不多， 就不会对性能造成任何影响： 比如说， 对三五个节点进行连锁更新是绝对不会影响性能的；
+
+                            因为以上原因， ziplistPush 等命令的平均复杂度仅为 O(N) ， 在实际中， 我们可以放心地使用这些函数， 而不必担心连锁更新会影响压缩列表的性能。
+
+                        重点回顾 -<
+
+                        :   -   压缩列表是一种为节约内存而开发的顺序型数据结构。
+                            -   压缩列表被用作列表键和哈希键的底层实现之一。
+                            -   压缩列表可以包含多个节点，每个节点可以保存一个字节数组或者整数值。
+                            -   添加新节点到压缩列表， 或者从压缩列表中删除节点， 可能会引发连锁更新操作， 但这种操作出现的几率并不高。
+
+                    对象
+
+                第二部分：单机数据库的实现 -<
+
+                :   数据库 -<
+
+                    :   服务器中的数据库
+                        切换数据库
+                        数据库键空间
+                        设置键的生存时间或过期时间
+                        过期键删除策略
+                        Redis 的过期键删除策略
+                        AOF 、RDB 和复制功能对过期键的处理
+                        数据库通知
+                        重点回顾
+
+                    RDB 持久化 -<
+
+                    :   RDB 文件的创建与载入
+                        自动间隔性保存
+                        RDB 文件结构
+                        分析 RDB 文件
+                        重点回顾
+
+                    AOF 持久化 -<
+
+                    :   AOF 持久化的实现
+                        AOF 文件的载入与数据还原
+                        AOF 重写
+                        重点回顾
+
+                    事件 -<
+
+                    :   文件事件
+                        时间事件
+                        事件的调度与执行
+                        重点回顾
+                        参考资料
+
+                    客户端 -<
+
+                    :   客户端属性
+                        客户端的创建与关闭
+                        重点回顾
+
+                    服务器 -<
+
+                    :   命令请求的执行过程
+                        serverCron 函数
+                        初始化服务器
+                        重点回顾
+
+                第三部分：多机数据库的实现 -<
+
+                :   复制 -<
+
+                    :   旧版复制功能的实现
+                        旧版复制功能的缺陷
+                        新版复制功能的实现
+                        部分重同步的实现
+                        PSYNC 命令的实现
+                        复制的实现
+                        心跳检测
+                        重点回顾
+
+                    Sentinel -<
+
+                    :   启动并初始化 Sentinel
+                        获取主服务器信息
+                        获取从服务器信息
+                        向主服务器和从服务器发送信息
+                        接收来自主服务器和从服务器的频道信息
+                        检测主观下线状态
+                        检查客观下线状态
+                        选举领头 Sentinel
+                        故障转移
+                        重点回顾
+                        参考资料
+
+                    集群 -<
+
+                    :   节点
+                        槽指派
+                        在集群中执行命令
+                        重新分片
+                        ASK 错误
+                        复制与故障转移
+                        消息
+                        重点回顾
+
+                第四部分：独立功能的实现 -<
+
+                :   发布与订阅 -<
+
+                    :   频道的订阅与退订
+                        模式的订阅与退订
+                        发送消息
+                        查看订阅信息
+                        重点回顾
+                        参考资料
+
+                    事务 -<
+
+                    :   事务的实现
+                        WATCH 命令的实现
+                        事务的 ACID 性质
+                        重点回顾
+                        参考资料
+
+                    Lua 脚本 -<
+
+                    :   创建并修改 Lua 环境
+                        Lua 环境协作组件
+                        EVAL 命令的实现
+                        EVALSHA 命令的实现
+                        脚本管理命令的实现
+                        脚本复制
+                        重点回顾
+                        参考资料
+
+                    排序 -<
+
+                    :   SORT <key> 命令的实现
+                        ALPHA 选项的实现
+                        ASC 选项和 DESC 选项的实现
+                        BY 选项的实现
+                        带有 ALPHA 选项的 BY 选项的实现
+                        LIMIT 选项的实现
+                        GET 选项的实现
+                        STORE 选项的实现
+                        多个选项的执行顺序
+                        重点回顾
+
+                    二进制位数组 -<
+
+                    :   位数组的表示
+                        GETBIT 命令的实现
+                        SETBIT 命令的实现
+                        BITCOUNT 命令的实现
+                        BITOP 命令的实现
+                        重点回顾
+                        参考资料
+
+                    慢查询日志 -<
+
+                    :   慢查询记录的保存
+                        慢查询日志的阅览和删除
+                        添加新日志
+                        重点回顾
+
+                    监视器 -<
+
+                    :   成为监视器
+                        向监视器发送命令信息
+                        重点回顾
+
+    -   LeetCode 题目总结/分类 -<
+
+        :   注：此分类仅供大概参考，没有精雕细琢。有不同意见欢迎评论~
+            欢迎参考我的leetcode代码
+
+            利用堆栈：
+
+            -   http://oj.leetcode.com/problems/evaluate-reverse-polish-notation/
+            -   http://oj.leetcode.com/problems/longest-valid-parentheses/ （也可以用一维数组，贪心）
+            -   http://oj.leetcode.com/problems/valid-parentheses/
+            -   http://oj.leetcode.com/problems/largest-rectangle-in-histogram/
+            -   特别注意细节：http://oj.leetcode.com/problems/trapping-rain-water/
+
+            多种数据结构：
+
+            -   http://oj.leetcode.com/problems/lru-cache/
+            -   http://oj.leetcode.com/problems/substring-with-concatenation-of-all-words/ (注意遍历方法）
+            -   HASH：http://oj.leetcode.com/problems/longest-consecutive-sequence/
+
+            简单编程：
+
+            -   http://oj.leetcode.com/problems/longest-common-prefix/
+            -   http://oj.leetcode.com/problems/string-to-integer-atoi/ (分析，控制语句）
+
+            排序 & 查找：
+
+            -   二分查找：http://oj.leetcode.com/problems/search-a-2d-matrix/
+            -   二分查找进阶：http://oj.leetcode.com/problems/search-for-a-range/
+            -   二分查找应用：http://oj.leetcode.com/problems/sqrtx/
+            -   二分查找应用：http://oj.leetcode.com/problems/search-insert-position/
+            -   二分查找变种：http://oj.leetcode.com/problems/search-in-rotated-sorted-array/
+            -   二分查找变种：http://oj.leetcode.com/problems/search-in-rotated-sorted-array-ii/
+
+            简单数学：
+
+            -   http://oj.leetcode.com/problems/pascals-triangle/
+            -   http://oj.leetcode.com/problems/pascals-triangle-ii/
+            -   http://oj.leetcode.com/problems/powx-n/
+            -   http://oj.leetcode.com/problems/reverse-integer/
+            -   http://oj.leetcode.com/problems/plus-one/
+            -   http://oj.leetcode.com/problems/unique-paths/
+            -   http://oj.leetcode.com/problems/palindrome-number/
+            -   http://oj.leetcode.com/problems/permutation-sequence/
+            -   http://oj.leetcode.com/problems/merge-intervals/
+            -   http://oj.leetcode.com/problems/valid-number/
+            -   http://oj.leetcode.com/problems/climbing-stairs/
+            -   http://oj.leetcode.com/problems/roman-to-integer/
+            -   http://oj.leetcode.com/problems/integer-to-roman/
+            -   http://oj.leetcode.com/problems/divide-two-integers/
+            -   区间：http://oj.leetcode.com/problems/insert-interval/
+
+            大数的数学运算：
+
+            -   http://oj.leetcode.com/problems/add-binary/
+            -   http://oj.leetcode.com/problems/add-two-numbers/
+
+            数组：
+
+            -   http://oj.leetcode.com/problems/remove-element/
+            -   http://oj.leetcode.com/problems/merge-sorted-array/
+            -   http://oj.leetcode.com/problems/first-missing-positive/
+            -   http://oj.leetcode.com/problems/spiral-matrix/
+            -   http://oj.leetcode.com/problems/spiral-matrix-ii/
+            -   http://oj.leetcode.com/problems/rotate-image/
+            -   遍历技巧：http://oj.leetcode.com/problems/container-with-most-water/
+            -   http://oj.leetcode.com/problems/two-sum/
+            -   http://oj.leetcode.com/problems/3sum/
+            -   http://oj.leetcode.com/problems/3sum-closest/
+            -   http://oj.leetcode.com/problems/4sum/
+            -   http://oj.leetcode.com/problems/set-matrix-zeroes/
+            -   用好标记数组：http://oj.leetcode.com/problems/valid-sudoku/
+            -   http://oj.leetcode.com/problems/next-permutation/
+            -   http://oj.leetcode.com/problems/word-search/
+            -   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-array/
+            -   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-array-ii/
+            -   http://oj.leetcode.com/problems/sort-colors/
+
+            暴力方法/细节实现：
+
+            -   http://oj.leetcode.com/problems/max-points-on-a-line/
+
+            链表：
+
+            -   归并排序：http://oj.leetcode.com/problems/sort-list/
+            -   插入排序：http://oj.leetcode.com/problems/insertion-sort-list/
+            -   反转、插入：http://oj.leetcode.com/problems/reorder-list/
+            -   检测是否有环：http://oj.leetcode.com/problems/linked-list-cycle/
+            -   确定链表环的起点：http://oj.leetcode.com/problems/linked-list-cycle-ii/
+            -   Deep Copy 带有随机指针的链表：http://oj.leetcode.com/problems/copy-list-with-random-pointer/
+            -   链表细节：http://oj.leetcode.com/problems/rotate-list/
+            -   http://oj.leetcode.com/problems/remove-duplicates-from-sorted-list/
+            -   删除细节：http://oj.leetcode.com/problems/remove-duplicates-from-sorted-list-ii/
+            -   http://oj.leetcode.com/problems/partition-list/
+            -   http://oj.leetcode.com/problems/swap-nodes-in-pairs/
+            -   Merge 两个链表：http://oj.leetcode.com/problems/merge-two-sorted-lists/
+            -   Merge 多链表：http://oj.leetcode.com/problems/merge-k-sorted-lists/
+            -   细节：http://oj.leetcode.com/problems/reverse-nodes-in-k-group/
+            -   http://oj.leetcode.com/problems/remove-nth-node-from-end-of-list/
+            -   http://oj.leetcode.com/problems/reverse-linked-list-ii/
+
+            二叉树遍历：递归 & 非递归
+
+            -   http://oj.leetcode.com/problems/same-tree/
+            -   前序：http://oj.leetcode.com/problems/binary-tree-preorder-traversal/
+            -   中序：http://oj.leetcode.com/problems/binary-tree-inorder-traversal/
+            -   后序：http://oj.leetcode.com/problems/binary-tree-postorder-traversal/
+            -   遍历变种：http://oj.leetcode.com/problems/sum-root-to-leaf-numbers/
+            -   遍历变种：http://oj.leetcode.com/problems/path-sum/
+            -   遍历变种：http://oj.leetcode.com/problems/path-sum-ii/
+            -   遍历变种：http://oj.leetcode.com/problems/maximum-depth-of-binary-tree/
+            -   遍历变种：http://oj.leetcode.com/problems/minimum-depth-of-binary-tree/
+            -   重建二叉树：http://oj.leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+            -   重建二叉树：http://oj.leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/
+            -   层次遍历变种：http://oj.leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
+            -   遍历变种：http://oj.leetcode.com/problems/symmetric-tree/
+            -   遍历应用：http://oj.leetcode.com/problems/binary-tree-maximum-path-sum/
+            -   遍历应用：http://oj.leetcode.com/problems/balanced-binary-tree/
+            -   遍历应用：http://oj.leetcode.com/problems/recover-binary-search-tree/
+            -   遍历应用：http://oj.leetcode.com/problems/flatten-binary-tree-to-linked-list/
+            -   level遍历：http://oj.leetcode.com/problems/binary-tree-level-order-traversal/
+            -   level 遍历：http://oj.leetcode.com/problems/binary-tree-level-order-traversal-ii/
+            -   level 遍历变种：http://oj.leetcode.com/problems/populating-next-right-pointers-in-each-node/
+            -   level 遍历变种：http://oj.leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/
+
+            问题分析/智商/细节：
+
+            -   http://oj.leetcode.com/problems/single-number/
+            -   http://oj.leetcode.com/problems/single-number-ii/
+            -   http://oj.leetcode.com/problems/candy/ ？
+            -   http://oj.leetcode.com/problems/gas-station/
+
+            动态规划：
+
+            -   http://oj.leetcode.com/problems/triangle/ （最短路径）
+            -   http://oj.leetcode.com/problems/subsets/ （另一种形式）
+            -   http://oj.leetcode.com/problems/subsets-ii/
+            -   http://oj.leetcode.com/problems/edit-distance/ （经典）
+            -   http://oj.leetcode.com/problems/word-break/
+            -   http://oj.leetcode.com/problems/word-break-ii/
+            -   http://oj.leetcode.com/problems/unique-binary-search-trees/ （动态规划避免递归）
+            -   http://oj.leetcode.com/problems/unique-paths-ii/
+            -   http://oj.leetcode.com/problems/scramble-string/
+            -   http://oj.leetcode.com/problems/palindrome-partitioning/
+            -   http://oj.leetcode.com/problems/palindrome-partitioning-ii/
+            -   http://oj.leetcode.com/problems/interleaving-string/
+            -   http://oj.leetcode.com/problems/distinct-subsequences/
+            -   http://oj.leetcode.com/problems/decode-ways/
+            -   http://oj.leetcode.com/problems/gray-code/
+            -   http://oj.leetcode.com/problems/minimum-path-sum/
+
+            回溯：
+
+            -   http://oj.leetcode.com/problems/combinations/
+            -   http://oj.leetcode.com/problems/generate-parentheses/
+            -   http://oj.leetcode.com/problems/combination-sum/
+            -   http://oj.leetcode.com/problems/combination-sum-ii/
+            -   http://oj.leetcode.com/problems/sudoku-solver/
+            -   经典N皇后：http://oj.leetcode.com/problems/n-queens/
+            -   http://oj.leetcode.com/problems/n-queens-ii/
+            -   http://oj.leetcode.com/problems/letter-combinations-of-a-phone-number/
+
+            贪心：
+
+            -   http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock/
+            -   http://oj.leetcode.com/problems/jump-game/
+            -   http://oj.leetcode.com/problems/jump-game-ii/
+            -   http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+            -   http://oj.leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
+            -   http://oj.leetcode.com/problems/maximum-subarray/
+            -   http://oj.leetcode.com/problems/minimum-window-substring/
+            -   http://oj.leetcode.com/problems/maximal-rectangle/
+            -   http://oj.leetcode.com/problems/longest-substring-without-repeating-characters/
+
+            分治 & 递归：
+
+            -   http://oj.leetcode.com/problems/unique-binary-search-trees-ii/
+            -   http://oj.leetcode.com/problems/restore-ip-addresses/ （时间复杂度有限，递归满足）
+            -   http://oj.leetcode.com/problems/permutations/
+            -   http://oj.leetcode.com/problems/permutations-ii/
+            -   http://oj.leetcode.com/problems/convert-sorted-array-to-binary-search-tree/
+            -   http://oj.leetcode.com/problems/convert-sorted-list-to-binary-search-tree/
+            -   http://oj.leetcode.com/problems/median-of-two-sorted-arrays/
+            -   http://oj.leetcode.com/problems/validate-binary-search-tree/
+
+            字符串：
+
+            -   http://oj.leetcode.com/problems/count-and-say/
+            -   http://oj.leetcode.com/problems/implement-strstr/ （子串查找）
+            -   http://oj.leetcode.com/problems/anagrams/
+            -   http://oj.leetcode.com/problems/text-justification/ (细节）
+            -   http://oj.leetcode.com/problems/simplify-path/ （基础控制语句 if-else-for）
+            -   http://oj.leetcode.com/problems/multiply-strings/
+            -   http://oj.leetcode.com/problems/regular-expression-matching/
+            -   http://oj.leetcode.com/problems/wildcard-matching/
+            -   http://oj.leetcode.com/problems/longest-palindromic-substring/
+            -   http://oj.leetcode.com/problems/zigzag-conversion/
+            -   http://oj.leetcode.com/problems/length-of-last-word/
+            -   http://oj.leetcode.com/problems/valid-palindrome/
+
+            图：
+
+            -   深搜/广搜：http://oj.leetcode.com/problems/clone-graph/
+
+            搜索 & 遍历：
+
+            -   http://oj.leetcode.com/problems/word-ladder/
+            -   http://oj.leetcode.com/problems/word-ladder-ii/
+            -   广搜：http://oj.leetcode.com/problems/surrounded-regions/
+
+            refs and see also
+
+            -   [LeetCode 题目总结/分类](https://www.douban.com/note/330562764/)
+
+    -   利用 Trie 树求多个字符串的最小编辑距离 -<
+
+        :   编辑距离 -<
+
+            :   1965 年，俄国科学家 Vladimir Levenshtein 给字符串相似度做出了一个明确的定义
+                叫做 Levenshtein 距离，我们通常叫它“编辑距离”。字符串 A 到 B 的编辑距离是指，
+                只用插入、删除和替换三种操作，最少需要多少步可以把 A 变成 B。例如，从 FAME
+                到 GATE 需要两步（两次替换），从 GAME 到 ACM 则需要三步（删除 G 和 E 再添加
+                C）。Levenshtein 给出了编辑距离的一般求法，就是大家都非常熟悉的经典**动态规划**问题。
+
+                Levenshtein 的定义可以是单词任意位置上的操作，似乎不遍历字典是不可能完成的。
+                现在很多软件都有拼写检查的功能，提出更正建议的速度是很快的。它们到底是怎么
+                做的呢？1973 年，Burkhard 和 Keller 提出的 BK 树有效地解决了这个问题。这个
+                数据结构强就强在，它初步解决了一个看似不可能的问题，而其原理非常简单。
+
+                首先，我们观察 Levenshtein 距离的性质。令 d(x,y) 表示字符串 x 到 y 的
+                Levenshtein 距离，那么显然：
+
+                1.  d(x,y) = 0 当且仅当 x=y  （Levenshtein 距离为 0 <==> 字符串相等）
+                2.  d(x,y) = d(y,x)     （从 x 变到 y 的最少步数就是从 y 变到 x 的最少步数）
+                3.  d(x,y) + d(y,z) >= d(x,z)  （从 x 变到 z 所需的步数不会超过 x 先变成 y 再变成 z 的步数）
+
+                最后这一个性质叫做三角形不等式。就好像一个三角形一样，两边之和必然大于第三
+                边。给某个集合内的元素定义一个二元的“距离函数”，如果这个距离函数同时满足上
+                面说的三个性质，我们就称它为“度量空间”。我们的三维空间就是一个典型的度量空
+                间，它的距离函数就是点对的直线距离。度量空间还有很多，比如 Manhattan 距离，
+                图论中的最短路，当然还有这里提到的 Levenshtein 距离。就好像并查集对所有等价
+                关系都适用一样，BK 树可以用于任何一个度量空间。
+
+                查询操作异常方便。如果我们需要返回与错误单词距离不超过 n 的单词，这个错误单
+                词与树根所对应的单词距离为 d，那么接下来我们只需要递归地考虑编号在 d-n 到
+                d+n 范围内的边所连接的子树。由于 n 通常很小，因此每次与某个节点进行比较时都
+                可以排除很多子树。
+
+                举个例子，假如我们输入一个 GAIE，程序发现它不在字典中。现在，我们想返回字典
+                中所有与 GAIE 距离为 1 的单词。我们首先将 GAIE 与树根进行比较，得到的距离
+                d=1。由于 Levenshtein 距离满足三角形不等式，因此现在所有离 GAME 距离超过 2
+                的单词全部可以排除了。比如，以 AIM 为根的子树到 GAME 的距离都是 3，而 GAME
+                和 GAIE 之间的距离是 1，那么 AIM 及其子树到 GAIE 的距离至少都是 2。于是，现
+                在程序只需要沿着标号范围在 1-1 到 1+1 里的边继续走下去。我们继续计算 GAIE
+                和 FAME 的距离，发现它为 2，于是继续沿标号在 1 和 3 之间的边前进。遍历结束
+                后回到 GAME 的第二个节点，发现 GAIE 和 GAIN 距离为 1，输出 GAIN 并继续沿编
+                号为 1 或 2 的边递归下去（那条编号为 4 的边连接的子树又被排除掉了）……
+
+                ![](http://www.matrix67.com/blogimage/200710223.gif)
+
+                实践表明，一次查询所遍历的节点不会超过所有节点的 5% 到 8%，两次查询则一般不
+                会 17-25%，效率远远超过暴力枚举。适当进行缓存，减小 Levenshtein 距离常数 n
+                可以使算法效率更高。
+
+                这篇文章真是够了，和 Matrix67 的几乎一模一样：
+                [字符串相似度之美（一）- SimonS's Algo - 知乎专栏](https://zhuanlan.zhihu.com/p/20101194?refer=simons)。
+
+            Trie 树的实现 -<
+
+            :   由于多叉树不够灵活，同时对空间存在即大的浪费，因此本文利用二叉树实现一棵 Trie 树。
+
+                 二叉树是这样的结构：节点的左孩子代表它的第一个孩子，节点的右孩子代表它的兄弟节点。
+
+                总体的思路是：
+
+                -   建立 10 万次的词典，单词长度 5-30
+                -   为这些单词建立 Trie 树，给定任意字符串，求所有与该字符串的编辑距离为 1 或者 2 的单词
+                -   同时用暴力匹配的方法求得符合要求的字符串，然后进行时间的比较。
+
+                ```cpp
+                #include <fstream>
+                #include <iostream>
+                #include <string>
+                #include <cstring>
+                #include <vector>
+                #include <algorithm>
+                #include <ctime>
+                #include <cstdlib>
+                #include <sys/time.h>
+
+                using namespace std;
+
+                const int X = 30;
+                const int Y = 30;
+                const int MAX = 30;
+
+                int edit_length(string &x, string &y);
+
+                // Trie树的节点定义
+                struct Node {
+                    int length;
+                    string word;
+                    Node *left, *right;
+                    Node() : length(0), word(""), left(0), right(0) { }
+                };
+
+                // Trie 树的操作定义
+                class Trie {
+                    private:
+                        Node* pRoot;
+                    private:
+                        // 销毁 Trie 树
+                        void destory(Node* r) {
+                            if(!r) { return; }
+                            destory(r -> left);
+                            destory(r -> right);
+                            delete r;
+                            r = NULL;
+                        }
+                        void find( Node *pRoot, string &str, int limit_num, vector<string> &word_set );
+                    public:
+                        Trie() {}
+                        ~Trie() { destroy(pRoot); }
+                        void insert(string str);
+                        void search(string &str, int limit_num, vector<string> &word_set);
+                };
+
+                // 插入单词，建立 Trie 树
+                void Trie::insert(string str){
+                    if(pRoot != NULL){
+                        //如果trie树已经存在
+                        Node *pPre = pRoot;
+                        Node *pCur = pRoot -> left;
+                        while(1) {
+                            //计算该单词与当前节点的编辑距离
+                            string word = pPre -> word;
+                            int distance = edit_length(word, str);
+                            //若该单词已存在
+                            if(distance == 0) {
+                                break;
+                            }
+                            //若该单词不存在
+                            if(pCur == NULL) {
+                                //若首节点不存在，则创建首节点
+                                pCur = new Node();
+                                pCur -> length = distance;
+                                pCur -> word = str;
+                                pCur -> left = NULL;
+                                pCur -> right = NULL;
+
+                                pPre -> left = pCur;
+
+                                break;
+
+                            } else if (pCur != NULL && pCur -> length > distance) {
+                                //若首节点存在，并且首节点大于目标编辑距离，重建首节点
+                                Node *p = new Node();
+                                p -> length = distance;
+                                p -> word = str;
+                                p -> left = NULL;
+                                p -> right = pCur;
+
+                                pPre -> left = p;
+                                break;
+
+                            } else {
+                                //首节点存在，且首节点小于等于目标编辑距离
+                                while(pCur != NULL && pCur -> length < distance){
+                                    pPre = pCur;
+                                    pCur = pCur -> right;
+                                }
+                                if(pCur != NULL && pCur -> length == distance){
+                                    //找到了目标节点
+                                    pPre = pCur;
+                                    pCur = pCur -> left;
+                                } else {
+                                    //创建目标节点
+                                    Node *p = new Node();
+                                    p -> length = distance;
+                                    p -> word = str;
+                                    p -> left = NULL;
+                                    p -> right = pCur;
+
+                                    pPre -> right = p;
+                                    break;
+                                }
+                            }
+                        }
+                    } else {
+                        //如果Trie树还不存在，以该单词创建根节点
+                        pRoot = new Node();
+                        pRoot -> length = 0;
+                        pRoot -> word = str;
+                    }
+                }
+
+                // 搜索与给定字符串的编辑距离小于给定值的所有字符串（内部调用）
+                void Trie::find(Node* pRoot, string &str, int limit_num, vector<string> &word_set) {
+
+                    if(pRoot == NULL){
+                        cout << "kong" << endl;
+                        return;
+                    }
+                    string word = pRoot -> word;
+                    int distance = edit_length(word, str);
+                    if(distance < limit_num) {
+                        word_set.push_back(word);
+                    }
+
+                    //如果当前节点有孩子的话
+                    Node *pCur = pRoot -> left;
+                    while(pCur != NULL){
+                        if(pCur -> length < distance + limit_num &&
+                                pCur -> length > distance - limit_num &&
+                                pCur -> length > limit_num - distance){
+                            find(pCur, str, limit_num, word_set);
+                        }
+                        pCur = pCur -> right;
+                    }
+                }
+
+
+                // 包装函数，搜索与给定字符串的编辑距离小于给定值的所有字符串（外部调用）
+                void Trie::search(string &str, int limit_num, vector<string> &word_set){
+                    find(pRoot, str, limit_num, word_set);
+                }
+
+                // ---------------------------工具函数------------------------------
+                // 求两个字符串的最断编辑距离
+                int edit_length(string &x, string &y){
+                    int xlen = x.length();
+                    int ylen = y.length();
+                    int edit[3][Y+1];
+                    memset(edit, 0, sizeof(edit));
+
+                    int i = 0;
+                    int j = 0;
+                    for(j = 0; j <= ylen; j++){
+                        edit[0][j] = j;
+                    }
+                    for(i = 1; i <= xlen; i++){
+                        edit[i%3][0] = edit[(i-1)%3][0] + 1;
+                        for(j = 1; j <= ylen; j++){
+                            if (x[i-1] == y[j-1]) {
+                                edit[i%3][j] = min(min(edit[i%3][j-1] + 1, edit[(i-1)%3][j] + 1),
+                                        edit[(i-1)%3][j-1]);
+                            } else {
+                                if(i >= 2 && j >= 2 && x[i-2] == y[j-1] && x[i-1] == y[j-2]){
+                                    edit[i%3][j] = min(min(edit[i%3][j-1] + 1, edit[(i-1)%3][j] + 1),
+                                            min(edit[(i-1)%3][j-1] + 1, edit[(i-2)%3][j-2] + 1));
+                                } else {
+                                    edit[i%3][j] = min(min(edit[i%3][j-1] + 1, edit[(i-1)%3][j] + 1),
+                                            edit[(i-1)%3][j-1] + 1);
+                                }
+                            }
+                        }
+                    }
+                    return edit[(i-1)%3][j-1];
+                }
+
+                //生成随机字符串
+                string rand_string(int len){
+                    srand(time(NULL));
+                    char a[MAX+1];
+                    for(int i = 0; i < len; i++){
+                        a[i] = rand()%26 + 'a';
+                    }
+                    a[len] = '\0';
+                    string str(a);
+                    return str;
+                }
+
+                // 获取当前时间 (ms)
+                long getCurrentTime(){
+                    struct timeval tv;
+                    gettimeofday(&tv, NULL);
+                    return tv.tv_sec*1000 + tv.tv_usec/1000;
+                }
+
+                //-----------------------------测试函数------------------------
+                //测试最短编辑距离函数
+                void Test_1(){
+                    string a = "abcdef";
+                    string b = "abcdef";
+                    int max_len = edit_length(a, b);
+                    cout << max_len << endl;
+                }
+
+                // 验证 Trie 树是否完整
+                void Test_2(){
+
+                    //1.创建对象，打开文件
+                    Trie trie;
+                    string str;
+                    ifstream fin;
+                    fin.open("dict.txt");
+                    if(!fin){
+                        cout << "打开文件失败！" << endl;
+                    }
+
+                    //2.建立Trie树
+                    while(getline(fin, str, '\n')){
+                        trie.insert(str);
+                    }
+                    fin.close();
+
+                    //3.验证Trie树的正确性
+                    fin.open("dict.txt");
+                    if(!fin){
+                        cout << "打开文件失败！" << endl;
+                    }
+                    while(getline(fin, str, '\n')){
+                        int count = 0;
+                        vector<string> word_set;
+                        trie.search(str, 1, word_set);
+                        cout << word_set.size() << "  " << str << endl;
+                    }
+
+                }
+
+
+                //测试对于随机字符串搜索结果的正确性
+                void Test_3(){
+
+                    //1.创建对象，打开文件
+                    Trie trie;
+                    string str;
+                    ifstream fin;
+                    fin.open("dict.txt");
+                    if(!fin){
+                        cout << "打开文件失败！" << endl;
+                    }
+
+                    //2.建立Trie树
+                    long time_1 = getCurrentTime();
+                    while(getline(fin, str, '\n')){
+                        trie.insert(str);
+                    }
+                    long time_2 = getCurrentTime();
+                    fin.close();
+
+                    //3.产生随机字符串
+                    string rand_str = rand_string(6);
+                    //rand_str = "wdeuojyucsalslpd";
+                    cout << "随机字符串为：" << rand_str << endl;
+
+                    //4.利用Trie树计算结果
+                    vector<string> word_set_1;
+                    long time_3 = getCurrentTime();
+                    trie.search(rand_str, 3, word_set_1);
+                    long time_4 = getCurrentTime();
+
+                    //5.利用暴力匹配计算结果
+                    vector<string> word_set_2;
+                    vector<string> word_dict;
+                    fin.open("dict.txt");
+                    if(!fin){
+                        cout << "打开文件失败！" << endl;
+                    }
+                    while(getline(fin, str, '\n')){
+                        word_dict.push_back(str);
+                    }
+                    int size = word_dict.size();
+                    long time_5 = getCurrentTime();
+                    for(int j = 0; j < size; j++){
+                        if(edit_length(word_dict[j], rand_str) < 3){
+                            word_set_2.push_back(word_dict[j]);
+                        }
+                    }
+                    long time_6 = getCurrentTime();
+                    fin.close();
+
+                    //6.结果比较
+                    sort(word_set_1.begin(), word_set_1.end());
+                    sort(word_set_2.begin(), word_set_2.end());
+
+                    cout << "word_set_1的大小：" << word_set_1.size() << endl;
+                    cout << "结果为：";
+                    for(int i = 0; i < word_set_1.size(); i++){
+                        cout << "  " << word_set_1[i];
+                    }
+                    cout << endl;
+
+                    cout << "word_set_2的大小：" << word_set_2.size() << endl;
+                    cout << "结果为：";
+                    for(int i = 0; i < word_set_2.size(); i++){
+                        cout << "  " << word_set_2[i];
+                    }
+                    cout << endl;
+
+                    if(word_set_1 == word_set_2){
+                        cout << "验证正确" << endl;
+                    } else {
+                        cout << "验证错误" << endl;
+                    }
+
+                    //7.时间比较
+                    cout << "建立Trie树用时（ms）：" << time_2 - time_1 << endl;
+                    cout << "Trie树搜索用时（ms）：" << time_4 - time_3 << endl;
+                    cout << "暴力搜索用时（ms）："   << time_6 - time_5 << endl;
+                    cout << "百分比：" << double(time_4 -time_3)/(time_6 - time_5) << endl;
+                }
+                int main(){
+
+                    //Test_1();
+                    //Test_2();
+                    Test_3();
+                }
+                ```
+
+            refs and see also
+
+            -   [编辑距离、拼写检查与度量空间：一个有趣的数据结构 | Matrix67: The Aha Moments](http://www.matrix67.com/blog/archives/333)
+            -   [利用 Trie 树求多个字符串的最小编辑距离 - 时空霹雳的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/u010189459/article/details/34114465)
+
+    -   如何从零写一个正则表达式引擎？ -<
+
+        :   推荐代码: Henry Spencer's regexp engine
+            [regexp.old/regexp.c at master · garyhouston/regexp.old](https://github.com/garyhouston/regexp.old/blob/master/regexp.c)
+            是很多现代流行的正则引擎的始祖, 解释器实现, 很
+            多新 feature 能扩展得得进去, 也有混合 DFA 的优化
+
+            <http://whudoc.qiniudn.com/2016/regex.zip> -<
+
+            :   写了个 80 行的 C++ 模板版。注意啊，regex 的定义包括了 concatenation，
+                alternation（“|”），Kleene closure（“*”），还得有一个ε字符（可近似认为
+                “?”），expression 还要能嵌套（“(”“)”）。有些例子里缺了 alternation 和嵌套
+                那就不该叫 regex 了。
+
+                之所以这么短是因为压根没有 parsing，parsing 多无聊啊。直接构造 regex 的
+                AST，根本不去打 NFA 的主意。想加什么功能就直接加 type 就行了。
+
+                这个是 compile time regex，所以跑起来是 raw speed，很快。你要是要运行时
+                的regex，把那几个模板特化改为一个树状 variant 结构，在树上走就行了，算
+                法（包括那个 continuation 的 trick）都是一样的。
+
+                建 NFA 那套做法是 Ken Thompson 推出来的“标准”算法，但是就玩玩而已应该从
+                更简单的学起。学一下 CPS 变换又不会死。
+
+                另外把程序写短小紧凑的诀窍就是写成 FP style。我的 80 行中所有函数都只有
+                一个 return 语句。
+
+                ```cpp
+                template <typename Left, typename Right>
+                struct ConcatExpr;
+
+                template <typename Left, typename Right>
+                struct AltExpr;
+
+                template <typename SubExpr>
+                struct RepeatExpr;
+
+                template <char ch>
+                struct MatchExpr;
+
+                template <typename RegExpr>
+                struct MatchImpl;
+
+                struct EpsilonExpr;
+
+                template <typename SubExpr>
+                using OptionalExpr = AltExpr<SubExpr, EpsilonExpr>;
+
+                template <typename Left, typename Right>
+                struct MatchImpl<ConcatExpr<Left, Right>> {
+                  template <typename Continuation>
+                  static bool Apply(const char* target, Continuation cont) {
+                    return MatchImpl<Left>::Apply(target, [cont](const char* rest) -> bool {
+                      return MatchImpl<Right>::Apply(rest, cont);
+                    });
+                  }
+                };
+
+                template <typename Left, typename Right>
+                struct MatchImpl<AltExpr<Left, Right>> {
+                  template <typename Continuation>
+                  static bool Apply(const char* target, Continuation cont) {
+                    return MatchImpl<Left>::Apply(target, cont) ||
+                           MatchImpl<Right>::Apply(target, cont);
+                  }
+                };
+
+                template <typename SubExpr>
+                struct MatchImpl<RepeatExpr<SubExpr>> {
+                  template <typename Continuation>
+                  static bool Apply(const char* target, Continuation cont) {
+                    return MatchImpl<SubExpr>::Apply(
+                               target,
+                               [target, cont](const char* rest) -> bool {
+                                 return target < rest &&
+                                     MatchImpl<RepeatExpr<SubExpr>>::Apply(rest, cont);
+                               }) ||
+                           cont(target);
+                  }
+                };
+
+                template <char ch>
+                struct MatchImpl<MatchExpr<ch>> {
+                  template <typename Continuation>
+                  static bool Apply(const char* target, Continuation cont) {
+                    return *target && *target == ch && cont(target + 1);
+                  }
+                };
+
+                template <>
+                struct MatchImpl<EpsilonExpr> {
+                  template <typename Continuation>
+                  static bool Apply(const char* target, Continuation cont) {
+                    return cont(target);
+                  }
+                };
+
+                template <typename RegExpr>
+                bool RegexMatch(const char* target) {
+                  return MatchImpl<RegExpr>::Apply(
+                      target, [](const char* rest) -> bool { return *rest == '\0'; });
+                }
+
+                template <typename RegExpr>
+                bool RegexSearch(const char* target) {
+                  return MatchImpl<RegExpr>::Apply(
+                             target, [](const char* rest) -> bool { return true; }) ||
+                         (*target && RegexSearch<RegExpr>(target + 1));
+                }
+
+                #include <cassert>
+
+                int main() {
+                  assert((RegexMatch<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("ab")));
+                  assert((RegexMatch<AltExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("a")));
+                  assert((RegexMatch<AltExpr<MatchExpr<'a'>, MatchExpr<'b'>>>("b")));
+                  assert((RegexMatch<RepeatExpr<MatchExpr<'a'>>>("aaaaa")));
+                  assert((RegexMatch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>(
+                      "aaaaab")));
+                  assert((
+                      RegexMatch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>("b")));
+                  assert((RegexSearch<ConcatExpr<RepeatExpr<MatchExpr<'a'>>, MatchExpr<'b'>>>(
+                      "aaaaabb")));
+                  assert((RegexMatch<OptionalExpr<MatchExpr<'a'>>>("a")));
+                  assert((RegexMatch<OptionalExpr<MatchExpr<'a'>>>("")));
+                  assert((RegexMatch<OptionalExpr<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>>(
+                      "ab")));
+                  assert((RegexMatch<OptionalExpr<ConcatExpr<MatchExpr<'a'>, MatchExpr<'b'>>>>(
+                      "")));
+                  assert((!RegexMatch<RepeatExpr<MatchExpr<'a'>>>("aaaaab")));
+                  assert((RegexMatch<RepeatExpr<OptionalExpr<MatchExpr<'a'>>>>("")));
+
+                  return 0;
+                }
+                ```
+
+            Milo Yip 的正则代码 -<
+
+            :   ```cpp
+                todo
+                ```
+
+                [rapidjson/regex.h at regex · miloyip/rapidjson](https://github.com/miloyip/rapidjson/blob/regex/include/rapidjson/internal/regex.h)
+
+            refs and see also
+
+            -   [如何从零写一个正则表达式引擎？ - 知乎](https://www.zhihu.com/question/27434493)
+
+    -   [ACM 题集以及各种总结大全！ - 枯槐树下乘凉 - 博客频道 - CSDN.NET](http://blog.csdn.net/kuhuaishuxia/article/details/52254209)
+
+    -   [《挑战程序设计竞赛(第2版)》-码农场](http://www.hankcs.com/tag/%e3%80%8a%e6%8c%91%e6%88%98%e7%a8%8b%e5%ba%8f%e8%ae%be%e8%ae%a1%e7%ab%9e%e8%b5%9b%e7%ac%ac2%e7%89%88%e3%80%8b/)
+
+    -   [演算法筆記](http://www.csie.ntnu.edu.tw/~u91029/)
+
+    -   [網誌 - BYVoid](https://www.byvoid.com/blog/tag/%E8%A8%88%E7%AE%97%E6%A9%9F%E7%A7%91%E5%AD%B8)
+
+    -   [hiho 一下第 114 周《Image Encryption》题目分析 - hihoCoder](http://hihocoder.com/discuss/question/3663)
+
+    -   [DSACPP, 数据结构（C++语言版）](http://dsa.cs.tsinghua.edu.cn/%7Edeng/ds/dsacpp/index.htm)
+
+    -   [程序员如何快速准备面试中的算法 - 结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v/article/details/19131887)
+
+    -   [检测单链表中是否有环--快慢指针法 - Linloves - 博客频道 - CSDN.NET](http://blog.csdn.net/loveyou426/article/details/7927297)
+
+    -   Adoo's blog - Introduction to Algorithm -third edition -<
+
+        :   [算法导论——平摊分析](http://www.roading.org//algorithm/introductiontoalgorithm/%e7%ae%97%e6%b3%95%e5%af%bc%e8%ae%ba%e5%b9%b3%e6%91%8a%e5%88%86%e6%9e%90.html)
+
+            [赫夫曼编码](http://www.roading.org//algorithm/introductiontoalgorithm/%e7%ae%97%e6%b3%95%e5%af%bc%e8%ae%ba%e8%b5%ab%e5%a4%ab%e6%9b%bc%e7%bc%96%e7%a0%81.html) -<
+
+            :   ![](http://www.roading.org/images/2012-03/image_thumb22.png)
+
+                赫夫曼编码的正确性
+
+                证明赫夫曼编码的正确性需证明贪心算法的两要素：
+
+                -   具有最优子结构
+                -   贪心选择性质
+
+            [《算法导论》笔记汇总](http://www.roading.org//algorithm/introductiontoalgorithm/%e7%ae%97%e6%b3%95%e5%af%bc%e8%ae%ba%e7%b4%a2%e5%bc%95%e8%a1%a8.html) -<
+
+            :   [仿STL 的二叉搜索树的C++实现](http://www.roading.org//algorithm/introductiontoalgorithm/%e4%bb%bfstl-%e7%9a%84%e4%ba%8c%e5%8f%89%e6%90%9c%e7%b4%a2%e6%a0%91%e7%9a%84c%e5%ae%9e%e7%8e%b0.html)
+
+                [扩展数据结构](http://www.roading.org//algorithm/introductiontoalgorithm/%e6%89%a9%e5%b1%95%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84.html)
+
+                [C++实现红黑树，仿STL封装](http://www.roading.org//algorithm/introductiontoalgorithm/c%e5%ae%9e%e7%8e%b0%e7%ba%a2%e9%bb%91%e6%a0%91%ef%bc%8c%e4%bb%bfstl%e5%b0%81%e8%a3%85.html)
+
+                [Chapter 13 Red-Black trees (红黑树)](http://www.roading.org//algorithm/introductiontoalgorithm/chapter-13-red-black-trees-%e7%ba%a2%e9%bb%91%e6%a0%91.html)
+
+                [Radix Tree 基数树](http://www.roading.org//algorithm/introductiontoalgorithm/radix-tree-%e5%9f%ba%e6%95%b0%e6%a0%91.html)
+
+                [算法导论6-3 young tableaus](http://www.roading.org//algorithm/introductiontoalgorithm/%e7%ae%97%e6%b3%95%e5%af%bc%e8%ae%ba6-3-young-tableaus.html)
+
+                [哈希表（1）](http://www.roading.org//algorithm/introductiontoalgorithm/%e5%93%88%e5%b8%8c%e8%a1%a8%ef%bc%881%ef%bc%89.html)
+
+
+                [快速排序及C++实现](http://www.roading.org//algorithm/introductiontoalgorithm/%e7%ac%ac%e4%b8%83%e7%ab%a0%ef%bc%881%ef%bc%89-%e5%bf%ab%e9%80%9f%e6%8e%92%e5%ba%8f.html)
+
+                [利用堆来建立优先级队列](http://www.roading.org//algorithm/introductiontoalgorithm/%e5%88%a9%e7%94%a8%e5%a0%86%e6%9d%a5%e5%bb%ba%e7%ab%8b%e4%bc%98%e5%85%88%e7%ba%a7%e9%98%9f%e5%88%97.html)
+
+                [排序之插入排序与合并排序-C++实现](http://www.roading.org//algorithm/introductiontoalgorithm/%e6%8f%92%e5%85%a5%e6%8e%92%e5%ba%8f-insertionsort-c%e5%ae%9e%e7%8e%b0.html)
+
+            refs and see also
+
+            -   [Adoo's blog - Introduction to Algorithm -third edition](http://www.roading.org/category/introduction-to-algorithm-third-edition.html) -<

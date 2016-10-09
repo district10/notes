@@ -66,8 +66,28 @@
     int strncmp(    s1,     s2,     n );
     char *strcpy(   char *dest, const char *src );
     char *strncpy(  char *dest, const char *src, size_t n );
+
+        char buf1[9] = "01234567";
+        char buf2[6] = "abcde";
+        strncpy( buf1, buf2, 4 );
+        printf( "%s\n", buf1 ); // "abcd4567"
+
+       char * strncpy( char *dest, const char *src, size_t n ) {
+           // at most n char will be altered
+           size_t i;
+           for( i = 0; i < n && src[i] != '\0'; ++i ) {
+               dest[i] = src[i];
+           }
+           for( ; i < n; ++i ) {
+               dest[i] = '\0';
+           }
+           return dest;
+       }
+
     char *strchr(   const char *s, int c );
     char *strrchr(  const char *s, int c );
+
+    memcmp( s1, s2, nbytes ); // -1, 0, 1
 
 // file io
 
@@ -88,6 +108,8 @@
     string line;
     while ( getline(file, line) )   { ... }
     sort( line.begin(), line.end() );
+
+    string s( n, '0' );
 
     ofstream file;
     file.open( "example.txt" );
@@ -165,6 +187,9 @@
     vector<int>::iterator result = max_element( v.begin(), v.end() );
     int idx = distance( v.begin(), result );
     int val = v[idx];
+
+    int nums[50];
+    int highest = *max_element( nums, nums+50 );
 
     auto iter = prev( it, 2 );
     auto iter = next( it, 2 );
