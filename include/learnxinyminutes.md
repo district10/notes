@@ -1,4 +1,4 @@
-Java
+Java -<
 
 :   ```java
     // Single-line comments start with //
@@ -762,7 +762,7 @@ Java
 
     ```
 
-Perl
+Perl -<
 
 :   ```perl
     # Single line comments start with a number sign.
@@ -1045,7 +1045,7 @@ Perl
     # and its low-level implementation in Perl is covered in perlobj.
     ```
 
-R
+R -<
 
 :   ```r
     # Comments start with number symbols.
@@ -1832,7 +1832,7 @@ R
     # ggplot2 has excellent documentation (available http://docs.ggplot2.org/current/)
     ```
 
-Bash
+Bash -<
 
 :   ```bash
     #!/bin/bash
@@ -2192,7 +2192,7 @@ Bash
     info --apropos bash
     ```
 
-JavaScript
+JavaScript -<
 
 :   ```cpp
     // Single-line comments start with two slashes.
@@ -2713,7 +2713,7 @@ JavaScript
     }
     ```
 
-jQuery
+jQuery -<
 
 :   ```javascript
     ///////////////////////////////////
@@ -2838,7 +2838,7 @@ jQuery
     });
     ```
 
-PHP
+PHP -<
 
 :   ```php
     <?php // PHP code must be enclosed with <?php tags
@@ -3687,7 +3687,7 @@ PHP
     }
     ```
 
-git
+git -<
 
 :   ```bash
     $ git init

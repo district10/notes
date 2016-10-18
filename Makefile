@@ -70,12 +70,14 @@ publish/%: meta/%
 note: n
 n:
 	$(EDITOR) -p \
+		index.md \
+		lang/java.md \
+		lang/typescript.md \
 		lang/algo.md \
-		lang/c-cpp.md \
-		lang/sys-net-misc.md \
-		2016/job.md \
 		2016/note2.md \
-		index.md
+		lang/c-cpp.md \
+		2016/job.md \
+
 m:
 	$(EDITOR) Makefile
 t:

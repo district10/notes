@@ -1756,8 +1756,6 @@ title: Working Notes
 
 [杰出的文学家、艺术家、科学家大多是男性，可以说明男性比女性优秀吗？ - 知乎](https://www.zhihu.com/question/20573941)
 
-[Learn TypeScript | Xcat Liu's Blog](http://blog.xcatliu.com/2016/01/29/learn-typescript/)
-
 [你最穷的时候是什么时候，是怎么熬过来的？ - 知乎](https://www.zhihu.com/question/46324613)
 
 >   打听了一下，各部门情况差不多，公司内忽悠、混子、老油条占比大于业界平均值，
@@ -2435,3 +2433,20 @@ Old lady, "I think religion is like a cock. It's ok to have one, it's ok to be p
 
 说句残酷的：如果你走出校门步入社会，开始想怎么出人头地而不是投资自己持续学习，等待你的一定是悲剧。
 
+维托于是设计干掉了方其，他没有对任何人说，但是每个人都猜到了是他做的，每个人都震惊于他那谦逊外表下隐藏着的狠辣和果断。
+
+-   hiragana，平假名，`[,hɪrə'ɡɑnə]`
+-   katakana，片假名，`['kɑtə'kɑnə]`
+
+[district10/neo_keyboard_layout: 我的键盘布局。Neo keyboard layout variants, for Qwerty, Dvorak, Programmer Dvorak users. English ! Not German, and without greek letters.](https://github.com/district10/neo_keyboard_layout/)
+
+我用 setxkbmap -option ctrl:nocaps; caps -> ctrl; xcape https://github.com/alols/xcape 在 ctrl 被單獨按時作爲 esc 處理……但是 vim 裏識別 ctrl->esc 的延時有點大，不知怎麼處理
+
+[小李子在艾伦秀上大谈自己死里逃生的一次经历！心疼小李！！_明星_娱乐_bilibili_哔哩哔哩弹幕视频网](http://www.bilibili.com/video/av3566907/)
+
+[Usage · Zeal](https://zealdocs.org/usage.html)
+
+:   -   添加文档：Tools -- Docsets
+    -   搜索："keywords" 或者 "java:println"
+
+groupid 通常填自己的域名反写，architectid 填工程名称。
