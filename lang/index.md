@@ -14,7 +14,8 @@ title: Languages <-- Math, Programming Languages, Natural Languages
     +   [OpenCV](opencv.html){title=opencv.md}
     +   [Perl](perl.html){title=perl.md}
     +   [Java](java.html){title=java.md}
-   +   [TypeScript](typescript.html){title=typescript.md}
+    +   [TypeScript](typescript.html){title=typescript.md}
+    +   [AngularJS](angular.html){title=angular.md}
     +   [Learn X in Y Minutes](learnxinyminutes.html){title=learnxinyminutes.md}
 
 -   Math Lang

@@ -2450,3 +2450,19 @@ Old lady, "I think religion is like a cock. It's ok to have one, it's ok to be p
     -   搜索："keywords" 或者 "java:println"
 
 groupid 通常填自己的域名反写，architectid 填工程名称。
+
+[Open-source software - Wikipedia](https://en.wikipedia.org/wiki/Open-source_software)
+
+:   Open-source software (OSS) is computer software with its source code made
+    available with a license in which the copyright holder provides the rights to
+    study, change, and distribute the software to anyone and for any purpose.
+    Open-source software may be developed in a collaborative public manner.
+    Open-source software is the most prominent example of open-source development.
+
+Babel 是一个 JavaScript 预处理器的基础设施，虽然本身为 es6 而生，但现在 es6 对 babel 而言也只是一个普通的 preset 而已。
+
+`[,pri'sɛt]`
+
+-   vt. 事先调整；事先装置
+-   n. 预调装置
+-   adj. 预先装置的；预先调整的

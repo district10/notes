@@ -1662,3 +1662,7 @@ e.printStackTrace();
 [JVM Minimal Survival Guide – Hadi Hariri](http://hadihariri.com/2013/12/29/jvm-minimal-survival-guide-for-the-dotnet-developer/)
 
 [IntelliJ IDEA Minimal Survival Guide – Hadi Hariri](http://hadihariri.com/2014/01/06/intellij-idea-minimal-survival-guide/)
+
+IntelliJ IDEA Tips
+
+-   To quickly see the documentation for a class or method at caret, press Ctrl+Q (View | Quick Documentation).
