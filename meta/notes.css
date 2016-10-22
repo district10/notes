@@ -394,3 +394,6 @@ li:last-of-type {
 }
 
 .copyme { cursor: help; }
+
+p.refs, p.refs + ul { opacity: 0.2; }
+p.refs:hover, p.refs + ul:hover { opacity: 0.9; }

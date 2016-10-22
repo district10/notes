@@ -5,6 +5,8 @@ $( "a[href*='tangzhixiong.com']" ).attr( "target", "" );
 
 $('a').on('click', function(event){ event.stopPropagation(); });
 
+$("p:contains('refs and see also')").addClass('refs');
+
 $('img').each(function(index){
     var src = $(this).attr('src');
     $(this).attr({

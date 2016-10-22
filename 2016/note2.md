@@ -2466,3 +2466,20 @@ Babel 是一个 JavaScript 预处理器的基础设施，虽然本身为 es6 而
 -   vt. 事先调整；事先装置
 -   n. 预调装置
 -   adj. 预先装置的；预先调整的
+
+```
+<script src="//http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+<script>
+if (!window.jQuery) {
+    var script = document.createElement('script');
+    script.src = "/js/jquery.min.js";
+    document.body.appendChild(script);
+}
+</script>
+```
+
+"冻蒜"是闽南语"当选"的发音，通常用於选举及竞选期间， 如："XXX 冻蒜!"。
+
+民进党 2014 年 3 月 21 日动员包围台湾“立法院”声援学生，但苏贞昌在“立院”高喊“冻
+蒜”，惨遭痛批。台湾媒体刊文分析说，立法机构内的抗议活动席卷台湾政坛，也让民进党
+主席改选兴起波澜。
