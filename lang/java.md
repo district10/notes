@@ -582,11 +582,27 @@ IntelliJ Idea 的使用 -<
         -   有数据库支持
         -   设置可以保存导出
 
+    多个 IntelliJ IDEA 实例。
+
+    :   Press Ctrl+Alt+S
+
+        Choose Appearance & Behavior, then System Settings, check radio button: Open project in new window.
+
+        refs and see also
+
+        -   [Start two instances of IntelliJ IDE - Stack Overflow](http://stackoverflow.com/questions/5889413/start-two-instances-of-intellij-ide)
+
     好好学习，点滴做起。这是每次启动的时候，弹出的 tips。 -<
 
     :   （唯一蛋疼的是，用了 Vim 模拟，冲突的快捷键要手动配置，而我懒得配置）
 
+        -   Ctrl-Alt-S 打开设置
+
+        -   Ctrl-Shift-Alt-S 打开项目结构设置区
+
         -   To quickly see the documentation for a class or method at caret, press Ctrl+Q (View | Quick Documentation).
+
+        -   IntelliJ IDEA 是一个没有 Ctrl + S 的 IDE，所以每次修改完代码你只要管着运行或者调试即可，无需担心保存或者丢失代码。
 
         -   To navigate to the declaration of a class, method or variable used
             somewhere in the code, position the caret at the usage and press Ctrl+B
@@ -628,6 +644,16 @@ IntelliJ Idea 的使用 -<
             generate getter and setter methods for any fields of your class.
 
             getter, setter, ctor, etc
+
+        -   To open your browser with documentation for the element at the
+            editor's caret, press Shift+F1 (View | External Documentation).
+
+            You must have the path to your browser set in the File | Settings |
+            Web Browsers options and paths to documentation files added to your
+            project (File | Project Structure...) to use this feature.
+
+        -   The CodeCompletion feature can suggest a name for a variable when you declare it. For example, start typing
+            private FileOutputStream and press Ctrl+空格.
 
         -   tips
 
@@ -2656,3 +2682,58 @@ C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 2016.2.4\bin\id
 ```
 
 [Releases · MSOpenTech/redis](https://github.com/MSOpenTech/redis/releases)
+
+[YouMeek Code](http://code.youmeek.com/)
+
+-   IntelliJ IDEA 相关核心文件和目录介绍：[IntelliJ-IDEA-Tutorial/installation-directory-introduce.md at newMaster · judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/newMaster/installation-directory-introduce.md)
+-   IntelliJ IDEA 界面介绍：[IntelliJ-IDEA-Tutorial/interface-introduce.md at newMaster · judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/newMaster/interface-introduce.md)
+-   IntelliJ IDEA 主题、字体、编辑区主题、文件编码修改：[IntelliJ-IDEA-Tutorial/theme-settings.md at newMaster · judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/newMaster/theme-settings.md)
+-   [IntelliJ IDEA 2016.2 Help :: Symbols](https://www.jetbrains.com/help/idea/2016.2/symbols.html)
+-   IntelliJ IDEA 编译方式介绍：[IntelliJ-IDEA-Tutorial/make-introduce.md at newMaster · judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/newMaster/make-introduce.md)
+
+Maven 的两个概念：坐标和依赖。
+
+POM：Project Object Model。
+
+archetype，`['ɑrkə'taɪp]`，n. 原型
+
+dependency mediation（依赖调解）
+
+-   近者优先
+-   先申明优先
+
+Maven 仓库
+
+-   本地仓库
+-   远程仓库
+-   中央仓库
+-   私服
+-   公共仓库：central、JBoss、Java.net
+
+声明周期：
+
+-   initialize，初始化
+-   compile，编译
+-   test，测试
+-   package，打包
+-   integrateionTest，集成测试
+-   deploy，部署
+
+三套声明周期：
+
+-   clean（pre-clean，clean，post-clean）
+-   default（validate，intialize，generate-sources，process-sources，generate-resources，process-resoures，compile，process-classes，generate-test-sources，etc）
+-   site
+
+插件：
+
+maven-help-plugin
+
+[How to create a .jar file or export jar on IntelliJ (like eclipse java archive export) - Stack Overflow](http://stackoverflow.com/questions/2025607/how-to-create-a-jar-file-or-export-jar-on-intellij-like-eclipse-java-archive-e)
+
+InputStream -> InputStreamReader -> BufferedReader
+
+reader.readLine()
+
+https://google.github.io/styleguide/javaguide.html 这里面是一些java编码规范
+http://www.blogjava.net/zh-weir/archive/2014/02/08/409608.html这是中文版的

@@ -2483,3 +2483,147 @@ if (!window.jQuery) {
 民进党 2014 年 3 月 21 日动员包围台湾“立法院”声援学生，但苏贞昌在“立院”高喊“冻
 蒜”，惨遭痛批。台湾媒体刊文分析说，立法机构内的抗议活动席卷台湾政坛，也让民进党
 主席改选兴起波澜。
+
+这个世界就是罗生门，没有真相，只有立场。一切真相都是宣传，很多真理和真相的理解都是靠宣传才被人接受的。既然都是流氓，谁也别看不上谁。
+
+我屮艸芔茻……
+
+关于为什么说中国学生要特别标注不含台湾人：班上有四个，成绩差、中下、中下、中上，算上他们影响我装逼。
+
+1 欧元 (EUR)=7.3621 人民币元
+1 人民币元 =0.1358 欧元
+
+1 美元 (USD)=6.7654 人民币元
+1 人民币元 (CNY)=0.1478 美元
+
+1 新台币 (TWD)=0.2131 人民币元
+1 人民币元 =4.6936 新台币
+
+1 日元 (JPY)=0.0652 人民币元
+1 人民币元 =15.3428 日元
+
+经常看这些对大脑发育不好
+
+[Continuous integration - Wikipedia](https://en.wikipedia.org/wiki/Continuous_integration)
+
+In software engineering, continuous integration (CI) is the practice of merging
+all developer working copies to a shared mainline several times a day. Grady
+Booch first named and proposed CI in his 1991 method, although he did not
+advocate integrating several times a day. Extreme programming (XP) adopted the
+concept of CI and did advocate integrating more than once per day - perhaps as
+many as tens of times per day.
+
+3、在曹操墓发现一具小孩尸骨，砖家说是小时候的曹操。
+
+17、张艺谋缴清全额超生罚款后，中国政府允许鼓励生二胎。
+
+中国也不会过分，不会进攻人家的基本地盘，只是在争议地区挤来挤去，而且只摩擦不开
+火。天长日久，东亚地区就是中国控场了。相关国家民众有了心理预期，内心自暴自弃地
+觉得抗争无益。慢慢也觉得，虽然中国威慑很厉害，但并没有真大打出手，如果不争了，
+基本的安全还是有的，而且也能经济合作，不如合作拉倒。
+
+今天微博市值超越Twitter。我预言十年内中国人工智能工业超越美国(专利数，市值)，谁相信？
+
+premium，`['primɪəm]`
+
+-   n. 额外费用；奖金；保险费;(商)溢价
+-   adj. 高价的；优质的
+
+我的医保交了一年就受不了了，如果真生病，我宁可直接飞回国去治都便宜点。
+
+武装保卫特朗普！
+
+看来大家都是受害者，我的保险 renewal enroll 今天一出来，deductible 涨了百分之六
+七十，上 x 千了都，而服务持平或者变差。真是很怒。
+
+一帮子人捡着 CNN MSNBC 的 dump 就好比吃了速效救心丸一般缓了口气，纷纷出来表示“看，川普梅西”。
+你们根本不知道美国人正在经历什么，他们的痛点在哪里。
+告诉各位，新一年的保险 enrollment 季到了，非常及时的赶在投票日之前。
+给大家看看什么是真正的 silent majority
+
+近期面试上百小伙伴。几点小感触：1）虽然今天是一个强科学主义时代，但多数人最缺的
+依然是「科学训练」，太民科太民哲太鸡血，可能是通病；2）听说读写等基础技能，比所
+学专业重要得多；3）资深的高级人才也不一定靠谱，在一个新职业新行业层出不穷的时代，
+我更愿意与年轻的学习机器同行。
+
+[AI领域，中国人/华人有多牛？](http://mp.weixin.qq.com/s?__biz=MzA5NjM1MDI5Mg==&mid=2652283522&idx=1&sn=1d6979db2b913059896f92f331f9e073&chksm=8b537bb9bc24f2afe0b53a1a8e7619b4caa8d344219cd0829384ef20d800873cf7f6418d14ba&mpshare=1&scene=2&srcid=1017ue1utHPFxZOMRLr4mkpi&from=timeline&isappinstalled=0#wechat_redirect)
+
+问人“这么多书你都读完了吗”，就好像问女士“这么多衣服你都穿破了吗？”
+
+投资就像受精，永远不知道被拒绝掉的那 5 亿个选择里会有哪些机会。大部分的优秀精子都会无疾而终，和他们努力不努力、优秀不优秀都没有关系。
+
+[鲍捷 - 知乎](https://www.zhihu.com/people/bao-jie-14)
+
+[Relearn Faster and Retain Longer](http://pss.sagepub.com/content/early/2016/08/16/0956797616659930)
+
+[【得分明细】2016北航软件工程个人项目 - SivilTaram - 博客园](http://www.cnblogs.com/SivilTaram/p/buaa_2016_se_personal_project.html)
+
+[这世上，哪有那么多捷径可走 - L君的手札 - 知乎专栏](https://zhuanlan.zhihu.com/p/23002500)
+
+「你的问题主要在于读书不多而想得太多。少年贪玩，青年迷恋爱情，壮年汲汲于成名成
+家，暮年自安于自欺欺人。人寿几何，顽铁能炼成的精金，能有多少？但不同程度的锻炼，
+必有不同程度的成绩；不同程度的纵欲放肆，必积下不同程度的顽劣。」——杨绛
+
+[中国古代匠人发明的榫卯机构巧夺天工，大家... 来自实用百科菌 - 微博](http://weibo.com/1977459170/EdTFP59yd?type=comment#_rnd1477212772641)
+
+[威慑纪元：如何理解大国对峙背后的行为逻辑](http://weibo.com/ttarticle/p/show?id=2309404001424676638085)
+
+[美国人到底有多穷？ - 地球时报](http://transcoder.baidu.com/from=1000953b/bd_page_type=1/ssid=0/uid=0/pu=usm%400%2Csz%40320_1002%2Cta%40iphone_2_6.0_2_7.0/baiduid=FF748169F71FBC022C954FD078CF6522/w=0_10_/t=iphone/l=3/tc?ref=www_iphone&lid=17057839014645120551&order=1&fm=alop&tj=www_normal_1_0_10_title&vit=osres&m=8&srd=1&cltj=cloud_title&asres=1&title=%E7%BE%8E%E5%9B%BD%E4%BA%BA%E5%88%B0%E5%BA%95%E6%9C%89%E5%A4%9A%E7%A9%B7%3F-%E5%9C%B0%E7%90%83%E6%97%B6%E6%8A%A5&dict=32&w_qd=IlPT2AEptyoA_ykywhActuiv1SlSmX5mzE5YjP8VuAwsMOUyP5dc7Y_&sec=15936&di=4ad0591f429eb306&bdenc=1&tch=124.0.225.129.1.42&nsrc=IlPT2AEptyoA_yixCFOxXnANedT62v3IEwXPMT6E_zOrjo39h47aUbBoZyTg2Sm5UZWccj4OxBt8wXCj_m1l6so4g43&eqid=ecb99e351fb8c0001000000658017bd4&wd=&clk_info=%7B%22srcid%22%3A%221599%22%2C%22tplname%22%3A%22www_normal%22%2C%22t%22%3A1476492292941%2C%22xpath%22%3A%22div-a-h3%22%7D)
+
+[杜特尔特北京演讲全文，全程掌声笑声爆燃](http://mp.weixin.qq.com/s?__biz=MzA5MDA0NDA4NA==&mid=2651160212&idx=1&sn=a7b35943f0208cde89c8f152e4ed81d5&chksm=8be07d4fbc97f459eb2cb7d32d90966ac931db1d896d8dc79cac1f905ca3760cc2d09eec0495&mpshare=1&scene=1&srcid=1021CfSNSfeBLe8FRVzxR83U&from=groupmessage&isappinstalled=0#wechat_redirect)
+
+[中国房价到顶了吗？万科副总裁万字长文解析-观察者网](http://m.guancha.cn/economy/2016_10_02_376081.shtml?from=groupmessage&isappinstalled=0)
+
+[如何看待特朗普的竞选檄文《She Follows The Money》（威斯康辛Rally演讲稿）？ - 神仙兔八哥的回答 - 知乎](https://www.zhihu.com/question/51129739/answer/124268109)
+
+8 月 18 日，联合国批评菲律宾“禁毒战争”致上百人横死，菲律宾总统杜特尔特回应称，
+他很可能退出联合国，并邀请中国及其他国家再组建一个新的“联合国”。
+
+今年 6 月 30 日，杜特尔特登上总统宝位之后便下令开展全面的扫毒战争。菲律宾国内用
+“尸横遍野”来形容一点也不为过，每天都有涉毒嫌疑人被枪杀在马尼拉街头巷尾。7 月 1
+日到 8 月 14 日上午，计有 592 名毒贩嫌疑人被干死，8000 多名毒贩嫌疑人被警方逮捕，
+51 万 9480 名吸毒者及 3 万 4763 名毒贩投案。
+
+这场对毒贩的战争，对于杜特尔特而言，不但是凝聚民心，扫清国家障碍的必要措施，更
+是通过“禁毒”这一行动，协调和统一全国行动，清理贪腐势力，破除菲律宾“政令不出马尼
+拉”的必要措施。
+
+[列国志 | 菲律宾：挣扎，求生，美国东亚秩序崩溃的第一张多米诺骨牌](http://mp.weixin.qq.com/s?__biz=MzA4NDg3MDEyNw==&mid=2654894997&idx=1&sn=60cf097c89535a0b8c1dbd4b36ddcb43&chksm=842a4d15b35dc403f0e87d74cbf015e54662b51d315ffab84bbbbce27ab86da3e449407f6d6f&mpshare=1&scene=2&srcid=1020To35w3Oi7PloCvHgXVmW&from=timeline&isappinstalled=0#wechat_redirect)
+
+[【资料】印度数学家拉马努金（一） | 虫洞神经网小组 | 果壳网 科技有意思](http://www.guokr.com/post/562975/)
+
+[自己动手编译、运行Java程序 - haolujun - 博客园](http://www.cnblogs.com/haolujun/archive/2013/03/02/2939698.html)
+
+Sumatra 用 Alt-Left/Right 来跳转视图。
+
+有一种创业叫 to MA 模式，公司成立就是奔着被并购去的。一般是有个大佬，利用影响力拉几个牛人，做一个炫酷的 demo，也不考虑商业模式 (虽然 ppt 上有一个)，拉一轮风投，再招 n 个博士。然后就等着被大公司买。因为大公司内部想发展出这样的团队很难。不过这样的团队被吃掉后，一般也就 over 了。
+
+[革新设计的传送带。👍 👍 👍 . 来自西城SQL - 微博](http://weibo.com/1864241383/EemnygIZS?type=comment)
+
+[Peter Thiel will donate $1.25M to the Trump campaign, despite the latest controversies | TechCrunch](https://techcrunch.com/2016/10/16/peter-thiel-will-donate-1-25m-to-the-trump-campaign-despite-the-latest-controversies/)
+
+:   Peter Thiel will donate $1.25M to the Trump campaign, despite the latest controversies
+
+[bash - List all binaries from $PATH - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/120786/list-all-binaries-from-path)
+
+[[ThoughtWorks 西安] 欢迎各位 Developer 大神入伙~ - V2EX](https://www.v2ex.com/t/315237#reply1)
+
+[科研前途渺茫，打算转工作。请问这样的简历能找什么样的职位？ - V2EX](https://www.v2ex.com/t/315189#reply47)
+
+[水平极高的出租车司机能够有多神奇的驾技？ - 知乎](https://www.zhihu.com/question/33724782#answer-46697244)
+
+WIN-R: msconfig
+
+[jayway/JsonPath: Java JsonPath implementation](https://github.com/jayway/JsonPath)
+
+-   [district10/wcf: word frequency counter](https://github.com/district10/wcf), write C++ version, Java version
+-   [district10/Logger: A Simple Logger](https://github.com/district10/Logger)，add to changsha post
+-   [district10/try-pandoc-templating](https://github.com/district10/try-pandoc-templating)，add one blog post
+-   [district10/FindFilesWithinFolder: Find and generate a file list of the folder.](https://github.com/district10/FindFilesWithinFolder)，java version
+-   [district10/makesync: Sync via make/Makefile, because rsync is BAD, in some sense.](https://github.com/district10/makesync)，write a post
+-   [district10/utils](https://github.com/district10/utils)，link to utils
+-   [mdwatch/mdwatch.sh at master · district10/mdwatch](https://github.com/district10/mdwatch/blob/master/mdwatch.sh)
+-   front end
+    -   [district10/panbook: Panbook, A Document Generator Based on Pandoc Templates.](https://github.com/district10/panbook)
+    -   [district10/wiki: Wiki is your system of knowledge.](https://github.com/district10/wiki)
+    -   window.location = this.value;
