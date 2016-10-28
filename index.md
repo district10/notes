@@ -64,3 +64,10 @@ nothing special.
     :   点击粘贴到剪切板
 
         @include <-=include/emojis.md=
+
+-   Links -<
+
+    :   -   nothing here.
+        -   [丝瓜导航](http://1e.sg/user/tang.zhi.xiong){.hide}
+        -   [Java 程序员眼中的 Linux](http://whudoc.qiniudn.com/2016/Linux-Tutorial-master-publish/README.html){.hide}
+        -   [IntelliJ IDEA 简体中文专题教程](http://whudoc.qiniudn.com/2016/IntelliJ-IDEA-Tutorial/index.html){.hide}

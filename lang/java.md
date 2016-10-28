@@ -2737,3 +2737,17 @@ reader.readLine()
 
 https://google.github.io/styleguide/javaguide.html 这里面是一些java编码规范
 http://www.blogjava.net/zh-weir/archive/2014/02/08/409608.html这是中文版的
+
+```java
+// read char
+char c = (char)System.in.read();
+// read line
+BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+String line = in.readLine();
+```
+
+[4ker/Java-WebSocket: A barebones WebSocket client and server implementation written in 100% Java.](https://github.com/4ker/Java-WebSocket)
+
+[4ker/async-http-client: Asynchronous Http and WebSocket Client library for Java](https://github.com/4ker/async-http-client)
+
+[judasn/Basic-Single-Module-SSM: 为了方便以后的一些问题的讲解特地准备一个最精简的 SpringMVC+Spring+Mybatis 框架整合，方便以后的一些问题的演示](https://github.com/judasn/Basic-Single-Module-SSM)

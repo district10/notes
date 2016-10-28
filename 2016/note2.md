@@ -2627,3 +2627,93 @@ WIN-R: msconfig
     -   [district10/panbook: Panbook, A Document Generator Based on Pandoc Templates.](https://github.com/district10/panbook)
     -   [district10/wiki: Wiki is your system of knowledge.](https://github.com/district10/wiki)
     -   window.location = this.value;
+
+karma
+
+-   `['kɑrmə]`
+-   n. 因果报应，因缘
+-   n. (Karma)人名；(芬、法)卡尔马；(中)噶玛(藏语·威妥玛)
+
+```makefile
+
+funmd2html = cat $(1) | pandoc \
+        -V rootdir=./ \
+        -S -s --ascii --mathjax \
+        -f markdown+abbreviations+east_asian_line_breaks+emoji \
+        --template tools/html.template \
+        -o $(2)
+
+$(call funmd2html, $<, $@)
+```
+
+[java - What is simplest way to read a file into String? - Stack Overflow](http://stackoverflow.com/questions/3402735/what-is-simplest-way-to-read-a-file-into-string)
+
+[Java reading a file into an ArrayList? - Stack Overflow](http://stackoverflow.com/questions/5343689/java-reading-a-file-into-an-arraylist)
+
+
+```java
+String content = new Scanner(new File("filename")).useDelimiter("\\Z").next();
+System.out.println(content);
+
+Scanner s = new Scanner(new File("filepath"));
+ArrayList<String> list = new ArrayList<String>();
+while (s.hasNext()){
+    // list.add(s.next()); // word
+    list.add(s.nextLine()); // line
+}
+s.close();
+```
+
+List<String> list = Files.readAllLines(new File("input.txt").toPath(), Charset.defaultCharset() );
+
+[为什么你的爱好没有变成特长？ - 简书](http://www.jianshu.com/p/1dadc780e72e)
+
+readyState":0,"status":0,"statusText":"NS_ERROR_DOM_BAD_URI: Access to restricted URI denied
+
+[electerious/basicModal: Easy-to-use dialog system for modern web-apps.](https://github.com/electerious/basicModal)
+
+[chinchang/hint.css: A CSS only tooltip library for your lovely websites.](https://github.com/chinchang/hint.css)
+
+
+[How do I load an url in iframe with Jquery - Stack Overflow](http://stackoverflow.com/questions/7177080/how-do-i-load-an-url-in-iframe-with-jquery)
+
+$("#button").click(function () {
+    $("#frame").attr("src", "http://www.example.com/");
+});
+
+HTML:
+
+ <div id="mydiv">
+     <iframe id="frame" src="" width="100%" height="300">
+     </iframe>
+ </div>
+ <button id="button">Load</button>
+
+[《疯狂的麦克斯4:狂暴之路》超长幕后拍摄花絮—在线播放—优酷网，视频高清在线观看](http://v.youku.com/v_show/id_XOTU2MjU5MDY4.html)
+
+[Presentations by MaskRay // Speaker Deck](https://speakerdeck.com/maskray)
+
+[算法数据结构中有哪些奇技淫巧？ - 罗必成的回答 - 知乎](https://www.zhihu.com/question/33776070/answer/58139596)
+
+[算法数据结构中有哪些奇技淫巧？ - 宋方睿的回答 - 知乎](https://www.zhihu.com/question/33776070/answer/59329153)
+
+:   宋方睿 Ray
+      ~ 清华大学计算机系学生，热衷于参加算法、安全、超算等比赛，喜欢网页前端，《Haskell趣学指南》译者。
+    参赛感言：
+      ~ 我是抱着学习的态度来长见识的。
+
+    ![](http://netsecurity.51cto.com/secu/Blue-Lotus2014/images/songfr.jpg)
+
+    网络部
+
+    部长：李百恩
+
+    成员：贾开、宋方睿、吴育昕、周昕宇、叶紫、刘啸宇、张道维、杨植麟、王凝枰
+
+    2011011269      宋方睿  男      计14    上海    华东师范大学第二附属中学
+
+    refs and see also
+
+    -   [超算大赛世界冠军使的啥兵器？_科技_环球网](http://tech.huanqiu.com/Enterprise/2015-07/7093314.html)
+    -   [清华大学计算机科学与技术系](http://www.tsinghua.edu.cn/publish/cs/4847/)
+    -   [水木-清华计算机科学与技术系-2011新生名单[计算机][DCST][129] (转载)](http://ar.newsmth.net/thread-3b6355cf65fd7.html)
