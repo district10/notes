@@ -1,6 +1,6 @@
 ---
-title: Working Notes
-...
+title: Notes 2
+---
 
 -   **You should blog even if you have no readers.**
 
@@ -2717,3 +2717,239 @@ HTML:
     -   [超算大赛世界冠军使的啥兵器？_科技_环球网](http://tech.huanqiu.com/Enterprise/2015-07/7093314.html)
     -   [清华大学计算机科学与技术系](http://www.tsinghua.edu.cn/publish/cs/4847/)
     -   [水木-清华计算机科学与技术系-2011新生名单[计算机][DCST][129] (转载)](http://ar.newsmth.net/thread-3b6355cf65fd7.html)
+
+你这样不是暴露了那些没加班的办公室了吗？万一害他们被开了怎么办？
+
+joel
+
+-   `['dʒəuəl]`
+-   n. 约珥（圣经人物）；（圣经中的）约耳书
+-   软件随想录： More Joel on Software，作者: Joel Spolsky
+
+[高筑墙，广积粮，缓称王_百度百科](http://baike.baidu.com/link?url=3JIp80BtVUQAY3Nmv7VZDQv-ui6fELGsvq4RKaCfacczbkk7_Oq8cSG2gOHUeIT56C8UySJZwc3MZ5e84lsMIcOHtC0kZpH4CfZDiH9lSEgli7sgBuQuKvSWOix-gL3UHfQCOMNDv4VS90J3tVJxZNqIsn1dPrkZARpKTXgqDnFPl-l2b25IfVwX4vUVuFZY6KExlEepBDnjwagPMg3fPK)
+
+[3D 建筑及 3D 大场景 - 腾讯视频](http://v.qq.com/x/page/h017595f7d4.html)
+
+![](https://img1.doubanio.com/view/status/median/public/5c990d5d3d9232c.jpg)
+
+>   If you have always believed that everyone should play by the same rules and
+>   be judged by the same standards, that would have gotten you labelled a
+>   radical 60 years ago, a liberal 30 years ago and a racist today.
+>
+>   -- Thomas Sowell
+
+Peter Thiel, an investor who often participates in Y Combinator, is donating
+$1.25 million to Donald Trump’s political efforts, which has incited outrage
+among the tech community with many calling for Y Combinator to **sever ties
+with**（断绝关系）Thiel.
+
+Instead, they’re defending the large-scale support of racism, bigotry, and
+sexual assault by an influential partner and advisor to their startups as its
+own form of “diversity”.
+
+Shame on Y Combinator.
+
+Peter Thiel
+
+>   When I was growing up, the great debate was about how to defeat the Soviet
+>   Union. Today, the debate is "Who get to use which bathroom?"
+>   This is a distraction from the real problem.
+
+refs and see also
+
+-   [Peter Thiel’s RNC Speech Blasts The GOP’s Anti-LGBT Policy: Focus On Real Issues - Hollywood Life](http://hollywoodlife.com/2016/07/21/peter-thiel-rnc-speech-lgbt-issues-republican-convention/#!)
+
+Hypatia
+
+-   `[hai'peiʃjə]`
+-   n. 希帕蒂娅（希腊女数学家，天文学家和哲学家）
+
+[月入十万，难吗？ - 知乎](https://www.zhihu.com/question/37050422)
+
+DS，我以为是大傻……原来是屌丝……
+
+[【IMDB历年最受网友欢迎的电影（25部）】个... 来自追美剧学英文 - 微博](http://weibo.com/3018218037/E9NwmtfA9?type=comment#_rnd1478402628748)
+
+[艾法 答过的问题 - 知乎](https://www.zhihu.com/people/ai-joe/answers?order_by=vote_num)
+
+经济强国必然科技崛起
+
+:   [数据给你一个真中国，崛起还是崩溃？附多国对比资料](http://mp.weixin.qq.com/s?__biz=MzI3MTM3ODg0OQ==&mid=2247484501&idx=1&sn=6cea2850f5f763aa98ef937fc5e5c7ca&chksm=eac3f49bddb47d8d2729a1a3fdbad2c2cf00a6e40724274c1675dffb9d852581304ffb471e7c&mpshare=1&scene=2&srcid=1028uM3PL9sXrSO2hpQ57dhh&from=timeline#wechat_redirect)
+
+scratch your own itch `[ɪtʃ]`
+
+
+flip `[flɪp]`
+
+-   vt. 掷；轻击
+-   vi. 用指轻弹；蹦跳
+-   adj. 无礼的；轻率的
+-   n. 弹；筋斗
+
+flop `[flɑp]`
+
+-   vt. 笨拙地抛下；扑通放下；拍（翅）
+-   vi. 失败；扑拍；扑通落下；笨重地摔
+-   n. 失败；砰然落下；拍击声
+-   adv. 扑通一声；恰巧
+
+Building to flip is building to flop.
+
+obscurity `[əb'skjʊrəti]`
+
+-   n. 朦胧；阴暗；晦涩；身份低微；不分明
+
+[REWORK › 引言 INTRODUCTION](https://www.v2ex.com/rework)
+
+[V2EX 从过去一年半中学到的几件事 - V2EX](https://www.v2ex.com/t/82642)
+
+[在 26 岁时写给 18 岁的自己](https://livid.v2ex.com/essays/2012/01/24/a-letter-from-26-to-18/)
+
+[iDogma 2016](https://livid.v2ex.com/essays/2015/11/09/idogma-2016/)
+
+[为什么《知音》杂志这么火？它为什么具有如此广泛的群众基础？ - 知乎](https://www.zhihu.com/question/19565115)
+
+[有哪些可以提升情商、判断力和谈话技巧的书籍？ - 水木丁的回答 - 知乎](https://www.zhihu.com/question/28070036/answer/39837775)
+
+[有哪些可以提升情商、判断力和谈话技巧的书籍？ - 知乎](https://www.zhihu.com/question/28070036)
+
+Remember, the only thing before everything, is to have a dogma. A dogma is a list consists by DOs and DONTs. You make it, stick to it while adapt it to reality, question yourself from time to time: is everything on the list mutually exclusive and collectively exhausive?
+
+And there is a meta dogma for dogmas:
+
+    Avoid emotional tactics
+    Every kindness counts
+    Gentleness is the ultimate strength
+
+supermarkit.online(未注册) 11月促销，首年仅3元！
+
+[Wal-Mart Using RFID to Monitor Vehicles at Its DCs - Page 1 - RFID Journal](http://www.rfidjournal.com/articles/view?3941)
+
+:   DC: Distribution Center
+
+    The system is helping the retailer increase productivity at a dozen of its
+    distribution centers, through improved utilization of the vehicles and
+    their drivers.
+
+    Feb 26, 2008—To track lift trucks and other vehicles at a dozen of its
+    distribution centers in the United States, Wal-Mart has been using an
+    RFID-based system made by New Jersey-based I.D. Systems.
+
+    "Wal-Mart accomplished two major objectives [by deploying the system],"
+    says Gene Merlo, I.D. Systems' VP of North American sales. "It increased
+    productivity [inside its DCs using the system], and it improved utilization
+    of vehicles inside the DCs." The retailer began with an initial test at a
+    single distribution center in late 2005, then rolled it out to a small
+    group of DCs in 2006 and a third, larger one last year.
+
+http://whudoc.qiniudn.com/2016/TangZhixiong_WhatIs_20161106.pdf
+
+中山大学
+
+Sun Yat-sen University, also known as Zhongshan University, is a public
+university in Guangdong, People's Republic of China. It was founded in 1924 by
+Sun Yat-sen, a revolutionary and the founding father of the Republic of China.
+
+Former names
+  ~ National Guangdong University
+Motto
+  ~ 博学、审问、慎思、明辨、笃行
+
+-   Sun Yat-sen University (SYSU)
+-   广州
+-   可以去查一下，逸仙这个名字，其实是从“日新”变过来的，粤语里面“日新”的读法就是 Yat-sen。
+-   孙中山原名孙文，号逸仙。孙中山这个名字是某人(具体我也不知道)在整理其资料并
+    发表时临时对他的称呼，而不知怎么的就慢慢传开了。之所以叫中山，是因为孙文曾
+    经流亡日本时有个日本名字叫中山樵(姓中山，名樵，而中山在日本是个大姓)，孙中
+    山这个名字就取自这两个姓的合体，而孙文本人对这个称呼也是不认可的。所以，国
+    人称其为中山其实是不妥的，就像我们称反动派头子为蒋介石并不妥一样的道理，因
+    为老蒋名中正，字介石，而字号往往是对某人的尊称。这也是中山大学英文名不用中
+    山的原因。
+
+refs and see also
+
+-   [为什么中山大学的英文名叫 Sun Yat-Sen University？ - 知乎](https://www.zhihu.com/question/30450633)
+-   [中山大学 SUN YAT-SEN UNIVERSITY](http://www.sysu.edu.cn/2012/cn/index.htm)
+-   [Sun Yat-sen University - Wikipedia](https://en.wikipedia.org/wiki/Sun_Yat-sen_University)
+-   [Sun Yat-sen - Wikipedia](https://en.wikipedia.org/wiki/Sun_Yat-sen)
+
+Principle & Principal
+
+-   principle, `['prɪnsəpl]`, n. 原理，原则；主义，道义；本质，本义；根源，源泉
+-   principal, `['prɪnsəpl]`, adj. 主要的；资本的, n. 首长；校长；资本；当事人
+
+[欢迎使用 V2Ray · V2Ray 官方网站](https://www.v2ray.com/)
+
+[中文文档 · XX-net/XX-Net Wiki](https://github.com/XX-net/XX-Net/wiki/%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3)
+
+[Releases · shadowsocks/shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases)
+
+[支付宝国际账户使用教程](http://seller.aliexpress.com/education/escrow/tools/alipay.html?1346258080)
+
+[为什么远在地球另一端的中国，有很多人支持Trump？ - Tok Tik 的回答 - 知乎](https://www.zhihu.com/question/48943854/answer/130165101)
+
+[齐泽克：特朗普把我吓坏了，但希拉里才是真正的危险](http://www.guancha.cn/QiZeKe/2016_11_06_379616.shtml)
+
+:   齐泽克表示，每个社会都有一张用不成文的规则织成的网，比如政治是如何运作的、公众
+    如何建立共识，特朗普打乱了这个规则。如果特朗普获胜，共和党和民主党都必须回到起
+    点，反思自己。这或许会带来一些不同。
+
+    他将特朗普称为“绝望中的希望”，认为虽然特朗普的言论比较偏激，但他上台后绝不会让
+    美国走上独裁之路。而希拉里拉拢各派，建立了一个根本不可能存在的“联盟”，她是真正
+    的顽固分子、冷战分子，她才是真正的危险。
+
+王朔和刘震云都是青年作家的时候，搞笔会，他们坐船去三峡。
+
+刘震云：（第一天见到王朔）王朔老师，你得和我说说，我这好多天睡不着觉了，你小说怎么写这么好，你怎么想的？
+
+王朔：我写的好什么呀，你瞎说，你骂人。
+
+刘震云：（第二天见到王朔）王朔老师，您还是说说吧，您怎么写的那么好，您当初怎么想到的，您说一点就行！
+
+王朔：……
+
+刘震云：（第三天见到王朔）王朔老师！您就说说吧，您就说一句都行，您怎么写出那么好的小说，您怎么想的？
+
+王朔：其实一开始吧，我就是想……
+
+王朔刚说到这儿，还没来得及说完一句话呢，刘震云就指着王朔哈哈哈哈的笑了起来，意思就是你终于当真了。王朔说当时就有一头跳进三峡的心。
+
+发布于 11:50
+
+1，选户口，然后找个高薪没有户口的女朋友结婚。
+2，选高薪，然后找个有户口的女朋友结婚。
+
+二选一随便选，不要太纠结。
+
+[prakhar1989/awesome-courses: List of awesome university courses for learning Computer Science!](https://github.com/prakhar1989/awesome-courses)
+
+[nschneid/unix-text-commands: Unix Text Processing Command Reference](https://github.com/nschneid/unix-text-commands)
+
+[Papi 酱：我不能一直躲在舒适地带](http://weibo.com/ttarticle/p/show?id=2309404038901294621766#related)
+
+叫的再喧嚣的苍蝇，也是苍蝇，过的再狼狈的战士，也是战士。
+
+教口语应该先从三个人的小说开始看起，分别是 James Hadley Chase, John Grisham,
+Sidney Sheldon，这三位大师的作品几乎涵盖了你能想象到的所有口语用法，有的会奇怪
+为啥口语要靠看的来学，原因很简单，语音流畅，用法不懂，没啥屁用。懂一点点语法，
+认真学语音，尤其是连读弱读和语调，大量阅读熟悉用法，然后配合多听有声书，三位一
+体，下期重点我准备攻关这个项目，顺带解决了“词汇量不够”和“主动词汇不懂”这个老大
+难问题（这三位大师的书用词范围都挺广）
+
+出来混社会最重要的是不要怕得罪人，也不要怕有敌人。这么说不是要你整天主动惹事，
+而是说你老实过日，不惹事，但也不怕事，有人惹你也别怂，直接干。很多人处理不了别
+人对自己的恶意，被人拒绝否定就陷入自我怀疑，软弱沮丧，这是标准的拿别人错误惩罚
+自己。尤其是在职场上，赤裸裸的利益结合体中，必然有利益同盟，也有利益敌人，哪怕
+你什么都不做，你所得的利益也必然会侵犯到某些人，这时候不要怂，就是干！
+
+buff, 浅黄色；增益；增益效果
+
+http://whudoc.qiniudn.com/2016/SuperMarKit.pdf
+
+矩阵：中国人此刻应系好安全带，准备迎接川普当选可能会引发的冲击波了。
+
+阿男：目测接下来一大堆公知喷子即将来袭，比如：“别人的国家再怎么烂，也有选票啊”，还比如：“别人的国家选总统，和你有关系吗？” 老子看个美剧，关你屁事。
+
+么一凹喵：身处加州，真看不懂身边的人。说好的民主选举，结果没选到自己喜欢的总统又开始要游行，又要抗议，还说以后不能让没有大学文凭的人投票。真是民主专制下的暴民。
+
+http://whudoc.qiniudn.com/2016/Pamphlet.pdf

@@ -27,6 +27,9 @@ clone:
 	# git clone --depth 1 https://github.com/district10/leetcode.git
 serve:
 	cd publish; python -m SimpleHTTPServer
+w: watch
+watch:
+	java -jar watcher.jar
 clean:
 	rm -rf publish/*
 include:
@@ -74,7 +77,7 @@ n:
 		lang/java.md \
 		lang/typescript.md \
 		lang/algo.md \
-		2016/note2.md \
+		2016/note3.md \
 		lang/c-cpp.md \
 		2016/job.md \
 

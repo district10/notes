@@ -2472,7 +2472,7 @@ log4j
 -   [akullpp/awesome-java: A curated list of awesome Java frameworks, libraries and software.](https://github.com/akullpp/awesome-java)
 -   [google/jimfs: An in-memory file system for Java 7+](https://github.com/google/jimfs)
 
-## Annotation（注释）
+## Annotation（注释）:hearts:
 
 这是一种元数据。
 
@@ -2565,6 +2565,20 @@ for (String alias : map.keySet()) {
 }
 ```
 
+```bash
+java -jar main.jar -Dfile.encoding=utf-8
+```
+
+or,
+
+```java
+// hacks copied from StackOverflow: http://stackoverflow.com/questions/361975/setting-the-default-java-character-encoding
+System.setProperty("file.encoding", "UTF-8");
+Field charset = Charset.class.getDeclaredField("defaultCharset");
+charset.setAccessible(true);
+charset.set(null, null);
+```
+
 ## 多线程
 
 独立，动态，并发。
@@ -2614,72 +2628,98 @@ Maven Module
     打开 pom 文件，就可以导入 maven 工程。 
 
 
-[Maven 与 IntelliJ IDEA 的完美结合 - OPEN 开发经验库](http://www.open-open.com/lib/view/1388650391891)
+[Maven 与 IntelliJ IDEA 的完美结合 - OPEN 开发经验库](http://www.open-open.com/lib/view/1388650391891) -<
 
-[Maven – Guide to Mirror Settings](http://maven.apache.org/guides/mini/guide-mirror-settings.html)
+:   创建好后的目录结构如下图，IDEA 创建了 `src/main/resources`（自动创建）、
+    `src/main/java`（手动创建）、`src/main/test`（手动创建）、以及 `pom.xml` 文件（自动创建）。
 
-```
-C:\cmdtools\apache-maven-3.3.9\conf\settings.xml
-C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 2016.2.4\plugins\maven\lib\maven2\conf\settings.xml
-C:\Users\tzx\.m2\settings.xml
+[Maven – Guide to Mirror Settings](http://maven.apache.org/guides/mini/guide-mirror-settings.html) -<
 
-<url>http://repository.jboss.org/nexus/content/groups/public</url>
-<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-```
+:   Maven 原来的环境变量是 `MAVEN_HOME`，但 maven2 更新很大和原来不兼容，于是环境变量变成了 `M2_HOME`（应该是 `MAVEN2_HOME` 太长了），
+    配置文件有如下几个位置：
 
-```xml
-<settings>
-    ...
-    <mirrors>
-        <mirror>
-            <id>AliyunMirrorSite</id>
-            <name>Aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-            <mirrorOf>*</mirrorOf>
-        </mirror>
-    </mirrors>
-    ...
-</settings>
-```
+    ```
+    这是我的目录下的：
 
-`C:\Users\tzx\.IdeaIC2016.2\config\options\vim_settings.xml`
+        C:\cmdtools\apache-maven-3.3.9\conf\settings.xml
 
+    这是 IntelliJ IDEA 自带（bundle）的：
 
-```xml
-<shortcut-conflicts>
-    <shortcut-conflict owner="vim">
-        <text>ctrl pressed N</text>
-    </shortcut-conflict>
-    <shortcut-conflict owner="vim">
-        <text>ctrl pressed C</text>
-    </shortcut-conflict>
-    <shortcut-conflict owner="vim">
-        <text>ctrl pressed V</text>
-    </shortcut-conflict>
-    <shortcut-conflict owner="ide">
-        <text>ctrl pressed P</text>
-    </shortcut-conflict>
-    <shortcut-conflict owner="vim">
-        <text>ctrl pressed W</text>
-    </shortcut-conflict>
-    <shortcut-conflict owner="vim">
-        <text>ctrl pressed G</text>
-    </shortcut-conflict>
-</shortcut-conflicts>
-```
+        C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 2016.2.4\plugins\maven\lib\maven2\conf\settings.xml
 
-C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 2016.2.4\bin\idea64.exe.vmoptions
+    这是家目录下的：
 
+        C:\Users\tzx\.m2\settings.xml
+    ```
 
-```
--Xms128m
--Xmx750m
-```
+    maven3 和 maven2 兼容，所以环境变量依旧是 `M2_HOME`。
 
-```
--Xms1024m
--Xmx2048m
-```
+    ```
+    <url>http://repository.jboss.org/nexus/content/groups/public</url>
+    <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+    ```
+
+    记得用 IntelliJ IDEA 修改 settings.xml（有错误检查），添加 mirror 节点，用阿里云的 mirror 站：
+
+    ```xml
+    <settings>
+        ...
+        <mirrors>
+            <mirror>
+                <id>AliyunMirrorSite</id>
+                <name>Aliyun</name>
+                <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+                <mirrorOf>*</mirrorOf>
+            </mirror>
+        </mirrors>
+        ...
+    </settings>
+    ```
+
+Vim 模拟器的配置 -<
+
+:   `C:\Users\tzx\.IdeaIC2016.2\config\options\vim_settings.xml`
+
+    ```xml
+    <shortcut-conflicts>
+        <shortcut-conflict owner="vim">
+            <text>ctrl pressed N</text>
+        </shortcut-conflict>
+        <shortcut-conflict owner="vim">
+            <text>ctrl pressed C</text>
+        </shortcut-conflict>
+        <shortcut-conflict owner="vim">
+            <text>ctrl pressed V</text>
+        </shortcut-conflict>
+        <shortcut-conflict owner="ide">
+            <text>ctrl pressed P</text>
+        </shortcut-conflict>
+        <shortcut-conflict owner="vim">
+            <text>ctrl pressed W</text>
+        </shortcut-conflict>
+        <shortcut-conflict owner="vim">
+            <text>ctrl pressed G</text>
+        </shortcut-conflict>
+    </shortcut-conflicts>
+    ```
+
+VM 启动设置 -<
+
+:   把 idea64.exe.vmoptions（`C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 2016.2.4\bin\idea64.exe.vmoptions`）
+
+    由
+
+    ```
+    -Xms128m
+    -Xmx750m
+    ```
+
+    修改成
+
+    ```
+    -Xms1024m
+    -Xmx2048m
+    ```
 
 [Releases · MSOpenTech/redis](https://github.com/MSOpenTech/redis/releases)
 
@@ -2751,3 +2791,871 @@ String line = in.readLine();
 [4ker/async-http-client: Asynchronous Http and WebSocket Client library for Java](https://github.com/4ker/async-http-client)
 
 [judasn/Basic-Single-Module-SSM: 为了方便以后的一些问题的讲解特地准备一个最精简的 SpringMVC+Spring+Mybatis 框架整合，方便以后的一些问题的演示](https://github.com/judasn/Basic-Single-Module-SSM)
+
+---
+
+Settings -- Editor -- Live Templates -<
+
+:   loops
+
+    -   fori，for i
+    -   itar，iterate array
+    -   itli，iterate list
+    -   itve，iterate vector
+    -   itco，iterate collection
+    -   iten，iterate enumeration
+    -   ritar，reverse iterate array
+    -   iter，iterate
+    -   itit
+    -   ittok
+
+    other
+
+    -   geti，get instance
+    -   ifn，if null
+    -   inst，instance of
+    -   lazy，lazy init（if null，new it）
+    -   lst，last element of array
+    -   mn/mx，less/greater
+    -   psvm，public static void main
+    -   toar，collection -> array
+
+    output
+
+    -   serr，System.err.println("...")
+    -   sout
+    -   soutf，printf
+    -   soutm，method
+    -   soutv
+
+    plain
+
+    -   psf，public static final
+    -   psfi，public static final int
+    -   psfs，public static final String
+    -   St，String
+    -   thr，throw new
+
+    sourround
+
+    -   B，{}（brace）
+    -   P，()（paren）
+    -   C，Callable
+    -   I，iterable
+    -   RL，readwrite lock 之 read lock
+    -   WL，readwrite lock 之 write lock
+
+    maven
+
+    -   dep（dependency）
+    -   pl（plugin）
+    -   repo（repository）
+
+Settings -- Editor -- General -- Postfix Completion -<
+
+:   -   b.!
+    -   b.cast
+    -   b.assert
+    -   b.else
+    -   arg.field
+    -   values.for
+    -   num.fori
+    -   expr.par，parantheses
+    -   arr.stream
+    -   val.switch
+    -   try（try-catch）
+    -   twr（try-with-resource）
+
+[@IntelliJ IDEA 第 18 部分视频讲解 =Maven 功能专讲 (视频教程) | YouMeek](http://www.youmeek.com/intellij-idea-part-xviii-maven/)
+
+[maven - What is the difference between M2_HOME and MAVEN_HOME - Stack Overflow](http://stackoverflow.com/questions/17136324/what-is-the-difference-between-m2-home-and-maven-home)
+
+[我的书《Maven实战》 - Maven中文 - ITeye技术网站](http://juvenshun.iteye.com/blog/809712)
+
+[4ker/maven-in-action](https://github.com/4ker/maven-in-action)
+
+[4ker/jax-rs2-guide-II: 《Java Restful Web Service实战 第二版》源代码](https://github.com/4ker/jax-rs2-guide-II)
+
+War: java enterprise: web archive (WAR) file layout
+
+应用程序描述语言 (Web Application Description Language)；应用描述语言；伍斯特应用开发实验室
+
+-   [WADL, WSDL, XSD和 Web - csdnexpert - 博客园](http://www.cnblogs.com/csdnexpert/archive/2007/12/17/999269.html)
+-   [WADL：REST对WSDL的诠释 - zhpeiying_helen的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/zhpeiying_helen/article/details/4437193)
+
+[快速使用 netty 轻松打造一个 websocket 服务](https://mengkang.net/777.html)
+
+:   [4ker/netty-websocket: a fully-functioning websocket server built on netty.](https://github.com/4ker/netty-websocket)
+
+[4ker/netty-restful-server: A light restful server built on netty. If you are preparing for leaning java or netty, it's a nice gift for you.](https://github.com/4ker/netty-restful-server) -<
+
+:   -   <http://localhost:8080/user/1>
+    -   <http://localhost:8080/user/1/album/10?build=103>
+
+[4ker/angular-rest-springsecurity: An example AngularJS Application that uses a Spring Security protected Jersey REST backend based on Hibernate/JPA](https://github.com/4ker/angular-rest-springsecurity) -<
+
+:   haha.
+
+    UserResource.java -<
+
+    :   ```java
+        @Path("users")
+        public class UserResource {
+
+            private static Map<Integer,UserBean> userMap  = new HashMap<Integer,UserBean>();
+            /**
+             * 增加
+             * @param user
+             */
+            @POST
+            @Consumes(MediaType.APPLICATION_JSON)
+            public List<UserBean> createUser(UserBean user)
+            {
+                userMap.put(user.getUserId(), user );
+                return getAllUsers();
+            }
+
+            /**
+             * 删除
+             * @param id
+             */
+            @DELETE
+            @Path("{id}")
+            public List<UserBean> deleteUser(@PathParam("id")int id){
+                userMap.remove(id);
+                return getAllUsers();
+            }
+
+            /**
+             * 修改
+             * @param user
+             */
+            @PUT
+            @Consumes(MediaType.APPLICATION_JSON)
+            public List<UserBean> updateUser(UserBean user){
+                userMap.put(user.getUserId(), user );
+                return getAllUsers();
+            }
+
+            /**
+             * 根据id查询
+             * @param id
+             * @return
+             */
+            @GET
+            @Path("{id}")
+            @Produces(MediaType.APPLICATION_JSON)
+            public UserBean getUserById(@PathParam("id") int id){
+                UserBean u = userMap.get(id);
+                return u;
+            }
+
+            /**
+             * 查询所有
+             * @return
+             */
+            @GET
+            @Produces(MediaType.APPLICATION_JSON)
+            public List<UserBean> getAllUsers(){
+                List<UserBean> users = new ArrayList<UserBean>();
+                users.addAll( userMap.values() );
+                return users;
+            }
+        }
+        ```
+
+    注解 -<
+
+    :   `@QueryParam("age") int age` -<
+
+        :   `http://localhost:8080/webapi/myresource/pojo?age=28&name=waylau`
+
+            ```java
+            @PUT
+            @Path("pojo")
+            @Consumes(MediaType.APPLICATION_JSON)
+            @Produces(MediaType.APPLICATION_JSON)
+            public MyBean putPojo(@QueryParam("age") int age,
+                    @QueryParam("name") String name) {
+                MyBean pojo = new MyBean();
+                pojo.setName(name);
+                pojo.setAge(age);
+                return pojo;
+            }
+            ```
+
+        `@DefaultValue` -<
+
+        :   ```java
+            public MyBean postPojoDefault(@DefaultValue("21") @QueryParam("age") int age,
+                    @DefaultValue("www.waylau.com")@QueryParam("name") String name) {
+                MyBean pojo = new MyBean();
+                pojo.setName(name);
+                pojo.setAge(age);
+                return pojo;
+            }
+            ```
+
+        `@FormParam` -<
+
+        :   要求所请求 MIME 媒体类型为 `application/x-www-form-urlencoded`，并且
+            符合指定的 HTML 编码的形式，此参数提取对于 HTML 表单 POST 请求是非
+            常有用的。比如，我们要处理一个登陆表单，处理如下：
+
+            ```java
+            @POST
+            @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+            @Produces(MediaType.APPLICATION_JSON)
+            public Response login(@FormParam("username") String username,
+                    @FormParam("password") String password) {
+                //业务逻辑省略...
+                return null;
+            }
+            ```
+
+        文件上传：jersey-media-multipart。
+
+        :   -   添加 jersey-media-multipart 到 pom.xml
+            -   并在 RestApplication 里面注册 MultiPart
+
+                ```java
+                public class RestApplication extends ResourceConfig {
+
+                    public RestApplication() {
+                        //资源类所在的包路径
+                        packages("com.waylau.rest.resource");
+
+                        //注册 MultiPart
+                        register(MultiPartFeature.class);
+                    }
+                }
+                ```
+
+            -   file upload
+
+                ```java
+                @POST
+                @Path("upload")
+                @Consumes(MediaType.MULTIPART_FORM_DATA)
+                @Produces("application/json")
+                public Response uploadFile(
+                        @FormDataParam("file") InputStream fileInputStream,
+                        @FormDataParam("file") FormDataContentDisposition contentDispositionHeader)
+                            throws IOException {
+
+                    String fileName = contentDispositionHeader.getFileName();
+
+                    File file = new File(serverLocation + fileName);
+                    File parent = file.getParentFile();
+                    //判断目录是否存在，不在创建
+                    if(parent!=null&&!parent.exists()){
+                        parent.mkdirs();
+                    }
+                    file.createNewFile();
+
+                    OutputStream outpuStream = new FileOutputStream(file);
+                    int read = 0;
+                    byte[] bytes = new byte[1024];
+
+                    while ((read = fileInputStream.read(bytes)) != -1) {
+                        outpuStream.write(bytes, 0, read);
+                    }
+
+                    outpuStream.flush();
+                    outpuStream.close();
+
+                    fileInputStream.close();
+
+                    return Response.status(Response.Status.OK)
+                            .entity("Upload Success!").build();
+                }
+                ```
+
+                ```html
+                <form action="webapi/files/upload" method="post" enctype="multipart/form-data">
+                   <p>
+                    Select a file : <input type="file" name="file" size="50" />
+                   </p>
+                   <input type="submit" value="Upload It" />
+                </form>
+                ```
+
+            用一个普通的 RESTful 服务器即可！！！只要支持 CURD。
+
+[RESTful Api 身份认证中的安全性设计探讨](https://mengkang.net/625.html)
+
+```
+[POST]     http://mengkang.net/users   // 新增
+[GET]      http://mengkang.net/users/1 // 查询
+[PATCH]    http://mengkang.net/users/1 // 更新
+[PUT]      http://mengkang.net/users/1 // 覆盖，全部更新
+[DELETE]   http://mengkang.net/users/1 // 删除
+```
+
+[深入理解 RESTful Api 架构](https://mengkang.net/620.html)
+
+-   客户-服务器（Client-Server）通信只能由客户端单方面发起，表现为请求-响应的形式。
+-   无状态（Stateless）通信的会话状态（Session State）应该全部由客户端负责维护。
+-   缓存（Cache）响应内容可以在通信链的某处被缓存，以改善网络效率。
+-   统一接口（Uniform Interface）通信链的组件之间通过统一的接口相互通信，以提高交互的可见性。
+-   分层系统（Layered System）通过限制组件的行为（即，每个组件只能“看到”与其交互的紧邻层），将架构分解为若干等级的层。
+
+文字比较学院派，仔细一想，想必也发现我们实际工作都已经遵守这五条架构风格了。
+
+[xetorthio/jedis: A blazingly small and sane redis java client](https://github.com/xetorthio/jedis)
+
+Log4j has three main components: loggers, appenders and layouts. These three types of components work together to enable developers to log messages according to message type and level, and to control at runtime how these messages are formatted and where they are reported.
+
+[Apache log4j 1.2 - Short introduction to log4j](http://logging.apache.org/log4j/1.2/manual.html)
+
+[Troubleshooting log4j](http://svn.apache.org/repos/asf/logging/log4j/tags/v1_2_9/docs/TROUBLESHOOT.html)
+
+[Java development 2.0: Big data analysis with Hadoop MapReduce](http://www.ibm.com/developerworks/library/j-javadev2-15/index.html)
+
+[Java API for JSON Processing](http://www.oracle.com/technetwork/articles/java/json-1973242.html)
+
+[pac4j: the security engine for Java](http://www.pac4j.org/docs/authenticators/ip.html)
+[pac4j: the security engine for Java](http://www.pac4j.org/docs/clients/saml.html)
+[pac4j: the security engine for Java](http://www.pac4j.org/docs/clients/openid-connect.html)
+
+[Maven Repository: log4j » log4j » 1.2.17](http://mvnrepository.com/artifact/log4j/log4j/1.2.17)
+
+[SAML 2.0 - Wikipedia](https://en.wikipedia.org/wiki/SAML_2.0)
+
+RESTful API Server -<
+
+:   POJO -<
+
+    :   Plain Old Java Object
+
+    JAX-RS -<
+
+    :   Java API for RESTful Services (JAX-RS)
+
+    JavaBeans -<
+
+    :   JavaBeans are classes that encapsulate many objects into a single
+        object (the bean). They are serializable, have a zero-argument
+        constructor, and allow access to properties using getter and setter
+        methods. The name "Bean" was given to encompass this standard, which
+        aims to create reusable software components for Java.
+
+        A JavaBean is a POJO that is serializable, has a no-argument
+        constructor, and allows access to properties using getter and setter
+        methods that follow a simple naming convention.
+
+    Specialized Java Object" (SJO or (sic) SoJO).
+
+    Developing RESTful Web services that seamlessly support exposing your data
+    in a variety of representation media types and abstract away the low-level
+    details of the client-server communication is not an easy task without a
+    good toolkit. In order to **simplify development of RESTful Web services** and
+    their clients in Java, a **standard and portable JAX-RS API** has been
+    designed. Jersey RESTful Web Services framework is open source, production
+    quality, framework for developing RESTful Web Services in Java that
+    provides support for JAX-RS APIs and serves as a JAX-RS (JSR 311 & JSR 339)
+    Reference Implementation.
+
+    Jersey framework is **more than the JAX-RS Reference Implementation**.
+    Jersey provides it’s own API that extend the JAX-RS toolkit with
+    **additional features and utilities** to further simplify RESTful service
+    and client development. Jersey also exposes numerous extension SPIs so that
+    developers may extend Jersey to best suit their needs.
+
+    Goals of Jersey project can be summarized in the following points:
+
+    -   Track the JAX-RS API and provide regular releases of production quality
+        Reference Implementations that ships with GlassFish;
+    -   Provide APIs to extend Jersey & Build a community of users and
+        developers; and finally
+    -   Make it easy to build RESTful Web services utilising Java and the Java
+        Virtual Machine.
+
+    [Chapter 1. Getting Started](https://jersey.java.net/documentation/latest/getting-started.html#new-from-archetype) -<
+
+    :   新建一个文件见，把这一行复制到 CMD，运行：
+
+        ```bash
+        mvn archetype:generate -DarchetypeArtifactId=jersey-quickstart-grizzly2 -DarchetypeGroupId=org.glassfish.jersey.archetypes -DinteractiveMode=false -DgroupId=com.example -DartifactId=simple-service -Dpackage=com.example -DarchetypeVersion=2.24
+        ```
+
+        然后用 IntelliJ IDEA 打开 pom 文件，对着 Main.java 右键运行（或者用 `mvn exec:java`）。
+
+        然后访问：
+
+        -   <http://localhost:8080/myapp/myresource>
+
+            收到“Got it!”。
+
+        -   <http://localhost:8080/myapp/application.wadl>
+
+            WADL 是应用程序描述语言 (Web Application Description Language)。
+
+            ```xml
+            <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+            <application xmlns="http://wadl.dev.java.net/2009/02">
+                <doc xmlns:jersey="http://jersey.java.net/" jersey:generatedBy="Jersey: 2.24 2016-10-27 14:35:27"/>
+                <doc xmlns:jersey="http://jersey.java.net/" jersey:hint="This is simplified WADL with user and core resources only. To get full WADL with extended resources use the query parameter detail. Link: http://localhost:8080/myapp/application.wadl?detail=true"/>
+                <grammars/>
+                <resources base="http://localhost:8080/myapp/">
+                    <resource path="myresource">
+                        <method id="getIt" name="GET">
+                            <response>
+                                <representation mediaType="text/plain"/>
+                            </response>
+                        </method>
+                    </resource>
+                </resources>
+            </application>
+            ```
+
+        然后可以运行一下测试（IJ 里面右键，或者 `mvn clean test`）。发现可以通过。
+
+        看下代码。
+
+        ```java
+        public class Main {
+            public static final String BASE_URI = "http://localhost:8080/myapp/";
+            public static HttpServer startServer() {
+                final ResourceConfig rc = new ResourceConfig().packages("com.example");         // ???
+                return GrizzlyHttpServerFactory.createHttpServer(URI.create(BASE_URI), rc);
+            }
+
+            public static void main(String[] args) throws IOException {
+                final HttpServer server = startServer();
+            }
+        }
+        ```
+
+        这个 ??? 其实是在 MyResource 类里面解决的：（只要 "com.example" package 里面的类，都可以成为路由）：
+
+        ```java
+        @Path("myresource")
+        public class MyResource {   // 类的名称和上面的路由地址，当然是无需匹配的。
+            @GET
+            @Produces(MediaType.TEXT_PLAIN)
+            public String getIt() { return "Got it!"; }
+        }
+        ```
+
+        这个页面下还有生成一个可以导出 war 的工程，可以 deploy 到 Heroku 的工程。
+
+    refs and see also
+
+    -   [Plain Old Java Object - Wikipedia](https://en.wikipedia.org/wiki/Plain_Old_Java_Object)
+    -   [Jersey](https://jersey.java.net/)
+    -   [JavaBeans - Wikipedia](https://en.wikipedia.org/wiki/JavaBeans)
+    -   [— Project Kenai](https://jax-rs-spec.java.net/)
+    -   [rest - Why use JAX-RS / Jersey? - Stack Overflow](http://stackoverflow.com/questions/7052152/why-use-jax-rs-jersey)
+    -   [API Store_为开发者提供最全面的API服务](http://apistore.baidu.com/)
+
+[4ker/jersey: This is an active mirror of Jersey 3.x workspace from http://jersey.java.net. Any changes made here are automatically propagated to java.net and vice versa. Forks and pull requests are welcome!](https://github.com/4ker/jersey)
+
+实习工作 -<
+
+:   -   [做一个 creator](http://v.youku.com/v_show/id_XMTc2MTAyNzc3Mg==.html)，展示除技术之外更多的闪光点；
+    -   判断 WAP 是否适合自己；
+    -   五天之内一个 open 的课题；
+    -   需求分析，编写文档之前-文档作业（客户需求分析 -> 填写文档 -> skype 面聊 review）；
+    -   day 2，review；
+    -   day 3，实现；
+    -   day 4/5，产品演示；
+    -   day 5 公布结果；
+    -   day 4 晚上，VP 演讲；
+
+    这几天的工作，具体说就是：
+
+    -   Nov. 6，first submission
+    -   Nov. 8-9，get feedback from engineer (via skype)
+    -   Nov. 11，intern starts
+    -   Nov. 11-15, intern
+    -   Nov. 15, result
+
+    Could you explain more about the Document Task? -<
+
+    :   Please read ‘Cover Letter’, ‘Release Note’ and ‘What Is’ carefully.
+
+        Remember, you are in charge of the whole process of creating a
+        software, which also includes Needs Analysis for Client.
+
+        You can decide what kind of supermarket company is your target client
+        E.g.  WAP’s main users are large companies.
+
+    Will WAP give us some frameworks or platforms? -<
+
+    :   There is no constraint about frameworks, and also you can use any kind
+        of language to implement your product.
+
+    Will WAP provide laptop PC during Internship? -<
+
+    :   Normaly you should bring your own laptop. If you have request, please
+        let us know.
+
+        If you use macintosh, please bring adapter by yourself.
+
+        e.g. <http://www.apple.com/cn/shop/product/MC704FE/A/apple-usb-ethernet-adapter>
+
+    要在 6 号晚上之前，提交如下文档 -<
+
+    :   -   （首先，都要导出 PDF 格式的文档）
+        -   FamilyNameGivenName_ReleaseNote_sample_20161031.docx
+            -   Function No, Function name,   Priority,    Target user, How to use,  User benefit
+        -   FamilyNameGivenName_WhatIs_sample_20161031.docx
+            -   product name
+            -   about the product
+            -   killer features
+
+    Task -<
+
+    :   -   Application which supports the supermarket's manager
+        -   increase profit
+        -   target 公司: big supermarket companies, like wal-mart，它们的客户也是很多的
+        -   target 使用者：连锁超市的 manager（主要），以及员工。每种角色的 tasks 应当有不同的权值（哪种优先开发？）
+        -   What kind of daily work does your product control? When your product will be used? Whatever as you
+            like. Define your product by yourself.
+
+    我的打算（我现在想到的几个方向:）
+
+    :   - 给 manager：分析系统和报表
+        - 给 manager：和当地的特色和需求结合起来，给经理提供资讯
+        - 给系统：分析商品的相关性，客户的消费特色，提高推荐的成功 hit 率
+        - 给系统：物联网，统计商品
+        - 给店员：...
+
+Notes -<
+
+:   [How Wal-Mart Works | HowStuffWorks](http://money.howstuffworks.com/wal-mart.htm)
+
+    Wal-Mart Strategy
+
+    -   universal bar code -> radio frequency identification technology (RFID).
+    -   The frugal culture
+    -   Store managers often work more than 70 hours per week.
+    -   The central goal of Wal-Mart is to keep retail prices low -- and the company has been very successful at this.
+
+    [RFID Tag Maximum Read Distance](http://www.skyrfid.com/RFID_Tag_Read_Ranges.php)
+
+    :   理论上有 5m 的有效距离，但实际上 1 m 就够呛。现实中，大概只有 30 cm……
+
+    [What does a Supermarket Manager do? (with pictures)](http://www.wisegeek.org/what-does-a-supermarket-manager-do.htm#didyouknowout)
+
+    :   监管员工和 operations，管理财务，订货，安全检查，etc。
+
+    A supermarket manager may assume many different duties, such as supervising
+    employees and store operations, taking inventory and ordering products,
+    performing administrative and human resources work, or engaging in safety
+    inspections and loss prevention. Most managers are very skilled at
+    organizing merchandise, communicating with employees, and providing
+    excellent customer service.
+
+    A supermarket manager in a large store might be in charge of supervising a
+    specific department, such as produce or housewares. A manager typically
+    monitors the inventory and appearance of his or her department. He or she
+    usually determines the prices on items, directs employees in stocking
+    shelves, and orders new products when quantities are low. A manager may
+    design store displays and actively engage with customers to inform them of
+    deals and help them find products. Supermarket delis and bakeries are
+    commonly managed by professionals with experience in food service and
+    safety.
+
+    **Human resources managers** might be in charge of hiring and training new
+    employees, facilitating accounts receivable and payable, managing payroll,
+    or handling employee concerns. A store may staff several people to fulfill
+    human resources needs and an executive supermarket manager to oversee the
+    entire the department. Human resources managers often address the questions
+    and concerns of employees and bring them to the attention of executive
+    management when necessary. They commonly assess the overall quality of the
+    store and its workers, and suggest ways to improve operations when
+    necessary.
+
+    **Loss prevention and occupational health managers** ensure the safety of
+    employees, customers, store property, and merchandise. They may inspect the
+    supermarket floor, stockrooms, and offices to make sure that health and
+    safety guidelines are being followed at all times. Loss prevention managers
+    protect against theft, vandalism, and fraud by monitoring security cameras
+    and walking around the store. They often make detailed reports about safety
+    infractions or incidents of theft, and communicate with the proper
+    authorities about a corrective plan of action.
+
+    To become a supermarket manager, a person must typically have at least a
+    high school diploma and **extensive supervisory experience in retail or
+    customer service**. Some positions, such as those found in human resources,
+    often require candidates to hold college degrees in business management or
+    accounting. There is generally ample room for advancement for experienced
+    managers, as store owners usually prefer to promote existing employees to
+    higher positions rather than bring in outside personnel.
+
+    >   Oasis11-A supermarket manager salary is dependent on the **volume of the store**.
+    >   The busier the store the higher the salary and bonus potential.
+    >
+    >   Many store managers of high volume grocery stores earn six figure salaries.
+    >   Being a supermarket store manager is not easy because they tend to **work long
+    >   hours** often in excess of fifty-five hours.
+    >
+    >   For example, when a manager is scheduled to close they usually work from 7:00
+    >   AM to 11:00 PM. Most managers work this schedule at least twice to three times
+    >   a week.
+    >
+    >   A supermarket manager job description is not glamorous, but it does allow hard
+    >   working people an opportunity to earn a good salary.
+    >
+    >   **If you are interested in supermarket manager jobs, it is best to spend time
+    >   working for a supermarket. These jobs exclude retail sales and really allow you
+    >   to see how a supermarket functions from the inside.**
+
+    For example, Publix Supermarkets requires its potential managers to work
+    every grocery stock department in order to go into to store management.
+
+    The reason for this is that they need for the manager to have experience
+    ordering from the entire aisle and be familiar with the vendors as well in
+    order to help the stock personnel with their ordering especially during
+    promotional sales.
+
+    [Hourly Retail Jobs](http://careers.walmart.com/search-jobs/hourly-retail-jobs/) +<
+
+    :   这是一个超市的工种，大概有：
+
+        - Cashiers, Customer Service Desk, Cart Pushers
+        - Unloaders, Stockers
+
+    [7- Eleven Application - (APPLY ONLINE)](http://onlinejobapplication.org/7-eleven-application/) -<
+
+    :   **General Store Manager** – The General Manager oversees daily store
+        operations, supervises employees and manages inventory.  Other duties
+        include, but are not limited to, ensuring sufficient staffing levels
+        are met, developing successful sales plans, recruiting, training,
+        developing, and motivating all employees, and implementing new product
+        lines.
+
+        **If somebody comes in and buys a soda, what would you suggest to them
+        to go with their drink?**
+
+        This question is asked to determine if you **have the know-how and
+        charisma to upsell other items**.  When you **suggestively sell
+        add-ons**, you are increasing the profitability of the company.  If
+        done well, you will be able to also show the hiring manager what you
+        can do for the company.
+
+    [Marketing and Sales Manager Job Description Sample | Monster.com](http://hiring.monster.com/hr/hr-best-practices/recruiting-hiring-advice/job-descriptions/marketing-and-sales-manager-job-description-sample.aspx)
+
+    Accomplishes business development activities by researching and developing marketing opportunities and plans; implementing sales plans; managing staff.
+
+    [超市夜未眠 (豆瓣)](https://movie.douban.com/subject/1945549/)
+
+Files -<
+
+:   oo.
+
+    CUSTOMER_MST.csv (#line: 351) -<
+
+    :   ```csv
+        customer_id,        name,               gender,     tel
+        1,                  Ada Abbe,           Female,     000-0000-0001
+        2,                  Adah Abbett,        Female,     000-0000-0002
+        3,                  Addyson Abbey,      Female,     000-0000-0003
+        ```
+
+    PRODUCT_MST.csv (#line: 799) -<
+
+    :   ```csv
+        product_mst_id,     product_type,       product_name,                               price,      price_unit
+        1,                  Diapers,            "Huggies Little Snugglers Diapers, Size 1", 37.49,      USD
+        ```
+
+    REGION_MST.csv (all) -<
+
+    :   ```csv
+        region_id,      name,                           manager_id
+        1,              North America,                  1
+        2,              South America,                  18
+        3,              Caribbean,                      27
+        4,              Central America,                44
+        5,              Australia and New Zealand,      53
+        6,              Melanesia,                      70
+        7,              Micronesia,                     79
+        8,              Polynesia,                      96
+        9,              Eastern Europe,                 106
+        10,             Western Europe,                 115
+        11,             Northern Europe,                130
+        12,             Southern Europe,                139
+        13,             East Asia,                      156
+        14,             Southeast Asia,                 165
+        15,             South Asia,                     182
+        16,             West Asia,                      191
+        17,             East Africa,                    208
+        18,             Central Africa,                 217
+        19,             North Africa,                   231
+        20,             South Africa,                   240
+        21,             West Africa,                    323
+        ```
+
+    STAFF_MST.csv (#line: 400) -<
+
+    :   ```csv
+        staff_id,           name,           gender,         rank,           position,       supermarket_id
+        1,                  Aaron Alkins,   Male,           officer,        region manager, 1
+        2,                  Abbott All,     Male,           expert,         manager,        1
+        3,                  Abel Allam,     Male,           expert,         staff,          1
+        4,                  Abner Allan,    Male,           senior,         staff,          1
+        ```
+
+        positions:
+
+        -   assistant
+        -   expert
+        -   manager
+        -   officer
+        -   region manager
+        -   senior
+        -   staff
+
+    SUPERMARKET_MST.csv -<
+
+    :   ```csv
+        supermarket_id,     address,        tel
+        1,"7025 Franklin Avenue, Hollywood, Los Angeles, CA 90028 (Central L.A)",1 323-851-0800
+        2,"701 Stone Canyon Rd., Los Angeles, CA 90077 (Westside)",1 310-472-1211
+        3,"8435 Beverly Blvd, Los Angeles, CA 90048 (Central L.A)",866-203-2212
+        4,"285 Lucas Avenue, Los Angeles, CA 90026 (Downtown)",213-481-8181
+        5,"3515 Wilshire Blvd., Los Angeles, CA 90010 (Formerly The Wilshire Supermarket Los Angeles) (Central L.A)",213-381-7411
+        6,"11461 Sunset Boulevard, Los Angeles, CA 90049 (Westside)",310-476-6571
+        7,"1697 Pacific Avenue, Venice Beach, Los Angeles, CA 90291 (Westside)",310-452-1111
+        8,"20 E. 76th Street, New York City, NY 10021",212-288-3700
+        9,"Madison Avenue at 77th Street, 25 East 77th Street, New York City, NY 10078 (Manhattan)",866-744-4300
+        10,"101 West 57th Street, at 6th Avenue, New York City, NY 10019 (Manhattan)",212-245-7846
+        11,"299 Madison Ave., at 41st St., Entrance on 41st Street, New York City, NY 10017 (Manhattan)",212-983-4500
+        12,"60 E. 54th St., New York City, NY 10022 (Manhattan)",212-753-1066
+        13,"233 West 49th Street, New York City, NY 10019 (Manhattan)",800-801-3457
+        14,"431 Broome Street, New York City, NY 10013 (Manhattan)",212-431-2929
+        15,"342 West 40th Street, New York City, NY 10018 (Manhattan)",212-706-6100
+        16,"30 Kenmare Street, New York City, NY 10012 (Manhattan)",212-925-2555
+        17,"215 E 64th Street, New York City, NY 10021 (Formerly Lyden Gardens) (Manhattan)",212-355-1230
+        18,"567 Hornby St, Vancouver, British Columbia V6C 2E8, Canada (Downtown)",877-632-3030
+        19,"322 Davie Street, Vancouver, British Columbia V6B 5Z6, Canada (Downtown)",866-642-6787
+        20,"20 East Delaware Place, Chicago, IL 60611 (Gold Coast)",+1 312-825-2688
+        21,"21 E. Bellevue Place, Chicago, IL 60611 (Gold Coast) ",+1 312-266-2100
+        ```
+
+Interview -<
+
+:   Atart Time:20161109 (Wed) 12:30
+
+    My name is Zhixiong Tang, you can call me Peter. I'm from Wuhan University
+    majoring in Geomatics Engineering. I'm interested in Computer Vision and
+    Machine Learning, and my research is in this domain. In my leisure time, I
+    enjoy music. My favorite singers are Sakai Izumi (ZARD) and Sia Furler (and
+    Ohguro Maki). My motto is a sentense by Albert Einstein, "Try not to become
+    a man of success, but rather try to become a man of value".
+
+    I hope to work with Enthusastic people.
+
+    ---
+
+    Tips for the sales manager.
+
+    Sending a message, telling that the beer will be a big sale, so
+
+    increase big sale
+
+    Review will last 30 minutes.
+    / 2 minutes self-introduction (both you and engineer)
+    / 15 minutes products introduction by you
+    ※You should act as a software ventor try to sell your production to client, explain your merit, function, feature, unique elements, etc.)
+    / 10-13 minutes feedback from our engineer
+    ※They will act as your client, ask you some questions but will not give you specific advice.
+
+    ---
+
+    specific.
+
+[手把手教你实现一个网页聊天室 | Acheron's Blog](http://www.herohuang.com/2016/10/25/taught-you-how-to-implement-a-web-chat-room/)
+
+Day 2, Review -<
+
+:   You want to make more profits, as we do.
+
+    A supermarket makes profits by selling stuffs. The more sales, the more
+    profits. Our product SuperMarKit can help you make more profits.
+
+    Thinking of profits, you may want to make the buyers buy more, items. Lower
+    the price, increase the sales, so to get higher profits, in total. But that
+    is not sustanable. The marginal gain is LOW! That's why you need our
+    product.
+
+    Our product, SuperMarKit is a productivity kit for sales manager who works
+    in supermarket crossing the country. Its goal is to increase your work
+    efficiency and, making you more profits, exactly what you want.
+
+    And the first thing it does is to bring you more members.
+
+    Because the key and the only key to more profits for a supermarket, is a
+    big number of members. Think about that, when your potential customers
+    don't have a supermarket membership card and he wants to do some shopping
+    stuffs, what would they do? There are three supermarkets nearby including
+    yours. I can bet you that, the typical lazy people won't choose your
+    supermarket just because your store has a slightly better service, a
+    slightly lower price and maybe you have slightly more frequent discount
+    events.
+
+    They choose the near one! And you are not always the lucky neareast shop.
+
+    But don't cry. We have a chance to win. That's called membership mechanism.
+    Because, consider this, if these lazy guys have got a VIP card, of your
+    shop. What would they do now? They will walk extra hundreds of meters
+    directly to your store, to shop. Even thought your service is not the most
+    considerate, your price is not the lowest, and your products are not the
+    best. The membership mechanism is the key to higher profits.
+
+    Our product, SuperMarKit, can help you build a large group of members.
+    That's the first thing and the most important thing our product offers you.
+    I won't tell you how we achive this right now. I'll save that for later.
+
+    We are beyond that. Our product is a kit, which actually contains three
+    parts: Membership Management System, Market Basket Analysis System and
+    Document Plantform.
+
+    Market Basket Analysis System, or MBA System is a transaction analysis
+    system, which can help you in decision making. It's like your Excel + your
+    secretary, but it's beyond that.
+
+    The benefits of using our MBA System against Excel, is a save of hours of
+    routine work. Cause you can easily build your customized dataflow, then
+    apply it again and again. That saves your time. And also, it's analysing
+    capability is second to none. If you try it now, you'll understand what I'm
+    saying.
+
+    The third part, document platform mainly aims at strengthing cooperation of
+    your team by making your workflow more fluent, your communication more
+    effective. It makes you easier to manage your staffs, so you will not lose
+    your customers.
+
+    The first one, as I told you before, the most important thing, the key, the
+    only key, is the Membership Management System. It makes your customber your
+    member. When you have a big members community, yours sales will boost.
+    Because they know: "When in doubt, go to your shop!"
+
+    This subsystem can also help you organize these members, bind your
+    connections and encourage them to buy stuffs in your shop.
+
+    So that's our product, SuperMarKit. The Membership management System is for
+    utilizing your members, the MBA System, is for yourself, the Document
+    Platform, is for managing your staffs.
+
+    If your are curious, I can tell you how our product help you get your
+    members.  If not, do you have any questions about our product?
+
+    ---
+
+    Actually, we offer you a better approach to adopt when suggesting your
+    customers to get on board. It won't bother them, because your casher, your
+    sales staff need never to repeatly saying "would you want a membership
+    card?"
+
+    That's anoying.
+
+[PO,VO,DTO,DAO,BO,POJO 分别是什么? - David 的日志 - 网易博客](http://david6116.blog.163.com/blog/static/133855563201072033927366/)
+
+[4ker/angular-rest-springsecurity: An example AngularJS Application that uses a Spring Security protected Jersey REST backend based on Hibernate/JPA](https://github.com/4ker/angular-rest-springsecurity)
+
+web.xml 很重要！
+
