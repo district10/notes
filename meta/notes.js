@@ -5,6 +5,8 @@ $( "a[href*='tangzhixiong.com']" ).attr( "target", "" );
 
 $('a').on('click', function(event){ event.stopPropagation(); });
 
+$("p:contains('refs and see also')").addClass('refs');
+
 $('img').each(function(index){
     var src = $(this).attr('src');
     $(this).attr({
@@ -300,3 +302,7 @@ new Clipboard('.copyme');
 // $('.copyme').on('click', function(event){ event.stopPropagation(); });
 
 // $('*').on('click', function(event){ console.log(event.target(); }); '<button class="btn" data-clipboard-snippet=""><img class="clippy" src="https://clipboardjs.com/assets/images/clippy.svg" alt="Copy to clipboard" width="13"></button>'
+
+$('.key').on('click', function(event){
+    show();
+});

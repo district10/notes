@@ -4,6 +4,20 @@ title: TANG ZhiXiong's Notes/Wiki
 
 # TANG ZhiXiong's Notes/Wiki
 
+## 2016
+
+-   [note2.html](2016/note2.html){title=2016/note2.md}
+-   [note1.html](2016/note1.html){title=2016/note1.md}
+-   [this](2016/this.html){.hide title=2016/this.md}
+-   [关于介绍本笔记特性](2016/intro-to-my-note.html){.hide title=2016/intro-to-my-note.md}
+-   [博客摘记之 yhlleo](2016/blog-yhlleo.html){.hide title=2016/blog-yhlleo.md}
+-   [MISC](misc/index.html){.hide title=misc/index.md}
+
+## 2014 & 2015
+
+-   [像外行一样思考-像专家一样实践--科研成功之道.html](2014/%E5%83%8F%E5%A4%96%E8%A1%8C%E4%B8%80%E6%A0%B7%E6%80%9D%E8%80%83-%E5%83%8F%E4%B8%93%E5%AE%B6%E4%B8%80%E6%A0%B7%E5%AE%9E%E8%B7%B5--%E7%A7%91%E7%A0%94%E6%88%90%E5%8A%9F%E4%B9%8B%E9%81%93.html)
+-   [如果让我重做一次研究生](2014/%E5%A6%82%E6%9E%9C%E8%AE%A9%E6%88%91%E9%87%8D%E5%81%9A%E4%B8%80%E6%AC%A1%E7%A0%94%E7%A9%B6%E7%94%9F.html)
+
 ## 历史笔记
 
 -   [历史笔记 1](2016/history1.html){title=2016/history1.md}
@@ -15,18 +29,7 @@ title: TANG ZhiXiong's Notes/Wiki
 -   [历史笔记 7](2016/history7.html){title=2016/history7.md}
 -   [历史笔记 8](2016/history8.html){title=2016/history8.md}
 
-## 2014 & 2015
-
-nothing special.
-
-## 2016
-
--   [note2.html](2016/note2.html){title=2016/note2.md}
--   [note1.html](2016/note1.html){title=2016/note1.md}
--   [this](2016/this.html){.hide title=2016/this.md}
--   [关于介绍本笔记特性](2016/intro-to-my-note.html){.hide title=2016/intro-to-my-note.md}
--   [博客摘记之 yhlleo](2016/blog-yhlleo.html){.hide title=2016/blog-yhlleo.md}
--   [MISC](misc/index.html){.hide title=misc/index.md}
+---
 
 ## 独立笔记
 
@@ -39,6 +42,12 @@ nothing special.
 ---
 
 ## 一些自己记笔记用到的工具^[Vim 什么的就不说了。没 Vim 这笔记真心排版不了。]
+
+-   [district10/watch-n-make: Watch directory for changes, run `make` when changes happen. （自动 make。）](https://github.com/district10/watch-n-make) -<
+
+    :   写博客/笔记的时候，不用再手动 `make`。
+
+        （不再需要 Markdown 编辑器，用 Vim 写就好，然后把浏览器放在对边。）
 
 -   画文字版示意图：[ASCIIFlow Infinity](http://whudoc.qiniudn.com/asciiflow/index.html) -<
 
@@ -63,4 +72,9 @@ nothing special.
 
     :   点击粘贴到剪切板
 
+        <span class="key">:key:</span>
         @include <-=include/emojis.md=
+        [<span>:clock1:</span>](http://whudoc.qiniudn.com/2016/Linux-Tutorial-master-publish/README.html){title="Java 程序员眼中的 Linux"}
+        [<span>:clock130:</span>](http://whudoc.qiniudn.com/2016/IntelliJ-IDEA-Tutorial/index.html){title="IntelliJ IDEA 简体中文专题教程"}
+        <span>:clock2:</span>
+        <span>:clock230:</span>

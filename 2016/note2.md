@@ -1,6 +1,6 @@
 ---
-title: Working Notes
-...
+title: Notes 2
+---
 
 -   **You should blog even if you have no readers.**
 
@@ -1756,8 +1756,6 @@ title: Working Notes
 
 [杰出的文学家、艺术家、科学家大多是男性，可以说明男性比女性优秀吗？ - 知乎](https://www.zhihu.com/question/20573941)
 
-[Learn TypeScript | Xcat Liu's Blog](http://blog.xcatliu.com/2016/01/29/learn-typescript/)
-
 [你最穷的时候是什么时候，是怎么熬过来的？ - 知乎](https://www.zhihu.com/question/46324613)
 
 >   打听了一下，各部门情况差不多，公司内忽悠、混子、老油条占比大于业界平均值，
@@ -2444,3 +2442,524 @@ Old lady, "I think religion is like a cock. It's ok to have one, it's ok to be p
 人提供如何使用加密的说明。他的另一项指控是研究加密程序，开发了一个个人博客的加
 密版本，在网站上介绍如何使用加密程序的方法。指控中的加密版本很可能是为网站加入
 SSL 加密保护，就和今天的无数网站一样。
+
+维托于是设计干掉了方其，他没有对任何人说，但是每个人都猜到了是他做的，每个人都震惊于他那谦逊外表下隐藏着的狠辣和果断。
+
+-   hiragana，平假名，`[,hɪrə'ɡɑnə]`
+-   katakana，片假名，`['kɑtə'kɑnə]`
+
+[district10/neo_keyboard_layout: 我的键盘布局。Neo keyboard layout variants, for Qwerty, Dvorak, Programmer Dvorak users. English ! Not German, and without greek letters.](https://github.com/district10/neo_keyboard_layout/)
+
+我用 setxkbmap -option ctrl:nocaps; caps -> ctrl; xcape https://github.com/alols/xcape 在 ctrl 被單獨按時作爲 esc 處理……但是 vim 裏識別 ctrl->esc 的延時有點大，不知怎麼處理
+
+[小李子在艾伦秀上大谈自己死里逃生的一次经历！心疼小李！！_明星_娱乐_bilibili_哔哩哔哩弹幕视频网](http://www.bilibili.com/video/av3566907/)
+
+[Usage · Zeal](https://zealdocs.org/usage.html)
+
+:   -   添加文档：Tools -- Docsets
+    -   搜索："keywords" 或者 "java:println"
+
+groupid 通常填自己的域名反写，architectid 填工程名称。
+
+[Open-source software - Wikipedia](https://en.wikipedia.org/wiki/Open-source_software)
+
+:   Open-source software (OSS) is computer software with its source code made
+    available with a license in which the copyright holder provides the rights to
+    study, change, and distribute the software to anyone and for any purpose.
+    Open-source software may be developed in a collaborative public manner.
+    Open-source software is the most prominent example of open-source development.
+
+Babel 是一个 JavaScript 预处理器的基础设施，虽然本身为 es6 而生，但现在 es6 对 babel 而言也只是一个普通的 preset 而已。
+
+`[,pri'sɛt]`
+
+-   vt. 事先调整；事先装置
+-   n. 预调装置
+-   adj. 预先装置的；预先调整的
+
+```
+<script src="//http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+<script>
+if (!window.jQuery) {
+    var script = document.createElement('script');
+    script.src = "/js/jquery.min.js";
+    document.body.appendChild(script);
+}
+</script>
+```
+
+"冻蒜"是闽南语"当选"的发音，通常用於选举及竞选期间， 如："XXX 冻蒜!"。
+
+民进党 2014 年 3 月 21 日动员包围台湾“立法院”声援学生，但苏贞昌在“立院”高喊“冻
+蒜”，惨遭痛批。台湾媒体刊文分析说，立法机构内的抗议活动席卷台湾政坛，也让民进党
+主席改选兴起波澜。
+
+这个世界就是罗生门，没有真相，只有立场。一切真相都是宣传，很多真理和真相的理解都是靠宣传才被人接受的。既然都是流氓，谁也别看不上谁。
+
+我屮艸芔茻……
+
+关于为什么说中国学生要特别标注不含台湾人：班上有四个，成绩差、中下、中下、中上，算上他们影响我装逼。
+
+1 欧元 (EUR)=7.3621 人民币元
+1 人民币元 =0.1358 欧元
+
+1 美元 (USD)=6.7654 人民币元
+1 人民币元 (CNY)=0.1478 美元
+
+1 新台币 (TWD)=0.2131 人民币元
+1 人民币元 =4.6936 新台币
+
+1 日元 (JPY)=0.0652 人民币元
+1 人民币元 =15.3428 日元
+
+经常看这些对大脑发育不好
+
+[Continuous integration - Wikipedia](https://en.wikipedia.org/wiki/Continuous_integration)
+
+In software engineering, continuous integration (CI) is the practice of merging
+all developer working copies to a shared mainline several times a day. Grady
+Booch first named and proposed CI in his 1991 method, although he did not
+advocate integrating several times a day. Extreme programming (XP) adopted the
+concept of CI and did advocate integrating more than once per day - perhaps as
+many as tens of times per day.
+
+3、在曹操墓发现一具小孩尸骨，砖家说是小时候的曹操。
+
+17、张艺谋缴清全额超生罚款后，中国政府允许鼓励生二胎。
+
+中国也不会过分，不会进攻人家的基本地盘，只是在争议地区挤来挤去，而且只摩擦不开
+火。天长日久，东亚地区就是中国控场了。相关国家民众有了心理预期，内心自暴自弃地
+觉得抗争无益。慢慢也觉得，虽然中国威慑很厉害，但并没有真大打出手，如果不争了，
+基本的安全还是有的，而且也能经济合作，不如合作拉倒。
+
+今天微博市值超越Twitter。我预言十年内中国人工智能工业超越美国(专利数，市值)，谁相信？
+
+premium，`['primɪəm]`
+
+-   n. 额外费用；奖金；保险费;(商)溢价
+-   adj. 高价的；优质的
+
+我的医保交了一年就受不了了，如果真生病，我宁可直接飞回国去治都便宜点。
+
+武装保卫特朗普！
+
+看来大家都是受害者，我的保险 renewal enroll 今天一出来，deductible 涨了百分之六
+七十，上 x 千了都，而服务持平或者变差。真是很怒。
+
+一帮子人捡着 CNN MSNBC 的 dump 就好比吃了速效救心丸一般缓了口气，纷纷出来表示“看，川普梅西”。
+你们根本不知道美国人正在经历什么，他们的痛点在哪里。
+告诉各位，新一年的保险 enrollment 季到了，非常及时的赶在投票日之前。
+给大家看看什么是真正的 silent majority
+
+近期面试上百小伙伴。几点小感触：1）虽然今天是一个强科学主义时代，但多数人最缺的
+依然是「科学训练」，太民科太民哲太鸡血，可能是通病；2）听说读写等基础技能，比所
+学专业重要得多；3）资深的高级人才也不一定靠谱，在一个新职业新行业层出不穷的时代，
+我更愿意与年轻的学习机器同行。
+
+[AI领域，中国人/华人有多牛？](http://mp.weixin.qq.com/s?__biz=MzA5NjM1MDI5Mg==&mid=2652283522&idx=1&sn=1d6979db2b913059896f92f331f9e073&chksm=8b537bb9bc24f2afe0b53a1a8e7619b4caa8d344219cd0829384ef20d800873cf7f6418d14ba&mpshare=1&scene=2&srcid=1017ue1utHPFxZOMRLr4mkpi&from=timeline&isappinstalled=0#wechat_redirect)
+
+问人“这么多书你都读完了吗”，就好像问女士“这么多衣服你都穿破了吗？”
+
+投资就像受精，永远不知道被拒绝掉的那 5 亿个选择里会有哪些机会。大部分的优秀精子都会无疾而终，和他们努力不努力、优秀不优秀都没有关系。
+
+[鲍捷 - 知乎](https://www.zhihu.com/people/bao-jie-14)
+
+[Relearn Faster and Retain Longer](http://pss.sagepub.com/content/early/2016/08/16/0956797616659930)
+
+[【得分明细】2016北航软件工程个人项目 - SivilTaram - 博客园](http://www.cnblogs.com/SivilTaram/p/buaa_2016_se_personal_project.html)
+
+[这世上，哪有那么多捷径可走 - L君的手札 - 知乎专栏](https://zhuanlan.zhihu.com/p/23002500)
+
+「你的问题主要在于读书不多而想得太多。少年贪玩，青年迷恋爱情，壮年汲汲于成名成
+家，暮年自安于自欺欺人。人寿几何，顽铁能炼成的精金，能有多少？但不同程度的锻炼，
+必有不同程度的成绩；不同程度的纵欲放肆，必积下不同程度的顽劣。」——杨绛
+
+[中国古代匠人发明的榫卯机构巧夺天工，大家... 来自实用百科菌 - 微博](http://weibo.com/1977459170/EdTFP59yd?type=comment#_rnd1477212772641)
+
+[威慑纪元：如何理解大国对峙背后的行为逻辑](http://weibo.com/ttarticle/p/show?id=2309404001424676638085)
+
+[美国人到底有多穷？ - 地球时报](http://transcoder.baidu.com/from=1000953b/bd_page_type=1/ssid=0/uid=0/pu=usm%400%2Csz%40320_1002%2Cta%40iphone_2_6.0_2_7.0/baiduid=FF748169F71FBC022C954FD078CF6522/w=0_10_/t=iphone/l=3/tc?ref=www_iphone&lid=17057839014645120551&order=1&fm=alop&tj=www_normal_1_0_10_title&vit=osres&m=8&srd=1&cltj=cloud_title&asres=1&title=%E7%BE%8E%E5%9B%BD%E4%BA%BA%E5%88%B0%E5%BA%95%E6%9C%89%E5%A4%9A%E7%A9%B7%3F-%E5%9C%B0%E7%90%83%E6%97%B6%E6%8A%A5&dict=32&w_qd=IlPT2AEptyoA_ykywhActuiv1SlSmX5mzE5YjP8VuAwsMOUyP5dc7Y_&sec=15936&di=4ad0591f429eb306&bdenc=1&tch=124.0.225.129.1.42&nsrc=IlPT2AEptyoA_yixCFOxXnANedT62v3IEwXPMT6E_zOrjo39h47aUbBoZyTg2Sm5UZWccj4OxBt8wXCj_m1l6so4g43&eqid=ecb99e351fb8c0001000000658017bd4&wd=&clk_info=%7B%22srcid%22%3A%221599%22%2C%22tplname%22%3A%22www_normal%22%2C%22t%22%3A1476492292941%2C%22xpath%22%3A%22div-a-h3%22%7D)
+
+[杜特尔特北京演讲全文，全程掌声笑声爆燃](http://mp.weixin.qq.com/s?__biz=MzA5MDA0NDA4NA==&mid=2651160212&idx=1&sn=a7b35943f0208cde89c8f152e4ed81d5&chksm=8be07d4fbc97f459eb2cb7d32d90966ac931db1d896d8dc79cac1f905ca3760cc2d09eec0495&mpshare=1&scene=1&srcid=1021CfSNSfeBLe8FRVzxR83U&from=groupmessage&isappinstalled=0#wechat_redirect)
+
+[中国房价到顶了吗？万科副总裁万字长文解析-观察者网](http://m.guancha.cn/economy/2016_10_02_376081.shtml?from=groupmessage&isappinstalled=0)
+
+[如何看待特朗普的竞选檄文《She Follows The Money》（威斯康辛Rally演讲稿）？ - 神仙兔八哥的回答 - 知乎](https://www.zhihu.com/question/51129739/answer/124268109)
+
+8 月 18 日，联合国批评菲律宾“禁毒战争”致上百人横死，菲律宾总统杜特尔特回应称，
+他很可能退出联合国，并邀请中国及其他国家再组建一个新的“联合国”。
+
+今年 6 月 30 日，杜特尔特登上总统宝位之后便下令开展全面的扫毒战争。菲律宾国内用
+“尸横遍野”来形容一点也不为过，每天都有涉毒嫌疑人被枪杀在马尼拉街头巷尾。7 月 1
+日到 8 月 14 日上午，计有 592 名毒贩嫌疑人被干死，8000 多名毒贩嫌疑人被警方逮捕，
+51 万 9480 名吸毒者及 3 万 4763 名毒贩投案。
+
+这场对毒贩的战争，对于杜特尔特而言，不但是凝聚民心，扫清国家障碍的必要措施，更
+是通过“禁毒”这一行动，协调和统一全国行动，清理贪腐势力，破除菲律宾“政令不出马尼
+拉”的必要措施。
+
+[列国志 | 菲律宾：挣扎，求生，美国东亚秩序崩溃的第一张多米诺骨牌](http://mp.weixin.qq.com/s?__biz=MzA4NDg3MDEyNw==&mid=2654894997&idx=1&sn=60cf097c89535a0b8c1dbd4b36ddcb43&chksm=842a4d15b35dc403f0e87d74cbf015e54662b51d315ffab84bbbbce27ab86da3e449407f6d6f&mpshare=1&scene=2&srcid=1020To35w3Oi7PloCvHgXVmW&from=timeline&isappinstalled=0#wechat_redirect)
+
+[【资料】印度数学家拉马努金（一） | 虫洞神经网小组 | 果壳网 科技有意思](http://www.guokr.com/post/562975/)
+
+[自己动手编译、运行Java程序 - haolujun - 博客园](http://www.cnblogs.com/haolujun/archive/2013/03/02/2939698.html)
+
+Sumatra 用 Alt-Left/Right 来跳转视图。
+
+有一种创业叫 to MA 模式，公司成立就是奔着被并购去的。一般是有个大佬，利用影响力拉几个牛人，做一个炫酷的 demo，也不考虑商业模式 (虽然 ppt 上有一个)，拉一轮风投，再招 n 个博士。然后就等着被大公司买。因为大公司内部想发展出这样的团队很难。不过这样的团队被吃掉后，一般也就 over 了。
+
+[革新设计的传送带。👍 👍 👍 . 来自西城SQL - 微博](http://weibo.com/1864241383/EemnygIZS?type=comment)
+
+[Peter Thiel will donate $1.25M to the Trump campaign, despite the latest controversies | TechCrunch](https://techcrunch.com/2016/10/16/peter-thiel-will-donate-1-25m-to-the-trump-campaign-despite-the-latest-controversies/)
+
+:   Peter Thiel will donate $1.25M to the Trump campaign, despite the latest controversies
+
+[bash - List all binaries from $PATH - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/120786/list-all-binaries-from-path)
+
+[[ThoughtWorks 西安] 欢迎各位 Developer 大神入伙~ - V2EX](https://www.v2ex.com/t/315237#reply1)
+
+[科研前途渺茫，打算转工作。请问这样的简历能找什么样的职位？ - V2EX](https://www.v2ex.com/t/315189#reply47)
+
+[水平极高的出租车司机能够有多神奇的驾技？ - 知乎](https://www.zhihu.com/question/33724782#answer-46697244)
+
+WIN-R: msconfig
+
+[jayway/JsonPath: Java JsonPath implementation](https://github.com/jayway/JsonPath)
+
+-   [district10/wcf: word frequency counter](https://github.com/district10/wcf), write C++ version, Java version
+-   [district10/Logger: A Simple Logger](https://github.com/district10/Logger)，add to changsha post
+-   [district10/try-pandoc-templating](https://github.com/district10/try-pandoc-templating)，add one blog post
+-   [district10/FindFilesWithinFolder: Find and generate a file list of the folder.](https://github.com/district10/FindFilesWithinFolder)，java version
+-   [district10/makesync: Sync via make/Makefile, because rsync is BAD, in some sense.](https://github.com/district10/makesync)，write a post
+-   [district10/utils](https://github.com/district10/utils)，link to utils
+-   [mdwatch/mdwatch.sh at master · district10/mdwatch](https://github.com/district10/mdwatch/blob/master/mdwatch.sh)
+-   front end
+    -   [district10/panbook: Panbook, A Document Generator Based on Pandoc Templates.](https://github.com/district10/panbook)
+    -   [district10/wiki: Wiki is your system of knowledge.](https://github.com/district10/wiki)
+    -   window.location = this.value;
+
+karma
+
+-   `['kɑrmə]`
+-   n. 因果报应，因缘
+-   n. (Karma)人名；(芬、法)卡尔马；(中)噶玛(藏语·威妥玛)
+
+```makefile
+
+funmd2html = cat $(1) | pandoc \
+        -V rootdir=./ \
+        -S -s --ascii --mathjax \
+        -f markdown+abbreviations+east_asian_line_breaks+emoji \
+        --template tools/html.template \
+        -o $(2)
+
+$(call funmd2html, $<, $@)
+```
+
+[java - What is simplest way to read a file into String? - Stack Overflow](http://stackoverflow.com/questions/3402735/what-is-simplest-way-to-read-a-file-into-string)
+
+[Java reading a file into an ArrayList? - Stack Overflow](http://stackoverflow.com/questions/5343689/java-reading-a-file-into-an-arraylist)
+
+
+```java
+String content = new Scanner(new File("filename")).useDelimiter("\\Z").next();
+System.out.println(content);
+
+Scanner s = new Scanner(new File("filepath"));
+ArrayList<String> list = new ArrayList<String>();
+while (s.hasNext()){
+    // list.add(s.next()); // word
+    list.add(s.nextLine()); // line
+}
+s.close();
+```
+
+List<String> list = Files.readAllLines(new File("input.txt").toPath(), Charset.defaultCharset() );
+
+[为什么你的爱好没有变成特长？ - 简书](http://www.jianshu.com/p/1dadc780e72e)
+
+readyState":0,"status":0,"statusText":"NS_ERROR_DOM_BAD_URI: Access to restricted URI denied
+
+[electerious/basicModal: Easy-to-use dialog system for modern web-apps.](https://github.com/electerious/basicModal)
+
+[chinchang/hint.css: A CSS only tooltip library for your lovely websites.](https://github.com/chinchang/hint.css)
+
+
+[How do I load an url in iframe with Jquery - Stack Overflow](http://stackoverflow.com/questions/7177080/how-do-i-load-an-url-in-iframe-with-jquery)
+
+$("#button").click(function () {
+    $("#frame").attr("src", "http://www.example.com/");
+});
+
+HTML:
+
+ <div id="mydiv">
+     <iframe id="frame" src="" width="100%" height="300">
+     </iframe>
+ </div>
+ <button id="button">Load</button>
+
+[《疯狂的麦克斯4:狂暴之路》超长幕后拍摄花絮—在线播放—优酷网，视频高清在线观看](http://v.youku.com/v_show/id_XOTU2MjU5MDY4.html)
+
+[Presentations by MaskRay // Speaker Deck](https://speakerdeck.com/maskray)
+
+[算法数据结构中有哪些奇技淫巧？ - 罗必成的回答 - 知乎](https://www.zhihu.com/question/33776070/answer/58139596)
+
+[算法数据结构中有哪些奇技淫巧？ - 宋方睿的回答 - 知乎](https://www.zhihu.com/question/33776070/answer/59329153)
+
+:   宋方睿 Ray
+      ~ 清华大学计算机系学生，热衷于参加算法、安全、超算等比赛，喜欢网页前端，《Haskell趣学指南》译者。
+    参赛感言：
+      ~ 我是抱着学习的态度来长见识的。
+
+    ![](http://netsecurity.51cto.com/secu/Blue-Lotus2014/images/songfr.jpg)
+
+    网络部
+
+    部长：李百恩
+
+    成员：贾开、宋方睿、吴育昕、周昕宇、叶紫、刘啸宇、张道维、杨植麟、王凝枰
+
+    2011011269      宋方睿  男      计14    上海    华东师范大学第二附属中学
+
+    refs and see also
+
+    -   [超算大赛世界冠军使的啥兵器？_科技_环球网](http://tech.huanqiu.com/Enterprise/2015-07/7093314.html)
+    -   [清华大学计算机科学与技术系](http://www.tsinghua.edu.cn/publish/cs/4847/)
+    -   [水木-清华计算机科学与技术系-2011新生名单[计算机][DCST][129] (转载)](http://ar.newsmth.net/thread-3b6355cf65fd7.html)
+
+你这样不是暴露了那些没加班的办公室了吗？万一害他们被开了怎么办？
+
+joel
+
+-   `['dʒəuəl]`
+-   n. 约珥（圣经人物）；（圣经中的）约耳书
+-   软件随想录： More Joel on Software，作者: Joel Spolsky
+
+[高筑墙，广积粮，缓称王_百度百科](http://baike.baidu.com/link?url=3JIp80BtVUQAY3Nmv7VZDQv-ui6fELGsvq4RKaCfacczbkk7_Oq8cSG2gOHUeIT56C8UySJZwc3MZ5e84lsMIcOHtC0kZpH4CfZDiH9lSEgli7sgBuQuKvSWOix-gL3UHfQCOMNDv4VS90J3tVJxZNqIsn1dPrkZARpKTXgqDnFPl-l2b25IfVwX4vUVuFZY6KExlEepBDnjwagPMg3fPK)
+
+[3D 建筑及 3D 大场景 - 腾讯视频](http://v.qq.com/x/page/h017595f7d4.html)
+
+![](https://img1.doubanio.com/view/status/median/public/5c990d5d3d9232c.jpg)
+
+>   If you have always believed that everyone should play by the same rules and
+>   be judged by the same standards, that would have gotten you labelled a
+>   radical 60 years ago, a liberal 30 years ago and a racist today.
+>
+>   -- Thomas Sowell
+
+Peter Thiel, an investor who often participates in Y Combinator, is donating
+$1.25 million to Donald Trump’s political efforts, which has incited outrage
+among the tech community with many calling for Y Combinator to **sever ties
+with**（断绝关系）Thiel.
+
+Instead, they’re defending the large-scale support of racism, bigotry, and
+sexual assault by an influential partner and advisor to their startups as its
+own form of “diversity”.
+
+Shame on Y Combinator.
+
+Peter Thiel
+
+>   When I was growing up, the great debate was about how to defeat the Soviet
+>   Union. Today, the debate is "Who get to use which bathroom?"
+>   This is a distraction from the real problem.
+
+refs and see also
+
+-   [Peter Thiel’s RNC Speech Blasts The GOP’s Anti-LGBT Policy: Focus On Real Issues - Hollywood Life](http://hollywoodlife.com/2016/07/21/peter-thiel-rnc-speech-lgbt-issues-republican-convention/#!)
+
+Hypatia
+
+-   `[hai'peiʃjə]`
+-   n. 希帕蒂娅（希腊女数学家，天文学家和哲学家）
+
+[月入十万，难吗？ - 知乎](https://www.zhihu.com/question/37050422)
+
+DS，我以为是大傻……原来是屌丝……
+
+[【IMDB历年最受网友欢迎的电影（25部）】个... 来自追美剧学英文 - 微博](http://weibo.com/3018218037/E9NwmtfA9?type=comment#_rnd1478402628748)
+
+[艾法 答过的问题 - 知乎](https://www.zhihu.com/people/ai-joe/answers?order_by=vote_num)
+
+经济强国必然科技崛起
+
+:   [数据给你一个真中国，崛起还是崩溃？附多国对比资料](http://mp.weixin.qq.com/s?__biz=MzI3MTM3ODg0OQ==&mid=2247484501&idx=1&sn=6cea2850f5f763aa98ef937fc5e5c7ca&chksm=eac3f49bddb47d8d2729a1a3fdbad2c2cf00a6e40724274c1675dffb9d852581304ffb471e7c&mpshare=1&scene=2&srcid=1028uM3PL9sXrSO2hpQ57dhh&from=timeline#wechat_redirect)
+
+scratch your own itch `[ɪtʃ]`
+
+
+flip `[flɪp]`
+
+-   vt. 掷；轻击
+-   vi. 用指轻弹；蹦跳
+-   adj. 无礼的；轻率的
+-   n. 弹；筋斗
+
+flop `[flɑp]`
+
+-   vt. 笨拙地抛下；扑通放下；拍（翅）
+-   vi. 失败；扑拍；扑通落下；笨重地摔
+-   n. 失败；砰然落下；拍击声
+-   adv. 扑通一声；恰巧
+
+Building to flip is building to flop.
+
+obscurity `[əb'skjʊrəti]`
+
+-   n. 朦胧；阴暗；晦涩；身份低微；不分明
+
+[REWORK › 引言 INTRODUCTION](https://www.v2ex.com/rework)
+
+[V2EX 从过去一年半中学到的几件事 - V2EX](https://www.v2ex.com/t/82642)
+
+[在 26 岁时写给 18 岁的自己](https://livid.v2ex.com/essays/2012/01/24/a-letter-from-26-to-18/)
+
+[iDogma 2016](https://livid.v2ex.com/essays/2015/11/09/idogma-2016/)
+
+[为什么《知音》杂志这么火？它为什么具有如此广泛的群众基础？ - 知乎](https://www.zhihu.com/question/19565115)
+
+[有哪些可以提升情商、判断力和谈话技巧的书籍？ - 水木丁的回答 - 知乎](https://www.zhihu.com/question/28070036/answer/39837775)
+
+[有哪些可以提升情商、判断力和谈话技巧的书籍？ - 知乎](https://www.zhihu.com/question/28070036)
+
+Remember, the only thing before everything, is to have a dogma. A dogma is a list consists by DOs and DONTs. You make it, stick to it while adapt it to reality, question yourself from time to time: is everything on the list mutually exclusive and collectively exhausive?
+
+And there is a meta dogma for dogmas:
+
+    Avoid emotional tactics
+    Every kindness counts
+    Gentleness is the ultimate strength
+
+supermarkit.online(未注册) 11月促销，首年仅3元！
+
+[Wal-Mart Using RFID to Monitor Vehicles at Its DCs - Page 1 - RFID Journal](http://www.rfidjournal.com/articles/view?3941)
+
+:   DC: Distribution Center
+
+    The system is helping the retailer increase productivity at a dozen of its
+    distribution centers, through improved utilization of the vehicles and
+    their drivers.
+
+    Feb 26, 2008—To track lift trucks and other vehicles at a dozen of its
+    distribution centers in the United States, Wal-Mart has been using an
+    RFID-based system made by New Jersey-based I.D. Systems.
+
+    "Wal-Mart accomplished two major objectives [by deploying the system],"
+    says Gene Merlo, I.D. Systems' VP of North American sales. "It increased
+    productivity [inside its DCs using the system], and it improved utilization
+    of vehicles inside the DCs." The retailer began with an initial test at a
+    single distribution center in late 2005, then rolled it out to a small
+    group of DCs in 2006 and a third, larger one last year.
+
+http://whudoc.qiniudn.com/2016/TangZhixiong_WhatIs_20161106.pdf
+
+中山大学
+
+Sun Yat-sen University, also known as Zhongshan University, is a public
+university in Guangdong, People's Republic of China. It was founded in 1924 by
+Sun Yat-sen, a revolutionary and the founding father of the Republic of China.
+
+Former names
+  ~ National Guangdong University
+Motto
+  ~ 博学、审问、慎思、明辨、笃行
+
+-   Sun Yat-sen University (SYSU)
+-   广州
+-   可以去查一下，逸仙这个名字，其实是从“日新”变过来的，粤语里面“日新”的读法就是 Yat-sen。
+-   孙中山原名孙文，号逸仙。孙中山这个名字是某人(具体我也不知道)在整理其资料并
+    发表时临时对他的称呼，而不知怎么的就慢慢传开了。之所以叫中山，是因为孙文曾
+    经流亡日本时有个日本名字叫中山樵(姓中山，名樵，而中山在日本是个大姓)，孙中
+    山这个名字就取自这两个姓的合体，而孙文本人对这个称呼也是不认可的。所以，国
+    人称其为中山其实是不妥的，就像我们称反动派头子为蒋介石并不妥一样的道理，因
+    为老蒋名中正，字介石，而字号往往是对某人的尊称。这也是中山大学英文名不用中
+    山的原因。
+
+refs and see also
+
+-   [为什么中山大学的英文名叫 Sun Yat-Sen University？ - 知乎](https://www.zhihu.com/question/30450633)
+-   [中山大学 SUN YAT-SEN UNIVERSITY](http://www.sysu.edu.cn/2012/cn/index.htm)
+-   [Sun Yat-sen University - Wikipedia](https://en.wikipedia.org/wiki/Sun_Yat-sen_University)
+-   [Sun Yat-sen - Wikipedia](https://en.wikipedia.org/wiki/Sun_Yat-sen)
+
+Principle & Principal
+
+-   principle, `['prɪnsəpl]`, n. 原理，原则；主义，道义；本质，本义；根源，源泉
+-   principal, `['prɪnsəpl]`, adj. 主要的；资本的, n. 首长；校长；资本；当事人
+
+[欢迎使用 V2Ray · V2Ray 官方网站](https://www.v2ray.com/)
+
+[中文文档 · XX-net/XX-Net Wiki](https://github.com/XX-net/XX-Net/wiki/%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3)
+
+[Releases · shadowsocks/shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases)
+
+[支付宝国际账户使用教程](http://seller.aliexpress.com/education/escrow/tools/alipay.html?1346258080)
+
+[为什么远在地球另一端的中国，有很多人支持Trump？ - Tok Tik 的回答 - 知乎](https://www.zhihu.com/question/48943854/answer/130165101)
+
+[齐泽克：特朗普把我吓坏了，但希拉里才是真正的危险](http://www.guancha.cn/QiZeKe/2016_11_06_379616.shtml)
+
+:   齐泽克表示，每个社会都有一张用不成文的规则织成的网，比如政治是如何运作的、公众
+    如何建立共识，特朗普打乱了这个规则。如果特朗普获胜，共和党和民主党都必须回到起
+    点，反思自己。这或许会带来一些不同。
+
+    他将特朗普称为“绝望中的希望”，认为虽然特朗普的言论比较偏激，但他上台后绝不会让
+    美国走上独裁之路。而希拉里拉拢各派，建立了一个根本不可能存在的“联盟”，她是真正
+    的顽固分子、冷战分子，她才是真正的危险。
+
+王朔和刘震云都是青年作家的时候，搞笔会，他们坐船去三峡。
+
+刘震云：（第一天见到王朔）王朔老师，你得和我说说，我这好多天睡不着觉了，你小说怎么写这么好，你怎么想的？
+
+王朔：我写的好什么呀，你瞎说，你骂人。
+
+刘震云：（第二天见到王朔）王朔老师，您还是说说吧，您怎么写的那么好，您当初怎么想到的，您说一点就行！
+
+王朔：……
+
+刘震云：（第三天见到王朔）王朔老师！您就说说吧，您就说一句都行，您怎么写出那么好的小说，您怎么想的？
+
+王朔：其实一开始吧，我就是想……
+
+王朔刚说到这儿，还没来得及说完一句话呢，刘震云就指着王朔哈哈哈哈的笑了起来，意思就是你终于当真了。王朔说当时就有一头跳进三峡的心。
+
+发布于 11:50
+
+1，选户口，然后找个高薪没有户口的女朋友结婚。
+2，选高薪，然后找个有户口的女朋友结婚。
+
+二选一随便选，不要太纠结。
+
+[prakhar1989/awesome-courses: List of awesome university courses for learning Computer Science!](https://github.com/prakhar1989/awesome-courses)
+
+[nschneid/unix-text-commands: Unix Text Processing Command Reference](https://github.com/nschneid/unix-text-commands)
+
+[Papi 酱：我不能一直躲在舒适地带](http://weibo.com/ttarticle/p/show?id=2309404038901294621766#related)
+
+叫的再喧嚣的苍蝇，也是苍蝇，过的再狼狈的战士，也是战士。
+
+教口语应该先从三个人的小说开始看起，分别是 James Hadley Chase, John Grisham,
+Sidney Sheldon，这三位大师的作品几乎涵盖了你能想象到的所有口语用法，有的会奇怪
+为啥口语要靠看的来学，原因很简单，语音流畅，用法不懂，没啥屁用。懂一点点语法，
+认真学语音，尤其是连读弱读和语调，大量阅读熟悉用法，然后配合多听有声书，三位一
+体，下期重点我准备攻关这个项目，顺带解决了“词汇量不够”和“主动词汇不懂”这个老大
+难问题（这三位大师的书用词范围都挺广）
+
+出来混社会最重要的是不要怕得罪人，也不要怕有敌人。这么说不是要你整天主动惹事，
+而是说你老实过日，不惹事，但也不怕事，有人惹你也别怂，直接干。很多人处理不了别
+人对自己的恶意，被人拒绝否定就陷入自我怀疑，软弱沮丧，这是标准的拿别人错误惩罚
+自己。尤其是在职场上，赤裸裸的利益结合体中，必然有利益同盟，也有利益敌人，哪怕
+你什么都不做，你所得的利益也必然会侵犯到某些人，这时候不要怂，就是干！
+
+buff, 浅黄色；增益；增益效果
+
+http://whudoc.qiniudn.com/2016/SuperMarKit.pdf
+
+矩阵：中国人此刻应系好安全带，准备迎接川普当选可能会引发的冲击波了。
+
+阿男：目测接下来一大堆公知喷子即将来袭，比如：“别人的国家再怎么烂，也有选票啊”，还比如：“别人的国家选总统，和你有关系吗？” 老子看个美剧，关你屁事。
+
+么一凹喵：身处加州，真看不懂身边的人。说好的民主选举，结果没选到自己喜欢的总统又开始要游行，又要抗议，还说以后不能让没有大学文凭的人投票。真是民主专制下的暴民。
+
+http://whudoc.qiniudn.com/2016/Pamphlet.pdf

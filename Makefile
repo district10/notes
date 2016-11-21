@@ -3,15 +3,15 @@
 SRC:=$(wildcard index.md */*.md)
 DST:=$(addprefix publish/, $(SRC:%.md=%.html))
 CSS:=publish/github-markdown.css \
-     publish/highlight.css \
-     publish/lazyload.min.js \
-     publish/jquery-3.0.0.min.js \
-	 publish/jquery.idTabs.min.js \
-     publish/egg.min.js \
-	 publish/clipboard.min.js \
-     publish/notes.js \
-     publish/notes.css \
-     publish/fork-me-on-github.png \
+	publish/highlight.css \
+	publish/lazyload.min.js \
+	publish/jquery-3.0.0.min.js \
+	publish/jquery.idTabs.min.js \
+	publish/egg.min.js \
+	publish/clipboard.min.js \
+	publish/notes.js \
+	publish/notes.css \
+	publish/fork-me-on-github.png \
 
 FROM := markdown+abbreviations
 ifeq (,$(DUMB))
@@ -27,6 +27,9 @@ clone:
 	# git clone --depth 1 https://github.com/district10/leetcode.git
 serve:
 	cd publish; python -m SimpleHTTPServer
+w: watch
+watch:
+	java -jar watcher.jar
 clean:
 	rm -rf publish/*
 include:
@@ -70,12 +73,14 @@ publish/%: meta/%
 note: n
 n:
 	$(EDITOR) -p \
+		index.md \
+		lang/java.md \
+		lang/typescript.md \
 		lang/algo.md \
+		2016/note3.md \
 		lang/c-cpp.md \
-		lang/sys-net-misc.md \
 		2016/job.md \
-		2016/note2.md \
-		index.md
+
 m:
 	$(EDITOR) Makefile
 t:
