@@ -439,7 +439,7 @@ title: Notes 2
 
         （话说，看了这个电影，真心不喜欢。）
 
--   任何智商正常人士都不会在这个问题上持太过标新立异的看法。
+-   **任何智商正常人士都不会在这个问题上持太过标新立异的看法。**
 
 -   [上海的中学教育有何厉害之处？ - 知乎](https://www.zhihu.com/question/22195196#answer-3433815) -<
 
@@ -475,13 +475,13 @@ title: Notes 2
 
     :   词汇的贫瘠，品位的庸俗，都不是最可怕的。最可怕的是居心的无耻和恶毒。有些女主播，
         长得很好，一开口就恶毒不堪：“进来就走的会变短，不关注的也变短。”我观察了一分
-        钟，来来回回就是“变短”、“变长”，谁送礼物，就阿谀谁，谁不关注，就诅咒谁。
+        钟，来来回回就是“变短”、“变长”，**谁送礼物，就阿谀谁，谁不关注，就诅咒谁**。
 
         这是很恐怖的事：只靠一分钟说二十遍“谢谢关注”、“谢谢宝宝”，就可以成为职业，月入
         数万，这是狠狠扇了辛苦劳作的人一巴掌，让人人都想不劳而获。这种风气蔓延开，社会
         就会越来越糟糕。
 
-        埋头苦干的人灰心之后，会普遍泛起一种观念：傻子太多，想混口饭吃，只有去当骗子。
+        埋头苦干的人灰心之后，会普遍泛起一种观念：**傻子太多，想混口饭吃，只有去当骗子。**
         于是一窝蜂转型当骗子。然后发现，连骗子都吃不饱了，骗子也变成了傻子。
 
         晒脸直播的危害，远远比你能想到的强烈。当好逸恶劳、哗众取宠成为竞相标榜的东西，
@@ -537,7 +537,7 @@ title: Notes 2
 
 -   `#pragma GCC diagnostic error "-std=c++11"`
 
--   [北京户籍的学生进入清华北大以后和外省的学生有没有水平差异？ - 知乎](https://www.zhihu.com/question/21335841)
+-   [北京户籍的学生进入清华北大以后和外省的学生有没有水平差异？ - 知乎](https://www.zhihu.com/question/21335841) -<
 
     :   我认为一个优秀程序员的思维是缜密细致的，在出问题后，他会详细的先研究问题出在哪
         里，思考缘由，而非闷头瞎使用 printf 大法，然后去撞大运，头痛医头，脚疼医脚，因
@@ -645,8 +645,8 @@ title: Notes 2
 -   [为什么恐怖片里往往小孩子是让人觉得最恐怖的？ - 知乎](https://www.zhihu.com/question/19909627#answer-1329397) -<
 
     :   古龙在他的小说里曾经说过，江湖上最不能惹的便是老人、小孩和女人——他们既然敢
-        出来闯荡江湖，必有些过人的绝招。恐怖片里看似柔弱的女人和小孩也是如此：你完
-        全想不到他们会如何杀死你，你也完全不知道如何能逃脱死亡的命运。
+        出来闯荡江湖，必有些过人的绝招。恐怖片里看似柔弱的女人和小孩也是如此：**你完
+        全想不到他们会如何杀死你，你也完全不知道如何能逃脱死亡的命运**。
 
 -   [Victor Diors Guo 答过的问题 - 知乎](https://www.zhihu.com/people/victor-diors-guo/answers?order_by=vote_num)
 
@@ -656,7 +656,7 @@ title: Notes 2
 
 -   [GitHub - ldong/github_issues_viewer](https://github.com/ldong/github_issues_viewer)
 
--   [一个关于数学归纳法的悖论问题：到底是第 N 天有 N 个红眼睛自杀，还是什么都不会发生？ - 逻辑 - 知乎](http://www.zhihu.com/question/21262930)
+-   [一个关于数学归纳法的悖论问题：到底是第 N 天有 N 个红眼睛自杀，还是什么都不会发生？ - 逻辑 - 知乎](http://www.zhihu.com/question/21262930) -<
 
     :   [长大以后，你悟出过哪些不一样的道理？ - 生活 - 知乎](http://www.zhihu.com/question/29064753)
 
@@ -675,7 +675,9 @@ title: Notes 2
 
         [如何评价左耳朵耗子因为工作居住证离开阿里巴巴？ - 程序员 - 知乎](https://www.zhihu.com/question/30778071)
 
-        待人友善是修养，独来独往是性格。
+        **待人友善是修养，独来独往是性格。**
+
+        ---
 
         其实“性格好”“讲道理”往往是身体健康精力充沛的人才有资格表现的品质。
 
@@ -686,6 +688,8 @@ title: Notes 2
         身体状况不好的时候我发现，控制情绪的难易程度和身体状况是息息相关的，意志力
         能解决的问题比我想象中的少得多。人们眼中的奇葩可能很想成为让人们喜欢的人，
         只是没有办法。身心健康，身在心前。正在经受身体痛苦的人很难保持内心不扭曲。
+
+        ---
 
         “现代社会越来越物质化，社会上充斥的信息都是刺激你去消费，然而这些让你消费的
         东西，往往是你不需要的。关键是要想清楚，如何在这个欲望爆炸的时代，做回你自
@@ -733,11 +737,12 @@ title: Notes 2
 
         接下来是我更加关心的问题，为什么 Elon Musk 这么猛？ 他如何跨学科学习的？他的思维模式是怎样的？ -<
 
-        :   他极度勤奋且酷爱学习
+        :   他极度勤奋且酷爱学习 -<
 
-            :   在看他的自传里，很多时候描述就是：他每天都在思考和阅读，经常几个小时就可以读完一本书，然后挑里面的关键内容再花一天时间精读；
+            :   在看他的自传里，很多时候描述就是：他每天都在思考和阅读，经常几
+                个小时就可以读完一本书，然后挑里面的关键内容再花一天时间精读；
 
-            他创业的方向一直是他从小热爱的东西
+            他创业的方向一直是他从小热爱的东西 -<
 
             :   这很重要但是容易被大家忽视。兴趣是最好的老师，而做感兴趣的事情才是
                 可以坚持一生的事情。不管是火箭，外太空旅行还是可再生能源，这些都是
@@ -746,7 +751,7 @@ title: Notes 2
                 运的事情，但是我们应该学会去追求自己儿时一直喜欢的兴趣，并想方设法
                 将兴趣和自己的工作相结合，亦或是出来做自己喜欢的创业项目。
 
-            他的学习方法和思维模式
+            他的学习方法和思维模式 -<
 
             :   在 TED 的采访中，他坦言自己最赞同的思维模式是 “First principle
                 thinking”。 “First principle thinking” 的详细解释和如何运用我会在另
@@ -785,20 +790,21 @@ title: Notes 2
 
 [Image Optimization Part 2: Selecting the Right File Format](http://yuiblog.com/blog/2008/11/04/imageopt-2/)
 
-[比较下中国大陆和香港之间的个税差异 - 老赵点滴 - 追求编程之美](http://blog.zhaojie.me/2013/07/china-hongkong-taxing-comparison.html)
+[比较下中国大陆和香港之间的个税差异 - 老赵点滴 - 追求编程之美](http://blog.zhaojie.me/2013/07/china-hongkong-taxing-comparison.html) -<
 
 :   至于其他开销，由于已经去除了差距最大的“房租”部分，我个人并不认为大陆一线大
-    城市（北京、上海、深圳）与香港相比有明显差距，更何况在某些方面，例如电子产品，
-    手机费，宽带费，还有女性日常所需的化妆品保养品等方面，香港似乎都还比大陆便宜不
-    少。
+    城市（北京、上海、深圳）与香港相比有明显差距，更何况在某些方面，例如电子产
+    品，手机费，宽带费，还有女性日常所需的化妆品保养品等方面，香港似乎都还比大
+    陆便宜不少。
 
-    因此我认为，假如您的收入较高（例如年入超过60w人民币），不如考虑下在香港发展的机会。
+    因此我认为，假如您的收入较高（例如年入超过 60w 人民币），不如考虑下在香港发
+    展的机会。
 
 [理查德·汉明《你和你的研究》 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2016/04/you-and-your-research.html)
 
 [Rule of thumb - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Rule_of_thumb)
 
-[partitioning - How to enable exFAT in Ubuntu 14.04 - Ask Ubuntu](http://askubuntu.com/questions/451364/how-to-enable-exfat-in-ubuntu-14-04)
+[partitioning - How to enable exFAT in Ubuntu 14.04 - Ask Ubuntu](http://askubuntu.com/questions/451364/how-to-enable-exfat-in-ubuntu-14-04) -<
 
 :   ```
     Error mounting /dev/sdb1 at /media/tzx/Lubuntu: Command-line `mount -t "exfat"
@@ -813,7 +819,7 @@ title: Notes 2
     sudo mount -t exfat /dev/sdxx /media/exfat
     ```
 
-[在宿舍写代码总被一个室友认为在装逼，该怎么办？ - 知乎](https://www.zhihu.com/question/30362260)
+[在宿舍写代码总被一个室友认为在装逼，该怎么办？ - 知乎](https://www.zhihu.com/question/30362260) -<
 
 :   大多数时候所谓合群，都渐渐成了平庸。如果大家原本就不一样，保持不一样就挺好。
 
@@ -824,7 +830,7 @@ title: Notes 2
 
     我回应着说：我不是文人，我是骚客。
 
-    [程序员到底有多累、多辛苦？ - 知乎](https://www.zhihu.com/question/39813913)
+    [程序员到底有多累、多辛苦？ - 知乎](https://www.zhihu.com/question/39813913) -<
 
     :   中铁大桥局，执全球桥梁工程牛耳，云南普立大桥，当前全球第一高桥。现场资
         深建筑工程师，住工程房，餐风宿雪，一年回不了几次家，月收入不足两万。
@@ -918,11 +924,11 @@ title: Notes 2
 
 [姚氏教学法成功案例分析](http://yanyiwu.com/work/2015/12/19/yao-style-leadership.html)
 
-[假如真的有寒冬](http://yanyiwu.com/work/2015/09/05/if-the-winter-is-coming.html)
+[假如真的有寒冬](http://yanyiwu.com/work/2015/09/05/if-the-winter-is-coming.html) -<
 
 :   互联网的价值是什么？ 我认为是效率，互联网公司具有传统公司不具备的高效率。
 
-[影响我一生的两个选择](http://yanyiwu.com/life/2014/10/11/choices-change-my-life.html)
+[影响我一生的两个选择](http://yanyiwu.com/life/2014/10/11/choices-change-my-life.html) -<
 
 :   在大三的时候我过去北大互联网实验室实习，是想使用自己的保送研究生的资格保送
     到北大读研究生。 可惜后来保送北大落选（最后保送到北邮的网络研究院，也就是去
@@ -945,7 +951,7 @@ title: Notes 2
     屡试不爽。 今年刚听说一个本科和我一起组队搞北邮 ACM 校赛的学长，也是这么干
     的，然后也是顺理成章拿到了谷歌美国的 offer。
 
-[如何成为内在动机驱使的人？ - 阳志平的网志](http://www.yangzhiping.com/psy/YangQ&A-SelfDetermination.html)
+[如何成为内在动机驱使的人？ - 阳志平的网志](http://www.yangzhiping.com/psy/YangQ&A-SelfDetermination.html) -<
 
 :   之后，放弃了学术康庄大路，走上了创业林萌小路。十来年，我一直在心理学这个狭
     小领域工作，看着全国高校心理系数量从我就读时的二十个扩张为两百个；看着心理
@@ -959,7 +965,7 @@ title: Notes 2
     自己一个人技术宅下去是不是足够有趣……当然地球已经是平的了，能做到什么地步还
     是靠自己。
 
-[Lu Wang's Page](http://coolwanglu.github.io/)
+[Lu Wang's Page](http://coolwanglu.github.io/) -<
 
 :   His name is written as 王璐 in Chinese.
 
@@ -1318,7 +1324,7 @@ title: Notes 2
 
 [信息时代的独立阅读者（一）：内心的小声音](http://mp.weixin.qq.com/s?__biz=MzIzNTA4ODA2Ng==&mid=2247483654&idx=1&sn=13f7b4190ae3a6eaa14ee38fd2ec5810&scene=0#wechat_redirect) -<
 
-:   没有什么路是躺着走出来的。
+:   **没有什么路是躺着走出来的。**
 
     独立思考，从来都是一种人格，而不是一门技术。敢于在汹涌的外部声音中站定，并仍然
     听得到内心的小声音。敢于在冲突的湍流中抚摸逻辑链中最微妙的环节，品咂思维和情感
@@ -1336,7 +1342,7 @@ title: Notes 2
     阶层固化仍在继续，好大学仍然无比重要，因为阻挡人的成长的力量来自心智内部——再多/
     好的外部资源，心智不解锁，仍然是无法受用的
 
-[網誌 - BYVoid](https://www.byvoid.com/zht/blog/tag/C++)
+[網誌 - BYVoid](https://www.byvoid.com/zht/blog/tag/C++) -<
 
 :   幾天以來還認識了不少同學，水平都遠超過我。從前在七中的時候，我有一種登峰造
     極的幻覺，因爲沒有人能與我的水平匹敵，可是來到這個培訓班卻發現，原來僅僅在
@@ -1382,13 +1388,13 @@ title: Notes 2
     全球化，反對政府擴張、福利主義及民粹主義。支持大城市、核電站、集約化養殖、
     轉基因作物，反對有機農業，反對「人類活動導致氣候變化說」。
 
-[全栈工程师、极客和领导者 · BlahGeek's Blog](https://blog.blahgeek.com/fullstack-and-geek/)
+[全栈工程师、极客和领导者 · BlahGeek's Blog](https://blog.blahgeek.com/fullstack-and-geek/) -<
 
 :   我只是为自己又一次成为了曾经的自己不想成为的人而悲伤。
 
 [標籤](https://www.byvoid.com/blog/tag)
 
-[我不和運氣差的人合作，嗎？ - Tzeng Yuxio](http://tzengyuxio.me/blog/2012/04/11/to-hire-lucky-or-unlucky-its-a-question/)
+[我不和運氣差的人合作，嗎？ - Tzeng Yuxio](http://tzengyuxio.me/blog/2012/04/11/to-hire-lucky-or-unlucky-its-a-question/) -<
 
 :   吾少也賤，故多能鄙事。
 
@@ -1409,7 +1415,7 @@ title: Notes 2
     經驗或作品上。而不是看著履歷表上洋洋灑灑一大堆與適任與否無關的資訊或情報。
 
 
-[Your Brain is 60% Female, 40% Male](http://www.blogthings.com/whatgenderisyourbrainquiz/results/?result=60)
+[Your Brain is 60% Female, 40% Male](http://www.blogthings.com/whatgenderisyourbrainquiz/results/?result=60) -<
 
 :   -   You tend to notice when someone has poor etiquette
 
@@ -1480,9 +1486,12 @@ title: Notes 2
 
 [怎样更有技巧的做一个话题终结者（聊天狗带百用指南） - 简书](http://www.jianshu.com/p/e7ee8529a39a)
 
-[什么时候会有「这 TM 都是套路」的体验？ - 知乎](https://www.zhihu.com/question/47315089#answer-43298758)
+[什么时候会有「这 TM 都是套路」的体验？ - 知乎](https://www.zhihu.com/question/47315089#answer-43298758) -<
 
-:   |   大学毕业去青海旅游，包车去青海湖的路上有一个叫日月山的景点，我们也就顺道上去看看，在山顶刚停好车便有几个卖那种藏式披肩的商人围了上来。于是我和一位卖披肩的商人发生了以下让我一生难忘的对话：
+:   |   大学毕业去青海旅游，包车去青海湖的路上有一个叫日月山的景点，我们也就顺
+    |   道上去看看，在山顶刚停好车便有几个卖那种藏式披肩的商人围了上来。于是我和一位卖
+    |   披肩的商人发生了以下让我一生难忘的对话：
+    |
     |   “小伙子，要不要披肩啊！”
     |   “多钱啊大叔。”
     |   “300一条。”
@@ -1509,9 +1518,9 @@ title: Notes 2
 
 [你认为最优美的数据结构是什么，理由又是什么？ - 知乎](https://www.zhihu.com/question/32163076)
 
-[王路：英语，内向，坑](https://www.douban.com/note/568781129/)
+[王路：英语，内向，坑](https://www.douban.com/note/568781129/) -<
 
-：  当时英语角也很火。去英语角的人一般有两种目的，很难分清是为了练口语还是为了泡妞
+:   当时英语角也很火。去英语角的人一般有两种目的，很难分清是为了练口语还是为了泡妞
     撩汉。颜值高的人，无论口语多么蹩脚，总有异性来搭讪。如果颜值平平，口语却很好，
     也会围来一圈人。因为有了选择的余地，他往往跟异性聊得更热，对其他人只勉强敷衍两
     句。那些口语又烂，颜值又不高的人，在英语角里总是被冷落的角色，一个晚上都在看别
@@ -1540,12 +1549,12 @@ title: Notes 2
 
 
     只要结果好，先斩后奏的行为都会在事后得到原谅，乃至赞许和奖励，一如《寻路中
-    国》中所说的那样，在中国，人们发现事后求得谅解要比事先得到许可容易得多。
+    国》中所说的那样，**在中国，人们发现事后求得谅解要比事先得到许可容易得多。**
 
     如果老有人插队，又无人维持秩序并制止这些行为，那势必造成的一个后果便是：老
     实排队的那些人反而吃亏了。
 
-[古戈](https://www.douban.com/people/starlv/)
+[古戈](https://www.douban.com/people/starlv/) -<
 
 :   不要再问我是男是女了。如果你喜欢女生，我就是男的；如果你喜欢男生，我就是女的；
     如果你既喜欢女生又喜欢男生，那我就是小狗，汪汪汪。如果你连小狗都喜欢，那我就是
@@ -1553,7 +1562,7 @@ title: Notes 2
 
     [装睡的人永远叫不醒](https://www.douban.com/note/261096603/)
 
-[全世界最美丽女科学家——CDMA之母海蒂小姐](https://www.douban.com/note/205856206/)
+[全世界最美丽女科学家——CDMA 之母海蒂小姐](https://www.douban.com/note/205856206/)
 
 [为什么我们公司的程序员那么拽？ - 知乎](https://www.zhihu.com/question/31243834)
 
@@ -1569,10 +1578,10 @@ title: Notes 2
 
     而这无形之中带给了我们相当大的心理压力。因此不到万不得已，我们不会向父母开口。
 
-    >   When you don't create things, you become defined by your tastes rather
-    >   than ability. Your tastes only narrow & exclude people. So create.
+    >   When you don't create things, you become **defined by your tastes rather
+    >   than ability**. Your tastes only narrow & exclude people. So create.
     >
-    >   --why the luck stuff «http://whymirror.github.io/»
+    >   --why the luck stuff «<http://whymirror.github.io/>»
 
     不知不觉已经远程工作两年多了。两年中，1/3 的时间工作赚钱，1/3 的时间阅读学
     习，1/3 的时间打把撒欢——随心所欲创造一些玩具而已。
@@ -1581,9 +1590,10 @@ title: Notes 2
 
 [Comic strip - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Comic_strip)
 
-情商智商正常的人，即便观点不和，为了共同利益也还是会与你合作，但是傻逼只会想办法把你拉到跟他一样的水平，然后用丰富的经验打败你。
+情商智商正常的人，即便观点不和，为了共同利益也还是会与你合作，但是傻逼只会想办
+法把你拉到跟他一样的水平，然后用丰富的经验打败你。
 
-[如何看待豆瓣小组「Anti-Parents 父母皆祸害」？ - 知乎](https://www.zhihu.com/question/20326426)
+[如何看待豆瓣小组「Anti-Parents 父母皆祸害」？ - 知乎](https://www.zhihu.com/question/20326426) -<
 
 :   -   在中国，亲情是一种宗教。子女只有接受的义务，没有证明或证伪的权利。
     -   对那些曾经被自己的父母亲逼得走投无路的孩子们来说，这个小组是他们最后的
@@ -1604,7 +1614,7 @@ title: Notes 2
 
 [About - Jaylee](https://www.jaylee.cc/about.html)
 
-[把AI逻辑推理提高100倍的青年是如何炼成的 - 今日头条(TouTiao.com)](http://toutiao.com/i6314159853078053378/)
+[把 AI 逻辑推理提高 100 倍的青年是如何炼成的 - 今日头条 (TouTiao.com)](http://toutiao.com/i6314159853078053378/)
 
 [姑娘，你没男朋友不是因为你不美。 - 简书](http://www.jianshu.com/p/82be46a270fa)
 
@@ -1626,21 +1636,22 @@ title: Notes 2
 
     本文里面所谓的优雅女人，不也就这么点出息么。呵呵。
 
-    和这个 [“名媛培训班”的虚拟与现实：两三天花费数万，高喊我是女王_澎湃人物_澎湃新闻-The Paper](http://m.thepaper.cn/newsDetail_forward_1524473)，不谋而合：
+    和这个 [“名媛培训班”的虚拟与现实：两三天花费数万，高喊我是女王_澎湃人物_澎
+    湃新闻-The Paper](http://m.thepaper.cn/newsDetail_forward_1524473)，不谋而合：
 
     >   -   来这里培训的不是企业家就是企业家夫人，家里很有钱，却不知道怎么**变得优雅**。
     >   -   学员石秋身材高挑，上身穿一字漏肩雪纺衣，搭配一件一步裙，“有点小性感，有
-            点甜美，还有一点职业。”她笑着评价自己。
+    >       点甜美，还有一点职业。”她笑着评价自己。
     >   -   石秋说自己毕业于上海的一所大学，因出身农村而自卑，抱着拓展人脉的目的上
-            培训班，“或者就为了找一种感觉。我以前挺不自信，感觉身边的朋友都很优秀。”
+    >       培训班，“或者就为了找一种感觉。我以前挺不自信，感觉身边的朋友都很优秀。”
     >   -   以前，束丽芬喜欢买名牌包，“现在我宁愿花两三万去做一次超声刀，水光针，保
-            养一次皮肤。花10万块钱做一次血液净化，肝脏排毒。这样我内部所有的器官很
-            年轻，**又回到了二三十岁的时候样子**，我的生命是生生不息的。我想做赵雅芝那
-            样子的不老女神。”
+    >       养一次皮肤。花10万块钱做一次血液净化，肝脏排毒。这样我内部所有的器官很
+    >       年轻，**又回到了二三十岁的时候样子**，我的生命是生生不息的。我想做赵雅芝那
+    >       样子的不老女神。”
     >   -   “虽然现在很多女性被叫做女汉子，但实际上女汉子还是带有对女性的贬义，男人
-            还是希望女性更像女性。喜欢那种不是那么强势不是那么强大，在穿衣打扮上都
-            会更展露女性气质的一面（的女性）在中国社会科学院社会学研究所家庭与性别
-            研究室副主任马春华看来，这正是这类名媛培训班存在的**社会土壤**。
+    >       还是希望女性更像女性。喜欢那种不是那么强势不是那么强大，在穿衣打扮上都
+    >       会更展露女性气质的一面（的女性）在中国社会科学院社会学研究所家庭与性别
+    >       研究室副主任马春华看来，这正是这类名媛培训班存在的**社会土壤**。
 
 [知乎的广播](https://site.douban.com/120771/status/1886597152/) -<
 
@@ -1655,7 +1666,7 @@ title: Notes 2
 
     [近视的人如何改善视力？ - 眼镜有点道 - 知乎专栏](https://zhuanlan.zhihu.com/p/19819871)
 
-[如何评价王健林「先定一个能达到的小目标，比方说我先挣它一个亿」 刷爆朋友圈？ - 暗涌的回答 - 知乎](https://www.zhihu.com/question/50126427/answer/119858578?utm_campaign=weekly230&utm_source=weekly-digest&utm_medium=email)
+[如何评价王健林「先定一个能达到的小目标，比方说我先挣它一个亿」 刷爆朋友圈？ - 暗涌的回答 - 知乎](https://www.zhihu.com/question/50126427/answer/119858578?utm_campaign=weekly230&utm_source=weekly-digest&utm_medium=email) -<
 
 :   学渣问学霸：“数学怎样才能考 148 分？”学霸淡定答：“填错一个选择题就行了。”
 
@@ -1722,7 +1733,7 @@ title: Notes 2
 
 [小马哥终于扬眉吐气了，碾压百度，脚踩马云，越中国移动，终登顶 - 今日头条(TouTiao.com)](http://toutiao.com/a6326768234532012289/)
 
-[迷妹是什么意思？ - 知乎](https://www.zhihu.com/question/28905081)
+[迷妹是什么意思？ - 知乎](https://www.zhihu.com/question/28905081) -<
 
 :   迷妹,就是粉丝的另外一种称呼。
 
@@ -1738,7 +1749,7 @@ title: Notes 2
 
 [程序员们， 来说说站立式电脑桌吧？ - V2EX](https://www.v2ex.com/t/305014#reply30)
 
-[我就是讨厌人多 - 简书](http://www.jianshu.com/p/699557a122ba)
+[我就是讨厌人多 - 简书](http://www.jianshu.com/p/699557a122ba) -<
 
 :   你又有多少次，见到一堆人在饭局上讨论南海争端，一个比一个了解得多，这个人的
     老乡是国防部的，那个人的舅是国务院的，什么党派纷争，什么政治矛盾一个比一个
@@ -1748,7 +1759,7 @@ title: Notes 2
 
 [各大彩妆、护肤品牌英语怎么读？](http://mp.weixin.qq.com/s?__biz=MjM5OTMwMjYyMw==&mid=2651790425&idx=1&sn=3bba34d900d1b09544fb337aa7ec88c6&scene=0#wechat_redirect)
 
-[英语指导](http://mp.weixin.qq.com/s?__biz=MzI4MzExMDU1Nw==&mid=502374246&idx=1&sn=716b711a9fe05f3a7d0fa445dc6c5925&scene=18#wechat_redirect)
+[英语指导](http://mp.weixin.qq.com/s?__biz=MzI4MzExMDU1Nw==&mid=502374246&idx=1&sn=716b711a9fe05f3a7d0fa445dc6c5925&scene=18#wechat_redirect){.hearts} -<
 
 :   [你是如何将词汇量提升到 2 万，甚至 3 万的？ - 知乎](https://www.zhihu.com/question/26814125)
 
@@ -1811,7 +1822,7 @@ title: Notes 2
 
     [最好的伴侣之间需要一点“欺骗”｜研究说：拥有以下6个特点的伴侣比较容易幸福 - Know Yourself - 知乎专栏](https://zhuanlan.zhihu.com/p/20641504?refer=knowyourself)
 
-    [研究：怎样才能睡得更好？｜睡眠正在成为全人类的难题 - Know Yourself - 知乎专栏](https://zhuanlan.zhihu.com/p/22366741?refer=knowyourself)
+    [研究：怎样才能睡得更好？｜睡眠正在成为全人类的难题 - Know Yourself - 知乎专栏](https://zhuanlan.zhihu.com/p/22366741?refer=knowyourself) -<
 
     :   ASMR 自主感官刺激反应
 
@@ -1824,7 +1835,7 @@ title: Notes 2
         直接在我的大脑皮层上按摩一样。”（今天的文首音频中我们插入了一段 ASMR, 你可
         以听听感受一把）
 
-    [研究：什么是内向者专属的“社交宿醉”？｜一份写给内向者的社交指南 - Know Yourself - 知乎专栏](https://zhuanlan.zhihu.com/p/22344910?refer=knowyourself)
+    [研究：什么是内向者专属的“社交宿醉”？｜一份写给内向者的社交指南 - Know Yourself - 知乎专栏](https://zhuanlan.zhihu.com/p/22344910?refer=knowyourself) -<
 
     :   2016 年的新研究指出，对于一些内向者来说，如果经历了太大强度的社交，他们真的会像
         喝多了酒一样，出现“宿醉”般的体验。Courter 提出，“社交宿醉”（social hangover）指
@@ -2247,7 +2258,7 @@ title: Notes 2
 
     他当时那神情很坦诚，又有点无奈。我当时心里有点酸酸的。
 
-    雷军的成功学怎么写？努力努力再努力，优秀优秀更优秀。
+    **雷军的成功学怎么写？努力努力再努力，优秀优秀更优秀。**
 
     雷军的成功是什么，从小努力学习，考上武大，大学仍然是学霸，入学第一天就上晚
     自习，大一就开始做微小的工作，编写的 pascal 程序被编入第二年的教材，汇编考
@@ -2286,18 +2297,22 @@ title: Notes 2
 
 教会的人: "可是，信了基督教后，你的生活真的会变美好！耶稣会在你心里，让你觉得充满爱和勇气。
 
-老太太：“我觉得宗教就像男人的鸡鸡, 你可以有，可以为之骄傲，但自己觉得再了不起，也别在公共场合分享炫耀”。
+老太太：“我觉得宗教就像男人的鸡鸡, 你可以有，可以为之骄傲，但自己觉得再了不起，也别在公共场合分享炫耀”。 -<
 
+:   特此献上他们之间的英文对话，原版更精彩！
 
-特此献上他们之间的英文对话，原版更精彩！
+    Christian," Madam, do you know that God is omnipresent?
 
-Christian," Madam, do you know that God is omnipresent?
+    Old lady, "Would you please tell God, he needs to back off a little, I need
+    some personal space."
 
-Old lady, "Would you please tell God, he needs to back off a little, I need some personal space."
+    Christain,"But you know, if you believe in God, your life will be so much
+    better! God will be in your heart, and you will always feel the love and
+    courage in you.
 
-Christain,"But you know, if you believe in God, your life will be so much better! God will be in your heart, and you will always feel the love and courage in you.
-
-Old lady, "I think religion is like a cock. It's ok to have one, it's ok to be pround of it, but even if you think it's incredible, you'd better keep it to yourself and never, ever whip it out in public.”
+    Old lady, **"I think religion is like a cock. It's ok to have one, it's ok to
+    be pround of it, but even if you think it's incredible, you'd better keep
+    it to yourself and never, ever whip it out in public.”**
 
 如果答主是女生，说自己交往过几十个外国男生，不知评论区又是何种景象…… -<
 
@@ -2427,13 +2442,16 @@ Old lady, "I think religion is like a cock. It's ok to have one, it's ok to be p
 
 观众不允许传奇人物开车上辅路。就像不允许梁山好汉啃鸡腿，喝面条，只允许他们吃牛肉。如果鲁智深见到郑屠，说掌柜的，来碗小鸡炖蘑菇，观众就不答应了。
 
-这就叫阶层：代表着受到的教育，接触到的信息，能触及的圈子完全不同。而以上三点，是影响赚钱的最大因素。
+**这就叫阶层：代表着受到的教育，接触到的信息，能触及的圈子完全不同。而以上三点，是影响赚钱的最大因素。**
 
-当你发现马化腾的父亲是盐田港公司上市董事，97年的时候开着奔驰给马化腾做账。柳传志的父亲是人民银行，国贸委高层。王石岳父是广东省副省长时。
+当你发现马化腾的父亲是盐田港公司上市董事，97年的时候开着奔驰给马化腾做账。柳传
+志的父亲是人民银行，国贸委高层。王石岳父是广东省副省长时。
 
 说句残酷的：如果你走出校门步入社会，开始想怎么出人头地而不是投资自己持续学习，等待你的一定是悲剧。
 
-在人人自危的时代，他不应当因为选择了过不动感情的犬儒式的冷漠生活....不问世事的生活而受到责备....身为政府的批评者，一个人越是沉沦放荡，他就越无害；他越是无害，政府就越喜欢；政府越喜欢，他就越安全。——林语堂
+在人人自危的时代，他不应当因为选择了过不动感情的犬儒式的冷漠生活....不问世事的
+生活而受到责备....身为政府的批评者，一个人越是沉沦放荡，他就越无害；他越是无害，
+政府就越喜欢；政府越喜欢，他就越安全。——林语堂
 
 [Solidot | 伦敦警方指控一名ISIS嫌疑犯使用加密](http://www.solidot.org/story?sid=49990)
 
@@ -2454,14 +2472,14 @@ SSL 加密保护，就和今天的无数网站一样。
 
 [小李子在艾伦秀上大谈自己死里逃生的一次经历！心疼小李！！_明星_娱乐_bilibili_哔哩哔哩弹幕视频网](http://www.bilibili.com/video/av3566907/)
 
-[Usage · Zeal](https://zealdocs.org/usage.html)
+[Usage · Zeal](https://zealdocs.org/usage.html) -<
 
 :   -   添加文档：Tools -- Docsets
     -   搜索："keywords" 或者 "java:println"
 
 groupid 通常填自己的域名反写，architectid 填工程名称。
 
-[Open-source software - Wikipedia](https://en.wikipedia.org/wiki/Open-source_software)
+[Open-source software - Wikipedia](https://en.wikipedia.org/wiki/Open-source_software) -<
 
 :   Open-source software (OSS) is computer software with its source code made
     available with a license in which the copyright holder provides the rights to
@@ -2477,7 +2495,7 @@ Babel 是一个 JavaScript 预处理器的基础设施，虽然本身为 es6 而
 -   n. 预调装置
 -   adj. 预先装置的；预先调整的
 
-```
+```javascript
 <script src="//http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
 <script>
 if (!window.jQuery) {
@@ -2488,29 +2506,30 @@ if (!window.jQuery) {
 </script>
 ```
 
-"冻蒜"是闽南语"当选"的发音，通常用於选举及竞选期间， 如："XXX 冻蒜!"。
+"冻蒜"是闽南语"当选"的发音，通常用於选举及竞选期间， 如："XXX 冻蒜!"。 -<
 
-民进党 2014 年 3 月 21 日动员包围台湾“立法院”声援学生，但苏贞昌在“立院”高喊“冻
-蒜”，惨遭痛批。台湾媒体刊文分析说，立法机构内的抗议活动席卷台湾政坛，也让民进党
-主席改选兴起波澜。
+:   民进党 2014 年 3 月 21 日动员包围台湾“立法院”声援学生，但苏贞昌在“立院”高喊“冻
+    蒜”，惨遭痛批。台湾媒体刊文分析说，立法机构内的抗议活动席卷台湾政坛，也让民进党
+    主席改选兴起波澜。
 
-这个世界就是罗生门，没有真相，只有立场。一切真相都是宣传，很多真理和真相的理解都是靠宣传才被人接受的。既然都是流氓，谁也别看不上谁。
+    这个世界就是罗生门，没有真相，只有立场。一切真相都是宣传，很多真理和真相的
+    理解都是靠宣传才被人接受的。既然都是流氓，谁也别看不上谁。
 
-我屮艸芔茻……
+    我屮艸芔茻……
 
-关于为什么说中国学生要特别标注不含台湾人：班上有四个，成绩差、中下、中下、中上，算上他们影响我装逼。
+    关于为什么说中国学生要特别标注不含台湾人：班上有四个，成绩差、中下、中下、中上，算上他们影响我装逼。
 
-1 欧元 (EUR)=7.3621 人民币元
-1 人民币元 =0.1358 欧元
+    1 欧元 (EUR)=7.3621 人民币元
+    1 人民币元 =0.1358 欧元
 
-1 美元 (USD)=6.7654 人民币元
-1 人民币元 (CNY)=0.1478 美元
+    1 美元 (USD)=6.7654 人民币元
+    1 人民币元 (CNY)=0.1478 美元
 
-1 新台币 (TWD)=0.2131 人民币元
-1 人民币元 =4.6936 新台币
+    1 新台币 (TWD)=0.2131 人民币元
+    1 人民币元 =4.6936 新台币
 
-1 日元 (JPY)=0.0652 人民币元
-1 人民币元 =15.3428 日元
+    1 日元 (JPY)=0.0652 人民币元
+    1 人民币元 =15.3428 日元
 
 经常看这些对大脑发育不好
 
@@ -2527,9 +2546,9 @@ many as tens of times per day.
 
 17、张艺谋缴清全额超生罚款后，中国政府允许鼓励生二胎。
 
-中国也不会过分，不会进攻人家的基本地盘，只是在争议地区挤来挤去，而且只摩擦不开
-火。天长日久，东亚地区就是中国控场了。相关国家民众有了心理预期，内心自暴自弃地
-觉得抗争无益。慢慢也觉得，虽然中国威慑很厉害，但并没有真大打出手，如果不争了，
+中国也不会过分，不会进攻人家的基本地盘，只是在争议地区挤来挤去，而且**只摩擦不开火**。
+天长日久，东亚地区就是中国控场了。**相关国家民众有了心理预期，内心自暴自弃地觉得抗争无益。**
+慢慢也觉得，虽然中国威慑很厉害，但并没有真大打出手，如果不争了，
 基本的安全还是有的，而且也能经济合作，不如合作拉倒。
 
 今天微博市值超越Twitter。我预言十年内中国人工智能工业超越美国(专利数，市值)，谁相信？
@@ -2551,10 +2570,13 @@ premium，`['primɪəm]`
 告诉各位，新一年的保险 enrollment 季到了，非常及时的赶在投票日之前。
 给大家看看什么是真正的 silent majority
 
-近期面试上百小伙伴。几点小感触：1）虽然今天是一个强科学主义时代，但多数人最缺的
-依然是「科学训练」，太民科太民哲太鸡血，可能是通病；2）听说读写等基础技能，比所
-学专业重要得多；3）资深的高级人才也不一定靠谱，在一个新职业新行业层出不穷的时代，
-我更愿意与年轻的学习机器同行。
+近期面试上百小伙伴。几点小感触： -<
+
+:   -   1）虽然今天是一个强科学主义时代，但多数人最缺的
+        依然是「科学训练」，太民科太民哲太鸡血，可能是通病；
+    -   2）听说读写等基础技能，比所学专业重要得多；
+    -   3）资深的高级人才也不一定靠谱，在一个新职业新行业层出不穷的时代，
+        我更愿意与年轻的学习机器同行。
 
 [AI领域，中国人/华人有多牛？](http://mp.weixin.qq.com/s?__biz=MzA5NjM1MDI5Mg==&mid=2652283522&idx=1&sn=1d6979db2b913059896f92f331f9e073&chksm=8b537bb9bc24f2afe0b53a1a8e7619b4caa8d344219cd0829384ef20d800873cf7f6418d14ba&mpshare=1&scene=2&srcid=1017ue1utHPFxZOMRLr4mkpi&from=timeline&isappinstalled=0#wechat_redirect)
 
@@ -2610,9 +2632,9 @@ Sumatra 用 Alt-Left/Right 来跳转视图。
 
 [革新设计的传送带。👍 👍 👍 . 来自西城SQL - 微博](http://weibo.com/1864241383/EemnygIZS?type=comment)
 
-[Peter Thiel will donate $1.25M to the Trump campaign, despite the latest controversies | TechCrunch](https://techcrunch.com/2016/10/16/peter-thiel-will-donate-1-25m-to-the-trump-campaign-despite-the-latest-controversies/)
+[Peter Thiel will donate $1.25M to the Trump campaign, despite the latest controversies | TechCrunch](https://techcrunch.com/2016/10/16/peter-thiel-will-donate-1-25m-to-the-trump-campaign-despite-the-latest-controversies/) -<
 
-:   Peter Thiel will donate $1.25M to the Trump campaign, despite the latest controversies
+:   Peter Thiel will donate $1.25M to the Trump campaign, despite the latest controversies.
 
 [bash - List all binaries from $PATH - Unix & Linux Stack Exchange](http://unix.stackexchange.com/questions/120786/list-all-binaries-from-path)
 
@@ -2687,17 +2709,21 @@ readyState":0,"status":0,"statusText":"NS_ERROR_DOM_BAD_URI: Access to restricte
 
 [How do I load an url in iframe with Jquery - Stack Overflow](http://stackoverflow.com/questions/7177080/how-do-i-load-an-url-in-iframe-with-jquery)
 
+```javascript
 $("#button").click(function () {
     $("#frame").attr("src", "http://www.example.com/");
 });
+```
 
 HTML:
 
- <div id="mydiv">
-     <iframe id="frame" src="" width="100%" height="300">
-     </iframe>
- </div>
- <button id="button">Load</button>
+```html
+<div id="mydiv">
+    <iframe id="frame" src="" width="100%" height="300">
+    </iframe>
+</div>
+<button id="button">Load</button>
+```
 
 [《疯狂的麦克斯4:狂暴之路》超长幕后拍摄花絮—在线播放—优酷网，视频高清在线观看](http://v.youku.com/v_show/id_XOTU2MjU5MDY4.html)
 
@@ -2705,12 +2731,12 @@ HTML:
 
 [算法数据结构中有哪些奇技淫巧？ - 罗必成的回答 - 知乎](https://www.zhihu.com/question/33776070/answer/58139596)
 
-[算法数据结构中有哪些奇技淫巧？ - 宋方睿的回答 - 知乎](https://www.zhihu.com/question/33776070/answer/59329153)
+[算法数据结构中有哪些奇技淫巧？ - 宋方睿的回答 - 知乎](https://www.zhihu.com/question/33776070/answer/59329153) -<
 
 :   宋方睿 Ray
-      ~ 清华大学计算机系学生，热衷于参加算法、安全、超算等比赛，喜欢网页前端，《Haskell趣学指南》译者。
+      ~ 清华大学计算机系学生，热衷于参加算法、安全、超算等比赛，喜欢网页前端，《Haskell 趣学指南》译者。
     参赛感言：
-      ~ 我是抱着学习的态度来长见识的。
+      ~ **我是抱着学习的态度来长见识的。**
 
     ![](http://netsecurity.51cto.com/secu/Blue-Lotus2014/images/songfr.jpg)
 
@@ -2742,9 +2768,10 @@ joel
 
 ![](https://img1.doubanio.com/view/status/median/public/5c990d5d3d9232c.jpg)
 
->   If you have always believed that everyone should play by the same rules and
->   be judged by the same standards, that would have gotten you labelled a
->   radical 60 years ago, a liberal 30 years ago and a racist today.
+>   If you have always believed that everyone should
+>   **play by the same rules and be judged by the same standards**,
+>   that would have gotten you labelled **a radical** 60 years ago,
+>   **a liberal** 30 years ago and **a racist** today.
 >
 >   -- Thomas Sowell
 
@@ -2782,12 +2809,11 @@ DS，我以为是大傻……原来是屌丝……
 
 [艾法 答过的问题 - 知乎](https://www.zhihu.com/people/ai-joe/answers?order_by=vote_num)
 
-经济强国必然科技崛起
+经济强国必然科技崛起 -<
 
 :   [数据给你一个真中国，崛起还是崩溃？附多国对比资料](http://mp.weixin.qq.com/s?__biz=MzI3MTM3ODg0OQ==&mid=2247484501&idx=1&sn=6cea2850f5f763aa98ef937fc5e5c7ca&chksm=eac3f49bddb47d8d2729a1a3fdbad2c2cf00a6e40724274c1675dffb9d852581304ffb471e7c&mpshare=1&scene=2&srcid=1028uM3PL9sXrSO2hpQ57dhh&from=timeline#wechat_redirect)
 
 scratch your own itch `[ɪtʃ]`
-
 
 flip `[flɪp]`
 
@@ -2833,7 +2859,7 @@ And there is a meta dogma for dogmas:
 
 supermarkit.online(未注册) 11月促销，首年仅3元！
 
-[Wal-Mart Using RFID to Monitor Vehicles at Its DCs - Page 1 - RFID Journal](http://www.rfidjournal.com/articles/view?3941)
+[Wal-Mart Using RFID to Monitor Vehicles at Its DCs - Page 1 - RFID Journal](http://www.rfidjournal.com/articles/view?3941) -<
 
 :   DC: Distribution Center
 
@@ -2852,36 +2878,34 @@ supermarkit.online(未注册) 11月促销，首年仅3元！
     single distribution center in late 2005, then rolled it out to a small
     group of DCs in 2006 and a third, larger one last year.
 
-http://whudoc.qiniudn.com/2016/TangZhixiong_WhatIs_20161106.pdf
+中山大学 -<
 
-中山大学
+:   Sun Yat-sen University, also known as Zhongshan University, is a public
+    university in Guangdong, People's Republic of China. It was founded in 1924 by
+    Sun Yat-sen, a revolutionary and the founding father of the Republic of China.
 
-Sun Yat-sen University, also known as Zhongshan University, is a public
-university in Guangdong, People's Republic of China. It was founded in 1924 by
-Sun Yat-sen, a revolutionary and the founding father of the Republic of China.
+    Former names
+      ~ National Guangdong University
+    Motto
+      ~ 博学、审问、慎思、明辨、笃行
 
-Former names
-  ~ National Guangdong University
-Motto
-  ~ 博学、审问、慎思、明辨、笃行
+    -   Sun Yat-sen University (SYSU)
+    -   广州
+    -   可以去查一下，逸仙这个名字，其实是从“日新”变过来的，粤语里面“日新”的读法就是 Yat-sen。
+    -   孙中山原名孙文，号逸仙。孙中山这个名字是某人(具体我也不知道)在整理其资料并
+        发表时临时对他的称呼，而不知怎么的就慢慢传开了。之所以叫中山，是因为孙文曾
+        经流亡日本时有个日本名字叫中山樵(姓中山，名樵，而中山在日本是个大姓)，孙中
+        山这个名字就取自这两个姓的合体，而孙文本人对这个称呼也是不认可的。所以，国
+        人称其为中山其实是不妥的，就像我们称反动派头子为蒋介石并不妥一样的道理，因
+        为老蒋名中正，字介石，而字号往往是对某人的尊称。这也是中山大学英文名不用中
+        山的原因。
 
--   Sun Yat-sen University (SYSU)
--   广州
--   可以去查一下，逸仙这个名字，其实是从“日新”变过来的，粤语里面“日新”的读法就是 Yat-sen。
--   孙中山原名孙文，号逸仙。孙中山这个名字是某人(具体我也不知道)在整理其资料并
-    发表时临时对他的称呼，而不知怎么的就慢慢传开了。之所以叫中山，是因为孙文曾
-    经流亡日本时有个日本名字叫中山樵(姓中山，名樵，而中山在日本是个大姓)，孙中
-    山这个名字就取自这两个姓的合体，而孙文本人对这个称呼也是不认可的。所以，国
-    人称其为中山其实是不妥的，就像我们称反动派头子为蒋介石并不妥一样的道理，因
-    为老蒋名中正，字介石，而字号往往是对某人的尊称。这也是中山大学英文名不用中
-    山的原因。
+    refs and see also
 
-refs and see also
-
--   [为什么中山大学的英文名叫 Sun Yat-Sen University？ - 知乎](https://www.zhihu.com/question/30450633)
--   [中山大学 SUN YAT-SEN UNIVERSITY](http://www.sysu.edu.cn/2012/cn/index.htm)
--   [Sun Yat-sen University - Wikipedia](https://en.wikipedia.org/wiki/Sun_Yat-sen_University)
--   [Sun Yat-sen - Wikipedia](https://en.wikipedia.org/wiki/Sun_Yat-sen)
+    -   [为什么中山大学的英文名叫 Sun Yat-Sen University？ - 知乎](https://www.zhihu.com/question/30450633)
+    -   [中山大学 SUN YAT-SEN UNIVERSITY](http://www.sysu.edu.cn/2012/cn/index.htm)
+    -   [Sun Yat-sen University - Wikipedia](https://en.wikipedia.org/wiki/Sun_Yat-sen_University)
+    -   [Sun Yat-sen - Wikipedia](https://en.wikipedia.org/wiki/Sun_Yat-sen)
 
 Principle & Principal
 
@@ -2898,7 +2922,7 @@ Principle & Principal
 
 [为什么远在地球另一端的中国，有很多人支持Trump？ - Tok Tik 的回答 - 知乎](https://www.zhihu.com/question/48943854/answer/130165101)
 
-[齐泽克：特朗普把我吓坏了，但希拉里才是真正的危险](http://www.guancha.cn/QiZeKe/2016_11_06_379616.shtml)
+[齐泽克：特朗普把我吓坏了，但希拉里才是真正的危险](http://www.guancha.cn/QiZeKe/2016_11_06_379616.shtml) -<
 
 :   齐泽克表示，每个社会都有一张用不成文的规则织成的网，比如政治是如何运作的、公众
     如何建立共识，特朗普打乱了这个规则。如果特朗普获胜，共和党和民主党都必须回到起
@@ -2908,26 +2932,29 @@ Principle & Principal
     美国走上独裁之路。而希拉里拉拢各派，建立了一个根本不可能存在的“联盟”，她是真正
     的顽固分子、冷战分子，她才是真正的危险。
 
-王朔和刘震云都是青年作家的时候，搞笔会，他们坐船去三峡。
+王朔和刘震云都是青年作家的时候，搞笔会，他们坐船去三峡。 -<
 
-刘震云：（第一天见到王朔）王朔老师，你得和我说说，我这好多天睡不着觉了，你小说怎么写这么好，你怎么想的？
+:   刘震云：（第一天见到王朔）王朔老师，你得和我说说，我这好多天睡不着觉了，你
+    小说怎么写这么好，你怎么想的？
 
-王朔：我写的好什么呀，你瞎说，你骂人。
+    王朔：我写的好什么呀，你瞎说，你骂人。
 
-刘震云：（第二天见到王朔）王朔老师，您还是说说吧，您怎么写的那么好，您当初怎么想到的，您说一点就行！
+    刘震云：（第二天见到王朔）王朔老师，您还是说说吧，您怎么写的那么好，您当初
+    怎么想到的，您说一点就行！
 
-王朔：……
+    王朔：……
 
-刘震云：（第三天见到王朔）王朔老师！您就说说吧，您就说一句都行，您怎么写出那么好的小说，您怎么想的？
+    刘震云：（第三天见到王朔）王朔老师！您就说说吧，您就说一句都行，您怎么写出那么好的小说，您怎么想的？
 
-王朔：其实一开始吧，我就是想……
+    王朔：其实一开始吧，我就是想……
 
-王朔刚说到这儿，还没来得及说完一句话呢，刘震云就指着王朔哈哈哈哈的笑了起来，意思就是你终于当真了。王朔说当时就有一头跳进三峡的心。
+    王朔刚说到这儿，还没来得及说完一句话呢，刘震云就指着王朔哈哈哈哈的笑了起来，
+    意思就是你终于当真了。王朔说当时就有一头跳进三峡的心。
 
 发布于 11:50
 
-1，选户口，然后找个高薪没有户口的女朋友结婚。
-2，选高薪，然后找个有户口的女朋友结婚。
+-   选户口，然后找个高薪没有户口的女朋友结婚。
+-   选高薪，然后找个有户口的女朋友结婚。
 
 二选一随便选，不要太纠结。
 
@@ -2937,7 +2964,7 @@ Principle & Principal
 
 [Papi 酱：我不能一直躲在舒适地带](http://weibo.com/ttarticle/p/show?id=2309404038901294621766#related)
 
-叫的再喧嚣的苍蝇，也是苍蝇，过的再狼狈的战士，也是战士。
+**叫的再喧嚣的苍蝇，也是苍蝇，过的再狼狈的战士，也是战士。**
 
 教口语应该先从三个人的小说开始看起，分别是 James Hadley Chase, John Grisham,
 Sidney Sheldon，这三位大师的作品几乎涵盖了你能想象到的所有口语用法，有的会奇怪
@@ -2954,12 +2981,10 @@ Sidney Sheldon，这三位大师的作品几乎涵盖了你能想象到的所有
 
 buff, 浅黄色；增益；增益效果
 
-http://whudoc.qiniudn.com/2016/SuperMarKit.pdf
-
 矩阵：中国人此刻应系好安全带，准备迎接川普当选可能会引发的冲击波了。
 
-阿男：目测接下来一大堆公知喷子即将来袭，比如：“别人的国家再怎么烂，也有选票啊”，还比如：“别人的国家选总统，和你有关系吗？” 老子看个美剧，关你屁事。
+阿男：目测接下来一大堆公知喷子即将来袭，比如：“别人的国家再怎么烂，也有选票啊”，
+还比如：“别人的国家选总统，和你有关系吗？” 老子看个美剧，关你屁事。
 
-么一凹喵：身处加州，真看不懂身边的人。说好的民主选举，结果没选到自己喜欢的总统又开始要游行，又要抗议，还说以后不能让没有大学文凭的人投票。真是民主专制下的暴民。
-
-http://whudoc.qiniudn.com/2016/Pamphlet.pdf
+么一凹喵：身处加州，真看不懂身边的人。说好的民主选举，结果没选到自己喜欢的总统
+又开始要游行，又要抗议，还说以后不能让没有大学文凭的人投票。真是民主专制下的暴民。
