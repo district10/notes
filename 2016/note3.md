@@ -1512,3 +1512,95 @@ Emojis from QQ history dir -<
 六级：70.1
 
 [首列中国造最高速动车组下线 铁道部长亲驾试车](https://zm8.sm-tc.cn/?src=http%3A%2F%2Fwww.chinanews.com%2Fcj%2Fkong%2Fnews%2F2008%2F04-11%2F1218367.shtml&uid=2bacf658f69ee51311b37a62abcf0e25&hid=fc573d784e8f906db53ed878b6a09e33&pos=1&cid=9&time=1479551718667&from=click&restype=1&pagetype=0000000000008402&bu=structure_web_info&query=%E5%88%98%E5%BF%97%E5%86%9B%E8%AF%95%E8%BD%A6&mode=&uc_param_str=dnntnwvepffrgibijbprsvdsei)
+
+[ConoHa控制面板](https://manage.conoha.jp/Dashboard)
+
+:   ssh root@133.130.124.160
+
+[『阿男闲聊』阿男的投资观（上）](https://www.douban.com/note/586107928/)
+
+[『阿男闲聊』阿男的投资观（下）](https://www.douban.com/note/586219658/)
+
+[『阿男闲聊』＊学这个东西，到底有什么用？＊](https://www.douban.com/note/590984170/)
+
+:   所以以后当你被问到，"学习这个东西有什么用？"，这种问题时，可以微笑着说："我可以回答这个问题，你有10分钟时间耐心听吗？"
+
+[『关于编程这件事，阿男想推荐的一些好书』＊学习汇编语言是万里之行第一步＊](https://www.douban.com/note/590636369/)
+
+:   汇编和硬件以及操作系统的耦合性。
+
+    汇编语言因为就是机器直接执行的机器码的一个简单映射，所以必然和具体的计算机的所有细节都有很强的相关性。
+
+[How (and Why) to Use Vertical, Tree Style Tabs in Your Web Browser](http://www.howtogeek.com/207887/how-to-use-vertical-tree-style-tabs-in-your-web-browser/)
+
+:   FireFox: [Tree Style Tab :: Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/)
+
+    Chrome: [Tabs Outliner](https://chrome.google.com/webstore/detail/tabs-outliner/eggkanocgddhmamlbiijnphhppkpkmkl?hl=en)
+
+    the dev: [XUL Apps > Tree Style Tab - outsider reflex](http://piro.sakura.ne.jp/xul/_treestyletab.html)
+
+http://www.clipconverter.cc
+
+[git-commit-emoji-cn/README.md at master · liuchengxu/git-commit-emoji-cn · GitHub](https://github.com/liuchengxu/git-commit-emoji-cn/blob/master/README.md)
+
+:   git commit emoji 使用指南
+    ==========================
+
+    ### commit 格式
+
+    git commit 时，提交信息遵循以下格式：
+
+    ```
+    :emoji1: :emoji2: 主题
+
+    提交信息主体
+
+    Ref <###>
+    ```
+
+    初次提交示例：
+
+    ```
+    git commit -m ":tada: Initialize Repo"
+    ```
+
+    ### emoji 指南
+
+    emoji                                   | emoji 代码                   | commit 说明
+    :--------                               | :--------                    | :--------
+    :art: (调色板)                          | `:art:`                      | 改进代码结构/代码格式
+    :zap: (闪电)                            | `:zap:`                      | 提高性能
+    :fire: (火焰)                           | `:fire:`                     | 移除代码或文件
+    :bug: (bug)                             | `:bug:`                      | 修复 bug
+    :ambulance: (急救车)                    | `:ambulance:`                | 重要补丁
+    :sparkles: (火花)                       | `:sparkles:`                 | 引入新功能
+    :memo: (备忘录)                         | `:memo:`                     | 撰写文档
+    :rocket: (火箭)                         | `:rocket:`                   | 部署功能
+    :lipstick: (口红)                       | `:lipstick:`                 | 更新 UI 和样式文件
+    :tada: (庆祝)                           | `:tada:`                     | 初次提交
+    :white_check_mark: (白色复选框)         | `:white_check_mark:`         | 增加测试
+    :lock: (锁)                             | `:lock:`                     | 修复安全问题
+    :apple: (苹果)                          | `:apple:`                    | 修复 macOS 下的问题
+    :penguin: (企鹅)                        | `:penguin:`                  | 修复 Linux 下的问题
+    :checkered_flag: (旗帜)                 | `:checked_flag:`             | 修复 Windows 下的问题
+    :bookmark: (书签)                       | `:bookmark:`                 | 发行/版本标签
+    :rotating_light: (警车灯)               | `:rotating_light:`           | 移除 linter 警告
+    :construction: (施工)                   | `construction`               | 工作进行中
+    :green_heart: (绿心)                    | `:green_heart:`              | 修复 CI 构建问题
+    :arrow_down: (下降箭头)                 | `:arrow_down:`               | 降级依赖
+    :arrow_up: (上升箭头)                   | `:arrow_up:`                 | 升级依赖
+    :construction_worker: (工人)            | `:construction_worker:`      | 添加 CI 构建系统
+    :chart_with_upwards_trend: (上升趋势图) | `:chart_with_upwards_trend:` | 添加分析或跟踪代码
+    :hammer: (锤子)                         | `:hammer:`                   | 重大重构
+    :heavy_minus_sign: (减号)               | `:heavy_minus_sign:`         | 减少一个依赖
+    :whale: (鲸鱼)                          | `:whale:`                    | Docker 相关工作
+    :heavy_plus_sign: (加号)                | `:heavy_plug_sign:`          | 增加一个依赖
+    :wrench: (扳手)                         | `:wrench:`                   | 修改配置文件
+    :globe_with_meridians: (地球)           | `:globe_with_meridians:`     | 国际化与本地化
+    :pencil2: (铅笔)                        | `:pencil2:`                  | 修复 typo
+
+    ### 参考
+
+    - [gitmoji](https://github.com/carloscuesta/gitmoji/)
+    - [An emoji guide for your commit messages](https://gitmoji.carloscuesta.me/)
+    - [styleguide-git-commit-message](https://github.com/slashsBin/styleguide-git-commit-message)
