@@ -1,6 +1,6 @@
 ---
 title: Working Notes
-...
+---
 
 # 笔记
 
@@ -110,13 +110,21 @@ title: Working Notes
     然而其实不必要，因为当你点击的时候，你的 selection 就被清空了。如果 selection 还在，
     一定选中的是当前 node 的文字。（我是实测发现并没有 bug 才注意到这句话，才多想了一下。）
 
-[4ker/jquery-popup-overlay: jQuery plugin for responsive and accessible modal windows and tooltips.](https://github.com/4ker/jquery-popup-overlay) -<
+[4ker/jquery-popup-overlay: jQuery plugin for responsive and accessible modal windows and tooltips.](https://github.com/4ker/jquery-popup-overlay){.hearts} -<
 
 :   我想把 overlay 功能加到笔记里。
 
 [jQuery - keydown / keypress /keyup ENTERKEY detection? - Stack Overflow](http://stackoverflow.com/questions/3462995/jquery-keydown-keypress-keyup-enterkey-detection) -<
 
-:   nice
+:   ```javascript
+    $("#entersomething").keyup(function(e){
+        var code = e.which;                             // recommended to use e.which, it's normalized across browsers
+        if(code==13)e.preventDefault();
+        if(code==32||code==13||code==188||code==186){
+            $("#displaysomething").html($(this).val());
+        }
+    });
+    ```
 
 以上是对英文没问题的同学，如果英文有问题怎么办呢？请先转化到没问题的状态。:smile: -<
 
@@ -135,7 +143,7 @@ title: Working Notes
     }
     ```
 
-    Caffeinated Companies，语言用得好妙！caffein-ated companies……
+    **Caffeinated** Companies，语言用得好妙！**caffein-ated** companies……
 
     在北京一家 startup 工作一年混国外社区混 github 一年后直接 remote 给多家国外公司
     工作收入直接 x4-6 倍
@@ -174,7 +182,9 @@ title: Working Notes
 
 [Shields.io: Quality metadata badges for open source projects](http://shields.io/) -<
 
-:   弹出来的窗口倒是很赞。我的 notes 里也想有这个 feature。
+:   提供许多 badges 图片。不过这不是我的点。
+
+    弹出来的窗口倒是很赞（悬浮在页面上方）。我的 notes 里也想有这个 feature。
 
 [ImageMagick(CVE-2016-3714) 影响 / 利用 / 修复 / 检测](http://wufeifei.com/imagemagick/) -<
 

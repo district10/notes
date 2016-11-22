@@ -77,7 +77,7 @@ n:
 		lang/java.md \
 		lang/typescript.md \
 		lang/algo.md \
-		2016/note3.md \
+		2016/note4.md \
 		lang/c-cpp.md \
 		2016/job.md \
 
