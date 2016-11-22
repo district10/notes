@@ -315,10 +315,22 @@ Java 环境的配置 -<
         Java 的开发环境和运行环境。SDK 是 Software Development Kit 一般指软件开发包，
         可以包括函数库、编译程序等。
 
-    从官网下载 JDK：[适用于所有操作系统的 Java 下载](https://www.java.com/zh_CN/download/manual.jsp)，需要注册。
-    这是我的备份：<http://whudoc.qiniudn.com/2016/java8.7z> (230 MB)。里面包括 JDK 的安装包，以及一些示例程序。
+    Install
 
-    安装后，把 `C:\Program Files\Java\jdk1.8.0_60\bin` 添加到 `%PATH%`。
+    :   For Windows -<
+
+        :   从官网下载 JDK：[适用于所有操作系统的 Java 下载](https://www.java.com/zh_CN/download/manual.jsp)，需要注册。
+            这是我的备份：<http://whudoc.qiniudn.com/2016/java8.7z> (230 MB)。里面包括 JDK 的安装包，以及一些示例程序。
+
+            安装后，把 `C:\Program Files\Java\jdk1.8.0_60\bin` 添加到 `%PATH%`。
+
+        For Linux -<
+
+        :   ```bash
+            sudo add-apt-repository ppa:webupd8team/java
+            sudo apt-get update
+            sudo apt-get install oracle-java8-installer
+            ```
 
 Java 的 application launcher 和 javac 编译器 -<
 
@@ -507,9 +519,9 @@ Hello World -<
 
         还可以在 Manifest 里面指定。
 
-IntelliJ Idea 的使用 -<
+IntelliJ Idea 的使用 :hearts: -<
 
-:   首先，安装 Vim 插件。
+:   首先，安装 Vim 插件 (in settings -- plugin)。
 
     然后，试试 HelloWorld。
 
@@ -582,7 +594,7 @@ IntelliJ Idea 的使用 -<
         -   有数据库支持
         -   设置可以保存导出
 
-    多个 IntelliJ IDEA 实例。
+    多个 IntelliJ IDEA 实例 :hearts: -<
 
     :   Press Ctrl+Alt+S
 
@@ -591,6 +603,244 @@ IntelliJ Idea 的使用 -<
         refs and see also
 
         -   [Start two instances of IntelliJ IDE - Stack Overflow](http://stackoverflow.com/questions/5889413/start-two-instances-of-intellij-ide)
+
+    VM 启动设置 -<
+
+    :   把 idea64.exe.vmoptions（`C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 2016.2.4\bin\idea64.exe.vmoptions`）
+
+        由
+
+        ```
+        -Xms128m
+        -Xmx750m
+        ```
+
+        修改成
+
+        ```
+        -Xms1024m
+        -Xmx2048m
+        ```
+
+    Settings -- Editor -- Live Templates -<
+
+    :   loops
+
+        -   fori，for i
+        -   itar，iterate array
+        -   itli，iterate list
+        -   itve，iterate vector
+        -   itco，iterate collection
+        -   iten，iterate enumeration
+        -   ritar，reverse iterate array
+        -   iter，iterate
+        -   itit
+        -   ittok
+
+        other
+
+        -   geti，get instance
+        -   ifn，if null
+        -   inst，instance of
+        -   lazy，lazy init（if null，new it）
+        -   lst，last element of array
+        -   mn/mx，less/greater
+        -   psvm，public static void main
+        -   toar，collection -> array
+
+        output
+
+        -   serr，System.err.println("...")
+        -   sout
+        -   soutf，printf
+        -   soutm，method
+        -   soutv
+
+        plain
+
+        -   psf，public static final
+        -   psfi，public static final int
+        -   psfs，public static final String
+        -   St，String
+        -   thr，throw new
+
+        sourround
+
+        -   B，{}（brace）
+        -   P，()（paren）
+        -   C，Callable
+        -   I，iterable
+        -   RL，readwrite lock 之 read lock
+        -   WL，readwrite lock 之 write lock
+
+        maven
+
+        -   dep（dependency）
+        -   pl（plugin）
+        -   repo（repository）
+
+    Settings -- Editor -- General -- Postfix Completion -<
+
+    :   -   b.!
+        -   b.cast
+        -   b.assert
+        -   b.else
+        -   arg.field
+        -   values.for
+        -   num.fori
+        -   expr.par，parantheses
+        -   arr.stream
+        -   val.switch
+        -   try（try-catch）
+        -   twr（try-with-resource）
+
+    Maven Configure -<
+
+    :   Maven 简单来说是一个项目管理工具，被认为是 Ant 的替代品或者继任者。事实上
+        Maven 的功能要远远超出 Ant，它不仅仅提供编译的脚本，更是在整 个项目周期中提
+        供测试，发布，文档生成等功能，并且有着独特的依赖性管理方法。但是强大的功能
+        的代价就是复杂的使用方法，第一次使用 Maven 往往需要将 近半个小时的时间（国
+        内网速）来下载一个本地的依赖库，这无疑会使很多开发人员“知难而退”。虽然广受
+        诟病，一个不争的事实就是 Maven逐渐代替了 Ant，使用 Maven 也成了 Java 开发人
+        员的一个必要技能。
+
+        比起 Eclipse 通通放进右键菜单的行为，IntelliJ IDEA 有着单独的窗口可以完成 Maven 的操
+        作。你可以针对不同 Module 进行 Clean Compile Package Install 等操作，各个 Plug-in 的
+        操作也一清二楚。
+
+        %M2_HOME%：`C:\cmdtools\apache-maven-3.3.9`
+
+        Maven Module -<
+
+        :   For the Maven projects IntelliJ IDEA provides a dedicated module type. For
+            each Maven Module, IntelliJ IDEA creates a pom.xml file. So doing, a Maven
+            Module can be created either with the basic pom.xml file, or from a certain
+            pattern called Maven archetype.
+
+            IntelliJ 支持 pom.xml 的编辑代码高亮和补全。
+
+            打开 pom 文件，就可以导入 maven 工程。 
+
+
+        [Maven 与 IntelliJ IDEA 的完美结合 - OPEN 开发经验库](http://www.open-open.com/lib/view/1388650391891) -<
+
+        :   创建好后的目录结构如下图，IDEA 创建了 `src/main/resources`（自动创建）、
+            `src/main/java`（手动创建）、`src/main/test`（手动创建）、以及 `pom.xml` 文件（自动创建）。
+
+        [Maven – Guide to Mirror Settings](http://maven.apache.org/guides/mini/guide-mirror-settings.html) -<
+
+        :   Maven 原来的环境变量是 `MAVEN_HOME`，但 maven2 更新很大和原来不兼容，于是环境变量变成了 `M2_HOME`（应该是 `MAVEN2_HOME` 太长了），
+            配置文件有如下几个位置：
+
+            ```
+            这是我的目录下的：
+
+                C:\cmdtools\apache-maven-3.3.9\conf\settings.xml
+
+            这是 IntelliJ IDEA 自带（bundle）的：
+
+                C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 2016.2.4\plugins\maven\lib\maven2\conf\settings.xml
+
+            这是家目录下的：
+
+                C:\Users\tzx\.m2\settings.xml
+            ```
+
+            maven3 和 maven2 兼容，所以环境变量依旧是 `M2_HOME`。
+
+            ```
+            <url>http://repository.jboss.org/nexus/content/groups/public</url>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            ```
+
+            记得用 IntelliJ IDEA 修改 settings.xml（有错误检查），添加 mirror 节点，用阿里云的 mirror 站：
+
+            ```xml
+            <settings>
+                ...
+                <mirrors>
+                    <mirror>
+                        <id>AliyunMirrorSite</id>
+                        <name>Aliyun</name>
+                        <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+                        <mirrorOf>*</mirrorOf>
+                    </mirror>
+                </mirrors>
+                ...
+            </settings>
+            ```
+
+        Maven 的两个概念：坐标和依赖。
+
+        POM：Project Object Model。
+
+        archetype，`['ɑrkə'taɪp]`，n. 原型
+
+        dependency mediation（依赖调解）
+
+        -   近者优先
+        -   先申明优先
+
+        Maven 仓库
+
+        -   本地仓库
+        -   远程仓库
+        -   中央仓库
+        -   私服
+        -   公共仓库：central、JBoss、Java.net
+
+        声明周期：
+
+        -   initialize，初始化
+        -   compile，编译
+        -   test，测试
+        -   package，打包
+        -   integrateionTest，集成测试
+        -   deploy，部署
+
+        三套声明周期：
+
+        -   clean（pre-clean，clean，post-clean）
+        -   default（validate，intialize，generate-sources，process-sources，generate-resources，process-resoures，compile，process-classes，generate-test-sources，etc）
+        -   site
+
+        插件：
+
+        maven-help-plugin
+
+        refs and see also
+
+        -   [@IntelliJ IDEA 第 18 部分视频讲解 =Maven 功能专讲 (视频教程) | YouMeek](http://www.youmeek.com/intellij-idea-part-xviii-maven/)
+        -   [maven - What is the difference between M2_HOME and MAVEN_HOME - Stack Overflow](http://stackoverflow.com/questions/17136324/what-is-the-difference-between-m2-home-and-maven-home)
+        -   [我的书《Maven实战》 - Maven中文 - ITeye技术网站](http://juvenshun.iteye.com/blog/809712)
+        -   [4ker/maven-in-action](https://github.com/4ker/maven-in-action)
+
+    Vim 模拟器的配置 -<
+
+    :   `C:\Users\tzx\.IdeaIC2016.2\config\options\vim_settings.xml`
+
+        ```xml
+        <shortcut-conflicts>
+            <shortcut-conflict owner="vim">
+                <text>ctrl pressed N</text>
+            </shortcut-conflict>
+            <shortcut-conflict owner="vim">
+                <text>ctrl pressed C</text>
+            </shortcut-conflict>
+            <shortcut-conflict owner="vim">
+                <text>ctrl pressed V</text>
+            </shortcut-conflict>
+            <shortcut-conflict owner="ide">
+                <text>ctrl pressed P</text>
+            </shortcut-conflict>
+            <shortcut-conflict owner="vim">
+                <text>ctrl pressed W</text>
+            </shortcut-conflict>
+            <shortcut-conflict owner="vim">
+                <text>ctrl pressed G</text>
+            </shortcut-conflict>
+        </shortcut-conflicts>
+        ```
 
     好好学习，点滴做起。这是每次启动的时候，弹出的 tips。 -<
 
@@ -2599,175 +2849,19 @@ static void Thread::sleep(miliseconds)
 
 ## 类的加载
 
-拷贝到内存，然后创建 java.lang.Class 对象。
+拷贝到内存，然后创建 `java.lang.Class` 对象。
 
 ---
 
-Maven 简单来说是一个项目管理工具，被认为是 Ant 的替代品或者继任者。事实上 Maven 的功
-能要远远超出 Ant，它不仅仅提供编译的脚本，更是在整 个项目周期中提供测试，发布，
-文档生成等功能，并且有着独特的依赖性管理方法。但是强大的功能的代价就是复杂的使
-用方法，第一次使用 Maven 往往需要将 近半个小时的时间（国内网速）来下载一个本地的
-依赖库，这无疑会使很多开发人员“知难而退”。虽然广受诟病，一个不争的事实就是 Maven
-逐渐代替了 Ant，使用 Maven 也成了 Java 开发人员的一个必要技能。
-
-比起 Eclipse 通通放进右键菜单的行为，IntelliJ IDEA 有着单独的窗口可以完成 Maven 的操
-作。你可以针对不同 Module 进行 Clean Compile Package Install 等操作，各个 Plug-in 的
-操作也一清二楚。
-
-%M2_HOME%：`C:\cmdtools\apache-maven-3.3.9`
-
-Maven Module
-
-:   For the Maven projects IntelliJ IDEA provides a dedicated module type. For
-    each Maven Module, IntelliJ IDEA creates a pom.xml file. So doing, a Maven
-    Module can be created either with the basic pom.xml file, or from a certain
-    pattern called Maven archetype.
-
-    IntelliJ 支持 pom.xml 的编辑代码高亮和补全。
-
-    打开 pom 文件，就可以导入 maven 工程。 
-
-
-[Maven 与 IntelliJ IDEA 的完美结合 - OPEN 开发经验库](http://www.open-open.com/lib/view/1388650391891) -<
-
-:   创建好后的目录结构如下图，IDEA 创建了 `src/main/resources`（自动创建）、
-    `src/main/java`（手动创建）、`src/main/test`（手动创建）、以及 `pom.xml` 文件（自动创建）。
-
-[Maven – Guide to Mirror Settings](http://maven.apache.org/guides/mini/guide-mirror-settings.html) -<
-
-:   Maven 原来的环境变量是 `MAVEN_HOME`，但 maven2 更新很大和原来不兼容，于是环境变量变成了 `M2_HOME`（应该是 `MAVEN2_HOME` 太长了），
-    配置文件有如下几个位置：
-
-    ```
-    这是我的目录下的：
-
-        C:\cmdtools\apache-maven-3.3.9\conf\settings.xml
-
-    这是 IntelliJ IDEA 自带（bundle）的：
-
-        C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 2016.2.4\plugins\maven\lib\maven2\conf\settings.xml
-
-    这是家目录下的：
-
-        C:\Users\tzx\.m2\settings.xml
-    ```
-
-    maven3 和 maven2 兼容，所以环境变量依旧是 `M2_HOME`。
-
-    ```
-    <url>http://repository.jboss.org/nexus/content/groups/public</url>
-    <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-    ```
-
-    记得用 IntelliJ IDEA 修改 settings.xml（有错误检查），添加 mirror 节点，用阿里云的 mirror 站：
-
-    ```xml
-    <settings>
-        ...
-        <mirrors>
-            <mirror>
-                <id>AliyunMirrorSite</id>
-                <name>Aliyun</name>
-                <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
-                <mirrorOf>*</mirrorOf>
-            </mirror>
-        </mirrors>
-        ...
-    </settings>
-    ```
-
-Vim 模拟器的配置 -<
-
-:   `C:\Users\tzx\.IdeaIC2016.2\config\options\vim_settings.xml`
-
-    ```xml
-    <shortcut-conflicts>
-        <shortcut-conflict owner="vim">
-            <text>ctrl pressed N</text>
-        </shortcut-conflict>
-        <shortcut-conflict owner="vim">
-            <text>ctrl pressed C</text>
-        </shortcut-conflict>
-        <shortcut-conflict owner="vim">
-            <text>ctrl pressed V</text>
-        </shortcut-conflict>
-        <shortcut-conflict owner="ide">
-            <text>ctrl pressed P</text>
-        </shortcut-conflict>
-        <shortcut-conflict owner="vim">
-            <text>ctrl pressed W</text>
-        </shortcut-conflict>
-        <shortcut-conflict owner="vim">
-            <text>ctrl pressed G</text>
-        </shortcut-conflict>
-    </shortcut-conflicts>
-    ```
-
-VM 启动设置 -<
-
-:   把 idea64.exe.vmoptions（`C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 2016.2.4\bin\idea64.exe.vmoptions`）
-
-    由
-
-    ```
-    -Xms128m
-    -Xmx750m
-    ```
-
-    修改成
-
-    ```
-    -Xms1024m
-    -Xmx2048m
-    ```
-
 [Releases · MSOpenTech/redis](https://github.com/MSOpenTech/redis/releases)
 
-[YouMeek Code](http://code.youmeek.com/)
+[YouMeek Code](http://code.youmeek.com/) -<
 
--   IntelliJ IDEA 相关核心文件和目录介绍：[IntelliJ-IDEA-Tutorial/installation-directory-introduce.md at newMaster · judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/newMaster/installation-directory-introduce.md)
--   IntelliJ IDEA 界面介绍：[IntelliJ-IDEA-Tutorial/interface-introduce.md at newMaster · judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/newMaster/interface-introduce.md)
--   IntelliJ IDEA 主题、字体、编辑区主题、文件编码修改：[IntelliJ-IDEA-Tutorial/theme-settings.md at newMaster · judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/newMaster/theme-settings.md)
--   [IntelliJ IDEA 2016.2 Help :: Symbols](https://www.jetbrains.com/help/idea/2016.2/symbols.html)
--   IntelliJ IDEA 编译方式介绍：[IntelliJ-IDEA-Tutorial/make-introduce.md at newMaster · judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/newMaster/make-introduce.md)
-
-Maven 的两个概念：坐标和依赖。
-
-POM：Project Object Model。
-
-archetype，`['ɑrkə'taɪp]`，n. 原型
-
-dependency mediation（依赖调解）
-
--   近者优先
--   先申明优先
-
-Maven 仓库
-
--   本地仓库
--   远程仓库
--   中央仓库
--   私服
--   公共仓库：central、JBoss、Java.net
-
-声明周期：
-
--   initialize，初始化
--   compile，编译
--   test，测试
--   package，打包
--   integrateionTest，集成测试
--   deploy，部署
-
-三套声明周期：
-
--   clean（pre-clean，clean，post-clean）
--   default（validate，intialize，generate-sources，process-sources，generate-resources，process-resoures，compile，process-classes，generate-test-sources，etc）
--   site
-
-插件：
-
-maven-help-plugin
+:   -   IntelliJ IDEA 相关核心文件和目录介绍：[IntelliJ-IDEA-Tutorial/installation-directory-introduce.md at newMaster · judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/newMaster/installation-directory-introduce.md)
+    -   IntelliJ IDEA 界面介绍：[IntelliJ-IDEA-Tutorial/interface-introduce.md at newMaster · judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/newMaster/interface-introduce.md)
+    -   IntelliJ IDEA 主题、字体、编辑区主题、文件编码修改：[IntelliJ-IDEA-Tutorial/theme-settings.md at newMaster · judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/newMaster/theme-settings.md)
+    -   [IntelliJ IDEA 2016.2 Help :: Symbols](https://www.jetbrains.com/help/idea/2016.2/symbols.html)
+    -   IntelliJ IDEA 编译方式介绍：[IntelliJ-IDEA-Tutorial/make-introduce.md at newMaster · judasn/IntelliJ-IDEA-Tutorial](https://github.com/judasn/IntelliJ-IDEA-Tutorial/blob/newMaster/make-introduce.md)
 
 [How to create a .jar file or export jar on IntelliJ (like eclipse java archive export) - Stack Overflow](http://stackoverflow.com/questions/2025607/how-to-create-a-jar-file-or-export-jar-on-intellij-like-eclipse-java-archive-e)
 
@@ -2793,86 +2887,6 @@ String line = in.readLine();
 [judasn/Basic-Single-Module-SSM: 为了方便以后的一些问题的讲解特地准备一个最精简的 SpringMVC+Spring+Mybatis 框架整合，方便以后的一些问题的演示](https://github.com/judasn/Basic-Single-Module-SSM)
 
 ---
-
-Settings -- Editor -- Live Templates -<
-
-:   loops
-
-    -   fori，for i
-    -   itar，iterate array
-    -   itli，iterate list
-    -   itve，iterate vector
-    -   itco，iterate collection
-    -   iten，iterate enumeration
-    -   ritar，reverse iterate array
-    -   iter，iterate
-    -   itit
-    -   ittok
-
-    other
-
-    -   geti，get instance
-    -   ifn，if null
-    -   inst，instance of
-    -   lazy，lazy init（if null，new it）
-    -   lst，last element of array
-    -   mn/mx，less/greater
-    -   psvm，public static void main
-    -   toar，collection -> array
-
-    output
-
-    -   serr，System.err.println("...")
-    -   sout
-    -   soutf，printf
-    -   soutm，method
-    -   soutv
-
-    plain
-
-    -   psf，public static final
-    -   psfi，public static final int
-    -   psfs，public static final String
-    -   St，String
-    -   thr，throw new
-
-    sourround
-
-    -   B，{}（brace）
-    -   P，()（paren）
-    -   C，Callable
-    -   I，iterable
-    -   RL，readwrite lock 之 read lock
-    -   WL，readwrite lock 之 write lock
-
-    maven
-
-    -   dep（dependency）
-    -   pl（plugin）
-    -   repo（repository）
-
-Settings -- Editor -- General -- Postfix Completion -<
-
-:   -   b.!
-    -   b.cast
-    -   b.assert
-    -   b.else
-    -   arg.field
-    -   values.for
-    -   num.fori
-    -   expr.par，parantheses
-    -   arr.stream
-    -   val.switch
-    -   try（try-catch）
-    -   twr（try-with-resource）
-
-[@IntelliJ IDEA 第 18 部分视频讲解 =Maven 功能专讲 (视频教程) | YouMeek](http://www.youmeek.com/intellij-idea-part-xviii-maven/)
-
-[maven - What is the difference between M2_HOME and MAVEN_HOME - Stack Overflow](http://stackoverflow.com/questions/17136324/what-is-the-difference-between-m2-home-and-maven-home)
-
-[我的书《Maven实战》 - Maven中文 - ITeye技术网站](http://juvenshun.iteye.com/blog/809712)
-
-[4ker/maven-in-action](https://github.com/4ker/maven-in-action)
 
 [4ker/jax-rs2-guide-II: 《Java Restful Web Service实战 第二版》源代码](https://github.com/4ker/jax-rs2-guide-II)
 
