@@ -190,3 +190,34 @@ http://t.cn/RVTAfuV
 - [我也把霸道总裁爱上我的事儿写了本书，叫《音乐之声》](http://daily.zhihu.com/story/8992510?utm_campaign=in_app_share&utm_medium=Android&utm_source=com.ideashower.readitlater.activity.AddActivity)
 - [人工智能界的大牛李飞飞加入谷歌，巨头们正在争抢人才](http://daily.zhihu.com/story/8986220?utm_campaign=in_app_share&utm_medium=Android&utm_source=com.ideashower.readitlater.activity.AddActivity)
 - [一个人过没什么不好的，但是……也没那么好](http://daily.zhihu.com/story/8984802)
+
+<ms-settings:network-proxy>
+
+500 Internal Privoxy Error
+
+Privoxy encountered an error while processing your request:
+
+Could not load template file no-server-data or one of its included components.
+
+Please contact your proxy administrator.
+
+If you are the proxy administrator, please put the required file(s)in the (confdir)/templates directory. The location of the (confdir) directory is specified in the main Privoxy config file. (It's typically the Privoxy install directory).
+
+[Releases · shadowsocks/shadowsocks-windows](https://github.com/shadowsocks/shadowsocks-windows/releases)
+
+[如何评价音乐剧《汉密尔顿》(Hamilton)？ - 知乎](https://www.zhihu.com/question/36505902)
+
+```cmake
+find_package( OpenCV )
+configure_file(
+    "${PROJECT_SOURCE_DIR}/Configs.h.in"
+    "${PROJECT_BINARY_DIR}/Configs.h" )
+set( CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} $ENV{QT5_DIR} )
+file( GLOB SRCS *.c *.cpp *.cc *.h *.hpp )
+add_executable( ${PROJECT_NAME} ${SRCS} )
+target_link_libraries( ${PROJECT_NAME} ${OpenCV_LIBS} )
+add_subdirectory( src )
+include( $ENV{OpenCV2_DIR}/OpenCVConfig.cmake )
+include_directories( ${OpenCV_INCLUDE_DIRS} )
+message( STATUS "include path: ${OpenCV_INCLUDE_DIRS}" )
+```
