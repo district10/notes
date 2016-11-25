@@ -221,3 +221,146 @@ include( $ENV{OpenCV2_DIR}/OpenCVConfig.cmake )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 message( STATUS "include path: ${OpenCV_INCLUDE_DIRS}" )
 ```
+
+[如何评价咪蒙？ - 挖数的回答 - 知乎](https://www.zhihu.com/question/40723999/answer/132865512)
+
+:   多少人骂咪蒙为了赚钱连脸都不要了，现在情况是她公司通过公众号文章不仅能还投
+    资人投她第一次创业失败的钱，她再干一年可以拿着这些大家口中的「造孽钱」去继
+    续干编剧从事影视行业，到时候这又变成了一个薛之谦般为了实现音乐梦想而努力通
+    过开淘宝店、微博发软文、开火锅店赚钱的励志故事。只要她参与主创的某一部影视
+    剧爆红——以咪蒙对国人心理的了解和操控，这几乎是必然，只是需要时间。她既能靠
+    公众号持续赚钱，又能通过做影视剧树立口碑和扩大营销，以国人的健忘程度和崇尚
+    「胜者为王败者为寇」的社会达尔文主义心态，咪蒙再坚持三年，就会变成粉丝们口
+    中为了追求影视梦想而通过自己本事赚钱的励志典型。
+
+    你可以嘲笑咪蒙丧失了自己曾经作为一个文化人的责任感和一个知识分子的羞耻心，
+    但是你无法阻止她利用自己的才华赚钱。她曾经是一个浪漫而又理想的文化人，我不
+    会相信一个能理解金圣叹或者屈原的痛苦的人不曾油然而生一些真挚的理想。她可能
+    只是在三十多岁之后看见了自己曾经理想的幻灭。我们都可以怀念那个曾经的咪蒙，
+    一个仗义执言的勇敢地说出真相的咪蒙，但是那已经是过去式了。我们也可以选择去
+    痛骂她，反复告诉自己不要成为一个和她一样的人——面对正确而艰难的选择和轻松的
+    选择这两者时，她选择了后者。
+
+    让人悲痛的不仅仅是造化弄人的悲剧和人性的恶意，而是那些曾经天真的理想主义的
+    革新者，他们在大厦将倾时或理想覆灭后选择成为了一个识时务者。这个世界根本承
+    受不了那么多曾经的理想主义者转头成为了犬儒主义者，他们曾经有理想的时候不以
+    名利为目的地贡献了他们的力量，但是当他们失望并丧失理想之后，他们的叛变是最
+    可怕的。当洪水来袭，曾经的筑墙者和守夜人是最熟悉堤坝薄弱处的。
+
+    毕竟，在最开始，伏地魔每天在霍格沃兹好好学习以施展他的天赋和才华，他的梦想
+    是「成为这世界上最伟大的巫师」。
+
+
+所以，经济学，看看就好，别当真。在哲学上漏洞百出。多赚钱多做生意，比搞学问的人的理解力会强很多。经济学没啥用。
+
+
+
+您好，XXX，
+服务起始日：
+2016/11/25
+会员状态:
+12 月会员资格
+收费状态
+2017/11/25之前，您仍将有权使用Kindle Unlimited服务。
+
+[初探计算机视觉的三个源头、兼谈人工智能｜正本清源](http://mp.weixin.qq.com/s?__biz=MzI3MTM5ODA0Nw==&mid=100000002&idx=2&sn=32face7f1acb17e07f3c38dde41d880e) -<
+
+:   Marr 1972 年从剑桥大学毕业，博士论文是从理论的角度研究大脑功能，具体来说，
+    是研究的小脑， 主管运动的 Cerebellum。1973 年受 MIT 人工智能实验室主任
+    Minsky 的邀请， 开始是做访问学者（博士后）。 1977 年转为教职。 可是， 1978
+    年冬诊断得了急性白血病。1980 年转为正教授不久就去世了， 时年 35 岁。他在得
+    知来日无多后，就赶紧整理了一本书，就叫 “Vision：A Computational
+    Investigation into the HumanRepresentation and Processing of Visual
+    Information”, 《视觉：从计算的视角研究人的视觉信息表达与处理》。他去世后由
+    学生和同事修订，1982 年出版。
+
+    可惜， 目前计算机视觉这个领域，你如果去问学生的话，他们很多人都没听说过
+    David Marr。“喔，想起来了，好像有个 Marr 奖吧”。可是你去问认知科学、神经科
+    学的人，他们基本上对 Marr 非常的清楚。这也是我所担心的， 计算机视觉的发展太
+    工程化、功利化了，逐步脱离了科学的范畴。这是短视和危险的。最近又受到机器学
+    习来的冲击。
+
+    2012 年，我作为国际计算机视觉和模式识别年会（CVPR）的大会主席， 就发生一个
+    事件。收到神经网络和机器学习学派的一个领军人物 LeCun 的抱怨信，他的论文报告
+    了很好的实验结果， 但是审稿的三个人都认为论文说不清楚到底为什么有这个结果，
+    就拒稿。他一气之下就说再也不给 CVPR 投稿了，把审稿意见挂在网上以示抗议。
+    2012 年是个转折点。
+
+    现在呢？随着深度学习的红火， 这三层就又混在一块去了。 一般论文直接就报告结
+    果， 一堆表格、曲线图。我就是这么做，然后再这么做，我在某些个数据集上提高了
+    两个百分点，那就行了。你审稿人也别问我这个东西里面有什么贡献，哪个节点代表
+    是什么意思，你别问，我也不知道。那算法收敛了吗？是全局收敛还是一个局部收敛？
+    我也不知道，但是我就提高了两个百分点。
+
+    朱：的确。我们当年考英语， 多半是读，说和写都不行。我们考 TOEFL， GRE
+    Verbal 的时候， 就算没搞懂， 也能蒙个 60%-70%。 新东方的题海战术也很奏效。
+    当你做了大量考题， 就算不懂， 也能考好。当前大数据、机器学习就用题海战术。
+    这个方法强调在实战中检验，考什么就拼命复习什么，不考的东西就不学，这也很有
+    道理，很直接， 来得快。 但是， 因为你的模型没有真正理解， 没有“真懂”，考试
+    大纲外面的东西更不懂， 那么后遗症就是， 遇到新考题， 缺乏泛化能力，遇到新问
+    题，缺乏创造力。
+
+[Tanenbaum–Torvalds debate - Wikipedia](https://en.wikipedia.org/wiki/Tanenbaum%E2%80%93Torvalds_debate) -<
+
+:   The Tanenbaum–Torvalds debate was a debate between Andrew S. Tanenbaum and
+    Linus Torvalds, regarding the Linux kernel and kernel architecture in
+    general. Tanenbaum began the debate in 1992 on the Usenet discussion group
+    comp.os.minix, arguing that microkernels are superior to monolithic kernels
+    and therefore Linux was, even in 1992, obsolete. Linux kernel developers
+    Peter MacDonald, David S. Miller and Theodore Ts'o also joined the debate.
+
+    The debate has sometimes been considered a flame war.
+
+    ![Graphic of a monolithic kernel running kernel space entirely in supervisor mode](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Kernel-monolithic.svg/330px-Kernel-monolithic.svg.png)
+
+    ![Microkernel architecture relies on user-space server programs](https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Kernel-microkernel.svg/330px-Kernel-microkernel.svg.png)
+
+    Despite this debate, Torvalds and Tanenbaum appear to be on good speaking
+    terms; Torvalds wants it understood that he holds no animosity towards
+    Tanenbaum, and Tanenbaum underlines that disagreements about ideas or
+    technical issues should not be interpreted as personal feuds.
+
+[xiaoweiChen/Cpp_Concurrency_In_Action: 作为对《C++ Concurrency in Action》英文版的中文翻译。](https://github.com/xiaoweiChen/Cpp_Concurrency_In_Action)
+
+[How to run things locally · mrdoob/three.js Wiki](https://github.com/mrdoob/three.js/wiki/How-to-run-things-locally)
+
+[3D file format - EduTech Wiki](http://edutechwiki.unige.ch/en/3D_file_format)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
