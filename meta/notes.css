@@ -374,6 +374,11 @@ body.locked #gotoindex {
 .markdown-body ul.simpledrawerHide,
 .markdown-body ol.simpledrawerHide {
     display: none;
+    -webkit-transition: 5s ease-in-out;
+    -moz-transition: 5s ease-in-out;
+    -ms-transition: 5s ease-in-out;
+    -o-transition: 5s ease-in-out;
+    transition: 5s ease-in-out;
 }
 
 .tabNav {                   border-bottom: 1px solid lightgray; padding-bottom: 1em; }

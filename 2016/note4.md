@@ -326,41 +326,197 @@ message( STATUS "include path: ${OpenCV_INCLUDE_DIRS}" )
 
 [3D file format - EduTech Wiki](http://edutechwiki.unige.ch/en/3D_file_format)
 
+```diff
+diff --git a/src/nvim/api/ui.c b/src/nvim/api/ui.c
+index 56b41f1..9178538 100644
+--- a/src/nvim/api/ui.c
++++ b/src/nvim/api/ui.c
+```
 
+[石苏的广播](https://www.douban.com/people/79049984/status/1920469338/)
 
+:   从成本的角度来说，动脑子的成本是最低的。最好的投资方式是，大脑发达，策略和
+    风险都想好了，动几下键盘，然后等着赚钱。其他时间健身休息美食。除此之外，成
+    本都比这个高，相对来说，对身体和灵魂的损耗更大。损耗最大的，是贱业...
 
+    轻松，开心，符合预期地赚钱，是最大的修行... ^_^
 
+    价值观很重要，尤其是在商业这种竞争激烈的地方，一个组织的价值观是需要灵魂人
+    物反复以身做则实践鼓动。价值观和行为必须一致，你没法不一致，你如果宣传的价
+    值观和你的行为脱节，其他人很容易看在眼里，跟着也装装样子，整个组织的战斗力
+    很快就没了。
 
+    refs and see also
 
+    -   [江南愤青：赚钱，是最大的修行！](http://mp.weixin.qq.com/s/dUOE74jQhP8ehvU59HH8ww)
 
+[『阿男闲聊』＊学习科学哲学是可有可无的吗？＊](https://www.douban.com/note/593982718/)
 
+:   Mathematics is the only true metaphysics.
 
+    -- Lord Kelvin
 
+    如果说科学是研究世界的方法，那么科学哲学就是研究方法的方法。
 
+    爱因斯坦写过一本经典的物理学方面的科学哲学著作：Evolution of Physics
 
+    讲的是物理学的理论体系是如何建立起来的，文笔非常好，推荐给大家。
 
+    如果你开始觉得有需要的时候，那就不用犹豫了，学起来！科学哲学领域的著作都非
+    常艰深，这是很正常的，因为任何和"meta"沾边的，比如 meta-programming，都是高
+    阶领域，肯定要更抽象，更抽象就意味着更难。而英文又特别适合这种结构化的高阶
+    领域，所以挑战你的阅读能力的时候就到了。
 
+Marc Andreessen 语速快的惊人
 
+:   [Marc Andreessen - Wikipedia](https://en.wikipedia.org/wiki/Marc_Andreessen)
 
+[Tcl 和 TK 还有 Perl ，哪个用的比较多？ - 知乎](https://www.zhihu.com/question/19586527)
 
+[胸がドキドキ 系 MHz](http://douban.fm/?start=63334geeeag26992&cid=2063334)
 
+[如何构建自己的笔记系统？ - 知乎](https://www.zhihu.com/question/23427617)
 
+各位武汉各个学校的同学，如果你们想进入互联网行业，建议你们读如下四本通俗入门读物，大致了解互联网公司的运作。（简历里甚至可以一些这些书的观点）
+第一本：无须等待:YC合伙人的创业课
+第二本：YC创业营:硅谷顶级创业孵化器如何改变世界
+第三本：精益创业:新创企业的成长思维；
+第四本：四步创业法
 
+Apache Hadoop (pronunciation: `/həˈduːp/`) is an open-source software framework
+for distributed storage and distributed processing of very large data sets on
+computer clusters built from commodity hardware. All the modules in Hadoop are
+designed with a fundamental assumption that hardware failures are common and
+should be automatically handled by the framework.
 
+[MapReduce 实现大矩阵乘法 - 葱葱的城堡 - 博客频道 - CSDN.NET](http://blog.csdn.net/xyilu/article/details/9066973)
 
+跟老外讲中文。。。感觉好牛逼。虽然中文不适合使用和学习，但是装逼起来确实很赞（我就不@虎基了）
+[Bug 675885 – Gnome-font-viewer's Chinese font-testing sentence needs to be changed](https://bugzilla.gnome.org/show_bug.cgi?id=675885)
 
+[Bridge——设计师Juno的终极图像管理术 - 设计师 Juno - 知乎专栏](https://zhuanlan.zhihu.com/p/19901454?columnSlug=junoma)
 
+[日本动漫爱好者们是否可以不知不觉地学懂日语？ - 知乎](https://www.zhihu.com/question/33579847)
 
+:   学外语一个很重要的概念是“滚雪球”，你首先得有基础，你才能越来越厉害。
 
+    而这个基础，是需要下苦功夫的。
 
+    你看动画看美剧能练出语感，甚至可能还能给你带来好的口音，但这些在你没有基础知识
+    的情况下连竹篮打水都不如——竹篮好歹带点水滴上来，你这没有基础知识等同于在空气里
+    想要打水：可能你确实打了一篮子空气，然并卵。
 
+* [RFC Reader - An online reader for IETF RFCs](http://www.rfcreader.com/)
+* [PDF conversion of IETF documents](http://tools.ietf.org/pdf/usage.shtml)
+* [Index of /rfc/PDF](http://ietfreport.isoc.org/rfc/PDF/)
 
+Command Line Args Parser
 
+-   [C: getopt - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Getopt)
+-   [C++: How To Use Gflags (formerly Google Commandline Flags)](http://gflags.github.io/gflags/)
 
+评分员（moderator）有权为每条留言打分。打分的方法采用分配形容词，所有可用的形容
+词分别为 normal（一般发言）、offtopic（与主题无关）、flamebait（挑拨）、troll
+（没有价值）、redundant（废话）、insightful（启发性）、interesting（有趣）、
+informative（提供有用信息）、funny（搞笑）、overrated（评价过高）和 underrated
+（评价过低）。所有正面的形容词为 +1 分，所有负面的形容词为 -1 分。
 
+[林建入的软件设计之路 - 知乎专栏](https://zhuanlan.zhihu.com/linjr)
 
+[Jianru-Lin/lambda-view: 复杂 JavaScript 源码阅读分析工具](https://github.com/Jianru-Lin/lambda-view)
 
+ 曾在 linux 下阅读 java 还有 c++ 的项目，用的是 understand 来生成 uml 图还有函
+ 数调用关系图，不知道是不是支持 javascript 语言，题主不妨一试。
 
+[多态](https://duotai.org/packages)
 
+[学习 C 语言基本思路与参考书籍 - 林建入的软件设计之路 - 知乎专栏](https://zhuanlan.zhihu.com/p/19694823?refer=linjr)
 
+:   学会调用别人的库函数，甚至写出自己的库函数，都是极其重要的。因为一个函数，本质
+    上就是一个功能单位。你拥有的基础设施越多，你的发挥空间越大。道理就是这么简单。
+    这就是我需要向大家强调的第二个观点，要想写出实用的 C 程序，一大关键就是研究并学会
+    使用各种库函数。
 
+[Tombone's Computer Vision Blog: The Future of Real-Time SLAM and Deep Learning vs SLAM](http://www.computervisionblog.com/2016/01/why-slam-matters-future-of-real-time.html) -<
+
+:   [Brief Review on Visual SLAM: A Historical Perspective](http://fzheng.me/2016/05/30/slam-review/)
+
+[拿撒泼当个性、拿偷窥当炫耀、拿意淫当真枪、拿颓废当青春（从你的全世界路过）书评](https://book.douban.com/review/6417491/) -<
+
+:   写短篇小说（而不是微博故事），故事真实不真实倒是次要的，不管你是假正经，还是真
+    色狂，也无论是爱情还是情爱、是偷窥还是意淫、是生活本色还是想象编造，故事编的好
+    不好才是第一位的。而故事编的好坏，故事中的人物至关重要。而基本的，人物的行为要
+    符合性格心理的发展变化，人物的性格心理变化要符合一般的逻辑，这样的人物才是小说
+    中的真实与立体。如果只是为博眼球而刻意瞎编，而且不管人物心理发展变化，全篇一律
+    地充斥着想象的故事发展，用生硬的情节桥段，臆断的对话来衔接，用没有节制的肆意的
+    语言来发泄，可想而知这一定是那点欲望的发泄是由笔来完成的故事！
+
+    潇洒不是装出来的，更不是拿撒泼当个性、拿偷窥当炫耀、拿意淫当真枪、拿颓废当青春，
+    这实在是有点伪娘方式的做作与自欺其人。潇洒是隐约在你微博中看到的那点不敢正视的、
+    被头发挡住的、微弱的、渴望阳光的眼睛。
+
+[陈力简：凭什么我坚定地认为特朗普能得大选](http://www.guancha.cn/Chenlijian/2016_11_27_381932_s.shtml)
+
+英雄战胜恶龙之后最好的结局是和恶龙同归于尽，这样人们就会传颂赞美英雄的歌谣，而不会发现英雄只是另一条恶龙而已。
+
+[（转）润涛阎：在美华人与小中男的道路选择](https://www.douban.com/note/594028668/) -<
+
+:   这类事发生在民主党尤其是大学等“精英”为主的地方比较普遍，而发生在红脖子们的
+    地盘则较少。在美国，你如果走遍天南海北，你就会发现越是红脖子的地盘大家越懂
+    得礼貌，因为都是玩枪的，你不可能没事找死故意惹人难受的。
+
+    润涛阎的旧作里论述了美国排华法案的形成过程，今天只强调一点：在排华法案被成
+    为法案之前，有数以千计的华人平白无故被杀，而华人也不买枪报复。这实在令美国
+    人恐惧，因为这样的民族习性如果蔓延开来或这样的人有了很多后代或新移民而使得
+    美国的“鹰”“狼”文化变成了软弱可欺的羊文化，对美国的未来是不堪设想的。这是排
+    华法案能被白人一致认可的根本原因。而那些口头上的说法只不过是冠冕堂皇的借口
+    而已。
+
+    美国白人的血性特征，最瞧不起的是懦弱者，被称为撸射。而在中国的传统文化里，
+    （Loser）翻译成撸射是合理的，而翻译成“失败者”则与传统文化不沾边。因为中国的
+    传统文化认为，失败乃成功之母。今天阶下囚，明天座上宾。Loser 翻译成失败者也是
+    不符合原意的。鹰文化认为，Loser 是因为懦弱缺乏勇气而导致的失败。如果用音译撸
+    射，则更符合中国的传统文化。
+
+    小中男纷纷弃藤校而去报考军事院校，很快就有一批二代华男将军出来，到那天，华
+    男的形象与地位才能彻底改观。与黑人的奋争历史相同，出一个鲍威尔在先，才能出
+    一个奥巴马总统。犹太人厉害不？占领着美国的金融领域、医学与科学领域、宣传领
+    域（包括主要媒体与好莱坞），但没有占据军事领域，就出不了总统。得先出上将里
+    的上将（鲍威尔主持军事会议时听他训话的都是上将）。在鹰文化、狼文化里，枪杆
+    子比笔杆子重要得多。何况华人取代犹太人的地位是天方夜谭。唯一的途径是走军事
+    路线。军事院校里有足够多的华男，水涨船高，将军队伍就出来了。
+
+    在眼下美国军队里华人连一个将军都没有的情况下，政治正确是唯一能保护少数族裔
+    的乌龟壳。别为了点眼前利益就放弃自己最后的保护伞。
+
+issue fucking gift certificates.
+
+![I just can't work for other people.](https://img1.doubanio.com/view/status/raw/public/1f59429c1c6df27.jpg)
+
+[ErbB4 老麋鹿的广播](https://www.douban.com/people/81194074/status/1901466275/)
+
+:   我混不了圈子大概是因为我不能忍受互相捧臭脚，哎。我完了。
+
+[胭脂扣 (1988) 1/3-dvorak4tzx](http://dvorak4tzx.lofter.com/post/1d4021c8_a7dc301)
+
+[胭脂扣 (1988) 2/3-dvorak4tzx](http://dvorak4tzx.lofter.com/post/1d4021c8_a7dc303)
+
+[胭脂扣 (1988) 3/3-dvorak4tzx](http://dvorak4tzx.lofter.com/post/1d4021c8_a7dc305)
+
+我对人性颇不适应，也是我坑人的时候发现的。我拿别人当朋友的时候，遇到问题会直接
+说，措辞当然会谨慎，但常常得罪人，刺到人。当我准备坑人的时候，我在它面前会谦虚
+装弱小装苦逼，大拍马屁，迷惑它，背地里下狠手，你道怎样？它很享受这种感觉，反而
+把我当好朋友什么都说。我操，反差受不了。
+
+这可是聪明人相对多坏人相对多的金融业啊，也到处是充满人性弱点的笨蛋，不分好坏...
+所以我觉得... 大部分人真心是羊... 说话好听的人...一定对你没有太多真心...
+
+但，如果你对谁付出真心，你一定会倒霉，一定是失去这个人... 你体会下... 所以，人
+是很麻烦的傻叉动物，离远点...尽量保持距离... 真的....
+
+在职场，你想往上爬绝对会得罪人，绝对会。同事交往中规中矩就行了，没什么必要跟大
+家打成一片，这是无用功。你的价值体现在你对业绩的贡献上。就凭端茶倒水那点小恩小
+惠想叫人家提拔你帮你是不可能的，你替他拿一百次快递，不如帮他解决一次工作障碍作
+用大。不善交际这件事是个很中性的词。你想想。
+
+[emptymalei/awesome-research: a curated list of tools to help you with the research/life](https://github.com/emptymalei/awesome-research)
