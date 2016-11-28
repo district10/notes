@@ -42,6 +42,7 @@ title: TANG ZhiXiong's Notes/Wiki
 -   [Leetcode](leetcode/index.html){.hide title=leetcode/index.md}
 -   [Cracking the Coding Interview](cracking-the-coding-interview/index.html){.hide title=cracking-the-coding-interview/index.md}
 -   [job](2016/job.html){.hide title=2016/job.md}
+-   [Urban Dictionary](misc/ud.html){.hearts}
 
 ---
 

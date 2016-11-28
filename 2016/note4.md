@@ -520,3 +520,44 @@ issue fucking gift certificates.
 用大。不善交际这件事是个很中性的词。你想想。
 
 [emptymalei/awesome-research: a curated list of tools to help you with the research/life](https://github.com/emptymalei/awesome-research)
+
+文因互联和辉瑞都是扩展人的能力的公司 ( @ 面壁score )
+
+总之，英语数学哲学物理，难学的东西一定是有价值的，竞争最终都会落在这些难搞的环节。你不学你倒霉，一定的。
+
+[高德地图 - DIY 我的地图](https://whu-rs-advancedgis.github.io/amap-online-map-maker/)
+
+Tangin'
+
+:   (adj) - Describes a woman who does not have a bra under her clothing and
+    allows her breasts to dangle on their own, much like an orangutan.
+
+    Bro 1: Dude, Mary's not wearing a bra today! You can see her nipples and everything!
+
+    Bro 2: Yeah bro, she's totally tangin' today.
+
+[有文化到底有多可怕？ - 简书](http://www.jianshu.com/p/73c19926ce2c) -<
+
+:   没文化的人，比如周小平，至少还是有口饭吃的，还是可以被各地政府邀请演讲的，
+    不久前清华大学就请周小平做过讲座，你说周小平的文化水平和清华教授比，如何？
+
+    你可以有文化，但是最好假装没文化，你才能活得好。想想郭沫若，怎么说也是个文
+    史造诣一流的文化人，可是你看看他文革时期写的那些打油诗，你就知道这人为了装
+    自己没文化，装得好苦。
+
+    不怕流氓有文化，就怕好人有文化。流氓有文化，你至少可以跟康生那样混一辈子，
+    可以跟郭沫若那样得以好死。如果是好人有文化，就是跟汪精卫陈璧君一样下场。
+
+
+horde
+
+:   `[hɔrd]`
+
+    n. 一大群，群；游牧部落
+
+维民所止
+
+:   “邦畿千里，维民所止”，维通为，止即住所。是说：都邑周边千里远，都是商民居住
+    地。清朝雍正时期，文字冤狱记录在案。主考官查嗣庭以“维民所止”为考题，被曲解
+    为“雍正砍头”。“雍正”二字去其头，正是“维止”二字。结果查嗣庭惨死狱中，还被戮
+    尸示众。
