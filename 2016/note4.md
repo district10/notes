@@ -561,3 +561,49 @@ horde
     地。清朝雍正时期，文字冤狱记录在案。主考官查嗣庭以“维民所止”为考题，被曲解
     为“雍正砍头”。“雍正”二字去其头，正是“维止”二字。结果查嗣庭惨死狱中，还被戮
     尸示众。
+
+platinum
+
+-   `['plætnəm]`
+-   n. [化学] 铂；白金；唱片集达100万张的销售量；银灰色
+-   adj. 唱片集已售出100万张的
+
+[庶民样本](https://egoistian.com/) -<
+
+:   其次，我相信人最不能缺少的东西就是钱和梦想。不能缺少钱不是指为了钱夜以继日工作那样，唯利是图，而是指能够拥有足够维持自己梦想的钱，对的，真正重要的是梦想啊。没有梦想是件很可怕的事，它让你虚度光阴甚至让你对自己的存在产生疑问。
+
+    最后你可能注意到了这个页面的标题的缩写是 G-F-W，那么绝对得分享一下破墙秘笈之 SS 了:
+
+    ```
+    W3NoYWRvd3NvY2tdbGlua3N0YXJ0QHRrLmVnb2lzdGlhbi5jb206MjI1MjI=
+    ```
+
+    >   Tab 不需要依靠某一个工具，所有编辑器都知道 “如何插入一个 tab”
+
+    但是他们不一定知道怎么显示一个 tab 啊……
+
+    >   Use tab to indent, use space to align.
+    >   If you are using space, you are making alignment, not making indention.
+
+[现在的苹果公司到底缺乏什么？ - 苹果公司 (Apple Inc.) - 知乎](https://www.zhihu.com/question/50012944)
+
+Lambda View -<
+
+:   -   <http://whudoc.qiniudn.com/2016/lv/co.js>
+    -   <http://whudoc.qiniudn.com/2016/lv/co.js.html>
+    -   <http://whudoc.qiniudn.com/2016/lv/d3.js>
+    -   <http://whudoc.qiniudn.com/2016/lv/d3.js.html>
+    -   <http://whudoc.qiniudn.com/2016/lv/jquery.js>
+    -   <http://whudoc.qiniudn.com/2016/lv/jquery.js.html>
+    -   <http://whudoc.qiniudn.com/2016/lv/three.js>
+    -   <http://whudoc.qiniudn.com/2016/lv/three.js.html>
+
+
+1946 年，胡适在北京的开学典礼上，引南宋理学家吕祖谦之语，送给当时的大学生八个字：
+
+善未易明，理未易察！
+
+
+
+
+

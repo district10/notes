@@ -73,6 +73,7 @@ Google Search -<
         安装工具，它包含在某些 Linux 分发版中。它生成具有 .RPM 扩展名的文件。与
         Dpkg 类似。
     -   `ag --pager less <qry> [<filename>]`{.bash}
+    -   `pt --color --group <qry> | less`{.bash}
     -   假脱机（Spool）（外围设备联机并发操作，Simultaneous Peripheral Operation
         On-Line） — 将数据发送给一个程序，该程序将该数据信息放入队列以备将来使用
         （例如，打印假脱机程序）。
