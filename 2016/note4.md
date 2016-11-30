@@ -875,3 +875,37 @@ Lambda View -<
     git add -u stages modified and deleted, without new
 
 [cursor - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor)[cursor - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor)
+
+
+vim 浏览器里面的 ESCAPE 是 contral+]？
+
+find * -type f | sed -e "p;s/\//____/;" | xargs -n2 echo
+
+
+在主题发布之后的 300 秒内，你可以自由地编辑自己的主题，或者将其移动到其他节点。
+但是在 300 秒（5 分钟）之后，就不可以再进行这些操作了。对于编辑的限制是为了让大
+家对发表在 V2EX 的言论更加负责。
+
+[rghose/youtube-downloader: My Bash One Line Youtube Downloader](https://github.com/rghose/youtube-downloader)
+
+:   ```bash
+    #!/usr/bin/env bash
+    video_url="${1}"
+    out_file_name="${2:-out.video}"
+    curl \
+      -H 'Upgrade-insecure-requests: 1' \
+      -H 'Cache-control: max-age=0' \
+      -H 'Accept-language: en-US,en;q=0.8,bn;q=0.6' \
+      -H 'Accept-encoding: gzip, deflate, sdch' \
+      -H 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' \
+      -H 'User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36' \
+      "${video_url}" \
+    | gunzip \
+    | egrep -o 'https%3A%2F%2F[^\.]*\.googlevideo.com%2F[^,\]*' \
+    | perl -pe 's/\%(\w\w)/chr hex $1/ge' \
+    | head -n1 \
+    | xargs wget -O "${out_file_name}"
+    ```
+
+prpr 是日文ぺろぺろ / ペロペロ（pe ro pe ro）的缩写，意思就是舔，各种舔。“呸喽呸喽”也是同义。
+
