@@ -909,3 +909,478 @@ find * -type f | sed -e "p;s/\//____/;" | xargs -n2 echo
 
 prpr 是日文ぺろぺろ / ペロペロ（pe ro pe ro）的缩写，意思就是舔，各种舔。“呸喽呸喽”也是同义。
 
+觉得自己在正能量度众生的，精神病概率比较大，入魔概率比较大…
+
+-   [小心，你的耳机可能会被黑客用来窃听](http://cn.engadget.com/2016/11/23/hijacked-headphones-could-be-used-to-listen-in-on-your-life/)
+
+-   [@陈虎平:钱德勒的书都是好书，唯一的缺点就是太厚。可不看厚书也不行，总不能天天看微博吧！微博90%内容都是哄人玩的，好比信息鸦片，让你抽了全身乏力增加黏性，把挣的点钱花在它推的产品，把精力消耗在看多少遍都不会提升能力的信息。互联网降低了获取信息的成本，主要是降低了他们获取你的信息的成本。](http://weibo.wbdacdn.com/user/2201566133/status4045030807668754.html#utm_source=rss) -<
+
+    :   钱德勒的书都是好书，唯一的缺点就是太厚。可不看厚书也不行，总不能天天看微博
+        吧！微博90%内容都是哄人玩的，好比信息鸦片，让你抽了全身乏力增加黏性，把挣的
+        点钱花在它推的产品，把精力消耗在看多少遍都不会提升能力的信息。互联网降低了
+        获取信息的成本，主要是降低了他们获取你的信息的成本。
+
+        -   [看得见的手 (豆瓣)](https://book.douban.com/subject/1053848/)
+        -   [大企业和国民财富 (豆瓣)](https://book.douban.com/subject/1174913/)
+
+-   [The Economics of the Internet Backbone](https://ideas.repec.org/p/net/wpaper/0423.html)
+
+    :   This paper discusses the economics of the Internet backbone. I discuss
+        competition on the Internet backbone as well as relevant competition
+        policy issues. In particular, I show how **public protocols**,
+        **ease of entry**, **very fast network expansion**, connections by the same Internet
+        Service Provider (“ISP”) to multiple backbones (ISP multi-homing), and
+        connections by the same large web site to multiple ISPs (customer
+        multi-homing) enhance price competition and make 【it very unlikely that
+        any firm providing Internet backbone connectivity would find it
+        profitable to degrade or sever interconnection with other backbones in
+        an attempt to monopolize（`[mə'nɑpə'laɪz]` vt. 垄断；独占；拥有…的专卖权）
+        the Internet backbone】.
+
+        <http://www.netinst.org/ECONOMICS_OF_THE_INTERNET_BACKBONE.pdf>
+
+-   [Microsoft's 'Solitaire' heads to iOS and Android](https://www.engadget.com/2016/11/23/microsofts-solitaire-heads-to-ios-and-android/)
+
+    :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Pysol-black-hole-solitaire-deal-1000-with-public-domain-tabletile.png/640px-Pysol-black-hole-solitaire-deal-1000-with-public-domain-tabletile.png)
+
+        -   `[.sɑlɪ'ter]`
+        -   单人跳棋；单人纸牌游戏；独粒宝石；独粒宝石首饰，网络接龙；纸牌接龙；单人纸牌戏
+
+        Patience, or solitaire as it is known in the US and Canada, is a genre (`['ʒɑnrə]`)
+        of card games that can be played by a single player. Patience games can
+        also be played in a head-to-head fashion with the winner selected by a
+        scoring scheme.
+
+        In the US, the term solitaire is often used specifically to refer to
+        solitaire with cards, while in other countries solitaire specifically
+        refers to peg solitaire. Both Solitaire and Patience are sometimes used
+        to refer specifically to the Klondike form of Patience.
+
+        Basic forms of Klondike solitaire and FreeCell come with every
+        installation of Microsoft Windows older than Windows 8. More recent
+        versions of Windows offer six unique card games which can be downloaded
+        for free from its app store in the form of the Collection. There are
+        also many applications for Android and iOS.
+
+        refs and see also
+
+        -   [Patience (game) - Wikipedia](https://en.wikipedia.org/wiki/Patience_(game))
+
+-   [能否通过相貌判断好人坏人?猜对了5个](https://www.douban.com/group/topic/93886907/) -<
+
+    :   >   很多人说看眼神……呵了个呵。明明看照片质量和扮相更靠谱。图像拼接都要匀光
+        >   匀色，这种对比居然直接用原图？！我觉得至少应该把图片调整到一个色调，然
+        >   后把脖子以下的部分遮起来，最后只露脸。楼上再来猜。
+
+        石苏
+
+        >   @月饼 拉黑，滚。
+
+        Asshole.
+
+        refs and see also
+
+        -   [石苏的广播](https://www.douban.com/people/79049984/status/1922503066/?start=0#comments)
+
+-   [如何评价 UCLA 朱松纯教授近日访谈中对深度学习的批评？ - 知乎](https://www.zhihu.com/question/53134248) -<
+
+    :   作者：田渊栋
+
+        朱教授说的都是对的，现在确实有这个问题。但现实情况是，做理论需要的基础
+        知识多，困难，周期长，没有直接经济效益，还只能一两个人单打独斗且无法使
+        用大量计算资源，每个因素都和现在的主流发展方向（强调团队合作，强调速度
+        和新闻性，代码开源，大数据，大量计算资源）背道而驰。更麻烦的是，辛苦几
+        年做出来也未必会有人欣赏，做的人累，看的人更累，于是好文就淹没在大量的
+        Arxiv 里面。偶尔有几个人想去看看，费尽力气却发现某个假设太强，完全和现
+        实扯不上，不免失望。相比之下做应用的文章实验清楚效果明显还立即可用，大
+        家一望便知，名声响，引用多，曝光率高。
+
+        所以理论是做给自己看的，有点情怀的人才做理论。一万个硕士博士里有一个怀
+        着这个理想，那迟早有一天会做出来的，大部分人不用费这个力气的。这也符合
+        市场需求，没有什么不好。要是大家都去做理论了，那没有应用成果，深度学习
+        还怎么火下去？对做理论的人来说，竞争激烈了，就更没有慢慢想的时间和空间
+        了。
+
+        另外，最近我投的那篇二层 ReLU 的理论分析，从有了理论到成稿就做了两个月，
+        并没有花几年，之前一直方向不对在瞎搞。【我的感触是，真的有了感觉，出文
+        章不会慢的，但是在有感觉之前，要做很多积累，花掉很多时间，这个阶段又苦
+        又难熬，现下很少有人愿意。】但若是真想做理论的话，不要被几年这种话吓住
+        了，像我这种半路自学，肯定是走了弯路开悟晚的，就不用当例子了，科班出身
+        的肯定会快很多。
+
+        最后感谢一下看过我文章的同学，辛苦了！
+
+-   Words
+
+    :   -   关你屁事
+        -   关我屁事
+        -   老子有钱
+        -   有钱难买俺乐意
+
+-   [Nanotubes can turn water solid when it should be boiling](https://www.engadget.com/2016/11/29/nanotubes-can-turn-water-solid-when-it-should-be-boiling/)
+
+    :   ![](https://s.aolcdn.com/dims5/amp:c4e8eaae883b57f917173b251dc7bf0788bc41f2/q:100/?url=http%3A%2F%2Fo.aolcdn.com%2Fdims-shared%2Fdims3%2FGLOB%2Fcrop%2F2121x1414%2B0%2B0%2Fresize%2F1600x1067%21%2Fformat%2Fjpg%2Fquality%2F85%2Fhttp%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2F36428376bf0fcbfc01202f5d9885d1c5%2F204643191%2F184789730.jpg)
+
+        Scientists have long known that under the right conditions, small
+        amounts of water can be coaxed into changing its boiling or freezing
+        point. A pot of water takes less energy to boil on the top of Mount
+        Everest, for instance, and liquid under pressure takes a little more
+        heat to convert into steam. A group of researchers at MIT has recently
+        taken this effect a step further -- observing that water in nanotubes
+        can actually freeze into a solid at temperatures well beyond its
+        natural boiling point.
+
+        The group was used a technique called vibrational spectroscopy to
+        confirm that the nanotube confined water shifted to a "stiff phase,"
+        but researchers are hesitant to say the solid water is frozen. "It's
+        not necessarily ice," Strano says, "but it's an ice-like phase."
+        Terminology aside, the phenomenon could be used to create highly
+        conductive "stable water wires." Sounds futuristic. Ready to hear more?
+        You can find the research group's findings at the source link below.
+
+        -   nanotube，纳米管；奈米管；奈米微管
+
+-   [The (lack of a) case against Python 3 - Lerner Consulting Blog](http://blog.lerner.co.il/case-python-3/) -<
+
+    :   吐槽了 Zed Shaw 的 The Case Against Python 3.
+
+-   [三星 Gear 360 实拍体验：现阶段最平衡的全景相机](http://cn.engadget.com/2016/11/29/samsung-gear-360-review/)
+
+    :   ![](http://o.aolcdn.com/hss/storage/midas/5f28d9190b550a84cb9c74cb6637af54/204637784/20161103_Gear_360_DSC9007.jpg)
+
+        ![](https://c5.staticflickr.com/6/5822/29959024844_34726e9f3b_z.jpg)
+
+-   [Intelligence gaps may have helped Afghan Taliban breach NATO fortress | Reuters](http://www.reuters.com/article/us-afghanistan-usa-bomber-insight-idUSKBN13I2NN?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29)
+
+-   [Google 用「32 年」的延时摄影，让我们看看地球的快速变化](http://cn.engadget.com/2016/11/29/google-earth-timelapse/)
+
+-   [tiny-dnn/tiny-dnn: header only, dependency-free deep learning framework in C++11](https://github.com/tiny-dnn/tiny-dnn)
+
+-   [The Emacs dumper dispute [LWN.net]](https://lwn.net/SubscriberLink/707615/286fbe1405669d74/)
+
+-   [commaai/openpilot: open source driving agent](https://github.com/commaai/openpilot)
+
+-   [通过这台电子阅读器就能把手绘作品数字化](http://cn.engadget.com/2016/12/01/remarkable-wants-to-reinvent-the-notepad/)
+
+-   [US lead on AI will shrink without more funding and education](https://www.engadget.com/2016/12/01/us-lead-on-ai-will-shrink-without-more-funding-and-education/)
+
+-   [习近平：筑就中华民族伟大复兴时代文艺高峰|习近平|文代会_新浪新闻](http://news.sina.com.cn/china/xlxw/2016-11-30/doc-ifxyawxa3196598.shtml)
+
+-   [全球艾滋病患者 ... - - 帝归的广播 - 豆瓣](https://m.douban.com/people/unionz/status/1922174804) -<
+
+    :   -   全球艾滋病患者总数有 3700 万
+        -   总感觉不止这个数，应该还有很多患者可能还不知道自己已经患病
+
+-   [如何看待 2016.11.28 亚马逊员工跳楼，后被强制送精神病院？ - 匿名用户的回答 - 知乎](https://www.zhihu.com/question/53114549/answer/133778551)
+
+-   [2013-09-12 说给孩子第三季 赵小兰 -20130912 说给孩子第三季 - 凤凰视频 - 最具媒体价值的综合视频门户 - 凤凰网](http://v.ifeng.com/program/special/201309/018c1043-793e-4321-8ece-19f7eb465721.shtml)
+
+---
+
+- [有什么关于北京的冷知识？ - 老金的回答 - 知乎](https://www.zhihu.com/question/52318037/answer/132492273)
+
+:
+
+全世界都知道，现在的北京，是一座雾霾包围的城。
+
+但很少人知道，不到一百年前的北京，曾是一座粪便包围的城。
+
+京师“四霸天”——粪、水、米、车。
+四个和生活密切相关的行业内呈现的黑恶势力
+
+- [为什么谷歌、微软等美国顶尖企业会有那么多印度裔高管？ - 知乎](https://www.zhihu.com/question/22860487)
+
+很多人，包括我自己之前在其他答文中，确实多次提到过有关在美印度人和在美华人职场风格的差别，然后半吐槽半激励在美华人能更具有企图心一些，等等。
+
+但是，以上绝非题主这个问题的根本答案。
+
+用最简单的话来总结，真实的原因其实是这两个：
+
+1，来美并留美的印度人和来美并留美的中国人，背景不一样
+2，印度和中国这两个国家不一样，于是人的选择范围不一样
+
+稍微展开说：
+
+1，来美国的中国人背景，两极分化：或者是各个尺度上的中国最底层（典型来美方式如偷渡、所谓“政治避难”，以及蓝领技术移民等），或者是起码在“教育”这个尺度上的中国最顶层（来美入口基本上百分百是美国大学读书毕业留美）。前者天然只有“闷声发大财”的人生目标。而后者中愿意留下来的，本就属于主动选择“小富即安”平稳生活的人群。而来美国的印度人，基本上就是印度本国人口金字塔中的最顶层了，天生有追求“星辰大海”的本能企图心。
+
+作者：Fan Francis
+链接：https://www.zhihu.com/question/22860487/answer/104516940
+来源：知乎
+著作权归作者所有，转载请联系作者获得授权。
+
+
+- [angular/angular-cli: CLI tool for Angular2](https://github.com/angular/angular-cli#installation)
+- [cmelion/generator-ng2-webpack: An opinionated tool for scaffolding an app using angular2 and webpack](https://github.com/cmelion/generator-ng2-webpack)
+- [angularjs - Available yeoman generator for angular 2 - Stack Overflow](http://stackoverflow.com/questions/29649578/available-yeoman-generator-for-angular-2)
+
+-   [Install Docker on Ubuntu - Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/) -<
+
+    :   ```bash
+        $ sudo apt-get update
+        $ sudo apt-get install apt-transport-https ca-certificates
+        $ sudo apt-key adv \
+                       --keyserver hkp://ha.pool.sks-keyservers.net:80 \
+                       --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+        # Precise 12.04 (LTS)       deb https://apt.dockerproject.org/repo ubuntu-precise main
+        # Trusty 14.04 (LTS)        deb https://apt.dockerproject.org/repo ubuntu-trusty main
+        # Wily 15.10                deb https://apt.dockerproject.org/repo ubuntu-wily main
+        # Xenial 16.04 (LTS)        deb https://apt.dockerproject.org/repo ubuntu-xenial main
+        $ echo "<REPO>" | sudo tee /etc/apt/sources.list.d/docker.list
+        $ sudo apt-get update
+
+        $ apt-cache policy docker-engine
+
+          docker-engine:
+            Installed: 1.12.2-0~trusty
+            Candidate: 1.12.2-0~trusty
+            Version table:
+           *** 1.12.2-0~trusty 0
+                  500 https://apt.dockerproject.org/repo/ ubuntu-trusty/main amd64 Packages
+                  100 /var/lib/dpkg/status
+               1.12.1-0~trusty 0
+                  500 https://apt.dockerproject.org/repo/ ubuntu-trusty/main amd64 Packages
+               1.12.0-0~trusty 0
+                  500 https://apt.dockerproject.org/repo/ ubuntu-trusty/main amd64 Packages
+
+        $ sudo apt-get install linux-image-extra-$(uname -r) linux-image-extra-virtual
+        $ sudo apt-get install docker-engine
+
+        $ sudo service docker start
+        $ sudo docker run hello-world
+        ```
+
+        Dockerfile
+
+        :   ```
+            FROM daocloud.io/nginx
+            COPY static-html-directory /usr/share/nginx/html
+            ```
+
+        build the nginx
+
+        :   ```
+            docker build -t some-content-nginx .
+            ```
+
+        最后启动容器
+
+        :   ```bash
+            # docker run --name some-nginx -d some-content-nginx
+            $ docker run --name some-nginx -d -p 8080:80 some-content-nginx
+            ```
+
+        refs and see also
+
+        - [Hub · DaoCloud](https://hub.daocloud.io/repos/2b7310fb-1a50-48f2-9586-44622a2d1771)
+        - [Ubuntu14.04 下安装 docker - xiaoluosun - 博客园](http://www.cnblogs.com/xiaoluosun/p/5520510.html)
+
+- [mapnik/mapnik: Mapnik is an open source toolkit for developing mapping applications](https://github.com/mapnik/mapnik)
+
+-   [没人怀疑在天朝一个境外翻墙工具居然能使用支付宝付款？ · Issue #335 · getlantern/forum](https://github.com/getlantern/forum/issues/335#issuecomment-230950819) -<
+
+    :   Lantern, a new software programme which allows internet users to
+        circumvent government-imposed censorship, is seeing rapid growth in
+        China as more people are using it to bypass the Great Firewall of China
+        to access websites like Facebook, YouTube and Twitter.
+
+        refs and see also
+
+        -   [US-funded Lantern program allows Chinese to dodge Great Firewall and view banned websites | South China Morning Post](http://www.scmp.com/news/china-insider/article/1372661/use-lantern-software-means-view-banned-websites-grows-china)
+
+
+- [一图看懂2天后你的个人银行账户将有什么重大变化_金改实验室_澎湃新闻-The Paper](http://www.thepaper.cn/newsDetail_forward_1569405)
+- [小米三大定律正式发表](http://weibo.com/ttarticle/p/show?id=2309404043936921426440)
+- [OpenStreetMap初探（七）——渲染和地图瓦片之安装Mapnik - Mr.An 的专栏 - 博客频道 - CSDN.NET](http://blog.csdn.net/scy411082514/article/details/7515735)
+- [王朔评冯小刚：欺下必定媚上](http://mp.weixin.qq.com/s/_57dpgTW7PXtR_cXg87_HA)
+
+
+
+- [30张图读懂当前中国金融体系 - 读图分析_信息图_数据图 - 电商报](http://www.dsb.cn/51812.html)
+
+《当前中国金融体系》是一年前为了某次讲座准备的课件的部分内容，现在回过头来看，这些基础的东西还是没有变。对于整体性了解中国的金融环境、金融体系、金融政策有一定的帮助。以下是课件节选：
+
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095000184.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095000680.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095000393.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095000754.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095001169.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095001950.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095001888.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095001113.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095002385.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095007401.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095007170.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095008790.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095008677.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095008343.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095013320.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095014701.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095014306.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095014993.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095014360.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095020490.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095020788.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095020837.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095021238.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095021841.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095021643.jpeg)
+![](http://www.dsb.cn/images/uploadfile/2016/1129/20161129095021450.jpeg)
+
+
+
+- [页面载入出错](http://www.zmonster.me/2016/10/03/2016-q3-review.html)
+
+- [使用QGIS绘制地图（上） - 数据地图博客](http://mapclub.cn/archives/1769)
+- [孩子，他们只是欺负你年轻 | 梁研研 | Pulse | LinkedIn](https://www.linkedin.com/pulse/%E5%AD%A9%E5%AD%90%E4%BB%96%E4%BB%AC%E5%8F%AA%E6%98%AF%E6%AC%BA%E8%B4%9F%E4%BD%A0%E5%B9%B4%E8%BD%BB-%E7%A0%94%E7%A0%94-%E6%A2%81)
+- [张志华：教学之感悟 – 我爱计算机](http://www.52cs.org/?p=1378)
+- [机器学习太难？这里有一份详细到周的入门学习计划](http://weibo.com/ttarticle/p/show?id=2309351000224044911069548323)
+
+
+-   [Trump says he will back away from business to focus on White House | Reuters](http://www.reuters.com/article/us-usa-trump-idUSKBN13P1DM?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29) -<
+
+    :   NEW YORK U.S. President-elect Donald Trump vowed on Wednesday to step
+        back from running his global business empire to avoid conflicts of
+        interest but gave few immediate details as concern over his dual role
+        mounts ahead of his Jan. 20 inauguration.
+
+    Trump, a real estate magnate who owns hotels and golf resorts from Panama
+    to Scotland, said he would spell out at a Dec. 15 news conference how he
+    will separate himself "in total" from his worldwide business holdings,
+    which include a winery, modeling agency and a range of other businesses.
+
+    After Trump won the Nov. 8 election, his company, the Trump Organization,
+    had said it was looking at new business structures with the goal of
+    transferring control to Donald Trump Jr., Ivanka Trump and Eric Trump -
+    three of his adult children who are involved with the company.
+
+    Trump gave few details in a series of early morning tweets but said that
+    "legal documents are being crafted which take me completely out of business
+    operations" and that his children would attend the news conference. He did
+    not say what the planned change might mean for ownership of his businesses.
+
+    Although Trump's fellow Republicans generally take a more laissez faire
+    stance toward business than Democrats, the president-elect will travel to
+    Indiana on Thursday to formally announce a deal he reached with United
+    Technologies Corp to keep close to 1,000 jobs at its Carrier Corp air
+    conditioner plant in Indianapolis rather than have them moved to Mexico.
+
+    Trump and his running mate, Mike Pence, the governor of Indiana, railed
+    against Carrier on the campaign trail, using the company's outsourcing move
+    as an example of how trade agreements hurt American workers.
+
+    'HE NEEDS TO SELL THE BUSINESSES'
+
+    Critics have raised questions about the role of Trump's children, who are
+    on the executive committee of his White House transition team. His daughter
+    Ivanka joined a telephone call her father had with Argentine President
+    Mauricio Macri earlier this month and attended a meeting with Japanese
+    Prime Minister Shinzo Abe, creating concerns about possible conflicts of
+    interest.
+
+    A brand name around the globe, Trump previously argued he had no need to
+    separate himself from the Trump Organization, which includes a hotel down
+    the street from the White House, a Manhattan tower where he lives and is
+    running his transition to office, and a New Jersey golf course where he
+    interviewed Cabinet candidates earlier this month.
+
+    Trump said on Wednesday he was not required by law to alter his
+    relationship with his business, but added: "I feel it is visually
+    important, as president, to in no way have a conflict of interest with my
+    various businesses."
+
+    As the Republican heads toward taking over the White House from Democratic
+    President Barack Obama, scrutiny of potential conflicts has grown.
+    Democratic lawmakers on Capitol Hill called for hearings on the issue.
+
+    Rules on conflict of interest for executive branch employees do not apply
+    to the president, but Trump will be bound by bribery laws, disclosure rules
+    and the U.S. Constitution, which bars elected officials from taking gifts
+    from foreign governments.
+
+    The nonpartisan Office of Government Ethics, a government office that
+    oversees ethics programs for the executive branch, issued a statement
+    saying it applauded Trump's aims and appearing to suggest that he
+    completely shed his holdings.
+
+    "Divestiture resolves conflicts of interest in a way that transferring
+    control does not," it said.
+
+    Richard Painter, who served as the chief ethics lawyer to former Republican
+    President George W. Bush, concurred.
+
+    "He needs to sell the businesses not just have someone else manage them for
+    him," Painter, a professor at the University of Minnesota Law School, said
+    in an emailed comment.
+
+    WALL STREET PICKS
+
+    Trump, a former reality TV star, has spent much of the past few weeks
+    setting up his Cabinet and interviewing candidates for top jobs in his
+    administration.
+
+    On Wednesday, Trump said he would nominate his chief campaign fundraiser,
+    Steven Mnuchin, to lead the U.S. Treasury. Mnuchin said the administration
+    would make tax reform and trade pact overhauls top priorities as it seeks a
+    sustained pace of 3 percent to 4 percent economic growth.
+
+    Mnuchin, a former Goldman Sachs banker, also signaled a desire to remove
+    U.S. mortgage-finance companies Fannie Mae and Freddie Mac from government
+    ownership, a move that could have wide-ranging ramifications for how
+    Americans pay for their homes, and said banking regulations should be eased
+    to spur lending.
+
+    Trump named Wilbur Ross, a billionaire known for his investments in
+    distressed industries, as his nominee for commerce secretary. Both nominees
+    will require confirmation by the U.S. Senate.
+
+    Trump is also considering Goldman Sachs President and Chief Operating
+    Officer Gary Cohn, a former commodities trader, to head his White House
+    budget office or to fill another position, a Trump transition official
+    said.
+
+    The economic picks were praised by the Business Roundtable, a group that
+    represents America's largest corporations.
+
+    But U.S. Senators Bernie Sanders and Elizabeth Warren called Mnuchin "just
+    another Wall Street insider."
+
+    "That is not the type of change that Donald Trump promised to bring to
+    Washington - that is hypocrisy at its worst," Sanders, a Vermont
+    independent who ran for the 2016 Democratic presidential nomination, and
+    Warren, a Massachusetts Democrat, said in a joint statement.
+
+    Trump pledged during his campaign to "drain the swamp" in Washington. A
+    spokesman said giving top economic jobs to Wall Street figures was not
+    inconsistent with that vow.
+
+    "You want some people that are insiders and understand the system and some
+    outsiders that are creative thinkers, out-of-the-box thinkers and
+    disruptors," said Anthony Scaramucci, an asset manager who is on Trump's
+    transition committee.
+
+    Trump is also working to fill out his foreign policy team, but no decision
+    appeared imminent on who the next secretary of state would be.
+
+    (Additional reporting by David Lawder and Eric Walsh in Washington and
+    Melissa Fares in New York; Writing by Roberta Rampton and Arshad Mohammed;
+    Editing by Alistair Bell and Peter Cooney)
+
+
+-   [Ukraine says missile tests will avoid Crimea, mollifying Russia | Reuters](http://www.reuters.com/article/us-ukraine-crisis-missiles-idUSKBN13P2TD) -<
+
+ Crimea 纠错
+英 美 [krai'miə]
+
+    n. 克里米亚；克里米亚半岛
+
+-   [copy - Rsync : copying over timestamps only - Server Fault](http://serverfault.com/questions/344731/rsync-copying-over-timestamps-only)
+
+Using -t (preserve timestamps) and --size-only will only compare files on size. If the size matches, rsync will not copy the file but since -t is specified, it will update the timestamp on the destination file without recopying it.
+
+Make sure to not use -u (update) as this will skip files that already exist and completely skip updating the timestamp.
+
+I had the problem of originally not using rsync to copy a bunch of files to a new drive, and therefore the timestamps were updated to current time. I used the command below to sync everything correctly in a decent amount of time:
+
+rsync -vrt --size-only /src /dest
+

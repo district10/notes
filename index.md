@@ -1,6 +1,6 @@
 ---
 title: TANG ZhiXiong's Notes/Wiki
-...
+---
 
 # TANG ZhiXiong's Notes/Wiki
 
