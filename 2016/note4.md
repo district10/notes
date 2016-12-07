@@ -1,6 +1,8 @@
 ---
-title: Working Notes
+title: Notes 4
 ---
+
+[【Prev Note】](notes3.html) [【Next Note】](notes5.html)
 
 -   [美媒：特朗普邀媒体高层举行座谈会 指责对方都是骗子](http://www.guancha.cn/america/2016_11_22_381363.shtml)
 
@@ -679,7 +681,9 @@ title: Working Notes
 
 -   [cursor - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor)[cursor - CSS | MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor)
 
--   vim 浏览器里面的 ESCAPE 是 contral+]？是的。
+-   vim 浏览器里面的 ESCAPE 是 `contral+]`？是的。（有的是 `Control+[`，比如 zybuluo）
+
+    :   zybuluo 的 vim 使用的 ace 自带 mode。
 
 -   v2ex：对自己言论负责 -<
 
@@ -2287,3 +2291,292 @@ title: Working Notes
 
         -   [Keep a Window on top with a handy AutoHotkey script](http://www.howtogeek.com/howto/13784/keep-a-window-on-top-with-a-handy-autohotkey-script/)
         -   [Download Always on Top - Keep Any Window Visible Always](http://www.labnol.org/software/tutorials/keep-window-always-on-top/5213/)
+
+-   [cmder git bash 使用 - 田园里的蟋蟀 - 博客园](http://www.cnblogs.com/xishuai/p/cmder-git-bash.html) -<
+
+    :   `"C:\Program Files\Git\bin\sh.exe" --login -i  -new_console:d:D:\tzx\git`
+
+        然后设置成 default task for now console。
+
+        然后把 cmder 路径加到 %PATH%，然后管理员权限运行 `Cmder.exe /REGISTER ALL`。
+
+        最后，可以调一下 transparency。
+
+        还可以复制当前 console：点一下目标 tab，右键，restart or duplicate，duplicate root...。
+
+        点击添加 console 的时候，可以选择 to bottom 或者 to right 来分屏（默认是 layered）。
+
+        再把 Startup 调整一下，让它默认启动 git bash（`specify name task`）。
+
+        当然，快捷键其实都是可以自己定义的。
+
+        ```bash
+        -new_console:d:C:\Users\mfranc\Dropbox "%ProgramFiles(x86)%\Vim\vim74\vim.exe" /k
+        -new_console:d:D:\ "%ProgramFiles(x86)%\Vim\vim74\vim.exe" /k -cur_console:n
+        -cur_console:d:D:\ "%ProgramFiles(x86)%\Git\bin\sh.exe" --login -i -cur_console:n:sT25V
+        -cur_console:d:D:\ "%ProgramFiles(x86)%\Git\bin\sh.exe" --login -i -cur_console:n:sT66H
+        cmd.exe -new_console:d:D:\ -i -cur_console:n:sT50H
+        ```
+
+        What does those commands do ? 1. Creates new screen and opens Vim in my
+        Dropbox folder context 2. Creates new screen with Vim pointing to D:\
+        3. Initializes shell in new window and splits current screen into
+        75%/25% Horizontaly
+
+        这段对话也是叼：
+
+        -   After installing with cmder first thing you need to do - update ConEmu to latest preview or alpha build.
+
+        -   I haven't done that. My current version is 140... . I can see on
+            SourceForge that there is 1503.. available. Any serious changes in
+            new preview ?
+
+            Wow actually there are a lot of changes.
+            [https://code.google.com/p/cone...](https://code.google.com/p/conemu-maximus5/wiki/Whats_New)
+
+        refs and see also
+
+        -   [逆天神器 cmder](http://bg.biedalian.com/2014/09/11/cmder.html)
+        -   [Whee! Cmder can do split panes! « rakhesh.com](http://rakhesh.com/windows/whee-cmder-can-do-split-panes/)
+        -   [Boost your dev productivity with cmder + ConEmu | Michal Franc](http://mfranc.com/uncategorized/boost-your-dev-productivity-with-cmder-conemu/)
+
+-   [Win 下最爱效率神器:AutoHotKey | 晚晴幽草轩](http://www.jeffjade.com/2016/03/11/2016-03-11-autohotkey/) -<
+
+    :   ```ahk
+        ;   # 号代表 Win 键；（图形）
+        ;   ! 号代表 Alt 键；（转换）
+        ;   ^ 号代表 Ctrl 键；（帽子，control）
+        ;   + 号代表 shift 键；（another layer）
+
+        ;   :: 号(两个英文冒号)起分隔作用；
+        ;   run，非常常用 的 AHK 命令之一;
+        ;   ; 号代表 注释后面一行内容；
+        ```
+
+        ```ahk
+        ::/mail::mail.qq.com
+        ::/tangzx::http://tangzx.qiniudn.com/
+        ```
+
+        不知道为什么我的不管用。
+
+-   `WIN` + `W` 好叼
+
+-   [译言-为什么要探索宇宙](http://article.yeeyan.org/view/265546/309669) -<
+
+    :   那是在 400 年前，德国某小镇里有一位伯爵。他是个心地善良的人，他将自己收
+        入的一大部分捐给了镇子上的穷人。这十分令人钦佩，因为中世纪时穷人很多，
+        而且那时经常爆发席卷全国的瘟疫。一天，伯爵碰到了一个奇怪的人，他家中有
+        一个工作台和一个小实验室，他白天卖力工作，每天晚上的几小时的时间专心进
+        行研究。他把小玻璃片研磨成镜片，然后把研磨好的镜片装到镜筒里，用此来观
+        察细小的物件。伯爵被这个前所未见的可以把东西放大观察的小发明迷住了。他
+        邀请这个怪人住到了他的城堡里，作为伯爵的门客，此后他可以专心投入所有的
+        时间来研究这些光学器件。
+
+        然而，镇子上的人得知伯爵在这么一个怪人和他那些无用的玩意儿上花费金钱之
+        后，都很生气。“我们还在受瘟疫的苦，”他们抱怨道，“而他却为那个闲人和他没
+        用的爱好乱花钱！”伯爵听到后不为所动。“我会尽可能地接济大家，”他表示，
+        “但我会继续资助这个人和他的工作，我确信终有一天会有回报。”
+
+        果不其然，他的工作（以及同时期其他人的努力）赢来了丰厚的回报：显微镜。
+        显微镜的发明给医学带来了前所未有的发展，由此展开的研究及其成果，消除了
+        世界上大部分地区肆虐的瘟疫和其他一些传染性疾病。
+
+        伯爵为支持这项研究发明所花费的金钱，其最终结果大大减轻了人类所遭受的苦
+        难，这回报远远超过单纯将这些钱用来救济那些遭受瘟疫的人。
+
+         登月工程需要历史上前所未有的高精度和高可靠性。面对如此严苛的要求，我们
+         要寻找新材料，新方法；开发出更好的工程系统；用更可靠的制作流程；让仪器
+         的工作寿命更长久；甚至需要探索全新的自然规律。
+
+        这些为登月发明的新技术同样可以用于地面上的工程项目。
+
+        ![](http://farm8.staticflickr.com/7251/7724458444_0e91f569b3_o.jpg)
+
+        refs and see also
+
+        -   [Letters of Note: Why Explore Space?](http://www.lettersofnote.com/2012/08/why-explore-space.html)
+        -   [Ernst Stuhlinger - Wikipedia](https://en.wikipedia.org/wiki/Ernst_Stuhlinger)
+
+-   [我为什么没能精分](https://www.douban.com/note/593376308/)
+
+-   [24. From individual neurons to collective bursting – NEURONSTAR](http://neuronstar.cc/spiking-neuron-models/24.From_individual_neurons_to_collective_bursting/) -<
+
+    :   章鱼喵。
+
+        Neuronstar is a website about neurons and network.
+
+-   [什么是文笔？（转）](https://www.douban.com/note/594056541/) -<
+
+    :   我们要做很多训练来获得基本的描述和欣赏能力的。而我要提醒的是，文笔能力
+        有两层，一层是准确，第二层才是美感。失去了准确，只有“所谓美感”的文字其
+        实是非常丑陋的。
+
+-   [CERN introduces Large Hadron Collider's robotic inspectors](https://www.engadget.com/2016/11/26/cern-large-hadrone-collider-tim-robot-inspector/) -<
+
+    :   hadron `['hædrɒn]` n. (高能) 强子
+
+        CERN +<
+
+        :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/CERN-Logo.svg/225px-CERN-Logo.svg.png){align=right}
+
+            The European Organization for Nuclear Research (French:
+            Organisation européenne pour la recherche nucléaire), known as CERN
+            (`/ˈsɜːrn/`; French pronunciation: `[sɛʁn]`; derived from the
+            name "Conseil Européen pour la Recherche Nucléaire"; see History),
+            is a European research organization that operates the largest
+            particle physics laboratory in the world. Established in 1954, the
+            organization is based in a northwest suburb of Geneva on the Franco
+            –Swiss border, (46°14′3″N 6°3′19″E) and has 22 member states.
+            Israel is the only non-European country granted full membership.
+
+            The term CERN is also used to refer to the laboratory, which in
+            2013 had 2,513 staff members, and hosted some 12,313 fellows,
+            associates, apprentices as well as visiting scientists and
+            engineers representing 608 universities and research
+            facilities.
+
+            CERN's main function is to provide the **particle accelerators** and
+            other infrastructure needed for **high-energy physics research** – as a
+            result, numerous experiments have been constructed at CERN through
+            international collaborations.
+
+            CERN is also the **birthplace of the World Wide Web**. The main site at
+            Meyrin has a large computer facility containing powerful data
+            processing facilities, primarily for experimental-data analysis;
+            because of the need to make these facilities available to
+            researchers elsewhere, it has historically been a major wide area
+            network hub.
+
+        Since the **Large Hadron Collider (LHC)** 大型强子碰撞型加速装置 needs
+        to be in tip-top shape to discover new particles, it has two inspectors
+        making sure everything's in working order. The two of them are called
+        TIM, short not for Timothy (人名，梯牧草), but for **Train Inspection
+        Monorail** (单轨). These mini autonomous monorails that keep an eye on
+        the world's largest particle collider follow a pre-defined route and
+        get around using tracks suspended from the ceiling. According to CERN's
+        post introducing the machines, the tracks are remnants from the time
+        the tunnel housed the Large Electron Positron instead of the LHC. The
+        LEP's monorail was bigger, but not quite as high-tech: it was mainly
+        used to transport materials and workers.
+
+        也就是有两个 TIM（Train Inspection Monorail）在 CERN 的隧道里监测。
+
+        As for what the machines can do, the answer is "quite a few." They can
+        monitor the tunnel's structure, oxygen percentage, temperature and
+        communication bandwidth in real time. Both TIMs can also take visual
+        and infrared images, as well as pull small wagons behind them if
+        needed. You can watch them in action below -- as you can see, they're
+        not much to look at with their boxy silver appearance. But without
+        them, it'll be tough monitoring a massive circular tunnel with a
+        17-mile circumference. （CERN 好大……）
+
+-   [特朗普时代前传：分清里根和克林顿，了解今天世界问题的起源](http://mp.weixin.qq.com/s/Ucaw6W-DIYWOsLM0ESAbdw)
+
+-   [老华为人眼中5G前路：2020年商用太激进 技术仍待突破_财经头条](http://cj.sina.com.cn/article/normal_detail?url=http://finance.sina.com.cn/roll/2016-11-27/doc-ifxyawmp0268372.shtml&cre=financew&mod=f&loc=3&r=0&doct=0&rfunc=84&tj=none&s=0&wm=5312_0010) -<
+
+    :   全球 5G 正在喧嚣中推行，先是在 4G 落后的日韩，非常积极投入 5G，然后中国
+        也变得积极，欧美虽然比较理性，但也怕中日韩抢了先机，可以看到整个世界上
+        5G标准争夺大战愈演愈烈，在编码阶段，中国华为的 Polarcode 方案竞争对手，
+        主要包括以美国公司为首的 LDPC，法国的 Turbo2.0 方案，其中美国高通推
+        LD-PC 方案，被确定为 5G 的中数据信道的编码方案。
+
+        我的观点是，如果没有基础理论和核心技术的突破，难以形成一代通信系统。当
+        然，通信标准并不是单纯的技术问题，其中商业竞争和政治博弈也起到非常大作
+        用。
+
+        （杨学志毕业于清华大学，2000.7~2012.9 任职华为，IEEESeniorMember，4G 奠
+        基性技术“软频率复用”的发明人，《通信之道》作者，现为无线通信技术独立研
+        究者。本报记者冯庆艳、刘创采访整理）
+
+-   [VLC 播放器也要支持 360 度视频播放了](http://cn.engadget.com/2016/11/26/vlc-360-preview/) -<
+
+    :   VLC 的开发团队 VideoLan 与 360 度视频开发商 Giroptic 合作开发这功能，它
+        能支持播放相片、全景相片和视频。使用者只要用鼠标和键盘就能控制视点。
+
+        refs and see also
+
+        -   [Giroptic's 360-degree waterproof camera starts shipping](https://www.engadget.com/2016/04/26/giroptics-360-degree-waterproof-camera-starts-shipping/)
+
+-   [US proposes a phone 'driver mode' to reduce in-car distractions](https://www.engadget.com/2016/11/23/us-proposes-driver-mode-for-phones/) -<
+
+    :   Specifically, officials would like the driving mode to disable "manual
+        text entry" (think keyboards), photo and video playback, non-essential
+        text, social networking and the web. Don't expect it to automatically
+        kick in, though. While the agency would like the mode to launch
+        whenever you're moving faster than a crawling pace (5MPH), it knows
+        that it's difficult to tell the difference between a driver and a
+        passenger. You may have to invoke it yourself until technology catches
+        up, and there would be an override if there's an app you simply have to
+        use.
+
+-   [drduh/macOS-Security-and-Privacy-Guide: A practical guide to securing macOS.](https://github.com/drduh/macOS-Security-and-Privacy-Guide) -<
+
+    :   9,000+ stars.
+
+        This is a collection of thoughts on securing a modern Apple Mac
+        computer using macOS (formerly "OS X") 10.12 "Sierra", as well as steps
+        to improving online privacy.
+
+        This guide is targeted to “power users” who wish to adopt
+        enterprise-standard security, but is also suitable for novice users
+        with an interest in improving their privacy and security on a Mac.
+
+        A system is only as secure as its administrator is capable of making
+        it. There is no one single technology, software, nor technique to
+        guarantee perfect computer security; a modern operating system and
+        computer is very complex, and requires numerous incremental changes to
+        meaningfully improve one's security and privacy posture.
+
+        I am not responsible if you break a Mac by following any of these
+        steps.
+
+        If you wish to make a correction or improvement, please send a pull
+        request or open an issue.
+
+-   [DOJ: Cinemas must offer tech for blind and deaf customers](https://www.engadget.com/2016/11/23/doj-cinemas-must-offer-tech-for-blind-and-deaf-customers/) -<
+
+    :   额……
+
+-   [Navigation system failure cited in crash of European Mars lander | Reuters](http://www.reuters.com/article/us-europe-space-mars-idUSKBN13I2BA?feedType=RSS&feedName=topNews&utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+reuters%2FtopNews+%28News+%2F+US+%2F+Top+News%29) -<
+
+    :   不造这个 cited 怎么翻译成中文比较适合。
+
+-   [MIT builds low-cost synthetic muscles out of nylon cord](https://www.engadget.com/2016/11/23/mit-builds-low-cost-synthetic-muscles-out-of-nylon-cord/) -<
+
+    :   https://www.youtube.com/watch?v=Q3GG4JJQRQA
+
+        Nylon （尼龙---should be--->莱龙） Fiber。
+
+        Researchers have been trying to build durable, low-cost synthetic
+        muscles **for years but to no avail**. The systems developed so far have
+        either been too expensive to produce en mass (like carbon nanotube) or
+        too delicate and power hungry (looking at you, **shape-memory alloys**) to
+        be useful outside of laboratory conditions. But a team from MIT have
+        just struck upon the Goldilocks zone of robo-muscles with nylon fiber
+        of all things.
+
+-   [Many LASIK patients may wind up with glare, halos or other visual symptoms, study suggests - The Washington Post](https://www.washingtonpost.com/news/to-your-health/wp/2016/11/23/many-lasik-patients-may-wind-up-with-glare-halos-or-other-visual-symptoms-study-suggests/?hpid=hp_hp-more-top-stories_lasik-1115am%3Ahomepage%2Fstory&utm_term=.3f746f9a21f4) -<
+
+    :   LASIK，abbr. 镭射视力矫正手术（Laser Assisted In-situ Keratomi）
+
+        The study analyzed outcomes for two groups of LASIK patients. In the
+        first group, which included 262 Navy personnel with an average age of
+        29.1, it was 43 percent reporting new symptoms. And in the second,
+        consisting of 312 civilians at five practice and academic centers and
+        with a median age of 31.5, it was 46 percent. In addition, about 28
+        percent of patients who had never had dry-eye symptoms before developed
+        mild, moderate or severe symptoms three months after the procedure.
+
+-   [小米的成功，你们未必看得懂 - 简书](http://www.jianshu.com/p/c66422224537) -<
+
+    :   华为据说是中国效益最好的企业，一家华为的总收入超过 BAT 的总和。
+
+        2016 年的数据显示，华为在中国五百强企业中，以 3950.09 亿元的年营业收入
+        成为 500 强榜首。
+
+        小米的年营收入只有 743 亿 。只有华为的 18.8%。
+
+        但是，如果再看一下两家公司的员工人数：华为是 17 万人，小米是 8 千多人。
+        华为的人数大约是小米的 20 倍。这样一比较，小米的人均年营收入是华为的
+        3.7 倍。

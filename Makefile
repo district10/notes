@@ -36,6 +36,8 @@ include:
 	make -C include
 gh:
 	git add -A; git commit -m "`uname`"; git push;
+wiki:	
+	java -jar wikify.jar -ps '#main-body' -ns '#main-body > ul > li > dl' -i publish/ -o publish/ -ccs 50 -ncs 50 -pcs 20
 
 publish/index.html: index.md
 	@mkdir -p $(@D)
@@ -70,6 +72,10 @@ publish/%: meta/%
 	@mkdir -p $(@D)
 	cp $< $@
 
+publish/%: %
+	@mkdir -p $(@D)
+	cp $< $@
+
 note: n
 n:
 	$(EDITOR) -p \
@@ -77,7 +83,7 @@ n:
 		lang/java.md \
 		lang/typescript.md \
 		lang/algo.md \
-		2016/note4.md \
+		2016/note5.md \
 		lang/c-cpp.md \
 		2016/job.md \
 

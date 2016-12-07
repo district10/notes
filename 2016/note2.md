@@ -2,6 +2,8 @@
 title: Notes 2
 ---
 
+[【Prev Note】](notes1.html) [【Next Note】](notes3.html)
+
 -   **You should blog even if you have no readers.**
 
 -   360 的自我保护模式，关闭，然后才能退出。 -<

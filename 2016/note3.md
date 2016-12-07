@@ -2,6 +2,8 @@
 title: Notes 3
 ---
 
+[【Prev Note】](notes2.html) [【Next Note】](notes4.html)
+
 -   [github - How can I determine the URL that a local Git repository was originally cloned from? - Stack Overflow](http://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr) -<
 
     :   ```java

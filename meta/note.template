@@ -2,9 +2,9 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta name="author" content="district10" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
     <link rel="stylesheet" href="$rootdir$github-markdown.css" type="text/css" />
@@ -19,10 +19,12 @@ $endif$
     <img
         style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;"
         src="$rootdir$fork-me-on-github.png" alt="Fork me on GitHub"></a>
-<div id="navigator"><a id="gotoindex" href="$if(ISINDEX)$../$endif$index.html" title="【回到笔记索引 | Back to Index】">☣</a>
-</div>
+<div id="navigator">
+    <a id="gotoindex" href="$if(ISINDEX)$../$endif$index.html" title="【回到笔记索引 | Back to Index】">☣</a></div>
 <span id="help">按下 "h" 获取页面帮助。</span>
+<div id="main-body">
 $body$
+</div>
 <script src="$rootdir$lazyload.min.js"></script>
 <script src="$rootdir$jquery-3.0.0.min.js"></script>
 <script src="$rootdir$jquery.idTabs.min.js"></script>

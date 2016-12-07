@@ -598,7 +598,7 @@ IntelliJ Idea 的使用 :hearts: -<
 
     :   Press Ctrl+Alt+S
 
-        Choose Appearance & Behavior, then System Settings, check radio button: Open project in new window.
+        Choose `Appearance & Behavior`, then `System Settings`, check radio button: `Open project in new window`.
 
         refs and see also
 
@@ -822,25 +822,15 @@ IntelliJ Idea 的使用 :hearts: -<
         ```xml
         <shortcut-conflicts>
             <shortcut-conflict owner="vim">
-                <text>ctrl pressed N</text>
-            </shortcut-conflict>
-            <shortcut-conflict owner="vim">
-                <text>ctrl pressed C</text>
-            </shortcut-conflict>
-            <shortcut-conflict owner="vim">
                 <text>ctrl pressed V</text>
             </shortcut-conflict>
             <shortcut-conflict owner="ide">
                 <text>ctrl pressed P</text>
             </shortcut-conflict>
-            <shortcut-conflict owner="vim">
-                <text>ctrl pressed W</text>
-            </shortcut-conflict>
-            <shortcut-conflict owner="vim">
-                <text>ctrl pressed G</text>
-            </shortcut-conflict>
         </shortcut-conflicts>
         ```
+
+        建议除了 Control-V 其余都用 IJ 的快捷键。
 
     好好学习，点滴做起。这是每次启动的时候，弹出的 tips。 -<
 
@@ -3673,3 +3663,16 @@ Day 2, Review -<
 
 web.xml 很重要！
 
+jsoup
+
+<http://maven.aliyun.com/nexus/#nexus-search;quick~jsoup>
+
+```xml
+<dependency>
+  <groupId>org.jsoup</groupId>
+  <artifactId>jsoup</artifactId>
+  <version>1.10.1</version>
+</dependency>
+```
+
+[Cookbook: jsoup Java HTML parser](https://jsoup.org/cookbook/)
