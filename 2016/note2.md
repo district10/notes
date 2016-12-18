@@ -2,7 +2,7 @@
 title: Notes 2
 ---
 
-[【Prev Note】](notes1.html) [【Next Note】](notes3.html)
+[【Prev Note】](note1.html) [【Next Note】](note3.html)
 
 -   **You should blog even if you have no readers.**
 
@@ -1543,7 +1543,6 @@ title: Notes 2
         时，说明己方的广告政策是对外一律六折，对方盛气凌人而不耐烦地说：“我知道你们
         是六折，但难道对我们也六折？”
 
-
         理由是，在印度城市高峰拥堵的时刻，“在他心目中，想要在复杂的路况中杀出一条路，
         就不要像别人一样去遵循那些规则。”
 
@@ -1551,7 +1550,6 @@ title: Notes 2
         来很累，但谈好后就可以放心对方会照此履行；然而在不少地方则相反，开头满口答
         应，但签署完合同才发现只是痛苦磨合的开始。一般来说，在国内越是发达的地区，
         其商业环境越遵守规范。
-
 
         只要结果好，先斩后奏的行为都会在事后得到原谅，乃至赞许和奖励，一如《寻路中
         国》中所说的那样，**在中国，人们发现事后求得谅解要比事先得到许可容易得多。**
@@ -2640,11 +2638,7 @@ title: Notes 2
 
 -   [美国人到底有多穷？ - 地球时报](http://transcoder.baidu.com/from=1000953b/bd_page_type=1/ssid=0/uid=0/pu=usm%400%2Csz%40320_1002%2Cta%40iphone_2_6.0_2_7.0/baiduid=FF748169F71FBC022C954FD078CF6522/w=0_10_/t=iphone/l=3/tc?ref=www_iphone&lid=17057839014645120551&order=1&fm=alop&tj=www_normal_1_0_10_title&vit=osres&m=8&srd=1&cltj=cloud_title&asres=1&title=%E7%BE%8E%E5%9B%BD%E4%BA%BA%E5%88%B0%E5%BA%95%E6%9C%89%E5%A4%9A%E7%A9%B7%3F-%E5%9C%B0%E7%90%83%E6%97%B6%E6%8A%A5&dict=32&w_qd=IlPT2AEptyoA_ykywhActuiv1SlSmX5mzE5YjP8VuAwsMOUyP5dc7Y_&sec=15936&di=4ad0591f429eb306&bdenc=1&tch=124.0.225.129.1.42&nsrc=IlPT2AEptyoA_yixCFOxXnANedT62v3IEwXPMT6E_zOrjo39h47aUbBoZyTg2Sm5UZWccj4OxBt8wXCj_m1l6so4g43&eqid=ecb99e351fb8c0001000000658017bd4&wd=&clk_info=%7B%22srcid%22%3A%221599%22%2C%22tplname%22%3A%22www_normal%22%2C%22t%22%3A1476492292941%2C%22xpath%22%3A%22div-a-h3%22%7D)
 
--   [杜特尔特北京演讲全文，全程掌声笑声爆燃](http://mp.weixin.qq.com/s?__biz=MzA5MDA0NDA4NA==&mid=2651160212&idx=1&sn=a7b35943f0208cde89c8f152e4ed81d5&chksm=8be07d4fbc97f459eb2cb7d32d90966ac931db1d896d8dc79cac1f905ca3760cc2d09eec0495&mpshare=1&scene=1&srcid=1021CfSNSfeBLe8FRVzxR83U&from=groupmessage&isappinstalled=0#wechat_redirect)
-
--   [中国房价到顶了吗？万科副总裁万字长文解析-观察者网](http://m.guancha.cn/economy/2016_10_02_376081.shtml?from=groupmessage&isappinstalled=0)
-
--   [如何看待特朗普的竞选檄文《She Follows The Money》（威斯康辛Rally演讲稿）？ - 神仙兔八哥的回答 - 知乎](https://www.zhihu.com/question/51129739/answer/124268109) -<
+-   [杜特尔特北京演讲全文，全程掌声笑声爆燃](http://mp.weixin.qq.com/s?__biz=MzA5MDA0NDA4NA==&mid=2651160212&idx=1&sn=a7b35943f0208cde89c8f152e4ed81d5&chksm=8be07d4fbc97f459eb2cb7d32d90966ac931db1d896d8dc79cac1f905ca3760cc2d09eec0495&mpshare=1&scene=1&srcid=1021CfSNSfeBLe8FRVzxR83U&from=groupmessage&isappinstalled=0#wechat_redirect) -<
 
     :   8 月 18 日，联合国批评菲律宾“禁毒战争”致上百人横死，菲律宾总统杜特尔特回应称，
         他很可能退出联合国，并邀请中国及其他国家再组建一个新的“联合国”。
@@ -2657,6 +2651,23 @@ title: Notes 2
         这场对毒贩的战争，对于杜特尔特而言，不但是凝聚民心，扫清国家障碍的必要
         措施，更是通过“禁毒”这一行动，协调和统一全国行动，清理贪腐势力，破除菲
         律宾“政令不出马尼拉”的必要措施。
+
+        refs and see also
+
+        -   [与美国分道扬镳？菲律宾总统杜特尔特访华演讲全文公布](http://www.guancha.cn/politics/2016_10_22_378025.shtml#0-douban-1-17073-8281435cf7fd5566f1df466eda875057)
+
+-   [中国房价到顶了吗？万科副总裁万字长文解析-观察者网](http://m.guancha.cn/economy/2016_10_02_376081.shtml?from=groupmessage&isappinstalled=0)
+
+-   [如何看待特朗普的竞选檄文《She Follows The Money》（威斯康辛Rally演讲稿）？ - 神仙兔八哥的回答 - 知乎](https://www.zhihu.com/question/51129739/answer/124268109) -<
+
+    :   当被问及特朗普平时演说时的愤怒表情是不是从他的电影里学来时，伊斯特伍德
+        表示：“有这可能，但他的愤怒有道理，因为现如今这社会，私底下其实每个人都
+        已对政治正确感到厌倦，大家都不想再跪舔（kiss-ass）了。可我们目前就生活
+        在一个跪舔的时代，一个只剩下娘娘腔（pussy）的时代之中。现如今人人自危，
+        动不动就会有人谴责你是种族主义者或是别的什么。可在我小时候，没人管这些
+        事叫种族主义。想当初我拍摄《老爷车》（Gran Torino）前，连我的同事都说，
+        本子是个好本子，可惜政治上不正确 。可我还是连夜看了剧本，第二天就拍板决
+        定立刻开拍。”
 
 -   [列国志 | 菲律宾：挣扎，求生，美国东亚秩序崩溃的第一张多米诺骨牌](http://mp.weixin.qq.com/s?__biz=MzA4NDg3MDEyNw==&mid=2654894997&idx=1&sn=60cf097c89535a0b8c1dbd4b36ddcb43&chksm=842a4d15b35dc403f0e87d74cbf015e54662b51d315ffab84bbbbce27ab86da3e449407f6d6f&mpshare=1&scene=2&srcid=1020To35w3Oi7PloCvHgXVmW&from=timeline&isappinstalled=0#wechat_redirect)
 

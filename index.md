@@ -44,16 +44,18 @@ title: TANG ZhiXiong's Notes/Wiki
 -   [Cracking the Coding Interview](cracking-the-coding-interview/index.html){.hide title=cracking-the-coding-interview/index.md}
 -   [job](2016/job.html){.hide title=2016/job.md}
 -   [Urban Dictionary](misc/ud.html){.hearts}
+-   [words](misc/words.html)
 
 ---
 
 ## 一些自己记笔记用到的工具^[Vim 什么的就不说了。没 Vim 这笔记真心排版不了。]
 
--   [district10/watch-n-make: Watch directory for changes, run `make` when changes happen. （自动 make。）](https://github.com/district10/watch-n-make) -<
+-   [district10/jwatch: watch directory for changes, written in Java](https://github.com/district10/jwatch/) -<
 
     :   写博客/笔记的时候，不用再手动 `make`。
 
-        （不再需要 Markdown 编辑器，用 Vim 写就好，然后把浏览器放在对边。）
+        不再需要 Markdown 编辑器，用 Vim 写就好，然后把浏览器放在对边。推荐安装浏览器插件
+        来 auto-reload，比如 Firefox 的 [Auto Reload :: Add-ons for Firefox](https://addons.mozilla.org/en-US/firefox/addon/auto-reload/)。（Chrome 上应该也有类似的工具。）
 
 -   画文字版示意图：[ASCIIFlow Infinity](http://whudoc.qiniudn.com/asciiflow/index.html) -<
 
@@ -77,6 +79,8 @@ title: TANG ZhiXiong's Notes/Wiki
 -   Emojis
 
     :   点击粘贴到剪切板
+
+        （其实我用得不多，通常都只用 :smile:(`:smile:`) 和 :hearts:(`:hearts:`)）
 
         <span class="key">:key:</span>
         @include <-=include/emojis.md=

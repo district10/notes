@@ -264,6 +264,37 @@ Java SE -<
     Virtual Machine Specification. One of the most well-known[citation needed]
     implementations of Java SE is Oracle Corporation's Java Development Kit (JDK).
 
+    Java Enterprise Edition (JEE) -<
+
+    :   The Java Enterprise Edition contains a lot of extra tools and APIs for
+        executing Java components inside a Java Enterprise Server. Examples of
+        enterprise Java components are:
+
+        -   Servlets
+        -   Java Server Pages (JSP)
+        -   Java Server Faces (JSF)
+        -   Enterprise Java Beans (EJB)
+        -   Two-phase commit transactions
+        -   Java Message Service message queue APIs (JMS)
+        -   *etc.*
+
+    Java Micro Edition -<
+
+    :   The Java Micro Edition is a version of Java targeted at small and
+        embedded devices like PDAs, mobile phones etc.
+
+        Today (2015) the most popular Java platform to develop on for mobile
+        phones is Google's Android platform. Android does not use the Java
+        Micro Edition, by the way. It uses its own subset of Java combined with
+        a lot of Android specific components (APIs).
+
+    JavaFX -<
+
+    :   JavaFX is a RIA (Rich Internet Application) framework. It is like Java
+        Applets but with a lot more features, and with a completely different
+        GUI API. JavaFX was inspired by Flex (Flash) and Silverlight for .NET
+        (Microsoft).
+
 学习建议 -<
 
 :   首先先搞懂【JavaSE】的部分，Swing 和 swt 部分就可以少看或不看，因为现在用的比较
@@ -463,6 +494,78 @@ Hello World -<
     Hello World!
     ```
 
+Java Source and Class Directories -<
+
+:   mvn.
+
+    `src/main/java`
+
+    example `pom.xml` -<
+
+    :   ```
+        <?xml version="1.0" encoding="UTF-8"?>
+        <project xmlns="http://maven.apache.org/POM/4.0.0"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+            <modelVersion>4.0.0</modelVersion>
+
+            <groupId>com.tangzhixiong</groupId>
+            <artifactId>XXXX</artifactId>
+            <version>1.0-SNAPSHOT</version>
+
+            <properties>
+                <jdk.version>1.8</jdk.version>
+                <project.java.version>1.8</project.java.version>
+                <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+                <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+            </properties>
+
+            <build>
+                <finalName>XXXX</finalName>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>2.3.2</version>
+                        <configuration>
+                            <source>${project.java.version}</source>
+                            <target>${project.java.version}</target>
+                            <encoding>${project.build.sourceEncoding}</encoding>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <version>2.6</version>
+                        <configuration>
+                            <encoding>${project.build.sourceEncoding}</encoding>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-shade-plugin</artifactId>
+                        <version>2.4.1</version>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>shade</goal>
+                                </goals>
+                                <configuration>
+                                    <transformers>
+                                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                            <mainClass>com.tangzhixiong.XXXX.Main</mainClass>
+                                        </transformer>
+                                    </transformers>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </project>
+        ```
+
 解释一下 %PATH% 和 %CLASSPATH% -<
 
 :   %PATH%
@@ -621,6 +724,9 @@ IntelliJ Idea 的使用 :hearts: -<
         -Xms1024m
         -Xmx2048m
         ```
+
+        `C:\ProgramData\Microsoft\Windows\Start Menu\Programs\JetBrains` 然后把这个启动项里的快捷方式
+        设置到 idea64.exe。
 
     Settings -- Editor -- Live Templates -<
 
@@ -1197,11 +1303,16 @@ keywords -<
 
 :   数组基础 -<
 
-    :   ```java
+    :   Java Array Literals
+
+        ```java
         // 这都一样
         int arr[]   = new int[10];
         int []arr   = new int[10];
         int[] arr   = new int[10];
+        for (int i=0; i < arr.length; i++) {
+            arr[i] = i;
+        }
         // int arr;                             // 这样绝对是错误的
 
         // 可以初始为 null。与 C++ 不同的是，Java 可以重新引用，而且引用可以为空
@@ -1236,8 +1347,15 @@ keywords -<
         Arrays.sort() -<
 
         :   ```java
-            int nums[] = new int;
+            int nums[] = ...;
             Arrays.sort( nums );
+            ```
+
+        Arrays.fill() -<
+
+        :   ```java
+            int nums[] = ...;
+            Arrays.fill( nums, 250 );
             ```
 
         Arrays -<
@@ -1245,6 +1363,8 @@ keywords -<
         :   ```java
             type[] copyOf(type[] orig, int length);
             type[] copyOfRange(type[] orig, int length);
+            binarySearch
+            Arrays.equals() // exactly same entries
             ```
 
 方法与方法的重载 -<
@@ -2714,6 +2834,18 @@ log4j
 
 ## Annotation（注释）:hearts:
 
+Java annotations are typically used for the following **purposes**:
+
+-   Compiler instructions
+-   Build-time instructions
+-   Runtime instructions
+
+```java
+@Entity(tableName = "vehicles")                         // one annotation element
+@Entity(tableName = "vehicles", primaryKey = "id")      // multiple annotation element
+@InsertNew("yes")                                       // one annotation element
+```
+
 这是一种元数据。
 
 注解：注解本身 + java.lang.Annotation
@@ -2728,7 +2860,7 @@ log4j
 
 其他的
 
--   @Retention（保留）
+-   @Retention（保留）（@Retention(RetentionPolicy.RUNTIME/RetentionPolicy.CLASS)）
 -   @Target
 -   @Documented
 -   @Inherited
@@ -2736,12 +2868,41 @@ log4j
 自定义 Annotation（可以用于程序、接口、类）
 
 ```java
-public @interface Test {}
+@interface MyAnnotation {
 
-...
-@Test
-...
+    String   value();
+
+    String   name();
+    int      age();
+    String[] newNames();
+
+}
 ```
+
+This example defines an annotation called MyAnnotation which has four elements.
+Notice the @interface keyword. This signals to the Java compiler that this is a
+Java annotation definition.
+
+```java
+@MyAnnotation(
+    value="123",
+    name="Jakob",
+    age=37,
+    newNames={"Jenkov", "Peterson"}
+)
+public class MyClass {
+}
+```
+
+Element Default Values
+
+```java
+String   value() default "";
+```
+
+refs and see also
+
+-   [Java Annotations](http://tutorials.jenkov.com/java/annotations.html)
 
 Java 8 的 Type Annotation
 
@@ -3676,3 +3837,67 @@ jsoup
 ```
 
 [Cookbook: jsoup Java HTML parser](https://jsoup.org/cookbook/)
+
+
+Fields
+
+A field is a variable that belongs to a class or an object. It is a piece of
+data, in other words. For instance, a Car class could define the field brand
+which all Car objects would have. Each Car object could then have a different
+value for the brand field.
+
+Math.abs(int/long/float/double)
+Math.ceil()
+Math.floor()
+
+Math.floorDiv()
+
+```
+double result3 = Math.floorDiv(-100,9); // -12.0
+double result4 = -100 / 9;              // -11.0
+```
+
+Math.min()
+Math.max()
+Math.random()
+Math.exp(x)                 // e^x
+Math.log(x)                 // log_e(x)
+Math.log10()
+Math.pow(x,y)               // x^y
+Math.sqrt()
+
+Math.PI
+Math.sin(x)                 // x is in radians
+Math.cos(x)
+Math.tan(x)
+Math.asin(x)
+Math.acos(x)
+Math.atan(x)
+
+Math.atan2()
+Math.sinh()
+Math.cosh()
+Math.tanh()
+
+Math.toDegrees()            // rad -> deg
+Math.toRadians()
+
+[Java NIO Tutorial](http://tutorials.jenkov.com/java-nio/index.html)
+
+[Java Lambda Expressions](http://tutorials.jenkov.com/java/lambda-expressions.html)
+
+[Java Concurrency / Multithreading Tutorial](http://tutorials.jenkov.com/java-concurrency/index.html)
+
+[Dependency Injection](http://tutorials.jenkov.com/dependency-injection/index.html)
+
+[如何用最简单的方式解释依赖注入？依赖注入是如何实现解耦的? - 知乎](https://www.zhihu.com/question/32108444)
+
+[用javascript代码通俗的解释一下什么叫依赖注入？ - 知乎](https://www.zhihu.com/question/22463207)
+
+ 很多有名字的 "设计模式" 都是在特定问题下正常人稍稍动动脑子就能想到的方案，所以不要纠结这种意义不大的东西了，多码才是硬道理。依赖注入看起来高大上，实际上…妹的这种再自然不过的东西都需要单独取个名字？
+
+[yasserg/crawler4j: Open Source Web Crawler for Java](https://github.com/yasserg/crawler4j)
+
+[Option to specify DefaultCookieStore · Issue #77 · yasserg/crawler4j](https://github.com/yasserg/crawler4j/issues/77)
+
+[code4craft/webmagic: A scalable web crawler framework for Java.](https://github.com/code4craft/webmagic)

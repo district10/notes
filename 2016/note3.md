@@ -2,11 +2,11 @@
 title: Notes 3
 ---
 
-[【Prev Note】](notes2.html) [【Next Note】](notes4.html)
+[【Prev Note】](note2.html){title="note2.md"} [【Next Note】](note4.html){title="note4.md"}
 
 -   [github - How can I determine the URL that a local Git repository was originally cloned from? - Stack Overflow](http://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr) -<
 
-    :   ```java
+    :   ```bash
         git remote show origin
         git remote -v
         ```
@@ -1552,10 +1552,6 @@ title: Notes 3
 
         the dev: [XUL Apps > Tree Style Tab - outsider reflex](http://piro.sakura.ne.jp/xul/_treestyletab.html)
 
-    Youtube video downloader -<
-
-    :   <http://www.clipconverter.cc>
-
 -   [git-commit-emoji-cn/README.md at master · liuchengxu/git-commit-emoji-cn · GitHub](https://github.com/liuchengxu/git-commit-emoji-cn/blob/master/README.md) -<
 
     :   git commit emoji 使用指南
@@ -2156,8 +2152,6 @@ title: Notes 3
 -   [理工科同学转行经管咨询金融，一定要慎重【转帖】](https://www.douban.com/group/topic/27824124/)
 
 -   [警告：不要参加任何形式的成人口语培训班！](http://mp.weixin.qq.com/s?__biz=MzI4MzExMDU1Nw==&mid=2649857918&idx=1&sn=1f80df72749cf0b91b319fe74024ceb3&scene=21#wechat_redirect)
-
--   [与美国分道扬镳？菲律宾总统杜特尔特访华演讲全文公布](http://www.guancha.cn/politics/2016_10_22_378025.shtml#0-douban-1-17073-8281435cf7fd5566f1df466eda875057)
 
 -   [陈浩然：美国大选终辩——已非二人之争，乃民粹主义与全球化的对抗](http://www.guancha.cn/chenhaoran/2016_10_21_377956_s.shtml)
 

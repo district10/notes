@@ -2283,13 +2283,16 @@ me.png -<
 
 [使用 Make 构建网站 - 阮一峰的网络日志](http://www.ruanyifeng.com/blog/2015/03/build-website-with-make.html) -<
 
-:   Make 是最常用的构建工具，诞生于 1977 年，主要用于 C 语言的项目。但是实际上，任
-    何只要某个文件有变化，就要重新构建的项目，都可以用 Make 构建。
+:   Make 是最常用的构建工具，诞生于 1977 年，主要用于 C 语言的项目。但是实际上，
+    任何只要某个文件有变化，就要重新构建的项目，都可以用 Make 构建。
+
+    make 已经使用了几十年，全世界无数的大项目都用它构建，早就证明非常可靠，各种
+    情况都有办法解决，前人累积的经验和资料也非常丰富。相比之下，Grunt 和 Gulp
+    的历史都不长，使用范围有限，目前还没有出现它们能做、而 make 做不到的任务。
 
     目前，网站项目（尤其是 Node.js 项目）有三种构建方案。
 
-    -   方案一：基于 Node.js 的专用构建工具（Grunt、Gulp、Brunch、Broccoli、
-        Mimosa）
+    -   方案一：基于 Node.js 的专用构建工具（Grunt、Gulp、Brunch、Broccoli、Mimosa）
     -   方案二：npm run 命令（教程 1、2、3）
     -   方案三：make 命令
 
@@ -2400,6 +2403,55 @@ me.png -<
         rm -rf node_modules
 
     .PHONY: test server install clean update
+    ```
+
+    ```bash
+    Usage: make [options] [target] ...
+    Options:
+      -b, -m                      Ignored for compatibility.
+      -B, --always-make           Unconditionally make all targets.
+      -C DIRECTORY, --directory=DIRECTORY
+                                  Change to DIRECTORY before doing anything.
+      -d                          Print lots of debugging information.
+      --debug[=FLAGS]             Print various types of debugging information.
+      -e, --environment-overrides
+                                  Environment variables override makefiles.
+      --eval=STRING               Evaluate STRING as a makefile statement.
+      -f FILE, --file=FILE, --makefile=FILE
+                                  Read FILE as a makefile.
+      -h, --help                  Print this message and exit.
+      -i, --ignore-errors         Ignore errors from recipes.
+      -I DIRECTORY, --include-dir=DIRECTORY
+                                  Search DIRECTORY for included makefiles.
+      -j [N], --jobs[=N]          Allow N jobs at once; infinite jobs with no arg.
+      -k, --keep-going            Keep going when some targets can't be made.
+      -l [N], --load-average[=N], --max-load[=N]
+                                  Don't start multiple jobs unless load is below N.
+      -L, --check-symlink-times   Use the latest mtime between symlinks and target.
+      -n, --just-print, --dry-run, --recon
+                                  Don't actually run any recipe; just print them.
+      -o FILE, --old-file=FILE, --assume-old=FILE
+                                  Consider FILE to be very old and don't remake it.
+      -O[TYPE], --output-sync[=TYPE]
+                                  Synchronize output of parallel jobs by TYPE.
+      -p, --print-data-base       Print make's internal database.
+      -q, --question              Run no recipe; exit status says if up to date.
+      -r, --no-builtin-rules      Disable the built-in implicit rules.
+      -R, --no-builtin-variables  Disable the built-in variable settings.
+      -s, --silent, --quiet       Don't echo recipes.
+      -S, --no-keep-going, --stop
+                                  Turns off -k.
+      -t, --touch                 Touch targets instead of remaking them.
+      --trace                     Print tracing information.
+      -v, --version               Print the version number of make and exit.
+      -w, --print-directory       Print the current directory.
+      --no-print-directory        Turn off -w, even if it was turned on implicitly.
+      -W FILE, --what-if=FILE, --new-file=FILE, --assume-new=FILE
+                                  Consider FILE to be infinitely new.
+      --warn-undefined-variables  Warn when an undefined variable is referenced.
+
+    This program built for Windows32
+    Report bugs to <bug-make@gnu.org>
     ```
 
     refs and see also

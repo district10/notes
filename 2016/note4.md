@@ -2,7 +2,7 @@
 title: Notes 4
 ---
 
-[【Prev Note】](notes3.html) [【Next Note】](notes5.html)
+[【Prev Note】](note3.html){title="note3.md"} [【Next Note】](notes5.html){title="note5.md"}
 
 -   [美媒：特朗普邀媒体高层举行座谈会 指责对方都是骗子](http://www.guancha.cn/america/2016_11_22_381363.shtml)
 
@@ -715,6 +715,10 @@ title: Notes 4
         | head -n1 \
         | xargs wget -O "${out_file_name}"
         ```
+
+        Youtube video downloader -<
+
+        :   <http://www.clipconverter.cc>
 
 -   prpr 是日文ぺろぺろ / ペロペロ（pe ro pe ro）的缩写，意思就是舔，各种舔。“呸喽呸喽”也是同义。
 
@@ -2398,7 +2402,29 @@ title: Notes 4
         -   [Letters of Note: Why Explore Space?](http://www.lettersofnote.com/2012/08/why-explore-space.html)
         -   [Ernst Stuhlinger - Wikipedia](https://en.wikipedia.org/wiki/Ernst_Stuhlinger)
 
--   [我为什么没能精分](https://www.douban.com/note/593376308/)
+-   [我为什么没能精分](https://www.douban.com/note/593376308/) -<
+
+    :   后来我刷题的功夫见长，刷黄冈刷五三，刷托福刷 SAT。印象比较深的是那时候觉
+        得自己写作没有章法，于是把新概念四册一整本都背下来了，参加外研社的背诵
+        大赛还拿了奖，送了一整套企鹅读物。我太擅长总结归纳了，记性又好，即便第
+        一次做的时候完全没头绪或者直接做错的题，被归纳好以后就会变成一个擅长的
+        类型。刚上大学时看人家学 GRE，没事干就跟人家一起学，顺便也考了一下，
+        verbal 居然考了 99%。
+
+        我一直是这个记性不错、有条理且往死里下功夫的笨人，从来没有一天觉得自己
+        有异于常人的聪明过。可能从小在海淀拼娃之战的战场上，知道聪明的人太多了，
+        肯下功夫的人也太多了，资源好的人就更多了；自己哪个都不占，只好把自己能
+        做的做了。得不到实在是我的常态，大多数时候我都 suck。
+
+        **我觉得不算！因为记忆力每个人都有，而且越用越有，像肌肉一样，跟智商还是不同…**
+
+        我中学时候历史老师是袁腾飞，反正理科班高考也不考这个，上课就大家泡好茶准备一起听他讲相声，期末成绩是袁腾飞看着名册随便给，名字越好听得分越高
+
+[首都师范大学附属中学_百度百科](http://baike.baidu.com/link?url=qxJ1Nzs8VhBrnqifHJu09YKHE6kFvR3Rm-QMmzlK7-as6MNE25CHwZ0gDdPMCbJcUNMGYR6qgv57mp6ADnvtmVuAPZNcNDiCqOnZvygQvl4w_xZDc8vWsT2h3CBqdfkUZU1ILBdfAenSk9lqTlNxOniQ5GpQ8U4QsSvZLYjsi6fP8tPIL2BP3OCrn5YvhfQ9nejNPZdLbpd-teGQxgRHoVLSPfGQKyvagGCutyGH7xsI55XqNOQ0GNFN6UBOxM9wLn6-e_n1svDtU_Nlf9K1-Vf4HHLfKR1VXbsgPC_kWR-Il3k0F7X7l33N4T54qBlN)
+
+首师大附中始建于1914年，由北洋政府陆军部次长、西北筹边使兼西北边防军总司令徐树铮创办，始命名为正志中学。学校后因种种历史原因先后更名为成达中学、第三十八中学、第四十二中学、北京师范学院附属中学。1992年更名为首都师范大学附属中学，接受北京市教委和首都师范大学的双重领导。[1]
+
+ 2010年高考，学校理科600分以上占统招生人数的70．8%，文科600分以上占统招生人数67%；理科全体平均分610，文科全体平均分578，理科实验班平均分达 到 645．1分以上，文科实验班平均分达到612分。理科全体考生99．7%达到一批录取分数线，文科全体考生94%达到一批录取分数线。
 
 -   [24. From individual neurons to collective bursting – NEURONSTAR](http://neuronstar.cc/spiking-neuron-models/24.From_individual_neurons_to_collective_bursting/) -<
 
@@ -2544,7 +2570,7 @@ title: Notes 4
 
 -   [MIT builds low-cost synthetic muscles out of nylon cord](https://www.engadget.com/2016/11/23/mit-builds-low-cost-synthetic-muscles-out-of-nylon-cord/) -<
 
-    :   https://www.youtube.com/watch?v=Q3GG4JJQRQA
+    :   <https://www.youtube.com/watch?v=Q3GG4JJQRQA>
 
         Nylon （尼龙---should be--->莱龙） Fiber。
 

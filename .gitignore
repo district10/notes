@@ -9,4 +9,5 @@ conf.json
 .ipynb_checkpoints/
 leetcode/*
 cracking-the-coding-interview/
-wikify.jar
+/wikify.jar
+/jwatch.jar

@@ -28,8 +28,11 @@ clone:
 serve:
 	cd publish; python -m SimpleHTTPServer
 w: watch
-watch:
-	java -jar watcher.jar
+watch: jwatch.jar
+	java -jar jwatch.jar -i "publish"
+
+jwatch.jar:
+	curl http://whudoc.qiniudn.com/2016/jwatch.jar > jwatch.jar
 clean:
 	rm -rf publish/*
 include:
@@ -79,11 +82,12 @@ publish/%: %
 note: n
 n:
 	$(EDITOR) -p \
+		2016/note5.md \
+		misc/words.md \
 		index.md \
 		lang/java.md \
 		lang/typescript.md \
 		lang/algo.md \
-		2016/note5.md \
 		lang/c-cpp.md \
 		2016/job.md \
 
