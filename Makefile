@@ -1,5 +1,6 @@
 .PHONY: all clean include
 
+EDITOR ?= gvim
 SRC:=$(wildcard index.md */*.md)
 DST:=$(addprefix publish/, $(SRC:%.md=%.html))
 CSS:=publish/github-markdown.css \
