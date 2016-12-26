@@ -1,8 +1,9 @@
 ---
-title: Working Notes
+title: Notes 5
 ---
 
 [【Prev Note】](note4.html){title="note4.md"}
+[【Next Note】](note6.html){title="note6.md"}
 
 -   [Part-of-speech tagging - Wikipedia](https://en.wikipedia.org/wiki/Part-of-speech_tagging) -<
 
@@ -845,7 +846,84 @@ title: Working Notes
 
 -   MISC -<
 
-    :   用 md2html.jar 和 wikify.jar 处理博客，然后用 searchy 来检索之。
+    :   大四快毕业的时候室友说了她的面试经历，招行总部，室友是学院文娱部的，面
+        试官就让她跳舞给他们看，排在她后面的是学校合唱队的，面试官就让她唱歌给
+        他们听。 - 白伍德
+
+        [Eleanor Arroway (Character)](http://www.imdb.com/character/ch0005786/) -<
+
+        :   Contact (1997) Played by Jodie Foster / Jena Malone (as Young Ellie)
+
+            Elleanor Anne Arroway born 25 August 1964 in De Pere Wisconsin preferes
+            to be called Ellie. Mother Joanna died during complications during
+            birth Father Theodore died of Myocardial Infarction Nov 10 1974
+            Graduated from high school 1979 Full scholarship MIT graduated
+            Magna Cum Laude Doctoral work at Caltech in development of the
+            Lanthanide doped ruby maser Offered teaching at Harvard (turned
+            down) Worked at Arecibo on SETI but due to NSF funding problems had
+            to find funding Was provided funding by Hadden Corporation and
+            secured access to the VLA in New Mexico While there received the
+            first contact from an interstellar civilisation Contact was in the
+            form of a signal containing prime numbers, a retransmission of the
+            opening event of the Berlin Olympics and the blueprints to a
+            machine. The machine which was subsequently built carried Ellie on
+            a journey that to local observers transpired in normal time. Ellie
+            claims to have had an eighteen hour experience during which she was
+            reunited with an intelligence with the appearance of her father.
+            This led to a major investigation into a possible conspiracy of the
+            Hadden corporation after which Ellie was acquitted.  There was no
+            evidence except for approximately 18 hours of noise. Likes to drink
+            Earl Grey tea with no milk or sugar.
+
+        gild，`[ɡɪld]`，vt. 镀金；虚饰；供给钱
+
+        cmder: `cd C:\Users\tzx\Desktop\predoc` -> `cd "C:\Users\tzx\Desktop\predoc"`
+
+        So I assume this means there is no way to get template-style
+        information to appear in the header of a docx file created by pandoc?
+        If so, that probably makes this issue I created moot. jgm/pandoc#796
+
+        moot：无实际意义的；未决议的
+
+        |   关于博客编辑器
+        |   俺本人日常用的是 emacs，写博文也是用它。
+        |   俺的习惯是：直接编辑 HTML
+        |   为了提高输入效率，可以定制某些 abbrev
+        |   （当然，vim 应该也可以达到类似的效果）
+        |   关于 Emacs，俺确实是 Emacs 用户，并且是比较重度的那种。
+
+        比如 Elsevier 推出的 Your Paper, Your Way，你在提交 manuscript 的时候可
+        以随意排版，甚至可以不排版，只要保证能让审稿人读明白就行。只有最终接收
+        了，才需要按杂志的要求排一下版。
+
+        jar 打包 -<
+
+        :   -   方法 1，利用 IntelliJ IDEA 的 Artifact
+
+            -   方法 2，利用 Makefile 打包
+
+                如果没有 `make`，安装之，下载地址：
+                <https://github.com/whudoc/statics/raw/master/winbin/make.exe>
+                (218 KB)，放到 %PATH%（比如 `C:\Windows\System32`）里即可。
+
+                如果没有 `zip`，安装之，下载地址：
+                <https://github.com/whudoc/statics/raw/master/winbin/zip.exe>
+                (298 KB)，放到 %PATH% 里即可。
+
+                最后，`make md2html.jar`，当前目录即有文件 `md2html.jar`。
+
+        python3!!!
+
+        圣诞节（Christmas）又称耶诞节，译名为“基督弥撒”，西方传统节日，在每年 12 月 25 日。
+
+        我师姐刚回国创业，华科毕业，硅谷七年，离开以前年薪是四十七万刀
+
+        所以每次看到好多留学生说在国外薪水很低，十万就算大牛了我就呵呵后，就像
+        lz 说的，只是还没进入主流社会，接触不到而已
+
+        她们说没头像的妹子就长得丑，我在此印证了这一点
+
+        用 md2html.jar 和 wikify.jar 处理博客，然后用 searchy 来检索之。
 
         ```bash
         java -jar md2html.jar -i cn-gh-pages/ -o publish/cn
@@ -872,8 +950,6 @@ title: Working Notes
         2016 年 12 月 25 日  8:30-11:30  业务课一
         2016 年 12 月 25 日  14:00-17:00     业务课二
         2016 年 12 月 26 日  8:30- 截止时间不超过 14:30    考试时间超过 3 小时的考试科目
-
-        shitshit.
 
         我怀疑我的导师是个吸血鬼：原籍法国，讲话带点口音；身形高挑健美，60 多岁，
         从面相上看却像是 40 过半的人；昼伏夜出，工作时间通常是下午 5 点至次日凌晨 5
@@ -1772,12 +1848,7 @@ title: Working Notes
           /h, /help                 Show this help message
         ```
 
-        ```bash
-        /i, /ignore-case          Match case insensitively
-        /S, /smart-case           Match case insensitively unless PATTERN contains
-        ```
-                                    uppercase characters
-        `pt viewer -l -G '.*\.md'`{.bash}
+        `pt keyword -l -G '.*\.md'`
 
         [acgessler/open3mod: Open 3D Model Viewer - A quick and powerful 3D model viewer](https://github.com/acgessler/open3mod)
 
@@ -1831,20 +1902,6 @@ title: Working Notes
         ```
 
         [Render 3D Star Wars: The Force Awakens models in Blender and Three.js | Smartjava.org](http://www.smartjava.org/content/render-3d-star-wars-force-awakens-models-blender-and-threejs)
-
-        喝了咖啡后，会尿频
-
-        这个对于我来说超级明显！！！喝一杯可以尿出一桶！！！
-
-        P.S II: 按照上文的讨论，在现有的技术背景下，用人造鳃作为潜水员的氧气来源似乎既
-        难以实现又没有成本优势。但这并不意味着人造鳃相关的研究没有意义。正如我所说，制
-        约人造鳃成为个人休闲潜水氧气来源的主要因素还是在于耗电量太大，然而，对潜艇来说，
-        电源不是问题，尤其是核潜艇。事实上，从水中分离溶解氧作为潜艇的氧气来源的研究正
-        在进行，详见 LikeAFish Technologies
-
-        好意思吹牛？乱带节奏没节操～
-
-        midori n. 美岛绿（日籍天才小提琴家）
 
 -   [思特沃克软件技术 (北京) 有限公司 - 高德地图](http://ditu.amap.com/place/B000AA4EPX) -<
 
@@ -2024,7 +2081,113 @@ title: Working Notes
 
 -   MISC -<
 
-    :   北美名校圈也挺让人讨厌的。澳大利亚过来的同事跟我说，澳大利亚就没人在意
+    :   单身久了，看个兔子都觉得眉清目秀。
+
+        难得遇到一个同行。GIS 美其名曰“交叉学科”，说得直白一点就是四不像，测量
+        拼不过测绘专业的，编程拼不过计算机专业的，真是夹生啊。国内 GIS 行业中，
+        就算是规模比较大一点的软件公司，永远也做不到 ArcGIS 这样的地位，他们的
+        软件生产模式就跟小作坊一样。除此之外，就是一大帮数据建库公司，纯“劳动密
+        集型企业”，不说也罢。这个行业太依赖政策导向，追求短期利益，缺乏战略层次
+        的规划，眼光低了点，我觉得。
+
+        tibetan fox
+
+        这特么破网站，根本上不去啊……http://processon.com/
+        我觉得自己现在真是一事无成，老师都要拉黑我了。
+        毕竟语文学得太差，表达能力渣得别人想动手。
+
+        房子要给陌生人看，沙发要给陌生人坐（只有我可以给它放屁），厕所要给陌生
+        人用，最重要的是还要和他们说话（不想和人类说话）？再碰到吸烟和擦鼻涕不
+        扔纸巾的，简直没法接受。
+
+        男人要对自己的性伴侣倍加呵护，才是贴心暖心，所以冬天一定要买个好点的护手霜。
+
+        请我喝瓶营养快线补补身体吧(→_→)
+
+        直男和拉拉拼事业，而男同性恋，大部分在拼事业线
+
+        还有直女
+
+        直女大多数拼儿子
+
+        vim to edit command: Ctrl-X + Ctrl-E
+
+        我妹来我家控诉我姨夫（她爸）：天天给你点赞（指我），我朋友圈发的和你挨着都天天不给我点赞！
+
+        ```
+        apt-get dist-upgrade # get a coffee, or 10.
+        ```
+
+        10 进制学得不错。
+
+        牠，代词，称人以外的事物：它们；其它。tā
+
+        喝了咖啡后，会尿频
+
+        这个对于我来说超级明显！！！喝一杯可以尿出一桶！！！
+
+        P.S II: 按照上文的讨论，在现有的技术背景下，用人造鳃作为潜水员的氧气来源似乎既
+        难以实现又没有成本优势。但这并不意味着人造鳃相关的研究没有意义。正如我所说，制
+        约人造鳃成为个人休闲潜水氧气来源的主要因素还是在于耗电量太大，然而，对潜艇来说，
+        电源不是问题，尤其是核潜艇。事实上，从水中分离溶解氧作为潜艇的氧气来源的研究正
+        在进行，详见 LikeAFish Technologies
+
+        好意思吹牛？乱带节奏没节操～
+
+        midori n. 美岛绿（日籍天才小提琴家）
+
+        “最烦那种广告，什么爸妈衰老的背影，然后整天啥不干，就等孩子回来吃顿饭。
+        衰老那是自然规律，整天非等孩子吃饭那是没自己兴趣爱好。哪样跟孩子都没关
+        系。还他妈时间都去哪了，你自己咋蹉跎的你自个儿不知道啊，啥破歌。”我妈说。
+
+        ![](http://www.onegreen.net/maps/Upload_maps/201304/2013041609590293.jpg)
+
+        突如其来的骚，闪了老子的腰
+
+        非也，在我看来全是泡沫，哈哈。很多PM丢到传统电商行业里，一个月就叫他打
+        回原形。
+
+        倒看不出，丫也晓得“财不外露”的道理，明明能一次付清，丫故意选先付首付，
+        慢慢还款。
+
+        只有我一个人觉得眼睛这么大很难受？只有我一个人觉得黑色的眸子很骇人？
+        （无力接受黑色美瞳。）
+
+        记得高中化学老师告诉我们：“自然的力量是什么？一颗原子弹只能使一公里范围
+        内温度升高一摄氏度。然而，昨晚冷空气来袭广东，全珠三角降温降了十度。”
+
+        还想用原子弹改变地球半径？你们这些愚蠢的地球人！
+
+         “好的，在太空战争中，核弹可能是一种效率较低的武器，在真空环境中核爆炸
+         不产生冲击波，产生的光压微不足道，因而无法造成在大气层中爆炸时所产生的
+         力学打击；它的全部能量以辐射和电磁脉冲形式释放，而即使对人类而言，宇宙
+         飞船防辐射和电磁屏蔽技术也是很成熟的。”———《三体》
+
+        旧社会把人变成鬼，新社会把人变成段子手……
+
+        被吐槽两句豆瓣就回滚，那也太没面子了……感觉样式表变了一点点根本不是事儿，重要的
+        是转发可以评论，这个趋势不太妙（以前刷豆瓣就是看看别人，然后自己玩，现在可以变
+        成各种转发了）。
+
+        鉴于我一直系统级别放到到 150%，有时候还真不希望豆瓣再换大字体。
+
+        美食基本是在路边摊才找得到。很实惠，不用怕脏，因为印度哪里都脏，全球空
+        气质量最差的十个城市七个在印度，印度越北空气越差，东北喜玛拉雅挡住，西
+        北巴基斯坦山脉，这俩形成夹角，霾散不去越积越多。
+
+        印度人认为一颗颗米粒不粘起来才是好米，中国米在他们眼里0.0
+
+        Q：MWeb 内部用的什么转化 Markdown？Pandoc？A：用 hoedown。
+
+        Lightweight HTML5 sanitizer with unique features，sanitizer，`['sænə,taɪzɚ]`，食品防腐剂；消毒杀菌剂（等于sanitiser）
+
+        sospendo 懒人支架
+
+        很多人说玩累了就找个老实人结婚，我们老实人等不及了，你们什么时候才玩累啊？
+
+        vagabond，`['væɡəbɑnd]`，流浪者；游民，二流子，流氓，无赖
+
+        北美名校圈也挺让人讨厌的。澳大利亚过来的同事跟我说，澳大利亚就没人在意
         什么学校毕业这种事儿，因为整个澳洲就没什么名校。。。#一个悲伤的故事#
 
         我觉得这次美国大选何清涟是把问题看得最透彻的名人。第一次知道她还是从没
@@ -2043,6 +2206,18 @@ title: Working Notes
         >   师兄 难道你不懂得怜香惜玉吗？！
 
         微信网页浏览的两条竖线没了！
+
+        ---
+
+        Sent from my phone; please excuse brevity or typos.
+
+        >   Napster wasn’t a failure. I changed the music industry for better and for
+        >   always. It may not have been good business but it pissed a lot of people
+        >   off.  And isn’t that what your Facemash was about? They’re scared of me pal
+        >   and they’re gonna be scared of you. What the VC’s wanted to say “Good idea,
+        >   kid.  Grownups will take it from here”. But not this time. This is our
+        >   time. This time you’re gonna…you’re gonna hand ’em a business card that
+        >   says “I’m CEO Bitch”. That’s what I want for you.
 
 -   [学术界现状及海归高校前景分析](http://www.mitbbs.com/mwap/forum/article.php?board=Returnee&groupid=13560813&content_type=all&from=groupmessage&isappinstalled=0) -<
 
@@ -2545,162 +2720,3 @@ title: Working Notes
 
         -   [回鹘_百度百科](http://baike.baidu.com/view/65576.htm)
 
--   [严肃码匠圈 - 专题 - 简书](http://www.jianshu.com/collection/353fc5f7719a)
-
--   [哔哩哔哩 - 话题精华 - 知乎](https://www.zhihu.com/topic/19628957/top-answers) -<
-
-    :   >   因为我们的能力不够，不能完全贯彻我们在 2014 年作出的“bilibii 的正版新番永
-        >   远不加贴片广告”的承诺，在此，我代表 bilibili，向所有用户道歉。
-        >
-        >   我们对不起大家。
-
--   [为什么说“打回去”是一种糟糕的反校园霸凌话语_端木异_腾讯大家](http://dajia.qq.com/original/category/dmy20161216.html) -<
-
-    :   豆油评价：
-
-        >   写那么长，还好象很学术的样子，放腾讯网，给谁看？？？结果连腾讯 er 的
-        >   回复都不待见。。。全是**不着四六的理论话语**，然而现实里一句：首先要打
-        >   回去，否则其他就是扯淡。。。
-        >
-        >   附加超强伤害值的技能三条：
-        >
-        >   #.  统一战线
-        >   #.  武装斗争
-        >   #.  组织建设
-
--   [博客 - 黄亿华的个人页面 - 开源中国社区](https://my.oschina.net/flashsword/blog?sort=time&p=2&temp=1481940500549) -<
-
-    :   这是 webmagic 的作者。
-
-        [在点评这几年(一)——谈谈技术人员的眼界 - 黄亿华的个人页面 - 开源中国社区](https://my.oschina.net/flashsword/blog/524715) -<
-
-        :   摘要: 昨天从点评离职了，加入了一个创业团队。在点评三年，是我职业生涯重要的
-            三年，有很多东西值得回味。
-
-            入职之后，才发现做事情原来可以有很多不同的方式。当时我们做邮件服务，一天要
-            发上千万邮件，很大一个问题就是带宽问题。当时有个架构师跟我关系比较好，大家
-            都叫他水哥。他还跟我讲邮件的 Mime 头是怎么回事，邮件有 quoted-printable、
-            7bit、8bit、base64 这些编码方式。最后听从他的建议，将默认编码 base64 编码改
-            为 8bit，省下了 1/4 的带宽。到了这个时候，我才发现，技术的眼界对做事情的帮
-            助，有时候是决定性的。
-
-            我业余还参与了一些开源项目，有一件事让我印象深刻。我给 HttpClient 提过一个
-            Patch，修复了 Content-Type 为 GZIP 时处理空 body 报错的问题，用到了一个装饰
-            器模式。结果新版本 Release 的两天后，就有人反馈遇到了性能问题，每台机器 50
-            线程的时候，CPU 使用从上个版本的 20%+ 变成了 100%。
-
-        [关于代码质量的一些思考 - 黄亿华的个人页面 - 开源中国社区](https://my.oschina.net/flashsword/blog/389251) -<
-
-        :   什么样的代码，算是可读性好？我跟别人提过一个标准：“你写的代码，过了几个月、
-            半年、一年，跟你说道一个功能，即使你不记得这个功能怎么做，你也能说清楚这个
-            功能写在哪个地方”。这个标准我自己认为还是很有效的。
-
-            实际上，完成一个“优美的”小功能，也就是用自己心中认为最好的方法去完
-            成一件事，这样的满足感，也是让人持续编程的动力。严格的说，这样的代
-            码有没有给代码质量带来提升呢？肯定有。第一很多时候这样的代码会经过
-            更多的考虑，必然有更高的质量；第二很多更好的开发技巧，都是来自这些
-            “不一样”的追求。
-
--   [矩阵的广播: Game Design 101 for Failed Programmer ](https://www.douban.com/people/bluegobin/status/1928559513/)
-
--   [如何看待 Google 在 NIPS2016 上的强势表现？ - 解浚源的回答 - 知乎](https://www.zhihu.com/question/53367171/answer/136260325)
-
--   [你敢说“Right”这个词你很熟悉吗？小心打脸！_华尔街英语_传送门](http://chuansong.me/n/1325679143962)
-
--   [中央经济工作会议，你真的看懂了？_跟我读政策_传送门](http://chuansong.me/n/1325683746148)
-
--   [王路：我对慈善和公益的态度_王路在隐身_传送门](http://chuansong.me/n/1251530643139) -<
-
-    :   我之前在知乎开过两次 live，就是正常的 live，收入归我自己，怎么花不需要解
-        释。但如果是公益，性质就不一样了。
-
-        我挺佩服郭大路的勇气。**她不介意被误解，被质疑。**我是不敢担这些风险的。
-        我也知道公益好，自己为什么不做呢？很多事情说不清。尤其是牵涉到分工协作的
-        时候，你的人品好，有保证，但具体到参与事情的每一个人如何操作，有时候保
-        证不了。
-
-        做公益也许不该预设目标。讲自己的组织“帮助了 2000 万儿童”，难免有自大贪功
-        之嫌。就算是企业，捐出利润帮助大众，也是“回报社会”。企业的利润，也是从
-        大众中来的呀。谁生下来的时候，都是一分钱不带来到世界上，没有众生，就没
-        有自己。自己吃的一粥一饭，无不是从众生中来。自己帮助众生，也只是随分随
-        缘地扮演一个中间角色而已。
-
--   [奥巴马出生证随权力一齐失效，圣诞节美军玩具南海被当面抢走_比特港大数据_传送门](http://chuansong.me/n/1327270051284) -<
-
-    :   候任总统和侯赛因总统互撕得不可开交时，Tg 海军也没闲着，
-        很轻松愉快地当着美国海洋测量船鲍迪奇（USNS Bowditch）号的面，在５００米
-        外公然捞起一架美军水下无人机。正准备回收两架无人机的美国船员直接看傻了
-        （见面分一半，这不是圣诞精神么？）。 抢走圣诞玩具的小偷还缺德带冒烟地在
-        无线电频道里继续调戏美国船员：“**我们正在巡逻，有啥要帮忙的？**”
-
-        特朗普总统，你在哪呢？现在我们可以把希拉里和奥巴马都投入监狱啦!
-
-        >   most of the parts of chinese anyway.
-
-        refs and see also
-
-        -   [大胆解放军 明偷美军水下无人机 - 中时电子报](http://www.chinatimes.com/cn/realtimenews/20161217000837-260408)
-        -   [如何评价解放军在南海没收美军水下无人船？ - 知乎](https://www.zhihu.com/question/53720954)
-
--   [看完豆瓣 9.9，今生遗憾不再有_G.P.A_传送门](http://chuansong.me/n/1327267051739)
-
--   [哈佛 76 年研究结果：只要遇到真爱，人生繁盛的几率就会显著提升_米滚滚 ETP_传送门](http://chuansong.me/n/1325675437286)
-
--   [这才是乐视困局的根本原因_虎嗅网_传送门](http://chuansong.me/n/1325670525236) -<
-
-    :   他是一位资本运作的高手，是一位讲故事的高手，一位做概念的高手，这是我们必须学习
-        的，现在做企业没有这个能力，根本不可能把企业做大。
-
-        但贾总也是有致命弱点的，恐怕他没有深层理解经营哲学，没有深刻理解生态的复杂性，
-        觉得自己能搞到钱，找到合适的牛人，把这些事做了，它们就能形成自洽的生态。而残酷
-        的现实使得生态遥遥无期，必然引起有关庞氏骗局的质疑。
-
-        不过，贾总和他的乐视还有一个不易为大家发现的问题。按说，乐视做的几乎都是惊天动
-        地的大事，我们可以理解成他是很有情怀的人。然而，在市场传播和他本人在各处的发言，
-        我们却很难听到他关于人文、关于社会担当、关于家国情怀的宣言，沉淀给我们的就是一
-        个到处搞“颠覆”的破坏者形象，仿佛一个大闹天宫的孙悟空，而且还是一个不知善恶的孙
-        悟空。
-
-        这犯了做企业的大忌。乐视毕竟不是着眼于三五年寿命期的小企业，而做大企业，没有情
-        怀是很难生存的，这就意味乐视沉淀不出积极向上、凝聚向心的企业文化。
-
--   [Mac 比 Win 好用在哪里？ - 知乎](https://www.zhihu.com/question/26911086)
-
--   [如何看待民生银行性骚扰事件？ - 知乎](https://www.zhihu.com/question/53381416#answer-49534096) -<
-
-    :   只有毫无社会经验的人才会以为遇见狼的时候你跪下，是情商高的表现。
-
-        当一方对另一方有从属或者服从义务的时候，撩就是性骚扰。
-
-        姑娘的最后一句：我警告你不要再欺负别人。
-
-        去特么的明哲保身。
-
--   [QQ的汤包的广播](https://www.douban.com/people/60048536/status/1928955220/) -<
-
-    :   关于欧美人数学差的问题，这点在中国留学生中传的神乎其神。让我来说吧，这种思维和
-        五毛没什么两样。欧美基础理工教育从整体来说确实没中国扎实，但是欧美已经过了全国
-        基建的发展阶段，确实不需要数量庞大的一般工程师。但是欧美的数学水平比中国高了几
-        十档，比如德国的舒尔茨，26 岁就被高呼要获菲奖这种人才，最近二十年数学水平最高的
-        北大数院没有培养出一个，连数院院长都不如此人，美国还有一个杜克教授的儿子八岁就
-        发数学最高顶刊，现在破格当了普林教授，29 岁就有了竞争菲奖的实力，而这种人才，五
-        毛们一向是回避的
-
-        我觉得，"数学好可以进投行" 其实是说数学都学不好就不要来了……
-
--   [你们有原本以为遥不可及的梦想后来却实现了的](https://www.douban.com/group/topic/94635998/) -<
-
-    :   小时候想换个新书包都要等好久，家里也不穷但就是不给换。
-        现在名牌包买了不少。
-        真应了那句小时候缺失的长大了就会拼命补偿给自己。
-
-        听说：进牛津大学击剑队当主力选手....没有想到他们都竟然这么弱
-
-        养狗。成年后几乎所有人都劝我别养，太麻烦，然而现在人生一半以上的幸福感
-        来自摸李狗毛绒绒的狗头和屁股。狗真棒啊！我五岁时的想法是对的！
-
--   [未名空间(mitbbs.com) - 海外华人第一门户](http://www.mitbbs.com/)
-
-    :   refs and see also
-
-        -   [未名交友(JiaoYou8.com) - 海外交友 国际交友 北美华人 华人交友 欧洲华人 网上征婚 海归交友 最大的海外华人交友网站](http://www.jiaoyou8.com/unknown_friends)

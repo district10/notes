@@ -2,7 +2,8 @@
 title: Notes 4
 ---
 
-[【Prev Note】](note3.html){title="note3.md"} [【Next Note】](notes5.html){title="note5.md"}
+[【Prev Note】](note3.html){title="note3.md"}
+[【Next Note】](note5.html){title="note5.md"}
 
 -   [美媒：特朗普邀媒体高层举行座谈会 指责对方都是骗子](http://www.guancha.cn/america/2016_11_22_381363.shtml)
 

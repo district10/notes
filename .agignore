@@ -1,0 +1,4 @@
+publish/
+.git/
+*.js
+*.css

@@ -340,8 +340,9 @@ ssh 服务器的安装、配置和使用
 
 refs and see also
 
-  - [Ubuntu 14.04 远程登录服务器 - 博客频道 - CSDN.NET](http://blog.csdn.net/YhL_Leo/article/details/51285545)
-  - [Remote Jupyter](http://tangzx.qiniudn.com/post-0109-remote-jupyter.html)
+-   [Ubuntu 14.04 远程登录服务器 - 博客频道 - CSDN.NET](http://blog.csdn.net/YhL_Leo/article/details/51285545)
+-   [Remote Jupyter](http://tangzx.qiniudn.com/post-0109-remote-jupyter.html)
+-   [Ubuntu下SSH设置 - BradyChen - 博客园](http://www.cnblogs.com/chen1987lei/archive/2010/12/02/1894768.html)
 
 ## Caffe, Cuda, cuDNN, etc
 

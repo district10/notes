@@ -2,7 +2,8 @@
 title: Notes 3
 ---
 
-[【Prev Note】](note2.html){title="note2.md"} [【Next Note】](note4.html){title="note4.md"}
+[【Prev Note】](note2.html){title="note2.md"}
+[【Next Note】](note4.html){title="note4.md"}
 
 -   [github - How can I determine the URL that a local Git repository was originally cloned from? - Stack Overflow](http://stackoverflow.com/questions/4089430/how-can-i-determine-the-url-that-a-local-git-repository-was-originally-cloned-fr) -<
 

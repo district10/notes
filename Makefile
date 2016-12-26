@@ -82,8 +82,7 @@ publish/%: %
 note: n
 n:
 	$(EDITOR) -p \
-		2016/note5.md \
-		misc/words.md \
+		2016/note6.md \
 		index.md \
 		lang/java.md \
 		lang/typescript.md \

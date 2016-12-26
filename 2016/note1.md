@@ -2,6 +2,8 @@
 title: Notes 1
 ---
 
+[【Next Note】](note2.html){title="note2.md"}
+
 -   [Git - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) -<
 
     :   1.  add submodule (won't pull the source)

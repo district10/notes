@@ -4,10 +4,25 @@ title: TANG ZhiXiong's Notes/Wiki
 
 # TANG ZhiXiong's Notes/Wiki
 
-[:TODO: Inoreader - All articles](http://www.inoreader.com/all_articles)
+>   成系统的逐步挪到 org-mode 那边，分门别类，然后选择性地写成博客；
+>
+>   那些没什么卵用的，死在这里。
+
+```
+tangzx.qiniudn.com (tangzhixiong.com)
+    |
+    |
+    +-----------------> /*.html                 (posts)
+    |
+    +-----------------> /notes/[**/]*.html      (notes)
+    |
+    +-----------------> /stage/index.html       (stage)
+```
 
 ## 2016
 
+-   [note7.html](2016/note7.html){title=2016/note7.md}
+-   [note6.html](2016/note6.html){title=2016/note6.md}
 -   [note5.html](2016/note5.html){title=2016/note5.md}
 -   [note4.html](2016/note4.html){title=2016/note4.md}
 -   [note3.html](2016/note3.html){title=2016/note3.md}

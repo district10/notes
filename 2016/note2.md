@@ -2,7 +2,8 @@
 title: Notes 2
 ---
 
-[【Prev Note】](note1.html) [【Next Note】](note3.html)
+[【Prev Note】](note1.html){title="note1.md"}
+[【Next Note】](note3.html){title="note3.md"}
 
 -   **You should blog even if you have no readers.**
 
