@@ -1,6 +1,6 @@
 ---
 title: Learning Java
-...
+---
 
 # Learning Java
 

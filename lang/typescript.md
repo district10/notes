@@ -1,6 +1,6 @@
 ---
 title: Learning TypeScript
-...
+---
 
 # Learning TypeScript
 

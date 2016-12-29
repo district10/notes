@@ -16,7 +16,7 @@ CSS:=publish/github-markdown.css \
 
 FROM := markdown+abbreviations
 ifeq (,$(DUMB))
-	FROM := $(FROM)+east_asian_line_breaks+emoji
+	FROM := $(FROM)+east_asian_line_breaks+emoji+raw_tex
 endif
 
 all: $(DST) $(CSS)
@@ -83,7 +83,7 @@ publish/%: %
 note: n
 n:
 	$(EDITOR) -p \
-		2016/note6.md \
+		2016/note7.md \
 		index.md \
 		lang/java.md \
 		lang/typescript.md \

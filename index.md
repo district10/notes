@@ -7,6 +7,8 @@ title: TANG ZhiXiong's Notes/Wiki
 >   成系统的逐步挪到 org-mode 那边，分门别类，然后选择性地写成博客；
 >
 >   那些没什么卵用的，死在这里。
+>
+>   一定要 GET Emacs 啊！
 
 ```
 tangzx.qiniudn.com (tangzhixiong.com)

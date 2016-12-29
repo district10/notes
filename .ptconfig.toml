@@ -1,0 +1,4 @@
+color = true
+context = 3
+ignore = ["tmp", "publish", "include"]
+color-path = "1;34"

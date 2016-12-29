@@ -7,7 +7,7 @@ refs:
     /home/tzx/Downloads/acm-cheat-sheet-master/C++/ACM-cheat-sheet.tex
     C:\Users\tzx\Downloads\LM\leetcode-master\C++\leetcode-cpp.tex
     ../../aoapc-book/aoapc-bac2nd/README.md
-...
+---
 
 Algorithms
 ==========
