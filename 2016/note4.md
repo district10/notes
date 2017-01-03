@@ -694,6 +694,10 @@ title: Notes 4
         但是在 300 秒（5 分钟）之后，就不可以再进行这些操作了。对于编辑的限制是
         为了让大家对发表在 V2EX 的言论更加负责。
 
+        refs and see also
+
+        -   [V2EX › FAQ](https://www.v2ex.com/faq)
+
 -   [rghose/youtube-downloader: My Bash One Line Youtube Downloader](https://github.com/rghose/youtube-downloader) -<
 
     :   这么好用……Orz。
