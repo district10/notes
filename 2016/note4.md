@@ -2294,9 +2294,39 @@ title: Notes 4
 
         -   [Change font size quickly | Vim Tips Wiki | Fandom powered by Wikia](http://vim.wikia.com/wiki/Change_font_size_quickly)
 
+-   [Win 下最爱效率神器:AutoHotKey | 晚晴幽草轩](http://www.jeffjade.com/2016/03/11/2016-03-11-autohotkey/) -<
+
+    :   ```ahk
+        ;   # 号代表 Win 键；                       （图形）
+        ;   ! 号代表 Alt 键；                       （转换）
+        ;   ^ 号代表 Ctrl 键；                      （帽子，control）
+        ;   + 号代表 shift 键；                     （another layer）
+
+        ;   :: 号(两个英文冒号)起分隔作用；
+        ;   run，非常常用 的 AHK 命令之一;
+        ;   ; 号代表 注释后面一行内容；
+        ```
+
+        ```ahk
+        ::/mail::mail.qq.com
+        ::/tangzx::http://tangzx.qiniudn.com/
+        ```
+
+        ~~不知道为什么我的不管用。~~因为用了 ahk 改键盘布局，快捷键不能用。
+
 -   [The 3 Best Ways to Make a Window Always-on-Top on Windows](http://www.howtogeek.com/196958/the-3-best-ways-to-make-a-window-always-on-top-on-windows/) -<
 
-    :   refs and see also
+    :   刚才弄成一个 repo 了：[district10/pin: Pin window on top](https://github.com/district10/pin)
+
+        :   windows on top.
+
+            ```ahk
+            ^!F10::  Winset, Alwaysontop, , A
+            ```
+
+            I use control-alt-f10.
+
+        refs and see also
 
         -   [Keep a Window on top with a handy AutoHotkey script](http://www.howtogeek.com/howto/13784/keep-a-window-on-top-with-a-handy-autohotkey-script/)
         -   [Download Always on Top - Keep Any Window Visible Always](http://www.labnol.org/software/tutorials/keep-window-always-on-top/5213/)
@@ -2348,26 +2378,6 @@ title: Notes 4
         -   [逆天神器 cmder](http://bg.biedalian.com/2014/09/11/cmder.html)
         -   [Whee! Cmder can do split panes! « rakhesh.com](http://rakhesh.com/windows/whee-cmder-can-do-split-panes/)
         -   [Boost your dev productivity with cmder + ConEmu | Michal Franc](http://mfranc.com/uncategorized/boost-your-dev-productivity-with-cmder-conemu/)
-
--   [Win 下最爱效率神器:AutoHotKey | 晚晴幽草轩](http://www.jeffjade.com/2016/03/11/2016-03-11-autohotkey/) -<
-
-    :   ```ahk
-        ;   # 号代表 Win 键；（图形）
-        ;   ! 号代表 Alt 键；（转换）
-        ;   ^ 号代表 Ctrl 键；（帽子，control）
-        ;   + 号代表 shift 键；（another layer）
-
-        ;   :: 号(两个英文冒号)起分隔作用；
-        ;   run，非常常用 的 AHK 命令之一;
-        ;   ; 号代表 注释后面一行内容；
-        ```
-
-        ```ahk
-        ::/mail::mail.qq.com
-        ::/tangzx::http://tangzx.qiniudn.com/
-        ```
-
-        不知道为什么我的不管用。
 
 -   `WIN` + `W` 好叼
 
@@ -2425,11 +2435,17 @@ title: Notes 4
 
         我中学时候历史老师是袁腾飞，反正理科班高考也不考这个，上课就大家泡好茶准备一起听他讲相声，期末成绩是袁腾飞看着名册随便给，名字越好听得分越高
 
-[首都师范大学附属中学_百度百科](http://baike.baidu.com/link?url=qxJ1Nzs8VhBrnqifHJu09YKHE6kFvR3Rm-QMmzlK7-as6MNE25CHwZ0gDdPMCbJcUNMGYR6qgv57mp6ADnvtmVuAPZNcNDiCqOnZvygQvl4w_xZDc8vWsT2h3CBqdfkUZU1ILBdfAenSk9lqTlNxOniQ5GpQ8U4QsSvZLYjsi6fP8tPIL2BP3OCrn5YvhfQ9nejNPZdLbpd-teGQxgRHoVLSPfGQKyvagGCutyGH7xsI55XqNOQ0GNFN6UBOxM9wLn6-e_n1svDtU_Nlf9K1-Vf4HHLfKR1VXbsgPC_kWR-Il3k0F7X7l33N4T54qBlN)
+-   [首都师范大学附属中学_百度百科](http://baike.baidu.com/link?url=qxJ1Nzs8VhBrnqifHJu09YKHE6kFvR3Rm-QMmzlK7-as6MNE25CHwZ0gDdPMCbJcUNMGYR6qgv57mp6ADnvtmVuAPZNcNDiCqOnZvygQvl4w_xZDc8vWsT2h3CBqdfkUZU1ILBdfAenSk9lqTlNxOniQ5GpQ8U4QsSvZLYjsi6fP8tPIL2BP3OCrn5YvhfQ9nejNPZdLbpd-teGQxgRHoVLSPfGQKyvagGCutyGH7xsI55XqNOQ0GNFN6UBOxM9wLn6-e_n1svDtU_Nlf9K1-Vf4HHLfKR1VXbsgPC_kWR-Il3k0F7X7l33N4T54qBlN) -<
 
-首师大附中始建于1914年，由北洋政府陆军部次长、西北筹边使兼西北边防军总司令徐树铮创办，始命名为正志中学。学校后因种种历史原因先后更名为成达中学、第三十八中学、第四十二中学、北京师范学院附属中学。1992年更名为首都师范大学附属中学，接受北京市教委和首都师范大学的双重领导。[1]
+    :   首师大附中始建于 1914 年，由北洋政府陆军部次长、西北筹边使兼西北边防军总司令徐树铮创办，
+        始命名为正志中学。学校后因种种历史原因先后更名为成达中学、第三十八中学、第四十二中学、
+        北京师范学院附属中学。1992 年更名为首都师范大学附属中学，接受北京市教委和首都师范大学的双重领导。
 
- 2010年高考，学校理科600分以上占统招生人数的70．8%，文科600分以上占统招生人数67%；理科全体平均分610，文科全体平均分578，理科实验班平均分达 到 645．1分以上，文科实验班平均分达到612分。理科全体考生99．7%达到一批录取分数线，文科全体考生94%达到一批录取分数线。
+        2010 年高考，学校理科 600 分以上占统招生人数的 70．8%，文科 600
+        分以上占统招生人数 67%；理科全体平均分 610，文科全体平均分
+        578，理科实验班平均分达 到 645．1 分以上，文科实验班平均分达到 612
+        分。理科全体考生 99．7% 达到一批录取分数线，文科全体考生 94%
+        达到一批录取分数线。
 
 -   [24. From individual neurons to collective bursting – NEURONSTAR](http://neuronstar.cc/spiking-neuron-models/24.From_individual_neurons_to_collective_bursting/) -<
 
@@ -2504,7 +2520,7 @@ title: Notes 4
 
 -   [特朗普时代前传：分清里根和克林顿，了解今天世界问题的起源](http://mp.weixin.qq.com/s/Ucaw6W-DIYWOsLM0ESAbdw)
 
--   [老华为人眼中5G前路：2020年商用太激进 技术仍待突破_财经头条](http://cj.sina.com.cn/article/normal_detail?url=http://finance.sina.com.cn/roll/2016-11-27/doc-ifxyawmp0268372.shtml&cre=financew&mod=f&loc=3&r=0&doct=0&rfunc=84&tj=none&s=0&wm=5312_0010) -<
+-   [老华为人眼中 5G 前路：2020 年商用太激进 技术仍待突破_财经头条](http://cj.sina.com.cn/article/normal_detail?url=http://finance.sina.com.cn/roll/2016-11-27/doc-ifxyawmp0268372.shtml&cre=financew&mod=f&loc=3&r=0&doct=0&rfunc=84&tj=none&s=0&wm=5312_0010) -<
 
     :   全球 5G 正在喧嚣中推行，先是在 4G 落后的日韩，非常积极投入 5G，然后中国
         也变得积极，欧美虽然比较理性，但也怕中日韩抢了先机，可以看到整个世界上

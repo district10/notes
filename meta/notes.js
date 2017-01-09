@@ -28,6 +28,7 @@ $('a.hide').each(function(){
     }
 });
 
+// install
 $('dt > code.fold').each(function(){
     $(this)
         .parent().addClass('drawerClose').addClass('drawer')
@@ -37,35 +38,7 @@ $('dt > code.foldable').each(function(){
     $(this)
         .parent().addClass('drawerOpen').addClass('drawer');
 });
-$('li > code.fold').each(function(){
-    $(this)
-        .parent().addClass('drawerClose').addClass('drawer').end()
-        .next('ul,ol').addClass('drawerHide');
-});
-$('li > code.foldable').each(function(){
-    $(this)
-        .parent().addClass('drawerOpen').addClass('drawer')
-});
-$('p > code.fold').each(function(){
-    $(this)
-        .parent().addClass('simpledrawerClose').addClass('simpledrawer')
-        .next('ul,ol').addClass('simpledrawerHide');
-});
-$('p > code.foldable').each(function(){
-    $(this)
-        .parent().addClass('simpledrawerOpen').addClass('simpledrawer');
-});
-$('p > code.fold-ng').each(function(){
-    $(this)
-        .parent().addClass('drawer-ng-this').addClass('drawer-ng-close')
-        .siblings().addClass('drawer-ng-siblings').addClass('drawer-ng-hide');
-});
-$('p > code.foldable-ng').each(function(){
-    $(this)
-        .parent().addClass('drawer-ng-this').addClass('drawer-ng-open')
-        .siblings().addClass('drawer-ng-siblings');
-});
-
+// take effect when click
 $('dt.drawer').on('click', function(event){
     if(getSelection().toString()){ return; }
     if($('body').hasClass('locked')){ return; }
@@ -78,6 +51,7 @@ $('dt.drawer').on('click', function(event){
     event.stopPropagation();
 });
 $('dd').on('click', function(event){
+    if ($(event.target).hasClass("copyme")) { return; }
     if(getSelection().toString()){ return; }
     if($('body').hasClass('locked')){ return; }
     var $dt = $(this).prev('dt');

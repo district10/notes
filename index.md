@@ -21,6 +21,8 @@ tangzx.qiniudn.com (tangzhixiong.com)
     +-----------------> /stage/index.html       (stage)
 ```
 
+私人的部分：[share document ：index|Worktile](https://worktile.com/share/pages/758c54eee75242d1a60dc6cb153b1d17)。
+
 ## 2016
 
 -   [note7.html](2016/note7.html){title=2016/note7.md}
@@ -65,7 +67,14 @@ tangzx.qiniudn.com (tangzhixiong.com)
 
 ---
 
-## 一些自己记笔记用到的工具^[Vim 什么的就不说了。没 Vim 这笔记真心排版不了。]
+## 一些自己记笔记用到的工具
+
+-   Windows/Linux + Vim + Firefox，以及 -<
+
+    :   一些小工具：
+
+        -   [district10/pin: 保持窗口在上/总在最前（make window always on top）](https://github.com/district10/pin)
+        -   [district10/AltWindowDrag: Drag window by holding Alt key and dragging it, works on Windows just like on Linux (A personal backup), Windows 上实现 Linux 的【按住 Alt 拖动窗口】的实用功能](https://github.com/district10/AltWindowDrag/)
 
 -   [district10/jwatch: watch directory for changes, written in Java](https://github.com/district10/jwatch/) -<
 
@@ -93,7 +102,13 @@ tangzx.qiniudn.com (tangzhixiong.com)
 
         为了访问速度，上面链接给的是我的备份，原站：[ASCIIFlow Infinity](http://asciiflow.com/)。
 
--   Emojis
+-   把剪切板内容转换成 Markdown 代码 -<
+
+    :   [Paste to Markdown](http://whudoc.qiniudn.com/2017/2md/index.html)
+
+        原站：[euangoddard/clipboard2markdown: Convert rich-text on your clipbaord to markdown](https://github.com/euangoddard/clipboard2markdown)。
+
+-   Emojis -<
 
     :   点击粘贴到剪切板
 

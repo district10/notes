@@ -882,14 +882,6 @@ title: Notes 7
 
 -   [Fonts & Encodings - O'Reilly Media](http://shop.oreilly.com/product/9780596102425.do)
 
--   [district10/pin: Pin window on top](https://github.com/district10/pin) -<
-
-    :   windows on top.
-
-        ```ahk
-        ^SPACE::  Winset, Alwaysontop, , A
-        ```
-
 -   Vim -<
 
     :   `:digraphs`
@@ -1092,6 +1084,15 @@ title: Notes 7
                 ƶ   z/  01B6    0438    LATIN SMALL LETTER Z WITH STROKE
                 Ʒ   ED  01B7    0439    LATIN CAPITAL LETTER EZH
                 ```
+
+                Ezh (Ʒ ʒ) /ˈɛʒ/, also called the "tailed z", is a letter whose
+                lower case form is used in the International Phonetic Alphabet
+                (IPA), representing the voiced postalveolar fricative
+                consonant. For example: vision /ˈvɪʒən/.
+
+                refs and see also
+
+                -   [Ezh - Wikipedia](https://en.wikipedia.org/wiki/Ezh)
 
         -   空格和连字符 -<
 
