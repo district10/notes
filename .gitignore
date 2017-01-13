@@ -11,3 +11,6 @@ leetcode/*
 cracking-the-coding-interview/
 /wikify.jar
 /jwatch.jar
+/jupyter/*_files/*
+/jupyter/*.html
+/jupyter/*.tex
