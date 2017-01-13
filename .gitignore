@@ -13,4 +13,9 @@ cracking-the-coding-interview/
 /jwatch.jar
 /jupyter/*_files/*
 /jupyter/*.html
-/jupyter/*.tex
+/jupyter/note*.tex
+*.aux
+*.log
+*.out
+*.pdf
+*.toc
