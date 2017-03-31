@@ -2,9 +2,9 @@
 title: Working Notes
 ---
 
-[【Prev Note】](2016/note7.html){title="../2016/note7.md"}
+[【Prev Note】](../2016/note7.html){title="../2016/note7.md"}
 
--   [Vi(m) tip #2: Entering greek/math symbols using vim digraphs « Alec's Web Log](http://www.alecjacobson.com/weblog/?p=443)
+-   [Vi(m) tip #2: Entering greek/math symbols using vim digraphs « Alec's Web Log](http://www.alecjacobson.com/weblog/?p=443) -<
 
     :   丫的发现原来 vim 里面 C-c 可以当成 Esc 用，我以为只有 c-[ 呢。
 
@@ -13,7 +13,7 @@ title: Working Notes
         -   `,\@![[:punct:]]`
         -   `[^,]\&[:punct:]`
 
--   [如何匹配所有标点但排除某一个 - Google Groups](https://groups.google.com/forum/#!topic/vim-cn/O-9jJdtrMCg)
+-   [如何匹配所有标点但排除某一个 - Google Groups](https://groups.google.com/forum/#!topic/vim-cn/O-9jJdtrMCg) -<
 
     :   参见
 
@@ -57,7 +57,7 @@ title: Working Notes
 
 -   [html - Styling text input caret - Stack Overflow](http://stackoverflow.com/questions/7339333/styling-text-input-caret)
 
--   http://whudoc.qiniudn.com/2017/s-s-h--protected.7z
+-   http://whudoc.qiniudn.com/2017/s-s-h--protected.7z -<
 
     :   p-ass: tzx's id.
 
@@ -70,11 +70,12 @@ title: Working Notes
 
         简直是一个优良的广告。
 
-        很多人看不懂这个世界格局：大清朝空气最好，那个时候欧美日空气都很差，
+        很多人看不懂这个世界格局：
+        **大清朝空气最好，那个时候欧美日空气都很差，
         钱钟书因为肺不好从伦敦回的北平，有卵用吗？没几年被打的四处跑。
-        这个世界是弱肉强食，雾霾不被人揍必须的历史阶段，治理需要三十年。多看看上甘岭。
+        这个世界是弱肉强食，雾霾不被人揍必须的历史阶段，治理需要三十年。多看看上甘岭。**
 
--   articulation，`[ɑr,tɪkju'leʃən]`，n. 关节；接合；清晰发音
+-   articulation，`[ɑr,tɪkju'leʃən]`，n. 关节；接合；清晰发音 -<
 
     :   ```matlab
         % ==============================
@@ -164,567 +165,822 @@ title: Working Notes
 
 -   [Manifold - Wikipedia](https://en.wikipedia.org/wiki/Manifold)
 
-https://help.ubuntu.com/community/Lubuntu/Documentation/EditingTheMenu
-
-```
-chromium-browser --proxy-server="socks5://127.0.0.1:1080"
-```
-
-
-/usr/share/applications
-
-/home/tzx/.local/share/applications
-
-
-CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}
-CMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}
-CMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}
-QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}
-/usr/share/applications
-
-
-ciao 纠错
-英 [tʃaʊ] 美 [tʃaʊ]
-
-    int. （意）你好；再见（见面问候语或告别语）
-    n. (Ciao)人名；(意)恰奥
-
-
-Ciao
-jupyter notebook
-/home/tzx/.local/share/applications
-
-pip3 install --upgrade pip
-pip3 install jupyter
-fc-list : file
-林志勇：论文里的架构图不对，这个是处理流程图。而且作为处理流程图你的输入、输出，以及数据库这些框没有选对。外，你的流程处理里的英文单词应当去掉，尽量改成中文术语。
-赖旭东：你的系统主要有两个内容：一个是数据的组织，一个是平滑渲染场景过渡，但你的具体应用场景是怎样的？这并没有在最开始说明清楚。另外，数据组织和平滑过渡两者难点在哪，你的主要工作是什么？答：考虑到三维模型的数据获取，本系统主要用于室内场景漫游，而不适用于街景漫游等情况。数据组织上最大的难点是如何建立三维模型数据和全景图的高效索引；平滑过渡上的最大难点是在数据获取上如何调度，使得视觉效果更自然。
-付建红：论文选题目的和意义写得太细，应当精简掉不需要和不相关的内容。行文排版不太对，行间距是不是有点不对？答：论文选题和意义这部分查阅了很多资料就多写了一些，后面会根据自己的研究实际，去掉不相关的内容，让行文更紧凑，更专注于主题。行间距是有点问题，在电脑查看的时候疏忽了。
-胡庆武：你的处理流程具体是怎样的？比如说，你的三维模型和全景图是怎么融合的？从一个场景到另一个场景的时候，模型如何呈现出来以提高过渡的自然感？答：具体的处理流程还需要仔细的实验再做选择，大致的方向是1）在相邻全景图之间进行特征匹配，提取出背景并三角化，对三角格网进行精细的匹配和色彩混合；2）对全景图前景和三维模型进行匹配，使得三维模型的位置正确设定，在场景切换时调出三维模型来模拟三维效果。
---proxy-server="socks5://foobar:66"
-man chromium-browser
-/tmp/qtc-cmake-t2nWxj
-
-
-2017年 01月 13日 星期五 01:26:22 CST
-
-https://help.ubuntu.com/community/Lubuntu/Documentation/EditingTheMenu
-~/.local/share/applications
-
-/usr/share/applications
-
- No CMAKE_CXX_COMPILER could be found.
-REPD
-https://github.com/ppwwyyxx/panorama/releases/download/0.1/example-data.tgz
-./src/image-stitching \
-    /home/tzx/Pictures/scene2/IMG_20170113_002601.jpg \
-    /home/tzx/Pictures/scene2/IMG_20170113_002605.jpg \
-    /home/tzx/Pictures/scene2/IMG_20170113_002611.jpg \
-    /home/tzx/Pictures/scene2/IMG_20170113_002614.jpg \
-    /home/tzx/Pictures/scene2/IMG_20170113_002624.jpg \
-    /home/tzx/Pictures/scene2/IMG_20170113_002627.jpg \
-    /home/tzx/Pictures/scene2/IMG_20170113_002630.jpg
-
-https://github-cloud.s3.amazonaws.com/releases/9639042/a48669ea-42dd-11e6-848c-1eb6a25364e8.tgz?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAISTNZFOVBIJMK3TQ%2F20170112%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20170112T161723Z&X-Amz-Expires=300&X-Amz-Signature=b4cb5ae7d51abb311ee039ea8d07dd0d0a1180bcc1814afa2cc6c965f46f852f&X-Amz-SignedHeaders=host&actor_id=0&response-content-disposition=attachment%3B%20filename%3Dexample-data.tgz&response-content-type=application%2Foctet-stream
-https://github.com/ppwwyyxx/panorama/releases/tag/0.1
-https://github.com/4ker/panorama.git
-腾讯和阿里的低俗年会
- 办理护照相关内容：1）本人必须亲自在户口所在地办理护照。提供户口办理护照的信息供你参考吧，北京的办理周期是9天（含周六日），在各个区县出入境管理处办理，可以跨区办理不受户口在某个区县的限制。其他省市地区得看当地的出入境管理处具体规定。2）办理护照所需材料：2寸浅蓝或白底照片1张（贴在申请表上使用的）、身份证原件复印件（正反面均复印）、户口簿原件复印件（首页、个人资料页、变更页均复印）、表格一份（现场填写即可）、200元。3)提示：A、必须本人亲自前往办理，因为需要现场拍照用在护照上的。B、建议复印好带去，现场复印比较贵。到出入境管理处，先填表，然后去拍数码照，拍的照是用在护照上的，不花钱，拍完表格上会被贴一张条形码，接着就去排队交材料交钱即可。
-https://www.douban.com/note/600502007/
-foreach( TARGET_NAME ${PROGRAM_TARGETS} )
-    add_executable( ${TARGET_NAME} ${TARGET_NAME}.cpp )
-    # add_dependencies( ${TARGET_NAME} Blahblah )
-    target_link_libraries( ${TARGET_NAME} ${OpenCV_LIBS} ${QT_LIBRARIES} Blahblah )
-    set_target_properties( ${TARGET_NAME} PROPERTIES FOLDER MiscExamples )
-endforeach( TARGET_NAME )
-file( GLOB SRCS *.c *.cpp *.cc *.h *.hpp )  # a varible called SRCS with all files whose path match "*.c *.cpp..."
-set( PROGRAM_TARGETS
-    SeedFillTest
-    SuperSeedsTest
-    BoundaryFillTest
-    contours
-)
-───────────────────
- CMakeLists.txt  ~/g/o/s/o/CMakeLists.txt                         X
-  1 add_subdirectory(cameras_undisto_Brown)
-  2
-  3 add_subdirectory(multiview_robust_estimation_tutorial)
-  4 add_subdirectory(multiview_robust_homography)
-  5 add_subdirectory(multiview_robust_homography_guided)
-  6 add_subdirectory(multiview_robust_fundamental)
-  7 add_subdirectory(multiview_robust_fundamental_guided)
-  8 add_subdirectory(multiview_robust_
-mytests
-
-dodger 纠错
-英 ['dɒdʒə] 美 ['dɑdʒɚ]
-
-    n. 欺瞒者；躲避者
-
-
-cnn.it/2fLjAhm
-127.0.0.1
-find /DIR/EC/TORY -type f -executable
-/
-THIS_SOURCE_DIR
-color = true
-context = 3
-ignore = ["dir1", "dir2"]
-color-path = "1;34"
-/usr/lib/jvm/java-8-openjdk-amd64
+-   [Lubuntu 修改启动菜单](https://help.ubuntu.com/community/Lubuntu/Documentation/EditingTheMenu) -<
+
+    :   ```
+        /usr/share/applications
+        /home/tzx/.local/share/applications
+        ```
+
+-   chrome 命令行打开 proxy -<
+
+    :   ```bash
+        chromium-browser --proxy-server="socks5://127.0.0.1:1080"
+        ```
+
+-   ciao -<
+
+    :   英 `[tʃaʊ]` 美 `[tʃaʊ]`
+
+        ```
+        int. （意）你好；再见（见面问候语或告别语）
+        n. (Ciao)人名；(意)恰奥
+        ```
+
+-   安装 Jupyter -<
+
+    :   ```bash
+        pip3 install --upgrade pip
+        pip3 install jupyter
+        ```
+
+-   全景拼接 -<
+
+    :   <https://github.com/ppwwyyxx/panorama/releases/download/0.1/example-data.tgz>
+
+        ```bash
+        ./src/image-stitching \
+            /home/tzx/Pictures/scene2/IMG_20170113_002601.jpg \
+            /home/tzx/Pictures/scene2/IMG_20170113_002605.jpg \
+            /home/tzx/Pictures/scene2/IMG_20170113_002611.jpg \
+            /home/tzx/Pictures/scene2/IMG_20170113_002614.jpg \
+            /home/tzx/Pictures/scene2/IMG_20170113_002624.jpg \
+            /home/tzx/Pictures/scene2/IMG_20170113_002627.jpg \
+            /home/tzx/Pictures/scene2/IMG_20170113_002630.jpg
+        ```
+
+-   CMake 编译当前文件夹下的 cpp 文件 -<
+
+    :   ```cmake
+        file( GLOB SRCS *.c *.cpp *.cc *.h *.hpp )  # a varible called SRCS with all files whose path match "*.c *.cpp..."
+        set( PROGRAM_TARGETS
+            SeedFillTest
+            SuperSeedsTest
+            BoundaryFillTest
+            contours
+        )
+        foreach( TARGET_NAME ${PROGRAM_TARGETS} )
+            add_executable( ${TARGET_NAME} ${TARGET_NAME}.cpp )
+            # add_dependencies( ${TARGET_NAME} Blahblah )
+            target_link_libraries( ${TARGET_NAME} ${OpenCV_LIBS} ${QT_LIBRARIES} Blahblah )
+            set_target_properties( ${TARGET_NAME} PROPERTIES FOLDER MiscExamples )
+        endforeach( TARGET_NAME )
+        ```
+
+        一个更好的代码：
+
+        ```cmake
+        file( GLOB SRCS *.cpp)
+        foreach( src ${SRCS} )
+            string( REGEX REPLACE "(^.*/|.cpp$)" "" exe ${src} )
+            add_executable( ${exe} ${src} )
+            target_link_libraries( ${exe}
+                openMVG_image
+                openMVG_features
+                openMVG_matching
+                openMVG_system
+                openMVG_multiview
+                vlsift
+                stlplus)
+            set_property(TARGET ${exe} PROPERTY FOLDER OpenMVG/Samples)
+        endforeach( src )
+        ```
+
+-   dodger -<
+
+    :   ```
+        英 ['dɒdʒə] 美 ['dɑdʒɚ]
+        n. 欺瞒者；躲避者
+        ```
+
+-   find executables in dir -<
+
+    :   ```bash
+        find /DIR/EC/TORY -type f -executable
+        ```
+
+-   安装 shadowsocks -<
+
+    :   ```bash
+        sudo apt-get install libbotan1.10-dev
+        sudo apt-get install libzbar-dev libzbarqt-dev
+        sudo apt-get install libappindicator-dev
+        sudo apt-get install qt5-qmake qt5-default qtbase5-dev libbotan1.10-dev gcc-4.8 libqrencode-dev libzbar-dev libappindicator-dev libqtshadowsocks-dev
+        sudo add-apt-repository ppa:hzwhuang/ss-qt5 -y && sudo apt-get -qq update
+        ```
 
-sudo apt-get install libbotan1.10-dev
-sudo apt-get install libzbar-dev libzbarqt-dev
-sudo apt-get install libappindicator-dev
-sudo apt-get install qt5-qmake qt5-default qtbase5-dev libbotan1.10-dev gcc-4.8 libqrencode-dev libzbar-dev libappindicator-dev libqtshadowsocks-dev
-sudo add-apt-repository ppa:hzwhuang/ss-qt5 -y && sudo apt-get -qq update
-https://github.com/shadowsocks/shadowsocks-qt5.git
-145753721
-If a plugin is not well-written, it could cause Code::Blocks to crash when
-sudo apt-get install ttf-inconsolata
-sudo apt-get update
-sudo apt-get install git zsh curl tmux xclip
-curl -L http://install.ohmyz.sh | sh
-echo 'alias clip="xclip -selection clipboard"' >> ~/.zshrc
+        客户端：<https://github.com/shadowsocks/shadowsocks-qt5.git>
+
+-   clip 拷贝到剪切板 -<
+
+    :   ```bash
+        sudo apt-get install make gcc g++ pkg-config libx11-dev libxtst-dev
+        sudo apt-get install ttf-inconsolata
+        sudo apt-get update
+        sudo apt-get install git zsh curl tmux xclip
+        curl -L http://install.ohmyz.sh | sh
+        echo 'alias clip="xclip -selection clipboard"' >> ~/.zshrc
+        ```
 
-sudo apt-get install make gcc g++ pkg-config libx11-dev libxtst-dev
+-  [OpenCV 3.1 Installation Guide on Ubuntu 16.04 · BVLC/caffe Wiki](https://github.com/BVLC/caffe/wiki/OpenCV-3.1-Installation-Guide-on-Ubuntu-16.04) -<
 
-chrome:
+    :   ```bash
+        sudo apt-get install --assume-yes build-essential cmake git
+        sudo apt-get install --assume-yes build-essential pkg-config unzip ffmpeg qtbase5-dev python-dev python3-dev python-numpy python3-numpy
+        sudo apt-get install --assume-yes libopencv-dev libgtk-3-dev libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libtiff5-dev libjasper-dev
+        sudo apt-get install --assume-yes libavcodec-dev libavformat-dev libswscale-dev libxine2-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
+        sudo apt-get install --assume-yes libv4l-dev libtbb-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev
+        sudo apt-get install --assume-yes libvorbis-dev libxvidcore-dev v4l-utils
+        ```
+
+        ```bash
+        export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-2.4.13/build2
+        export OpenCV3_DIR=/usr/local/share/OpenCV
+        ```
+
+        环境变量的设定
+
+        Env | Env Value
+        --- | ---
+        OpenCV | `C:\dev\OpenCV\build`
+        OpenCV_Dir | `%OpenCV%`
+        QTDIR | `C:\Qt\qt-4.8.6-x64-msvc2010\qt-4.8.6-x64-msvc2010`
+        PATH | `%PATH%;%QTDIR%\bin;%OpenCV%\x64\vc10\bin;`
+
+-   Java home -<
+
+    :   ```bash
+    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+    ```
+
+-   2016 年你学会了什么新技能？（我的是：熟练掌握数十首中英文儿歌而且经常无意识哼唱）
+
+-   sanity -<
+
+    :   ```
+        英 ['sænɪtɪ] 美 ['sænəti]
+
+        n. 明智；头脑清楚；精神健全；通情达理
+        ```
+
+-   女人 -<
+
+    :   我想社会会发展到一天，女人只要生了孩子，国家就会提供住房补贴，基本生活费，婴儿食品保障，免费托儿所的。
+        这不是出于善心，而是经济发展和人口教育成本上升的自然后果。婚姻制度而将因而解体。在这种社会成长起来的孩子，
+        他忠诚的第一对象也将是国家而非家庭，甚至不是他的母亲。
+
+-   FPGA -<
+
+    :   ![鬼知道我经历了什么](http://ww1.sinaimg.cn/large/67d6aa46gw1fbljm25kwxj20dw2nujz1.jpg)
+
+        众所周知，通用处理器（CPU）的摩尔定律已入暮年，而机器学习和 Web
+        服务的规模却在指数级增长。人们使用定制硬件来加速常见的计算任务，
+        然而日新月异的行业又要求这些定制的硬件可被重新编程来执行新类型的计算任务。FPGA (Field Programmable Gate Array)
+        正是一种硬件可重构的体系结构，常年来被用作专用芯片（ASIC）的小批量替代品，
+        然而近年来在微软、百度等公司的数据中心大规模部署，以同时提供强大的计算能力和足够的灵活性。
+
+         “预测的准确率，我们现在已经做到北京未来 6 个小时的准确率达到了
+         75%，在深圳和广州做到了 80%。未来 48 个小时的预测准确率达到
+         50%。大家不要小看 50% 的准确率，它其实已经非常高了。相比之下，天气预报
+         24 小时的准确率只有 40%。”郑宇说。
+
+        另一方面，日本企业老气横秋、死气沉沉，有活力的新企业根本没有，和中美相比截然不同。
+        跨领域、改变商业模式的大创新也出不来，近年来世界上的大创新主要是美国在搞，中国也有一些。
+        日本大企业有权力的决策人员基本是老头，领导者平均年龄高达 60 岁，而且极度保守，
+        对于世界科技与生活剧烈的改变既想不到也无法接受，只会让研发人员进行一些精致的研发。
+        有些日本高管不愿意看电子邮件，让手下人打印出来看。高管们不想学习新东西，旧软件一直用，
+        新软件更好用但是在公司内部无法推动。日本的硬件研发传统也与此相关，高管们就是这么过来的，
+        对于硬件研发能理解，对于元器件做精做深是支持的。
+
+-   大丸子汤 -<
+
+    :   总结：想法和创意连小学生都有，改变世界的雄心和哲学体系每个大学生都有一套。
+        这个世界稀缺的是组织和后勤。
+
+        选择市场，选择伙伴，都不是由欲望（比如说愿景）决定的，而是由实力决定的。
+        曾国藩战术战略并不出众，但他重视两件事，一是练兵，二是后勤。
+        这就使他能不管怎么失败，总是能再起。内部的，后方的才是最根本的。
+
+-   python requirements.txt -<
+
+    :   ```bash
+        for req in $(cat requirements.txt); do pip install $req; done
+        sudo apt-get install python-dev python-numpy –y
+        sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev \
+                             libhdf5-serial-dev protobuf-compiler -y
+        sudo apt-get install --no-install-recommends libboost-all-dev -y
+        sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev -y
+        sudo apt-get install libatlas-base-dev -y
+        ```
+
+-   能总结一下，你是怎么形成这种性格的吗？我正缺这个。 -<
+
+    :   吐槽：搞得你能回娘胎改造似的。
+
+-   显卡 nvidia -<
+
+    :   ```
+        Device 0: "GeForce 940MX"
+          CUDA Driver Version / Runtime Version          8.0 / 8.0
+          CUDA Capability Major/Minor version number:    5.0
+          Total amount of global memory:                 2002 MBytes (2099642368 bytes)
+          ( 3) Multiprocessors, (128) CUDA Cores/MP:     384 CUDA Cores
+          GPU Max Clock rate:                            1189 MHz (1.19 GHz)
+          Memory Clock rate:                             2000 Mhz
+          Memory Bus Width:                              64-bit
+          L2 Cache Size:                                 1048576 bytes
+          Maximum Texture Dimension Size (x,y,z)         1D=(65536), 2D=(65536, 65536), 3D=(4096, 4096, 4096)
+          Maximum Layered 1D Texture Size, (num) layers  1D=(16384), 2048 layers
+          Maximum Layered 2D Texture Size, (num) layers  2D=(16384, 16384), 2048 layers
+          Total amount of constant memory:               65536 bytes
+          Total amount of shared memory per block:       49152 bytes
+          Total number of registers available per block: 65536
+          Warp size:                                     32
+          Maximum number of threads per multiprocessor:  2048
+          Maximum number of threads per block:           1024
+          Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
+          Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
+          Maximum memory pitch:                          2147483647 bytes
+          Texture alignment:                             512 bytes
+          Concurrent copy and kernel execution:          Yes with 1 copy engine(s)
+          Run time limit on kernels:                     Yes
+          Integrated GPU sharing Host Memory:            No
+          Support host page-locked memory mapping:       Yes
+          Alignment requirement for Surfaces:            Yes
+          Device has ECC support:                        Disabled
+          Device supports Unified Addressing (UVA):      Yes
+          Device PCI Domain ID / Bus ID / location ID:   0 / 1 / 0
+          Compute Mode:
+             < Default (multiple host threads can use ::cudaSetDevice() with device simultaneously) >
 
--   copy as markdown
--   vimfx
--   tree style tab
+        deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 8.0, CUDA Runtime Version = 8.0, NumDevs = 1, Device0 = GeForce 940MX
+        Result = PASS
+        ```
 
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install
+-   update alternatives -<
 
+    :   ```bash
+        sudo update-alternatives --set cc /usr/bin/gcc
+        sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30
+        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 10
+        sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 20
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 10
+        sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 20
+        ```
 
-git clone ...
-echo 'source ~/git/vimrc/vimrc.vim' >> ~/.vimrc
+-   这个故事中，太史公着重刻画的是曹沫的勇气
 
-sudo apt-get install texlive-full
+    :   其实，鲁国收回土地的关键在齐桓公，如果不是因为当时的贵族阶层普遍重视信义承诺，他完全有理由会盟后毁约。
+        《孔子世家》就记载，孔子途经蒲邑被人扣留，在威逼下立誓，保证不去卫都，被放走后依旧前往，
+        子贡问他为什么敢于背弃盟誓，孔子回答，这是要挟下订立的盟誓，神是不会听的（“要盟也，神不听”）。
 
-## Ubuntu
+-   键盘 -<
 
-prerequisites:
+    :   flico minila air 67
 
-```bash
-sudo apt-get install --assume-yes build-essential cmake git
-sudo apt-get install --assume-yes build-essential pkg-config unzip ffmpeg qtbase5-dev python-dev python3-dev python-numpy python3-numpy
-sudo apt-get install --assume-yes libopencv-dev libgtk-3-dev libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libtiff5-dev libjasper-dev
-sudo apt-get install --assume-yes libavcodec-dev libavformat-dev libswscale-dev libxine2-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
-sudo apt-get install --assume-yes libv4l-dev libtbb-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev
-sudo apt-get install --assume-yes libvorbis-dev libxvidcore-dev v4l-utils
-```
+-   第四部在丧失了前两部的优点之后，缺点还相当多 -<
 
-### CV3
+    :   剧情简单老套如三流丧尸电影，节奏跳脱又撕裂，人物很多就是为了领便当而存在的，
+        **为了迎合 3D 非常刻意地向屏幕扔东西**，动作戏里面慢动作多得令人发指……总而言之，
+        这就是一部圈钱之作，实在没什么诚意。
 
-cmake, make.
+-   本·戈泽尔博士的事迹被拍成了电影《超验骇客》
 
-### CV2
+-   [VisualSFM](http://ccwu.me/vsfm/doc.html#) -<
 
-cmake, make.
+    :   The output format: N-View Match (NVM)
 
-### Usage
+-   为什么强调最后两个字，是因为 LZ 遇到 99% 的男人再第一次或者第二次见面时就提出性要求。 -<
 
-When you want opencv 2,:
+    :   吐槽：因为你愿意见面第二次的，水平比你高太多。
+        根本不想和你发展恋爱关系……
 
-```bash
-export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-2.4.13/build
-cd ~/git/cmake-templates/opencv
-mkdir build && cd build
-cmake ..
-make
-```
+-   阴阳配偶，天地之大义也。天下未有生而无偶者，终身不适，是乖阴阳之气，而伤天地之和也。
 
-When you want opencv 3:
+-   寄意寒星荃不察 我以我血荐轩辕
 
-```bash
-export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-3.1/build
-cd ~/git/cmake-templates/opencv3
-mkdir build && cd build
-cmake ..
-make
-```
+-   [抓水蜈蚣的渔民 - 简书](http://www.jianshu.com/p/1934f62ef57b)
 
-I installed OpenCV 3 and add these lines to my `.zshrc`:
+-   读什么书是个人隐私，摆在书架上，等于泄露个人隐私。
 
-```
-export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-2.4.13/build2
-export OpenCV3_DIR=/usr/local/share/OpenCV
-```
+-   最可靠的自杀方法是通电。记住通电时串一个灯泡，这样不会电流过大烧得伤口难看。
 
----
+-   当年的格道网有很多好玩的人。在牛气冲天的牛博网之外，还有一个放荡狂欢的格道网。
+    格道网的很多人都是从牛博群拉来的，来的都是有趣的人，嬉皮笑脸的人，
+    装疯卖傻的人，气焰嚣张的人， 灵气十足的人，古怪刁钻的人。
+    那些一本正经要做大腕的人是不受欢迎的。倘若格道网来一个韩寒、郭小四、
+    蒋方舟、白岩松、高晓松之类的一本正经的人，一定会被大家活活玩死。
 
-Refs
+-   飞剪船
 
--  [OpenCV 3.1 Installation Guide on Ubuntu 16.04 · BVLC/caffe Wiki](https://github.com/BVLC/caffe/wiki/OpenCV-3.1-Installation-Guide-on-Ubuntu-16.04)
-cd ~/git/cmake-templates/opencv3
-mkdir build && cd build
+-   今天和一个在辉瑞（全球药企老大）工作过多年的上海女人聊了整整半天，
+    被这家企业在中国的发展策略震惊了。最后她还强烈建议我做一个旨在打倒中药注射针剂的
+    博士论文#中药注射剂简直人神共愤#
 
-/home/tzx/git/cmake-templates/opencv
+-   [跟别人聊天，没有话题，怎么办？ - 知乎](https://www.zhihu.com/question/20220020/answer/20707868) -<
 
-## Ubuntu
+    :   Cold reading 直译过来称为“冷读”。女孩最讨厌查户口式的问题。你多大了？你是哪里人？
+        你叫什么名字？很可惜大部分人依然只会这种表面的聊天模式。如果你会冷读，就不会有这个问题。
+        cold 有着没有准备的意思，reading 有着读心、占心的意思，冷读术就是指在没有防备，
+        甚至第一见面时看透他人的心思，从而更好的与人交流，经常被心理医生应用于心理治疗。
 
-prerequisites:
+        比如：“你是不是在国外留过学？”这是一句普通的问句。
+        转换成冷读就是：“你一定有在国外留过学。”
 
-```bash
-sudo apt-get install --assume-yes build-essential cmake git
-sudo apt-get install --assume-yes build-essential pkg-config unzip ffmpeg qtbase5-dev python-dev python3-dev python-numpy python3-numpy
-sudo apt-get install --assume-yes libopencv-dev libgtk-3-dev libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libtiff5-dev libjasper-dev
-sudo apt-get install --assume-yes libavcodec-dev libavformat-dev libswscale-dev libxine2-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
-sudo apt-get install --assume-yes libv4l-dev libtbb-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev
-sudo apt-get install --assume-yes libvorbis-dev libxvidcore-dev v4l-utils
-```
+        可能你已经发现了一点，那就是冷读必须用陈述句。而且，冷读是一种猜测。既然是猜测就会不确。
+        但这并不意味着冷读就失败了。冷读并不是让你完全猜准对方的信息，而是通过这种方式让对方敞开心扉，主动的给你更多的信息。
+        当然你不能胡乱去猜。而是通过对方的衣着，谈吐，话题内容等等一切信息去让你的猜测更加准确。
 
-### CV3
+        成为读心者（cold reader）的四大要素
 
-cmake, make.
+        -   要素一　维持解释而不是猜测的心态
 
-### CV2
+            ~~读出对方的心事，並向对方炫耀：“怎么样？我很厉害吧！”~~
 
-cmake, make.
+        -   要素二　让对方说他想说的话
+        -   要素三　说对方想听的话
+        -   要素四　将对方视为独一无二的人，对对方的一切都感到惊喜
 
-### Usage
+        一个故事要让他听起来像是真的，必须得有细节。
 
-When you want opencv 2,:
+        加入感情。一个好的故事没有一个好的述说方式也是行不通的。试想，如果机器人瓦力没有感情，它大概不会有那么多的粉丝。
 
-```bash
-export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-2.4.13/build
-cmake ..
-make
-```
+        表层价值 Vs 核心价值
 
-When you want opencv 3:
+        核心价值= 核心需求
 
-```bash
-export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-3.1/build
-cmake ..
-make
-```
+        幽默感是你的一种思维方式。我想在此说明，不是你会讲笑话就是幽默了。幽默不是因为你的话题，而是因为你这个人。
 
-I installed OpenCV 3 and add these lines to my `.zshrc`:
+        制造深层次联系感的时机和地点非常重要。你不能在大中午的和别人聊你爱上过一个不该爱的人。你也不能在电玩城告诉她你曾经想要自杀。
 
-```
-export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-2.4.13/build2
-export OpenCV3_DIR=/usr/local/share/OpenCV
-```
+-   [为什么韦小宝有那么多个老婆却比较和睦相处，而段正淳的那么多个老婆却互相残杀？ - 知乎](https://www.zhihu.com/question/24651565#answer-8399253) -<
 
----
+    :   这个问题下很多人对韦小宝和段正淳的看法完全相反。哪怕他们都肯定的是同一价值（品质）。。。。。。
 
-Refs
+        我更倾向于韦小宝是空嘴皮，段正淳才是真爱（哪怕一次可能只爱一个）。
 
--  [OpenCV 3.1 Installation Guide on Ubuntu 16.04 · BVLC/caffe Wiki](https://github.com/BVLC/caffe/wiki/OpenCV-3.1-Installation-Guide-on-Ubuntu-16.04)
-message( STATUS "OpenCV library status:" )
-message( STATUS "    version: ${OpenCV_VERSION}" )
-message( STATUS "    libraries: ${OpenCV_LIBS}" )
-message( STATUS "    include path: ${OpenCV_INCLUDE_DIRS}" )
+-   [重磅 | Facebook 田渊栋详解：深度学习如何进行游戏推理？](http://mp.weixin.qq.com/s/eU3sDvyc20VgUNV3JSnHnQ) -<
 
-Build & Run:
+    :   -   游戏已经成为 AI 研究测试平台
 
-    mkdir build && cd build
-    export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-2.4.13/build
-    cmake ..
-    make
-    ./OPENCV
+        但是同样的办法不能用在围棋上，因为每一步的可能选择太多。所以后来采用了蒙特卡洛树搜索，
+        这个方法其实在十几年前才第一次被用在围棋上，在用了这个方法之后，围棋的棋艺也提高了很多。
 
-alias npm=cnpm
+        我在这简单介绍下 Alpha-beta Pruning。假设玩家需要对下一步做出判断，需要搜索它的特征，
+        一旦发现对方在某一分支有很好的应招，那么这条路就不用再搜索了，因为对方这个应招会让你这个分支的最优解劣于另一个分支的最差解。
+        这就是它的一个简单思想概括。
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+-   [winsty: 我的PhD总结 – 我爱计算机](http://www.52cs.org/?p=632) -<
 
+    :   我很推崇在 coursera 课程 Introduction to Philosophy
+        的第一节课中的定义：Philosophy is the activity of working out the right
+        way of thinking about things. 如果能正确理解这句话，那么 PhD
+        的意义就十分明了：习得专业知识只是 PhD
+        学习中的一部分，更重要的是面对一个未知的问题时，不慌不乱，梳理出问题的逻辑，并有一套科学的方法去分析。
+        这也就是为什么经常会说赢家通吃的原因。这一点在下一个问题中具体展开讲。在此，我也特别推荐两门
+        coursera 的课程，我觉得可以作为每个 PhD 101 课程：Introduction to
+        Philosophy https://www.coursera.org/learn/philosophy 和 Philosophy and the Science https://www.coursera.org/course/philsci
 
-source /opt/ros/kinetic/setup.zsh
+        首先学术能力，人脉关系这些硬条件不必多谈。主要来说下对学生的指导和学生之间的关系。
+        每个人的学习习惯不同，适合的导师风格自然也不同。
+        有些人适合事无巨细的指导，有些人适合导师给予充分自由，只在关键时刻指点。
+        其实这个问题的一个简单回答是：好的导师在学生毕业后，学生还愿意继续与之合作。
+        有很多 PhD 毕业之后，就再完全不愿意和导师再打交道，把毕业视为一种解脱。
+        这不得不说对于学生和导师两人都是一种悲哀。
 
-export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-2.4.13/build2
-export OpenCV3_DIR=/usr/local/share/OpenCV
+        这应该是刚刚入门的同学最头疼的一个问题。首先要说的一点是，并不是每篇 paper 都需要读，也不是每篇 paper 都需要精读。
+        **Not every paper is created equal.**
+        我一般会看两类 paper：
 
-export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-2.4.13/build2
-export OpenCV3_DIR=/usr/local/share/OpenCV
+        -   1) 和自己在做的 topic 很相关;
+        -   2) paper 的作者很出名，有质量保障。
 
-export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-2.4.13/build2
+        首先，懂得尊重别人的 research，对自己不懂的东西不乱发表意见是一种美德。
+        其次任何一个 research 可以至少从方法的创新性和性能这两方面划分，
+        所以我们会有四种划分（为了方便表述，下面的好和差都是相对而言）：
 
-When you want opencv 2,:
+        -   创新性低，性能差：这样的 research
+            应该是每个人避免的，除了浪费自己和他人的宝贵时间，没有任何意义。
+            可惜就算在顶级会议里这样的工作还是不少。
+        -   创新性低，性能好：这也可以算作一个 solid 的
+            work，尤其是可以讲清楚为什么一些小的改动会提升性能，这些不起眼的
+            trick 往往包含着对问题本身的 insight。工业界尤其欢迎这样的工作。
+        -   创新性高，性能差：俗称的“挖坑”的工作。这样的工作包括提出一个全新的问题或者对一个已有问题的全新解法。
+            这样的工作虽然可能在文章中只提出了非常简单的
+            baseline，或性能并不能比过最好的已有方法，但是可以启发大量后续的
+            research。这是典型的学术界中的好工作。例如 CVPR 中的 oral paper
+            大多属于这个类型。
+        -   创新性高，性能好：这样的 research
+            自然是最好，不过大多数时候是可遇不可求的，往往需要“时势造英雄”。
 
-```bash
-export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-2.4.13/build
-cmake ..
-make
-```
+        -   参加各种比赛： 比赛是一个以性能为导向的事情，所以参加比赛的目的并不在于创新方法，而在于：
 
-export OpenCV2_DIR=/home/tzx/Downloads/archive/opencv-2.4.13/build
-cmake, make. I configured CUDA on OpenCV 3.
+            1）通过接触更真实的数据，增强对问题的认识和理解：
+            这一点在各种 data mining 比赛中感受尤其深刻。
+            对数据和业务本身的认识理解远远重要于模型本身，传送一个我在知乎上的回答：http://www.zhihu.com/question/24533374/answer/34631808
 
-prerequisites
-prerequsites
-## Ubuntu
+            2）对已有 paper 去伪存真：这一点在我参加 imagenet LSVRC 2014 的比赛时感受尤其深刻。
+            在参加这个比赛之前，我虽然读过很多 CNN 相关的 paper，但是并没有真正动手跑过大规模实验。
+            在这个比赛过程中，我尝试实现了很多之前的 paper，结果正如所料，绝大多数并不 work。
+            但是极少数 work 的 idea 让我对 CNN 这个结构本身得到了很多 insight，直接指导了我后续的工作。
+            继续传送一下一年多以前关于这个比赛的一个知乎回答：http://www.zhihu.com/question/24904450/answer/29418425
 
-```bash
-sudo apt-get install --assume-yes build-essential cmake git
-sudo apt-get install --assume-yes build-essential pkg-config unzip ffmpeg qtbase5-dev python-dev python3-dev python-numpy python3-numpy
-sudo apt-get install --assume-yes libopencv-dev libgtk-3-dev libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libtiff5-dev libjasper-dev
-sudo apt-get install --assume-yes libavcodec-dev libavformat-dev libswscale-dev libxine2-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
-sudo apt-get install --assume-yes libv4l-dev libtbb-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev
-sudo apt-get install --assume-yes libvorbis-dev libxvidcore-dev v4l-utils
-```
+        -   参加各种开源项目：相对而言，research code 大多是小规模 demo 性质的。参与贡献到一个真实世界中的 codebase 和
+            独自写 research code 是完全不同的两种体验。十分有幸参与到了 DMLC 项目中，向各位大神学习了很多不可能在学校中习得的技术，
+            这也是我 PhD 期间一段十分宝贵的经历。继续给 DMLC 和 mxnet 做个广告：https://github.com/dmlc/mxnet
 
-### CV2
+-   [Imprinting | Twilight Saga Wiki | Fandom powered by Wikia](http://twilightsaga.wikia.com/wiki/Imprinting) -<
 
+    :   >   "It's not like love at first sight, really. It's more like… gravity moves…
+        >   suddenly. It's not the earth holding you here anymore, she does… You become
+        >   whatever she needs you to be, whether that's a protector, or a lover, or a
+        >   friend."
+        >
+        >   --Jacob Black explaining to Bella Swan about imprinting
 
+        Imprinting is the involuntary mechanism by which Quileute shape-shifters find their soulmates. It is a profound, intimate phenomenon that exists among the Quileute shape-shifters.
 
-### CV3
+-   [刘仲敬论文集（1-14）（目录）](https://www.douban.com/group/topic/71041022/) -<
 
----
+    :   阿姨。。。。。。
 
-Refs
+-   [Prefered 3d model format of THREE.JS - Stack Overflow](http://stackoverflow.com/questions/11243689/prefered-3d-model-format-of-three-js/11245289) -<
 
--  [OpenCV 3.1 Installation Guide on Ubuntu 16.04 · BVLC/caffe Wiki](https://github.com/BVLC/caffe/wiki/OpenCV-3.1-Installation-Guide-on-Ubuntu-16.04)
- 2016年你学会了什么新技能？（我的是：熟练掌握数十首中英文儿歌而且经常无意识哼唱）
-Operating system: Windows 10
+    :   （Three.js 的作者。）
 
-## Envs
+        We have our own [JSON Geometry format](https://github.com/mrdoob/three.js/wiki/JSON-Geometry-format-4).
 
-Env | Env Value
---- | ---
-OpenCV | `C:\dev\OpenCV\build`
-OpenCV_Dir | `%OpenCV%`
-QTDIR | `C:\Qt\qt-4.8.6-x64-msvc2010\qt-4.8.6-x64-msvc2010`
-PATH | `%PATH%;%QTDIR%\bin;%OpenCV%\x64\vc10\bin;`
+        You can use these:
 
-## 成员
+        -   [Blender exporter](https://github.com/mrdoob/three.js/tree/master/utils/exporters/blender)
+        -   [Python script from OBJ to JSON](https://github.com/mrdoob/three.js/blob/master/utils/converters/obj/convert_obj_three.py)
 
-* 组长：ZHAO PengCheng
-* 成员：（拼音排序）
-    + GUO Chen
-    + LIAO YanYan
-    + LIU Xuan
-    + **TANG ZhiXiong**
-    + WANG JinYi
-    + ZHANG Yuan
-    + ZHAO PengCheng
+-   [12117 – The default desktop startup screen causes damage to monitor!](https://bugzilla.xfce.org/show_bug.cgi?id=12117) -<
 
-## Acknowledgements
+    :   ```
+        Steps to reproduce?
+        1. Start Xfce, using the default mouse wallpaper
+        2. Leave the computer with the screen turned on and a cat in the same room
 
-感谢 LI YinXuan 师姐的参考程序。
-感谢 Zhao PengCheng 的 feature 的设计方案。
+        Expected results:
+        - The cat keeps sleeping
 
--## 成员
--
--* 组长：ZHAO PengCheng
--* 成员：（拼音排序）
--    + GUO Chen
--    + LIAO YanYan
--    + LIU Xuan
--    + **TANG ZhiXiong**
--    + WANG JinYi
--    + ZHANG Yuan
--    + ZHAO PengCheng
--
--## Acknowledgements
--
--感谢 LI YinXuan 师姐的参考程序。
--感谢 Zhao PengCheng 的 feature 的设计方案。
-[OpenCV 3.1 Installation Guide on Ubuntu 16.04 · BVLC/caffe Wiki](https://github.com/BVLC/caffe/wiki/OpenCV-3.1-Installation-Guide-on-Ubuntu-16.04)
-sudo apt-get install --assume-yes build-essential cmake git
-sudo apt-get install --assume-yes build-essential pkg-config unzip ffmpeg qtbase5-dev python-dev python3-dev python-numpy python3-numpy
-sudo apt-get install --assume-yes libopencv-dev libgtk-3-dev libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libtiff5-dev libjasper-dev
-sudo apt-get install --assume-yes libavcodec-dev libavformat-dev libswscale-dev libxine2-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
-sudo apt-get install --assume-yes libv4l-dev libtbb-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev
-sudo apt-get install --assume-yes libvorbis-dev libxvidcore-dev v4l-utils
-file:///home/tzx/Downloads/opencv-2.4.13.zip
-/usr/share/OpenCV/
-/usr/local/share/OpenCV/OpenCVConfig.cmake
-/usr/share/OpenCV/OpenCVConfig.cmake
-https://codeload.github.com/opencv/opencv/zip/2.4.13
-```
-mkdir build && cd build
-cmake ..
-make
-```
-
-
-2. build opencv 3 from source
-
-notice the generated directory `opencv2`, `lib` and file `OpenCVConfig.cmake`.
-
-notice the generated directory `opencv2`, `lib` and file `OpenCVConfig.cmake`.
-
-OpenCVConfig.cmake
-/home/tzx/Downloads/archive/opencv-3.2.0/build/OpenCVConfig.cmake
-sudo apt-get install libboost-all-dev
-
-CMakeFiles
-sudo apt-get install -y libopencv-dev
-include( CheckCXXCompilerFlag )
-check_cxx_compiler_flag( "-std=c++11"   COMPILER_SUPPORTS_CXX11 )
-check_cxx_compiler_flag( "-std=c++0x"   COMPILER_SUPPORTS_CXX0X )
-if( COMPILER_SUPPORTS_CXX11 )
-    if( CMAKE_COMPILER_IS_GNUCXX )
-        set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11" )
-    else()
-        set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11" )
-    endif()
-elseif( COMPILER_SUPPORTS_CXX0X)
-    set( CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x" )
-else()
-    # MSVC, On by default (if available)
-endif()
-
-cmake ..
-# git checkout qt4cv3vs2015
-
-git checkout qt4cv3vs2015
-
-export OpenCV3_DIR=/usr/local/share/OpenCV
-git@github.com:district10/SignProcessing.git
-
-sanity 纠错
-英 ['sænɪtɪ] 美 ['sænəti]
-
-    n. 明智；头脑清楚；精神健全；通情达理
-
-
- 我想社会会发展到一天，女人只要生了孩子，国家就会提供住房补贴，基本生活费，婴儿食品保障，免费托儿所的。这不是出于善心，而是经济发展和人口教育成本上升的自然后果。婚姻制度而将因而解体。在这种社会成长起来的孩子，他忠诚的第一对象也将是国家而非家庭，甚至不是他的母亲。 ​
- Parrot lays off 290 drone division employees
-2d
-
-http://ww1.sinaimg.cn/large/67d6aa46gw1fbljm25kwxj20dw2nujz1.jpg
-众所周知，通用处理器（CPU）的摩尔定律已入暮年，而机器学习和 Web 服务的规模却在指数级增长。人们使用定制硬件来加速常见的计算任务，然而日新月异的行业又要求这些定制的硬件可被重新编程来执行新类型的计算任务。FPGA (Field Programmable Gate Array) 正是一种硬件可重构的体系结构，常年来被用作专用芯片（ASIC）的小批量替代品，然而近年来在微软、百度等公司的数据中心大规模部署，以同时提供强大的计算能力和足够的灵活性。
-http://t.cn/RMiPSzx
-http://t.cn/RMibz3l
- China won't allow 'Pokémon Go' unless it's deemed safe
-1d
-
-http://m.weibo.cn/2201566133/4063053899793086 ​
- “预测的准确率，我们现在已经做到北京未来6个小时的准确率达到了75%，在深圳和广州做到了80%。未来48个小时的预测准确率达到50%。大家不要小看50%的准确率，它其实已经非常高了。相比之下，天气预报24小时的准确率只有40%。”郑宇说。
-另一方面，日本企业老气横秋、死气沉沉，有活力的新企业根本没有，和中美相比截然不同。跨领域、改变商业模式的大创新也出不来，近年来世界上的大创新主要是美国在搞，中国也有一些。日本大企业有权力的决策人员基本是老头，领导者平均年龄高达60岁，而且极度保守，对于世界科技与生活剧烈的改变既想不到也无法接受，只会让研发人员进行一些精致的研发。有些日本高管不愿意看电子邮件，让手下人打印出来看。高管们不想学习新东西，旧软件一直用，新软件更好用但是在公司内部无法推动。日本的硬件研发传统也与此相关，高管们就是这么过来的，对于硬件研发能理解，对于元器件做精做深是支持的。
-t.cn/RVXMjoZ
-
-# sudo apt-get install -y libcurl4-openssl-dev
-
-sudo rosdep init
-sudo apt-get install python-rosinstall
-source /opt/ros/kinetic/setup.zsh
-
-source /opt/ros/kinetic/setup.bash
-t.cn/RMSqhvB
-
-总结：想法和创意连小学生都有，改变世界的雄心和哲学体系每个大学生都有一套。这个世界稀缺的是组织和后勤。
-选择市场，选择伙伴，都不是由欲望（比如说愿景）决定的，而是由实力决定的。曾国藩战术战略并不出众，但他重视两件事，一是练兵，二是后勤。这就使他能不管怎么失败，总是能再起。内部的，后方的才是最根本的。
-t.cn/RMSxngy
-
-sudo apt-get install ros-kinetic-desktop-full
-sudo apt-get update
-sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key 421C365BD9FF1F717815A3895523BAEEB01FA116
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-sudo apt-get install gcc -4.9 gcc-5 g++-4.9 g++-5
-33RM-WDLDX4PR
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-
-    cp make/config.mk .
-boost::filesystem::path_traits::dispatch
-https://github.com/dmlc/mxnet.git
-git@github.com:district10/blog.git
-make install
-关注 Computer Vision，Machine Learning & SLAM。写点分享。
-武汉大学遥感信息工程学院
-cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/tzx/git/openMVG/src
-/usr/local/cuda-8.0/targets/x86_64-linux/include/host_config.h
-NVCCFLAGS += -D_FORCE_INLINES -ccbin=$(CXX) -Xcompiler -fPIC $(COMMON_FLAGS)
-NVCCFLAGS +=-ccbin=$(CXX) -Xcompiler-fPIC $(C
-/usr/lib/x86_64-linux-gnu/hdf5
-
-LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/aarch64-linux-gnu/hdf5/serial/
-INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
-sudo add-apt-repository universe
-sudo update-alternatives --config g++
-https://github.com/openMVG/openMVG.git
-https://sh-btfs-v2-yun-ftn.weiyun.com/ftn_handler/9af0a588abbe2c579525b118ca92dc7e57d3c88f3b3a64359026c1fc88389e836368ef9d78fe76634bccceed06e46b908840e29b628f900f1e5fda95342705a9/ssh.7z?fname=ssh.7z&from=30013&version=2.0.0.2&uin=513880641
-sudo /bin/bash -c 'echo "/usr/local/lib" > /etc/ld.so.conf.d/opencv.conf'
-for req in $(cat requirements.txt); do pip install $req; done
-sudo apt-get install python-dev python-numpy –y
-sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev \
-
-libhdf5-serial-dev protobuf-compiler -y
-
-sudo apt-get install --no-install-recommends libboost-all-dev -y
-sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev -y
-sudo apt-get install libatlas-base-dev -y
-metslib
-能总结一下，你是怎么形成这种性格的吗？我正缺这个。
-wget https://google-glog.googlecode.com/files/glog-0.3.3.tar.gz
-sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev
-sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libhdf5-serial-dev protobuf-compiler
-~/.fzf/install
-sudo apt-get install toilet figlet
-http://192.168.1.101:8080/ippicv_linux_20151201.tgz
-https://raw.githubusercontent.com/opencv/opencv_3rdparty/81a676001ca8075ada498583e4166079e5744668/ippicv/ippicv_linux_20151201.tgz
-cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_TBB=ON -D WITH_V4L=ON -D WITH_QT=ON -D WITH_OPENGL=ON -DCUDA_NVCC_FLAGS="-D_FORCE_INLINES" ..
-sudo apt-get install build-essential cmake git
-
-sudo apt-get install ffmpeg libopencv-dev libgtk-3-dev python-numpy python3-numpy libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libtiff5-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libxine2-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libv4l-dev libtbb-dev qtbase5-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils unzip
-sudo apt-get install --assume-yes libopencv-dev build-essential cmake git libgtk2.0-dev pkg-config python-dev python-numpy libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libtiff5-dev libjasper-dev libavcodec-dev libavformat-dev libswscale-dev libxine2-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev libv4l-dev libtbb-dev libqt4-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev libvorbis-dev libxvidcore-dev x264 v4l-utils unzip
-./deviceQuery Starting...
-
- CUDA Device Query (Runtime API) version (CUDART static linking)
-
-Detected 1 CUDA Capable device(s)
-
-Device 0: "GeForce 940MX"
-  CUDA Driver Version / Runtime Version          8.0 / 8.0
-  CUDA Capability Major/Minor version number:    5.0
-  Total amount of global memory:                 2002 MBytes (2099642368 bytes)
-  ( 3) Multiprocessors, (128) CUDA Cores/MP:     384 CUDA Cores
-  GPU Max Clock rate:                            1189 MHz (1.19 GHz)
-  Memory Clock rate:                             2000 Mhz
-  Memory Bus Width:                              64-bit
-  L2 Cache Size:                                 1048576 bytes
-  Maximum Texture Dimension Size (x,y,z)         1D=(65536), 2D=(65536, 65536), 3D=(4096, 4096, 4096)
-  Maximum Layered 1D Texture Size, (num) layers  1D=(16384), 2048 layers
-  Maximum Layered 2D Texture Size, (num) layers  2D=(16384, 16384), 2048 layers
-  Total amount of constant memory:               65536 bytes
-  Total amount of shared memory per block:       49152 bytes
-  Total number of registers available per block: 65536
-  Warp size:                                     32
-  Maximum number of threads per multiprocessor:  2048
-  Maximum number of threads per block:           1024
-  Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
-  Max dimension size of a grid size    (x,y,z): (2147483647, 65535, 65535)
-  Maximum memory pitch:                          2147483647 bytes
-  Texture alignment:                             512 bytes
-  Concurrent copy and kernel execution:          Yes with 1 copy engine(s)
-  Run time limit on kernels:                     Yes
-  Integrated GPU sharing Host Memory:            No
-  Support host page-locked memory mapping:       Yes
-  Alignment requirement for Surfaces:            Yes
-  Device has ECC support:                        Disabled
-  Device supports Unified Addressing (UVA):      Yes
-  Device PCI Domain ID / Bus ID / location ID:   0 / 1 / 0
-  Compute Mode:
-     < Default (multiple host threads can use ::cudaSetDevice() with device simultaneously) >
-
-deviceQuery, CUDA Driver = CUDART, CUDA Driver Version = 8.0, CUDA Runtime Version = 8.0, NumDevs = 1, Device0 = GeForce 940MX
-Result = PASS
-
-cd /usr/local/cuda-8.0/samples/1_Utilities/deviceQuery
-sudo ldconfig
-/usr/local/cuda/lib64
-sudo gedit /etc/ld.so.conf.d/cuda.conf
-PATH="/usr/local/cuda-8.0/bin:$HOME/bin:$HOME/.local/bin:$PATH"
-
-export PATH=/usr/local/cuda-8.0/bin:$HOME/bin:/usr/local/bin:$PATH:$MYPATH
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
-
-export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
-
-export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
-sudo update-alternatives --set c++ /usr/bin/g++
-sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
-sudo update-alternatives --set cc /usr/bin/gcc
-sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-5 10
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.9 20
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 10
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.9 20
-nvidia-settings
+        Actual results:
+        - The cat scratches the screen
+
+        Here's a potential patch, but I can't test it since I don't have the required hardware (cat).
+        ```
+
+-   [思考之后觉得好累，是不是消耗了很多能量？](http://daily.zhihu.com/story/9307072) -<
+
+    :   结论：思考时脑部耗能作为整体不会有显著增加，各脑区耗能分配会有幅度微小 (根据血氧信号判断，<5%*) 的变化。
+
+        大脑的能量来源是血糖。补充血糖对执行任务的作用未有共识（取决于任务设计有不同效果），但吃糖并非总能增强脑力任务表现。
+
+        重复要点：**大脑基础耗能很高，在不同任务状态下耗能变化幅度很小。**
+
+-   [在绝对定位的情况下怎么让 div 居中呢？ - boomler 的回答 - SegmentFault](https://segmentfault.com/q/1010000006768774/a-1020000006768993){.hearts}
+
+-   [大公司里怎样开发和部署前端代码？ - 知乎](https://www.zhihu.com/question/20790576/answer/32602154) -<
+
+    :   这个叼了……
+
+-   [20 Impressive Examples for Learning WebGL with Three.js | Tutorialzine](http://tutorialzine.com/2013/09/20-impressive-examples-for-learning-webgl-with-three-js/) -<
+
+    :   -   [Google Street View Hyperlapse on Vimeo](https://vimeo.com/63653873)
+
+            酷毙了！
+
+        -   Cube Slam
+
+-   [UV mapping a sphere triangle mesh - MFT Development](https://mft-dev.dk/uv-mapping-sphere/) -<
+
+    :   一个球体的 UV mapping 要考虑清楚蛤。
+
+-   [小事 · 没有一把枪在指着你](http://daily.zhihu.com/story/9298623) -<
+
+    :   哈哈哈。我看到这，对作者深深地同情。本来就是啊！
+
+        >   一个年轻人未必幼稚
+        >
+        >   但是一个幼稚的人心里
+        >
+        >   一定住着一个没有力量的小孩
+
+        最后一天的提问环节，我鼓起勇气争取到了一个提问的机会。我的问题被一句一句完整地翻译给她听：
+        我说我有一个非常困扰我的问题，就是当我和我先生发生冲突的时候，我总是用冷暴力的方式去惩罚他，
+        我已经意识到这样的沟通方式对他造成了深深的伤害，而他是这个世界上我最不愿意去伤害的人......
+        我又说起小时候被妈妈忽略的经历，妈妈喜欢打麻将，经常半夜才回到家，而我就一直等到她的脚步声出现在楼道里才能睡觉；
+        有一年我把我的生日愿望郑重地写在家里的台历上想让妈妈看到：希望妈妈再也不要打麻将了......
+        我说我觉得小时候被忽视的经历让我在自己的亲密关系中缺乏安全感所以会用这种不健康的沟通模式来应对......
+        我说我特别特别不想伤害我先生，可是当情绪上来的时候真的无法控制自己，这真的很困扰我，我该怎么办？
+
+        在整个翻译过程中，老太太一言未发，待翻译翻完最后一句话时，
+        她说：“**你当然可以控制自己，只要你想，并没有一支枪在那里抵着你。Next one.**”
+        然后她就不理我了！！！转头去回答下一个问题了。
+
+        原本只想简单分享一下自己"幼稚病"的回答，不小心写了三个小时。
+        交叉来看当年自己走过的心路历程以及写给老公的生日寄语，很感恩他当年没有放弃我这个幼稚病“病人”，帮助我变好，
+        而在很多年后让我有能力帮助他变得更好，进而又有能力帮我变得更好去帮助他变得更好......
+
+-   [男人应如何自拍（才能得到妹子喜欢）？](http://daily.zhihu.com/story/9305686) -<
+
+    :   最好的照片状态是不看着照相机而且不笑。不看着照相机，但是摆出调情的神态是最差劲的
+
+-   [graphics - Enabling WebGL support for Android WebView - Stack Overflow](http://stackoverflow.com/questions/15395245/enabling-webgl-support-for-android-webview) -<
+
+    :   WebGL was not supported in WebViews before Android Lollipop. In KitKat,
+        Android switched to Chromium as the native WebView implementation, but
+        it is locked to Chromium 33, with no WebGL. In Lollipop, WebView is
+        updated via the Play Store, and now supports WebGL. (source:
+        https://developer.chrome.com/multidevice/webview/overview)
+
+        Trying to extend WebView to support it is next to impossible.
+
+        One thing you might consider, is use CSS 3D transformations instead of
+        WebGL, those are supported on Android ICS and forward, see
+        http://caniuse.com/#feat=transforms3d
+
+        可以把 WebGLRenderer 换成 CanvasRenderer。
+
+        也可以把 WebGL 打开： I have chrome version 28.0 on OS 4.2.2 WebGl is not enabled by default you need to enable it by typying chrome://flags/ in seach bar just the way shwn in pic below
+
+        ![](https://i.stack.imgur.com/W9nho.jpg)
+
+-   [Learning | matp.at](http://www.matp.at/learning/) -<
+
+    :   五体投地！学了这么多课程。==
+
+-   [英国老牌教科书 ... - - Bonnae的广播 - 豆瓣](https://m.douban.com/people/bonnae1982/status/1967539793) -<
+
+    :   英国老牌教科书出版商哈珀·柯林斯出版集团 (HarperCollins Publishers)
+        14 日与上海世纪出版集团签订协议，将于今年 9 月翻译出版上海小一至小六的数学教材。
+        英国部分小学将从今秋开始陆续使用这套名为《真实上海数学》(Real Shanghai ……
+
+        教科书项目源于 2016 年 7 月英国政府宣布投入 4100 万英镑用于提高数学教育品质， 当中包括在 8000 多间中小学推广“上海教学模式”。
+        英国教育学者发现，在上海的数学堂中，教师带领学生高读朗读口诀和公式，将数学概念图像化，有明确清晰的教学目标，均能提高学生水平。
+        在翻译教材之前，中英数学教师交流项目已成为中英高级别人文交流机制中的重点项目，截至 2017 年 1 月，英国和上海已互派 400 多名教师及教育管理人员交流。
+
+-   [主持人如何练发音？](http://daily.zhihu.com/story/4714920) -<
+
+    :   一，声音很扁
+
+        1，是因为你口腔开度不够大
+
+        具体办法就是做“咬苹果的练习”，专业术语就是“打开牙关”
+
+        2，你没有气沉丹田
+
+        很明显，你没有用气，或者是用气极少，这也是为什么你会是娃娃音。
+        因为你虚，太虚了，你的气没有提上来。
+
+        （1）怎么改善呢，首先你要找到你腹部的准确位置，你试试轻声咳嗽，你会发现你肚子哪有起伏，对了，那就是你以后用气的地方，如果用气发声，越用力，气越多，哪里的浮动就会越大。
+
+        （2）你找到以后就可以开始做气息的练习，关于气息的练习有三个阶段。
+
+        二，咬字不清
+
+        咬字不清就是练绕口令了。
+        [请学播音的推荐几个经典的绕口令吧？最后能系统练习各种发音?](http://www.zhihu.com/question/22931591/answer/24531747)
+
+        有针对性的做绕口令，坚持练习。
+
+-   [ELSD - Ellipse and Line Segment Detector](http://ubee.enseeiht.fr/vision/ELSD/) -<
+
+    :   -   [district10/LSDs: LSD, ELSD, via cmake](https://github.com/district10/LSDs)
+
+-   [Three.js 源码阅读笔记 -2 - 一叶斋主人 - 博客园](http://www.cnblogs.com/yiyezhai/archive/2012/12/02/2796831.html) -<
+
+    :   属性 matrix 和 matrixWorld 就很好理解了，matrix 表示本地的模型矩阵，仅仅表示该对象的运动，
+        而 matrixWorld 则需要依次向父亲节点迭代，每一次迭代都左乘父亲对象的本地模型矩阵，直到 Scene 对象——当然，
+        实际上是左乘父亲对象的全局模型矩阵。
+
+        属性 position、rotation、scale 表示模型矩阵的三种变换部分，在 Matrix4 类中有相关说明。
+        rotation 和 eulerOrder 共同描述了一个旋转状态，quaternion 也可以描述一个旋转状态，
+        具体使用哪种方法要看 useQuation 的布尔值。
+
+        ```javascript
+        applyMatrix: function ( matrix ) {
+                this.matrix.multiply( matrix, this.matrix );
+                this.scale.getScaleFromMatrix( this.matrix );
+                var mat = new THREE.Matrix4().extractRotation( this.matrix );
+                this.rotation.setEulerFromRotationMatrix( mat, this.eulerOrder );
+                this.position.getPositionFromMatrix( this.matrix );
+            },
+        ```
+
+        函数 translate(distance, axis) 令该对象向 axis 轴指定的方向前进
+        distance 距离。函数
+        translateX(distance)，translateY(distance)，translateZ(distance) 令其向
+        X，Y，Z 轴前进 distance 距离。注意这些函数仅仅改变了 position
+        对象的值，而不曾改变 matrix 的值。
+
+        ```javascript
+        translate: function ( distance, axis ) {
+                this.matrix.rotateAxis( axis );
+                this.position.addSelf( axis.multiplyScalar( distance ) );
+            },
+        translateX: function ( distance ) {
+                this.translate( distance, this._vector.set( 1, 0, 0 ) );
+            },
+        ```
+
+        函数 `getDescendants(array)` 将调用者的所有后代对象全部 push 到数组 array 中。
+
+        ```javascript
+        THREE.Matrix4 = function ( n11, n12, n13, n14, n21, n22, n23, n24, n31, n32, n33, n34, n41, n42, n43, n44 ) {
+            this.elements = new Float32Array( 16 );
+            this.set(
+                ( n11 !== undefined ) ? n11 : 1, n12 || 0, n13 || 0, n14 || 0,
+                n21 || 0, ( n22 !== undefined ) ? n22 : 1, n23 || 0, n24 || 0,
+                n31 || 0, n32 || 0, ( n33 !== undefined ) ? n33 : 1, n34 || 0,
+                n41 || 0, n42 || 0, n43 || 0, ( n44 !== undefined ) ? n44 : 1
+            );
+        };
+        ```
+
+        ```javascript
+        THREE.CubeGeometry = function ( width, height, depth, widthSegments, heightSegments, depthSegments ) {
+            THREE.Geometry.call( this );
+            function buildPlane( u, v, udir, vdir, width, height, depth, materialIndex ) {
+            this.computeCentroids();
+            this.mergeVertices();
+        ```
+
+        refs and see also
+
+        -   [Three.js 源码阅读笔记 -1 - 一叶斋主人 - 博客园](http://www.cnblogs.com/yiyezhai/archive/2012/11/29/2791319.html)
+
+-   [PPM、PGM、PBM 三种都是图像文件格式 - tqsheng - C++ 博客](http://www.cppblog.com/tqsheng/archive/2013/11/28/204504.aspx) -<
+
+    :   PPM、PGM、PBM 三种都是图像文件格式：
+
+        -   PPM->Portable PixMap 支持真彩色图形，可以读上面所有格式，输出 PPM 图形
+        -   PGM->Portable GreyMap 支持灰度图形，能够读 PBM 图形和 PGM 图形，输出 PGM 图形
+        -   PBM->Portable BitMap 支持单色图（1 个像素位）
+
+        ```
+        文件描述子  类型    编码
+        P1  位图    ASCII
+        P2  灰度图  ASCII
+        P3  像素图  ASCII
+        P4  位图    二进制
+        P5  灰度图  二进制
+        P6  像素图  二进制
+        ```
+
+        使用 ASCII 的 0 或 1 方式来表示数据，0 表示白色，1 表示黑色。
+
+-   [一定要看重庆这张照片！轰动了亚洲，震撼了全世界！_财经头条](http://cj.sina.com.cn/article/detail/1790671321/189482) -<
+
+    :   重庆整个主城就是建在一座座山上的！懂了吗？
+
+-   [李娇娥的广播](https://www.douban.com/people/yutori/status/1965430803/) -<
+
+    :   走过小区，一个老太正在弯腰擦着一楼窗台下的空调外机，忽然窗子被打开，
+        一个脑袋探出来【你是什么人！你在干什么！】【我不是坏人！我家猫喜欢蹲在这个上头晒太阳，
+        这个机子太脏了，天天坐一屁股灰回家，我来擦擦，我不是坏人！我就擦一下……】【哦……】窗子关上了
+
+-   [Linting HTML using CSS](https://bitsofco.de/linting-html-using-css/) -<
+
+    :   Inline Styles
+
+        ```css
+        *[style] {
+            border: 5px solid red; /* Style to make the elements noticeable */
+        }
+        ```
+
+        Faulty or Missing Link Targets
+
+        ```css
+        a:not([href]),
+        a[href="#"],
+        a[href=""],
+        a[href*="javascript:void(0)"] { … }
+        ```
+
+-   [If You Think You’re a Genius, You’re Crazy - Issue 46: Balance - Nautilus](http://nautil.us/issue/46/balance/if-you-think-youre-a-genius-youre-crazy-rp) -<
+
+    :   When John Forbes Nash, the Nobel Prize-winning mathematician,
+        schizophrenic, and paranoid delusional, was asked how he could believe
+        that space aliens had recruited him to save the world, he gave a simple
+        response. “Because the ideas I had about supernatural beings came to me
+        the same way that my mathematical ideas did. So I took them seriously.”
+
+        The most important process underlying strokes of creative genius is the
+        tendency to pay attention to things that normally should be ignored or
+        filtered out.
+
+        Exceptional intelligence alone yields useful but unoriginal and
+        unsurprising ideas.
+
+-   [Employees who decline genetic testing could face penalties under proposed bill - The Washington Post](https://www.washingtonpost.com/news/to-your-health/wp/2017/03/11/employees-who-decline-genetic-testing-could-face-penalities-under-proposed-bill/?utm_term=.80062d3be09a) -<
+
+    :   蛤，不行？
+
+-   [Draft NIST SP 800-63-3 Digital Identity Guidelines](https://pages.nist.gov/800-63-3/)
+
+-   [公共文件夹 - Dropbox 帮助 - Dropbox](https://www.dropbox.com/help/16) -<
+
+    :   使用公共文件夹呈现 HTML 内容
+
+        从 2016 年 10 月 3 日开始，Dropbox Basic（免费）用户不能再使用公共链接来在网络浏览器中呈现 HTML 内容。
+        如果您是 Basic 用户，且创建的网站直接显示来自您 Dropbox 帐户的 HTML 内容，
+        这些内容不会再在浏览器中呈现。HTML 内容仍会安全保存在 Dropbox 中，且您可以使用其他共享方法共享这些内容。
+
+-   [Reverse Culture Shock - The Challenges of Returning Home: Reverse Culture Shock](https://www.state.gov/m/fsi/tc/c56075.htm)
+
+-   [Why WebAssembly is Faster Than asm.js ★ Mozilla Hacks – the Web developer blog](https://hacks.mozilla.org/2017/03/why-webassembly-is-faster-than-asm-js/)
+
+-   [Principles for C programming - Drew DeVault’s Blog](http://sircmpwn.github.io/2017/03/15/How-I-learned-to-stop-worrying-and-love-C.html)
+
+-   [Webster: Roll Your Own at Home: Writing Your Own Assembler](http://plantation-productions.com/Webster/RollYourOwn/index.html)
+
+-   [为教师喝彩演讲稿](http://m.xielw.cn/2016/yanjianggao_0825/2236.html) -<
+
+    :   **为教师的“正能量”正名**
+
+        尊敬的各位领导，同仁们：
+
+        大家好！
+
+        我叫孙杨君，来自聚奎镇中心小学，今天我演讲题目是《为教师的“正能量”正名》。
+        提到“正能量”一词，我想，很多人在本次活动开展之前都和我一样，只有一个可意会而不可言传的模糊概念。
+        为此，我专门去请教了一下“万能”的百度。其结果，却令我大跌眼镜。正能量一词，原本出自于英国物理学家狄拉克之手，是电动力学的一个专用名词。
+        2012 年，世界级心理学家，理查德? 怀斯特的专著《rip it up》，经李磊译名为《正能量》，原本用于物理学上的这一专用名词，瞬间便爆红网络，高居 2012 年年度十大网络流行词汇之榜首。
+        一时间掀起一股跟进、模仿、报道“正能量”的狂潮，一切可以贯之以积极的、健康的、催人奋进的、催人泪奔的、给予人力量的、给予人希望的各种主题的人或事，
+        统统贴上“正能量”的标签，予以打包销售。“正能量”一词已然跃升为一个充满了象征意义的符号，在这个快节奏的现代社会中，
+        给那些正在顶着来自生活、工作、人际关系等各方面压力的现代人们，带来幸福的憧憬和希望，激励着他们走出眼前的困境，扬帆前行。
+        今天，我想谈一谈教育队伍中的正能量，为教师的“正能量”正名。
+
+        “践行社会主义核心价值观? 传递教育系统正能量”，当看到这个命题后，着实让我有些头疼不已。
+        因为，太多的关于教师的“负能量”包围着我们。打开“万能”的百度，输入“体罚”这一类的关键词，瞬间能跳出成千上万条相关的信息，令人目不睱接。
+        猥亵学生、违规补课，参与赌搏?? 花样百出，层出不穷。教师头上的美丽光环已然消失殆尽，原本“光辉”的职业，已近了“十恶不赦”的边缘。
+        教师们更是怨声载道，“鸭梨山大”。原来在人前可骄傲地说：“我是教师”，现在，却不敢直视自己的职业，教师，都快成了“恶魔”的代名词。
+        以至于，学生给老师撑了一把伞，都会成“万众瞩目”的大事件。
+
+        可大家忽略了一个事实，教师，首先是一个人，是人就会犯错，是人，就会有人犯错。
+        为什么只有教师的“错”会被人津津乐道，而教师的善行，
+
+        充满“正能量”的人和事，却不常被人提及。在教师的队伍中，有过多少闪着光，发着热的“正能量”，你看得见吗？
+
+        5.12 汶川大地震中，用自己羸弱的身躯，挡住坍塌下来的水泥板的瞿万容老师、
+        用血肉之躯为孩子们筑起生命之门的张米亚老师、舍身护生的谭千秋老师，不更应该值得我们去牢牢记住吗？
+        “最美女老师”张丽莉，在汽车飞驰而来时，不顾自身安危，推开吓傻了的孩子，自己却被无情的车轮碾轧至高位截肢，那张美丽的脸庞，
+        不更应该深深烙在我们的心上么？ 如果说，这些事迹都太过悲壮，是时事造就的英雄壮举，那且看，扎根山村，培育乡村孩子 34 载寒暑的杨金元老师，
+        坚守大山 28 载的“寸腰老师”宋志芳，与病魔顽强抗争，坚守乡村教育 37 载的张殿银老师。
+        他们默默地承受着怎样的孤独煎熬和心酸，坚守着这样一份执着，他们的付出，难道不值得干着“高大上”的职业，吃着美食，开着小车的你们为之动容吗？
+        他们的伟大，只因为他们很平凡。放眼看看，仔细找找，在我们身边，缺少这样平凡而伟大的“正能量”吗？
+        **我的一个同事，名叫唐大华，与其共事时，他已 55 岁，一直坚守在乡村小学。为人爽朗和蔼，尤其关心我们年轻一代的成长。
+        30 多年的工作，为其攒下的是一身的病痛，不得已提前病退。原本可以享享清福的他，病退后不到两年的时间，一场大病，便匆匆去了天堂；**
+        我的另一个同事，名叫龚海锋，教师队伍中的尖子，业务骨干。有一天，一头栽到讲台上，中风偏瘫，走路都成了问题，去年，在他还没到退休的年龄之时，
+        带着遗憾，永远地离开了他钟爱的世界；我的恩师龚元甫，一直坚守乡村教育数十载，结下累累硕果，退休后不到一年，突发脑溢血，倒在了正在劳作的土地里，
+        永远辞别了人间。几十年的辛勤耕耘，积劳成疾，为社会，为人类作出的贡献，远远地超出了他们所获得的。他们不是英雄，只是千万教师中的沧海一粟，
+        他们不会被人们崇拜，但你说，在他们身上，没有“正能量” 在熠熠生辉吗？
+
+        教育，这是一个关系国家未来的伟大事业，而在为这一伟大事业鞠躬尽瘁的，绝大多数是平凡得不能再平凡的老师们，除去极少数的不务正业之徒，
+        老师们都坚守在自己的平凡的岗位上，兢兢业业，默默地奉献着自己的青春，放着光，发着热。为了孩子们一个错误，一个不解而大伤元气，
+        视孩子们的终生幸福，为自己最大的幸福，在他们身上，散发出的，不满满的都是“正能量”吗？
+
+        流淌在教育系统内的“正能量”是源源不断的，我不敢说都能顶得上“太阳底下最光辉的职业”的光环，
+        都比得过“人类灵魂工程师”的伟大，都赛得过“春蚕到死丝方尽”的悲壮，但一定能值得充满“正能量”的你们去发现，去思索，去传递。
+
+-   [其实对 EX 念念不忘有时候也是一个还不错的主意 | VICE中国｜全球青年文化之声：世界在下沉，我们在狂欢](http://www.vice.cn/read/not-getting-over-staying-friends-with-ex) -<
+
+    :   “所以当你失恋的时候，你仍旧疯狂地爱着那个人，你觉得自己对他／她恋恋不舍，没有办法不想他／她。
+        你会情绪波动得很厉害，变得极度悲伤，觉得浑身疼痛然后黯然神伤。”
+        对于在漫漫长夜里反复重温你们最后一次亲吻，最后一次在床上亲热的情景，
+        第一次证实自己爱上了对方的胃痉挛的你来说，这可不是什么理想的组合。
+
+-   [节后离职潮要来了，公司有哪些办法留住好员工？](http://daily.zhihu.com/story/9196330) -<
+
+    :   -   自我效能感(self-efficacy)
+
+            工作嵌入度(job embeddedness)、工作卷入(job involvement)、工作投入度(work engagement)、组织认同(organizational identification)、组织承诺(organizational commitment)
+
+        -   工作满意度(job satisfaction)
+
+        -   大五人格(Big Five Personality)
+
+        -   受教育水平(education background)
+
+        -   工作自主性(work autonomy)
+
+        -   薪酬(compensation)
+
+        -   晋升机会(promotion chances)
+
+        -   角色模糊/冲突(role ambiguity/ role conflict)
+
+        -   挑战性压力源/阻断性压力源(challenge stressor- hindrance stressor)
+
+        -   人岗匹配(person-job fit)
+
+        -   组织道德氛围(organizational ethical climate)
+
+        -   团队凝聚力(group cohesiveness)
+
+        -   人-团队匹配(person- organization fit)
+
+        -   领导 - 成员交换理论(leader-member exchange theory, LMX)
