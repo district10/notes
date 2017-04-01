@@ -5307,57 +5307,60 @@ A Bit of Logic -<
 
                 -   shell insertion sort -<
 
-                    :   从对直接插入排序的分析得知，其算法时间复杂度为 O(n^2^)，
+                    :   从对直接插入排序的分析得知，其算法时间复杂度为 `O(n^2^)`，
                         但是，若待排序记录序列为“正序”时，其时间复杂度可提高至
-                        O(n)。由此可设想，若待排序记录序列按关键字“基本有序”，
-                        即序列中具有下列特性 R~i~.key < max{ R~j~.key }, j<i 的
-                        记录较少时，直接插入排序的效率就可大大提高，从另一方面
-                        来看，由于直接插入排序算法简单，则在 n 值很小时效率也比
-                        较高。希尔排序正是从这两点分析出发对直接插入排序进行改
-                        进得到的一种插入排序方法。
+                        O(n)。
 
-                        希尔排序 (Shell Sort) 的基本思想是：设待排序元素序
-                        列有 n 个元素，首先取一个整数 gap = n/3+1 作为间隔，
-                        将全部元素分为 gap 个子序列，所有距离为 gap 的元素放在
-                        同一个子序列中，在每一个子序列中分别施行直接插入排
-                        序。然后缩小间隔 gap，取 gap = n/3+1, 重复上述的子序列
-                        划分和排序工作，直到最后取 gap = 1，将所有元素放在同一
-                        个序列中排序为止。
+                            由此可设想，若待排序记录序列按关键字“基本有序”，
+                            即序列中具有下列特性 `R~i~.key < max{ R~j~.key }`, j<i 的
+                            记录较少时，直接插入排序的效率就可大大提高。
 
-                        ```cpp
-                        // 和一趟直接插入排序相比，仅有一点不同，就是前后元素的间距是 gap 而不是 1
-                        // [start, end)
-                        // gap 间隔
-                        static void shell_insert( int A[], const int start, const int end, const int gap ) {
-                            int tmp;
-                            int i, j;
-                            for( int i = start + gap; i < end; ++i ) {
-                                tmp = A[i];
-                                for( int j = i - gap; j>=start && A[j] > tmp; j -= gap ) {
-                                    A[j + gap] = A[j];
+                            从另一方面 来看，由于直接插入排序算法简单，则在 n 值很小时效率也比
+                            较高。希尔排序正是从这两点分析出发对直接插入排序进行改
+                            进得到的一种插入排序方法。
+
+                            希尔排序 (Shell Sort) 的基本思想是：设待排序元素序
+                            列有 n 个元素，首先取一个整数 gap = n/3+1 作为间隔，
+                            将全部元素分为 gap 个子序列，所有距离为 gap 的元素放在
+                            同一个子序列中，在每一个子序列中分别施行直接插入排
+                            序。然后缩小间隔 gap，取 gap = n/3+1, 重复上述的子序列
+                            划分和排序工作，直到最后取 gap = 1，将所有元素放在同一
+                            个序列中排序为止。
+
+                            ```cpp
+                            // 和一趟直接插入排序相比，仅有一点不同，就是前后元素的间距是 gap 而不是 1
+                            // [start, end)
+                            // gap 间隔
+                            static void shell_insert( int A[], const int start, const int end, const int gap ) {
+                                int tmp;
+                                int i, j;
+                                for( int i = start + gap; i < end; ++i ) {
+                                    tmp = A[i];
+                                    for( int j = i - gap; j>=start && A[j] > tmp; j -= gap ) {
+                                        A[j + gap] = A[j];
+                                    }
+                                    A[j + gap] = tmp;
                                 }
-                                A[j + gap] = tmp;
                             }
-                        }
 
-                        void shell_sort( int A[], const int start, const int end ) {
-                            int gap = end - start;
-                            while( gap > 1 ) {
-                                gap = gap / 3 + 1;
-                                shell_insert( A, start, end, gap );
+                            void shell_sort( int A[], const int start, const int end ) {
+                                int gap = end - start;
+                                while( gap > 1 ) {
+                                    gap = gap / 3 + 1;
+                                    shell_insert( A, start, end, gap );
+                                }
                             }
-                        }
-                        ```
+                            ```
 
-                        if `gap <- gap/3+1 > 1`, then it's buggy.
+                            if `gap <- gap/3+1 > 1`, then it's buggy.
 
-                        ```
-                        gap: 4 2 1
-                        gap: 5 2 1
-                        gap: 7 3 2 1
-                        gap: 8 3 2 1
-                        gap: 9 4 2 1
-                        ```
+                            ```
+                            gap: 4 2 1
+                            gap: 5 2 1
+                            gap: 7 3 2 1
+                            gap: 8 3 2 1
+                            gap: 9 4 2 1
+                            ```
 
         -   exchange sort -<
 
