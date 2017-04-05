@@ -1202,3 +1202,134 @@ title: Working Notes
         Remove valuables, lock your car.
 
         4）拖车区：tow-away zones（固定时间段禁止停车区域，否则会被拖车并遭罚款。）
+
+-   [Transformers: Beast Wars - Wikipedia](https://en.wikipedia.org/wiki/Transformers:_Beast_Wars) -<
+
+    :   Transformers: Beast Wars is an entertainment franchise from **Hasbro（孩之宝）**, and
+        part of the larger Transformers franchise. The fiction directly follows
+        the Transformers: Generation 1 continuity established by the 1984
+        series and animated film, while ignoring the continuity established
+        with the Japanese Transformers series, though this franchise would have
+        two exclusive Japanese series of its own. Previous to Beast Wars,
+        Hasbro had attempted to relaunch the original toys and animation as
+        Transformers: Generation 2.  Hasbro intended another franchise titled
+        Transtech to follow, combining Beast Wars and Generation 1 characters
+        and aesthetics, but this was cancelled. Instead the franchise began a
+        series of reboots, beginning with the Japanese-produced Transformers:
+        Car Robot series.
+
+        [Beast Wars: Transformers (cartoon) - Transformers Wiki](http://tfwiki.net/wiki/Beast_Wars:_Transformers_(cartoon))
+
+        The show's CGI, though somewhat primitive by today's standards, was
+        revolutionary by television standards of the time (and puts some later
+        shows to shame). Mainframe's animators took pains to ensure their
+        characters gestured and emoted in great detail, and the "camera" work
+        often took creative advantage of the format's flexibility.
+
+        The show was immediately followed by a sequel series, Beast Machines.
+
+        Maximals -<
+
+        :   [Optimus Primal](http://tfwiki.net/wiki/Optimus_Primal/Beast_Wars_cartoon_continuity) -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/5/58/BeastWarsPt1_Primal_in_CR_chamber.jpg/250px-BeastWarsPt1_Primal_in_CR_chamber.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/9/99/BetterMousetrap_Optimus_in_flight.jpg/250px-BetterMousetrap_Optimus_in_flight.jpg)
+
+            [Rhinox](http://tfwiki.net/wiki/Rhinox_(BW)) -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/0/05/Dark_Voyage_Rhinox_listening.jpg/270px-Dark_Voyage_Rhinox_listening.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/f/fc/TheWeb_Rhinox_closeup.jpg/220px-TheWeb_Rhinox_closeup.jpg)
+
+            [Dinobot](http://tfwiki.net/wiki/Dinobot_(BW)) -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/b/b7/Dinobotversusplant.jpg/250px-Dinobotversusplant.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/e/e7/Better_Mousetrap_Dinobot.jpg/250px-Better_Mousetrap_Dinobot.jpg)
+
+            [Cheetor](http://tfwiki.net/wiki/Cheetor_(BW)) -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/7/76/Cheetorbeast1.jpg/250px-Cheetorbeast1.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/7/7b/EqualMeasures_Cheetor_with_gutgun.jpg/300px-EqualMeasures_Cheetor_with_gutgun.jpg)
+
+            [Rattrap](http://tfwiki.net/wiki/Rattrap_(BW)) -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/f/f0/Victory_Megatron_crushes_Rattrap.jpg/270px-Victory_Megatron_crushes_Rattrap.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/6/6e/OtherVisits2_Rattrap_with_gun.jpg/200px-OtherVisits2_Rattrap_with_gun.jpg)
+
+            [Tigatron](http://tfwiki.net/wiki/Tigatron) -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/0/08/TheSpark_Tigatron_beast_mode.jpg/200px-TheSpark_Tigatron_beast_mode.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/0/08/Tigatron-takaraprofile.jpg/300px-Tigatron-takaraprofile.jpg)
+
+            [Airazor (BW) - Transformers Wiki](http://tfwiki.net/wiki/Airazor_(BW))
+
+            [Silverbolt](http://tfwiki.net/wiki/Silverbolt_(BW))
+
+            [Transmutate (character) - Transformers Wiki](http://tfwiki.net/wiki/Transmutate_(character))
+
+            [Depth Charge (BW) - Transformers Wiki](http://tfwiki.net/wiki/Depth_Charge_(BW))
+
+            [Tigerhawk - Transformers Wiki](http://tfwiki.net/wiki/Tigerhawk)
+
+        Predacons -<
+
+        :   Megatron -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/1/1d/Megatronbwtrex.jpg/230px-Megatronbwtrex.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/3/3c/Megatronbwspidersgame.jpg/300px-Megatronbwspidersgame.jpg)
+
+            Scorponok -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/8/8e/BeastWars1_Scorponok_battleready.jpg/280px-BeastWars1_Scorponok_battleready.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/8/89/TheWeb_Scorponok_beastmode.jpg/220px-TheWeb_Scorponok_beastmode.jpg)
+
+            Terrorsaur -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/d/dc/TerrorsaurcagedRT.jpg/200px-TerrorsaurcagedRT.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/5/5f/Victory_Terrorsaur_guns_out.jpg/250px-Victory_Terrorsaur_guns_out.jpg)
+
+            Tarantulas -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/8/86/TheWeb_Tarantulas_beast_mode.jpg/250px-TheWeb_Tarantulas_beast_mode.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/4/4b/Tflocklens%26tarantulas.jpg/200px-Tflocklens%26tarantulas.jpg)
+
+            Waspinator -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/6/69/BeastWars1_Waspinator_robotmode.jpg/250px-BeastWars1_Waspinator_robotmode.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/e/e5/ChainOfCommand_Waspinator_gets_shot_up.jpg/200px-ChainOfCommand_Waspinator_gets_shot_up.jpg)
+
+            Blackarachnia -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/a/ad/BAintroduction.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/9/93/TheSpark_Blackarachnia_spidermode.jpg/250px-TheSpark_Blackarachnia_spidermode.jpg)
+
+            Inferno  -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/b/b4/OtherVoices1_Inferno_ant_mode.jpg/250px-OtherVoices1_Inferno_ant_mode.jpg)
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/a/af/ComingoftheFuzors1_Inferno_flamethrower.jpg/280px-ComingoftheFuzors1_Inferno_flamethrower.jpg)
+
+            [Quickstrike (BW) - Transformers Wiki](http://tfwiki.net/wiki/Quickstrike_(BW))
+
+            [Rampage (BW) - Transformers Wiki](http://tfwiki.net/wiki/Rampage_(BW))
+
+            [Ram Horn - Transformers Wiki](http://tfwiki.net/wiki/Ram_Horn)
+
+            [Sea Clamp - Transformers Wiki](http://tfwiki.net/wiki/Sea_Clamp)
+
+            [Cicadacon - Transformers Wiki](http://tfwiki.net/wiki/Cicadacon)
+
+            [Ravage (G1) - Transformers Wiki](http://tfwiki.net/wiki/Ravage_(G1))
+
+            [Dinobot II - Transformers Wiki](http://tfwiki.net/wiki/Dinobot_II)
