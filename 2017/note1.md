@@ -1220,6 +1220,14 @@ title: Working Notes
 
         [Beast Wars: Transformers (cartoon) - Transformers Wiki](http://tfwiki.net/wiki/Beast_Wars:_Transformers_(cartoon))
 
+        Beast Wars: Transformers is a Daytime Emmy award-winning
+        computer-animated television series that premiered on April 22, 1996 in
+        syndication in the United States.[1] Though reviled by many
+        Transformers fans when it first hit the airwaves in 1996, Beast Wars is
+        now considered by many to be among the finest examples of Transformers
+        storytelling, striking a happy balance between character, humor, and
+        story.
+
         The show's CGI, though somewhat primitive by today's standards, was
         revolutionary by television standards of the time (and puts some later
         shows to shame). Mainframe's animators took pains to ensure their
@@ -1227,6 +1235,28 @@ title: Working Notes
         often took creative advantage of the format's flexibility.
 
         The show was immediately followed by a sequel series, Beast Machines.
+
+        [Energon - Transformers Wiki](http://tfwiki.net/wiki/Energon)
+
+        :   Energon (sometimes spelled with a capital letter, sometimes not)
+            is the preferred fuel of the Transformer race. It takes many forms,
+            including ore, crystal, gas, and raw energy, but it is most
+            commonly used by Transformers in its liquid state, which is stored
+            in many different mediums, most famously the energon cube. It is
+            ubiquitous in Cybertronian culture; in addition to being the
+            Transformers' primary "foodstuff", it also serves as the default
+            power source for their machines and weapons, and is even used as a
+            currency, a catch-all fuel of life, technology, war and commerce on
+            Cybertron and beyond. This widespread use also comes in defiance of
+            its extreme volatility: energon is prone to detonating explosively
+            if mishandled, and is even used as ammunition in order to exploit
+            this attribute.
+
+            >   They're all after this stuff called Energon, which is kinda
+            >   like food and gas and blood and electricity all mixed into one.
+            >
+            >   —Raf Esquivel, Raf's Notes
+
 
         Maximals -<
 
@@ -1333,3 +1363,817 @@ title: Working Notes
             [Ravage (G1) - Transformers Wiki](http://tfwiki.net/wiki/Ravage_(G1))
 
             [Dinobot II - Transformers Wiki](http://tfwiki.net/wiki/Dinobot_II)
+
+        Others -<
+
+        :   Vok -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/d/d4/Purple_vok.jpg/300px-Purple_vok.jpg)
+
+            Starscream (G1) -<
+
+            :   ![](http://tfwiki.net/mediawiki/images2/thumb/7/79/Starscreamg1.jpg/410px-Starscreamg1.jpg)
+
+
+
+-   [Java Without If - Ashton Kemerling](http://ashtonkemerling.com/blog/2017/01/26/java-without-if/) -<
+
+    :   ```java
+        String x = Helper.functionOne();
+        if (x != null) {
+            x = Helper.functionTwo(x);
+            x = Helper.functionThree(x);
+            if (x != null) {
+                ...
+            }
+        }
+
+        Optional<String> x = Helper.functionOne()
+                                   .map(Helper::functionTwo)
+                                   .flatMap(Helper::functionThree);
+
+        public HttpResponse handle(HttpRequest request) {
+            return JsonParser.parse(request.getBody())
+                             .flatMap(Validator::validate)
+                             .map(ServiceObject::businessLogic)
+                             .flatMap(JsonGenerator::generate)
+                             .match(l -> HttpResponse.internalServerError(l.getMessage()),
+                                    r -> HttpResponse.ok(l));
+        }
+        ```
+
+        Well, first off I think it’s beautiful. I know that’s a subjective
+        call, but the data flowing neatly from top to bottom without huge
+        nesting if cases and early return values is very aesthetically pleasing
+        to me.
+
+        More functionally it’s easier to refactor with the help of the
+        compiler. If I want to add different return status codes to match
+        different scenarios, the compiler helps me out a lot more than if I’m
+        adding an extra return case. If I convert the left side to a
+        HttpResponse early, the compiler will helpfully remind me that the
+        later flatMap calls cannot change Either<HttpResponse, JsonNode> to
+        Either<Exception, BusinessObject>. Such changes are easily fixed once
+        the compiler has pointed it out, but extremely hard to find on your
+        own.
+
+-   [Researchers figure out trick to a fruit fly's acrobatic flight](https://www.engadget.com/2017/01/27/researchers-figure-out-trick-to-a-fruit-flys-acrobatic-flight/) -<
+
+    :   To understand precisely how these muscles worked together, the CalTech
+        team bred a race of fly that produced a glowing protein whenever
+        calcium was present. The flies use calcium to initiate muscle
+        contractions so the stronger the contraction, the brighter the glow.
+        Then the team hooked up these flies to a -- I kid you not -- "fruit-fly
+        flight simulator" which displays different visual cues that instigate
+        the fly to change course. By studying how much, and in which
+        combination, the flies' muscles lit up, the team managed to suss out
+        how their charges so deftly manage to avoid mid-air collisions. And now
+        that they understand how simplistic flies do it, the team hopes their
+        research will help explain how more complex motor functions developed
+        in more evolved animals.
+
+-   [The Craft of Text Editing](https://www.finseth.com/craft/#preface) -<
+
+    :   -   Introduction: What Is Text Editing All About?
+        -   One: Users
+        -   Two: User Interface Hardware
+        -   Three: Implementation Languages
+        -   Four: Editing Models
+        -   Five: File Formats
+        -   Six: The Internal Sub-Editor
+        -   Seven: Redisplay
+        -   Eight: User-Oriented Commands: The Command Loop
+        -   Nine: Command Set Design
+        -   Ten: Emacs-Type Editors
+        -   Epilogue
+        -   Appendix A: A Five-Minute Introduction to C
+        -   Appendix B: Emacs Implementations
+        -   Appendix C: The Emacs Command Set
+        -   Appendix D: The TECO Command Set
+        -   Appendix E: ASCII Chart
+        -   Bibliography
+        -   Book Index
+
+-   [I cannot continue working on my add-ons anymore. I'm sorry, but it's time.](http://fasezero.com/lastnotice.html) -<
+
+    :   For over a decade I have supported and defended Mozilla and Firefox
+        ([sometimes in weird
+        ways](https://www.youtube.com/playlist?list=PLkWzvZH7LixZFCvGT2lt1MCzSST6Yetld)).
+        I truly hope this is a move in which they succeed, as the alternative
+        won't be a pleasant outcome to anyone in the online world, and I wish I
+        could be a part of it and help construct and hone it to the outstanding
+        platform they intend it to become. It's unfortunate that we have such
+        divergent paths, I remain pessimistic about Mozilla's current strategy,
+        so I must make a new one for myself. Still, I wish the best of luck to
+        everyone there; I'm still afraid you'll need it.
+
+-   [https://codecards.me/](https://codecards.me/) :hearts:
+
+-   [Front-end Developer Handbook 2017 · GitBook](https://www.gitbook.com/book/frontendmasters/front-end-handbook-2017/details)
+
+-   [jarrekk/imgkit: 🎆 Wkhtmltoimage python wrapper to convert html to image](https://github.com/jarrekk/imgkit) -<
+
+    :   Python 2 and 3 wrapper for wkhtmltoimage utility to convert HTML to IMG using Webkit.
+
+-   [Exploring what made the 'Doom' and 'Titanfall 2' campaigns tick](https://www.engadget.com/2017/01/31/exploring-what-made-the-doom-and-titanfall-2-campaigns-tick/)
+
+-   [Latency Numbers Every Programmer Should Know](https://gist.github.com/jboner/2841832) -<
+
+    :   Latency Numbers Every Programmer Should Know
+
+        ```
+        Latency Comparison Numbers
+        --------------------------
+        L1 cache reference                           0.5 ns
+        Branch mispredict                            5   ns
+        L2 cache reference                           7   ns                      14x L1 cache
+        Mutex lock/unlock                           25   ns
+        Main memory reference                      100   ns                      20x L2 cache, 200x L1 cache
+        Compress 1K bytes with Zippy             3,000   ns        3 us
+        Send 1K bytes over 1 Gbps network       10,000   ns       10 us
+        Read 4K randomly from SSD*             150,000   ns      150 us          ~1GB/sec SSD
+        Read 1 MB sequentially from memory     250,000   ns      250 us
+        Round trip within same datacenter      500,000   ns      500 us
+        Read 1 MB sequentially from SSD*     1,000,000   ns    1,000 us    1 ms  ~1GB/sec SSD, 4X memory
+        Disk seek                           10,000,000   ns   10,000 us   10 ms  20x datacenter roundtrip
+        Read 1 MB sequentially from disk    20,000,000   ns   20,000 us   20 ms  80x memory, 20X SSD
+        Send packet CA->Netherlands->CA    150,000,000   ns  150,000 us  150 ms
+
+        Notes
+        -----
+        1 ns = 10^-9 seconds
+        1 us = 10^-6 seconds = 1,000 ns
+        1 ms = 10^-3 seconds = 1,000 us = 1,000,000 ns
+
+        Credit
+        ------
+        By Jeff Dean:               http://research.google.com/people/jeff/
+        Originally by Peter Norvig: http://norvig.com/21-days.html#answers
+
+        Contributions
+        -------------
+        Some updates from:       https://gist.github.com/2843375
+        'Humanized' comparison:  https://gist.github.com/2843375
+        Visual comparison chart: http://i.imgur.com/k0t1e.png
+        Animated presentation: http://prezi.com/pdkvgys-r0y6/latency-numbers-for-programmers-web-development/latency.txt
+        ```
+
+-   [Piskel - Free online sprite editor](http://www.piskelapp.com/)
+
+-   [年度热门 · 满大街都在戴手串、盘珠子，狂热背后翻滚着生意和人性](http://daily.zhihu.com/story/9167942)
+
+-   [年度热门 · 提离职被老板加薪挽留，该怎么办？](http://daily.zhihu.com/story/9168206)
+
+-   [年度热门 · 当年轻貌美的模特成为夜店女孩，她们甘愿「被剥削」](http://daily.zhihu.com/story/9167611)
+
+-   [下一个是谁：历史上“被国家安全”的移民们](http://mp.weixin.qq.com/s/YbsjspE91tZocRVNfRHl2Q)
+
+    :   历史上德裔移民一直是欧洲移民的主力军，早在 18 世纪的时候，富兰克林就曾警告说德国人“正在将宾夕法尼亚日耳曼化，
+        而不是宾夕法尼亚将他们盎格鲁化（编者注：anglicization，英国化）。”
+
+        (日裔儿童向美国政府表忠，随后不久便被关入西部集中营）
+
+-   [The SpaceFN layout: trying to end keyboard inflation](https://geekhack.org/index.php?topic=51069.0)
+
+
+-   [年度热门 · 哪些才艺可以在短期内学会，且易于展示？](http://daily.zhihu.com/story/9167773)
+
+-   [古往今来世界上有哪些著名的或者常见的强盗逻辑？ - Creamy络的回答 - 知乎](https://www.zhihu.com/question/26004407/answer/138615119) -<
+
+    :   ```
+        记住这些，基本能看透七八成网络王八拳拳路。
+        ---------------------------------------------------------------------------------------------------------------------------
+        1：你说鸡蛋不好吃？你生一个啊？（强人所难诡辩）
+        2：你说鸡蛋不好吃？呵呵你个鹅蛋脑残粉就知道嘚啵。（扣帽子诡辩）
+        3：你说鸡蛋不好吃？你说了就算啊，凭什么你能规定鸡蛋不好吃？（诉诸资历诡辩）
+        4：你说鸡蛋不好吃？再不好吃也是我们家的鸡蛋，吃里扒外的贱种！（诉诸人格诡辩）
+        5：你说鸡蛋不好吃？农民伯伯天天汗滴禾下土养鸡给你吃的鸡蛋，你有什么资格说不好吃？（道德绑架诡辩）
+        6：你说鸡蛋不好吃？得了吧，上次有鸭蛋粉往鸡蛋里注水被识破了，谁信你们说的谁傻。（强行联系诡辩）
+        7：你说鸡蛋不好吃？这是你远房舅舅给你买的鸡蛋，你怎么敢这么对待老人家啊？（诉诸情感诡辩）
+        8：你说鸡蛋不好吃？大青春作家XX明说鸡蛋好吃，有本事你跟他说去啊？（诉诸权威诡辩）
+        9：你说鸡蛋不好吃？那为什么大家都爱吃鸡蛋啊？肯定是你有问题，回去反省去。（诉诸群体诡辩）
+        10：你说鸡蛋不好吃？你家的鸭蛋更难吃。（树稻草人诡辩）
+        11：你说鸡蛋不好吃？拿你的品蛋师执照秀秀你评价鸡蛋的资格。（诉诸资历诡辩MK2）
+        12：你说鸡蛋不好吃？这篮子鸡蛋不好，你凭什么说所有鸡蛋都不好？（偷换范围诡辩）
+        13：你说鸡蛋不好吃？鸡蛋很有营养，要不要我告诉你为什么人要每天吃鸡蛋啊？（转移话题诡辩）
+        14：你说鸡蛋不好吃？等你跟你爷爷一边大的时候，你才能评价鸡蛋好吃不好吃。（诉诸资历诡辩MK3）
+        15：你说鸡蛋不好吃？呵呵，我记得，你上次吃茄子都吐，你味觉一贯奇葩。（诉诸经历诡辩）
+        16：你说鸡蛋不好吃？那你为什么吃木须肉？木须肉里有鸡蛋啊。（偷换概念诡辩）
+        17：你说鸡蛋不好吃？那你为什么爱吃鹌鹑蛋？鸡蛋和鹌鹑蛋都是蛋，你一定是喜欢吃鸡蛋故意胡说的。（强行论证诡辩）
+        18：你说鸡蛋不好吃？你吃的是哪种鸡蛋？柴鸡蛋？柴鸡不算严格意义上的鸡，高卢鸡蛋可是很好吃的。（"白马非马"诡辩）
+        19：你说鸡蛋不好吃？你有什么证据证明世界上没有好吃的鸡蛋？证明不了你就没资格说鸡蛋不好吃。（“车库火龙”诡辩）
+        20：你说鸡蛋不好吃？你早晚会吃到好吃的鸡蛋。（“两条河”诡辩衍生法）
+        21：你说鸡蛋不好吃？你把爱吃鸡蛋的美食家都代表了？（诉诸资历诡辩+“子非鱼”诡辩）
+        22：你说鸡蛋不好吃？天哪这真的是个笑话，伙计，你能让我看看你在哪儿买的鸡蛋吗？哦哦哦，是在晚市啊。你没赶上早集，鸡蛋坏啦！什么，早集的鸡蛋也不好吃？真搞不懂你们，鸡蛋有那么多种做法，你还爱吃木须肉，为啥要来这儿说鸡蛋不好吃呢，弄得大家都不愉快。发表观点是发表观点，但是说服不了别人又引战，你看看你……（东拉西扯诡辩）
+        23：你说鸡蛋不好吃？你个小年轻又来胡说八道了啊，挨没挨你爹妈揍？（转移话题+羞辱）
+        24：你说鸡蛋不好吃？我听XX明说过，人心理阴暗会导致味觉异常，进而不爱吃鸡蛋，这是病，你最好去查查。（放私货+强行论证诡辩）
+        25：你说鸡蛋不好吃？不好意思，傻子请原地去世。（人身攻击）
+        ```
+
+-   [Oculus explains how room-scale VR taxes your USB ports](https://www.engadget.com/2017/01/27/oculus-explains-how-room-scale-vr-taxes-your-usb-ports/) -<
+
+    :   Oculus explains how room-scale VR taxes your USB ports
+
+        You might need a quad channel USB card.
+
+        We've been dealing with USB for about two decades now, and to be
+        honest, we're not usually asking that much from it. Plug in an adapter,
+        microphone or game controller, then keep it moving. All of that
+        changes, however, when it comes to virtual reality. As Oculus explains,
+        plugging in a bunch of room scale sensors sends enough data through the
+        ports to potentially overwhelm the 400MB/s capacity of the controller
+        chip on your motherboard.
+
+        Because of this, the answer isn't to simply plug in a hub and get more
+        high-speed USB 3.0 ports, in fact, Oculus says you should probably get
+        good results by **using two USB 3.0 connections, plus one older USB 2.0 port**
+        if you need to go beyond two sensors to get some more mobility in
+        your VR experiences. The blog is currently helping gamers get through
+        the setup process, so go ahead and check out all of the posts to make
+        sure everything is positioned and working correctly.
+
+-   [Tutorial on Deep Learning | Simons Institute for the Theory of Computing](https://simons.berkeley.edu/talks/tutorial-deep-learning) -<
+
+    :   -   **Lecture 1: **[Tutorial on Deep Learning I](https://simons.berkeley.edu/talks/ruslan-salakhutdinov-01-26-2017-1)
+        -   **Lecture 2: **[Tutorial on Deep Learning II ](https://simons.berkeley.edu/talks/ruslan-salakhutdinov-01-26-2017-2)
+        -   **Lecture 3: **[Tutorial on Deep Learning III](https://simons.berkeley.edu/talks/ruslan-salakhutdinov-01-26-2017-3)
+        -   **Lecture 4: **[Tutorial on Deep Learning IV](https://simons.berkeley.edu/talks/ruslan-salakhutdinov-01-26-2017-4)
+
+-   [Bibliomania: the strange history of compulsive book buying | Books | The Guardian](https://www.theguardian.com/books/2017/jan/26/bibliomania-the-strange-history-of-compulsive-book-buying)
+
+-   [Box Breathing (the Navy SEAL breathing technique) from QuietKit](http://quietkit.com/box-breathing/) -<
+
+    :   ![](http://quietkit.com/wp-content/uploads/box-breathing-4x-v01.gif)
+
+        圆圈扩张，吸气。
+
+        **Here are the directions**:
+
+        1.  Inhale for 4 seconds (as the circle expands)
+        2.  Hold your lungs full for 4 seconds (as the circle stays fully expanded)
+        3.  Exhale for 4 seconds (as the circle shrinks)
+        4.  Hold your lungs empty for 4 seconds (as the circle is contracted)
+
+        That's it!
+
+        Repeat for as many times as you need to calm down.
+
+-   [http://numerical.recipes/](http://numerical.recipes/) -<
+
+    :   The Art of Scientific Computing.
+
+-   [A hello world post - Fabio Franchino](https://fabiofranchino.com/blog/hello-world/) -<
+
+    :   First off, a confession.
+        I’ve been always an internet lurker (贡献者) with some timid (胆小的) public contributions.
+
+        I’ve always felt a bit guilty. That particular feeling in the gut when you owe something to someone.
+
+        refs and see also
+
+        -   [A hello world post | Hacker News](https://news.ycombinator.com/item?id=13513098)
+
+-   [Boost C++ Libraries - Browse /boost-binaries/1.63.0 at SourceForge.net](https://sourceforge.net/projects/boost/files/boost-binaries/1.63.0/)
+
+-   [regex - vim delete all lines that do NOT contain a certain word - Super User](http://superuser.com/questions/265085/vim-delete-all-lines-that-do-not-contain-a-certain-word) -<
+
+    :   You can use
+
+        :%g!/price/d
+
+        to delete every line that doesn't contain "price"
+
+        `:g!` is also known as `:v` (akin to `grep -v`)
+
+-   [SIFT on GPU (siftgpu)](http://cs.unc.edu/~ccwu/siftgpu/) -<
+
+    :   SiftGPU requires a decent GPU that has a large graphic memory and supports dynamic branching. GLSL is used by default, and CUDA is provided as an alternative for nVidia graphic cards.
+
+-   [Google 的 SRE Book 现在可以免费在线阅读了 - V2EX](https://www.v2ex.com/t/337281) -<
+
+    :   [Google - Site Reliability Engineering](https://landing.google.com/sre/book.html)
+
+        只是这本书可以免费看了。
+
+-   [Marker Detection for Augmented Reality Applications - reindernijhoff.net](http://reindernijhoff.net/2010/04/marker-detection-for-augmented-reality-applications/)
+
+-   [reindernijhoff.net](http://reindernijhoff.net/page/2/)
+
+-   [bash - How can I convert tabs to spaces in every file of a directory? - Stack Overflow](http://stackoverflow.com/questions/11094383/how-can-i-convert-tabs-to-spaces-in-every-file-of-a-directory) -<
+
+    :   tab2spaces
+
+        ```bash
+        find . -name '*.java' ! -type d -exec bash -c 'expand -t 4 "$0" > /tmp/e && mv /tmp/e "$0"' {} \;
+        ```
+
+-   [Face Morph Using OpenCV — C++ / Python | Learn OpenCV](http://www.learnopencv.com/face-morph-using-opencv-cpp-python/)
+
+-   [Lesson 0: Getting started with WebGL | Learning WebGL](http://learningwebgl.com/blog/?p=11)
+
+-   [这个社会，对年轻人太好了吗？①_城市_好奇心日报](http://www.qdaily.com/articles/37071.html?share_from=app)
+
+-   [Velodyne Plans a Lidar Megafactory - IEEE Spectrum](http://spectrum.ieee.org/cars-that-think/transportation/sensors/velodyne-to-build-lidar-megafactory) -<
+
+    :   Velodyne’s expansion suggests not only that the company thinks it can
+        outdo Google but also other startups that in recent years have started
+        talking up plans for much less costly solid-state lidars that they
+        claim would equal or even outperform the Velodyne design. Then, last
+        month, Velodyne claimed a “breakthrough” in solid-state design that,
+        with mass production, should drop the unit price below $50.
+
+-   [客制化金属60% Infinity修改版 机械键盘外壳 极简主义 GH60独家-淘宝网](https://item.taobao.com/item.htm?spm=a230r.1.14.9.oxNoQC&id=521491575881&ns=1&abbucket=16#detail)
+
+-   [Scientists must fight for the facts : Nature News & Comment](http://www.nature.com/news/scientists-must-fight-for-the-facts-1.21347) -<
+
+    :   On 21 January, one day after the inauguration of Donald Trump as the
+        45th president of the United States, millions of people took to the
+        streets in protests across the country and around the world. The
+        marches were spurred by Trump’s treatment of women, but the focus
+        expanded to include issues ranging from apparent hostility towards
+        environmental regulations to disregard for the truth. Many hoped that
+        the sobering reality of entering the White House would transform
+        Trump’s approach into something more conventionally presidential, but
+        the early signs are not promising.
+
+-   [Element](http://element.eleme.io/#/en-US) -<
+
+    :   Element，一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的组件库，提供了配套设计资源，帮助你的网站快速成型。
+
+        饿了么前端
+
+-   [Lessons learned from On Writing Well - RWieruch](https://www.robinwieruch.de/lessons-learned-on-writing-well/) :hearts: -<
+
+    :   How to learn?
+
+        :   Repetition is the key for learning. You have to repeat. It applies
+            for every subject you want to learn. You have to repeat and do it
+            over and over again. “You learn to write by writing” says William
+            Zinsser.  When you produce a certain amount of words on a regular
+            basis, you will improve eventually. But in order to learn writing
+            well, you cannot solely use your first draft of writing. You have
+            to refine your writing and rewrite it a dozen times. “The essence
+            of writing is rewriting”.
+
+-   [AI is nearly as good as humans at identifying skin cancer](https://www.engadget.com/2017/01/26/ai-rivals-humans-in-identifying-skin-cancer/)
+
+-   [Freeciv-web online browser HTML5 WebGL version](https://play.freeciv.org/)
+
+-   [Scientists are making genetically modified cyborg dragonflies](https://www.engadget.com/2017/01/26/genetically-modified-cyborg-dragonflies/)
+
+-   [Researchers create first viable hybrid human-pig embryo](https://www.engadget.com/2017/01/26/hybrid-human-pig-embryo-chimera-stem-cells/) -<
+
+    :   后来被叫停了。（当时看新闻的时候我特么就觉得这不可能没人禁止啊……）
+
+-   [哪些行业的工作人员可能会被人工智能取代？](http://daily.zhihu.com/story/9136689) -<
+
+    :   再补充一些事实。以美国为例，近年来受过高等教育劳动者比例持续上升，
+        新职业类别快速产生，新职业从业者中接受过高等教育者比例较高。
+        同时，有高等教育经历劳动者报酬上升，且相对于没有高等教育经历差距持续拉大。
+        这与前面提到的“中间衰败，两头增加”吻合，说明技术进步偏向高等教育人群，
+        提高了这部分个体竞争优势。人工智能这方面偏向可能更强，导致分化速度可能更快，
+        幅度更大。尽管人工智能可能“解放”一部分中低收入人群，但他们可能失业，
+        最早利用人工智能并获取利润的很可能仍是受过特定高等教育的人群。
+
+-   [开始找工作，可工作都要求有经验，这死循环怎么解开？](http://daily.zhihu.com/story/9136005) -<
+
+    :   若是没有「积极争取」这种信念，人生的发展轨道会非常狭窄。
+
+        也不是，房子背后更深层次的诉求是「未来相对殷实的物质生活」，所以如果现在没有什么钱，但是展现出未来能赚很多钱的样子，也是有机会满足要求的。
+
+-   [谷歌 Material Design 从这些方面打破了我的思维局限](http://daily.zhihu.com/story/9153511)
+
+-   [为了研究种族歧视，经济学家到红灯区问了一圈儿价格](http://daily.zhihu.com/story/9156380)
+
+    :   因为不喜欢，所以必须要更高价格才能交易，不然无法克服自己的厌恶。
+
+-   [为什么有人说在银行工作越久，能力越差？](http://daily.zhihu.com/story/9166209) -<
+
+    :   我的理解是，单个银行员工的个人能力对银行利润的贡献是非常小的。银行体系过于庞大，每个员工都是这个庞大系统中的一个小份子，而且具有很强的可替代性。
+
+        当在一个体系中，专业性无法成为屏蔽竞争对手的重要手段时，大家就会逐渐放弃对专业的追求，或者说深度追求。
+
+        而券商、基金、私募的人，个人的专业能力对公司的利润贡献显然就大得多了。比如，一个非常优秀的基金经理是有可能撑起公司
+        10% 甚至更高利润贡献的；又如一个券商的宏观研究团队如果像任泽平、姜超一样出色，是能够给公司带来极大正面影响的，
+        这些影响也都能够反映在公司的利润上。对这类公司的员工来说，你手中拿的是铁饭碗还是金饭碗，
+        基本上取决于你的专业能力。但银行不同，你再优秀的员工也只能在自己的岗位上贡献一点小小的力量。
+
+-   [2070 年穆斯林人口会占全球 1/3，现在就成了时尚业的新市场｜好奇心小数据_时尚_好奇心日报](http://www.qdaily.com/articles/37263.html)
+
+-   [谈了很多理念，说说如何６步融入同事圈](http://daily.zhihu.com/story/9168375)
+
+-   [女人三十四十如狼似虎，确有其事么? - 性生活 - 知乎](https://www.zhihu.com/question/25547543?rf=22184605)
+
+-   [为什么是金融和 IT #F620](http://mp.weixin.qq.com/s?__biz=MzAxNTMxMTc0MA==&mid=2651014972&idx=1&sn=c36661d84ac0dada16673b794408e1e1&scene=21#wechat_redirect) -<
+
+    :   我们可能都低估了“政治正确”对经济的伤害。
+
+        什么叫“政治正确”。它包含一系列的含义；
+
+        -   环境保护
+        -   动物保护
+        -   劳动法案
+        -   少数族裔保护
+        -   社会责任
+        -   历史文化保护
+        -   …………
+
+-   [水库文章目录](https://mp.weixin.qq.com/s?__biz=MzAxNTMxMTc0MA==&mid=206663049&idx=1&sn=b811130f28a5a8fd49fbd8204b90eb72&chksm=12203b9a2557b28c53413e71624b1666e32079ff08f2329cb3eee6f870e519c7e4bc41c0a885&scene=18&key=564c3e9811aee0ab9321605a1aeecbff4fdbf5af068a1d54a5f403fbc06105db846d476f7db11de46bce97a345e2fe304eeb9093ed26813d47197423be6823f7ee88159dfbec951f89b2f49060dc2727&ascene=0&uin=MTIyMDU3MTc4MQ%3D%3D&version=12010110&nettype=WIFI&fontScale=100&pass_ticket=lHq3l3C%2FkzJF09vfN8Gu38UUN4mWhMd229lVR2Ql9BaDCJCJ%2F1CVGxq2ZqSUhCTg)
+
+-   [Parerga und Paralipomena » Blog Archive » Using Mendeley and Dropbox to sync your pdf library across computers](http://www.michelepasin.org/blog/2012/08/07/using-mendeley-and-dropbox-to-sync-your-pdf-library-across-computers/)
+
+-   [Shadertoy BETA](https://www.shadertoy.com/user/miloyip)
+
+-   [Kristen Stewart co-wrote a paper on machine learning](https://www.engadget.com/2017/01/20/kristen-stewart-paper-style-transfers-come-swim/) -<
+
+    :   Kristen Stewart, best known for her role as Bella in the Twilight saga,
+        has co-authored a paper on machine learning. It details her use of a
+        technique known as 'style transfers' for select scenes in Come Swim, a
+        short film that will be shown at Sundance and marks her directorial
+        debut.  The process has become popular with apps such as Prisma, which
+        allow the user to apply filters in the style of famous paintings. At
+        its core, the system relies on deep neural networks to identify the
+        "content" of your photo and the "style" of another, blending them
+        together into a completely new image.
+
+-   [The Practice of Programming: 18 Years Later](http://kjamistan.com/the-practice-of-programming-18-years-later/) -<
+
+    :   The book is 18 years old. It covers C programming. It handles issues
+        like signed versus unsigned integers, piping data between mismatched
+        byte systems and a few other topics that do not affect my programming,
+        nor most of the folks I know. Why reread it?
+
+-   [Don't Be A Free User (Pinboard Blog)](https://blog.pinboard.in/2011/12/don_t_be_a_free_user/) -<
+
+    :   What if a little site you love doesn't have a business model? Yell at
+        the developers! Explain that you are tired of good projects folding and
+        are willing to pay cash American dollar to prevent that from happening.
+        It doesn't take prohibitive per-user revenue to put a project in the
+        black. It just requires a number greater than zero.
+
+-   [Problem loading page](https://blog.cryptographyengineering.com/2012/01/02/very-casual-introduction-to-fully/)
+
+-   [Security/Contextual Identity Project/Containers - MozillaWiki](https://wiki.mozilla.org/Security/Contextual_Identity_Project/Containers)
+
+-   [bethrobson/Head-First-Java: Code for Head First Java](https://github.com/bethrobson/Head-First-Java)
+
+-   [《STL 源碼剖析》](http://jjhou.boolan.com/jjwbooks-tass.htm)
+
+-   [“知乎很早就有 ... - - 矩阵的广播 - 豆瓣](https://m.douban.com/people/bluegobin/status/1943749855)
+
+    :   “知乎很早就有大 V 组成的联盟了，共享黑名单，划分粉丝群体，分配热点事件什么的，相互点赞，偶尔互怼。
+        隔不了几天小号提个奇葩问题，然后各路大神轮番上阵搭起一场营销大戏，都是套路。”
+        中国税负果然高，连智商税都是有组织地在收。#勃学导论 #
+
+-   [SlamCN](http://slamcn.org/index.php/%E9%A6%96%E9%A1%B5)
+
+-   [Physically Based Rendering: From Theory to Implementation](http://pbrt.org/) -<
+
+    :   From movies to video games, computer-rendered images are pervasive
+        today. Physically Based Rendering introduces the concepts and theory of
+        photorealistic rendering hand in hand with the source code for a
+        sophisticated renderer.
+
+-   [The lost art of 3D rendering without shaders](http://machinethink.net/blog/3d-rendering-without-shaders/)
+
+-   [The Vine Archive will keep the videos looping forever](https://www.engadget.com/2017/01/20/vine-archive/)
+
+-   [矩阵求导术（上） - 长躯鬼侠的文章 - 知乎专栏](https://zhuanlan.zhihu.com/p/24709748)
+
+-   [离职员工的控诉：为什么离开锤子科技_国内动态 - 07073产业频道](http://chanye.07073.com/guonei/1539479.html) -<
+
+　　:   当然在之后差不多两年的工作时间里，我慢慢对弹性工作制的认识从理想化的状态变成了公司不愿意给加班费，
+        因为所谓的弹性工作制就是一种可以让你每天加班到 10 点但是不用付薪水的制度。
+
+-   [这篇美国华裔二代的吐槽帖，火遍美国论坛](http://www.guancha.cn/america/2017_01_20_390356_s.shtml)
+
+-   Linear Algebra Notes -<
+
+    :   ## Linear Independence and Basis
+
+        if none of the vectors can be expressed as a linear combination of the
+        remaining vectors. Otherwise the set is called linearly dependent.
+
+        ### Properties of a Basis
+
+        Let B and B' be two bases of a linear space V.
+
+        basis 可以表示所有的 vector，而且表示唯一；
+
+            B   = (b1,  b2,     ..., bn )
+            B'  = (b1', b2',    ..., bn')
+
+        B = B'A，A 是基转化的矩阵，一定是可逆的，所以有 B' = BA^{-1}。
+
+            bi' = Σ aji * bj
+            aji -> A,
+
+            given B = (b1..bn), B' = (b1'..bn')
+            B' = BA, A 的每一列形成一个新的 b。
+            B = B'A^{-1}
+
+        ## Inner Product
+
+        也叫 dot product。
+
+        -   线性：所以你可以把参数提取到外面
+        -   对称：<u,v> = <v,u>
+        -   positive definite（正定）：<u,u> ≥ 0
+
+        **Norm**
+
+        V -> R 引入了 norm, norm:= sqrt(<v,v>)
+
+        **Metric** (distance between two vectors)
+
+        V+V -> R 引入了 metric，定义为 d(v,w) := norm(v-w)
+
+        Since the metric is induced by a scalar product V is called a
+        Hilbert space.
+
+        ### canonical inner product
+
+        在 V 上，B 下，两个向量 x, y 的 canonical inner product 是：
+
+            <x,y> = x^T × y = sum (xi × yi)
+
+        I = B'A⁻¹
+
+        如果 y 就是 x 的话，这就是 Euclidean 的 L2-norm（平面距离）。
+
+        B 由基变化（basis transform）A 到 B'（I = B'A^{-1}）,
+
+            BA = B' 这里我有点凌乱了。
+
+        公式：
+
+            <x,y>   =   x^T * y
+                    =   (Ax')^T * (Ay')
+                    =   (x'^T * A^T) * A * y'
+                    =   x'^T * y'
+                    =   <x', y'>A^TA
+                        （这叫 induced inner product from the matrix A）
+
+        向量的垂直：
+
+            v ⟂ w
+                iff <v,w> = 0
+
+        ## Kronecker Product and Stack of a Matrix
+
+        products of matrices
+
+        A ∈  ℜ^{m×n}
+        B ∈  ℜ^{k×l}
+
+        Kronecker 积是
+
+        A ⊗ B =
+
+                a11*B   ...     a1n*B
+                        ...                 ∈  ℜ^{mk×nl}
+                am1*B   ...     amn*B
+
+        Matlab: `C=kron(A,B)`
+
+        Stack 则是把 mat A 的各个列竖着放：
+
+            A^s = (     a1
+                        a2
+                         .
+                         .
+                         .
+                        an
+            ) ∈  ℜ^{mn}.
+
+        我醉了……引入 kron 和 stack 后，原来的
+
+        u^T * A * v 可以写成 (v ⊗ u)^T * A^s
+
+        ## Linear Transformations and Matrices
+
+        Linear algebra studies the properties of linear transformations
+        between linear spaces. Since these can be represented by
+        matrices, linear algebra studies the properties of matrices.
+
+        A linear transformation **L** between two linear spaces
+        V and W is a map L : V → W such that:
+
+        -   L ( x + y) = L ( x) + L ( y), ∀ x,y ∈  V
+        -   L(α x) = α L(x), ∀ x ∈  V, α ∈ R
+
+        线性变换是两个线性空间之间的一个联系，
+        这个变换也有线性性。
+
+        因为线性空间里面的一些向量都可以用基地来表示，
+
+        x --->L---> x' 表示为 L(x) = Ax，∀ x ∈ V.
+
+        A 是 (L(e1, e2, ..., en))，是一个矩阵，∈  ℜ^{m × n}
+
+        一点说明：
+
+            线性空间里面的向量可以表达成：
+
+                B1 * x1 = B2 * x2
+
+            也就是说
+            如果用 B1 作为基地，这个向量的坐标是 x1
+            如果用 B2 作为基地，这个向量的坐标是 x2
+
+            所以上面那个 L(x) = Ax，A = (L(e1), L(e2), ..., L(en)) 其实是说
+            我们对原来的 e1, ..., en 这些基地向量进行了线性变换，
+            形成了一个新的基地，在这个基地上原来的向量的坐标不变。
+            （意思是我把整个坐标系都移动了）
+
+            如果你把 A*x 看成 I*(Ax) 就是说，在原来的坐标下，
+            这个线性变换后，你的坐标从 x 变到了 Ax。
+
+        如果 m = n, 这个 L 则是一个环（意思是向量变换之后其实还在这个空间内）。
+
+        M(m, n) ≡ M(n) 是一个环 if m==n
+
+        V x V -> V
+
+        ## The Linear Groups GL(n) and SL(n)
+
+        GL 是 general linear group。
+
+        SL 是 special linear group。
+
+        linear group 是啥意思？
+
+        就是一堆 L 的集合，满足：
+
+        -   inverse：如果 g 在 G 里面，则有 g^{-1} 也在
+
+            （就是说 G 里面有一个变换 L 对向量的操作，可以用 G 里面的另一个变换来复原）
+
+        -   closed：g1*g2 = g'，就是说连续的变换其实可以看成一个变换
+
+            （就是说可以一步一步来，也可以一步到位）
+
+        -   assoc：变换的步骤是无关的，g1*(g2*g3) = (g1*g2)*g3
+
+            （显然三维空间中刚体的旋转不是 assoc）
+
+        -   neutral：就是说，不变也算一种变换
+
+        injective trans（就是每个 input，必有 output）
+
+        forall A in M(n), det(A) ≠ 0
+
+        SL(n) 是不改变体积的线性变换的集合。
+        det(A⁻¹) = det(A)⁻¹
+
+        ## Matrix Representation of Groups
+
+        cam
+
+        G has a matrix representation, or can be realized as a matrix group:
+
+            iif
+
+                R: G → GL(n)
+
+        R(e) = Inxm, R(g ◦ h) = R(g)R(h), ∀ g,h \in G
+
+        such a map R is called a **group homomorphism**.
+
+        ## The Affine Group A(n)
+
+        L: R^n → R^n
+
+        A in GL(n), vectar b in R^n
+
+        L(x) = Ax + b
+
+        introducing homogeneous coordinates to represent x ∈ R n by
+
+        L: R^{n+1} → R^{n+1},
+
+            x               A   b       x
+                    →
+            1               0   1       1
+
+            A b     with A in GL(n) and b in R^n is called
+            0 1     an affine matrix
+
+                    is an element of GL(n+1).
+                    the affine matrices form a subgroup of GL(n+1).
+
+        ## The Orthogonal Group O(n)
+
+        为了 <Ax, Ay> = <x,y>
+
+            aka     <Rx, Ry> = x^T R^T R y = x^T y
+            只要    R^T * R = R * R^T = I
+
+        O(n) = {R ∈ GL(n) | R^T * R = I}
+
+        det(R) = ±1，所以 ortho 其实是翻转。
+
+        if det(R)=1，这叫 special orthogonal group SO(n)
+
+        det -1 is not closed.
+
+        SO(n) = O(n) \cap SL(n)
+
+        SO(3) is the group of all 3-dim rotation matrices.
+
+        ## The Euclidean Group E(n)
+
+
+                    R       T       |
+            E(n) =                  |   R in O(n), T in R^n
+                    0       1       |
+
+        if R in SO(n), ie det(R)=1, special euclidean group SE(n)
+
+        SE(3) is the **rigid-body motions**.
+
+        SO(n) in O(n) in GL(n)
+        SE(n) in E(n) in A(n) in GL(n+1)
+
+        ## Range, Span, Null Space and Kernel
+
+        A in R^{m*n}
+
+        -   range / span of A
+        -   ker(A) ≡ null(A)
+        -   rank,
+            -   rank(A) = n - dim(null(A))
+            -   0 ≤ rank(A) ≤ min{m,n}
+            -   Sylvester’s inequality
+                rank(A)+rank(B)-n ≤ rank(AB) ≤ min{rank(A), rank(B)}
+            -   C, D not singular
+                then rank(A) = rank(CAD)
+
+        ## Eigenvalues and Eigenvectors
+
+        C^n
+
+        Av = λv
+
+        -   λ: eigenvalue of A
+        -   v lefteigenvector of A, if v^T * A = λ * V^T
+
+        [V, D] = eig(A), evs → D, AV = VD
+
+        All eigenvalues σ(A) are the roots of the characteristic
+        polynomial det(λI − A) = 0. Therefore det(A) is equal to
+        the product of all eigenvalues (some of which may appear
+        multiple times).
+
+        if B = PAP⁻¹, σ(B) = σ(A)
+
+        try to understand.
+
+        if λ is ev, then \hat{λ} also a ev.
+
+        ### Symmetric Matrices
+
+        S^T = S
+
+        -   all evs are real
+        -   vi perp vj if λi ≠ λj
+        -   diagnalize: S = V /\ V^T
+        -   S is positive (semi-)definite,
+            if all eigenvalues are positive (nonnegative).
+        -   Let S be positive semi-definite and
+            λ1 ,λn the largest and smallest eigenvalue.
+            Then
+            -   λ1 = max_{|x|=1} <x,Sx> and
+            -   λn = min_{|x|=1} <x,Sx>.
+
+        ###  Norms of Matrices
+
+        induced 2-norm of a matrix A
+
+        ||A||₂ ≡ max...
+
+        Frobenius norm of A
+
+        ||A||_f ≡
+
+            sqrt(
+                trace(A^T * A)
+            )
+
+        A^T*A is symmetric and pos.semi-difnite
+
+        A^T * A = V diag {σ^2...} V^T
+
+
+        ||A||_2 = σ₁
+        ||A||_f = sqrt((σ₁)^2..+(σn)^2)
+
+        skew-symmetric
+
+        A = V /\ V^T,
+
+                        0       -u_3    u_2
+        \hat{u} =       u_3     0       -u_1
+                        -u_2    u_1     0
+
+        \hat{u}*v = u \times v
