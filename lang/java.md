@@ -3901,3 +3901,63 @@ Math.toRadians()
 [Option to specify DefaultCookieStore · Issue #77 · yasserg/crawler4j](https://github.com/yasserg/crawler4j/issues/77)
 
 [code4craft/webmagic: A scalable web crawler framework for Java.](https://github.com/code4craft/webmagic)
+
+---
+
+build.gradle:
+
+```
+buildscript {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    }
+}
+
+allprojects {
+    repositories {
+        maven{ url 'http://maven.aliyun.com/nexus/content/groups/public/'}
+    }
+}
+```
+
+private final static String TAG = "MainActivity";
+Lod.v(TAG, msg), verbose
+Lod.d(TAG, msg), debug
+Lod.i(TAG, msg), info
+Lod.w(TAG, msg), warning
+Lod.e(TAG, msg), error
+
+logcat 去看 log。
+
+
+在 Text 标签下可以用：
+    android:id="@+id/textView"
+修改（添加）id。
+
+或者在 Design 界面修改。
+
+/hellworld/app/src/main/res/values/strings.xml
+    <resources>
+        <string name="app_name">hellworld</string>
+        <string name="myname">Thats My Name</string>
+    </resources>
+
+然后用 R.string.myname 引用这个字符串。（readonly）
+
+
+setContentView(R.layout.activity_main); // 设置 activity 的主要内容
+view.setOnClickListener(new View.OnClickListener() {...});
+Toast.makeText(MainActivity.this, R.string.oktoast, Toast.LENGTH_SHORT).show();
+
+资源添加：
+
+-   project 视图：添加文件夹 drawable-hdpi
+-   然后复制到文件夹：文件名小写
+-   android 视图：查看
+-   使用：                    imageView.setImageResource(R.drawable.image);
+
+        <View ...
+        android:src="@drawable/image2"
+        ...>
+
+// getApplicationContext()

@@ -1526,7 +1526,7 @@ title: Working Notes
 
 -   [年度热门 · 当年轻貌美的模特成为夜店女孩，她们甘愿「被剥削」](http://daily.zhihu.com/story/9167611)
 
--   [下一个是谁：历史上“被国家安全”的移民们](http://mp.weixin.qq.com/s/YbsjspE91tZocRVNfRHl2Q)
+-   [下一个是谁：历史上“被国家安全”的移民们](http://mp.weixin.qq.com/s/YbsjspE91tZocRVNfRHl2Q) -<
 
     :   历史上德裔移民一直是欧洲移民的主力军，早在 18 世纪的时候，富兰克林就曾警告说德国人“正在将宾夕法尼亚日耳曼化，
         而不是宾夕法尼亚将他们盎格鲁化（编者注：anglicization，英国化）。”
@@ -1819,7 +1819,7 @@ title: Working Notes
 
 -   [《STL 源碼剖析》](http://jjhou.boolan.com/jjwbooks-tass.htm)
 
--   [“知乎很早就有 ... - - 矩阵的广播 - 豆瓣](https://m.douban.com/people/bluegobin/status/1943749855)
+-   [“知乎很早就有 ... - - 矩阵的广播 - 豆瓣](https://m.douban.com/people/bluegobin/status/1943749855) -<
 
     :   “知乎很早就有大 V 组成的联盟了，共享黑名单，划分粉丝群体，分配热点事件什么的，相互点赞，偶尔互怼。
         隔不了几天小号提个奇葩问题，然后各路大神轮番上阵搭起一场营销大戏，都是套路。”
@@ -1842,7 +1842,7 @@ title: Working Notes
 
 -   [离职员工的控诉：为什么离开锤子科技_国内动态 - 07073产业频道](http://chanye.07073.com/guonei/1539479.html) -<
 
-　　:   当然在之后差不多两年的工作时间里，我慢慢对弹性工作制的认识从理想化的状态变成了公司不愿意给加班费，
+    :   当然在之后差不多两年的工作时间里，我慢慢对弹性工作制的认识从理想化的状态变成了公司不愿意给加班费，
         因为所谓的弹性工作制就是一种可以让你每天加班到 10 点但是不用付薪水的制度。
 
 -   [这篇美国华裔二代的吐槽帖，火遍美国论坛](http://www.guancha.cn/america/2017_01_20_390356_s.shtml)
@@ -1852,7 +1852,7 @@ title: Working Notes
     :   ## Linear Independence and Basis
 
         if none of the vectors can be expressed as a linear combination of the
-        remaining vectors. Otherwise the set is called linearly dependent.
+        remaining vectors. Otherwise the set is called **linearly dependent**.
 
         ### Properties of a Basis
 
@@ -1865,7 +1865,10 @@ title: Working Notes
 
         B = B'A，A 是基转化的矩阵，一定是可逆的，所以有 B' = BA^{-1}。
 
-            bi' = Σ aji * bj
+        这个其实很好理解：Bx 是一个向量，在 B 下的坐标为 x，在 B' 下的坐标为 Ax（B'Ax = Bx），
+        所以 Bx = B'Ax -> B = B'A。
+
+            bi' = Σ{aji * bj} for all j
             aji -> A,
 
             given B = (b1..bn), B' = (b1'..bn')
@@ -1877,21 +1880,22 @@ title: Working Notes
         也叫 dot product。
 
         -   线性：所以你可以把参数提取到外面
-        -   对称：<u,v> = <v,u>
-        -   positive definite（正定）：<u,u> ≥ 0
+        -   对称：`<u,v> = <v,u>`
+        -   positive definite（正定）：`<u,u> ≥ 0`
 
         **Norm**
 
-        V -> R 引入了 norm, norm:= sqrt(<v,v>)
+        V -> R 引入了 norm, `norm(v) := sqrt(<v,v>)`
 
         **Metric** (distance between two vectors)
 
-        V+V -> R 引入了 metric，定义为 d(v,w) := norm(v-w)
+        V+V -> R 引入了 metric，定义为 `d(v,w) := norm(v-w)`
 
-        Since the metric is induced by a scalar product V is called a
-        Hilbert space.
+        Since the metric is induced by a scalar product V is called a Hilbert space.
 
         ### canonical inner product
+
+        最常规的内积定义
 
         在 V 上，B 下，两个向量 x, y 的 canonical inner product 是：
 
@@ -1901,18 +1905,39 @@ title: Working Notes
 
         如果 y 就是 x 的话，这就是 Euclidean 的 L2-norm（平面距离）。
 
-        B 由基变化（basis transform）A 到 B'（I = B'A^{-1}）,
+        B 由基变化（basis transform）A 到 B'（B = B'A^{-1}）,
 
-            BA = B' 这里我有点凌乱了。
+            BA = B'
+            简单记忆：
+                -   坐标变换左乘 x -> Ax
+                -   　基变换右乘 B -> B' = BA
+                          (b1, ..., bn) -> (Ab1, ..., Abn) 即 (b1, ..., bn)*A
 
-        公式：
+        公式：（基变换影响内积）
 
             <x,y>   =   x^T * y
                     =   (Ax')^T * (Ay')
                     =   (x'^T * A^T) * A * y'
                     =   x'^T * y'
-                    =   <x', y'>A^TA
+                    =   <x', y'> A^TA，注意这里的写法 <x', y'> A^TA 不是 <x', y'>*A^TA 的意思……
                         （这叫 induced inner product from the matrix A）
+
+            话说上面的写法不符合我的习惯，我把
+            <x, y> 看成原来的，
+            <x', y'> 看成新的重写一遍
+
+            <x',y'> =   x'^T * y'
+                    =   (Ax)^T * (Ay)
+                    =   (x^T * A^T) * A * y
+                    =   <x, y> A^TA
+
+            这一段其实是说内积可以用一个矩阵来表示：<x,y> = x^T * M * y
+            内积完全由这个 M 确定。我们常用的 Eclidean 内积公式的 M 是一个 Identity。
+
+        维基上看到：The general form of an inner product on C^n^ is known as
+        the Hermitian form and is given by
+
+            ⟨x, y⟩ := y† * M * x = \bar{ x† * M *y }
 
         向量的垂直：
 
@@ -1948,7 +1973,9 @@ title: Working Notes
 
         我醉了……引入 kron 和 stack 后，原来的
 
-        u^T * A * v 可以写成 (v ⊗ u)^T * A^s
+        **u^T * A * v 可以写成 (v ⊗ u)^T * A^s**
+
+        （上面的公式……成功的把想要的内积的向量 u,v 和决定内积的 A 分离了……）
 
         ## Linear Transformations and Matrices
 
@@ -2177,3 +2204,229 @@ title: Working Notes
                         -u_2    u_1     0
 
         \hat{u}*v = u \times v
+
+-   录屏 sankore
+
+-   读书笔记：《珞珈风云》，《武汉大学图史》 -<
+
+    :   -   珞珈风云 -<
+
+            :   -   骑驴疑云：李四光骑着毛驴给武大寻校址的故事不真实，有虚构的成分；其实是开着飞机……
+                -   珞珈山校舍，开尔斯，Yale，不太知名；李四光找来此人
+                -   王世杰：1891-1981，武汉大学首任校长
+
+                    -   在武昌，适鄂督张之洞提倡新学，在武昌城内创办现代式高等小学五所，分东、南、西、北、中五路，招收民间十四岁左右的秀良子弟为生。
+                    -   张之洞摸了摸王世杰的礼帽，问：“叫什么名字？住什么地方？”王世杰挺起胸膛：“本人王世杰，家住崇阳县白霓回头岭”。
+                    -   在武昌南路小学，张之洞批准陪同王世杰念书的家人在校门口摆了个花生摊，以便照顾王世杰的起居。
+                    -   在北洋大学求学不到一年，武昌起义爆发。王世杰立即投身革命，辍学南归，返回武昌参加起义。
+                    -   **1929** 年 2 月，南京政府急需人才，决定在原武昌高等师范学校的基础上组建一所全国一流水平的综合性大学，
+                        任命王为国立武大校长。现在武大的校址就是王世杰和李四光圈定的。
+                    -   >   以后为我立碑时，去掉所有头衔，只须刻上‘前国立武汉大学校长王雪艇先生之墓’
+
+                -   王星拱：1888-1949，1934 年 6 月到 1945 年 7 月，王星拱担任武大校长 11 年，时间之长，仅次于李达（14 年）
+                -   迁坟：叶雅各直接带工人挖坟；土豪闹；政府出来：说教育第一，可以；结果：只能迁出，不许迁入
+                -   沈祝三：做赔钱买卖支持校舍工程；工程有资金链问题导致的建筑问题，但总体言，瑕不掩瑜
+                -   狮子山与珞珈山
+                -   “文采飞扬”与“法理正直”，误读，其实南方建筑承包商失误，所以文学院修得檐角飞扬
+                -   宋卿体育馆：黎元洪，字宋卿
+                -   听松庐，半山庐（教授单身公寓）
+                -   斯人已逝，黉（hong2）宫常在：邵逸夫人文科学馆，1988 投资，1990 竣工
+                -   王星拱：一二 \cdot 九运动；
+                -   樱花：通常二三十年，长不过 50 年；战争，1939 年 28 株，八九十年代死光（1997 最后一棵），和平；汤商皓，日语日本夫人，梅花 vs 樱花；
+
+                    通过“母本”枝条嫁接延续；
+
+        -   武汉大学图史 -<
+
+            :   -   自强学堂 -> 方言学堂（1893-1911）
+                -   国立武昌高等师范（1913-1923），校徽：熊、6 羽毛、黄牛革
+                -   国立武昌师范大学 -> 国立武昌中山大学（1923-1927）
+                -   国立武汉大学（1928-1949），1938 乐山
+                -   武汉大学（1949-2000）
+                -   四校合并：武汉大学，武汉测绘科技大学，武汉水力电力大学，湖北医科大学
+
+-   [Euler angles - Wikipedia](https://en.wikipedia.org/wiki/Euler_angles) -<
+
+    :   Euler angles are typically denoted as
+
+        -   α, β, γ, or
+        -   φ（phi/fai）, θ（theta/seita）, ψ（psi/sai）.
+
+        [Aircraft principal axes - Wikipedia](https://en.wikipedia.org/wiki/Aircraft_principal_axes)
+
+        :   ![](https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Flight_dynamics_with_text.png/300px-Flight_dynamics_with_text.png)
+
+            ~~常见的 model space 坐标系（右：x，上：y，前：z，左手坐标系），三个轴分别对应 pitch，yaw，roll~~ 更常见的是右手坐标系。
+
+            如果是右手坐标系，那就把 y 轴朝下。
+            ![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Yaw_Axis_Corrected.svg/375px-Yaw_Axis_Corrected.svg.png)
+
+            -   y: Vertical axis (yaw)
+
+                pos yaw 右转。
+
+            -   x: Lateral (横向的) axis (pitch)
+
+                The pitch axis (also called lateral or transverse axis).
+
+            -   z: Longitudinal (roll)
+
+                The roll axis (or longitudinal axis).
+
+                The angular displacement about this axis is called bank.
+
+-   [Oscar Wilde Quotes](https://www.douban.com/note/337856067/) -<
+
+    :   [Oscar Wilde - Wikipedia](https://en.wikipedia.org/wiki/Oscar_Wilde)
+
+        Oscar Fingal O'Flahertie Wills Wilde (16 October 1854 – 30 November 1900)
+        was an Irish playwright, novelist, essayist, and poet. After
+        writing in different forms throughout the 1880s, he became one of
+        London's most popular playwrights in the early 1890s. He is remembered
+        for his epigrams, his novel The Picture of Dorian Gray, his plays, as
+        well as the circumstances of his imprisonment and early death.
+
+        -   “**Only dull people are brilliant at breakfast.**”
+        -   “Be yourself; everyone else is already taken.”
+        -   “To live is the rarest thing in the world. Most people exist, that is all.”
+        -   “**We are all in the gutter, but some of us are looking at the stars.**”
+        -   “The pure and simple truth is rarely pure and never simple.”
+        -   “Most people are other people. Their thoughts are someone else's
+            opinions, their lives a mimicry, their passions a quotation.”
+        -   “Yes: I am a dreamer. For a dreamer is one who can only find his
+            way by moonlight, and his punishment is that he sees the dawn
+            before the rest of the world.”
+        -   “I am not young enough to know everything.”
+        -   “Every saint has a past, and every sinner has a future.”
+        -   “I never travel without my diary. One should always have something
+            sensational to read in the train.”
+        -   “Everything in the world is about sex except sex. Sex is about power.”
+        -   “I am so clever that sometimes I don't understand a single word of
+            what I am saying.”
+        -   “You don't love someone for their looks, or their clothes, or for
+            their fancy car, but because they sing a song only you can hear.”
+        -   “All women become like their mothers. That is their tragedy. No man
+            does, and that is his.”
+        -   “It is absurd to divide people into good and bad. People are either
+            charming or tedious.”
+        -   “To love oneself is the beginning of a lifelong romance.”
+
+        [Arthur Rimbaud - Wikipedia](https://en.wikipedia.org/wiki/Arthur_Rimbaud)
+
+        [阿蒂尔·兰波 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E9%98%BF%E8%92%82%E5%B0%94%C2%B7%E5%85%B0%E6%B3%A2)
+
+        额……记错了。我以为 Rimbaud 的男朋友是 Wilde。（Rimbaud 是攻 ==）
+
+-   低俗小说里面一段有趣的话 -<
+
+    :   （多亏万能的互联网，我不需要再看一遍去翻）
+
+        Vincent: [about a foot massage]
+
+        >   It's layin' your hands in a familiar way on Marsellus' new wife.
+        >   I mean, is it as bad as eatin' her pussy out? No, but it's the same
+        >   fuckin' ballpark. (棒球场；活动领域；可变通范围)
+
+        Jules:
+
+        >   Whoa, whoa, whoa. Stop right there. Eating a bitch out and giving a
+        >   bitch a foot massage ain't even the same fucking thing.
+
+        Vincent:
+
+        >   It's not. It's the same ballpark.
+
+        Jules:
+
+        >   Ain't no fucking ballpark neither. Now, look, maybe your method of
+        >   massage differs from mine, but, you know, touching his wife's feet
+        >   and sticking your tongue in the holiest of holies ain't the same
+        >   fucking ballpark. It ain't the same league. It ain't even the same
+        >   fucking sport. Look, foot massages don't mean shit.
+
+        ... （这部分太多，直接跳到 Vincent 最后一句）
+
+        Vincent:
+
+        >   I ain't saying it's right.
+        >   But you're saying a foot massage don't mean nothing, and I'm saying it does.
+        >   Now, look, I've given a million ladies a million foot massages, and they all meant something.
+        >   **We act like they don't, but they do, and that's what's so fucking cool about them.
+        >   There's a sensuous thing going on where you don't talk about it,
+        >   but you know it, she knows it, fucking Marsellus knew it, and Antoine should have fucking better known better.**
+        >   I mean, that's his fucking wife, man. He ain't gonna have no sense of humor about that shit.
+        >   You know what I'm saying?
+
+        ---
+
+        Pulp Fiction is a 1994 neo-noir film about the lives of **two mob hit men**, a
+        boxer, a gangster's wife, and a pair of diner bandits that intertwine in
+        four tales of violence and redemption.
+
+        ![The "famous dance scene": Vincent Vega (John Travolta) and
+            Mia Wallace (Uma Thurman) do the twist at Jack Rabbit Slim's](http://5.darkroom.shortlist.com/750/98a12a47dacc9cdd4f82bd8df754312d:4869faa189e1c50378db4c3eee0d134a/33)
+
+        [50 Things You (Probably) Didn't Know About Pulp Fiction | ShortList Magazine](http://www.shortlist.com/entertainment/films/50-things-you-%28probably%29-didnt-know-about-pulp-fiction#gallery-1) -<
+
+        :   -   John Travolta spoke to a recovering heroin addict during his
+                research for Vincent Vega. The addict, a friend of Quentin
+                Tarantino, suggested Travolta get drunk on tequila and lie in a
+                hot pool, as this would be the closest representation of
+                heroin's effects without actually it. Travolta tried this
+                method with his wife in their hotel hot tub, lining up tequila
+                shots along the bath.
+
+            -   The shot of Vincent plunging the syringe of adrenaline into
+                Mia's chest was filmed by having John Travolta pull the needle
+                out, then reversing the footage.
+
+            -   A theme throughout the film is guns not being used as intended.
+                A close-range gunshot miraculously misses Jules, Vincent
+                accidentally shoots Marvin in the face, Butch shoots Vincent
+                with a gun that was meant to kill him and, at the end of the
+                film, it is Jules' gun that prevents violence in the coffee
+                shop.
+
+            -   Jules' famous and oft-quoted Bible passage was in fact made up
+                by Quentin Tarantino and Samuel L. Jackson. Only the final two
+                lines feature in Ezequiel 25:17.
+
+            -   Pulp Fiction cost a relatively modest $8m to make, with over
+                $5m going towards actor salaries. The film went on to make over
+                $210m.
+
+            -   Uma Thurman was originally against the the song played during
+                the Jack Rabbit Slim's Twist Contest, and told Quentin
+                Tarantino she thought it didn't sound right. Tarantino stood
+                firm, telling Thurman, "Trust me, it's perfect."
+
+            -   Marcellus Wallace being raped is ironic. He tells Butch, "In
+                the fifth, your ass goes down." When interrogating Butch's
+                trainer, he says to "Set the dogs on his ass", and when asked
+                about Butch, he says "If he goes to Indo-China I want a nigger
+                in a bowl of rice ready to pop a cap in his ass." Wallace's
+                preoccupation with punishing his enemies in 'the ass' comes
+                back to bite him in his own.
+
+            -   The novel Vincent reads on the toilet, Modesty Blaise, is a
+                1965 'pulp' novel, in keeping with the movie's title.
+
+            -   The mystery of what's in Marcellus Wallace's briefcase has
+                raged for years. Some argue it's Elvis' gold suit from True
+                Romance, others the diamonds from Reservoir Dogs. The most
+                popular theory is that it's Marcellus Wallace's soul, hence the
+                case's glow, the plaster on the back of Wallace's head (this is
+                where the soul is removed) and the combination - 666. In
+                reality, the band aid on Wallace's head was used to cover a
+                shaving scar suffered by actor Ving Rhames, and though Quentin
+                Tarantino's original script had the briefcase containing
+                diamonds, he quickly dismissed this as it was too similar to
+                Reservoir Dogs. Instead, Tarantino thought it better to never
+                reveal (or even decide) what was in the case, in the hope
+                people would guess, speculate and create their own theories. It
+                worked.
+
+        refs and see also
+
+        -   [Pulp Fiction - Wikiquote](https://en.wikiquote.org/wiki/Pulp_Fiction)
+        -   [Pulp Fiction - Wikipedia](https://en.wikipedia.org/wiki/Pulp_Fiction#Plot)
