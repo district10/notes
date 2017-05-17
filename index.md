@@ -25,6 +25,9 @@ tangzx.qiniudn.com (tangzhixiong.com)
 
 ## 2017
 
+-   [note4.html](2017/note3.html){title=2017/note4.md}
+-   [note3.html](2017/note3.html){title=2017/note3.md}
+-   [note2.html](https://github.com/district10/notes/blob/master/2017/note2.ipynb)
 -   [note1.html](2017/note1.html){title=2017/note1.md}
 
 ## 2016
@@ -43,8 +46,8 @@ tangzx.qiniudn.com (tangzhixiong.com)
 
 ## 2014 & 2015
 
--   [像外行一样思考-像专家一样实践--科研成功之道.html](2014/%E5%83%8F%E5%A4%96%E8%A1%8C%E4%B8%80%E6%A0%B7%E6%80%9D%E8%80%83-%E5%83%8F%E4%B8%93%E5%AE%B6%E4%B8%80%E6%A0%B7%E5%AE%9E%E8%B7%B5--%E7%A7%91%E7%A0%94%E6%88%90%E5%8A%9F%E4%B9%8B%E9%81%93.html)
--   [如果让我重做一次研究生](2014/%E5%A6%82%E6%9E%9C%E8%AE%A9%E6%88%91%E9%87%8D%E5%81%9A%E4%B8%80%E6%AC%A1%E7%A0%94%E7%A9%B6%E7%94%9F.html)
+-   [像外行一样思考-像专家一样实践--科研成功之道.html](2014/%E5%83%8F%E5%A4%96%E8%A1%8C%E4%B8%80%E6%A0%B7%E6%80%9D%E8%80%83-%E5%83%8F%E4%B8%93%E5%AE%B6%E4%B8%80%E6%A0%B7%E5%AE%9E%E8%B7%B5--%E7%A7%91%E7%A0%94%E6%88%90%E5%8A%9F%E4%B9%8B%E9%81%93.html){.hide}
+-   [如果让我重做一次研究生](2014/%E5%A6%82%E6%9E%9C%E8%AE%A9%E6%88%91%E9%87%8D%E5%81%9A%E4%B8%80%E6%AC%A1%E7%A0%94%E7%A9%B6%E7%94%9F.html){.hide}
 
 ## 历史笔记
 

@@ -3,7 +3,7 @@ title: Notes 7
 ---
 
 [【Prev Note】](note6.html){title="note6.md"}
-[【Next Note】](2017/note1.html){title="../2017/note1.md"}
+[【Next Note】](../2017/note1.html){title="../2017/note1.md"}
 
 -   [Immersive 3D for the Real World | Matterport](https://matterport.com/)
 
@@ -24,6 +24,8 @@ title: Notes 7
         In other words, either way is fine.
 
         很多单词都是这么演化的。
+
+        我决定以后用“homepage”。
 
         refs and see also
 
@@ -51,7 +53,7 @@ title: Notes 7
 
         -   [leanote/markdown-editor-v2: Markdown Editor V2 (Support Vim & Emacs Mode) For Leanote Web & Leanote Desktop App](https://github.com/leanote/markdown-editor-v2)
 
--   [osx - How can I Remove .DS_Store files from a Git repository? - Stack Overflow](http://stackoverflow.com/questions/107701/how-can-i-remove-ds-store-files-from-a-git-repository) -<
+-   [osx - How can I Remove .DS_Store files from a Git repository? - Stack Overflow](http://stackoverflow.com/questions/107701/how-can-i-remove-ds-store-files-from-a-git-repository){.hearts} -<
 
     :   (git remove file)
 
@@ -73,6 +75,11 @@ title: Notes 7
         git add .gitignore
         git commit -m '.DS_Store banished!' # 被驱逐了
         ```
+
+        小结：
+
+        -   如何 banish 一些已经 track 了的文件？
+        -   git rm -f --ignore-unmatch <FILE>
 
 -   [README | Keep Writing Codes / 生活的乐趣就在于此](http://liujiacai.net/about/) -<
 
@@ -116,7 +123,7 @@ title: Notes 7
 
 -   [互联网陨落的巨星——Mozilla 前世今生 - V2EX](https://www.v2ex.com/t/319725#reply18) -<
 
-    :   偶尔无聊一下是为了大部分时候不无聊，吗？
+    :   **偶尔无聊一下是为了大部分时候不无聊，吗？**
 
 -   [网上付费查开房记录，人生轨迹等是怎么做到的？ - V2EX](https://www.v2ex.com/t/330138#reply12)
 
@@ -132,10 +139,10 @@ title: Notes 7
 
     :   三. 说实话，和 HK 相比，国内 IT 界才是个人傻钱多的领域。其实国内任何领
         域都是人傻钱多，只要你找对地方。而 HK 没有这样的地方。老罗演讲里说，任
-        何行业都是三成的经营 + 七成的 SB 构成的，只要你能去到那 7 成 SB 的公司，
-        然后唬住那些 SB，你就可以轻松拿高薪。而在 HK，没有过硬的技术很难混事儿，
+        何行业都是三成的经营 + 七成的 SB 构成的，**只要你能去到那 7 成 SB 的公司，
+        然后唬住那些 SB，你就可以轻松拿高薪**。而在 HK，没有过硬的技术很难混事儿，
         光靠吹牛扮高深考一堆证也绝对是没好果子吃，HK 要求你考一堆证，而且，更要
-        求你有和这些证书匹配的能力。
+        求你**有和这些证书匹配的能力**。
 
 -   [没见过大蛇屙尿](https://www.douban.com/note/258495100/) -<
 

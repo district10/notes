@@ -7,6 +7,12 @@ C & C++ Notes
 
 >   Talk is cheap. Show me your achievements.
 
+Tips：
+
+-   在线编译器：[Coliru](http://coliru.stacked-crooked.com/)，可以用来测试代码
+-   代码模板：[district10/NetEaseIntern: 编程题模板](https://github.com/district10/neteaseintern)
+-   freopen：`freopen( "input.txt", "r", stdin )`{.cpp}
+
 C++ 简介 | Intro
 
 :   C++ (pronounced as cee plus plus, `/ˈsiː plʌs plʌs/`) is a general-purpose
@@ -286,6 +292,11 @@ C++ 简介 | Intro
         `if( NULL == (void *)file )`，见 [ios::operator void* - C++
         Reference](http://program.upc.edu.cn/CLibrary/iostream/ios/operator_voidpt.html)。
 
+        refs and see also
+
+        -   [c++ - Operator overloading - Stack Overflow](http://stackoverflow.com/questions/4421706/operator-overloading/4421708#4421708)
+        -   [std::basic_ios::operator bool - cppreference.com](http://en.cppreference.com/w/cpp/io/basic_ios/operator_bool)
+
         [The Safe Bool Idiom](http://www.artima.com/cppsource/safebool.html) -<
 
         :   **Learn how to validate objects in a boolean context without the usual harmful side effects.**
@@ -550,6 +561,8 @@ C++ 简介 | Intro
         buf is: abcd
         ```
 
+        可以看出，`buf, sizeof(buf)` 很安全，不会溢出。
+
 -   atoi, strtol, strtof, atof, etc -<
 
     :   -   atoi, atol, atoll -<
@@ -768,7 +781,7 @@ C++ 简介 | Intro
 
         ```cpp
         if( value < 0 ) {
-            buf = '-';
+            buf[0] = '-';
             return convert( buf+1, -value );    // 机智如我哈哈
         }
         ```
@@ -1277,7 +1290,7 @@ C++ 简介 | Intro
         map 的另一个关键是，如果你用了 map["key"]，key 就会被自动创建。很可能这不是你想要的。
         但有时候比较有用，比如统计 word frequency：
 
-        ```
+        ```cpp
         map<string, int> m;
         ++m[key];       // 第一次使用也不用创建，因为没有这个 key 的时候，会自动生成并把 int 初始化为 0。
         ```
@@ -1289,6 +1302,14 @@ C++ 简介 | Intro
 -   std::swap -<
 
     :   `swap( int &a, int &b )` 之类的使用。很好用。
+
+        一个技巧：由于 `vector.clear()` 并不会真的释放内存，可以用
+
+        ```cpp
+        vector<T>().swap( v );
+        ```
+
+        来释放 vector v 的内存。（因为新建的临时变量拿到了 v 的内存区域，待它出了作用域，它被析构，内存就被释放了。）
 
         refs and see also
 
@@ -1750,10 +1771,12 @@ C++ 简介 | Intro
 -   print out queue, stack -<
 
     :   ```cpp
+        // stack 是个黑盒，只能完全拿一个拷贝
         for( std::stack<int> dump = stack; !dump.empty(); dump.pop() ) {
             std::cout << dump.top() << '\n';
         }
 
+        // deque 可以 iterate
         for( deque<int>::iterator it = q.begin(); it != q.end(); ++it )
             cout << *it << endl;
         }
@@ -5798,7 +5821,7 @@ C++ 简介 | Intro
 
     :   TODO
 
--   [Placement syntax - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Placement_syntax)
+-   [Placement syntax - Wikipedia, the free encyclopedia](https://en.wikipedia.org/wiki/Placement_syntax) -<
 
     :   **Placement new allows you to construct an object on memory that's already allocated.**
 
