@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="$rootdir$highlight.css" type="text/css" />
     <link rel="stylesheet" href="$rootdir$notes.css" type="text/css" />
 $if(math)$
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
+<!--<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>-->
+    <script src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML-full" type="text/javascript"></script>
 $endif$
 </head>
 <body class="markdown-body">
