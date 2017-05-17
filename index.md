@@ -26,6 +26,7 @@ tangzx.qiniudn.com (tangzhixiong.com)
 ## 2017
 
 -   [note1.html](2017/note1.html){title=2017/note1.md}
+-   [note3.html](2017/note3.html){title=2017/note3.md}
 
 ## 2016
 

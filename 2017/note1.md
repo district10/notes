@@ -1,8 +1,9 @@
 ---
-title: Working Notes
+title: Notes 1
 ---
 
 [【Prev Note】](../2016/note7.html){title="../2016/note7.md"}
+[【Next Note】](note3.html){title="note3.md"}
 
 -   [Vi(m) tip #2: Entering greek/math symbols using vim digraphs « Alec's Web Log](http://www.alecjacobson.com/weblog/?p=443) -<
 
@@ -2430,3 +2431,237 @@ title: Working Notes
 
         -   [Pulp Fiction - Wikiquote](https://en.wikiquote.org/wiki/Pulp_Fiction)
         -   [Pulp Fiction - Wikipedia](https://en.wikipedia.org/wiki/Pulp_Fiction#Plot)
+
+-   https://notebooks.azure.com/
+
+-   oooo -<
+
+    :   px
+
+        Pixels - corresponds to actual pixels on the screen.
+
+        in
+        Inches - based on the physical size of the screen.
+        1 Inch = 2.54 centimeters
+
+        mm
+        Millimeters - based on the physical size of the screen.
+
+        pt
+        Points - 1/72 of an inch based on the physical size of the screen.
+
+        dp or dip
+        Density-independent Pixels - an abstract unit that is based on the physical density of the screen. These units are relative to a 160 dpi screen, so one dp is one pixel on a 160 dpi screen. The ratio of dp-to-pixel will change with the screen density, but not necessarily in direct proportion. Note: The compiler accepts both "dip" and "dp", though "dp" is more consistent with "sp".
+
+        sp
+        Scale-independent Pixels - this is like the dp unit, but it is also scaled by the user's font size preference. It is recommended you use this unit when specifying font sizes, so they will be adjusted for both the screen density and user's preference.
+
+-   讲座 -<
+
+    :   -   Façades point cloud
+        -   dilated conv
+        -   scene parsing (fully/partial)
+        -   MIoU: mean IoU
+        -   decorrelation
+        -   mask r-cnn
+        -   pixel2pixel
+        -   portrait FCN
+
+-   [Ground sample distance - Wikipedia](https://en.wikipedia.org/wiki/Ground_sample_distance) -<
+
+    :   In [remote sensing](https://en.wikipedia.org/wiki/Remote_sensing "Remote sensing"),
+        **ground sample distance** (**GSD**) in a digital photo (such as an
+        [orthophoto](https://en.wikipedia.org/wiki/Orthophoto "Orthophoto")) of
+        the ground from air or space is the distance between
+        [pixel](https://en.wikipedia.org/wiki/Pixel "Pixel") centers measured
+        on the ground. For example, in an image with a one-meter GSD, adjacent
+        pixels image locations are 1 meter apart on the
+        ground.^[[1]](https://en.wikipedia.org/wiki/Ground_sample_distance#cite_note-1)^
+        GSD is a measure of one limitation to [image
+        resolution](https://en.wikipedia.org/wiki/Image_resolution "Image
+        resolution"), that is, the limitation due to
+        [sampling](https://en.wikipedia.org/wiki/Sampling_%28signal_processing%29
+        "Sampling (signal
+        processing)").^[[2]](https://en.wikipedia.org/wiki/Ground_sample_distance#cite_note-2)^
+
+        GSD is also referred to as **ground-projected sample interval**
+        (**GSI**) or **ground-projected instantaneous field of view**
+        (**GIFOV**).^[[3]](https://en.wikipedia.org/wiki/Ground_sample_distance#cite_note-3)^
+
+-   Rodrigues' formula -<
+
+    :   In mathematics, **Rodrigues' formula** (formerly called the **Ivory--Jacobi formula**)
+        is a formula for the [Legendre polynomials](https://en.wikipedia.org/wiki/Legendre_polynomials "Legendre polynomials")
+        independently introduced by [Olinde Rodrigues](https://en.wikipedia.org/wiki/Olinde_Rodrigues "Olinde Rodrigues")
+        ([1816](https://en.wikipedia.org/wiki/Rodrigues%27_formula#CITEREFRodrigues1816)),
+        [Sir James Ivory](https://en.wikipedia.org/wiki/James_Ivory_%28mathematician%29 "James Ivory (mathematician)")
+        ([1824](https://en.wikipedia.org/wiki/Rodrigues%27_formula#CITEREFIvory1824))
+        and [Carl Gustav Jacobi](https://en.wikipedia.org/wiki/Carl_Gustav_Jacob_Jacobi "Carl Gustav Jacob Jacobi")
+        ([1827](https://en.wikipedia.org/wiki/Rodrigues%27_formula#CITEREFJacobi1827)).
+        The name "Rodrigues formula" was introduced by Heine in 1878, after Hermite
+        pointed out in 1865 that Rodrigues was the first to discover it. The term is
+        also used to describe similar formulas for other [orthogonal polynomials](https://en.wikipedia.org/wiki/Orthogonal_polynomials "Orthogonal polynomials").
+        [Askey (2005)](https://en.wikipedia.org/wiki/Rodrigues%27_formula#CITEREFAskey2005)
+        describes the history of the Rodrigues formula in detail.
+
+        Statement
+        ---------
+
+        Rodrigues stated his formula for [Legendre polynomials](https://en.wikipedia.org/wiki/Legendre_polynomials "Legendre polynomials") $P_{n}$:
+
+        $$P_{n}(x)={1 \over 2^{n}n!}{d^{n} \over dx^{n}}\left[(x^{2}-1)^{n}\right].$$
+
+        [Laguerre polynomials](https://en.wikipedia.org/wiki/Laguerre_polynomials
+        "Laguerre polynomials") are usually denoted *L*~0~, *L*~1~, ..., and the
+        Rodrigues formula can be written as
+
+        $$L_{n}(x)={\frac {e^{x}}{n!}}{\frac {d^{n}}{dx^{n}}}\left(e^{-x}x^{n}\right)={\frac {1}{n!}}\left({\frac {d}{dx}}-1\right)^{n}x^{n},$$
+
+        The Rodrigues formula for the [Hermite polynomial](https://en.wikipedia.org/wiki/Hermite_polynomial "Hermite polynomial")
+        can be written as
+
+        $$H_{n}(x)=(-1)^{n}e^{x^{2}}{\frac {d^{n}}{dx^{n}}}e^{-x^{2}}=\left(2x-{\frac {d}{dx}}\right)^{n}\cdot 1.$$
+
+        Similar formulae hold for many other sequences of orthogonal functions arising
+        from [Sturm-Liouville equations](https://en.wikipedia.org/wiki/Sturm-Liouville_equation
+        "Sturm-Liouville equation"), and these are also called the Rodrigues formula
+        for that case, especially when the resulting sequence is polynomial.
+
+        Similar formulae hold for many other sequences of orthogonal functions
+        arising from [Sturm-Liouville equations](https://en.wikipedia.org/wiki/Sturm-Liouville_equation "Sturm-Liouville equation"),
+        and these are also called the Rodrigues formula for that case, especially when the resulting sequence is polynomial.
+
+-   [Rodrigues' rotation formula - Wikipedia](https://en.wikipedia.org/wiki/Rodrigues%27_rotation_formula) -<
+
+    :   Any orthogonal transformation R &in; SO(3) can be realized by rotating by an angle |W| around an axis $\frac{w}{|w|}$
+
+        ```
+        lie algebra --exp--> lie group
+            ^                   |
+            |                   V
+            +------<--log-------+
+        ```
+
+        [Rotation group SO(3) - Wikipedia](https://en.wikipedia.org/wiki/Rotation_group_SO(3))
+
+        :   In mechanics and geometry, the **3D rotation group**, often denoted **SO(3)**,
+            is the group of all rotations about the origin of
+            three-dimensional Euclidean space R3 under the operation of
+            composition. By definition, a rotation about the origin is a
+            transformation that preserves the **origin**, **Euclidean distance** (so it is an isometry),
+            and **orientation** (i.e. handedness of space). Every
+            non-trivial rotation is determined by its axis of rotation (a line
+            through the origin) and its angle of rotation. Composing two
+            rotations results in another rotation; every rotation has a unique
+            inverse rotation; and the identity map satisfies the definition of
+            a rotation.  Owing to the above properties (along with the
+            associative property, which rotations obey),
+            **the set of all rotations is a group under composition**.
+            Moreover, the rotation group has a natural structure as a manifold for which the
+            **group operations are smooth; so it is in fact a Lie group**.
+            It is compact and has dimension 3.
+
+            For example, counterclockwise rotation about the positive z-axis by angle φ is given by
+
+            $$\displaystyle R_{z}(\varphi )={\begin{bmatrix}\cos \varphi &-\sin \varphi &0\\\sin \varphi &\cos \varphi &0\\0&0&1\end{bmatrix}}.$$
+
+            Given a [unit vector](https://en.wikipedia.org/wiki/Unit_vector "Unit vector")
+            **n** in **R**^3^ and an angle φ, let *R*(φ, **n**)
+            represent a counterclockwise rotation about the axis through **n**
+            (with orientation determined by **n**). Then
+
+            -   *R*(0, **n**) is the identity transformation for any **n**
+            -   *R*(φ, **n**) = *R*(-φ, -**n**)
+            -   *R*(π + φ, **n**) = *R*(π - φ, -**n**).
+
+            Using these properties one can show that any rotation can be
+            represented by a unique angle φ in the range 0 ≤ φ ≤ π and a unit
+            vector **n** such that
+
+            -   **n** is arbitrary if φ = 0
+            -   **n** is unique if 0 < φ < π
+            -   **n** is unique up to a [sign](https://en.wikipedia.org/wiki/Sign_%28mathematics%29 "Sign (mathematics)")
+                if φ = π (that is, the rotations *R*(π, ±**n**) are identical).
+
+            Associated with every Lie group is its [Lie algebra](https://en.wikipedia.org/wiki/Lie_algebra "Lie algebra"),
+            a linear space of the same dimension as the Lie group, closed under
+            a bilinear alternating product called the [Lie bracket](https://en.wikipedia.org/wiki/Lie_bracket "Lie bracket").
+            The Lie algebra of SO(*3*) is denoted by **so**(3) and consists of all
+            [skew-symmetric](https://en.wikipedia.org/wiki/Skew-symmetric_matrix "Skew-symmetric matrix") *3* × *3* matrices.
+            ^[[6]](https://en.wikipedia.org/wiki/Rotation_group_SO%283%29#cite_note-7)^
+            This may be seen by differentiating the [orthogonality condition](https://en.wikipedia.org/wiki/Orthogonal_matrix "Orthogonal matrix"),
+            *A*^T^*A* = *I*, *A* ∈ SO(3).^[[nb 2]](https://en.wikipedia.org/wiki/Rotation_group_SO%283%29#cite_note-8)^
+            The Lie bracket of two elements of **so**(3) is, as for the Lie
+            algebra of every matrix group, given by the matrix
+            [commutator](https://en.wikipedia.org/wiki/Commutator "Commutator"), [*A*~1~, *A*~2~] = *A*~1~*A*~2~ - *A*~2~*A*~1~,
+            which is again a skew-symmetric matrix. The Lie algebra bracket captures the essence of the Lie group product in a sense made
+            precise by the [Baker--Campbell--Hausdorff formula](https://en.wikipedia.org/wiki/Baker%E2%80%93Campbell%E2%80%93Hausdorff_formula "Baker--Campbell--Hausdorff formula").
+
+            The elements of **so**(3) are the "infinitesimal generators" of
+            rotations, i.e. they are the elements of the [tangent
+            space](https://en.wikipedia.org/wiki/Tangent_space "Tangent space")
+            of the manifold SO(3) at the identity element. If *R*(φ, **n**)
+            denotes a counterclockwise rotation with angle φ about the axis
+            specified by the unit vector **n**, then
+
+            $$\left.{\operatorname {d} \over \operatorname {d} \phi }\right|_{\phi =0}R(\phi ,{\boldsymbol {n}}){\boldsymbol {x}}={\boldsymbol {n}}\times {\boldsymbol {x}}$$
+
+            for every vector **x** in **R**^3^.
+
+            This can be used to show that the Lie algebra **so**(3) (with
+            commutator) is isomorphic to the Lie algebra **R**^3^ (with [cross
+            product](https://en.wikipedia.org/wiki/Cross_product "Cross
+            product")). Under this isomorphism, an [Euler
+            vector](https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation#Rotation_vector
+            "Axis--angle representation")
+            $${\boldsymbol {\omega }}\in \mathbb {R} ^{3}$$
+            corresponds to the linear map
+            $${\mathbf {\tilde {\omega }}}$$
+            defined by
+            $${\mathbf {\tilde {\omega }}}({\boldsymbol {x}})={\boldsymbol {\omega }}\times {\boldsymbol {x}}$$
+
+            In more detail, a most often suitable basis for **so**(3) as a 3-dimensional vector space is
+
+            $$L_{\mathbf
+            {x}}={\begin{bmatrix}0&0&0\\0&0&-1\\0&1&0\end{bmatrix}},\quad
+            L_{\mathbf
+            {y}}={\begin{bmatrix}0&0&1\\0&0&0\\-1&0&0\end{bmatrix}},\quad
+            L_{\mathbf
+            {z}}={\begin{bmatrix}0&-1&0\\1&0&0\\0&0&0\end{bmatrix}}.$$
+
+            The [commutation relations](https://en.wikipedia.org/wiki/Commutation_relation "Commutation relation") of these basis elements are,
+
+            $$[L_{\mathbf {x}},L_{\mathbf {y}}]=L_{\mathbf {z}},\quad
+            [L_{\mathbf {z}},L_{\mathbf {x}}]=L_{\mathbf {y}},\quad [L_{\mathbf
+            {y}},L_{\mathbf {z}}]=L_{\mathbf {x}}$$
+
+            which agree with the relations of the three [standard unit vectors](https://en.wikipedia.org/wiki/Standard_basis "Standard basis") of **R**^3^ under the cross product.
+
+            As announced above, one can identify any matrix in this Lie algebra with an Euler vector in ℝ^3^,^[[7]](https://en.wikipedia.org/wiki/Rotation_group_SO%283%29#cite_note-9)^
+
+            $${\begin{aligned}{\boldsymbol {\omega }}&=(x,y,z)\in \mathbb {R}
+            ^{3},\\{\boldsymbol {\tilde {\omega }}}&={\boldsymbol {\omega \cdot
+            L}}=xL_{\mathbf {x}}+yL_{\mathbf {y}}+zL_{\mathbf
+            {z}}={\begin{bmatrix}0&-z&y\\z&0&-x\\-y&x&0\end{bmatrix}}\in
+            {\mathfrak {so}}(3).\end{aligned}}$$
+
+            This identification is sometimes called the
+            **hat-map**.^[[8]](https://en.wikipedia.org/wiki/Rotation_group_SO%283%29#cite_note-Eng.C3.B8_2001-10)^
+            Under this identification, the **so**(3) bracket corresponds in
+            ℝ^3^ to the [cross
+            product](https://en.wikipedia.org/wiki/Cross_product "Cross
+            product"),
+
+            $$[{\tilde {\mathbf {u}}},{\tilde {\mathbf {v}}}]={\widetilde {{\mathbf {u}}\!\times \!{\mathbf {v}}}}.$$
+
+            The matrix identified with a vector **u** has the property that
+
+            $${\tilde {\mathbf {u}}}{\mathbf {v}}={\mathbf {u}}\times {\mathbf {v}},$$
+
+            where ordinary matrix multiplication is implied on the left hand
+            side. This implies that **u** is in the [null
+            space](https://en.wikipedia.org/wiki/Null_space "Null space") of
+            the skew-symmetric matrix with which it is identified, because
+            **u** × **u** = 0.
+
+-   [Coupon collector's problem - Wikipedia](https://en.wikipedia.org/wiki/Coupon_collector%27s_problem)
