@@ -1,8 +1,9 @@
 ---
-title: Working Notes
+title: Notes 3
 ---
 
 [【Prev Note】](note1.html){title="note1.md"}
+[【Next Note】](note4.html){title="note4.md"}
 
 -   [Keras，Theano，pytorch，caffe2 哪个更好一些，应该怎么尝试学习？ - 知乎](https://www.zhihu.com/question/59274399/answer/163537353) -<
 
@@ -1229,724 +1230,221 @@ title: Working Notes
     住，到时候人们需要现金来吃饭消费，一旦房地产里锁定的货币出来，你想想到时的
     物价得多高。（这是今天最后一个广播，今天没有编号，凑活着看吧）
 
--   The Ruby Programming Language -<
+-   https://help.ubuntu.com/community/Lubuntu/Documentation/EditingTheMenu
 
-    :   ```
-        By David Flanagan, Yukihiro Matsumoto
-        Publisher: O'Reilly Media
-        Final Release Date: January 2008
-        Pages: 448
+-   chrome with proxy
+
+    ```
+    chromium-browser --proxy-server="socks5://127.0.0.1:1080"
+    ```
+
+    /usr/share/applications
+
+    /home/tzx/.local/share/applications
+
+
+-   MISC -<
+
+    :   Ciao
+
+            英 [tʃaʊ] 美 [tʃaʊ]
+
+                int. （意）你好；再见（见面问候语或告别语）
+                n. (Ciao)人名；(意)恰奥
+
+        dodger
+
+            英 ['dɒdʒə] 美 ['dɑdʒɚ]
+
+                n. 欺瞒者；躲避者
+
+        sanity
+
+            英 ['sænɪtɪ] 美 ['sænəti]
+
+                n. 明智；头脑清楚；精神健全；通情达理
+
+-   办理护照相关内容：
+
+    :   -   1）本人必须亲自在户口所在地办理护照。提供户口办理护照的信息供你参考
+            吧，北京的办理周期是9天（含周六日），在各个区县出入境管理处办理，可
+            以跨区办理不受户口在某个区县的限制。其他省市地区得看当地的出入境管
+            理处具体规定。
+        -   2）办理护照所需材料：2寸浅蓝或白底照片1张（贴在申请表上使用的）、身
+            份证原件复印件（正反面均复印）、户口簿原件复印件（首页、个人资料页、
+            变更页均复印）、表格一份（现场填写即可）、200元。
+        -   3)提示：A、必须本人亲自前往办理，因为需要现场拍照用在护照上的。B、
+            建议复印好带去，现场复印比较贵。到出入境管理处，先填表，然后去拍数
+            码照，拍的照是用在护照上的，不花钱，拍完表格上会被贴一张条形码，接
+            着就去排队交材料交钱即可。
+
+
+-   showdowsocks
+
+    :   ```bash
+        sudo apt-get install libbotan1.10-dev
+        sudo apt-get install libzbar-dev libzbarqt-dev
+        sudo apt-get install libappindicator-dev
+        sudo apt-get install qt5-qmake qt5-default qtbase5-dev libbotan1.10-dev gcc-4.8 libqrencode-dev libzbar-dev libappindicator-dev libqtshadowsocks-dev
+        sudo add-apt-repository ppa:hzwhuang/ss-qt5 -y && sudo apt-get -qq update
+
+        sudo apt-get install texlive-full
+        sudo apt-get install make gcc g++ pkg-config libx11-dev libxtst-dev
+        sudo apt-get install ttf-inconsolata
+        sudo apt-get update
+        sudo apt-get install git zsh curl tmux xclip
+        curl -L http://install.ohmyz.sh | sh
+        echo 'alias clip="xclip -selection clipboard"' >> ~/.zshrc
         ```
 
-        [The Ruby Programming Language - O'Reilly Media](http://shop.oreilly.com/product/9780596516178.do)
+        https://github.com/shadowsocks/shadowsocks-qt5.git
 
-        ## Chapter 1 Introduction
+-   Ubuntu -<
 
-        ### A Tour of Ruby
-
-        -   ruby is (fully) object-oriented
-
-            ```ruby
-            1.class         # => Fixnum: the number 1 is a Fixnum
-            0.0.class       # => Float: floating-point numbers have class Float
-            true.class      # => TrueClass: true is a the singleton instance of TrueClass
-            false.class     # => FalseClass
-            nil.class       # => NilClass
-            ```
-
-            parentheses is optional
-
-        -   Blocks and Iterators
-
-            ```ruby
-            3.times { print "Ruby! " }      # Prints "Ruby! Ruby! Ruby! "
-            1.upto(9) {|x| print x }        # Prints "123456789", upto, downto
-            ```
-
-            ```ruby
-            a = [3, 2, 1]       # This is an array literal
-            a[3] = a[2] - 1
-            a.each do |elt|
-                print elt+1
-            end                 # This block was delimited with do/end instead of {}
-            ```
-
-            ```ruby
-            a = [1,2,3,4]
-            b = a.map {|x| x*x }
-            c = a.select {|x| x%2==0 }
-            a.inject do |sum,x|
-                sum + x
-            end
-            ```
-
-            hashes
-
-            ```ruby
-            h = {
-                :one => 1,
-                :two => 2
-            }
-            h[:one]
-            h[:three] = 3
-            h.each do |key,value|
-                print "#{value}:#{key}; "
-            end
-            ```
-
-            ```ruby
-            File.open("data.txt") do |f|    # Open named file and pass stream to block
-                line = f.readline           # Use the stream to read from the file
-            end                             # Stream automatically closed at block end
-
-            t = Thread.new do               # Run this block in a new thread
-                File.read("data.txt")       # Read a file in the background
-            end                             # File contents available as thread value
-            ```
-
-            ```ruby
-            interpolated = "interpolated"
-            print "can be #{interpolated}"
-
-            # to_s: to string
-            ```
-
-        -   Expressions and Operators in Ruby
-
-            ```ruby
-            "str" * 3 # rep
-            "%d %s" % [2, "two"] # format
-            2**1024 # to the power of 1024
-            ```
-
-            Fixnum,
-            Bignum
-            Operator overides: `[]` (Array & Hash)
-
-        -   Methods
-
-            ```ruby
-            def square(x)
-                x*x
-            end
-            ```
-
-            Live update Math module (core Ruby lib)
-
-            ```ruby
-            def Math.square(x)  # Define a class method of the Math module
-                x*x             # The last expression is the return value
-            end
-            ```
-
-        -   Assignment
-
-            ```ruby
-            =
-            +=, -=, *=, /=
-            x,y = 1,2
-            a,b = b,a # swap
-            x,y,z = [1,2,3] # unpack
-            ```
-
-            ```ruby
-            o.x=(1)             # "x=" 是一个 method……所以是在调用子函数
-            # 这样的 method 和一般的 method 没啥不同，除了它还可以这样调用：
-            o.x = 1             # 等价于 o.x=(1)
-            ```
-
-        -   Punctuation Suffixes and Prefixes
-
-            ```ruby
-            empty?              # 这是一个 method
-            sort                #
-            sort!               # mutator method, in-place
-            $global_varible
-            @instance_varible
-            @@class_varible
-            ```
-
-        -   Regexp and Range
-
-            ```ruby
-            /[Rr]uby/
-            /\d{5}/
-            1..3            # 1<= x <= 3
-            1...3            # 1<= x < 3
-            ```
-
-            ```ruby
-            generation = case birthyear
-                when 1946..1963: "Baby Boomer"
-                when 1964..1976: "Generation X"
-                when 1978..2000: "Generation Y"
-                # when cond1, cond2
-                else nil
-            end
-            ```
-
-        -   Classes and Modules
-
-            ```ruby
-            class Sequence
-                include Enumerable
-                def initialize(from, to, by)    # Sequence.new(from,to,by)
-                    ...
-                end
-                def [](index)
-                    ...
-                end
-            ```
-
-            ```ruby
-            module Sequence
-                def self.fromtoby(from, to, by)
-                    x = from
-                    while x <= to
-                        yield x
-                        x += by
-                    end
-                end
-            end
-            # Sequences.fromtoby(1, 10, 2) {|x| print x }
-            # Prints "13579"
-            ```
-
-            The core Ruby API is a rich one, and it is worth taking the time to
-            study the platform (see Chapter 9) so you don’t end up spending
-            time writing methods that have already been implemented for you!
-
-        -   Ruby Surprises
-
-            ```ruby
-            # ruby: mutable string
-            []=             # method, insert, delete, update, etc
-            <<              # append
-            freeze          # make immutable
-            ```
-
-            nil -> false, otherwise -> true
-
-        ### Try Ruby
-
-        -   `ruby -e 'puts "Hello World"'`{.bash}, e for evaluate
-        -   `irb --simple-prompt`
-        -   `ri Array.sort`, read doc
-        -   Ruby Package Management with gem
-
-            ```ruby
-            # gem install rails
-            gem list                    # List installed gems
-            gem enviroment              # Display RubyGems configuration information
-            gem update rails            # Update a named gem
-            gem update                  # Update all installed gems
-            gem update --system         # Update RubyGems itself
-            gem uninstall rails         # Remove an installed gem
-            ```
-
-        ### About This Book
-
-        This chapter concludes with a heavily commented extended example
-        demonstrating a nontrivial Ruby program. The chapters that follow cover
-        Ruby from the bottom up:
-
-        -   Chapter 2 covers the lexical and syntactic structure of Ruby,
-            including basic issues like character set, case sensitivity, and
-            reserved words.
-        -   Chapter 3 explains the kinds of data—numbers, strings, ranges,
-            arrays, and so on — that Ruby programs can manipulate, and it
-            covers the basic features of all Ruby objects.
-        -   Chapter 4 covers primary expressions in Ruby—literals, variable
-            references, method invocations, and assignments—and it explains the
-            operators used to combine primary expressions into compound
-            expressions.
-        -   Chapter 5 explains conditionals, loops (including blocks and
-            iterator methods), exceptions, and the other Ruby expressions that
-            would be called statements or control structures in other
-            languages.
-        -   Chapter 6 formally documents Ruby’s method definition and
-            invocation syntax, and it also covers the invocable objects known
-            as procs and lambdas. This chapter includes an explanation of
-            closures and an exploration of functional programming techniques in
-            Ruby.
-        -   Chapter 7 explains how to define classes and modules in Ruby.
-            Classes are fundamental to object-oriented programming, and this
-            chapter also covers topics such as inheritance, method visibility,
-            mixin modules, and the method name resolution algorithm.
-        -   Chapter 8 covers Ruby’s APIs that allow a program to inspect and
-            manipulate itself, and then demonstrates metaprogramming techniques
-            that use those APIs to make programming easier. The chapter
-            includes an example of domain-specific language.
-        -   Chapter 9 demonstrates the most important classes and methods of
-            the core Ruby platform with simple code fragments. This is not a
-            reference but a detailed overview of the core classes.  Topics
-            include text processing, numeric computation, collections (such as
-            arrays and hashes), input/output, networking, and threads. After
-            reading this chapter, you’ll understand the breadth of the Ruby
-            platform, and you’ll be able to use the ri tool or an online
-            reference to explore the platform in depth.
-        -   Chapter 10 covers the top-level Ruby programming environment,
-            including global variables and global functions, command-line
-            arguments supported by the Ruby interpreter, and Ruby’s security
-            mechanism.
-
-        ### A Sudoku Solver in Ruby
-
-        ```ruby
-        class Puzzle
-            ASCII = ".123456789"                                    # external rep
-            BIN = "\000\001\002\003\004\005\006\007\010\011"        # internal rep
-            def initialize(lines)
-                if (lines.responds_to? :join)
-                    s = lines.join
-                else
-                    s = lines.dup
-                end
-                s.gsub!(/\s/, "")                                   # strip all whitespaces
-
-                raise Invalid, "Grid is the wrong size" unless s.size == 81
-                if i = s.index(/[^123456789\.]/)
-                    raise Invalid, "Illegal character #{s[i,1]} in puzzle"
-                end
-                s.tr!(ASCII, BIN)                                   # external rep -> internal rep
-                @grid = s.unpack('c*')                              # unpack bytes to array of nums
-                raise Invalid, "Initial puzzle has duplicates" if has_duplicates?
-            end
-
-            def dup
-                copy = super
-                @grid = @grid.dup
-                copy                                                # return the copied
-            end
-
-            def [](row,col)
-                @grid[row*9+col]
-            end
-
-            def []=(row, col, newvalue)
-                unless (0..9).include? newvalue
-                    raise ...
-                end
-                @grid[row*9+col] = newvalue
-            end
-
-            BoxOfIndex = [
-                0,0,0,1,1,1,2,2,2,
-                0,0,0,1,1,1,2,2,2,
-                0,0,0,1,1,1,2,2,2,
-                3,3,3,4,4,4,5,5,5,
-                3,3,3,4,4,4,5,5,5,
-                3,3,3,4,4,4,5,5,5,
-                6,6,6,7,7,7,8,8,8,
-                6,6,6,7,7,7,8,8,8,
-                6,6,6,7,7,7,8,8,8
-            ].freeze
-
-            def each_unknown
-                0.upto 8 do |row|
-                    0.upto 8 do |col|
-                        index = row*9+col
-                        next if @grid[index] != 0 # Move on if we know the cell's value
-                        box = BoxOfIndex[index]
-                        yield row, col, box
-                    end
-                end
-            end
-
-            def has_duplicates?
-                # uniq! returns nil (false) if all the elements in an array are unique.
-                # So if uniq! returns something then the board has duplicates.
-                0.upto(8) {|row| return true if rowdigits(row).uniq! }
-                0.upto(8) {|col| return true if coldigits(col).uniq! }
-                0.upto(8) {|box| return true if boxdigits(box).uniq! }
-                false
-            end
-
-            AllDigits = [1, 2, 3, 4, 5, 6, 7, 8, 9].freeze
-            def possible(row, col, box)
-                # +: array concat, -: set diff
-                AllDigits - (rowdigits(row) + coldigits(col) + boxdigits(box))
-            end
-
-            private # these below methods are private
-
-            # all digits in the row-th row
-            def rowdigits(row)
-                # Array subtraction is set difference, with duplicate removal.
-                @grid[row*9,9] - [0]
-            end
-
-            # 可以看到，“+” 是 array concat，“-” 是 set diffrence (no dup)
-            def coldigits(col)
-                result = []
-                # Start with an empty array
-                col.step(80, 9) {|i|
-                    v = @grid[i]
-                    # Get value of cell at that index
-                    result << v if (v != 0) # Add it to the array if non-zero
-                }
-                result              # 这是不是有 dup 啊……
-            end
-
-            # 每个 box 左上角的 index
-            BoxToIndex = [0, 3, 6, 27, 30, 33, 54, 57, 60].freeze
-
-            def boxdigits(b)
-                # Convert box number to index of upper-left corner of the box.
-                i = BoxToIndex[b]
-                # Return an array of values, with 0 elements removed.
-                [
-                    @grid[i], @grid[i+1], @grid[i+2],
-                    @grid[i+9], @grid[i+10], @grid[i+11],
-                    @grid[i+18], @grid[i+19], @grid[i+20]
-                ] - [0]
-            end
-        end # This is the end of the Puzzle class
-        ```
-
-        ```ruby
-        # An exception of this class indicates invalid input,
-        class Invalid < StandardError
-        end
-
-        class Impossible < StandardError
-        end
-
-        def Sudoku.scan(puzzle)
-            unchanged = false
-            until unchanged
-                unchanged = true            # Assume no cells will be changed this time
-                rmin,cmin,pmin = nil        # Track cell with minimal possible set
-                min = 10                    # More than the maximal number of possibilities
-                puzzle.each_unknown do |row, col, box|
-                    p = puzzle.possible(row, col, box)
-                    case p.size
-                    when 0
-                        raise Impossible
-                    when 1
-                        puzzle[row,col] = p[0]  # set to the only possibility
-                        unchanged = false       # note that we've made a change
-                    else    # >1
-                        if unchanged && p.size < min
-                            min = p.size
-                            rmin, cmin, pmin = row, col, p
-                        end
-                    end
-                end
-                return rmin, cmin, pmin         # 找到了 puzzle 最容易突破的点：这里可能性最少
-            end
-
-            def Sudoku.solve(puzzle)
-                puzzle = puzzle.dup
-                r,c,p = scan(puzzle)
-                return puzzle if r == nil
-                p.each do |guess|
-                    puzzle[r,c] = guess
-                    begin
-                        return solve(puzzle)
-                    rescue Impossible
-                        next
-                    end
-                end
-                raise Impossible
-            end
-        end
-        ```
-
-        ## Chapter 2 The Structure and Execution of Ruby Programs
-
-        ### Lexical Structure
-
-        seq of tokens:
-
-        -   comments
-
-            -   `# comments`
-            -   ```ruby
-                =begin
-                    embedded document
-                    you can comment out code here
-                =end
-                ```
-
-                ```ruby
-                =begin rdoc
-                    this uses a special markup language
-                    * list
-                    *   *bold* <b>....</b>
-                    *   *italic* <i>....</i>
-                =end
-                ```
-
-            -   Literals
-            -   Punctuation
-            -   Unicode 函数可以用 unicode 表示
-            -   Punctuation in identifiers
-
-                ```ruby
-                $files                      # A global variable
-                @data                       # An instance variable
-                @@counter                   # A class variable
-                empty?                      # A Boolean-valued method or predicate
-                sort!                       # An in-place alternative to the regular sort method
-                timeout=                    # A method invoked by assignment
-                ```
-
-                the token `__END__` marks the end of the program (and the
-                beginning of a data section) if it appears on a line by itself
-                with no leading or trailing whitespace.
-
-            -   Whitespace
-
-                ```ruby
-                # fluent API, not work in Ruby 1.8
-                animals = Array.new
-                    .push("dog")
-                    .push("cow")
-                    .push("cat")
-                    .sort
-                # 有“.”开头的行，无需“\”来续行
-                ```
-
-                ```ruby
-                f(3+2)+1
-                f (3+2)+1           # 把 (3+1)+1 传入了函数 f
-                ```
-
-        ### Syntactic Structure
-
-        -   Literials
-
-            -   `[1,2,3]`, Array
-            -   `{1=>"one", 2=>"two"}`，Hash
-            -   `1..3`，Range
-
-        -   Block Structure in Ruby
-
-            -   `{  |var| ... }`，一行可以写完的话最好用这个
-            -   `do |var| ... end`，很多行的话
-
-        ### File Structure
-
-        -   ```ruby
-            #!/usr/bin/ruby -w                          # shebang comment
-            # -*- coding: utf-8 -*-                     # coding comment, for Emacs. (Vim? use "# vi: set fileencoding=utf-8")
-            require 'socket'                            # load libs
-
-                ...                                     # program code goes here
-
-            __END__                                     # mark end of code
-                ...                                     # program data goes here
-            ```
-
-        ### Program Encoding
-
-        Better utf-8
-
-        ### Program Execution
-
-        `ruby -Ku`, utf-8
-
-        ```ruby
-        # coding: utf-8
-        ```
+    :   prerequisites
 
         ```bash
-        ruby -E utf-8                   # Encoding name follows -E
-        ruby -Eutf-8                    # The space is optional
-        ruby --encoding utf-8           # Encoding following --encoding with a space
-        ruby --encoding=utf-8           # Or use an equals sign with --encoding
+        sudo apt-get install --assume-yes build-essential cmake git
+        sudo apt-get install --assume-yes build-essential pkg-config unzip ffmpeg qtbase5-dev python-dev python3-dev python-numpy python3-numpy
+        sudo apt-get install --assume-yes libopencv-dev libgtk-3-dev libdc1394-22 libdc1394-22-dev libjpeg-dev libpng12-dev libtiff5-dev libjasper-dev
+        sudo apt-get install --assume-yes libavcodec-dev libavformat-dev libswscale-dev libxine2-dev libgstreamer0.10-dev libgstreamer-plugins-base0.10-dev
+        sudo apt-get install --assume-yes libv4l-dev libtbb-dev libfaac-dev libmp3lame-dev libopencore-amrnb-dev libopencore-amrwb-dev libtheora-dev
+        sudo apt-get install --assume-yes libvorbis-dev libxvidcore-dev v4l-utils
+
+        sudo apt-get install -y libcurl4-openssl-dev
+        sudo rosdep init
+        sudo apt-get install python-rosinstall
+        source /opt/ros/kinetic/setup.zsh
+
+        source /opt/ros/kinetic/setup.bash
+
+        sudo apt-get install sqlitebrowser
         ```
 
-        ruby 还可以 register `at_exit` 函数（和 C 一样）
+-   我想社会会发展到一天，女人只要生了孩子，国家就会提供住房补贴，基本生活费，
+    婴儿食品保障，免费托儿所的。这不是出于善心，而是经济发展和人口教育成本上升
+    的自然后果。婚姻制度而将因而解体。在这种社会成长起来的孩子，他忠诚的第一对
+    象也将是国家而非家庭，甚至不是他的母亲。
 
-        ## Chapter 3 Datatypes and Objects
+-   ![](http://ww1.sinaimg.cn/large/67d6aa46gw1fbljm25kwxj20dw2nujz1.jpg)
 
-        ### Numbers
+    :   众所周知，通用处理器（CPU）的摩尔定律已入暮年，而机器学习和 Web 服务的
+        规模却在指数级增长。人们使用定制硬件来加速常见的计算任务，然而日新月异
+        的行业又要求这些定制的硬件可被重新编程来执行新类型的计算任务。FPGA
+        (Field Programmable Gate Array) 正是一种硬件可重构的体系结构，常年来被
+        用作专用芯片（ASIC）的小批量替代品，然而近年来在微软、百度等公司的数据
+        中心大规模部署，以同时提供强大的计算能力和足够的灵活性。
 
-        -   Numberic (immutable)
+-   http://m.weibo.cn/2201566133/4063053899793086
 
-            -   Integer
-                -   Fixnum (31 bits)
-                -   Bignum
-            -   Float
-            -   Complext (std. lib.)
-            -   BigDecimal (std. lib.)
-            -   Rational (std. lib.) 分数
+    :   “预测的准确率，我们现在已经做到北京未来 6 个小时的准确率达到了 75%，在深圳
+        和广州做到了 80%。未来 48 个小时的预测准确率达到 50%。大家不要小看 50% 的准确率，
+        它其实已经非常高了。相比之下，天气预报 24 小时的准确率只有 40%。”郑宇说。
 
-        -   ```ruby
-            1_000_000_000
-            0x
-            0b1111_0000
-            x = 5 % 2
-            x = 1.5 % 0.4
-            4**3**2 # 4**9
-            ```
+        另一方面，日本企业老气横秋、死气沉沉，有活力的新企业根本没有，和中美相
+        比截然不同。跨领域、改变商业模式的大创新也出不来，近年来世界上的大创新
+        主要是美国在搞，中国也有一些。日本大企业有权力的决策人员基本是老头，领
+        导者平均年龄高达 60 岁，而且极度保守，对于世界科技与生活剧烈的改变既想
+        不到也无法接受，只会让研发人员进行一些精致的研发。有些日本高管不愿意看
+        电子邮件，让手下人打印出来看。高管们不想学习新东西，旧软件一直用，新软
+        件更好用但是在公司内部无法推动。日本的硬件研发传统也与此相关，高管们就
+        是这么过来的，对于硬件研发能理解，对于元器件做精做深是支持的。
 
-        -   An important corollary of Ruby’s definition of integer division is
-            that, in Ruby, -a/b equals a/-b but may not equal -(a/b) .
+-   总结：想法和创意连小学生都有，改变世界的雄心和哲学体系每个大学生都有一套。这个世界稀缺的是组织和后勤。
 
-        -   Ruby’s definition of the modulo operation also differs from that of
-            C and Java. In Ruby, –7%3 is 2 . In C and Java, the result is -1
-            instead. The magnitude of the result differs, of course, because
-            the value of the quotient differs. But the sign of the result
-            differs, too.  In Ruby, the sign of the result is always the same
-            as the sign of the second operand. In C and Java, the sign of the
-            result is always the same as the sign of the first operand.  (Ruby
-            also provides a remainder method that behaves, in sign and
-            magnitude, like the C modulo operator.)
+    选择市场，选择伙伴，都不是由欲望（比如说愿景）决定的，而是由实力决定的。曾
+    国藩战术战略并不出众，但他重视两件事，一是练兵，二是后勤。这就使他能不管怎
+    么失败，总是能再起。内部的，后方的才是最根本的。
 
-        ### Text
+omnipotent
 
-        `'a\b' == 'a\\b'`
-        可以，但是没必要 escape。
+    US[ɑm'nɪpətənt]UK[ɒm'nɪpətənt]
 
-        `"#{interp}"`, escape interp: `"\#{none_interp}"`
+        adj.万能的；全能的；无所不能的
+        n.万能者；神
+        网络有无限能力的；大哥无所不能呀
 
-        `''` 不可以用“\”续行，`""` 可以。
+-   我一直觉得，我的性格是那种，如果在有选择自由的情况下，还愿意做自己不喜欢做的事情，那肯定是有一种我认为正确的价值观或者理想之类的东西在激励我，我相信这也是很多人的情况。
+-   [站立桌电脑桌移动办公桌笔记本简易现代站式写字台懒人书桌](https://detail.tmall.com/item.htm?spm=a230r.1.14.97.ZncGnG&id=527720021021&ns=1&abbucket=10&skuId=3140256231021)
 
-        -   `\u00D7` "x"，leading 0 不能省略
-        -   `\u20ac"` "€"，大小写一样
-        -   `%q`, single quote
+-   [kdiff3](http://kdiff3.sourceforge.net/doc/screenshots.html)
 
-            ```ruby
-            %q(..........)
-            %q-..........-
-            %q{..........}
-            %q|..........|
-            ```
+    :   sudo cp git-kdiff3 "`git --exec-path`"
 
-            和 Perl 类似
+        https://github.com/id-Software/Quake-2.git
+        https://github.com/CloudCompare/CloudCompare.git
 
-        -   `%Q`, double quote
+-   腾讯大王卡
 
-            ```ruby
-            %Q(..........)
-            %Q-..........-
-            %Q{..........}
-            %_.........._ # Q 省略了
-            ```
+-   stewForAni.github.io
 
-            `()` 这样的和 `||` 有点不一样。前者是 paired，后者没有。
-            前者可以 nest 而不需要 escape。
+-   [把项目里用到的一个倒计时动画单独撸出来了，有兴趣的可以看看哟，不是很精确，慎用哈！！！！哈哈哈哈 - V2EX](https://www.v2ex.com/t/293992) -<
 
-        -   here doc
+    :   你不能拿别人的东西骗赞/骗 star 啊。
 
-            ```ruby
-            document = <<EOF
-                ...
-                ...
-                ...
-            EOF
-            ```
+-   [《游戏引擎架构》信息总汇 - Milo Yip - 博客园](http://www.cnblogs.com/miloyip/p/GameEngineArchitecture.html#) -<
 
-        -   backtick command execution
+    :   https://github.com/mrdoob/three.js.git
 
-            `ls`, `%x[ls]`, Kernel.`('ls')
+        [toji/gl-matrix: Javascript Matrix and Vector library for High Performance WebGL apps](https://github.com/toji/gl-matrix)
 
-        -   string literal
+        https://github.com/toji/gl-matrix
+        http://code.google.com/p/glmatrix/
+        https://www.youtube.com/watch?v=tgVLb6fOVVc&list=PLFdY_rJNii24jT8j5FUl4Othu7dTtzMgy
+        http://graphics.ucsd.edu/courses/cse169_w05/CSE169_04.ppt
 
-            -   `?\t` tab?
-            -   `?\C-x` Ctrl-X?
-            -   float to string: 2.3.to_s，在 string interp 的时候不需要显式输入 to_s
+-   MVP stands for Matrix-Vector Product
 
-            -   ```ruby
-                s = "..."
-                s[0], s[-s.length]              # first char
-                s[s.length-1], s[-1]            # last char
-                s[0] = ?H                       # replace with 'H'
-                s[-1] = ""                      # delete last char
-                s[start,len]
-                s[s.length,0] = "good"          # append
-                s[2..3]
-                s[-3..-1]
-                s[0..0]                         # first char
-                s[0...0]                        # no char
+-   五十坐地能吸土
 
-                s = "hello"                     # Start with the word "hello"
-                while(s["l"])                   # While the string contains the substring "l"
-                    s["l"] = "L";               # Replace first occurrence of "l" with "L"
-                end                             # Now we have "heLLo"
+-   http://stackoverflow.com/questions/40022160/why-does-intellij-show-java-lang-string-as-deprecated
 
-                s[/[aeiou]/] = '*'              # Replace first vowel with an asterisk
-                ```
+-   http://www.google.com/search?hl=en&q=cortex+command&um=1&ie=UTF-8&tbo=u&tbs=vid:1&source=og&sa=N&tab=wv
 
-        ### Arrays
-        ### Hashes
-        ### Ranges
-        ### Symbols
-        ### True, False, and Nil
-        ### Objects
+-   我很是不理解为什么都 2016 年了，您还拿 90 后说事儿？90 年出生的小朋友现在都
+    26 了。00 后出生的现在也 16 了。您也太天真了吧，还以为现在 80 后是中流砥柱
+    嘛？您应该好好想想自己是不是装嫩装的也太浮夸了。
 
-        Chapter 4 Expressions and Operators
-            Literals and Keyword Literals
-            Variable References
-            Constant References
-            Method Invocations
-            Assignments
-            Operators
+-   [怎样成为一个优秀的文坛装逼犯 （续完）_罗永浩_新浪博客](http://blog.sina.com.cn/s/blog_48264673010002ae.html) -<
 
-        Chapter 5 Statements and Control Structures
-            Conditionals
-            Loops
-            Iterators and Enumerable Objects
-            Blocks
-            Altering Control Flow
-            Exceptions and Exception Handling
-            BEGIN and END
-            Threads, Fibers, and Continuations
+    :   Edmund Burke 的名言“All that is needed for the triumph of misguided
+        cause is that good people do nothing.”（意为“谬误想要获得胜利，只需好人
+        袖手旁观，”或“误导之所以得逞，就是因为好人无所作为”）被张亚哲老师无比累
+        赘并且是无中生有地翻译成了“犹存于世的妄言惑众之辞得以甚嚣尘上之势，皆因
+        人类英雄义士袖手旁观麻木不仁。”这就好像是把“no pay, no gain”(指没有付出
+        就没有收获，也可以意译成一分耕耘，一分收获) 这样的简洁表达翻译成“试图拒
+        绝卧薪尝胆断然回避付出艰苦卓绝之努力者终将面临颗粒无收晚景凄凉之人生结
+        局”一样傻逼。我想张亚哲老师这样翻译的本来目的是装逼，但显然再一次，象他
+        绝大部分的时候一样，没装好。
 
-        Chapter 6 Methods, Procs, Lambdas, and Closures
-            Defining Simple Methods
-            Method Names
-            Methods and Parentheses
-            Method Arguments
-            Procs and Lambdas
-            Closures
-            Method Objects
-            Functional Programming
+        http://blog.csdn.net/g9yuayon/article/details/34882
 
-        Chapter 7 Classes and Modules
-            Defining a Simple Class
-            Method Visibility: Public, Protected, Private
-            Subclassing and Inheritance
-            Object Creation and Initialization
-            Modules
-            Loading and Requiring Modules
-            Singleton Methods and the Eigenclass
-            Method Lookup
-            Constant Lookup
+-   Ken Thompson，C 语言前身 B 语言的作者，Unix 的发明人之一 (另一个是 Dennis
+    M. Riche 老大，被尊为 DMR)，Belle(一个厉害的国际象棋程序) 的作者之一, 操作
+    系统 Plan 9 的主要作者 (另一个是大牛人 Rob Pike, 前不久被 google 挖走了)。
+    Ken 爷爷也算是计算机历史上开天辟地的人物了。1969 年还是计算机史前时代，普通
+    人都认为只有大型机才能运行通用的操作系统，小型机只有高山仰止的份儿。至于用
+    高级语言来写操作系统，更是笑谈。Ken 爷爷自然不是池中物，于是他和 DMR 怒了，
+    在 1969 年到 1970 间用汇编在 PDP-7 上写出了 UNIX 的第一个版本。他们并不知道
+    ，一场轰轰烈烈的 UNIX 传奇由此拉开了序幕。Ken 爷爷在 1971 年又把 Unix 用 C
+    重写，于是 C 在随后 20 年成就了不知多少豪杰的梦想和光荣。
 
-        Chapter 8 Reflection and Metaprogramming
-            Types, Classes, and Modules
-            Evaluating Strings and Blocks
-            Variables and Constants
-            Methods
-            Hooks
-            Tracing
-            ObjectSpace and GC
-            Custom Control Structures
-            Missing Methods and Missing Constants
-            Dynamically Creating Methods
-            Alias Chaining
-            Domain-Specific Languages
+    Ken 爷爷还有段佳话： 装了 UNIX 的 PDP-11 最早被安装在 Bell Lab 里供大家日常
+    使用。很快大家就发现 Ken 爷爷总能进入他们的帐户，获得最高权限。Bell Lab 里
+    的科学家都心比天高，当然被搞得郁闷无比。于是有高手怒了，跳出来分析了 UNIX
+    代码，找到后门，修改代码，然后重新编译了整个 UNIX。就在大家都以为“这个世界
+    清净了”的时候，他们发现 Ken 爷爷还是轻而易举地拿到他们的帐户权限，百思不解
+    后，只好继续郁闷。谁知道这一郁闷，就郁闷了 14 年，直到 Ken 爷爷道出个中缘由
+    。原来，代码里的确有后门，但后门不在 Unix 代码里，而在编译 Unix 代码的 C 编
+    译器里。每次 C 编译器编译 UNIX 的代码，就自动生成后门代码。而整个 Bell Lab
+    的人，都是用 Ken 爷爷的 C 编译器。:D
 
-        Chapter 9 The Ruby Platform
-            Strings
-            Regular Expressions
-            Numbers and Math
-            Dates and Times
-            Collections
-            Files and Directories
-            Input/Output
-            Networking
-            Threads and Concurrency
+    http://www.cs.bell-labs.com/who/rob/utah2000.pdf
 
-        Chapter 10 The Ruby Environment
-            Invoking the Ruby Interpreter
-            The Top-Level Environment
-            Practical Extraction and Reporting Shortcuts
-            Calling the OS
-            Security
+    http://blog.csdn.net/g9yuayon/article/details/38393
 
-        Colophon
+    /g9yuayon
+
+-   [八卦高德纳](https://book.douban.com/review/5384627/) -<
+
+    :   lol.changwei.me

@@ -15,6 +15,7 @@ title: Languages <-- Math, Programming Languages, Natural Languages
     +   [OpenCV](opencv.html){title=opencv.md}
     +   [Perl](perl.html){title=perl.md}
     +   [Qt](qt.html){title=qt.md}
+    +   [Ruby](ruby.html){title=ruby.md}
     +   [System & Network & MISC](sys-net-misc.html){title=sys-net-misc.md}
     +   [TypeScript](typescript.html){title=typescript.md}
     +   [jQuery](jquery.html){title=jquery.md}

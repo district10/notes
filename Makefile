@@ -83,13 +83,9 @@ publish/%: %
 note: n
 n:
 	$(EDITOR) -p \
-		2017/note3.md \
+		2017/note4.md \
 		index.md \
-		lang/java.md \
-		lang/typescript.md \
-		lang/algo.md \
-		lang/c-cpp.md \
-		2016/job.md \
+		lang/ruby.md \
 
 m:
 	$(EDITOR) Makefile

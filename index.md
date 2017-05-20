@@ -25,7 +25,7 @@ tangzx.qiniudn.com (tangzhixiong.com)
 
 ## 2017
 
--   [note4.html](2017/note3.html){title=2017/note4.md}
+-   [note4.html](2017/note4.html){title=2017/note4.md}
 -   [note3.html](2017/note3.html){title=2017/note3.md}
 -   [note2.html](https://github.com/district10/notes/blob/master/2017/note2.ipynb)
 -   [note1.html](2017/note1.html){title=2017/note1.md}
