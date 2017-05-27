@@ -37,10 +37,7 @@ enticing
 -   Targets and Prerequisites
 -   Dependencing Checking
 -   Minimizing Rebuilds
--   Invoking make
-
-    makefile, Makefile, GNUMakefile
-
+-   Invoking make: makefile, Makefile, GNUMakefile
 -   Basic Makefile Syntax
 
     |   target~1~ target~2~ target~3~ : Prerequisites~1~ Prerequisites~2~
@@ -48,7 +45,7 @@ enticing
     |       cammand~2~
     |       cammand~3~
 
-    ```
+    ```bash
     $ make
     Makefile:6: *** commands commmence before first target.  Stop.
     ```
@@ -71,8 +68,8 @@ enticing
         -   Phony Targets
 
             -   the standard phony target is "clean"
-            -   make cannot distinguish between a file target and phony target
-            -   a special target `.PHONY` to tell make that a target is not a real file
+            -   `make` cannot distinguish between a file target and phony target
+            -   a special target `.PHONY`{.makefile} to tell make that a target is not a real file
             -   phony targets are always out of date, so their **dependent** always get to be remade
 
         -   Empty Targets
@@ -86,7 +83,7 @@ enticing
 
         -   Variables
 
-            -   Automatic Variables
+            -   Automatic Variables :hearts:
 
                 -   `$@`{.makefile}: target
                 -   `$*`{.makefile}: stem of the target filename (no file extension suffix)
@@ -133,7 +130,7 @@ enticing
 
         -   Static Pattern Rules
 
-            A static pattern rule is one that applies only to a specific list of targets.
+            A static pattern rule is one that **applies only to a specific list of targets**.
 
             ```makefile
             $(OBJECTS): %.o: %.c
@@ -144,7 +141,7 @@ enticing
 
         -   Suffix Rules
 
-            -   `.c.o:` 等价于 `.o: .c` (mnemonic: c->o)
+            -   `.c.o:` 等价于 `.o: .c` (mnemonic: `->`)
             -   `.p:` -> `%: %.p`
             -   `make --no-built-in-rules`, `make -r`
 
@@ -276,6 +273,8 @@ enticing
 
             -   Double-Colon Rules
 
+                两组规则都可以做一件事。选择那条更新的路。
+
                 Double-colon rules are an obscure feature that allows
                 the same target to be updated with different commands
                 depending on which set of prerequisites are newer than
@@ -314,7 +313,7 @@ enticing
 
 -   Macros
 
-    -   用了 define 的叫 macro，用的 assignment 的叫 variable。
+    -   **用了 define 的叫 macro，用的 assignment 的叫 variable**
     -   macro 和 variable 的 specify 是一样的都是 `$(macro)`, `$(variable)`
     -   ```makefile
         define create-jar
@@ -375,6 +374,8 @@ enticing
         $(call parent,one,two)
     ```
 
+    小心这里的参数。
+
 -   Built-in Functions
 
     `$(function-name arg1[, argn])`
@@ -390,6 +391,8 @@ enticing
         -   `$(findstring string,text)`{.makefile}
         -   `$(subst search-string,replace-string,text)`{.makefile}
 
+            e.g.
+
             ```makefile
             $(subst .c,.o,$(sources))
             ```
@@ -398,6 +401,8 @@ enticing
 
             wildcard version of `subst`.
 
+            我以前总以为 patsubst 是 path substitute，现在发现原来是 pattern substitute。
+
         -   `$(words text)`：就是 `#text`
         -   `$(word n,text)`：就是 `text[n]`，n 从 1 开始数
         -   `$(firstword text)`, word 1,text
@@ -405,7 +410,7 @@ enticing
 
     -   Important Miscellaneous Functions
 
-        -   `$(sort list)`, remove dups
+        -   **`$(sort list)`, remove dups**
         -   `$(shell command)`
 
     -   Filename Functions
@@ -416,7 +421,7 @@ enticing
             sources := $(wildcard *.c *.h)
             ```
 
-        -   dir list...
+        -   dir list... :hearts:
 
             ```makefile
             source-dirs := $(sort \
@@ -478,7 +483,7 @@ enticing
 -   Continuing Long Commands
 -   Command Modifiers
 
-    -   `@`, don't echo the command
+    -   `@`, don't echo the command，其实就这个常用
     -   `-`, ignore errors
     -   `+`, run even with `--just-print`
 
@@ -500,6 +505,11 @@ enticing
 -   Command-Line Limits
 
     因为 shell 指令长度有限
+
+    （吐槽：command-line 和 command line 两种说法用的人都很多；就跟 home page
+    和 homepage 用的人都多一样。）
+
+后面就没必要看了。
 
 ## Part II: Advanced and Specialized Topics
 
