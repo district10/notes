@@ -598,7 +598,7 @@ utf-8 -<
 -   `''` 不可以用“\”续行，`""` 可以。
 -   `\u00D7` "x"，leading 0 不能省略
 -   `\u20ac"` "€"，大小写一样
--   `%q`, single quote -<
+-   `%q`, single quote, `%Q` double quote -<
 
     :   ```ruby
         %q(..........)
@@ -609,9 +609,9 @@ utf-8 -<
 
         和 Perl 类似
 
--   `%Q`, double quote -<
+        `%Q`, double quote -<
 
-    :   ```ruby
+        ```ruby
         %Q(..........)
         %Q-..........-
         %Q{..........}
@@ -620,6 +620,51 @@ utf-8 -<
 
         `()` 这样的和 `||` 有点不一样。前者是 paired，后者没有。前者可以 nest
         而不需要 escape。
+
+        到底用在哪儿呢？
+
+        :   They're extraordinarily useful for escaping HTML with JavaScript in
+            it where you've already "run out" of quoting methods:
+
+            `link = %q[<a href="javascript:method('call')">link</a>]`{.ruby}
+
+            I've also found them to be very useful when working with multi-line
+            SQL statements:
+
+            ```ruby
+            execute(%Q[
+              INSERT INTO table_a (column_a)
+                SELECT value
+                  FROM table_b
+                  WHERE key='value'
+            ])
+            ```
+
+            The advantage there is you don't need to pay attention to the type
+            of quoting used within your query. It will work with either single,
+            double, or both. They're also a lot less fuss than the HEREDOC
+            style method.
+
+            Ruby provides other convenience methods like this such as %r which
+            can construct regular expressions. That avoids slash-itis when
+            trying to write one that handles stuff like http:// that would
+            otherwise have to be escaped.
+
+            Solutions of Delimiter collision
+
+            -   ASCII delimited text
+            -   Escape character
+            -   Escape sequence
+            -   Dual quoting delimiters: 'he says "good"'
+            -   Padding quoting delimiters
+            -   Configurable alternate quoting delimiters
+            -   Content boundary
+            -   Whitespace or indentation
+
+            refs and see also
+
+            -   [string - What is the use case for Ruby's %q / %Q quoting methods? - Stack Overflow](https://stackoverflow.com/questions/10144543/what-is-the-use-case-for-rubys-q-q-quoting-methods)
+            -   [Delimiter - Wikipedia](https://en.wikipedia.org/wiki/Delimiter#Delimiter_collision)
 
 -   here doc -<
 
@@ -633,7 +678,7 @@ utf-8 -<
 
 -   backtick command execution & `%x[cmd]` -<
 
-    :   `ls`, `%x[ls]`, Kernel.`('ls')
+    :   `ls`, `%x[ls]`
 
 -   string literal -<
 
@@ -798,12 +843,12 @@ o.nil?
 
 -   object equality -<
 
-    :   ```
+    :   ```ruby
         a.equals?(b)
         a.object_id == b.object_id  # Works like a.equal?(b)
         ```
 
-        ```
+        ```ruby
         a.eql?(b)
         a.equal?(b)
         a == b
@@ -838,12 +883,12 @@ o.nil?
         to_a                # array
         ```
 
--   Copying Objects: clone, dup
+-   Copying Objects: `clone`, `dup`
 
 -   Marshaling Objects
 
-    :   -   marshal.dump
-    -  :     marshal.load
+    :   -   `marshal.dump`
+        -   `marshal.load`
 
 -   Freezing Objects -<
 
@@ -880,7 +925,7 @@ o.nil?
 
 -   Method Invocations -<
 
-    :   ```
+    :   ```ruby
         .
         ::
         # if omitted, the method is invoked on self
@@ -965,13 +1010,13 @@ o.nil?
 
             splat，发出溅泼声
 
-            ```
+            ```ruby
             x,y,z = 1, *[2,3]
             ```
 
             不能 double splat。
 
-            ```
+            ```ruby
             x, *y = 1,2,3           # x=1, y=[2,3]
             x, *y = 1,2             # x=1, y=[2]
             x, *y = 1               # x=1, y=[]
@@ -985,11 +1030,11 @@ o.nil?
             x, y, *z = 1, *[2,3,4] # x=1; y=2; z=[3,4]
             ```
 
-        -   Parentheses in parallel assignment
+        -   Parentheses in parallel assignment :hearts: 括弧和方括号一起就能树状赋值/初始化
 
             "unpack"
 
-            ```
+            ```ruby
             x,y,z = 1,[2,3]                 # No parens: x=1;y=[2,3];z=nil
             x,(y,z) = 1,[2,3]               # Parens: x=1;y=2;z=3
             a,b,c,d = [1,[2,[3,4]]]         # No parens: a=1;b=[2,[3,4]];c=d=nil
@@ -1000,6 +1045,8 @@ o.nil?
 
             The return value of a parallel assignment expression is the
             array of rvalues (after being augmented by any splat operators).
+
+            返回值就是右边的值，被 splat 之后的内容（这样的好处是可以连续赋值）
 
 ### Operators
 
@@ -1138,16 +1185,21 @@ esoteric
     expression) is the value of the last expression in the code that
     was executed, or nil if no block of code was executed.
 
--   if As a Modifier
+    也就是说 if else 也是有返回值的。
 
-    ... if cond （不能换行）
+-   if As a **Modifier**
 
-    ```
+    `... if cond`{.ruby} （不能换行）
+
+    ```ruby
     y = x.invert if x.respond_to? :invert           # 可能不 evaluate
     y = (x.invert if x.respond_to? :invert)         # 总是 evaluate，可能 nil
     ```
 
-    ```
+    注意下面 if，unless 各种都有 conditionals 和 modifiers 几种可以写，但是有些
+    是不好的。
+
+    ```ruby
     if cond             begin               (
         ...                 ...                 ...
         ...                 ...                 ...
@@ -1156,7 +1208,7 @@ esoteric
 
 -   unless
 
-    ```
+    ```ruby
     unless cond
         ...
     end
@@ -1181,13 +1233,13 @@ esoteric
     end
     ```
 
--   The ?: Operator
+-   The `?:` Operator，Ternary 操作符。没拼错的话。`['tɝnəri] `
 
 ### Loops
 
 -   while and until
 
-    ```
+    ```ruby
     while cond do
         ...
     end
@@ -1209,7 +1261,7 @@ esoteric
 
 -   the for/in Loop
 
-    ```
+    ```ruby
     for var in collection [do]
         ...
     end
@@ -1223,7 +1275,7 @@ esoteric
 
 -   tap
 
-    ```
+    ```ruby
     chars = "hello world"   .tap    { |x| puts "original object: #{x.inspect}" }
         .each_char          .tap    { |x| puts "each_char returns: #{x.inspect}" }
         .to_a               .tap    { |x| puts "to_a returns: #{x.inspect}" }
@@ -1231,15 +1283,20 @@ esoteric
         .sort               .tap    { |x| puts "sort returns: #{x.inspect}" }
     ```
 
+    tap 有点像 shell 里面的 tee。
+    这里 tap 的意思和 tap a phone 一样，就是偷听，不干扰地偷听。
+
 -   Enumerable Objects
 
-    ```
+    ```ruby
     File.open(filename) do |f|
         f.each_with_index do |line,number|
             print "#{number}: #{line}"
         end
     end
     ```
+
+    就是可以用 each 的？
 
     -   collect (map)
     -   select (类似“filter”的概念)
@@ -1255,9 +1312,9 @@ esoteric
 
 -   Writing Custom Iterators
 
-    yield
+    iterators 里面的东西是 yield 出来的。
 
-    ```
+    ```ruby
     def sequence(n, m, c)
         i = 0
         while(i < n)
@@ -1292,50 +1349,55 @@ esoteric
         “internal iterators” and “external iterators,” which is
         discussed later in this section.
 
-If a method is invoked without a block, it is an error for that method to yield,
-because there is nothing to yield to. Sometimes you want to write a method
-that yields to a block if one is provided but takes some default action (other
-than raising an error) if invoked with no block. To do this, use block_given?
-to determine whether there is a block associated with the invocation.
-block_given? , and its synonym iterator? , are Kernel methods, so they act like
-global functions. Here is an example:
+    If a method is invoked without a block, it is an error for that method to yield,
+    because there is nothing to yield to.
+    yield 的东西是被 push 到后面的 block 里面的。
 
-```
-def sequence(n, m, c)
-    i, s = 0, []
-    while(i < n)
-        y = m*i + c
-        yield y if block_given?
-        s << y
-        i += 1
+    Sometimes you want to write a method
+    that yields to a block if one is provided but takes some default action (other
+    than raising an error) if invoked with no block. To do this, use `block_given?`
+    to determine whether there is a block associated with the invocation.
+    `block_given?`, and its synonym `iterator?`, are Kernel methods, so they act like
+    global functions. Here is an example:
+
+    下面这样的话，就是有 block 的时候，才 yield。
+
+    ```ruby
+    def sequence(n, m, c)
+        i, s = 0, []
+        while(i < n)
+            y = m*i + c
+            yield y if block_given?
+            s << y
+            i += 1
+        end
+        s
     end
-    s
-end
-```
+    ```
 
 -   Enumerators
 
-```
-to_enum
-enum_for
+    ```ruby
+    to_enum
+    enum_for
 
-# Call this method with an Enumerator instead of a mutable array.
-# This is a useful defensive strategy to avoid bugs.
-process(data.to_enum) # Instead of just process(data)
+    # Call this method with an Enumerator instead of a mutable array.
+    # This is a useful defensive strategy to avoid bugs.
+    process(data.to_enum) # Instead of just process(data)
 
-# iterator methods: :each_char, :each_byte, :each_line
-s = "hello"
-s.enum_for(:each_char).map {|c| c.succ }    # => ["i", "f", "m", "m", "p"]
-s.chars.map { ... }
+    # iterator methods: :each_char, :each_byte, :each_line
+    s = "hello"
+    s.enum_for(:each_char).map {|c| c.succ }    # => ["i", "f", "m", "m", "p"]
+    s.chars.map { ... }
 
-for line, number in text.each_line.with_index
-    print "#{number+1}: #{line}"
-end
-```
+    for line, number in text.each_line.with_index
+        print "#{number+1}: #{line}"
+    end
+    ```
 
 -   External Iterators
 
-    ```
+    ```ruby
     iterator = 9.downto(1)                      # An enumerator as external iterator
     begin                                       # So we can use rescue below
         print iterator.next while true          # Call the next method repeatedly
@@ -1346,10 +1408,10 @@ end
 
 -   Internal versus External Iterators
 
-    The “gang of four” define and contrast internal and external iterators
+    The “gang of four” define and contrast **internal and external iterators**
     quite clearly in their design patterns book:
 
-    >   A fundamental issue is deciding which party controls the iteration, the
+    >   A fundamental issue is deciding **which party controls the iteration**, the
     >   iterator or the client that uses the iterator. When the client controls
     >   the iteration, the iterator is called an external iterator, and when
     >   the iterator controls it, the iterator is an internal iterator. Clients
@@ -1358,11 +1420,17 @@ end
     >   hands an internal iterator an operation to perform, and the iterator
     >   applies that operation to every element....
     >
+    >   简言之，external 还是 internal 取决于谁在控制 iteration，如果自己在控制，那就是
+    >   internal，如果用户（client）在控制，就是 external。
+    >
     >   External iterators are more flexible than internal iterators. It’s easy
     >   to compare two collections for equality with an external iterator, for
-    >   example, but it’s practi- cally impossible with internal iterators....
+    >   example, but it’s practically impossible with internal iterators....
     >   But on the other hand, internal iterators are easier to use, because
     >   they define the iteration logic for you.
+    >
+    >   internal 好用，因为循环的逻辑已经有了，external 可以更灵活，比如一次 iterate
+    >   两个 collection，并做比较啥的。
 
     In Ruby, iterator methods like each are internal iterators; they control
     the iteration and “push” values to the block of code associated with the
@@ -1373,18 +1441,19 @@ end
 ### Blocks
 
 -   `{}`, `begin ... end`
--
 
-```
+```ruby
 # The block takes two words and "returns" their relative order
 words.sort! {|x,y| y <=> x }
 ```
 
-```
+```ruby
 array.collect do |x|
     next 0 if x == nil          # return x
-    next x, x*x                 # return two values
+    next x, x*x                 # return two values，但这两个 value 其实是一个 []，是一个元素
 end
+
+# 所以上面的操作过后，list 的元素个数不变。
 
 # or without next
 array.collect do |x|
@@ -1397,9 +1466,10 @@ end
 ```
 
 -   Blocks and Variable Scope: `hash.each {|key,value; i,j,k| ... }`
+
 -   Passing Arguments to a Block:
 
-    ```
+    ```ruby
     hash.each_pair {|k,v| ... }         # k,v = key, value
     hash.each {|k,v| ... }              # k,v = [key, value]
 
@@ -1417,22 +1487,18 @@ end
 
 -   return,
 
-    主要用于 return permaturely
+    主要用于 return permaturely（提前 return）
 
--   break,
+-   break, `break if cond`{.ruby}
 
-    ```
-    break if cond
-    ```
+    也可以 break with a value
 
-    break with a value
-
-    Recall that all syntactic constructs in Ruby are expressions, and all can
-    have a value.  The break statement can specify a value for the loop or
+    Recall that **all syntactic constructs in Ruby are expressions**, and all can
+    have a value. The break statement can specify a value for the loop or
     iterator it is breaking out of.  The break keyword may be followed by an
     expression or a comma-separated list of expressions. If break is used with
     no expression, then the value of the loop expression, or the return value
-    of the iterator method, is nil . If break is used with a single expression,
+    of the iterator method, is nil. If break is used with a single expression,
     then the value of that expression becomes the value of the loop expression
     or the return value of the iterator. And if break is used with multiple
     expressions, then the values of those expressions are placed into an array,
@@ -1440,11 +1506,13 @@ end
     of the iterator.
 
     By contrast, a while loop that terminates normally with no break always has
-    a value of nil. The return value of an iterator that terminates normally
+    a value of nil. 啥都有返回值的，包括流程控制语句，如果你不返回，就返回 nil。
+    （其实这个在 while 里面是不合常规的，因为不是返回的最后一个语句。）
+    The return value of an iterator that terminates normally
     is defined by the iterator method. Many iterators, such as times and each ,
     simply return the object on which they were invoked.
 
--   next,
+-   next
 
     ```ruby
     while(line = gets.chop)
@@ -1456,7 +1524,7 @@ end
 
 -   redo,
 
-    ```
+    ```ruby
     while(i < 3)
         # Control returns here when redo is executed
         print i
@@ -1489,7 +1557,7 @@ raise RuntimeError
 
 Handling Exceptions with rescue
 
-```
+```ruby
 begin
     ...
 rescue
@@ -1505,13 +1573,13 @@ end                                         # End the begin/rescue block
 
 Handling exceptions by type
 
-```
+```ruby
 rescue Exception
 rescue ArgumentError => e
 # 可以 rescue 几遍
 ```
 
--   Propagation of exceptions
+-   Propagation of exceptions 和 event 一样，这是分层级的，当然要 propagate。
 -   The else Clause
 -   The ensure Clause (类似于 Java 的 finally）
 
@@ -1519,7 +1587,7 @@ rescue ArgumentError => e
 
 和 awk 一样
 
-```
+```ruby
 BEGIN {
     ...
 }
@@ -1539,14 +1607,14 @@ else
 end
 ```
 
-The Kernel method at_exit provides an alternative to the END statement; it
+The Kernel method `at_exit` provides an alternative to the END statement; it
 registers a block of code to be executed just before the interpreter exits.
 
 ### Threads, Fibers, and Continuations
 
 -   Threads for Concurrency
 
-    ```
+    ```ruby
     threads = filenames.map do |f|
         Thread.new { File.read(f) }
     end
@@ -1556,7 +1624,7 @@ registers a block of code to be executed just before the interpreter exits.
 
 -   Fibers for Coroutines
 
-    fiber 就是 lightweight thread，或者叫 coroutines （more accurately，semi-coroutines）
+    **fiber 就是 lightweight thread，或者叫 coroutines （more accurately，semi-coroutines）**
 
     The most common use for coroutines is to **implement generators**: objects that
     can compute a partial result, yield the result back to the caller, and save
@@ -1571,7 +1639,7 @@ registers a block of code to be executed just before the interpreter exits.
     you may find them difficult to understand at first. If so, study the
     examples carefully and try out some examples of your own.
 
-    ```
+    ```ruby
     f = Fiber.new {                     # Line 1:     Create a new fiber
         puts "Fiber says Hello"         # Line 2:
         Fiber.yield                     # Line 3:     goto line 9
@@ -1612,7 +1680,7 @@ registers a block of code to be executed just before the interpreter exits.
 
 -   singleton
 
-    ```
+    ```ruby
     o = "message"
     def o.printme           # Define a singleton method for this object
         puts self
@@ -1628,7 +1696,7 @@ registers a block of code to be executed just before the interpreter exits.
 
 -   Method Aliases
 
-    ```
+    ```ruby
     alias aka also_known_as
     ```
 
@@ -1646,7 +1714,7 @@ Required Parentheses
 
 -   Parameter Defaults
 
-    ```
+    ```ruby
     def prefix(s, len=1)
         s[0,len]
     end
@@ -1662,21 +1730,25 @@ Required Parentheses
 
 -   Variable-Length Argument Lists and Arrays
 
-    ```
+    ```ruby
     def max(first, *rest)
         rest.each { ... }
     end
     ```
 
+    这个好有 lisp 风格啊……car，lst 啥的……
+
 -   Mapping Arguments to Parameters
 -   Hashes for Named Arguments
 -   Block Arguments: `{ |x| ... }`
 
-    -   One of the features of blocks is their anonymity
+    -   One of the features of blocks is their anonymity `ænə'nɪmɪtɪ` 匿名性
     -   add a final argument to your method, and
         prefix the argument name with an ampersand (`&`)
 
-        ```
+        给 block 前面加上一个 `&` 就是一个 proc（am**P**ersand）
+
+        ```ruby
         def sequence3(n, m, c, &b)  # Explicit argument to get block as a Proc
             i = 0
             while(i < n)
@@ -1685,6 +1757,8 @@ Required Parentheses
             end
         end
         ```
+
+        一个 proc 就可以通过“.call”来 invoke。
 
 -   Procs and Lambdas
 
@@ -1709,7 +1783,7 @@ The subsections that follow explain  -<
 
 -   Creating Procs
 
-    ```
+    ```ruby
     def makeproc(&p)    # conv block to proc
         p
     end
@@ -1719,13 +1793,16 @@ The subsections that follow explain  -<
     sum = adder.call(2,2)
     ```
 
-    -   Proc.new
+    这里传入的“&p”是 block，“p”是 proc，
+    也就是 `{}` 是 block，传入之后，就变成了 proc。传回。
 
-        ```
+    -   Proc.new，这个实现估计也差不多。
+
+        ```ruby
         p = Proc.new {|x,y| x+y }
         ```
 
-        ```
+        ```ruby
         def invoke(&b)                  def invoke
             b.call                          Proc.new.call
         end                             end
@@ -1733,13 +1810,15 @@ The subsections that follow explain  -<
 
     -   Kernel.lambda
 
-        ```
+        ```ruby
         is_positive = lambda {|x| x>0 }
         ```
 
+        block 前面加上 lambda，就是 lambda 了。
+
     -   Lambda Literals
 
-        ```
+        ```ruby
         succ = lambda {|x| x+1 }
         # >= ruby 1.9
         succ = ->(x){ x+1 }
@@ -1758,7 +1837,7 @@ The subsections that follow explain  -<
         zoom = ->x,y,factor=2 { [...] }
         ```
 
-        ```
+        ```ruby
         def compose(f,g)
             ->(x) { f.call(g.call(x)) }
         end
@@ -1767,14 +1846,14 @@ The subsections that follow explain  -<
         succOfSquare.call(4)
         ```
 
-        ```
+        ```ruby
         data.sort {|a,b| b-a }              # the block version
         data.sort &->(a,b){ b-a }           # the lambda version
         ```
 
 -   Invoking Procs and Lambdas
 
-    ```
+    ```ruby
     # f = Proc.new {|x,y| 1.0/(1.0/x+1.0/y) }
     z = f.call(x,y)
     z = f[x,y]
@@ -1788,7 +1867,7 @@ The subsections that follow explain  -<
     The arity of a proc or lambda is the number of arguments it expects.
     (The word is derived from the “ary” suffix of unary, binary, ternary, etc.)
 
-    ```
+    ```ruby
     lambda{||}.arity                # 0
     lambda{|x| x}.arity             # 1
     lambda{|x,y| x+y}.arity         # 2
@@ -1807,7 +1886,7 @@ The subsections that follow explain  -<
 
     -   return
 
-        ```
+        ```ruby
         def test
             puts "entering method"
             1.times { puts "entering block"; return }   # Makes test method return
@@ -1816,7 +1895,7 @@ The subsections that follow explain  -<
         test
         ```
 
-        ```
+        ```ruby
         def test
             puts "entering method"
             p = Proc.new { puts "entering proc"; return }
@@ -1826,7 +1905,7 @@ The subsections that follow explain  -<
         test
         ```
 
-        ```
+        ```ruby
         def procBuilder(message)                # Create and return a proc
             Proc.new { puts message; return }   # return returns from procBuilder
             # but procBuilder has already returned here!
@@ -1842,7 +1921,7 @@ The subsections that follow explain  -<
 
         lambda 不太一样：
 
-        ```
+        ```ruby
         def test
             puts "entering method"
             p = lambda { puts "entering lambda"; return }
@@ -1852,7 +1931,7 @@ The subsections that follow explain  -<
         test
         ```
 
-        ```
+        ```ruby
         def lambdaBuilder(message)          # Create and return a lambda
             lambda { puts message; return } # return returns from the lambda
         end
@@ -1884,9 +1963,9 @@ invocable function and a variable binding for that function. When you create a
 proc or a lambda, the resulting Proc object holds not just the executable block
 but also bindings for all the variables used by the block.
 
-```
+```ruby
 def multiplier(n)
-    lambda {|data| data.collect{|x| x*n } }
+    lambda {|data| data.collect{|x| x*n } }     # 和 JS 里面一样，返回一个函数
 end
 doubler = multiplier(2)
 puts doubler.call([1,2,3]) # Prints 2,4,6
@@ -1894,7 +1973,10 @@ puts doubler.call([1,2,3]) # Prints 2,4,6
 
 -   Closures and Shared Variables
 
-    ```
+    其实就是返回两个函数咯。其实我觉得这里还不如返回一个 hash 呢，
+    干嘛搞得很分裂……
+
+    ```ruby
     def accessor_pair(initialValue=nil)
         value = initialValue
         getter = lambda { value }
@@ -1910,14 +1992,15 @@ puts doubler.call([1,2,3]) # Prints 2,4,6
 
 -   Closures and Bindings
 
-    ```
+    ```ruby
     def multipliers(*args)
-        x = nil
         args.map {|x| lambda {|y| x*y }}
     end
     double,triple = multipliers(2,3)
     puts double.call(2)
     ```
+
+    这个嘛，其实 map 出来是一堆函数（proc）。
 
 -   Closures and Bindings
 
@@ -1926,7 +2009,7 @@ puts doubler.call([1,2,3]) # Prints 2,4,6
     -   providing no interesting methods of its own
     -   providing a context in which to evaluate a string of Ruby code
 
-    ```
+    ```ruby
     def multiplier(n)
         lambda {|data| data.collect{|x| x*n } }
     end
@@ -1936,13 +2019,15 @@ puts doubler.call([1,2,3]) # Prints 2,4,6
 
     bind!:
 
-    ```
+    ```ruby
     eval("n=3", doubler.binding)            # 如果 doubler 是 proc 的话，用 eval("n=3", doubler.binding)
     # ruby >= 1.9
     doubler.binding.eval("n=3")
     ```
 
-    ```
+    居然可以直接修改 closure 里面的“配置”。
+
+    ```ruby
     puts doubler.call([1,2,3])  # 3,6,9
     ```
 
@@ -1951,15 +2036,15 @@ puts doubler.call([1,2,3]) # Prints 2,4,6
 Ruby has powerful metaprogramming (or reflection) capabilities, and methods can
 actually be represented as instances of the Method class.
 
-```
+```ruby
 m = 0.method(:succ)             # A Method representing the succ method of Fixnum 0
 ```
 
--   Unbound Method Objects
+-   **Unbound Method Objects**
 
     就是没有 bound 的 method，可以从随意一个 obj 获得。
 
-    ```
+    ```ruby
     unbound_plus = Fixnum.instance_method("+")  # or `public_instance_method`
 
     # bind & call
@@ -1969,7 +2054,7 @@ m = 0.method(:succ)             # A Method representing the succ method of Fixnu
 
 ### Functional Programming
 
-```
+```ruby
 mean = a.inject {|x,y| x+y } / a.size
 sumOfSquares = a.map{|x| (x-mean)**2 }.inject{ |x,y| x+y }
 standDevision = Math.sqrt(sumOfSquares/(a.size-1))
@@ -1977,7 +2062,7 @@ standDevision = Math.sqrt(sumOfSquares/(a.size-1))
 
 -   Applying a Function to an Enumerable
 
-    ```
+    ```ruby
     module Functional
         def apply(enum)
             enum.map &self
@@ -1990,11 +2075,12 @@ standDevision = Math.sqrt(sumOfSquares/(a.size-1))
         alias <= reduce
     end
 
+    # 这特么就给 Proc 和 Method 加上了这两个功能：apply，reduce
     class Proc; include Functional; end
     class Method; include Functional; end
     ```
 
-    ```
+    ```ruby
     sum= lamdba {|x,y| x+y }
     mean = (sum<=a)/a.size
     deviation = lambda{|x| x-mean }
@@ -2004,20 +2090,20 @@ standDevision = Math.sqrt(sumOfSquares/(a.size-1))
 
 -   Composing Functions
 
-    ```
+    ```ruby
     module Functional
         def compose(f)
-            if self.respond_to?(:arity) && self.arity == 1
+            if self.respond_to?(:arity) && self.arity == 1      # 只能处理一个参数
                 lambda {|*args| self[f[*args]] }
             else
-                lambda {|*args| self[*f[*args]] }       # splash
+                lambda {|*args| self[*f[*args]] }               # splash
             end
         end
         alias * compose
     end
     ```
 
-    ```
+    ```ruby
     #   <=  reduce
     #   *   compose
     #   |   apply
@@ -2028,7 +2114,7 @@ standDevision = Math.sqrt(sumOfSquares/(a.size-1))
 
 -   Partially Applying Functions
 
-    ```
+    ```ruby
     module Functional
         def apply_head(*first)
             lambda {|*rest| self[*first.concat(rest)]}
@@ -2041,14 +2127,14 @@ standDevision = Math.sqrt(sumOfSquares/(a.size-1))
     end
     ```
 
-    ```
+    ```ruby
     difference = lambda {|x,y| x-y }
     deviation  = difference<<mean
     ```
 
 -   Memoizing Functions
 
-    ```
+    ```ruby
     module Functional
         def memoize
             cache = {}
@@ -2063,7 +2149,7 @@ standDevision = Math.sqrt(sumOfSquares/(a.size-1))
     end
     ```
 
-    ```
+    ```ruby
     factorial = lambda {|x| return 1 if x==0; x*factorial[x-1]; }.memoize
     factorial = +lambda {|x| return 1 if x==0; x*factorial[x-1]; }
     ```
@@ -2075,7 +2161,7 @@ standDevision = Math.sqrt(sumOfSquares/(a.size-1))
 
     这个很有用。
 
-    ```
+    ```ruby
     [1,2,3].map(&:succ)             # => [2,3,4]
     # 等价于：
     [1,2,3].map {|n| n.succ }
@@ -2085,7 +2171,7 @@ standDevision = Math.sqrt(sumOfSquares/(a.size-1))
 
     Symbol.to_proc 的 implementation：
 
-    ```
+    ```ruby
     class Symbol
         def to_proc
             lambda {|receiver, *args| receiver.send(self, *args)}
@@ -2095,7 +2181,7 @@ standDevision = Math.sqrt(sumOfSquares/(a.size-1))
     end
     ```
 
-    ```
+    ```ruby
     class Module
         alias [] instance_method
     end
@@ -2111,50 +2197,54 @@ standDevision = Math.sqrt(sumOfSquares/(a.size-1))
 
     todo, p210
 
-Chapter 7 Classes and Modules
-    Defining a Simple Class
-    Method Visibility: Public, Protected, Private
-    Subclassing and Inheritance
-    Object Creation and Initialization
-    Modules
-    Loading and Requiring Modules
-    Singleton Methods and the Eigenclass
-    Method Lookup
-    Constant Lookup
+## Chapter 7 Classes and Modules
 
-Chapter 8 Reflection and Metaprogramming
-    Types, Classes, and Modules
-    Evaluating Strings and Blocks
-    Variables and Constants
-    Methods
-    Hooks
-    Tracing
-    ObjectSpace and GC
-    Custom Control Structures
-    Missing Methods and Missing Constants
-    Dynamically Creating Methods
-    Alias Chaining
-    Domain-Specific Languages
+### Defining a Simple Class
+### Method Visibility: Public, Protected, Private
+### Subclassing and Inheritance
+### Object Creation and Initialization
+### Modules
+### Loading and Requiring Modules
+### Singleton Methods and the Eigenclass
+### Method Lookup
+### Constant Lookup
 
-Chapter 9 The Ruby Platform
-    Strings
-    Regular Expressions
-    Numbers and Math
-    Dates and Times
-    Collections
-    Files and Directories
-    Input/Output
-    Networking
-    Threads and Concurrency
+## Chapter 8 Reflection and Metaprogramming
 
-Chapter 10 The Ruby Environment
-    Invoking the Ruby Interpreter
-    The Top-Level Environment
-    Practical Extraction and Reporting Shortcuts
-    Calling the OS
-    Security
+### Types, Classes, and Modules
+### Evaluating Strings and Blocks
+### Variables and Constants
+### Methods
+### Hooks
+### Tracing
+### ObjectSpace and GC
+### Custom Control Structures
+### Missing Methods and Missing Constants
+### Dynamically Creating Methods
+### Alias Chaining
+### Domain-Specific Languages
 
-Colophon
+## Chapter 9 The Ruby Platform
+
+### Strings
+### Regular Expressions
+### Numbers and Math
+### Dates and Times
+### Collections
+### Files and Directories
+### Input/Output
+### Networking
+### Threads and Concurrency
+
+## Chapter 10 The Ruby Environment
+
+### Invoking the Ruby Interpreter
+### The Top-Level Environment
+### Practical Extraction and Reporting Shortcuts
+### Calling the OS
+### Security
+
+## Colophon
 
 ---
 
