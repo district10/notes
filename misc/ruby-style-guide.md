@@ -2,6 +2,8 @@
 title: Ruby Style Guide
 ---
 
+from: [4ker/ruby-style-guide: A community-driven Ruby coding style guide](https://github.com/4ker/ruby-style-guide)
+
 # Prelude
 
 > Role models are important. <br>

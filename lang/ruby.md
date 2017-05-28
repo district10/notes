@@ -2,6 +2,40 @@
 title: Learning Ruby
 ---
 
+[有哪些值得推荐的 Ruby 学习流程？ - 知乎](https://www.zhihu.com/question/32204010/answer/55189845)
+
+:   很多人是: 先学 Rails 做项目, 然后再来学 Ruby...
+
+    像 [@RednaxelaFX](//www.zhihu.com/people/a06cfb38e37dac1658e6457df4d7f032)
+    的学习流程就不一样, 他是先看 Ruby 的 parse.y 来速成语法, 然后再用来爬小黄图
+    或者汉化日文游戏, 同时看看各种 VM 的实现例如 JRuby 啦, Rubinius 啦, MRuby
+    啦, IronRuby 啦...
+
+    正统点的学习法是找一本书看, 例如 Programming Ruby 1.9 & 2.0 , 但是可能会慢
+    一点但适合没什么编程基础的. 实践派可能会喜欢看 [Learn Ruby with the Neo
+    Ruby Koans](//link.zhihu.com/?target=http%3A//rubykoans.com/)
+
+    对有前途的小姑娘小伙我会推荐看上古邪书 [Why's (Poignant) Guide to
+    Ruby](//link.zhihu.com/?target=http%3A//mislav.uniqpath.com/poignant-guide/)
+
+    有点编程经验的, 直接看一张网页
+    [Ruby.on-page.net](//link.zhihu.com/?target=http%3A//ruby.on-page.net/) 或
+    者比着 code roseta 做就可以了
+
+    [Ruby Quiz](//link.zhihu.com/?target=http%3A//rubyquiz.com/) 每周一题全看一
+    遍你会受益良多, 在学习了基础语法后可以开始看
+
+    旁门左道的例如我, 在各问答网站和社区上找 Code Golf 问题用 Ruby 回答, 或者关
+    注知乎的 Ruby 话题。
+
+tzx|最后：
+
+-   [Ruby Style Guide](../misc/ruby-style-guide.html)，我的笔记
+-   [Why's (Poignant) Guide to Ruby](http://poignant.guide/)，书
+-   [Learn Ruby with the Edgecase Ruby Koans](http://rubykoans.com/)
+
+---
+
 ![](https://img3.doubanio.com/lpic/s12295310.jpg)
 
 -   [The Ruby Programming Language - O'Reilly Media](http://shop.oreilly.com/product/9780596516178.do)
