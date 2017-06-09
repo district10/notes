@@ -1223,15 +1223,15 @@ title: Notes 1
 
         Beast Wars: Transformers is a Daytime Emmy award-winning
         computer-animated television series that premiered on April 22, 1996 in
-        syndication in the United States.[1] Though reviled by many
+        syndication in the United States. Though reviled by many
         Transformers fans when it first hit the airwaves in 1996, Beast Wars is
         now considered by many to be among the finest examples of Transformers
         storytelling, striking a happy balance between character, humor, and
         story.
 
-        The show's CGI, though somewhat primitive by today's standards, was
+        **The show's CGI, though somewhat primitive by today's standards, was
         revolutionary by television standards of the time (and puts some later
-        shows to shame). Mainframe's animators took pains to ensure their
+        shows to shame).** Mainframe's animators took pains to ensure their
         characters gestured and emoted in great detail, and the "camera" work
         often took creative advantage of the format's flexibility.
 
@@ -1241,7 +1241,7 @@ title: Notes 1
 
         :   Energon (sometimes spelled with a capital letter, sometimes not)
             is the preferred fuel of the Transformer race. It takes many forms,
-            including ore, crystal, gas, and raw energy, but it is most
+            including ore（矿石）, crystal, gas, and raw energy, but it is most
             commonly used by Transformers in its liquid state, which is stored
             in many different mediums, most famously the energon cube. It is
             ubiquitous in Cybertronian culture; in addition to being the
@@ -1267,11 +1267,40 @@ title: Notes 1
 
                 ![](http://tfwiki.net/mediawiki/images2/thumb/9/99/BetterMousetrap_Optimus_in_flight.jpg/250px-BetterMousetrap_Optimus_in_flight.jpg)
 
+                Optimus Primal is one of the most prominent and well recognized
+                Maximals in Transformers history. He has saved the Maximals,
+                Earth, history, humanity, the universe, the Autobots,
+                Cybertron, the Transformers, and the Alternity, starting from
+                humble beginnings as an exploratory starship captain.
+
+                -   captain of the exploration ship Axalon
+                -   "Must destroy the techno-organic".
+                -   Beast Wars Diorama Story
+                -   Robotmasters pack-in manga（日本漫画）
+
             [Rhinox](http://tfwiki.net/wiki/Rhinox_(BW)) -<
 
             :   ![](http://tfwiki.net/mediawiki/images2/thumb/0/05/Dark_Voyage_Rhinox_listening.jpg/270px-Dark_Voyage_Rhinox_listening.jpg)
 
                 ![](http://tfwiki.net/mediawiki/images2/thumb/f/fc/TheWeb_Rhinox_closeup.jpg/220px-TheWeb_Rhinox_closeup.jpg)
+
+                Rhinox is a Maximal from the Beast Era portion of the
+                Generation 1 continuity family.
+
+                Rhinox's only weapons—besides his intimidating strength and
+                brilliant mind—are his twin chainguns, affectionately named
+                "**Chainguns of Doom**" by the fans.
+
+                Rhinox's core was an integral part of the evil Vehicon general
+                Tankor.
+
+                >   “Make a device to extract molecular structure from an alien
+                >   probe... man, I gotta be a miracle worker!  ”
+                >
+                >   —Rhinox, "Chain of Command"
+
+                -   You wouldn't like him when he's angry.
+                -   I AM NOT GETTING AGGRESSIVE!!!!
 
             [Dinobot](http://tfwiki.net/wiki/Dinobot_(BW)) -<
 
@@ -1279,17 +1308,116 @@ title: Notes 1
 
                 ![](http://tfwiki.net/mediawiki/images2/thumb/e/e7/Better_Mousetrap_Dinobot.jpg/250px-Better_Mousetrap_Dinobot.jpg)
 
+                Dinobot is a Predacon and Maximal from the Beast Era portion of
+                the Generation 1 continuity family.
+
+                Dinobot is a Predacon ruled by his sense of honor. He lives to
+                die gloriously in battle. When he aided Megatron in the theft
+                of the Golden Disk, Dinobot believed he was in the pursuit of
+                endless glory. But when he and his Predacon peers crashed on
+                what seemed to be the wrong planet alongside a Maximal
+                exploration vessel, he rebelled against Megatron and joined the
+                Maximal team. It would be an uneasy alliance, fraught with
+                turns of loyalty and turns of Shakespearean phrase. But it also
+                led to strong friendships and even the salvation of all
+                humanity.
+
+                -   wields a spinning sword and a rotating blade
+                -   ranged weapons such as his laser eye-beams or a simple
+                    handheld gun
+                -   His thirst for battle is unquenchable（不能遏制的；不能熄灭的）
+                -   Dinobot was one of a group of rogue（流氓）
+                -   "The course of true love never did run smooth." 哈哈哈哈……
+                -   "Today is a good day for violence!"
+                -   "I will speak daggers to it, but use none."
+                -   "A little more than kin, and less than kind."
+                -   "Frailty（意志薄弱）, thy name is Tarantulas!（狼蛛）"
+                -   "Neither a borrower nor a lender be; For loan oft（多次） loses
+                    both itself and friend, and borrowing dulls the edge of
+                    husbandry（家政）."
+                -   "Is this a dagger which I see before me, Dinobot, the
+                    handle toward my hand?"
+                -   "To Bay（狗叫） or not to Bay; that is the question, and here is
+                    the sunset."
+
+                ![](http://tfwiki.net/mediawiki/images2/thumb/4/40/BWDinobot_decision.jpg/300px-BWDinobot_decision.jpg)
+
+                >   The question that has haunted my being has been answered:
+                >   The future is not fixed. My choices are my own. And yet,
+                >   how ironic, for I now find I have no choice at all! I am a
+                >   warrior... let the battle be joined.
+                >
+                >   —Dinobot, "Code of Hero"
+
+                Upwind of you, for preference, vermin. ...Tell my tale to those
+                who ask. Tell it truly, the ill deeds along with the good, and
+                let me be judged accordingly. The rest... is silence."
+
             [Cheetor](http://tfwiki.net/wiki/Cheetor_(BW)) -<
 
             :   ![](http://tfwiki.net/mediawiki/images2/thumb/7/76/Cheetorbeast1.jpg/250px-Cheetorbeast1.jpg)
 
                 ![](http://tfwiki.net/mediawiki/images2/thumb/7/7b/EqualMeasures_Cheetor_with_gutgun.jpg/300px-EqualMeasures_Cheetor_with_gutgun.jpg)
 
+                Cheetor is **full of youthful overconfidence**. He's also the
+                fastest Maximal on four legs which, combined with his impulsive
+                nature, often gets him into more trouble than he can handle.
+                It's needless to say that Cheetor's overbearing enthusiasm gets
+                on the nerves of some of his teammates, Rattrap in particular.
+                He's in those awkward formative years（形成性格时期）.
+                Thankfully, Optimus Primal keeps a steady eye on the young
+                Maximal. In return, Cheetor has grown to **idolize Primal**, whom
+                he calls "Big Bot." Optimus Primal knows the inexperienced
+                Cheetor needs a good role model, so he doesn't mind too much.
+                And, hey, at spark he's a good kid. Just... keep him away from
+                Dinobot, okay?  Impressionable minds, and all. And Matrix help
+                us when Cheetor gets past his "cooties" stage and notices
+                Blackarachnia.
+
+                Cheetor also appears to **have vague precognitive skills**（超预见性……）,
+                sensing important events before they actually happen — usually in the
+                form of ominous dreams. With such power and potential, who
+                knows — maybe the lad is destined for great things someday.
+
+                -   Boy's got guts
+                -   "No!! Waspinator's come to steal the fanbase（粉丝团）'s affection!"
+                -   Featuring a scene from several fanfics（同人小说……）.
+                -   Check out my undercarriage（起落架）!
+                -   Kitten with a whip
+                -   "Sizzling circuits!"（嘶嘶声……）
+                -   "U-G-L-Y - I ain't got no alibi（不在场）!"
+
             [Rattrap](http://tfwiki.net/wiki/Rattrap_(BW)) -<
 
             :   ![](http://tfwiki.net/mediawiki/images2/thumb/f/f0/Victory_Megatron_crushes_Rattrap.jpg/270px-Victory_Megatron_crushes_Rattrap.jpg)
 
                 ![](http://tfwiki.net/mediawiki/images2/thumb/6/6e/OtherVisits2_Rattrap_with_gun.jpg/200px-OtherVisits2_Rattrap_with_gun.jpg)
+
+                Rattrap is a Maximal from the Beast Era portion of the
+                Generation 1 continuity family.
+
+                It's not so much that Rattrap is a coward... he just doesn't
+                want to die. He's seen enough battles to know the score, so
+                he's not afraid to tell his commanding officer to **shove it** if
+                he's **not fond of the odds**. He prefers to sneak around unseen,
+                in gutters or trenches or trash barges or what have you—
+                whatever keeps him out of harm's way. He shouldn't be so
+                worried. When he does encounter conflict, he deals with it
+                masterfully with the arsenal of guns and bombs he keeps on
+                himself at all times. He feels naked without them.
+
+                -   He's like Bugs Bunny（兔八哥……） if he were a rat. And a robot. And had
+                    more lethal weapons（致命武器） than a Die Hard movie.
+                -   That's what friends are for!
+                -   How's the weather up there?
+                -   Despite all of Terrorsaur（始祖鸟）'s rage, Rattrap is
+                    still just a rat in a cage.
+                -   Rubber Ducky isn't his only squeaky（吱吱叫） toy.
+                -   You call it "hi-jacking". I call it "**forced donation**".
+                -   YOU THERE! **STFU! （shut the fucking up，特么不要说脏话……）**
+                -   "I was Number One all along!!"
+                -   "See?! Botanica's no longer GOING to be in the show! I HOPE
+                    YOU'RE SATISFIED, FANDOM."
 
             [Tigatron](http://tfwiki.net/wiki/Tigatron) -<
 
@@ -1375,7 +1503,152 @@ title: Notes 1
 
             :   ![](http://tfwiki.net/mediawiki/images2/thumb/7/79/Starscreamg1.jpg/410px-Starscreamg1.jpg)
 
+        [Beast Machines: Transformers (cartoon) - Transformers Wiki](http://tfwiki.net/wiki/Beast_Machines:_Transformers_(cartoon))
 
+        :   Beast Machines: Transformers is a 26-episode cartoon that aired
+            in the US from 1999 to 2000, in support of the toyline of the same
+            name. It is a direct follow-up to Beast Wars, set in the same G1
+            continuity and featuring many of the same characters.  Like Beast
+            Wars, its computer animation was created by Mainframe
+            Entertainment.
+
+            The show follows the adventures of the core Beast Wars cast upon
+            their return home to Cybertron; there, Optimus Primal and his crew
+            find that the whole planet is abandoned, and the streets are
+            patrolled by mindless Vehicon drones serving Megatron, who somehow
+            escaped his captivity.
+
+            -   turns them into technorganic warriors, a perfect blend of
+                organic and technological matter.
+            -   the battles took on a "guerilla warfare" feel
+            -   Initially, Optimus is driven by a crusade to restore the
+                organic above the technological and to right his failure to
+                stop Megatron. Over time, it becomes increasingly clear that
+                he's becoming obsessed and overzealous.
+            -   At the midpoint, after Cybertron is almost destroyed, he
+                realises that the point should be to create a balance of
+                organic and technological, not a supremacy. Under this new,
+                saner cause, the Maximals eventually turn Cybertron into an
+                technorganic paradise, though at the cost of their leader's
+                life.
+            -   Story editor Bob Skir describes the series as a "religious epic
+                novel for television"
+
+            **Season 1**
+
+            Largely centers on the Maximals' efforts to find out
+            what has happened to them, as they arrive on Cybertron with no
+            memories. In addition to Megatron and the core Maximal cast, three
+            new Vehicon generals are introduced, as well as the new Maximal
+            Nightscream. By the end of the season, Optimus Primal has been
+            driven down a road of extremism, and an apocalyptic confrontation
+            marks the season finale...
+
+            1.  [The Reformatting](http://tfwiki.net/wiki/The_Reformatting "The Reformatting")
+            2.  [Master of the House](http://tfwiki.net/wiki/Master_of_the_House "Master of the House")
+            3.  [Fires of the Past](http://tfwiki.net/wiki/Fires_of_the_Past "Fires of the Past")
+            4.  [Mercenary Pursuits](http://tfwiki.net/wiki/Mercenary_Pursuits "Mercenary Pursuits")
+            5.  [Forbidden Fruit](http://tfwiki.net/wiki/Forbidden_Fruit "Forbidden Fruit")
+            6.  [The Weak Component](http://tfwiki.net/wiki/The_Weak_Component "The Weak Component")
+            7.  [Revelations Part I: Discovery](http://tfwiki.net/wiki/Revelations_Part_I:_Discovery "Revelations Part I: Discovery")
+            8.  [Revelations Part II: Descent](http://tfwiki.net/wiki/Revelations_Part_II:_Descent "Revelations Part II: Descent")
+            9.  [Revelations Part III: Apocalypse](http://tfwiki.net/wiki/Revelations_Part_III:_Apocalypse "Revelations Part III: Apocalypse")
+            10. [Survivor](http://tfwiki.net/wiki/Survivor "Survivor")
+            11. [The Key](http://tfwiki.net/wiki/The_Key "The Key")
+            12. [The Catalyst](http://tfwiki.net/wiki/The_Catalyst "The Catalyst")
+            13. [End of the Line](http://tfwiki.net/wiki/End_of_the_Line "End of the Line")
+
+             **Season 2: Battle for the Spark**
+
+             The ultimate face-off at the end of Season 1 is resolved in a most
+             unusual and cerebral manner, setting the tone for Season 2 as
+             Primal realizes his mission is one of balance, not extremism.
+             Silverbolt rejoins the Maximal ranks, a new Maximal arrives from
+             off-world, and two dangerous new generals join Megatron's side as
+             the Maximals search for the lost Sparks of their brethren and
+             battle to regain control of Cybertron.
+
+            1.  [Fallout](http://tfwiki.net/wiki/Fallout_%28episode%29 "Fallout (episode)")
+            2.  [Savage Noble](http://tfwiki.net/wiki/Savage_Noble "Savage Noble")
+            3.  [Prometheus Unbound](http://tfwiki.net/wiki/Prometheus_Unbound "Prometheus Unbound")
+            4.  [In Darkest Knight](http://tfwiki.net/wiki/In_Darkest_Knight "In Darkest Knight")
+            5.  [A Wolf in the Fold](http://tfwiki.net/wiki/A_Wolf_in_the_Fold "A Wolf in the Fold")
+            6.  [Home Soil](http://tfwiki.net/wiki/Home_Soil "Home Soil")
+            7.  [Sparkwar Pt. I: The Strike](http://tfwiki.net/wiki/Sparkwar_Pt._I:_The_Strike "Sparkwar Pt. I: The Strike")
+            8.  [Sparkwar Pt. II: The Search](http://tfwiki.net/wiki/Sparkwar_Pt._II:_The_Search "Sparkwar Pt. II: The Search")
+            9.  [Sparkwar Pt. III: The Siege](http://tfwiki.net/wiki/Sparkwar_Pt._III:_The_Siege "Sparkwar Pt. III: The Siege")
+            10. [Spark of Darkness](http://tfwiki.net/wiki/Spark_of_Darkness "Spark of Darkness")
+            11. [Endgame Pt. I: The Downward Spiral](http://tfwiki.net/wiki/Endgame_Pt._I:_The_Downward_Spiral "Endgame Pt. I: The Downward Spiral")
+            12. [Endgame Pt. II: When Legends Fall](http://tfwiki.net/wiki/Endgame_Pt._II:_When_Legends_Fall "Endgame Pt. II: When Legends Fall")
+            13. [Endgame Pt. III: Seeds of the Future](http://tfwiki.net/wiki/Endgame_Pt._III:_Seeds_of_the_Future "Endgame Pt. III: Seeds of the Future")
+
+            剧情上 BM 的高度至今也没有哪个动画作品能够达到，第一次将变形金刚的冲
+            突提升到理念的高度，融入了对自由意志的探讨，还有大量的宗教符号在内，
+            加上这部片子整体偏暗的色调，可以说它最大的问题在于忘了自己是一部忽
+            悠小朋友买玩具的动画片.........
+
+            [Bob Skir - Transformers Wiki](http://tfwiki.net/wiki/Bob_Skir)
+
+            ![](https://upload.wikimedia.org/wikipedia/en/a/a2/Beast_Machines_Transformers_DVD_cover_art.jpg)
+
+            [Beast Machines: Transformers - Wikipedia](https://en.wikipedia.org/wiki/Beast_Machines:_Transformers)
+
+            :   Beast Machines: Transformers is an American-Canadian animated
+                television series produced by Mainframe Entertainment. Hasbro
+                has the full distribution rights to the show as of 2011. It was
+                a direct sequel to Beast Wars, taking place within the
+                continuity of the original Transformers series.[1][2] The show
+                ran for two seasons, airing on YTV and Fox Kids from 1999 to
+                2000. Of the Transformers animated series produced in North
+                America, Beast Machines was the only one to have been
+                completely conceptualized and outlined in advance, lending it a
+                more serialized and linear storyline than the others. The Beast
+                Machines intro theme was "Phat Planet", by Leftfield.
+
+            [Beast Era timeline - Transformers Wiki](http://tfwiki.net/wiki/Beast_Era_timeline)
+
+            -   Before the dawn of time
+
+            -   Dawn of time
+
+            -   Four million years ago -<
+
+                :   The resources on Cybertron dried up due to the long-term war.
+                    An Autobot space exploration team aboard the Ark led by
+                    Optimus Prime left. While Megatron led a crew of
+                    Decepticons aboard the Nemesis and chased the Ark. Both the
+                    Ark and Nemesis crashed on Earth. The Transformers enter a
+                    long period of stasis lock due to the impact.
+
+                   （Beast Wars）
+
+            -   About 180,000 BCE（公元前(Before Common Era)） -<
+
+                :   （Beast Machines）
+
+            -   1984 CE
+
+                :   After four million years of dormancy（休眠）, the inhabitants
+                    aboard the Ark are awakened and reignite the Great War. The
+                    Agenda (Part III)
+
+            -   2005 CE
+
+            -   Around 2015 CE
+
+            -   Latter 21st century CE
+
+            -   Around 311 AU
+
+            -   316 AU -<
+
+                :   -   After Unicron, or AU, is a dating system used by
+                        Apelinq in his War Journals. It numbers the years since
+                        Unicron's defeat. For example, Predacon Megatron
+                        enslaved the sparks of Cybertron with his army of
+                        Vehicons in 316 AU.
+
+            -   317 AU
 
 -   [Java Without If - Ashton Kemerling](http://ashtonkemerling.com/blog/2017/01/26/java-without-if/) -<
 
@@ -2434,7 +2707,7 @@ title: Notes 1
 
 -   https://notebooks.azure.com/
 
--   oooo -<
+-   px, in, mm, pt, dp, dip, sp -<
 
     :   px
 
