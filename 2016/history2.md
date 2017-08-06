@@ -1550,7 +1550,7 @@ i3 window manager -<
 
     域名的 dns 管理在 dnspod，但是域名在 qcloud 管理（tangzhixiong.com）
 
-    tangzhixiong.com 到期时间 2017-12-26，55/年
+    tangzhixiong.com 到期时间 2019-12-26，60/年
 
     dvorak4tzx.com 2018 年 04 月 27 日
 
