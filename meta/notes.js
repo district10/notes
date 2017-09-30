@@ -21,6 +21,15 @@ $('img').each(function(index){
     }
 });
 
+$('a').each(function(index){
+    var anchor = $(this).attr('href');
+    if (/^[^:]*\.md$/.test(anchor)) {
+        $(this).attr({
+            href: anchor.substring(0, anchor.length-3)+".html"
+        });
+    }
+});
+
 $('a.hide').each(function(){
     $p = $(this).parent();
     if ( $p.is('li') ) {

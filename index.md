@@ -15,13 +15,17 @@ tangzx.qiniudn.com (tangzhixiong.com)
     |
     |
     +-----------------> /*.html                 (posts)
-    |
+
     +-----------------> /notes/[**/]*.html      (notes)
     |
     +-----------------> /stage/index.html       (stage)
 ```
 
 私人的部分：[share document ：index|Worktile](https://worktile.com/share/pages/758c54eee75242d1a60dc6cb153b1d17)。
+
+## Book Readings Notes
+
+-   [JavaScript: The Good Parts](books/javascript__the_good_parts.md)
 
 ## 2017
 
