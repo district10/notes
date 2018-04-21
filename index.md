@@ -4,13 +4,7 @@ title: TANG ZhiXiong's Notes/Wiki
 
 # TANG ZhiXiong's Notes/Wiki
 
->   成系统的逐步挪到 org-mode 那边，分门别类，然后选择性地写成博客；
->
->   那些没什么卵用的，死在这里。
->
->   一定要 GET Emacs 啊！
-
-```
+~~~ {.hide}
 tangzx.qiniudn.com (tangzhixiong.com)
     |
     |
@@ -19,55 +13,56 @@ tangzx.qiniudn.com (tangzhixiong.com)
     +-----------------> /notes/[**/]*.html      (notes)
     |
     +-----------------> /stage/index.html       (stage)
-```
+~~~
 
-私人的部分：[share document ：index|Worktile](https://worktile.com/share/pages/758c54eee75242d1a60dc6cb153b1d17)。
+## 2018
+
+-   [note #1](2018/note1.md)
 
 ## 2017
 
--   [note5.html](2017/note5.html){title=2017/note5.md}
--   [note4.html](2017/note4.html){title=2017/note4.md}
--   [note3.html](2017/note3.html){title=2017/note3.md}
--   [note2.html](https://github.com/district10/notes/blob/master/2017/note2.ipynb)
--   [note1.html](2017/note1.html){title=2017/note1.md}
+-   [note #4](2017/note4.md)
+-   [note #3](2017/note3.md)
+-   [note #2](https://github.com/district10/notes/blob/master/2017/note2.ipynb)
+-   [note #1](2017/note1.md)
 
 ## 2016
 
--   [note7.html](2016/note7.html){title=2016/note7.md}
--   [note6.html](2016/note6.html){title=2016/note6.md}
--   [note5.html](2016/note5.html){title=2016/note5.md}
--   [note4.html](2016/note4.html){title=2016/note4.md}
--   [note3.html](2016/note3.html){title=2016/note3.md}
--   [note2.html](2016/note2.html){title=2016/note2.md}
--   [note1.html](2016/note1.html){title=2016/note1.md}
--   [this](2016/this.html){.hide title=2016/this.md}
--   [关于介绍本笔记特性](2016/intro-to-my-note.html){.hide title=2016/intro-to-my-note.md}
--   [博客摘记之 yhlleo](2016/blog-yhlleo.html){.hide title=2016/blog-yhlleo.md}
--   [MISC](misc/index.html){.hide title=misc/index.md}
+-   [note #7](2016/note7.md)
+-   [note #6](2016/note6.md)
+-   [note #5](2016/note5.md)
+-   [note #4](2016/note4.md)
+-   [note #3](2016/note3.md)
+-   [note #2](2016/note2.md)
+-   [note #1](2016/note1.md)
+-   [this](2016/this.md){.hide title=2016/this.md}
+-   [关于介绍本笔记特性](2016/intro-to-my-note.md)
+-   [博客摘记之 yhlleo](2016/blog-yhlleo.md){.hide}
+-   [MISC](misc/index.md){.hide}
 
 ## 2014 & 2015
 
--   [像外行一样思考-像专家一样实践--科研成功之道.html](2014/%E5%83%8F%E5%A4%96%E8%A1%8C%E4%B8%80%E6%A0%B7%E6%80%9D%E8%80%83-%E5%83%8F%E4%B8%93%E5%AE%B6%E4%B8%80%E6%A0%B7%E5%AE%9E%E8%B7%B5--%E7%A7%91%E7%A0%94%E6%88%90%E5%8A%9F%E4%B9%8B%E9%81%93.html){.hide}
--   [如果让我重做一次研究生](2014/%E5%A6%82%E6%9E%9C%E8%AE%A9%E6%88%91%E9%87%8D%E5%81%9A%E4%B8%80%E6%AC%A1%E7%A0%94%E7%A9%B6%E7%94%9F.html){.hide}
+-   [像外行一样思考-像专家一样实践--科研成功之道.html](2014/像外行一样思考-像专家一样实践--科研成功之道.md){.hide}
+-   [如果让我重做一次研究生](2014/如果让我重做一次研究生.md){.hide}
 
 ## 历史笔记
 
--   [历史笔记 1](2016/history1.html){title=2016/history1.md}
--   [历史笔记 2](2016/history2.html){title=2016/history2.md}
--   [历史笔记 3](2016/history3.html){title=2016/history3.md}
--   [历史笔记 4](2016/history4.html){title=2016/history4.md}
--   [历史笔记 5](2016/history5.html){title=2016/history5.md}
--   [历史笔记 6](2016/history6.html){title=2016/history6.md}
--   [历史笔记 7](2016/history7.html){title=2016/history7.md}
--   [历史笔记 8](2016/history8.html){title=2016/history8.md}
+-   [历史笔记 #8](2016/history8.md)
+-   [历史笔记 #7](2016/history7.md)
+-   [历史笔记 #6](2016/history6.md)
+-   [历史笔记 #5](2016/history5.md)
+-   [历史笔记 #4](2016/history4.md)
+-   [历史笔记 #3](2016/history3.md)
+-   [历史笔记 #2](2016/history2.md)
+-   [历史笔记 #1](2016/history1.md)
 
 ---
 
 ## 独立笔记
 
--   [Caffe 笔记](caffe-notes/index.html){title=caffe-notes/index.md}
--   [Languages](lang/index.html){title=lang/index.md}
--   [Leetcode](leetcode/index.html){.hide title=leetcode/index.md}
+-   [Caffe 笔记](caffe-notes/index.md)
+-   [Languages](lang/index.md)
+-   [Leetcode](leetcode/index.md)
 -   [Cracking the Coding Interview](cracking-the-coding-interview/index.html){.hide title=cracking-the-coding-interview/index.md}
 -   [job](2016/job.html){.hide title=2016/job.md}
 -   [Urban Dictionary](misc/ud.html){.hearts}
@@ -128,3 +123,5 @@ tangzx.qiniudn.com (tangzhixiong.com)
         [<span>:clock130:</span>](http://whudoc.qiniudn.com/2016/IntelliJ-IDEA-Tutorial/index.html){title="IntelliJ IDEA 简体中文专题教程"}
         <span>:clock2:</span>
         <span>:clock230:</span>
+
+-   Org-mode 笔记 (更加系统）：[Reading Notes of TZX](http://tangzhixiong.com/readings/#outline-container-sec-2)

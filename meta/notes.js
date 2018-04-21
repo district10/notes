@@ -233,7 +233,11 @@ function help() {
          +  '\n\n'
          +  '其他功能：\n\n'
          +  '\t4. 折叠/展开当前折叠盒（有红色标记）：<enter> \n'
-         +  '\t5. 页面跳转，返回上一级：<left><left><left>' );
+         +  '\t5. 页面跳转，返回上一级：<left><left><left>'
+         +  '\n\n'
+         +  '隐藏功能：\n\n'
+         +  '\t6. <left><left><up/down>'
+    );
 }
 
 $('body').keydown(function(e){
