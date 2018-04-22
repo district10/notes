@@ -4,17 +4,6 @@ title: TANG ZhiXiong's Notes/Wiki
 
 # TANG ZhiXiong's Notes/Wiki
 
-~~~ {.hide}
-tangzx.qiniudn.com (tangzhixiong.com)
-    |
-    |
-    +-----------------> /*.html                 (posts)
-
-    +-----------------> /notes/[**/]*.html      (notes)
-    |
-    +-----------------> /stage/index.html       (stage)
-~~~
-
 ## 2018
 
 -   [note #1](2018/note1.md)
@@ -62,11 +51,13 @@ tangzx.qiniudn.com (tangzhixiong.com)
 
 -   [Caffe 笔记](caffe-notes/index.md)
 -   [Languages](lang/index.md)
--   [Leetcode](leetcode/index.md)
--   [Cracking the Coding Interview](cracking-the-coding-interview/index.html){.hide title=cracking-the-coding-interview/index.md}
--   [job](2016/job.html){.hide title=2016/job.md}
--   [Urban Dictionary](misc/ud.html){.hearts}
--   [words](misc/words.html)
+    +   [Algorithms](lang/algo.md)
+    +   [C & C++](lang/c-cpp.md)
+    +   [OpenCV](lang/opencv.md)
+    +   [Probability and Statistics](lang/prob-stats.md)
+-   [job](2016/job.md){.hide}
+-   [Urban Dictionary](misc/ud.md)
+-   [words](misc/words.md)
 
 ---
 
