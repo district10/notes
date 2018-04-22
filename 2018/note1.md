@@ -222,3 +222,159 @@ title: Notes 1
         有非常好的关于深度学习或者无人驾驶的知识，但是能拥有特别擅长学习和分析
         问题解决问题的能力，这样的人进入无人驾驶行业，一定会成长的非常快，时间
         会是他们的朋友。
+
+-   [四千年来的大豆与贸易战 | 观天下讲坛](https://mp.weixin.qq.com/s/j-M1miK_tJN0v5OLBw7qUg)
+
+
+当然，豆子作为主粮也有它自己的问题。首先豆子吃起来会胀气，往往是还没吃饱，肚子里的气体就让你觉得吃不下了，让胃肠很不舒服。至于当众排气，这对于古人来说倒是小问题。其次，大豆有豆腥味，气味聚集在一起是臭味，也让人不想多吃。最后，生大豆是有轻微毒性的，里面的皂苷、凝血素会刺激内脏，让人呕吐甚至昏迷，必须完全煮熟才能吃。大家煮黄豆或者煮毛豆的时候，一定记住要彻底煮熟，不能有侥幸心理。古代未经选育的大豆想必毒性更大。这几个原因放在一起，导致大豆不能成为绝对的主粮。不用磨碎的粟（和黍），也就是小米，始终保持了第一主粮的位置。
+
+但是，作为油脂和蛋白质含量最高的粮食，大豆有很多吃法。磨成粉就很容易彻底炒熟或者煮熟，不会中毒。如果做成豆浆或者豆腐，就不会胀气，也没有豆腥味。为什么春秋战国时代的人不做豆腐或者豆浆呢？因为加工费用太贵了。
+
+
+一旦有了石磨，麦子可以变成面粉，这种口感好，吃了不胀，也不容易中毒的食品就立刻打败了大豆。汉朝早期，豆子还是绝对的主粮，到了唐朝，小麦已经上升到第二甚至第一主粮的地位。同时中原人口越来越多，也不愿再种产量较低的大豆，大豆就逐渐边缘化了。
+
+
+
+其次，大豆油不是均匀分布在大豆里的，而是分散成很多微米级的小油滴。这些油滴表面覆盖着一层非常坚固的卵磷脂，就算把大豆磨碎也不会破坏。所以，我们用石磨就能从芝麻里获取香油，磨豆浆却看不到豆浆里有油。
+
+豆油没有拯救大豆的地位，但由于蛋白质含量高，榨过油的大豆反而有了新用途——豆饼可以当饲料和肥料。这对于人口密集的中国农业核心区来说是很大的贡献——核心区已经没有太多粮食用来养猪，土地的肥力也逐渐耗尽了。
+
+
+
+作为一个半殖民地国家，20 年代的中国国际贸易处于严重逆差状态，白银外流严重。北洋政府基本依靠帝国主义借款与出卖更多的权益过日子，一般地方军阀则拼命收地租和厘金吃饭。这期间东北因为大豆出口成为中国唯一大规模顺差的地区，控制东北的势力拥有中国最大的一笔机动资金。
+
+世界上 90% 以上的野生大豆资源分布在我国。但美国人认认真真干了几十年，现在美国作物基因库中保存的大豆资源已达 20000 多份，成为仅次于中国的大豆资源大国。
+
+
+
+后来李石曾当了国民党监察委员，号称国民党四大元老之一。但他更重要的成绩是留学勤工俭学运动吸引了一大批中下层知识分子到法国，读书的同时接受了世界大战后期形成的左翼革命思想。周恩来，邓小平、朱德都是他发起的勤工俭学运动的成果。这几个人中，朱德当过军阀，不缺钱，周恩来邓小平都是穷知识分子，到了 1923 年穷得吃不上饭。于是他们仿效李石曾又开了一家独立的豆腐店，邓小平周恩来都推过磨盘，邓小平自己还下厨炒豆腐卖。可以说中国革命成功，很大一部分资源都来自向海外推广大豆。
+
+
+
+1980 年代，中国人解决了十亿人口的吃饭问题，开始用工业赚外汇，从国外买油。从统计表看，中国并不是什么油都喜欢。全世界这么多油料作物，中国人吃豆油的热情是最高的。除了中国之外，这么积极吃豆油的国家只有巴西和美国——但它们都是大豆出口国。只有中国，明明国内大豆供应不足，明明棕榈油比豆油便宜，供应量还大，中国人偏偏要拼命进口大豆榨油。
+
+第三，基因决定了大多数中国成年人消化奶制品的能力不行。下面这张图是乳糖消化能力的全球地图，显然中国人是最差的。所以，印度经济水平比中国差很多，人均牛奶消费却是中国的两倍。中国人吸收蛋白质要么靠大豆，要么靠吃肉。
+
+
+
+
+最后，虽然棕榈油比大豆油便宜，用来炒菜也比较健康，但棕榈油熔点比较高，十几度的气温下就要凝结，在中国大多数地区都会变成固体。用起来不方便，观感也不太好，让人想起猪油，觉得荤油不健康。所以棕榈油一般用在方便面企业，不会直接进入家庭。
+
+一图以蔽之，土地成本高是因为我们人口密集；人工和机械成本高是因为我们搞小农经济，在土地上浪费了太多的工作；肥料成本高是因为我们不搞转基因——虽然我们天天都在吃美洲转基因大豆油。
+
+只要农业还依赖于土地，我们用全球 7% 的耕地满足 20% 的人口的粮食供应就可以了，不太可能满足 20% 的人口吃肉喝酒炒菜还要吃水果。
+
+
+上面三张图，绿色是大豆产区，红色是特朗普支持者来源。特朗普的支持者的确和豆农有很大的重合。打击是有效的。但是力度未必有我们想象的那么大。
+
+
+
+a 国产农业应该承认自己的差距，规模化，产业化才是大方向。b 海外的供应选择有很多，我们应该尽可能去开发，但是必须承认美国有独特优势。c 我们可以给美国政客施加一定的压力，但不是决定压力。但反过来说，我们可以给美国提供足够的诱惑，拿不到手的诱惑也是压力。
+
+这要从二战后的世界局势说起，和中国的历史也有关系。1945 年的美国，工业世界最强，农业世界最强，金融世界最强。这个世界如果搞绝对自由贸易的话，所有国家的所有企业都得垮掉，因为美国人什么都比你便宜，还有美元这种最可靠的货币提供交易工具。短期内看，貌似全世界的老百姓得了便宜，买到的工业品和粮食都便宜了。但从长期看，全世界任何国家都没法形成生产组织，企业直接破产，老百姓花光自己的积蓄之后就失业了，失业就会造反，就会革命，就会站到苏联阵营一边，因为这个国家没有别的选择。换句话说，在全世界人民普遍觉醒的情况下，美国越是利用自己的霸权，越是给苏联阵营增加力量。
+
+美国的另一个好处就是建立一个吸引全球人才的体系，同时利用美国市场控制世界标准。高科技和行业标准在美国人手里，就可以卖一些利润率很高的商品，比如大飞机，比如好莱坞电影，比如特效药品。
+
+
+
+-   [Mark Zuckerberg's 2004 Interview: See How Far He And Facebook Have Come | CNBC - YouTube](https://www.youtube.com/watch?v=cUNX3azkZyk) -<
+
+    :   Zuckerberg looks like the kid who would borrow your SNES cartridges, never return them, and blatantly deny it to others while playing the nice kid
+
+        Mark got worse at social skills... Its almost like almost 15 years, billions of dollars and a CEO position has made him... Less sharp.
+
+        Mark was wearing the same T-Shirt under that shirt
+
+-   [色键 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E8%89%B2%E9%94%AE) -<
+
+    :   色键技术是从素材中删除背景并露出后面的另一个素材，已被很多领域大量使用，
+        尤其是电影、影片、游戏行业。色度键控技术常用于影片的后期制作。这种技
+        术也称为色度键控，或由于各种具体颜色变化的术语如绿幕、蓝幕。色度键控可
+        以是任何有均匀的背景，但绿色和蓝色背景更常用，这是因为它们与大多数人的
+        皮肤颜色存在最明显差异。在拍摄过程中，要尽量防止演员的服装或任何部分与
+        背景颜色重合。
+
+        绿色是目前比任何其他颜色用作背景最多的，因为绿色在数码摄像机的图像传感
+        器中是最敏感的，由于拜耳模式更多的分配像素在绿色通道以模仿人眼对绿色光
+        的敏感性。因此，绿色相机通道包含最少的 “杂色”，可以产生最干净的主题。另
+        外又由于图像传感器对绿色的高敏感性，所以只需较少的光来照亮绿色。明亮的
+        绿色也越来越受青睐，因为一个蓝色的背景可能会匹配演员的眼睛或衣服颜色，
+        比如牛仔裤。
+
+        [Chroma key - Wikipedia](https://en.wikipedia.org/wiki/Chroma_key) +<
+
+        :   Chroma key compositing, or **chroma keying**, is a visual
+            effects/post-production technique for compositing (layering) two images
+            or video streams together based on color hues (chroma range). The
+            technique has been used heavily in many fields to remove a background
+            from the subject of a photo or video – particularly the newscasting,
+            motion picture and videogame industries. A color range in the
+            foreground footage is made transparent, allowing separately filmed
+            background footage or a static image to be inserted into the scene. The
+            chroma keying technique is commonly used in video production and
+            post-production. This technique is also referred to as color keying,
+            colour-separation overlay (CSO; primarily by the BBC[2]), or by various
+            terms for specific color-related variants such as green screen, and
+            blue screen – chroma keying can be done with backgrounds of any color
+            that are uniform and distinct, but green and blue backgrounds are more
+            commonly used because they differ most distinctly in hue from most
+            human skin colors. No part of the subject being filmed or photographed
+            may duplicate the color used as the backing.[3]
+
+            高晓松先生在《晓松奇谈》
+
+            “二战日本横扫亚洲，唯独没有踏进澳门，原因是澳门是葡萄牙殖民地，而日侨最大的海外定居地是葡萄牙语国家——巴西”
+
+-   [为什么印尼华人会说宁做美国狗，不做中国人 | 帶頭大哥](https://sxszyhg.wordpress.com/2017/03/17/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8D%B0%E5%B0%BC%E5%8D%8E%E4%BA%BA%E4%BC%9A%E8%AF%B4%E5%AE%81%E5%81%9A%E7%BE%8E%E5%9B%BD%E7%8B%97%EF%BC%8C%E4%B8%8D%E5%81%9A%E4%B8%AD%E5%9B%BD%E4%BA%BA/)
+
+-   [Filestorm - 知乎](https://www.zhihu.com/people/filestorm/answers/by_votes) -<
+
+    :   我丝毫不关心某一篇 paper 的署名是 SenseTime 还是 LinkFace，两家公司的关
+        系丝毫不触及我的道德神经。但是相对地，做技术的人应当具有对技术本身的洁
+        癖——发表出来的工作是否真的有效。我亲手复现过商汤曹旭东和徐立的一些论文，
+        确实 work，也正是因此，他们才是我尊重的研究员。我想这种尊重的感觉恰恰
+        是学术圈里人与人之间关系的基础。
+
+        首先，作为一本教材，PRML 的勘误实在太多了！！初撸公式的同学应该培养对每
+        处上下标，字体，以及常用字母的感觉（比如花体表示集合，上标下标一个表示
+        样本编号一个表示 feature 编号）。虽然 machine learning 不像微分几何那样
+        严格按照 Einstein notation 走。而 PRML 在这块儿基本上是意识流，有不少不
+        严谨之处，勘误表里都没记下来。
+
+        作为一名 GPA 学渣，我个人完全没有出身学校或者学习成绩的 bias。但是对于
+        科研这边来说，我还没有在线下接触过非 985/211 学校的同学在 top
+        journal/conference 上发表过 paper。Sad but true，中国教育资源的分配离平
+        均还差的很远，所以客观地说，渣硕里面有研究能力的人确实比较少见。
+
+        至于学历，我们完全没有只招 phd 这样的规定。我本科时候发过挺多 paper，
+        Naiyan 和 Naiyan 家领导在本科期间也都做过非常牛逼的研究。所以归根结底还
+        是看专业素养。paper 什么的更多是一个佐证而已。
+
+        ![](https://pic1.zhimg.com/d8d479d57d050e32c1d77bb859d61ce2_r.jpg)
+
+        若是从想象力，建模能力，创新能力，以及对概念理解的深入程度上，以我采样
+        过的美国 top 10 的几个学校的同学中看来，中国人和印度人基本是完败。
+
+        一般说 “神经网络算法” 是指 linear sum + hinge/sigmoid loss + back
+        propagation。而这个 http://digicortex.net 并非此类模型，它是个 spiking
+        neuron model（抱歉英文术语太多，好多词实在找不出中文翻译）。
+
+-   [Body proportions - Wikipedia](https://en.wikipedia.org/wiki/Body_proportions) -<
+
+    :   While there is significant variation in anatomical proportions between
+        people, there are many references to body proportions that are intended
+        to be canonical, either in art, measurement, or medicine.
+
+        Similarly, in art, body proportions are the study of relation of human
+        or animal body parts to each other and to the whole. These ratios are
+        used in veristic depictions of the figure, and also become part of an
+        aesthetic canon within a culture.
+
+        头身是身高与头部的比例，几头身代表身高为头高的几倍。一般真实人类的成人
+        头身比例大致在六至八头身之间，侏儒症患者可能只有四至五头身，某些模特儿
+        可能达到九头身。但身材好坏和头身没有太大关联，在艺术家眼中，以肚脐为分
+        界，下肢与身高比要接近 1：1.618 的黄金比例[1]，才是被认为最美的，而卢浮
+        宫所展出的米洛的维纳斯被誉为最美的人体雕像 [2]。以从下往上的角度或运用
+        广角镜头的摄影手法，能够在视觉上让头身比例变大 [3]。
+
+        ![](https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Human_development_neoteny_body_and_head_proportions_pedomorphy_maturation_aging_growth.png/440px-Human_development_neoteny_body_and_head_proportions_pedomorphy_maturation_aging_growth.png)
