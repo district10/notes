@@ -457,3 +457,45 @@ title: Notes 1
 
         他们注重的是落地。目的是挣钱，而不是炫技。
 
+-   Mapillary Vistas Dataset
+
+    :   鬼影（英文：Ghosting）是电视技术术语，指电视广播讯号因高山或大厦等建筑
+        物的反射，令同一天线多次接收同一视讯，在电视机显影画面上出现双重影像。
+
+        [High-definition video - Wikipedia](https://en.wikipedia.org/wiki/High-definition_video)
+
+        High-definition video is video of higher resolution and quality than
+        standard-definition. While there is no standardized meaning for
+        high-definition, generally any video image with considerably more than
+        480 vertical lines (North America) or 576 vertical lines (Europe) is
+        considered high-definition. 480 scan lines is generally the minimum
+        even though the majority of systems greatly exceed that. Images of
+        standard resolution captured at rates faster than normal (60
+        frames/second North America, 50 fps Europe), by a high-speed camera may
+        be considered high-definition in some contexts. Some television series
+        shot on high-definition video are made to look as if they have been
+        shot on film, a technique which is often known as filmizing.
+
+        是一个街景图片平台，平台注册用户可以共同合作参与去制作更好的地图。他们
+        开放了部分图片数据集并且以像素级精度标注了这些图片。在写这篇文章时，它
+        是世界上最大的做多样化的开源数据集，地理范围跨越了大陆。由于这个平台上
+        的图片使大众一起收集的，所以图片角度有很多种类，了解更多点击这里您也可
+        以用他们的数据集提交算法，了解更多
+
+        [What are HD Maps, how are HD Maps made, HD Maps for self-driving cars](https://www.geospatialworld.net/blogs/hd-maps-autonomous-vehicles/)
+
+        https://www.youtube.com/playlist?list=PLUl4u3cNGP60hI9ATjSFgLZpbNJ7myAg6
+
+        惯导技术，是国际上最先进的测绘技术。2009年10月13日，中国工程院院士刘先
+        林表示，先进的测绘技术是把现有的尖端传感器都用上，特别是将最先进的“惯导
+        技术”应用于测绘而实现“无控制”测绘。刘先林表示，中国在这方面相对而言比较
+        先进，有很多设备都实现了国产化。可以实现所谓的无控制测绘，只需要飞机、
+        卫星在天上飞，就可以得到很精确的地形图，而不需要人去上面建立一些标志，
+        这是当代最先进的测绘技术，被称为“DR”，直接定向。
+
+        航位推算法（英语：Dead reckoning，簡稱 DR）是利用已知位置，結合移動速度
+        跟方位，來推算出現有位置的過程。傳統上的航海，現代則的惯性导航系统都應
+        用航位推算法來找出位置。
+
+        航位推算法的缺點是，因為新的位置是用之前的位置推導出來，在過程中的誤差
+        值會被累加，因此它的錯誤率會隨著時間而成長。
