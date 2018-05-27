@@ -3848,6 +3848,283 @@ git -<
     $ git rm /pather/to/the/file/HelloWorld.c
     ```
 
+-   Python -<
+
+    :   ```python
+        "str"
+        'str'
+        "a" + "b"   (c++ style concat)
+        "a" "b"     (c-style concat)
+        "str"[0]
+        len("str")
+
+        type(5)
+
+        and, or, not
+        1 < 2 < 3
+        5 // 3
+        5 /  3
+
+        if cond:
+            ...
+        elif:
+            ...
+        else:
+            ...
+
+        for i in range(10):
+            ...
+        for v in list:
+            ...
+        for i, v in enumerate(list):
+            ...
+
+        while cond:
+            ...
+
+        # string interpolation
+            "{} is a {}".format("This", "placeholder")
+            "{0} can be {1}".format("strings", "formatted")
+            "{name} wants to eat {food}".format(name="Bob", food="lasagna")
+
+        "etc" is None
+
+        # Convention is to use lower_case_with_underscores
+        some_var = 5
+
+        # ternary operator
+            "yahoo!" if 3 > 2 else 2  # => "yahoo!"
+
+        li = [1, 2, 3]
+        li.append(4)
+        li.pop()
+
+        li[0]
+        li[start:stop:step]
+
+        del li[0]
+        li.remove(2)                        # remove first 2
+
+        2 in li
+        li.index(2)                         # find_first of 2  (raise error if not found)
+
+        # list concat
+            li_a + li_b                     # create new list
+            li_a.extend(li_b)               # append to li_a
+
+
+        # Tuples are like lists but are immutable.
+        tp = (1, 3, 5)
+        tup[0] = 3                          # Raises a TypeError
+
+        # You can unpack tuples (or lists) into variables
+        a, b, c = (1, 2, 3)  # a is now 1, b is now 2 and c is now 3
+        d, e, f = 4, 5, 6  # you can leave out the parentheses
+
+        # dict
+        filled_dict = {"one": 1, "two": 2, "three": 3}
+
+        filled_dict["one"]
+        filled_dict.get("one")              # => 1
+        filled_dict.get("four")             # => None
+        filled_dict.get("one", 4)           # => 1
+
+        filled_dict.setdefault("five", 5)   # set if key not here
+
+        # set
+        empty_set = set()
+        set(list_a)
+        filled_set = {1, 2, 2, 3, 4}        # => {1, 2, 3, 4}
+
+        # set ops
+        filled_set & other_set  # => {3, 4, 5}              # intersection
+        filled_set | other_set  # => {1, 2, 3, 4, 5, 6}     # union
+        filled_set - other_set  # => {1, 2, 3, 4, 5, 6}     # diff
+        {1, 2, 3, 4} ^ {2, 3, 5}  # => {1, 4, 5}            # symmetric diff
+        {1, 2} >= {1, 2, 3}  # => False                     # superset
+        {1, 2} >= {1, 2, 3}  # => False                     # subset
+
+        try:
+            # Use "raise" to raise an error
+            raise IndexError("This is an index error")
+        except IndexError as e:
+            pass  # Pass is just a no-op. Usually you would do recovery here.
+        except (TypeError, NameError):
+            pass  # Multiple exceptions can be handled together, if required.
+        else:  # Optional clause to the try/except block. Must follow all except blocks
+            print "All good!"  # Runs only if the code in try raises no exceptions
+        finally:  # Execute under all circumstances
+            print "We can clean up resources here"
+
+        # Instead of try/finally to cleanup resources you can use a with statement
+        with open("myfile.txt") as f:
+            for line in f:
+                print line
+
+        def add(x, y):
+            return x + y
+
+        add(5, 6)
+        add(x=5, y=6)
+        add(y=6, x=5)
+
+        # *tuple                    args
+        # **dict                    kwargs
+        def all_the_args(*args, **kwargs):
+            print args
+            print kwargs
+
+        args = (1, 2, 3, 4)
+        kwargs = {"a": 3, "b": 4}
+        all_the_args(*args)  # equivalent to all_the_args(1, 2, 3, 4)
+        all_the_args(**kwargs)  # equivalent to all_the_args(a=3, b=4)
+
+        def set_global_x(num):
+            global x
+            print x  # => 5
+            x = num  # global var x is now set to 6
+            print x  # => 6
+
+        # closure
+        def create_adder(x):
+            def adder(y):
+                return x + y
+
+            return adder
+
+        (lambda x, y: x ** 2 + y ** 2)(2, 1)  # => 5
+
+        # There are built-in higher order functions
+        map(add_10, [1, 2, 3])  # => [11, 12, 13]
+        map(max, [1, 2, 3], [4, 2, 1])  # => [4, 2, 3]
+        filter
+
+        # list comprehension
+        [add_10(i) for i in [1, 2, 3]]  # => [11, 12, 13]
+        {x for x in 'abcddeef' if x in 'abc'}  # => {'a', 'b', 'c'}
+        {x: x ** 2 for x in range(5)}  # => {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
+        # We subclass from object to get a class.
+        class Human(object):
+            # A class attribute. It is shared by all instances of this class
+            species = "H. sapiens"
+
+            # Basic initializer, this is called when this class is instantiated.
+            # Note that the double leading and trailing underscores denote objects
+            # or attributes that are used by python but that live in user-controlled
+            # namespaces. You should not invent such names on your own.
+            def __init__(self, name):
+                # Assign the argument to the instance's name attribute
+                self.name = name
+
+                # Initialize property
+                self.age = 0
+
+            # An instance method. All methods take "self" as the first argument
+            def say(self, msg):
+                return "{0}: {1}".format(self.name, msg)
+
+            # A class method is shared among all instances
+            # They are called with the calling class as the first argument
+            @classmethod
+            def get_species(cls):
+                return cls.species
+
+            # A static method is called without a class or instance reference
+            @staticmethod
+            def grunt():
+                return "*grunt*"
+
+            # A property is just like a getter.
+            # It turns the method age() into an read-only attribute
+            # of the same name.
+            @property
+            def age(self):
+                return self._age
+
+            # This allows the property to be set
+            @age.setter
+            def age(self, age):
+                self._age = age
+
+            # This allows the property to be deleted
+            @age.deleter
+            def age(self):
+                del self._age
+
+        # module
+        import math
+        print math.sqrt(16)  # => 4
+
+        from math import ceil, floor
+        import math as m
+
+        # generator
+        def double_numbers_generator(iterable):
+            for i in iterable:
+                yield i + i
+
+        # Decorators
+        # A decorator is a higher order function, which accepts and returns a function.
+        # Simple usage example – add_apples decorator will add 'Apple' element into
+        # fruits list returned by get_fruits target function.
+        def add_apples(func):
+            def get_fruits():
+                fruits = func()
+                fruits.append('Apple')
+                return fruits
+            return get_fruits
+
+        @add_apples
+        def get_fruits():
+            return ['Banana', 'Mango', 'Orange']
+
+        # Prints out the list of fruits with 'Apple' element in it:
+        # Banana, Mango, Orange, Apple
+        print ', '.join(get_fruits())
+
+        import sys
+        print sys.argv
+
+        # numpy
+        import numpy as np
+        np.range(end)
+        np.range(start, end, step)
+        np.linspace(left, right, num)
+
+        np.zeros                # init to zeros
+        np.ones                 # init to ones
+        np.empty                # init to empty
+        np.may_share_memory(a, b)
+
+        x[start:end:step, start:end:step]
+        y = x[:, 2:]
+        z = x[:, 2:].copy()
+
+        # mask
+        x[x > 5]
+
+        c = np.ones((3,3))
+        c.dot(c)                # matrix multiplication
+        c.T
+
+        x.sum(axis = 0)         # sum col dimension (first)
+        x.sum(axis = 1)         # sum row dimension (second)
+        x[0, :].sum()
+        x[0, :].max()
+        x[0, :].min()
+        x[0, :].argmax()
+        x[0, :].argmin()
+
+        np.median(x)
+        np.median(x, axis=-1)
+
+        np.sum
+        np.cumsum               # cumulative sum
+
+        np.array_equal(a, b)
+        ```
+
 refs and see also
 
 -   [Learn java in Y Minutes](https://learnxinyminutes.com/docs/java/)
