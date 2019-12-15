@@ -6,7 +6,7 @@ title: TANG ZhiXiong's Notes/Wiki
 
 ## 2018
 
--   [note #1](2018/note1.md)
+-   [note #1](2018/note1.md){.hide}
 
 ## 2017
 
