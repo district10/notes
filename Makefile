@@ -1,18 +1,20 @@
 .PHONY: all clean include
 
+PUBLISH ?= publish
+
 EDITOR ?= gvim
 SRC:=$(wildcard index.md */*.md)
-DST:=$(addprefix publish/, $(SRC:%.md=%.html))
-CSS:=publish/github-markdown.css \
-	publish/highlight.css \
-	publish/lazyload.min.js \
-	publish/jquery-3.0.0.min.js \
-	publish/jquery.idTabs.min.js \
-	publish/egg.min.js \
-	publish/clipboard.min.js \
-	publish/notes.js \
-	publish/notes.css \
-	publish/fork-me-on-github.png \
+DST:=$(addprefix $(PUBLISH)/, $(SRC:%.md=%.html))
+CSS:=$(PUBLISH)/github-markdown.css \
+	$(PUBLISH)/highlight.css \
+	$(PUBLISH)/lazyload.min.js \
+	$(PUBLISH)/jquery-3.0.0.min.js \
+	$(PUBLISH)/jquery.idTabs.min.js \
+	$(PUBLISH)/egg.min.js \
+	$(PUBLISH)/clipboard.min.js \
+	$(PUBLISH)/notes.js \
+	$(PUBLISH)/notes.css \
+	$(PUBLISH)/fork-me-on-github.png \
 
 FROM := markdown+abbreviations
 ifeq (,$(DUMB))
@@ -27,23 +29,23 @@ clone:
 	# git clone --depth 1 https://github.com/4ker/cracking-the-coding-interview.git
 	# git clone --depth 1 https://github.com/district10/leetcode.git
 serve:
-	cd publish; python -m SimpleHTTPServer
+	cd $(PUBLISH); python -m SimpleHTTPServer
 w: watch
 watch: jwatch.jar
-	java -jar jwatch.jar -i "publish"
+	java -jar jwatch.jar -i "$(PUBLISH)"
 
 jwatch.jar:
 	curl http://whudoc.qiniudn.com/2016/jwatch.jar > jwatch.jar
 clean:
-	rm -rf publish/*
+	rm -rf $(PUBLISH)/*
 include:
 	make -C include
 gh:
 	git add -A; git commit -m "`uname`"; git push;
 wiki:	
-	java -jar wikify.jar -ps '#main-body' -ns '#main-body > ul > li > dl' -i publish/ -o publish/ -ccs 50 -ncs 50 -pcs 20
+	java -jar wikify.jar -ps '#main-body' -ns '#main-body > ul > li > dl' -i $(PUBLISH)/ -o $(PUBLISH)/ -ccs 50 -ncs 50 -pcs 20
 
-publish/index.html: index.md
+$(PUBLISH)/index.html: index.md
 	@mkdir -p $(@D)
 	(perl meta/cat.pl $< | perl meta/drawer.pl || cat $<) | \
 	pandoc \
@@ -52,7 +54,7 @@ publish/index.html: index.md
 		-f $(FROM) \
 		--template meta/note.template \
 		-o $@
-publish/%/index.html: %/index.md
+$(PUBLISH)/%/index.html: %/index.md
 	@mkdir -p $(@D)
 	(perl meta/cat.pl $< | perl meta/drawer.pl || cat $<) | \
 	pandoc \
@@ -62,7 +64,7 @@ publish/%/index.html: %/index.md
 		-f $(FROM) \
 		--template meta/note.template \
 		-o $@
-publish/%.html: %.md
+$(PUBLISH)/%.html: %.md
 	@mkdir -p $(@D)
 	(perl meta/cat.pl $< | perl meta/drawer.pl || cat $<) | \
 	pandoc \
@@ -72,11 +74,11 @@ publish/%.html: %.md
 		--template meta/note.template \
 		-o $@
 
-publish/%: meta/%
+$(PUBLISH)/%: meta/%
 	@mkdir -p $(@D)
 	cp $< $@
 
-publish/%: %
+$(PUBLISH)/%: %
 	@mkdir -p $(@D)
 	cp $< $@
 
@@ -97,9 +99,9 @@ c:
 	$(EDITOR) meta/notes.css
 sm: sitemap
 sitemap:
-	touch publish/sitemap.html
-	find publish/ | \
-		sed -e "s/^publish/-   <http:\/\/tangzx.qiniudn.com\/notes/" | \
+	touch $(PUBLISH)/sitemap.html
+	find $(PUBLISH)/ | \
+		sed -e "s/^$(PUBLISH)/-   <http:\/\/tangzx.qiniudn.com\/notes/" | \
 		sed -e "s/$$/>/" | tee sitemap.md | \
-		pandoc --ascii -o publish/sitemap.html
+		pandoc --ascii -o $(PUBLISH)/sitemap.html
 	cat sitemap.md
