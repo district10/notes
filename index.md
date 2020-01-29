@@ -4,6 +4,8 @@ title: TANG ZhiXiong's Notes/Wiki
 
 # TANG ZhiXiong's Notes/Wiki
 
+[extra notes](notes/index.md){.hide}
+
 ## 2018
 
 -   [note #1](2018/note1.md){.hide}

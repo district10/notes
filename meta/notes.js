@@ -276,8 +276,9 @@ egg
     .addCode(   "right,right,up",       function() {    foldAll();      }).addCode(     "f,o,l,d",      function() {    foldAll();      })
     .addCode(   "right,right,right",    function() {    toggleLock();   }).addCode(     "l,o,c,k",      function() {    toggleLock();   })
     // left,right
-    .addCode(   "left,right,down",      function() {    show();         }).addCode(     "s,h,o,w",      function() {    show();         })
-    .addCode(   "left,right,up",        function() {    hide();         }).addCode(     "h,i,d,e",      function() {    hide();         })
+    .addCode(   "left,right,down",      function() {    show();         }).addCode(     "s,h,o,w",      function() {    show();         }).addCode(   "1",      function() {    show();         })
+    .addCode(   "left,right,up",        function() {    hide();         }).addCode(     "h,i,d,e",      function() {    hide();         }).addCode(   "0",      function() {    hide();         })
+
     // right,left, reserved for what?
     .listen();
 
