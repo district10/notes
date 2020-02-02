@@ -9218,8 +9218,7 @@ refs and see also
 
 [std::vector::emplace_back - cppreference.com](http://en.cppreference.com/w/cpp/container/vector/emplace_back)
 
-:
-    ```cpp
+:   ```cpp
     template< class... Args >                           (since C++11)
     void emplace_back( Args&&... args );
     template< class... Args >                           (until C++17)
