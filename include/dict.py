@@ -4,8 +4,6 @@ import sys
 import json
 import urllib
 import urllib2
-
-
 """
 dict - Chinese/English Translation
 @author Feei(wufeifei@wufeifei.com)
@@ -35,11 +33,11 @@ class Dict:
         code = self.content['errorCode']
         if code == 0:  # Success
             try:
-                u = self.content['basic']['us-phonetic'] # English
+                u = self.content['basic']['us-phonetic']  # English
                 e = self.content['basic']['uk-phonetic']
             except KeyError:
                 try:
-                    c = self.content['basic']['phonetic'] # Chinese
+                    c = self.content['basic']['phonetic']  # Chinese
                 except KeyError:
                     c = 'None'
                 u = 'None'
@@ -51,7 +49,8 @@ class Dict:
                 explains = 'None'
 
             print '\033[1;31m################################### \033[0m'
-            print '\033[1;31m# \033[0m', self.content['query'], self.content['translation'][0],
+            print '\033[1;31m# \033[0m', self.content['query'], self.content[
+                'translation'][0],
             if u != 'None':
                 print '(U:', u, 'E:', e, ')'
             elif c != 'None':
@@ -80,6 +79,7 @@ class Dict:
             print 'KEY FAILED'
         elif code == 60:  # Don't have this word
             print 'DO\'T HAVE THIS WORD'
+
 
 if __name__ == '__main__':
     Dict(sys.argv[1:])

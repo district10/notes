@@ -760,8 +760,7 @@ title: Notes 7
 
 -   [ppresume/quotes: Some random quotes used by http://ppresume.com](https://github.com/ppresume/quotes) -<
 
-    :   ```
-        - content:
+    :   - content:
             - "When you don't create things, you become defined by your tastes
               rather than ability. Your tastes only narrow & exclude people. So
               create."
@@ -785,7 +784,6 @@ title: Notes 7
               In digital typesetting, kerning is a second advance vector that is added to the first.
           author: Yannis Haralambous
           from: <a href="http://shop.oreilly.com/product/9780596102425.do">Fonts and Encodings</a>
-        ```
 
 -   [mislav/poignant-guide: Why's Poignant Guide to Ruby](https://github.com/mislav/poignant-guide/) -<
 

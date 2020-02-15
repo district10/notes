@@ -16,13 +16,8 @@ $if(math)$
 $endif$
 </head>
 <body class="markdown-body">
-<a href="https://github.com/district10/notes">
-    <img
-        style="position: absolute; top: 0; right: 0; border: 0; width: 149px; height: 149px;"
-        src="$rootdir$fork-me-on-github.png" alt="Fork me on GitHub"></a>
 <div id="navigator">
     <a id="gotoindex" href="$if(ISINDEX)$../$endif$index.html" title="【回到笔记索引 | Back to Index】">☣</a></div>
-<span id="help">按下 "h" 获取页面帮助。</span>
 <div id="main-body">
 $body$
 </div>
