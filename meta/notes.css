@@ -402,3 +402,14 @@ li:last-of-type {
 
 // p.refs, p.refs + ul { opacity: 0.2; }
 // p.refs:hover, p.refs + ul:hover { opacity: 0.9; }
+
+.blur {
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='3');
+    -webkit-filter: url(#blur-filter);
+    filter: url(#blur-filter);
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
+}
+.blur-svg {
+    display: none;
+}

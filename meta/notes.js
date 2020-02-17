@@ -294,3 +294,7 @@ new Clipboard('.copyme');
 $('.key').on('click', function(event){
     show();
 });
+
+$('.blur').dblclick(function() {
+    $(this).toggleClass('blur');
+});
